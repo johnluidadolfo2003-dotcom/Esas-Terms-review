@@ -6,11 +6,63 @@ export const SHARED_PUBLIC_URL =
 export const DEV_APP_URL =
   'https://ais-dev-relbnodaefb3jvetyyx4ce-141032669349.asia-southeast1.run.app';
 
+export const STORAGE_KEY_RENDER_URL = 'drive_flashcards_render_custom_url';
+
+/**
+ * Returns saved Render URL from browser storage or detects it from window.location.
+ */
+export function getSavedRenderUrl(): string {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem(STORAGE_KEY_RENDER_URL);
+    if (saved && saved.trim().startsWith('http')) {
+      return saved.trim();
+    }
+    if (window.location.hostname.endsWith('onrender.com')) {
+      return window.location.origin;
+    }
+  }
+  return '';
+}
+
+/**
+ * Saves the user's Render domain for quick link sharing.
+ */
+export function saveRenderUrl(url: string): void {
+  if (typeof window !== 'undefined') {
+    const clean = url.trim().replace(/\/+$/, '');
+    if (clean) {
+      localStorage.setItem(STORAGE_KEY_RENDER_URL, clean);
+    } else {
+      localStorage.removeItem(STORAGE_KEY_RENDER_URL);
+    }
+  }
+}
+
 /**
  * Returns the base URL suitable for sharing with others.
- * Default is the public shared URL so outside users and other Google accounts can access.
+ * Priority:
+ * 1. If currently hosted on Render or custom domain -> use window.location.origin
+ * 2. If user saved a Render URL -> use saved Render URL
+ * 3. Default to public shared URL
  */
-export function getBaseShareUrl(usePublicUrl: boolean = true): string {
+export function getBaseShareUrl(usePublicUrl: boolean = true, customBaseUrl?: string): string {
+  if (customBaseUrl && customBaseUrl.trim()) {
+    let clean = customBaseUrl.trim().replace(/\/+$/, '');
+    if (!clean.startsWith('http://') && !clean.startsWith('https://')) {
+      clean = `https://${clean}`;
+    }
+    return clean;
+  }
+
+  if (typeof window !== 'undefined') {
+    const origin = window.location.origin;
+    const hostname = window.location.hostname;
+    // If the app is currently running on Render or a deployed custom domain
+    if (hostname.endsWith('onrender.com') || (hostname !== 'localhost' && !hostname.includes('.run.app'))) {
+      return origin;
+    }
+  }
+
   if (usePublicUrl) {
     return SHARED_PUBLIC_URL;
   }
@@ -31,6 +83,7 @@ export interface ShareOptions {
   customQuestions?: FlashcardQuestion[];
   includeCustomQuestions?: boolean;
   usePublicUrl?: boolean;
+  customBaseUrl?: string;
 }
 
 /**
@@ -102,8 +155,13 @@ export function decodeQuestionsFromHash(hashString: string): FlashcardQuestion[]
  * Generates a full shareable URL with parameters and optional question pack.
  */
 export function generateShareableUrl(options: ShareOptions = {}): string {
-  const baseUrl = getBaseShareUrl(options.usePublicUrl ?? true);
-  const url = new URL(baseUrl);
+  const baseUrl = getBaseShareUrl(options.usePublicUrl ?? true, options.customBaseUrl);
+  let url: URL;
+  try {
+    url = new URL(baseUrl);
+  } catch {
+    url = new URL(baseUrl.startsWith('http') ? baseUrl : `https://${baseUrl}`);
+  }
 
   if (options.subject && options.subject !== 'All') {
     url.searchParams.set('subject', options.subject);

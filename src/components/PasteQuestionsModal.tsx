@@ -1,6 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { SubjectCategory, FlashcardQuestion, parseQuestionsFromText } from '../services/questionParser';
-import { exportCustomQuestionsJson, importCustomQuestionsJson } from '../services/storageService';
+import {
+  exportCustomQuestionsJson,
+  importCustomQuestionsJson,
+  formatQuestionsAsTypeScriptCode,
+} from '../services/storageService';
+import { copyToClipboard } from '../services/shareService';
 
 interface PasteQuestionsModalProps {
   isOpen: boolean;
@@ -122,6 +127,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   const [rawText, setRawText] = useState('');
   const [correctOverrides, setCorrectOverrides] = useState<Record<number, string>>({});
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
+  const [copiedCode, setCopiedCode] = useState(false);
 
   // Live parsed preview
   const parsedPreview = useMemo(() => {
@@ -179,6 +185,16 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
 
   const handleExport = () => {
     exportCustomQuestionsJson(savedCustomQuestions);
+  };
+
+  const handleCopyAsCode = async () => {
+    if (savedCustomQuestions.length === 0) return;
+    const code = formatQuestionsAsTypeScriptCode(savedCustomQuestions);
+    const ok = await copyToClipboard(code);
+    if (ok) {
+      setCopiedCode(true);
+      setTimeout(() => setCopiedCode(false), 2500);
+    }
   };
 
   const handleImportFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -456,7 +472,15 @@ Explanation: Annuity occurs at uniform time periods.
                 </p>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopyAsCode}
+                  disabled={savedCustomQuestions.length === 0}
+                  className="px-3 py-1.5 text-xs font-medium rounded border border-emerald-700 bg-emerald-950 text-emerald-300 hover:bg-emerald-900 disabled:opacity-40 transition-colors"
+                >
+                  {copiedCode ? 'Copied TypeScript Code!' : 'Copy Code (for driveQuestions.ts)'}
+                </button>
                 <button
                   type="button"
                   onClick={handleExport}

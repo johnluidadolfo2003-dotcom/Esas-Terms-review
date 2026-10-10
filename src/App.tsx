@@ -127,30 +127,36 @@ export default function App() {
 
   // 2. Parse shared URL parameters (subject, mode, or shared question pack)
   useEffect(() => {
-    const params = parseCurrentLocationParams();
-    if (params.subject) {
-      setSelectedSubject(params.subject);
-    }
-    if (params.mode) {
-      setStudyMode(params.mode);
-    }
-    if (params.sharedQuestions && params.sharedQuestions.length > 0) {
-      const incoming = params.sharedQuestions;
-      setCustomQuestions((prev) => {
-        const existingIds = new Set(prev.map((q) => q.id));
-        const toAdd = incoming.filter((q) => !existingIds.has(q.id));
-        if (toAdd.length === 0) return prev;
-        const merged = [...toAdd, ...prev];
-        saveCustomQuestions(merged);
-        setSharedImportNotice(
-          `Imported ${toAdd.length} shared questions from link. They have been permanently saved to your web app.`
-        );
-        return merged;
-      });
-      if (incoming[0]?.subject) {
-        setSelectedSubject(incoming[0].subject);
+    const handleLocationParams = () => {
+      const params = parseCurrentLocationParams();
+      if (params.subject) {
+        setSelectedSubject(params.subject);
       }
-    }
+      if (params.mode) {
+        setStudyMode(params.mode);
+      }
+      if (params.sharedQuestions && params.sharedQuestions.length > 0) {
+        const incoming = params.sharedQuestions;
+        setCustomQuestions((prev) => {
+          const existingIds = new Set(prev.map((q) => q.id));
+          const toAdd = incoming.filter((q) => !existingIds.has(q.id));
+          if (toAdd.length === 0) return prev;
+          const merged = [...toAdd, ...prev];
+          saveCustomQuestions(merged);
+          setSharedImportNotice(
+            `Imported ${toAdd.length} shared questions from link. They have been permanently saved to your web app.`
+          );
+          return merged;
+        });
+        if (incoming[0]?.subject) {
+          setSelectedSubject(incoming[0].subject);
+        }
+      }
+    };
+
+    handleLocationParams();
+    window.addEventListener('hashchange', handleLocationParams);
+    return () => window.removeEventListener('hashchange', handleLocationParams);
   }, []);
 
   // 2. Scan drive when user logs in and token is available

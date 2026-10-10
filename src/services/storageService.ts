@@ -136,3 +136,30 @@ export async function importCustomQuestionsJson(file: File): Promise<FlashcardQu
 
   return valid;
 }
+
+/**
+ * Formats custom questions as valid TypeScript objects that can be directly
+ * pasted into `src/data/driveQuestions.ts`.
+ */
+export function formatQuestionsAsTypeScriptCode(questions: FlashcardQuestion[]): string {
+  if (questions.length === 0) return '';
+  return questions
+    .map((q) => {
+      const choicesStr = q.choices
+        .map((c) => `      { id: ${JSON.stringify(c.id)}, text: ${JSON.stringify(c.text)} },`)
+        .join('\n');
+
+      return `  {
+    id: ${JSON.stringify(q.id)},
+    subject: ${JSON.stringify(q.subject)},
+    sourceFileName: ${JSON.stringify(q.sourceFileName || 'Drive/Manually_Added_Questions.docx')},
+    question: ${JSON.stringify(q.question)},
+    choices: [
+${choicesStr}
+    ],
+    correctChoiceId: ${JSON.stringify(q.correctChoiceId)},
+    explanation: ${JSON.stringify(q.explanation || '')},
+  },`;
+    })
+    .join('\n');
+}

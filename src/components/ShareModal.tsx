@@ -9,7 +9,10 @@ import {
   getBaseShareUrl,
   SHARED_PUBLIC_URL,
   DEV_APP_URL,
+  getSavedRenderUrl,
+  saveRenderUrl,
 } from '../services/shareService';
+import { formatQuestionsAsTypeScriptCode } from '../services/storageService';
 import { exportStandaloneReviewerHtml } from '../services/exportHtmlService';
 
 interface ShareModalProps {
@@ -30,20 +33,31 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const [selectedSubjectFilter, setSelectedSubjectFilter] = useState<SubjectCategory | 'All'>(
     currentSubject
   );
-  const [includeCustomQuestions, setIncludeCustomQuestions] = useState(false);
-  const [linkType, setLinkType] = useState<'public' | 'dev'>('public');
+  // Default to TRUE whenever there are custom questions so they are never omitted on share!
+  const [includeCustomQuestions, setIncludeCustomQuestions] = useState<boolean>(
+    customQuestions.length > 0
+  );
+  const [linkType, setLinkType] = useState<'render' | 'public' | 'dev'>('render');
+  const [renderCustomUrl, setRenderCustomUrl] = useState<string>(() => {
+    const saved = getSavedRenderUrl();
+    return saved || 'https://drive-terms-reviewer.onrender.com';
+  });
   const [copied, setCopied] = useState(false);
   const [copiedDev, setCopiedDev] = useState(false);
+  const [copiedCodeSnippet, setCopiedCodeSnippet] = useState(false);
   const [copiedSubject, setCopiedSubject] = useState<string | null>(null);
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
-  const [showTroubleshoot, setShowTroubleshoot] = useState(true);
+  const [showTroubleshoot, setShowTroubleshoot] = useState(false);
 
   // Keep selected subject in sync when opening
   useEffect(() => {
     if (isOpen) {
       setSelectedSubjectFilter(currentSubject);
+      if (customQuestions.length > 0) {
+        setIncludeCustomQuestions(true);
+      }
     }
-  }, [isOpen, currentSubject]);
+  }, [isOpen, currentSubject, customQuestions.length]);
 
   // Compute the current share URL based on selections
   const shareUrl = useMemo(() => {
@@ -52,8 +66,9 @@ export const ShareModal: React.FC<ShareModalProps> = ({
       customQuestions,
       includeCustomQuestions: includeCustomQuestions && customQuestions.length > 0,
       usePublicUrl: linkType === 'public',
+      customBaseUrl: linkType === 'render' ? renderCustomUrl : undefined,
     });
-  }, [selectedSubjectFilter, includeCustomQuestions, customQuestions, linkType]);
+  }, [selectedSubjectFilter, includeCustomQuestions, customQuestions, linkType, renderCustomUrl]);
 
   // Generate QR code whenever the share URL changes
   useEffect(() => {
@@ -105,11 +120,27 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   const handleCopySubjectLink = async (subj: SubjectCategory) => {
-    const link = generateShareableUrl({ subject: subj, usePublicUrl: linkType === 'public' });
+    const link = generateShareableUrl({
+      subject: subj,
+      customQuestions,
+      includeCustomQuestions: includeCustomQuestions && customQuestions.length > 0,
+      usePublicUrl: linkType === 'public',
+      customBaseUrl: linkType === 'render' ? renderCustomUrl : undefined,
+    });
     const success = await copyToClipboard(link);
     if (success) {
       setCopiedSubject(subj);
       setTimeout(() => setCopiedSubject(null), 1800);
+    }
+  };
+
+  const handleCopyCodeSnippet = async () => {
+    if (customQuestions.length === 0) return;
+    const snippet = formatQuestionsAsTypeScriptCode(customQuestions);
+    const success = await copyToClipboard(snippet);
+    if (success) {
+      setCopiedCodeSnippet(true);
+      setTimeout(() => setCopiedCodeSnippet(false), 2500);
     }
   };
 
@@ -163,40 +194,88 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           <div className="flex rounded-lg border border-zinc-800 p-1 bg-zinc-950">
             <button
               type="button"
+              onClick={() => setLinkType('render')}
+              className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
+                linkType === 'render'
+                  ? 'bg-emerald-600 text-white shadow'
+                  : 'text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              Render Live Link
+            </button>
+            <button
+              type="button"
               onClick={() => setLinkType('public')}
-              className={`flex-1 py-1.5 px-3 rounded-md text-xs font-medium transition-colors ${
+              className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
                 linkType === 'public'
                   ? 'bg-emerald-600 text-white shadow'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              Public Link (For All Google Accounts)
+              AI Studio Public (ais-pre)
             </button>
             <button
               type="button"
               onClick={() => setLinkType('dev')}
-              className={`flex-1 py-1.5 px-3 rounded-md text-xs font-medium transition-colors ${
+              className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
                 linkType === 'dev'
                   ? 'bg-emerald-600 text-white shadow'
                   : 'text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              Direct Dev Session Link
+              Direct Dev Session
             </button>
           </div>
+
+          {/* Render Domain Input when Render Link is selected */}
+          {linkType === 'render' && (
+            <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <label className="text-xs font-mono text-zinc-300">
+                  Your Render Web Service URL
+                </label>
+                <span className="text-[10px] text-zinc-400">
+                  From your dashboard.render.com Static Site
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <input
+                  type="text"
+                  value={renderCustomUrl}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setRenderCustomUrl(val);
+                    saveRenderUrl(val);
+                  }}
+                  placeholder="https://your-app-name.onrender.com"
+                  className="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-3 py-1.5 text-xs font-mono text-zinc-200 focus:outline-none focus:border-emerald-600"
+                />
+              </div>
+            </div>
+          )}
 
           {/* Main Share Link Box */}
           <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 flex flex-col gap-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-mono text-zinc-300">
-                {linkType === 'public' ? 'Public Sharable Link (ais-pre)' : 'Direct Dev Session URL (ais-dev)'}
+                {linkType === 'render'
+                  ? 'Render Sharable Link (Live for All Users)'
+                  : linkType === 'public'
+                  ? 'Public Sharable Link (ais-pre)'
+                  : 'Direct Dev Session URL (ais-dev)'}
               </span>
               <span className={`text-[10px] font-mono px-2 py-0.5 rounded border ${
-                linkType === 'public'
+                linkType === 'render'
                   ? 'text-emerald-400 bg-emerald-950 border-emerald-800'
+                  : linkType === 'public'
+                  ? 'text-cyan-400 bg-cyan-950 border-cyan-800'
                   : 'text-amber-400 bg-amber-950 border-amber-800'
               }`}>
-                {linkType === 'public' ? 'Public / Pre-Release' : 'Builder Dev Environment'}
+                {linkType === 'render'
+                  ? 'Render Cloud'
+                  : linkType === 'public'
+                  ? 'AI Studio Public'
+                  : 'Builder Dev'}
               </span>
             </div>
 
@@ -227,6 +306,36 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               </p>
             )}
           </div>
+
+          {/* Custom Questions Status Banner */}
+          {customQuestions.length > 0 && (
+            <div className="p-3 rounded-lg bg-emerald-950/40 border border-emerald-800/80 flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5">
+                  <span>✓</span>
+                  <span>{customQuestions.length} Manually Added Question{customQuestions.length !== 1 ? 's' : ''} Included in Link</span>
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-700">
+                  Auto-Sync Enabled
+                </span>
+              </div>
+              <p className="text-[11px] text-zinc-300 leading-relaxed">
+                When anyone opens this Render share link, your newly added manual questions will load automatically and save into their browser session.
+              </p>
+              <div className="pt-1 flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopyCodeSnippet}
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-medium transition-colors"
+                >
+                  {copiedCodeSnippet ? 'Copied Code Snippet!' : 'Copy Code (to bake into driveQuestions.ts)'}
+                </button>
+                <span className="text-[10px] text-zinc-400">
+                  Optional: bakes questions into the permanent Git code on Render
+                </span>
+              </div>
+            </div>
+          )}
 
           {/* Troubleshooting: 404 Page Not Found Notice */}
           <div className="p-3 rounded-lg bg-amber-950/30 border border-amber-800/60 flex flex-col gap-2">
