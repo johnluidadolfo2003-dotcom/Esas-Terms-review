@@ -62,30 +62,41 @@ export default function App() {
   const [driveExtractedQuestions, setDriveExtractedQuestions] = useState<FlashcardQuestion[]>([]);
 
   // 3. Combined questions bank: custom pasted questions + drive extracted + built-in reviewer
+  // Deduplicates both by unique ID and normalized question text
   const allQuestions = useMemo(() => {
     const seenIds = new Set<string>();
+    const seenTexts = new Set<string>();
     const combined: FlashcardQuestion[] = [];
 
-    // Custom pasted questions come first so user can immediately practice what they just added
+    const normalizeQuestionText = (text: string) =>
+      text.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+
+    // Custom pasted questions come first
     for (const q of customQuestions) {
-      if (!seenIds.has(q.id)) {
+      const norm = normalizeQuestionText(q.question);
+      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
+        seenTexts.add(norm);
         combined.push(q);
       }
     }
 
     // Drive-extracted dynamic questions
     for (const q of driveExtractedQuestions) {
-      if (!seenIds.has(q.id)) {
+      const norm = normalizeQuestionText(q.question);
+      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
+        seenTexts.add(norm);
         combined.push(q);
       }
     }
 
     // Built-in copied drive questions
     for (const q of DRIVE_COPIED_QUESTIONS) {
-      if (!seenIds.has(q.id)) {
+      const norm = normalizeQuestionText(q.question);
+      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
+        seenTexts.add(norm);
         combined.push(q);
       }
     }
@@ -148,6 +159,9 @@ export default function App() {
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
   const [flaggedQuestionIds, setFlaggedQuestionIds] = useState<Set<string>>(new Set());
   const [missedQuestionIds, setMissedQuestionIds] = useState<Set<string>>(new Set());
+  const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
+  const [sessionIncorrectCount, setSessionIncorrectCount] = useState(0);
+  const prevQuestionIdRef = React.useRef<string | null>(null);
 
   // 1. Initialize Firebase Auth (non-blocking)
   useEffect(() => {
@@ -534,8 +548,10 @@ export default function App() {
 
     const isWrong = choiceId.toUpperCase() !== currentQ.correctChoiceId.toUpperCase();
     if (isWrong) {
+      setSessionIncorrectCount((prev) => prev + 1);
       setMissedQuestionIds((prev) => new Set(prev).add(currentQ.id));
     } else {
+      setSessionCorrectCount((prev) => prev + 1);
       setMissedQuestionIds((prev) => {
         const next = new Set(prev);
         next.delete(currentQ.id);
@@ -544,14 +560,62 @@ export default function App() {
     }
   };
 
+  // Explicitly reset current question answer
+  const handleResetCurrentAnswer = () => {
+    const currentQ = filteredQuestions[currentCardIndex];
+    if (!currentQ) return;
+    setUserAnswers((prev) => {
+      const copy = { ...prev };
+      delete copy[currentQ.id];
+      return copy;
+    });
+  };
+
+  const currentQuestion = filteredQuestions[currentCardIndex];
+  const currentSelectedChoice = currentQuestion ? userAnswers[currentQuestion.id] || null : null;
+
+  // Automatically reset the question answer whenever the user leaves the question
+  useEffect(() => {
+    const prevId = prevQuestionIdRef.current;
+    const currentId = currentQuestion?.id || null;
+
+    if (prevId && prevId !== currentId) {
+      // User left question prevId! Reset its answer so it can be answered fresh when returned to
+      setUserAnswers((prev) => {
+        if (!prev[prevId]) return prev;
+        const copy = { ...prev };
+        delete copy[prevId];
+        return copy;
+      });
+    }
+
+    prevQuestionIdRef.current = currentId;
+  }, [currentQuestion?.id]);
+
   const handleNextCard = () => {
     if (currentCardIndex < filteredQuestions.length - 1) {
+      const leavingQ = filteredQuestions[currentCardIndex];
+      if (leavingQ) {
+        setUserAnswers((prev) => {
+          const copy = { ...prev };
+          delete copy[leavingQ.id];
+          return copy;
+        });
+      }
       setCurrentCardIndex((prev) => prev + 1);
     }
   };
 
   const handlePreviousCard = () => {
     if (currentCardIndex > 0) {
+      const leavingQ = filteredQuestions[currentCardIndex];
+      if (leavingQ) {
+        setUserAnswers((prev) => {
+          const copy = { ...prev };
+          delete copy[leavingQ.id];
+          return copy;
+        });
+      }
       setCurrentCardIndex((prev) => prev - 1);
     }
   };
@@ -571,38 +635,14 @@ export default function App() {
     });
   };
 
-  // Metrics
-  const correctCount = useMemo(() => {
-    let count = 0;
-    allQuestions.forEach((q) => {
-      const ans = userAnswers[q.id];
-      if (ans && ans.toUpperCase() === q.correctChoiceId.toUpperCase()) {
-        count++;
-      }
-    });
-    return count;
-  }, [allQuestions, userAnswers]);
-
-  const incorrectCount = useMemo(() => {
-    let count = 0;
-    allQuestions.forEach((q) => {
-      const ans = userAnswers[q.id];
-      if (ans && ans.toUpperCase() !== q.correctChoiceId.toUpperCase()) {
-        count++;
-      }
-    });
-    return count;
-  }, [allQuestions, userAnswers]);
-
-  const currentQuestion = filteredQuestions[currentCardIndex];
-  const currentSelectedChoice = currentQuestion ? userAnswers[currentQuestion.id] || null : null;
+  // Metrics: session tally
+  const correctCount = sessionCorrectCount;
+  const incorrectCount = sessionIncorrectCount;
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Top Header & Navigation */}
       <StudyHeader
-        userEmail={user?.email || null}
-        onLogout={handleLogout}
         selectedSubject={selectedSubject}
         onSelectSubject={(subj) => {
           setSelectedSubject(subj);
@@ -621,56 +661,12 @@ export default function App() {
         incorrectCount={incorrectCount}
         isShuffled={isShuffled}
         onToggleShuffle={() => setIsShuffled((prev) => !prev)}
-        onOpenDriveModal={() => setIsDriveModalOpen(true)}
         onOpenPasteModal={() => setIsPasteModalOpen(true)}
-        onOpenShareModal={() => setIsShareModalOpen(true)}
-        onSignIn={handleSignIn}
-        isSigningIn={authLoading}
         customQuestionsCount={customQuestions.length}
-        syncedFilesCount={selectedFileIds.size || 6}
-        isScanning={isScanning}
-        onSyncQuestionsToProject={handleSyncQuestionsToProject}
-        isSyncingProject={isSyncingProject}
-        syncNotice={syncNotice}
-        onDownloadDriveTs={handleDownloadDriveTs}
       />
 
-      {/* Auth Error / Notice Banner */}
-      {authError && (
-        <div className="bg-rose-950 border-b border-rose-800 text-rose-200 px-4 py-2.5 flex items-center justify-between text-xs font-medium">
-          <div className="flex items-center gap-2 max-w-4xl mx-auto w-full">
-            <span className="font-bold">!</span>
-            <span className="flex-1">{authError}</span>
-            <button
-              type="button"
-              onClick={() => setAuthError(null)}
-              className="text-rose-400 hover:text-white px-2 py-0.5 rounded border border-rose-800/80 hover:bg-rose-900 transition-colors"
-            >
-              Dismiss
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Shared Questions Import Notification Banner */}
-      {sharedImportNotice && (
-        <div className="bg-emerald-950 border-b border-emerald-800 text-emerald-200 px-4 py-2.5 flex items-center justify-between text-xs font-medium">
-          <div className="flex items-center gap-2 max-w-4xl mx-auto w-full">
-            <span className="font-bold">✓</span>
-            <span className="flex-1">{sharedImportNotice}</span>
-            <button
-              type="button"
-              onClick={() => setSharedImportNotice(null)}
-              className="text-emerald-400 hover:text-white px-2 py-0.5 rounded border border-emerald-800/80 hover:bg-emerald-900 transition-colors"
-            >
-              Dismiss
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Main Flashcard Study Viewport */}
-      <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 max-w-5xl mx-auto w-full">
+      <main className="flex-1 flex flex-col items-center justify-start sm:justify-center p-2 sm:p-6 pt-1 sm:pt-4 max-w-4xl mx-auto w-full">
         {loadingFileContent ? (
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-10 text-center max-w-md w-full">
             <div className="w-8 h-8 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin mx-auto mb-4"></div>
@@ -738,6 +734,7 @@ export default function App() {
               totalQuestions={filteredQuestions.length}
               selectedChoice={currentSelectedChoice}
               onSelectChoice={handleSelectChoice}
+              onResetAnswer={handleResetCurrentAnswer}
               onNext={handleNextCard}
               onPrevious={handlePreviousCard}
               hasPrevious={currentCardIndex > 0}

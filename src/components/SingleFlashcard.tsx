@@ -7,6 +7,7 @@ interface SingleFlashcardProps {
   totalQuestions: number;
   selectedChoice: string | null;
   onSelectChoice: (choiceId: string) => void;
+  onResetAnswer?: () => void;
   onNext: () => void;
   onPrevious: () => void;
   hasPrevious: boolean;
@@ -21,6 +22,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   totalQuestions,
   selectedChoice,
   onSelectChoice,
+  onResetAnswer,
   onNext,
   onPrevious,
   hasPrevious,
@@ -76,74 +78,67 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   }, [handleKeyDown]);
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col gap-5">
-      {/* Flashcard Header Bar */}
-      <div className="flex items-center justify-between px-1 text-sm">
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-slate-300 font-semibold bg-slate-800 px-3 py-1 rounded-md border border-slate-700 shadow-sm">
-            Question {currentIndex + 1} / {totalQuestions}
+    <div className="w-full max-w-3xl mx-auto flex flex-col gap-2.5 sm:gap-4">
+      {/* Flashcard Header Bar - Super Slim */}
+      <div className="flex items-center justify-between px-0.5 text-xs sm:text-sm">
+        <div className="flex items-center gap-2">
+          <span className="font-mono text-slate-300 font-semibold bg-slate-800/90 px-2 py-0.5 rounded text-xs border border-slate-700/80">
+            {currentIndex + 1} / {totalQuestions}
           </span>
-          <span className="px-3 py-1 rounded-md bg-emerald-950/80 text-emerald-300 border border-emerald-700 font-semibold text-xs tracking-wide">
+          <span className="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-[11px] font-semibold">
             {question.subject}
           </span>
         </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={onToggleFlag}
-            className={`px-3.5 py-1.5 rounded-md text-xs font-semibold border transition-all shadow-sm ${
-              isFlagged
-                ? 'bg-amber-600 text-white border-amber-500'
-                : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
-            }`}
-          >
-            {isFlagged ? 'Flagged for Review' : 'Flag Question'}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={onToggleFlag}
+          className={`px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer ${
+            isFlagged
+              ? 'bg-amber-600 text-white border-amber-500'
+              : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
+          }`}
+        >
+          {isFlagged ? '★ Flagged' : '☆ Flag'}
+        </button>
       </div>
 
-      {/* Main Single Flashcard Surface */}
-      <div className="bg-slate-900 border border-slate-700 rounded-xl p-6 sm:p-9 flex flex-col gap-6 shadow-xl relative overflow-hidden">
-        {/* Decorative top accent line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600"></div>
-
-        {/* Source info */}
-        <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-3 font-mono">
-          <div className="truncate max-w-md">
-            <span className="text-slate-400">Source: </span>
+      {/* Main Single Flashcard Surface - Optimized for Phone Height */}
+      <div className="bg-slate-900 border border-slate-700/80 rounded-xl p-3.5 sm:p-7 flex flex-col gap-3 sm:gap-5 shadow-lg relative overflow-hidden">
+        {/* Source info (compact) */}
+        <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400/90 border-b border-slate-800/80 pb-1.5 sm:pb-2.5 font-mono">
+          <div className="truncate max-w-[220px] sm:max-w-md">
+            <span className="text-slate-500">Source: </span>
             <span className="text-emerald-300 font-medium">{question.sourceFileName}</span>
           </div>
           {question.questionNumber && (
-            <span className="text-slate-400 shrink-0">Item #{question.questionNumber}</span>
+            <span className="text-slate-500 shrink-0">#{question.questionNumber}</span>
           )}
         </div>
 
-        {/* Question Prompt */}
-        <div className="py-2">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-100 leading-snug">
+        {/* Question Prompt - Big, Clear & Legible on Mobile */}
+        <div className="py-0.5 sm:py-1">
+          <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
             {question.question}
           </h2>
         </div>
 
         {/* Choices Options List */}
-        <div className="flex flex-col gap-3.5">
+        <div className="flex flex-col gap-2 sm:gap-3">
           {question.choices.map((choice, idx) => {
             const isUserSelected =
               selectedChoice?.toUpperCase() === choice.id.toUpperCase();
             const isCorrectOption =
               choice.id.toUpperCase() === question.correctChoiceId.toUpperCase();
 
-            // Styling according to user requirement:
-            // "if I choose a letter then u answer it RED if wrong and GREEN the correct answer"
             let buttonClasses =
-              'relative flex items-center justify-between p-4 rounded-xl border text-left transition-all shadow-sm ';
+              'relative flex items-center justify-between p-2.5 sm:p-3.5 rounded-lg sm:rounded-xl border text-left transition-all min-h-[44px] ';
 
             if (!isAnswered) {
               buttonClasses +=
-                'bg-slate-800/90 border-slate-700 text-slate-100 hover:border-emerald-500 hover:bg-slate-800 cursor-pointer';
+                'bg-slate-800/90 border-slate-700 text-slate-100 hover:border-emerald-500 hover:bg-slate-800 cursor-pointer active:scale-[0.99]';
             } else if (isUserSelected && !isCorrectOption) {
-              // WRONG SELECTED: Vibrant Red / Rose Solid
+              // WRONG SELECTED: Vibrant Red Solid
               buttonClasses +=
                 'bg-rose-600 border-rose-500 text-white font-semibold shadow-md ring-2 ring-rose-400/50';
             } else if (isCorrectOption) {
@@ -164,9 +159,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 onClick={() => onSelectChoice(choice.id)}
                 className={buttonClasses}
               >
-                <div className="flex items-start gap-4 pr-4">
+                <div className="flex items-start gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">
                   <span
-                    className={`font-mono text-sm px-2.5 py-1 rounded-lg border shrink-0 font-bold ${
+                    className={`font-mono text-xs sm:text-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border shrink-0 font-bold ${
                       !isAnswered
                         ? 'bg-slate-900 border-slate-600 text-slate-200'
                         : isUserSelected && !isCorrectOption
@@ -178,20 +173,20 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   >
                     {choice.id}
                   </span>
-                  <span className="text-base leading-normal font-medium">{choice.text}</span>
+                  <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
                 </div>
 
                 {/* Status indicator badge */}
                 {isAnswered && (
-                  <div className="shrink-0 font-mono text-xs uppercase tracking-wide">
+                  <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
                     {isUserSelected && !isCorrectOption && (
-                      <span className="px-2.5 py-1 rounded-md bg-rose-900/90 border border-rose-400 text-rose-100 font-bold shadow">
+                      <span className="px-2 py-0.5 rounded bg-rose-900 border border-rose-400 text-rose-100 font-bold">
                         Wrong
                       </span>
                     )}
                     {isCorrectOption && (
-                      <span className="px-2.5 py-1 rounded-md bg-emerald-900/90 border border-emerald-400 text-emerald-100 font-bold shadow">
-                        Correct Answer
+                      <span className="px-2 py-0.5 rounded bg-emerald-900 border border-emerald-400 text-emerald-100 font-bold">
+                        Correct
                       </span>
                     )}
                   </div>
@@ -204,22 +199,34 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         {/* Answer Feedback Banner */}
         {isAnswered && (
           <div
-            className={`p-4 rounded-xl border flex flex-col gap-2 shadow-md ${
+            className={`p-2.5 sm:p-3.5 rounded-lg border flex flex-col gap-1.5 shadow-sm text-xs sm:text-sm ${
               isCorrect
                 ? 'bg-emerald-950/90 border-emerald-600 text-emerald-100'
                 : 'bg-rose-950/90 border-rose-600 text-rose-100'
             }`}
           >
-            <div className="flex items-center justify-between">
-              <span className="font-bold text-base">
-                {isCorrect ? 'Correct! Excellent answer.' : `Incorrect. The correct answer is option ${question.correctChoiceId}.`}
+            <div className="flex items-center justify-between gap-2">
+              <span className="font-bold">
+                {isCorrect ? '✓ Correct answer!' : `✗ Incorrect. Correct is: ${question.correctChoiceId}`}
               </span>
-              <span className="text-xs font-mono opacity-90 font-semibold bg-black/20 px-2.5 py-1 rounded">
-                Press Enter or → to continue
-              </span>
+              <div className="flex items-center gap-1.5 shrink-0">
+                {onResetAnswer && (
+                  <button
+                    type="button"
+                    onClick={onResetAnswer}
+                    className="px-2 py-0.5 rounded text-[11px] font-semibold bg-black/30 hover:bg-black/50 text-white border border-white/20 transition-colors cursor-pointer"
+                    title="Clear answer and try again"
+                  >
+                    ↺ Try Again
+                  </button>
+                )}
+                <span className="text-[10px] sm:text-xs font-mono opacity-80 bg-black/20 px-2 py-0.5 rounded hidden xs:inline">
+                  Tap Next →
+                </span>
+              </div>
             </div>
             {question.explanation && (
-              <p className="text-sm text-slate-200 border-t border-white/10 pt-2.5 mt-1 leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-slate-200 border-t border-white/10 pt-1.5 mt-0.5 leading-relaxed font-normal">
                 {question.explanation}
               </p>
             )}
@@ -227,33 +234,43 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         )}
 
         {/* Card Controls & Footer */}
-        <div className="flex items-center justify-between pt-5 border-t border-slate-800 text-sm">
+        <div className="flex items-center justify-between pt-2.5 sm:pt-4 border-t border-slate-800 text-xs sm:text-sm gap-2">
           <button
             type="button"
             onClick={onPrevious}
             disabled={!hasPrevious}
-            className={`px-4 py-2.5 rounded-lg border font-semibold transition-colors ${
+            className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border font-semibold transition-colors min-h-[40px] flex items-center justify-center ${
               hasPrevious
-                ? 'bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white cursor-pointer'
+                ? 'bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white cursor-pointer active:scale-98'
                 : 'bg-slate-900 border-slate-800 text-slate-600 opacity-40 cursor-not-allowed'
             }`}
           >
-            ← Previous Question
+            ← Previous
           </button>
 
-          <div className="text-xs text-slate-400 font-mono hidden sm:block">
-            Keyboard: [A] [B] [C] [D] to answer • [←] [→] navigate
-          </div>
+          {isAnswered && onResetAnswer ? (
+            <button
+              type="button"
+              onClick={onResetAnswer}
+              className="px-3 py-2 rounded-lg border border-slate-700 bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium cursor-pointer transition-colors"
+            >
+              ↺ Reset Answer
+            </button>
+          ) : (
+            <div className="text-[11px] text-slate-500 font-mono hidden md:block">
+              Keyboard: [A-D] answer • [←][→] navigate
+            </div>
+          )}
 
           <button
             type="button"
             onClick={onNext}
             disabled={!hasNext}
-            className={`px-5 py-2.5 rounded-lg border font-semibold transition-all shadow-sm ${
+            className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg border font-semibold transition-all shadow-sm min-h-[40px] flex items-center justify-center ${
               hasNext
                 ? isAnswered
-                  ? 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-500 cursor-pointer'
-                  : 'bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white cursor-pointer'
+                  ? 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-500 cursor-pointer active:scale-98'
+                  : 'bg-slate-800 border-slate-600 text-slate-200 hover:bg-slate-700 hover:text-white cursor-pointer active:scale-98'
                 : 'bg-slate-900 border-slate-800 text-slate-600 opacity-40 cursor-not-allowed'
             }`}
           >
