@@ -163,3 +163,69 @@ ${choicesStr}
     })
     .join('\n');
 }
+
+/**
+ * Generates the complete source code for `src/data/driveQuestions.ts`
+ */
+export function generateFullDriveQuestionsTsFile(questions: FlashcardQuestion[]): string {
+  const content = formatQuestionsAsTypeScriptCode(questions);
+  return `import { FlashcardQuestion } from '../services/questionParser';
+
+export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
+${content}
+];
+`;
+}
+
+/**
+ * Directly downloads `driveQuestions.ts` with all questions for easy git commit/push to Render
+ */
+export function downloadDriveQuestionsTs(questions: FlashcardQuestion[]): void {
+  const fileContent = generateFullDriveQuestionsTsFile(questions);
+  const blob = new Blob([fileContent], { type: 'text/typescript;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'driveQuestions.ts';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * Saves all questions directly to the project's `src/data/driveQuestions.ts` via the dev server API
+ */
+export async function saveQuestionsToProjectApi(
+  questions: FlashcardQuestion[]
+): Promise<{ success: boolean; count?: number; error?: string }> {
+  try {
+    const res = await fetch('/api/save-drive-questions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ questions }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      return {
+        success: false,
+        error: data.error || `Server responded with status ${res.status}`,
+      };
+    }
+
+    const data = await res.json();
+    return {
+      success: true,
+      count: data.count || questions.length,
+    };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Network request failed';
+    return {
+      success: false,
+      error: message,
+    };
+  }
+}

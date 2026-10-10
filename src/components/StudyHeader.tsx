@@ -24,6 +24,10 @@ interface StudyHeaderProps {
   customQuestionsCount?: number;
   syncedFilesCount: number;
   isScanning: boolean;
+  onSyncQuestionsToProject?: () => void;
+  isSyncingProject?: boolean;
+  syncNotice?: string | null;
+  onDownloadDriveTs?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -42,6 +46,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   selectedSubject,
   onSelectSubject,
   subjectCounts,
+  totalQuestions,
   studyMode,
   onSetStudyMode,
   missedCount,
@@ -58,6 +63,10 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   customQuestionsCount,
   syncedFilesCount,
   isScanning,
+  onSyncQuestionsToProject,
+  isSyncingProject,
+  syncNotice,
+  onDownloadDriveTs,
 }) => {
   const totalAttempted = correctCount + incorrectCount;
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
@@ -65,7 +74,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   return (
     <header className="w-full bg-slate-900 border-b border-slate-700 shadow-md shrink-0">
       {/* Top Navbar */}
-      <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center font-bold text-white shadow">
             EF
@@ -81,7 +90,20 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
+          {onSyncQuestionsToProject && (
+            <button
+              type="button"
+              onClick={onSyncQuestionsToProject}
+              disabled={isSyncingProject}
+              className="px-3 py-1.5 rounded-md text-xs font-semibold bg-indigo-700 hover:bg-indigo-600 text-white shadow-sm transition-colors cursor-pointer flex items-center gap-1.5 border border-indigo-500/40"
+              title="Save all questions permanently into src/data/driveQuestions.ts for Render deployment"
+            >
+              <span>⚡</span>
+              <span>{isSyncingProject ? 'Saving...' : `Save ${totalQuestions} for Render`}</span>
+            </button>
+          )}
+
           {onOpenShareModal && (
             <button
               type="button"
@@ -166,6 +188,25 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           )}
         </div>
       </div>
+
+      {/* Sync Status Banner */}
+      {syncNotice && (
+        <div className="bg-indigo-950/90 border-t border-indigo-800/80 px-4 py-2 text-xs flex items-center justify-between text-indigo-200">
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-indigo-300">✓</span>
+            <span>{syncNotice}</span>
+          </div>
+          {onDownloadDriveTs && (
+            <button
+              type="button"
+              onClick={onDownloadDriveTs}
+              className="px-2.5 py-1 rounded text-[11px] bg-indigo-800 hover:bg-indigo-700 text-white border border-indigo-600 cursor-pointer font-medium shrink-0 ml-2"
+            >
+              Download driveQuestions.ts
+            </button>
+          )}
+        </div>
+      )}
 
       {/* Scoreboard and Study Mode Bar */}
       <div className="border-t border-slate-800 bg-slate-950/80 px-4 py-2.5">

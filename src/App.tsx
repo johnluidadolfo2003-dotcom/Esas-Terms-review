@@ -29,6 +29,8 @@ import {
   loadSavedCustomQuestions,
   saveCustomQuestions,
   deleteCustomQuestion,
+  saveQuestionsToProjectApi,
+  downloadDriveQuestionsTs,
 } from './services/storageService';
 import { parseCurrentLocationParams } from './services/shareService';
 
@@ -90,6 +92,48 @@ export default function App() {
 
     return combined;
   }, [customQuestions, driveExtractedQuestions]);
+
+  const [isSyncingProject, setIsSyncingProject] = useState(false);
+  const [syncNotice, setSyncNotice] = useState<string | null>(null);
+
+  const handleSyncQuestionsToProject = async () => {
+    if (allQuestions.length === 0) return;
+    setIsSyncingProject(true);
+    try {
+      const res = await saveQuestionsToProjectApi(allQuestions);
+      if (res.success) {
+        setSyncNotice(
+          `Saved all ${allQuestions.length} questions into src/data/driveQuestions.ts! You can commit & push to GitHub for Render.`
+        );
+        setTimeout(() => setSyncNotice(null), 8000);
+      } else {
+        setSyncNotice(res.error || 'Failed to save questions to project.');
+        setTimeout(() => setSyncNotice(null), 8000);
+      }
+    } catch {
+      setSyncNotice('Failed to connect to dev server.');
+      setTimeout(() => setSyncNotice(null), 8000);
+    } finally {
+      setIsSyncingProject(false);
+    }
+  };
+
+  const handleDownloadDriveTs = () => {
+    if (allQuestions.length === 0) return;
+    downloadDriveQuestionsTs(allQuestions);
+  };
+
+  // Automatically synchronize loaded questions into driveQuestions.ts whenever the user has additional questions
+  useEffect(() => {
+    if (allQuestions.length > DRIVE_COPIED_QUESTIONS.length) {
+      saveQuestionsToProjectApi(allQuestions).then((res) => {
+        if (res.success) {
+          setSyncNotice(`Auto-saved all ${allQuestions.length} questions to driveQuestions.ts for Render!`);
+          setTimeout(() => setSyncNotice(null), 6000);
+        }
+      });
+    }
+  }, [allQuestions]);
 
   const [loadingFileContent, setLoadingFileContent] = useState(false);
   const [scanMessage, setScanMessage] = useState<string>('');
@@ -585,6 +629,10 @@ export default function App() {
         customQuestionsCount={customQuestions.length}
         syncedFilesCount={selectedFileIds.size || 6}
         isScanning={isScanning}
+        onSyncQuestionsToProject={handleSyncQuestionsToProject}
+        isSyncingProject={isSyncingProject}
+        syncNotice={syncNotice}
+        onDownloadDriveTs={handleDownloadDriveTs}
       />
 
       {/* Auth Error / Notice Banner */}
@@ -733,8 +781,11 @@ export default function App() {
         onClose={() => setIsPasteModalOpen(false)}
         onAddQuestions={handleAddPastedQuestions}
         savedCustomQuestions={customQuestions}
+        allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
         onImportBackup={handleImportBackup}
+        onSyncToProject={handleSyncQuestionsToProject}
+        isSyncingProject={isSyncingProject}
       />
 
       {/* Share Reviewer Modal */}

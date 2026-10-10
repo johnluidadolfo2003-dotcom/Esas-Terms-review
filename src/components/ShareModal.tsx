@@ -12,7 +12,11 @@ import {
   getSavedRenderUrl,
   saveRenderUrl,
 } from '../services/shareService';
-import { formatQuestionsAsTypeScriptCode } from '../services/storageService';
+import {
+  formatQuestionsAsTypeScriptCode,
+  downloadDriveQuestionsTs,
+  saveQuestionsToProjectApi,
+} from '../services/storageService';
 import { exportStandaloneReviewerHtml } from '../services/exportHtmlService';
 
 interface ShareModalProps {
@@ -48,6 +52,26 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const [copiedSubject, setCopiedSubject] = useState<string | null>(null);
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [showTroubleshoot, setShowTroubleshoot] = useState(false);
+  const [isSavingToProject, setIsSavingToProject] = useState(false);
+  const [projectSaveSuccess, setProjectSaveSuccess] = useState(false);
+
+  const exportQuestionsList = allQuestions.length > 0 ? allQuestions : customQuestions;
+
+  const handleSaveToProject = async () => {
+    if (exportQuestionsList.length === 0) return;
+    setIsSavingToProject(true);
+    const res = await saveQuestionsToProjectApi(exportQuestionsList);
+    setIsSavingToProject(false);
+    if (res.success) {
+      setProjectSaveSuccess(true);
+      setTimeout(() => setProjectSaveSuccess(false), 5000);
+    }
+  };
+
+  const handleDownloadDriveTs = () => {
+    if (exportQuestionsList.length === 0) return;
+    downloadDriveQuestionsTs(exportQuestionsList);
+  };
 
   // Keep selected subject in sync when opening
   useEffect(() => {
@@ -325,14 +349,34 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               <div className="pt-1 flex flex-wrap items-center gap-2">
                 <button
                   type="button"
+                  onClick={handleSaveToProject}
+                  disabled={isSavingToProject || exportQuestionsList.length === 0}
+                  className="px-2.5 py-1 rounded bg-indigo-900 hover:bg-indigo-800 text-indigo-100 border border-indigo-700 text-[11px] font-medium transition-colors flex items-center gap-1"
+                >
+                  <span>⚡</span>
+                  <span>
+                    {isSavingToProject
+                      ? 'Saving...'
+                      : projectSaveSuccess
+                      ? 'Saved to driveQuestions.ts!'
+                      : `Save All ${exportQuestionsList.length} for Render`}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleDownloadDriveTs}
+                  disabled={exportQuestionsList.length === 0}
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-medium transition-colors"
+                >
+                  Download driveQuestions.ts
+                </button>
+                <button
+                  type="button"
                   onClick={handleCopyCodeSnippet}
                   className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-medium transition-colors"
                 >
-                  {copiedCodeSnippet ? 'Copied Code Snippet!' : 'Copy Code (to bake into driveQuestions.ts)'}
+                  {copiedCodeSnippet ? 'Copied Code!' : 'Copy Code'}
                 </button>
-                <span className="text-[10px] text-zinc-400">
-                  Optional: bakes questions into the permanent Git code on Render
-                </span>
               </div>
             </div>
           )}

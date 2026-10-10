@@ -4,6 +4,7 @@ import {
   exportCustomQuestionsJson,
   importCustomQuestionsJson,
   formatQuestionsAsTypeScriptCode,
+  downloadDriveQuestionsTs,
 } from '../services/storageService';
 import { copyToClipboard } from '../services/shareService';
 
@@ -12,8 +13,11 @@ interface PasteQuestionsModalProps {
   onClose: () => void;
   onAddQuestions: (questions: FlashcardQuestion[], subject: SubjectCategory) => void;
   savedCustomQuestions: FlashcardQuestion[];
+  allQuestions?: FlashcardQuestion[];
   onDeleteQuestion: (id: string) => void;
   onImportBackup: (importedQuestions: FlashcardQuestion[]) => void;
+  onSyncToProject?: () => void;
+  isSyncingProject?: boolean;
 }
 
 const SAMPLE_TEMPLATES: Record<SubjectCategory, string> = {
@@ -118,8 +122,11 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   onClose,
   onAddQuestions,
   savedCustomQuestions,
+  allQuestions = [],
   onDeleteQuestion,
   onImportBackup,
+  onSyncToProject,
+  isSyncingProject,
 }) => {
   const [activeTab, setActiveTab] = useState<'paste' | 'manage'>('paste');
   const [subject, setSubject] = useState<SubjectCategory>('Economics');
@@ -128,6 +135,13 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   const [correctOverrides, setCorrectOverrides] = useState<Record<number, string>>({});
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
   const [copiedCode, setCopiedCode] = useState(false);
+
+  const exportQuestionsList = allQuestions.length > 0 ? allQuestions : savedCustomQuestions;
+
+  const handleDownloadDriveTs = () => {
+    if (exportQuestionsList.length === 0) return;
+    downloadDriveQuestionsTs(exportQuestionsList);
+  };
 
   // Live parsed preview
   const parsedPreview = useMemo(() => {
@@ -473,13 +487,34 @@ Explanation: Annuity occurs at uniform time periods.
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
+                {onSyncToProject && (
+                  <button
+                    type="button"
+                    onClick={onSyncToProject}
+                    disabled={isSyncingProject || exportQuestionsList.length === 0}
+                    className="px-3 py-1.5 text-xs font-semibold rounded border border-indigo-600 bg-indigo-900 text-indigo-100 hover:bg-indigo-800 disabled:opacity-40 transition-colors flex items-center gap-1.5"
+                    title="Saves all questions directly into src/data/driveQuestions.ts for Render deployment"
+                  >
+                    <span>⚡</span>
+                    <span>{isSyncingProject ? 'Saving...' : `Save All ${exportQuestionsList.length} for Render`}</span>
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={handleDownloadDriveTs}
+                  disabled={exportQuestionsList.length === 0}
+                  className="px-3 py-1.5 text-xs font-medium rounded border border-indigo-700 bg-indigo-950 text-indigo-300 hover:bg-indigo-900 disabled:opacity-40 transition-colors"
+                  title="Download driveQuestions.ts file ready for your GitHub repository"
+                >
+                  Download driveQuestions.ts
+                </button>
                 <button
                   type="button"
                   onClick={handleCopyAsCode}
                   disabled={savedCustomQuestions.length === 0}
                   className="px-3 py-1.5 text-xs font-medium rounded border border-emerald-700 bg-emerald-950 text-emerald-300 hover:bg-emerald-900 disabled:opacity-40 transition-colors"
                 >
-                  {copiedCode ? 'Copied TypeScript Code!' : 'Copy Code (for driveQuestions.ts)'}
+                  {copiedCode ? 'Copied TypeScript Code!' : 'Copy Code (driveQuestions.ts)'}
                 </button>
                 <button
                   type="button"
