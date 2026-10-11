@@ -10013,7 +10013,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "80%"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Section 19 of RA 7920 requires a general weighted average of at least 70%."
   },
   {

@@ -5,6 +5,8 @@ import {
   importCustomQuestionsJson,
   formatQuestionsAsTypeScriptCode,
   downloadDriveQuestionsTs,
+  downloadQuestionsCsv,
+  downloadQuestionsTxt,
 } from '../services/storageService';
 import { copyToClipboard } from '../services/shareService';
 
@@ -135,8 +137,34 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   const [correctOverrides, setCorrectOverrides] = useState<Record<number, string>>({});
   const [feedbackMsg, setFeedbackMsg] = useState<string | null>(null);
   const [copiedCode, setCopiedCode] = useState(false);
+  const [manageSubjectFilter, setManageSubjectFilter] = useState<string>('All');
+  const [manageSearchQuery, setManageSearchQuery] = useState<string>('');
 
   const exportQuestionsList = allQuestions.length > 0 ? allQuestions : savedCustomQuestions;
+
+  // Question counts grouped per subject
+  const subjectBreakdown = useMemo(() => {
+    const counts: Record<string, number> = {};
+    exportQuestionsList.forEach((q) => {
+      const subj = q.subject || 'General';
+      counts[subj] = (counts[subj] || 0) + 1;
+    });
+    return counts;
+  }, [exportQuestionsList]);
+
+  // Filtered list of questions for the management view
+  const filteredManageQuestions = useMemo(() => {
+    return exportQuestionsList.filter((q) => {
+      const matchesSubject =
+        manageSubjectFilter === 'All' || q.subject === manageSubjectFilter;
+      const query = manageSearchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !query ||
+        q.question.toLowerCase().includes(query) ||
+        q.choices.some((c) => c.text.toLowerCase().includes(query));
+      return matchesSubject && matchesSearch;
+    });
+  }, [exportQuestionsList, manageSubjectFilter, manageSearchQuery]);
 
   const handleDownloadDriveTs = () => {
     if (exportQuestionsList.length === 0) return;
@@ -475,57 +503,80 @@ Explanation: Annuity occurs at uniform time periods.
 
         {/* Tab 2: Manage Saved Questions Bank */}
         {activeTab === 'manage' && (
-          <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-lg bg-zinc-950 border border-zinc-800">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-5 flex flex-col gap-4">
+            {/* Master Actions Banner */}
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 p-4 rounded-xl bg-zinc-950 border border-zinc-800 shadow-sm">
               <div>
-                <h3 className="text-sm font-semibold text-zinc-200">
-                  Custom Questions Bank ({savedCustomQuestions.length})
+                <h3 className="text-sm sm:text-base font-bold text-zinc-100 flex items-center gap-2">
+                  <span>Saved Question Bank</span>
+                  <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">
+                    {exportQuestionsList.length} Items Total
+                  </span>
                 </h3>
-                <p className="text-xs text-zinc-400 mt-0.5">
-                  These questions are persisted on your device and integrated directly into the flashcards.
+                <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
+                  Download all questions, choices, and final correct answers per subject as Excel CSV or formatted Text files.
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-2">
+              {/* Master Download Action Buttons */}
+              <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto">
+                <button
+                  type="button"
+                  onClick={() => downloadQuestionsCsv(exportQuestionsList, 'All')}
+                  disabled={exportQuestionsList.length === 0}
+                  className="px-3 py-1.5 text-xs font-bold rounded-lg border border-emerald-600 bg-emerald-950 text-emerald-300 hover:bg-emerald-900 disabled:opacity-40 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                  title="Download all questions, choices, and correct answers in a spreadsheet CSV"
+                >
+                  <span>📥</span>
+                  <span>Download All CSV</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => downloadQuestionsTxt(exportQuestionsList, 'All')}
+                  disabled={exportQuestionsList.length === 0}
+                  className="px-3 py-1.5 text-xs font-bold rounded-lg border border-sky-600 bg-sky-950 text-sky-300 hover:bg-sky-900 disabled:opacity-40 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                  title="Download all questions, choices, and correct answers as a readable text reviewer"
+                >
+                  <span>📄</span>
+                  <span>Download All Text</span>
+                </button>
+
                 {onSyncToProject && (
                   <button
                     type="button"
                     onClick={onSyncToProject}
                     disabled={isSyncingProject || exportQuestionsList.length === 0}
-                    className="px-3 py-1.5 text-xs font-semibold rounded border border-indigo-600 bg-indigo-900 text-indigo-100 hover:bg-indigo-800 disabled:opacity-40 transition-colors flex items-center gap-1.5"
-                    title="Saves all questions directly into src/data/driveQuestions.ts for Render deployment"
+                    className="px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-600 bg-indigo-950 text-indigo-200 hover:bg-indigo-900 disabled:opacity-40 transition-colors flex items-center gap-1 cursor-pointer"
+                    title="Saves all questions into driveQuestions.ts for Render deployment"
                   >
                     <span>⚡</span>
-                    <span>{isSyncingProject ? 'Saving...' : `Save All ${exportQuestionsList.length} for Render`}</span>
+                    <span>{isSyncingProject ? 'Saving...' : 'Save for Render'}</span>
                   </button>
                 )}
+
                 <button
                   type="button"
                   onClick={handleDownloadDriveTs}
                   disabled={exportQuestionsList.length === 0}
-                  className="px-3 py-1.5 text-xs font-medium rounded border border-indigo-700 bg-indigo-950 text-indigo-300 hover:bg-indigo-900 disabled:opacity-40 transition-colors"
-                  title="Download driveQuestions.ts file ready for your GitHub repository"
+                  className="px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-700 bg-zinc-800 text-zinc-200 hover:text-white hover:bg-zinc-700 disabled:opacity-40 transition-colors cursor-pointer"
+                  title="Download driveQuestions.ts file"
                 >
-                  Download driveQuestions.ts
+                  driveQuestions.ts
                 </button>
-                <button
-                  type="button"
-                  onClick={handleCopyAsCode}
-                  disabled={savedCustomQuestions.length === 0}
-                  className="px-3 py-1.5 text-xs font-medium rounded border border-emerald-700 bg-emerald-950 text-emerald-300 hover:bg-emerald-900 disabled:opacity-40 transition-colors"
-                >
-                  {copiedCode ? 'Copied TypeScript Code!' : 'Copy Code (driveQuestions.ts)'}
-                </button>
+
                 <button
                   type="button"
                   onClick={handleExport}
                   disabled={savedCustomQuestions.length === 0}
-                  className="px-3 py-1.5 text-xs font-medium rounded border border-zinc-700 bg-zinc-800 text-zinc-200 hover:text-white hover:bg-zinc-700 disabled:opacity-40 transition-colors"
+                  className="px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-700 bg-zinc-800 text-zinc-200 hover:text-white hover:bg-zinc-700 disabled:opacity-40 transition-colors cursor-pointer"
+                  title="Export custom questions backup JSON"
                 >
-                  Export Backup (.json)
+                  Backup JSON
                 </button>
-                <label className="px-3 py-1.5 text-xs font-medium rounded border border-zinc-700 bg-zinc-800 text-zinc-200 hover:text-white hover:bg-zinc-700 cursor-pointer transition-colors">
-                  Import Backup
+
+                <label className="px-3 py-1.5 text-xs font-medium rounded-lg border border-zinc-700 bg-zinc-800 text-zinc-200 hover:text-white hover:bg-zinc-700 cursor-pointer transition-colors">
+                  Import
                   <input
                     type="file"
                     accept=".json"
@@ -536,48 +587,218 @@ Explanation: Annuity occurs at uniform time periods.
               </div>
             </div>
 
-            {savedCustomQuestions.length === 0 ? (
-              <div className="py-12 text-center text-zinc-500 flex flex-col items-center gap-2">
-                <span className="text-3xl">📋</span>
-                <p className="text-sm text-zinc-400">No custom questions pasted yet.</p>
-                <p className="text-xs text-zinc-500 max-w-sm">
-                  Switch to the "Paste New Questions" tab to paste and save questions into your flashcard review.
-                </p>
+            {/* Per-Subject Quick Download & Summary Grid */}
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+                  Download per Subject (Questions + Choices + Final Correct Answer)
+                </h4>
+                <span className="text-[11px] text-zinc-500 font-mono">
+                  {Object.keys(subjectBreakdown).length} Subjects Available
+                </span>
               </div>
-            ) : (
-              <div className="flex flex-col gap-2.5 max-h-[50vh] overflow-y-auto pr-1">
-                {savedCustomQuestions.map((q, idx) => (
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                {Object.entries(subjectBreakdown).map(([subj, count]) => (
                   <div
-                    key={q.id || idx}
-                    className="p-3.5 rounded-lg bg-zinc-950/80 border border-zinc-800 flex items-start justify-between gap-3"
+                    key={subj}
+                    className={`p-3 rounded-xl border transition-all flex flex-col justify-between gap-2.5 ${
+                      manageSubjectFilter === subj
+                        ? 'bg-emerald-950/40 border-emerald-600/70 shadow-sm'
+                        : 'bg-zinc-950/90 border-zinc-800/90 hover:border-zinc-700'
+                    }`}
                   >
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">
-                          {q.subject}
-                        </span>
-                        <span className="text-[11px] text-zinc-400 truncate max-w-xs">
-                          {q.sourceFileName || 'Pasted'}
-                        </span>
-                      </div>
-                      <p className="text-xs font-medium text-zinc-200 line-clamp-2">
-                        {q.question}
-                      </p>
-                      <div className="flex items-center gap-3 mt-2 text-[11px] font-mono text-zinc-400">
-                        <span>Choices: {q.choices.length}</span>
-                        <span>Correct: {q.correctChoiceId}</span>
-                      </div>
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="text-xs font-bold text-zinc-100 truncate">{subj}</span>
+                      <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-zinc-800 text-emerald-400 border border-zinc-700 shrink-0">
+                        {count} Qs
+                      </span>
                     </div>
 
-                    <button
-                      type="button"
-                      onClick={() => onDeleteQuestion(q.id)}
-                      className="px-2.5 py-1 text-xs text-rose-400 hover:text-rose-200 hover:bg-rose-950/50 rounded border border-rose-900/60 transition-colors shrink-0"
-                    >
-                      Delete
-                    </button>
+                    {/* Individual Download Buttons per Subject */}
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono">
+                      <button
+                        type="button"
+                        onClick={() => downloadQuestionsCsv(exportQuestionsList, subj)}
+                        className="flex-1 py-1 px-2 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1"
+                        title={`Download CSV spreadsheet for ${subj}`}
+                      >
+                        <span>📥</span> CSV
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => downloadQuestionsTxt(exportQuestionsList, subj)}
+                        className="flex-1 py-1 px-2 bg-sky-900/60 hover:bg-sky-800 text-sky-200 border border-sky-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1"
+                        title={`Download text reviewer for ${subj}`}
+                      >
+                        <span>📄</span> TXT
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setManageSubjectFilter((prev) => (prev === subj ? 'All' : subj))
+                        }
+                        className={`px-2 py-1 rounded-md border font-semibold transition-colors cursor-pointer ${
+                          manageSubjectFilter === subj
+                            ? 'bg-emerald-600 text-white border-emerald-500'
+                            : 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:text-white'
+                        }`}
+                        title={`Filter list to ${subj}`}
+                      >
+                        {manageSubjectFilter === subj ? 'Filtered' : 'Filter'}
+                      </button>
+                    </div>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Filter & Search Bar */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-zinc-800">
+              <div className="flex items-center gap-2 flex-1 min-w-0">
+                <select
+                  value={manageSubjectFilter}
+                  onChange={(e) => setManageSubjectFilter(e.target.value)}
+                  className="bg-zinc-950 border border-zinc-800 text-zinc-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-emerald-600 font-sans"
+                >
+                  <option value="All">All Subjects ({exportQuestionsList.length})</option>
+                  {Object.keys(subjectBreakdown).map((subj) => (
+                    <option key={subj} value={subj}>
+                      {subj} ({subjectBreakdown[subj]})
+                    </option>
+                  ))}
+                </select>
+
+                <input
+                  type="text"
+                  placeholder="Search questions or choices..."
+                  value={manageSearchQuery}
+                  onChange={(e) => setManageSearchQuery(e.target.value)}
+                  className="flex-1 bg-zinc-950 border border-zinc-800 text-zinc-200 text-xs rounded-lg px-3 py-2 placeholder-zinc-600 focus:outline-none focus:border-emerald-600 font-sans"
+                />
+              </div>
+
+              <span className="text-[11px] font-mono text-zinc-400 self-end sm:self-center shrink-0">
+                Showing {filteredManageQuestions.length} of {exportQuestionsList.length} items
+              </span>
+            </div>
+
+            {/* Detailed Question Bank Listing with Questions, Choices, and Final Correct Answer */}
+            {filteredManageQuestions.length === 0 ? (
+              <div className="py-10 text-center text-zinc-500 flex flex-col items-center gap-2">
+                <span className="text-2xl">🔍</span>
+                <p className="text-xs text-zinc-400">No questions match your current filter or search query.</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setManageSubjectFilter('All');
+                    setManageSearchQuery('');
+                  }}
+                  className="text-xs text-emerald-400 hover:underline cursor-pointer"
+                >
+                  Reset filters
+                </button>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-3 max-h-[45vh] overflow-y-auto pr-1">
+                {filteredManageQuestions.map((q, idx) => {
+                  const correctChoiceObj = q.choices.find(
+                    (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+                  );
+
+                  return (
+                    <div
+                      key={q.id || idx}
+                      className="p-3.5 rounded-xl bg-zinc-950/90 border border-zinc-800/90 flex flex-col gap-2.5"
+                    >
+                      {/* Question Header */}
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-[11px] font-mono font-bold text-emerald-400">
+                            #{idx + 1}
+                          </span>
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-emerald-950 text-emerald-300 border border-emerald-800 font-bold">
+                            {q.subject}
+                          </span>
+                          <span className="text-[10px] font-mono text-zinc-500 truncate max-w-xs">
+                            {q.sourceFileName || 'Reviewer Note'}
+                          </span>
+                        </div>
+
+                        {savedCustomQuestions.some((cq) => cq.id === q.id) && (
+                          <button
+                            type="button"
+                            onClick={() => onDeleteQuestion(q.id)}
+                            className="px-2 py-0.5 text-[11px] font-mono text-rose-400 hover:text-rose-200 hover:bg-rose-950/60 rounded border border-rose-900/60 transition-colors shrink-0 cursor-pointer"
+                          >
+                            Delete
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Question Text */}
+                      <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-relaxed">
+                        {q.question}
+                      </p>
+
+                      {/* Choices List */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-0.5">
+                        {q.choices.map((c) => {
+                          const isCorrect =
+                            c.id.toUpperCase() === q.correctChoiceId.toUpperCase();
+
+                          return (
+                            <div
+                              key={c.id}
+                              className={`px-2.5 py-1.5 rounded-lg text-xs flex items-center justify-between border transition-all ${
+                                isCorrect
+                                  ? 'bg-emerald-950/90 border-emerald-600/80 text-emerald-200 font-semibold shadow-xs'
+                                  : 'bg-zinc-900/60 border-zinc-800/80 text-zinc-400'
+                              }`}
+                            >
+                              <span className="truncate">
+                                <strong className="font-mono mr-1.5 text-zinc-300">
+                                  {c.id.toUpperCase()}.
+                                </strong>{' '}
+                                {c.text}
+                              </span>
+                              {isCorrect && (
+                                <span className="text-[10px] font-mono text-emerald-400 font-bold ml-1 shrink-0 bg-emerald-900/80 px-1.5 py-0.5 rounded border border-emerald-700">
+                                  ✓ Correct
+                                </span>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Final Correct Answer Banner */}
+                      <div className="mt-1 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800/80 text-xs flex items-center justify-between">
+                        <span className="font-mono text-emerald-300 font-semibold flex items-center gap-1.5">
+                          <span>Final Correct Answer:</span>
+                          <strong className="text-emerald-200 font-bold bg-emerald-900 px-2 py-0.5 rounded border border-emerald-700">
+                            Choice {q.correctChoiceId.toUpperCase()}
+                          </strong>
+                          {correctChoiceObj && (
+                            <span className="text-emerald-100 italic truncate font-sans">
+                              — {correctChoiceObj.text}
+                            </span>
+                          )}
+                        </span>
+                      </div>
+
+                      {/* Explanation if present */}
+                      {q.explanation && (
+                        <p className="text-[11px] text-zinc-400 italic bg-zinc-900/80 p-2 rounded-md border border-zinc-800">
+                          <strong className="font-mono text-zinc-400">Explanation:</strong>{' '}
+                          {q.explanation}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             )}
           </div>

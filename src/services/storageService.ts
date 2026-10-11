@@ -194,6 +194,160 @@ export function downloadDriveQuestionsTs(questions: FlashcardQuestion[]): void {
 }
 
 /**
+ * Helper to escape CSV cell values properly
+ */
+function escapeCsvValue(val: string | undefined | null): string {
+  if (!val) return '""';
+  const str = String(val).replace(/"/g, '""');
+  return `"${str}"`;
+}
+
+/**
+ * Downloads questions as a CSV spreadsheet file containing Questions, Choices A-D, and Final Correct Answer.
+ * Can filter by specific subject or download all subjects.
+ */
+export function downloadQuestionsCsv(
+  questions: FlashcardQuestion[],
+  subjectFilter?: string
+): void {
+  const filtered =
+    subjectFilter && subjectFilter !== 'All'
+      ? questions.filter((q) => q.subject === subjectFilter)
+      : questions;
+
+  if (filtered.length === 0) return;
+
+  const headers = [
+    'Subject',
+    'Item #',
+    'Question Text',
+    'Choice A',
+    'Choice B',
+    'Choice C',
+    'Choice D',
+    'Correct Choice Letter',
+    'Correct Choice Text',
+    'Explanation',
+    'Source File',
+  ];
+
+  const rows = filtered.map((q, idx) => {
+    const choiceA = q.choices.find((c) => c.id.toUpperCase() === 'A')?.text || '';
+    const choiceB = q.choices.find((c) => c.id.toUpperCase() === 'B')?.text || '';
+    const choiceC = q.choices.find((c) => c.id.toUpperCase() === 'C')?.text || '';
+    const choiceD = q.choices.find((c) => c.id.toUpperCase() === 'D')?.text || '';
+    const correctChoice = q.choices.find(
+      (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+    );
+    const correctText = correctChoice ? correctChoice.text : '';
+
+    return [
+      escapeCsvValue(q.subject),
+      escapeCsvValue(String(idx + 1)),
+      escapeCsvValue(q.question),
+      escapeCsvValue(choiceA),
+      escapeCsvValue(choiceB),
+      escapeCsvValue(choiceC),
+      escapeCsvValue(choiceD),
+      escapeCsvValue(q.correctChoiceId.toUpperCase()),
+      escapeCsvValue(correctText),
+      escapeCsvValue(q.explanation || ''),
+      escapeCsvValue(q.sourceFileName || ''),
+    ].join(',');
+  });
+
+  const csvContent = '\uFEFF' + [headers.join(','), ...rows].join('\n'); // UTF-8 BOM for Excel compatibility
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const filenameSubject =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.replace(/\s+/g, '_')
+      : 'All_Subjects';
+  a.download = `Question_Bank_${filenameSubject}_${new Date().toISOString().slice(0, 10)}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * Downloads questions as a nicely formatted text document containing Questions, Choices A-D, and Final Correct Answer.
+ * Grouped per subject.
+ */
+export function downloadQuestionsTxt(
+  questions: FlashcardQuestion[],
+  subjectFilter?: string
+): void {
+  const filtered =
+    subjectFilter && subjectFilter !== 'All'
+      ? questions.filter((q) => q.subject === subjectFilter)
+      : questions;
+
+  if (filtered.length === 0) return;
+
+  // Group by subject
+  const grouped: Record<string, FlashcardQuestion[]> = {};
+  filtered.forEach((q) => {
+    const subj = q.subject || 'General';
+    if (!grouped[subj]) grouped[subj] = [];
+    grouped[subj].push(q);
+  });
+
+  const lines: string[] = [];
+  lines.push(`=================================================================`);
+  lines.push(`               BOARD EXAM QUESTION BANK REVIEWER                 `);
+  lines.push(`=================================================================`);
+  lines.push(`Generated on: ${new Date().toLocaleString()}`);
+  lines.push(`Total Questions: ${filtered.length}`);
+  lines.push(`Subject Filter: ${subjectFilter || 'All Subjects'}`);
+  lines.push(`=================================================================\n\n`);
+
+  Object.entries(grouped).forEach(([subj, qList]) => {
+    lines.push(`SUBJECT: ${subj.toUpperCase()} (${qList.length} Questions)`);
+    lines.push(`-----------------------------------------------------------------\n`);
+
+    qList.forEach((q, idx) => {
+      lines.push(`${idx + 1}. ${q.question}`);
+      q.choices.forEach((c) => {
+        lines.push(`   ${c.id.toUpperCase()}. ${c.text}`);
+      });
+      const correctChoice = q.choices.find(
+        (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+      );
+      const correctText = correctChoice ? correctChoice.text : '';
+      lines.push(
+        `   >> FINAL CORRECT ANSWER: ${q.correctChoiceId.toUpperCase()}${
+          correctText ? ` (${correctText})` : ''
+        }`
+      );
+      if (q.explanation) {
+        lines.push(`   Explanation: ${q.explanation}`);
+      }
+      lines.push(''); // blank line
+    });
+
+    lines.push('\n');
+  });
+
+  const textContent = lines.join('\n');
+  const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const filenameSubject =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.replace(/\s+/g, '_')
+      : 'All_Subjects';
+  a.download = `Question_Bank_${filenameSubject}_${new Date().toISOString().slice(0, 10)}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/**
  * Saves all questions directly to the project's `src/data/driveQuestions.ts` via the dev server API
  */
 export async function saveQuestionsToProjectApi(
