@@ -1,5 +1,5 @@
 {
-  "name": "Drive Terms Flashcard Reviewer",
+  "name": "BAYOT AG MAG TUON",
   "description": "Single-question flashcard study app scanning Google Drive for Economics, Mechanics 1 and 2, EE Laws, Project Management, and Communication questions.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

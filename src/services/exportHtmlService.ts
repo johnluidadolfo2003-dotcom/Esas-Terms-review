@@ -192,7 +192,7 @@ export function exportStandaloneReviewerHtml(
 <body>
   <header>
     <div class="top-bar">
-      <h1>Drive Terms Flashcard Reviewer</h1>
+      <h1>BAYOT AG MAG TUON</h1>
       <span class="badge" id="statsBadge">Score: 0 / 0</span>
     </div>
     <div class="filters">

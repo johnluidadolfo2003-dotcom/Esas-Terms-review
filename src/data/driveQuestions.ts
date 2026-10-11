@@ -9634,7 +9634,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Force, mass, distance, velocity"
+        "text": "Force, mass, acceleration, displacement"
       },
       {
         "id": "D",
@@ -9754,7 +9754,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "angular impulse"
+        "text": "angular momentum"
       }
     ],
     "correctChoiceId": "B",

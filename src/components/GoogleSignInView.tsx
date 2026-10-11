@@ -22,7 +22,7 @@ export const GoogleSignInView: React.FC<GoogleSignInViewProps> = ({
         </div>
 
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
-          Drive Terms Flashcard Reviewer
+          BAYOT AG MAG TUON
         </h1>
         <p className="text-sm text-slate-300 mt-2.5 leading-relaxed">
           Master authentic board exam terms and questions across Economics, Mechanics 1 & 2, EE Laws, Project Management, and Communication.

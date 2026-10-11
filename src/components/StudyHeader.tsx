@@ -62,7 +62,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             EF
           </span>
           <h1 className="text-xs sm:text-base font-bold text-slate-100 tracking-tight truncate">
-            Drive Terms Flashcards
+            BAYOT AG MAG TUON
           </h1>
         </div>
 
