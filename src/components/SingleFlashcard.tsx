@@ -226,9 +226,15 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               </div>
             </div>
             {question.explanation && (
-              <p className="text-xs sm:text-sm text-slate-200 border-t border-white/10 pt-1.5 mt-0.5 leading-relaxed font-normal">
-                {question.explanation}
-              </p>
+              <div className="border-t border-white/15 pt-2 mt-0.5 flex flex-col gap-1">
+                <span className="text-[11px] sm:text-xs font-semibold tracking-wide uppercase text-slate-300 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                  Explanation
+                </span>
+                <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
+                  {question.explanation}
+                </p>
+              </div>
             )}
           </div>
         )}

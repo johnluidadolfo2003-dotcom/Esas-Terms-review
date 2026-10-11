@@ -1,4 +1,4 @@
-import { FlashcardQuestion } from '../services/questionParser';
+import { FlashcardQuestion } from "../services/questionParser";
 
 export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
   {
@@ -27,7 +27,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Simple interest",
+    "explanation": "Simple interest refers to the interest on a load or principal that is based only on the original amount of the loan or principal.",
     "rawSnippet": "What is defined as the interest on a load or principal that is based only on the original amount of the loan or principal?\nA. Effective rate of interest\nB. Nominal rate of interest\nC. Compound interest\nD. Simple interest"
   },
   {
@@ -137,7 +137,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". annuity",
+    "explanation": "The term used to express the series of uniform payments occurring at equal interval of time is annuity.",
     "rawSnippet": "The term used to express the series of uniform payments occurring at equal interval of time is _____.\nA. compound interest\nB. annuity\nC. perpetuity\nD. depreciation"
   },
   {
@@ -193,7 +193,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Compound interest",
+    "explanation": "Compound interest refers to the investment of loan or principal which is based not only on the original amount of the loan or principal but the amount of loaned or principal plus the previous accumulated interest.",
     "rawSnippet": "What is defined as the investment of loan or principal which is based not only on the original amount of the loan or principal but the amount of loaned or principal plus the previous accumulated interest?\nA. Effective rate of interest\nB. Nominal rate of interest\nC. Compound interest\nD. Simple interest"
   },
   {
@@ -249,7 +249,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Net sale",
+    "explanation": "Gross margin is the ratio of the gross profit to Net sale.",
     "rawSnippet": "Gross margin is the ratio of the gross profit to _____.\nA. Net sale\nB. Owner’s equity\nC. Inventory turnover\nD. Quick assets"
   },
   {
@@ -278,7 +278,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Rate of interest",
+    "explanation": "Rate of interest refers to the cost of borrowing money or the amount earned by a unit principal per unit time.",
     "rawSnippet": "What refers to the cost of borrowing money or the amount earned by a unit principal per unit time?\nA. Yield rate\nB. Rate of interest\nC. Rate of return\nD. Economic return"
   },
   {
@@ -334,7 +334,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". discount",
+    "explanation": "The difference between the present worth and the worth at some future time is discount.",
     "rawSnippet": "The difference between the present worth and the worth at some future time is _____.\nA. discount\nB. profit\nC. credit\nD. debit"
   },
   {
@@ -363,7 +363,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". compound amount factor",
+    "explanation": "compound amount factor refers to the (1 + i) to the power n is called.",
     "rawSnippet": "What refers to the (1 + i) to the power n is called _____.\nA. present amount factor\nB. future amount factor\nC. compound amount factor\nD. interest amount factor"
   },
   {
@@ -446,7 +446,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". 2 months",
+    "explanation": "Compounded bimonthly has an interest period of 2 months.",
     "rawSnippet": "Compounded bimonthly has an interest period of _____.\nA. 3 months\nB. 6 months\nC. 0.5-month\nD. 2 months"
   },
   {
@@ -477,38 +477,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "explanation": "Capitalized cost equals the first cost plus the present worth of perpetual replacements and maintenance."
   },
   {
-    "id": "econ-handout-7",
-    "subject": "Economics",
-    "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 18,
-    "question": "Compounded bimonthly has an interest period of:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "3 months"
-      },
-      {
-        "id": "B",
-        "text": "6 months"
-      },
-      {
-        "id": "C",
-        "text": "0.5-month"
-      },
-      {
-        "id": "D",
-        "text": "2 months"
-      }
-    ],
-    "correctChoiceId": "D",
-    "explanation": "Bimonthly compounding occurs every 2 months (6 compounding periods per year)."
-  },
-  {
     "id": "pasted-preview-1791625232830-8-1791625232833-gc3v4",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 19,
+    "questionNumber": 18,
     "question": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the depth by either periodic or irregular prearranged program is called _____.",
     "choices": [
       {
@@ -529,7 +502,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". amortization",
+    "explanation": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the depth by either periodic or irregular prearranged program is called amortization.",
     "rawSnippet": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the depth by either periodic or irregular prearranged program is called _____.\nA. amortization\nB. annuity\nC. depreciation\nD. capital recovery"
   },
   {
@@ -537,7 +510,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 20,
+    "questionNumber": 19,
     "question": "It is the actual interest earned.",
     "choices": [
       {
@@ -558,14 +531,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Effective rate",
+    "explanation": "The correct answer is Effective rate.",
     "rawSnippet": "It is the actual interest earned.\nA. Yield period\nB. Simple rate\nC. Effective rate\nD. Compound rate"
   },
   {
     "id": "econ-8",
     "subject": "Economics",
     "sourceFileName": "Drive/Economics_Terms_Reviewer.docx",
-    "questionNumber": 21,
+    "questionNumber": 20,
     "question": "The rate of interest that takes into account the compounding effect per year is termed:",
     "choices": [
       {
@@ -593,7 +566,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 22,
+    "questionNumber": 21,
     "question": "What is an annuity?",
     "choices": [
       {
@@ -614,14 +587,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". A series of equal payments at equal time periods.",
+    "explanation": "The correct answer is A series of equal payments at equal time periods.",
     "rawSnippet": "What is an annuity?\nA. A series of equal payments at equal time periods.\nB. The cost of manufacturing a product.\nC. An investment that yields an equal amount of interest each year.\nD. The overhead cost per unit of production."
   },
   {
     "id": "econ-9",
     "subject": "Economics",
     "sourceFileName": "Drive/Economics_Terms_Reviewer.docx",
-    "questionNumber": 23,
+    "questionNumber": 22,
     "question": "An annuity where the payments are made at the beginning of each period is called:",
     "choices": [
       {
@@ -649,7 +622,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 24,
+    "questionNumber": 23,
     "question": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as _____.",
     "choices": [
       {
@@ -670,7 +643,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Effective interest",
+    "explanation": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as Effective interest.",
     "rawSnippet": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as _____.\nA. Expected return\nB. Nominal interest\nC. Effective interest\nD. Economic return"
   },
   {
@@ -678,7 +651,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 25,
+    "questionNumber": 24,
     "question": "A mathematical expression also known as the present value of annuity of one is called _____.",
     "choices": [
       {
@@ -699,14 +672,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Present worth factor",
+    "explanation": "A mathematical expression also known as the present value of annuity of one is called Present worth factor.",
     "rawSnippet": "A mathematical expression also known as the present value of annuity of one is called _____.\nA. Load factor\nB. Sinking fund factor\nC. Demand factor\nD. Present worth factor"
   },
   {
     "id": "econ-10",
     "subject": "Economics",
     "sourceFileName": "Drive/Economics_Terms_Reviewer.docx",
-    "questionNumber": 26,
+    "questionNumber": 25,
     "question": "The estimated value of a property at the end of its useful economic life, assuming it is sold for materials only, is called:",
     "choices": [
       {
@@ -734,7 +707,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 27,
+    "questionNumber": 26,
     "question": "Cash money credit necessary to establish and operate an enterprise.",
     "choices": [
       {
@@ -755,7 +728,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". capital",
+    "explanation": "The correct answer is capital.",
     "rawSnippet": "Cash money credit necessary to establish and operate an enterprise.\nA. funds\nB. capital\nC. liabilities\nD. assets"
   },
   {
@@ -763,7 +736,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 28,
+    "questionNumber": 27,
     "question": "What is the type of annuity where the payments are made at the end of each period starting from the first period?",
     "choices": [
       {
@@ -784,14 +757,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Ordinary annuity",
+    "explanation": "The correct answer is Ordinary annuity.",
     "rawSnippet": "What is the type of annuity where the payments are made at the end of each period starting from the first period?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
   },
   {
     "id": "econ-term-1",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 29,
+    "questionNumber": 28,
     "question": "What is defined as the interest on a loan or principal that is based only on the original amount of the loan or principal?",
     "choices": [
       {
@@ -818,7 +791,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-2",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 30,
+    "questionNumber": 29,
     "question": "What is defined as a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund?",
     "choices": [
       {
@@ -846,7 +819,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 31,
+    "questionNumber": 30,
     "question": "What is the type of annuity where the payments are made at the beginning of each period starting from the first period?",
     "choices": [
       {
@@ -867,7 +840,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Annuity due",
+    "explanation": "The correct answer is Annuity due.",
     "rawSnippet": "What is the type of annuity where the payments are made at the beginning of each period starting from the first period?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
   },
   {
@@ -875,7 +848,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 32,
+    "questionNumber": 31,
     "question": "What is the type of annuity where the first payment does not begin until some later date in the cash flow?",
     "choices": [
       {
@@ -896,41 +869,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Deferred annuity",
+    "explanation": "The correct answer is Deferred annuity.",
     "rawSnippet": "What is the type of annuity where the first payment does not begin until some later date in the cash flow?\nA. Ordinary annuity\nB. Perpetuity\nC. Annuity due\nD. Deferred annuity"
-  },
-  {
-    "id": "econ-term-3",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 33,
-    "question": "The term used to express the series of uniform payments occurring at equal interval of time is:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Compound interest"
-      },
-      {
-        "id": "B",
-        "text": "Annuity"
-      },
-      {
-        "id": "C",
-        "text": "Perpetuity"
-      },
-      {
-        "id": "D",
-        "text": "Depreciation"
-      }
-    ],
-    "correctChoiceId": "B",
-    "explanation": "An annuity is a sequence of equal payments made at equal periods."
   },
   {
     "id": "econ-term-4",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 34,
+    "questionNumber": 32,
     "question": "Which of the following is an accelerated depreciation method?",
     "choices": [
       {
@@ -958,7 +904,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 35,
+    "questionNumber": 33,
     "question": "What is the type of annuity that does not have a fixed time span but continues indefinitely or forever?",
     "choices": [
       {
@@ -979,42 +925,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Perpetuity",
+    "explanation": "The correct answer is Perpetuity.",
     "rawSnippet": "What is the type of annuity that does not have a fixed time span but continues indefinitely or forever?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
-  },
-  {
-    "id": "econ-term-5",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 36,
-    "question": "Gross margin is the ratio of the gross profit to:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Net sale"
-      },
-      {
-        "id": "B",
-        "text": "Owner's equity"
-      },
-      {
-        "id": "C",
-        "text": "Inventory turnover"
-      },
-      {
-        "id": "D",
-        "text": "Quick assets"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": "Gross Margin = Gross Profit / Net Sales."
   },
   {
     "id": "pasted-preview-1791625114940-16-1791625114941-dth9o",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 37,
+    "questionNumber": 34,
     "question": "The worth of the property which is equal to the original cost less the amount which has been charged to depreciation.",
     "choices": [
       {
@@ -1035,41 +954,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Book value",
+    "explanation": "The correct answer is Book value.",
     "rawSnippet": "The worth of the property which is equal to the original cost less the amount which has been charged to depreciation.\nA. Scrap value\nB. Book value\nC. Salvage value\nD. Market value"
-  },
-  {
-    "id": "econ-term-6",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 38,
-    "question": "The difference between the present worth and the worth at some future time is:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Discount"
-      },
-      {
-        "id": "B",
-        "text": "Profit"
-      },
-      {
-        "id": "C",
-        "text": "Credit"
-      },
-      {
-        "id": "D",
-        "text": "Debit"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": "Discount is the difference between future worth and its present worth value."
   },
   {
     "id": "econ-term-7",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 39,
+    "questionNumber": 35,
     "question": "What is the ratio of the market price per share to earnings per share called?",
     "choices": [
       {
@@ -1097,7 +989,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 40,
+    "questionNumber": 36,
     "question": "Under ordinary simple interest, how many days in one year?",
     "choices": [
       {
@@ -1118,7 +1010,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". 360",
+    "explanation": "The correct answer is 360.",
     "rawSnippet": "Under ordinary simple interest, how many days in one year?\nA. 300\nB. 360\nC. 365\nD. 366"
   },
   {
@@ -1126,7 +1018,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 41,
+    "questionNumber": 37,
     "question": "The amount that the property would give if sold for junk.",
     "choices": [
       {
@@ -1147,7 +1039,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Scrap value",
+    "explanation": "The correct answer is Scrap value.",
     "rawSnippet": "The amount that the property would give if sold for junk.\nA. Junk value\nB. Scrap value\nC. Salvage value\nD. Book value"
   },
   {
@@ -1155,7 +1047,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 42,
+    "questionNumber": 38,
     "question": "Estimated value of the property at the useful life.",
     "choices": [
       {
@@ -1176,14 +1068,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Salvage value",
+    "explanation": "The correct answer is Salvage value.",
     "rawSnippet": "Estimated value of the property at the useful life.\nA. Market value\nB. Salvage value\nC. Fair value\nD. Book value"
   },
   {
     "id": "econ-term-8",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 43,
+    "questionNumber": 39,
     "question": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the debt by either periodic or irregular prearranged program is called:",
     "choices": [
       {
@@ -1210,7 +1102,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-9",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 44,
+    "questionNumber": 40,
     "question": "The ratio of the interest payment to the principal for a given unit of time and is usually expressed as a percentage of the principal is known as:",
     "choices": [
       {
@@ -1238,7 +1130,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 45,
+    "questionNumber": 41,
     "question": "The amount which has been spent or capital invested which for some reasons cannot be recovered.",
     "choices": [
       {
@@ -1259,7 +1151,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Sunk cost",
+    "explanation": "The correct answer is Sunk cost.",
     "rawSnippet": "The amount which has been spent or capital invested which for some reasons cannot be recovered.\nA. Sunk cost\nB. Depletion cost\nC. Fixed costs\nD. Construction cost"
   },
   {
@@ -1267,7 +1159,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 46,
+    "questionNumber": 42,
     "question": "The suspension of repayment of debt or interest for a specified period of time is called _____.",
     "choices": [
       {
@@ -1288,7 +1180,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Moratorium",
+    "explanation": "The suspension of repayment of debt or interest for a specified period of time is called Moratorium.",
     "rawSnippet": "The suspension of repayment of debt or interest for a specified period of time is called _____.\nA. Moratorium\nB. Escrow\nC. Numeraire\nD. Porcupine"
   },
   {
@@ -1296,7 +1188,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 47,
+    "questionNumber": 43,
     "question": "In what method of computing depreciation where it assumes that the loss in value is directly proportional to the age of the equipment or structure?",
     "choices": [
       {
@@ -1317,42 +1209,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Straight line method",
+    "explanation": "The correct answer is Straight line method.",
     "rawSnippet": "In what method of computing depreciation where it assumes that the loss in value is directly proportional to the age of the equipment or structure?\nA. Straight line method\nB. Sinking fund method\nC. Sum-of-the-years digit method\nD. Declining balance method"
-  },
-  {
-    "id": "econ-term-10",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 48,
-    "question": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Expected return"
-      },
-      {
-        "id": "B",
-        "text": "Nominal interest"
-      },
-      {
-        "id": "C",
-        "text": "Effective interest"
-      },
-      {
-        "id": "D",
-        "text": "Economic return"
-      }
-    ],
-    "correctChoiceId": "C",
-    "explanation": "Effective interest rate accounts for intra-year compounding over one full year."
   },
   {
     "id": "pasted-preview-1791625232830-21-1791625232833-d1nq2",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 49,
+    "questionNumber": 44,
     "question": "What is an accelerated depreciation method?",
     "choices": [
       {
@@ -1373,14 +1238,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". It is one that calculates a depreciation amount greater than a straight line amount. This applies to the earlier years of the asset’s life.",
+    "explanation": "It is one that calculates a depreciation amount greater than a straight line amount. This applies to the earlier years of the asset’s life.",
     "rawSnippet": "What is an accelerated depreciation method?\nA. It is one that calculates a depreciation amount greater than a straight line amount.\nB. It is one that calculates a depreciation amount lesser than a straight line amount.\nC. It is one that calculates a depreciation amount equal to straight line amount.\nD. It is one that calculates a depreciation not in any way related to straight line amount."
   },
   {
     "id": "econ-handout-21",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 50,
+    "questionNumber": 45,
     "question": "It is an amount which a willing buyer will pay to a willing seller for the property where each has equal advantage and is under no compulsion to buy or sell:",
     "choices": [
       {
@@ -1407,7 +1272,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-11",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 51,
+    "questionNumber": 46,
     "question": "Cash money credit necessary to establish and operate an enterprise is:",
     "choices": [
       {
@@ -1434,7 +1299,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-12",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 52,
+    "questionNumber": 47,
     "question": "What is another term for \"acid-test ratio\"?",
     "choices": [
       {
@@ -1462,7 +1327,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 53,
+    "questionNumber": 48,
     "question": "The discount of one unit of principal for one unit of time.",
     "choices": [
       {
@@ -1483,7 +1348,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Rate discount",
+    "explanation": "The correct answer is Rate discount.",
     "rawSnippet": "The discount of one unit of principal for one unit of time.\nA. Rate discount\nB. Nominal discount\nC. Actual discount\nD. Sales discount"
   },
   {
@@ -1491,7 +1356,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 54,
+    "questionNumber": 49,
     "question": "A method of depreciation where a fixed sum of money is regularly deposited at compound interest in a real or imaginary fund in order to accumulate an amount equal to the total depreciation of an asset at the end of the asset’s estimated life.",
     "choices": [
       {
@@ -1512,14 +1377,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Sinking fund method",
+    "explanation": "The correct answer is Sinking fund method.",
     "rawSnippet": "A method of depreciation where a fixed sum of money is regularly deposited at compound interest in a real or imaginary fund in order to accumulate an amount equal to the total depreciation of an asset at the end of the asset’s estimated life.\nA. Straight line method\nB. Sinking fund method\nC. Declining balance method\nD. SYD method"
   },
   {
     "id": "econ-term-13",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 55,
+    "questionNumber": 50,
     "question": "Funds supplied by others on which fixed rate of interest must be paid and the debt be repaid at a specific place and time:",
     "choices": [
       {
@@ -1547,7 +1412,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 56,
+    "questionNumber": 51,
     "question": "The profit derived from a project or business enterprise without consideration of obligations to financial contributors and claims of others based on profit is known as _____.",
     "choices": [
       {
@@ -1568,7 +1433,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". economic return",
+    "explanation": "The profit derived from a project or business enterprise without consideration of obligations to financial contributors and claims of others based on profit is known as economic return.",
     "rawSnippet": "The profit derived from a project or business enterprise without consideration of obligations to financial contributors and claims of others based on profit is known as _____.\nA. yield\nB. earning value\nC. economic return\nD. expected yield"
   },
   {
@@ -1576,7 +1441,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 57,
+    "questionNumber": 52,
     "question": "Salvage value is sometimes known as _____.",
     "choices": [
       {
@@ -1597,14 +1462,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Scrap value",
+    "explanation": "Salvage value is sometimes known as Scrap value.",
     "rawSnippet": "Salvage value is sometimes known as _____.\nA. Scrap value\nB. Junk value\nC. Going value\nD. Second-hand value"
   },
   {
     "id": "econ-term-14",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 58,
+    "questionNumber": 53,
     "question": "What do you call any particular raw material or primary product such as cloth, wool, flour, coffee, etc.?",
     "choices": [
       {
@@ -1632,7 +1497,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 59,
+    "questionNumber": 54,
     "question": "Duopoly is a market situation where there is/are:",
     "choices": [
       {
@@ -1653,14 +1518,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Few sellers and many buyers — intended answer. A duopoly specifically has two sellers.",
+    "explanation": "Few sellers and many buyers — intended answer. A duopoly specifically has two sellers.",
     "rawSnippet": "Duopoly is a market situation where there is/are:\nA. Few sellers and few buyers\nB. Few sellers and many buyers\nC. Many sellers and few buyers\nD. One seller and few buyers"
   },
   {
     "id": "econ-handout-24",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 60,
+    "questionNumber": 55,
     "question": "What refers to the value of an asset which a disinterested third party, different from the buyer and seller, will determine in order to establish a price acceptable to both parties?",
     "choices": [
       {
@@ -1687,7 +1552,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-15",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 61,
+    "questionNumber": 56,
     "question": "Which is NOT an essential element of an ordinary annuity?",
     "choices": [
       {
@@ -1715,7 +1580,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 62,
+    "questionNumber": 57,
     "question": "In SYD method of computing depreciation, which of the following is the formula in determining the sum of years’ digits?",
     "choices": [
       {
@@ -1736,14 +1601,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". [n(n + 1)]/2",
+    "explanation": "The correct answer is [n(n + 1)]/2.",
     "rawSnippet": "In SYD method of computing depreciation, which of the following is the formula in determining the sum of years’ digits?\nA. n(n − 1)\nB. [n(n − 1)]/2\nC. [n(n + 2)]/2\nD. [n(n + 1)]/2"
   },
   {
     "id": "econ-handout-25",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 63,
+    "questionNumber": 58,
     "question": "In SYD method of computing depreciation, which of the following is the formula in finding the sum of years' digits?",
     "choices": [
       {
@@ -1770,7 +1635,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-16",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 64,
+    "questionNumber": 59,
     "question": "Consists of the actual counting or determination of the actual quantity of the materials on hand as of a given date:",
     "choices": [
       {
@@ -1798,7 +1663,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 65,
+    "questionNumber": 60,
     "question": "Which one of the following is NOT a method of depreciating plant equipment for accounting and engineering economics purposes?",
     "choices": [
       {
@@ -1819,7 +1684,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". double-entry method",
+    "explanation": "The correct answer is double-entry method.",
     "rawSnippet": "Which one of the following is NOT a method of depreciating plant equipment for accounting and engineering economics purposes?\nA. double-entry method\nB. modified accelerated cost recovery system\nC. sum-of-years digits method\nD. straight-line method"
   },
   {
@@ -1827,7 +1692,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 66,
+    "questionNumber": 61,
     "question": "The declining balance method is also known as _____.",
     "choices": [
       {
@@ -1848,42 +1713,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Constant percentage method",
+    "explanation": "The declining balance method is also known as Constant percentage method.",
     "rawSnippet": "The declining balance method is also known as _____.\nA. Double percentage method\nB. Constant percentage method\nC. Modified sinking fund method\nD. Modified SYD method"
-  },
-  {
-    "id": "econ-handout-26",
-    "subject": "Economics",
-    "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 67,
-    "question": "The declining balance method is also known as:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Double percentage method"
-      },
-      {
-        "id": "B",
-        "text": "Constant percentage method"
-      },
-      {
-        "id": "C",
-        "text": "Modified sinking fund method"
-      },
-      {
-        "id": "D",
-        "text": "Modified SYD method"
-      }
-    ],
-    "correctChoiceId": "B",
-    "explanation": "Declining balance applies a constant percentage (k) to book value each year (Matheson formula)."
   },
   {
     "id": "pasted-preview-1791625232830-27-1791625232833-ih5u4",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 68,
+    "questionNumber": 62,
     "question": "A bond where the security behind it are the equipment of the issuing corporation.",
     "choices": [
       {
@@ -1904,14 +1742,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Mortgage",
+    "explanation": "The correct answer is Mortgage.",
     "rawSnippet": "A bond where the security behind it are the equipment of the issuing corporation.\nA. Debenture\nB. Mortgage\nC. Collateral\nD. Lien"
   },
   {
     "id": "econ-handout-27",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 69,
+    "questionNumber": 63,
     "question": "Which of the following depreciation methods cannot have a salvage value of zero?",
     "choices": [
       {
@@ -1938,7 +1776,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-17",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 70,
+    "questionNumber": 64,
     "question": "Under ordinary simple interest, how many days are considered in one year?",
     "choices": [
       {
@@ -1966,7 +1804,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 71,
+    "questionNumber": 65,
     "question": "In the formula, P = F(1 + i)ⁿ, the factor (1 + i)ⁿ is called the _____.",
     "choices": [
       {
@@ -1987,7 +1825,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Single payment compound amount factor For a positive exponent, the correct compound-amount equation is F = P(1 + i)ⁿ.",
+    "explanation": "Single payment compound amount factor For a positive exponent, the correct compound-amount equation is F = P(1 + i)ⁿ.",
     "rawSnippet": "In the formula, P = F(1 + i)ⁿ, the factor (1 + i)ⁿ is called the _____.\nA. Sinking fund factor\nB. Single payment present worth factor\nC. Single payment compound amount factor\nD. Capital recovery factor"
   },
   {
@@ -1995,7 +1833,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 72,
+    "questionNumber": 66,
     "question": "The rise in the prices of goods and services over a period of time.",
     "choices": [
       {
@@ -2016,14 +1854,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Inflation",
+    "explanation": "The correct answer is Inflation.",
     "rawSnippet": "The rise in the prices of goods and services over a period of time.\nA. Depletion\nB. Depreciation\nC. Inflation\nD. Deflation"
   },
   {
     "id": "econ-term-18",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 73,
+    "questionNumber": 67,
     "question": "An equipment which cost $200,000 has a useful life of 8 years with a salvage value of $25,000 at the end of its useful life. If the depreciation at the first year is $21,875, what method is used in the calculation of depreciation?",
     "choices": [
       {
@@ -2050,7 +1888,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-19",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 74,
+    "questionNumber": 68,
     "question": "What is defined as the reduction or fall of the value of an asset due to constant use and passage of time?",
     "choices": [
       {
@@ -2078,7 +1916,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 75,
+    "questionNumber": 69,
     "question": "A series of uniform amounts over an infinite period of time.",
     "choices": [
       {
@@ -2099,7 +1937,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Perpetuity",
+    "explanation": "The correct answer is Perpetuity.",
     "rawSnippet": "A series of uniform amounts over an infinite period of time.\nA. Depreciation\nB. Annuity\nC. Perpetuity\nD. Inflation"
   },
   {
@@ -2107,7 +1945,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 76,
+    "questionNumber": 70,
     "question": "What refers to the reduction in the level of a national income and output usually accompanied by a fall in the general price level?",
     "choices": [
       {
@@ -2128,14 +1966,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Deflation",
+    "explanation": "Deflation refers to the reduction in the level of a national income and output usually accompanied by a fall in the general price level.",
     "rawSnippet": "What refers to the reduction in the level of a national income and output usually accompanied by a fall in the general price level?\nA. Deflation\nB. Devaluation\nC. Inflation\nD. Depreciation"
   },
   {
     "id": "econ-handout-30",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 77,
+    "questionNumber": 71,
     "question": "What is normally used to compare alternatives that accomplish the same purpose but have unequal lives?",
     "choices": [
       {
@@ -2163,7 +2001,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 78,
+    "questionNumber": 72,
     "question": "What is normally used to compare alternatives that accomplish the same purpose but have equal lives?",
     "choices": [
       {
@@ -2184,42 +2022,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Annual cost method",
+    "explanation": "The correct answer is Annual cost method.",
     "rawSnippet": "What is normally used to compare alternatives that accomplish the same purpose but have equal lives?\nA. Capitalized cost method\nB. Annual cost method\nC. Present worth method\nD. MARR"
-  },
-  {
-    "id": "econ-term-20",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 79,
-    "question": "The suspension of repayment of debt or interest for a specified period of time is called:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Moratorium"
-      },
-      {
-        "id": "B",
-        "text": "Escrow"
-      },
-      {
-        "id": "C",
-        "text": "Numeraire"
-      },
-      {
-        "id": "D",
-        "text": "Porcupine"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": "A moratorium is an authorized postponement or suspension of payment."
   },
   {
     "id": "pasted-preview-1791625232830-31-1791625232833-3rriv",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 80,
+    "questionNumber": 73,
     "question": "The decrease in the value of a certain property due to the gradual extraction of its content is called _____.",
     "choices": [
       {
@@ -2240,14 +2051,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". depletion",
+    "explanation": "The decrease in the value of a certain property due to the gradual extraction of its content is called depletion.",
     "rawSnippet": "The decrease in the value of a certain property due to the gradual extraction of its content is called _____.\nA. depreciation\nB. scrap value\nC. declining balance\nD. depletion"
   },
   {
     "id": "econ-handout-31",
     "subject": "Economics",
     "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 81,
+    "questionNumber": 74,
     "question": "What method is often used in municipal project evaluations where benefits and costs accrue to different segments of the community?",
     "choices": [
       {
@@ -2274,7 +2085,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-22",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 82,
+    "questionNumber": 75,
     "question": "A fund into which annual deposits of A are made in order to accumulate fund F at n years in the future:",
     "choices": [
       {
@@ -2302,7 +2113,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 83,
+    "questionNumber": 76,
     "question": "Additional information of prospective bidders on contract documents issued prior to bidding date.",
     "choices": [
       {
@@ -2323,7 +2134,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Bid bulletin",
+    "explanation": "The correct answer is Bid bulletin.",
     "rawSnippet": "Additional information of prospective bidders on contract documents issued prior to bidding date.\nA. Delict\nB. Escalatory\nC. Technological assessment\nD. Bid bulletin"
   },
   {
@@ -2331,7 +2142,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 84,
+    "questionNumber": 77,
     "question": "What refers to the present worth of cost associated with an asset for an infinite period of time?",
     "choices": [
       {
@@ -2352,7 +2163,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Capitalized cost",
+    "explanation": "Capitalized cost refers to the present worth of cost associated with an asset for an infinite period of time.",
     "rawSnippet": "What refers to the present worth of cost associated with an asset for an infinite period of time?\nA. Annual cost\nB. Capitalized cost\nC. Increment cost\nD. Operating cost"
   },
   {
@@ -2360,7 +2171,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 85,
+    "questionNumber": 78,
     "question": "You are planning to buy stocks in a high growth company. Which of the following ratios best indicates the company’s growth potential?",
     "choices": [
       {
@@ -2381,7 +2192,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Price-earning ratio",
+    "explanation": "The correct answer is Price-earning ratio.",
     "rawSnippet": "You are planning to buy stocks in a high growth company. Which of the following ratios best indicates the company’s growth potential?\nA. Total asset turn-over ratio\nB. Debt ratio\nC. Profit ratio\nD. Price-earning ratio"
   },
   {
@@ -2389,7 +2200,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 86,
+    "questionNumber": 79,
     "question": "Capitalized cost of a project is also known as _____.",
     "choices": [
       {
@@ -2410,14 +2221,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Infinite cost",
+    "explanation": "Capitalized cost of a project is also known as Infinite cost.",
     "rawSnippet": "Capitalized cost of a project is also known as _____.\nA. Infinite cost\nB. Life cost\nC. Life cycle cost\nD. Project cost"
   },
   {
     "id": "econ-term-23",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 87,
+    "questionNumber": 80,
     "question": "In the formula P = F(1 + i)^-n, the factor (1 + i)^-n is called the:",
     "choices": [
       {
@@ -2441,38 +2252,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "explanation": "(1 + i)^-n computes present worth P from future worth F."
   },
   {
-    "id": "econ-handout-33",
-    "subject": "Economics",
-    "sourceFileName": "ESAS_Engineering_Economics_Handout.pdf",
-    "questionNumber": 88,
-    "question": "Capitalized cost of a project is also known as:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Infinite cost"
-      },
-      {
-        "id": "B",
-        "text": "Life cost"
-      },
-      {
-        "id": "C",
-        "text": "Life cycle cost"
-      },
-      {
-        "id": "D",
-        "text": "Project cost"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": "Capitalized cost assumes perpetual service, also termed infinite or perpetual cost."
-  },
-  {
     "id": "pasted-preview-1791625232830-34-1791625232833-g0h6f",
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 89,
+    "questionNumber": 81,
     "question": "Which of the following does NOT affect owner’s equity?",
     "choices": [
       {
@@ -2493,14 +2277,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". License to start operation",
+    "explanation": "The correct answer is License to start operation.",
     "rawSnippet": "Which of the following does NOT affect owner’s equity?\nA. Dividends paid\nB. License to start operation\nC. Invested capital\nD. Expense to get license to start operation"
   },
   {
     "id": "econ-term-24",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 90,
+    "questionNumber": 82,
     "question": "A series of uniform accounts or payments continuing over an infinite period of time is a:",
     "choices": [
       {
@@ -2527,7 +2311,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-term-25",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 91,
+    "questionNumber": 83,
     "question": "Return on investment ratio is the ratio of the:",
     "choices": [
       {
@@ -2555,7 +2339,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 92,
+    "questionNumber": 84,
     "question": "The flow back of profit plus depreciation from a given project is called _____.",
     "choices": [
       {
@@ -2576,7 +2360,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Cash flow",
+    "explanation": "The flow back of profit plus depreciation from a given project is called Cash flow.",
     "rawSnippet": "The flow back of profit plus depreciation from a given project is called _____.\nA. Capital recovery\nB. Economic return\nC. Cash flow\nD. Earning value"
   },
   {
@@ -2584,7 +2368,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625114940",
-    "questionNumber": 93,
+    "questionNumber": 85,
     "question": "A method of determining when cost is exactly equal to revenue.",
     "choices": [
       {
@@ -2605,7 +2389,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Break-even method",
+    "explanation": "The correct answer is Break-even method.",
     "rawSnippet": "A method of determining when cost is exactly equal to revenue.\nA. Experimental method\nB. Rank-ad method\nC. Break-even method\nD. None of the above"
   },
   {
@@ -2613,7 +2397,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 94,
+    "questionNumber": 86,
     "question": "The actual interest earned by a given principal is known as?",
     "choices": [
       {
@@ -2634,14 +2418,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Effective interest",
+    "explanation": "The actual interest earned by a given principal is called Effective interest.",
     "rawSnippet": "The actual interest earned by a given principal is known as?\nA. Compounded interest\nB. Nominal interest\nC. Simple interest\nD. Effective interest"
   },
   {
     "id": "econ-term-26",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 95,
+    "questionNumber": 87,
     "question": "The decrease in the value of a certain property due to the gradual extraction of its natural content is called:",
     "choices": [
       {
@@ -2669,7 +2453,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 96,
+    "questionNumber": 88,
     "question": "What refers to the need, want or desire for a product backed by the money to purchase it?",
     "choices": [
       {
@@ -2690,14 +2474,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Demand",
+    "explanation": "Demand refers to the need, want or desire for a product backed by the money to purchase it.",
     "rawSnippet": "What refers to the need, want or desire for a product backed by the money to purchase it?\nA. Supply\nB. Demand\nC. Product\nD. Good"
   },
   {
     "id": "econ-term-27",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Terms.pdf",
-    "questionNumber": 97,
+    "questionNumber": 89,
     "question": "Additional information to prospective bidders on contract documents issued prior to the bidding date is a:",
     "choices": [
       {
@@ -2725,7 +2509,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 98,
+    "questionNumber": 90,
     "question": "The interest rate at which the present worth of cash flow on a project is zero, or the interest earned by an investment.",
     "choices": [
       {
@@ -2746,7 +2530,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". rate of return",
+    "explanation": "The correct answer is rate of return.",
     "rawSnippet": "The interest rate at which the present worth of cash flow on a project is zero, or the interest earned by an investment.\nA. rate of return\nB. effective rate\nC. nominal rate\nD. yield"
   },
   {
@@ -2754,7 +2538,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 99,
+    "questionNumber": 91,
     "question": "Type of bond whose security is a mortgage on certain specified assets of the corporation.",
     "choices": [
       {
@@ -2775,7 +2559,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Mortgage bond",
+    "explanation": "The correct answer is Mortgage bond.",
     "rawSnippet": "Type of bond whose security is a mortgage on certain specified assets of the corporation.\nA. Registered bond\nB. Mortgage bond\nC. Collateral bond\nD. Debenture bond"
   },
   {
@@ -2783,7 +2567,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 100,
+    "questionNumber": 92,
     "question": "It is the worth of the property which is equal to the original cost less the amount which has been charged to depreciation.",
     "choices": [
       {
@@ -2804,7 +2588,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Book value",
+    "explanation": "The correct answer is Book value.",
     "rawSnippet": "It is the worth of the property which is equal to the original cost less the amount which has been charged to depreciation.\nA. Scrap value\nB. Fair value\nC. Book value\nD. Use value"
   },
   {
@@ -2812,7 +2596,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 101,
+    "questionNumber": 93,
     "question": "Type of bond is issued jointly by two or more corporations.",
     "choices": [
       {
@@ -2833,7 +2617,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Joint bond",
+    "explanation": "The correct answer is Joint bond.",
     "rawSnippet": "Type of bond is issued jointly by two or more corporations.\nA. Mortgage bond\nB. Tie-up bond\nC. Joint bond\nD. Trust bond"
   },
   {
@@ -2841,7 +2625,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 102,
+    "questionNumber": 94,
     "question": "What refers to the present worth of the probable future net earnings?",
     "choices": [
       {
@@ -2862,7 +2646,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Earning value",
+    "explanation": "Earning value refers to the present worth of the probable future net earnings.",
     "rawSnippet": "What refers to the present worth of the probable future net earnings?\nA. Total fair value\nB. Total market value\nC. Going concern value\nD. Earning value"
   },
   {
@@ -2870,7 +2654,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 103,
+    "questionNumber": 95,
     "question": "An artificial being created by operation of law, having the right of succession and the process, attributes and properties expressly authorized by the law or incident to its existence.",
     "choices": [
       {
@@ -2891,7 +2675,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Corporation",
+    "explanation": "The correct answer is Corporation.",
     "rawSnippet": "An artificial being created by operation of law, having the right of succession and the process, attributes and properties expressly authorized by the law or incident to its existence.\nA. Corporation\nB. Partnership\nC. Property\nD. Organization"
   },
   {
@@ -2899,7 +2683,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 104,
+    "questionNumber": 96,
     "question": "What denotes in the fall in the exchange rate of one currency in terms of the others?",
     "choices": [
       {
@@ -2920,7 +2704,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Currency depreciation",
+    "explanation": "The correct answer is Currency depreciation.",
     "rawSnippet": "What denotes in the fall in the exchange rate of one currency in terms of the others?\nA. Currency appreciation\nB. Currency devaluation\nC. Currency depreciation\nD. Currency float"
   },
   {
@@ -2928,7 +2712,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 105,
+    "questionNumber": 97,
     "question": "An accounting term that represents an inventory account adjustment.",
     "choices": [
       {
@@ -2949,7 +2733,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Cost of goods sold",
+    "explanation": "The correct answer is Cost of goods sold.",
     "rawSnippet": "An accounting term that represents an inventory account adjustment.\nA. Cost of goods sold\nB. Standard cost\nC. Cost accounting\nD. Overhead cost"
   },
   {
@@ -2957,7 +2741,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 106,
+    "questionNumber": 98,
     "question": "It is a stock of a product which is held by a trade body or government as a means of regulating the price of that product.",
     "choices": [
       {
@@ -2978,7 +2762,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Buffer stock",
+    "explanation": "The correct answer is Buffer stock.",
     "rawSnippet": "It is a stock of a product which is held by a trade body or government as a means of regulating the price of that product.\nA. Stock pile\nB. Buffer stock\nC. Hoard stock\nD. Withheld stock"
   },
   {
@@ -2986,7 +2770,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 107,
+    "questionNumber": 99,
     "question": "What is the ratio of the net income to owner’s equity?",
     "choices": [
       {
@@ -3007,7 +2791,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Return of investment ratio — as used in this reviewer.",
+    "explanation": "Return of investment ratio — as used in this reviewer.",
     "rawSnippet": "What is the ratio of the net income to owner’s equity?\nA. Gross margin\nB. Return of investment ratio\nC. Book value per share of common stock\nD. Inventory turnover"
   },
   {
@@ -3015,7 +2799,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 108,
+    "questionNumber": 100,
     "question": "What is the feature of some bonds whereby the issuer can redeem it before it matures?",
     "choices": [
       {
@@ -3036,7 +2820,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Callability",
+    "explanation": "The correct answer is Callability.",
     "rawSnippet": "What is the feature of some bonds whereby the issuer can redeem it before it matures?\nA. Return clause\nB. Callability\nC. Recall clause\nD. Call class"
   },
   {
@@ -3044,7 +2828,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 109,
+    "questionNumber": 101,
     "question": "The functional depreciation is sometimes called _____.",
     "choices": [
       {
@@ -3065,7 +2849,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Demand depreciation Functional depreciation is also associated with obsolescence; “Adolescence” in B is not the correct term.",
+    "explanation": "Demand depreciation Functional depreciation is also associated with obsolescence; “Adolescence” in B is not the correct term.",
     "rawSnippet": "The functional depreciation is sometimes called _____.\nA. Demand depreciation\nB. Adolescence\nC. Life depreciation\nD. Failure depreciation"
   },
   {
@@ -3073,7 +2857,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 110,
+    "questionNumber": 102,
     "question": "Which is true about partnership?",
     "choices": [
       {
@@ -3094,7 +2878,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". It will be dissolved if one of the partners ceases to be connected with the partnership.",
+    "explanation": "The correct answer is It will be dissolved if one of the partners ceases to be connected with the partnership.",
     "rawSnippet": "Which is true about partnership?\nA. It has a perpetual life.\nB. It will be dissolved if one of the partners ceases to be connected with the partnership.\nC. It can be handed down from one generation of partners to another.\nD. Its capitalization must be equal for each partner."
   },
   {
@@ -3102,7 +2886,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 111,
+    "questionNumber": 103,
     "question": "The ability to convert assets to cash quickly is known as _____.",
     "choices": [
       {
@@ -3123,7 +2907,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Liquidity",
+    "explanation": "The ability to convert assets to cash quickly is known as Liquidity.",
     "rawSnippet": "The ability to convert assets to cash quickly is known as _____.\nA. Solvency\nB. Liquidity\nC. Leverage\nD. Insolvency"
   },
   {
@@ -3131,7 +2915,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 112,
+    "questionNumber": 104,
     "question": "What is the basic accounting equation?",
     "choices": [
       {
@@ -3152,7 +2936,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Assets = liability + owners’ equity",
+    "explanation": "The correct answer is Assets = liability + owners’ equity.",
     "rawSnippet": "What is the basic accounting equation?\nA. Assets = liability + owners’ equity\nB. Liability = assets + owners’ equity\nC. Owner’s equity = assets + liability\nD. Owner’s equity = liability − assets"
   },
   {
@@ -3160,7 +2944,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 113,
+    "questionNumber": 105,
     "question": "The ability to meet debts as they become due is known as _____.",
     "choices": [
       {
@@ -3181,7 +2965,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Solvency",
+    "explanation": "The ability to meet debts as they become due is known as Solvency.",
     "rawSnippet": "The ability to meet debts as they become due is known as _____.\nA. Solvency\nB. Insolvency\nC. Leverage\nD. Liquidity"
   },
   {
@@ -3189,7 +2973,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 114,
+    "questionNumber": 106,
     "question": "In what method of computing depreciation where it assumes that a sinking fund is established in which funds will accumulate for replacement purposes?",
     "choices": [
       {
@@ -3210,7 +2994,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Sinking fund method",
+    "explanation": "The correct answer is Sinking fund method.",
     "rawSnippet": "In what method of computing depreciation where it assumes that a sinking fund is established in which funds will accumulate for replacement purposes?\nA. Straight line method\nB. Sinking fund method\nC. Sum-of-year digit method\nD. Declining balance method"
   },
   {
@@ -3218,7 +3002,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 115,
+    "questionNumber": 107,
     "question": "What type of depreciation is due to the reduction in the demand for the function that the equipment or asset was designed to render?",
     "choices": [
       {
@@ -3239,7 +3023,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Functional depreciation D. Demand depreciation also describes the specific cause stated.",
+    "explanation": "Functional depreciation D. Demand depreciation also describes the specific cause stated.",
     "rawSnippet": "What type of depreciation is due to the reduction in the demand for the function that the equipment or asset was designed to render?\nA. Functional depreciation\nB. Design depreciation\nC. Physical depreciation\nD. Demand depreciation"
   },
   {
@@ -3247,7 +3031,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 116,
+    "questionNumber": 108,
     "question": "The unrecovered depreciation which results due to poor estimates as to the life of the equipment is called _____.",
     "choices": [
       {
@@ -3268,7 +3052,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Sunk cost",
+    "explanation": "The unrecovered depreciation which results due to poor estimates as to the life of the equipment is called Sunk cost.",
     "rawSnippet": "The unrecovered depreciation which results due to poor estimates as to the life of the equipment is called _____.\nA. Sunk cost\nB. Economic life\nC. In-place value\nD. Annuity"
   },
   {
@@ -3276,7 +3060,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 117,
+    "questionNumber": 109,
     "question": "In case of bankruptcy of a partnership,",
     "choices": [
       {
@@ -3297,7 +3081,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". The partners personal assets are attached to the debt of the partnership.",
+    "explanation": "The correct answer is The partners personal assets are attached to the debt of the partnership.",
     "rawSnippet": "In case of bankruptcy of a partnership,\nA. The partners are not liable for the liabilities of the partnership.\nB. The partnership assets (excluding the partners personal assets) only will be used to pay the liabilities.\nC. The partners personal assets are attached to the debt of the partnership.\nD. The partners May sell stock to generate additional capital."
   },
   {
@@ -3305,7 +3089,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 118,
+    "questionNumber": 110,
     "question": "What is the simplest form of business organization?",
     "choices": [
       {
@@ -3326,7 +3110,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Sole proprietorship",
+    "explanation": "The correct answer is Sole proprietorship.",
     "rawSnippet": "What is the simplest form of business organization?\nA. Sole proprietorship\nB. Partnership\nC. Enterprise\nD. Corporation"
   },
   {
@@ -3334,7 +3118,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 119,
+    "questionNumber": 111,
     "question": "A secondary book of accounts, the information of which is obtained from the journal.",
     "choices": [
       {
@@ -3355,7 +3139,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Ledger",
+    "explanation": "The correct answer is Ledger.",
     "rawSnippet": "A secondary book of accounts, the information of which is obtained from the journal.\nA. Worksheet\nB. Trial balance\nC. Balance sheet\nD. Ledger"
   },
   {
@@ -3363,7 +3147,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 120,
+    "questionNumber": 112,
     "question": "What are the common methods of computing depletion charge?",
     "choices": [
       {
@@ -3384,7 +3168,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Unit method and percentage method",
+    "explanation": "The correct answer is Unit method and percentage method.",
     "rawSnippet": "What are the common methods of computing depletion charge?\nA. Rational method and irrational method\nB. Conservative method and conventional method\nC. Unit method and percentage method\nD. Discrete method and depletion allowance method"
   },
   {
@@ -3392,7 +3176,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 121,
+    "questionNumber": 113,
     "question": "Defined as a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund.",
     "choices": [
       {
@@ -3413,7 +3197,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Bond",
+    "explanation": "Bond refers to a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund.",
     "rawSnippet": "Defined as a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund.\nA. T-bills\nB. Bond\nC. Securities\nD. Bank notes"
   },
   {
@@ -3421,7 +3205,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 122,
+    "questionNumber": 114,
     "question": "A company is planning to grow 30% during the next fiscal year. What has to increase if the company is to achieve their goal?",
     "choices": [
       {
@@ -3442,7 +3226,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Any combination of (A), (B) and (C)",
+    "explanation": "The correct answer is Any combination of (A), (B) and (C).",
     "rawSnippet": "A company is planning to grow 30% during the next fiscal year. What has to increase if the company is to achieve their goal?\nA. The ratio of sales to total assets\nB. The ratio of total assets to equity\nC. Equity\nD. Any combination of (A), (B) and (C)"
   },
   {
@@ -3450,7 +3234,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 123,
+    "questionNumber": 115,
     "question": "A method of depreciation whereby the amount to recover is spread uniformly over the estimated life of the asset in terms of the periods or units of output.",
     "choices": [
       {
@@ -3471,7 +3255,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Straight line method",
+    "explanation": "The correct answer is Straight line method.",
     "rawSnippet": "A method of depreciation whereby the amount to recover is spread uniformly over the estimated life of the asset in terms of the periods or units of output.\nA. Straight line method\nB. Sinking fund method\nC. Declining balance method\nD. SYD method"
   },
   {
@@ -3479,7 +3263,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 124,
+    "questionNumber": 116,
     "question": "In the formula, P = F(1 + i)⁻ⁿ, the factor (1 + i)⁻ⁿ is called _____.",
     "choices": [
       {
@@ -3500,14 +3284,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". single payment present worth factor",
+    "explanation": "In the formula, P = F(1 + i)⁻ⁿ, the factor (1 + i)⁻ⁿ is called single payment present worth factor.",
     "rawSnippet": "In the formula, P = F(1 + i)⁻ⁿ, the factor (1 + i)⁻ⁿ is called _____.\nA. sinking fund factor\nB. single payment present worth factor\nC. single payment compound amount factor\nD. capital recovery factor"
   },
   {
     "id": "econ-rev-73",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 125,
+    "questionNumber": 117,
     "question": "What refers to the reduction in the level of national income and output usually accompanied by a fall in the general price level?",
     "choices": [
       {
@@ -3534,7 +3318,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-74",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 126,
+    "questionNumber": 118,
     "question": "What is the main reason why the sinking fund method of computing depreciation is seldom used in the industry?",
     "choices": [
       {
@@ -3561,7 +3345,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-76",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 127,
+    "questionNumber": 119,
     "question": "Type of interest computed using the actual number of days in a given year, either 365 days or 366 days:",
     "choices": [
       {
@@ -3588,7 +3372,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-76",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 128,
+    "questionNumber": 120,
     "question": "If an investment company pays 6% compounded semiannually, how much should you deposit now to have $10,000 five years from now?",
     "choices": [
       {
@@ -3615,7 +3399,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-77",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 129,
+    "questionNumber": 121,
     "question": "Accumulate P5,000.00 for 10 years at 8% compounded quarterly.",
     "choices": [
       {
@@ -3642,7 +3426,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-78",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 130,
+    "questionNumber": 122,
     "question": "Find the rate of interest compounded annually that is the same as the rate of interest of 8% compounded quarterly.",
     "choices": [
       {
@@ -3670,7 +3454,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 131,
+    "questionNumber": 123,
     "question": "What refers to the amount of a product made available for sale?",
     "choices": [
       {
@@ -3691,14 +3475,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Supply",
+    "explanation": "Supply refers to the amount of a product made available for sale.",
     "rawSnippet": "What refers to the amount of a product made available for sale?\nA. Supply\nB. Demand\nC. Product\nD. Good"
   },
   {
     "id": "econ-prob-79",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 132,
+    "questionNumber": 124,
     "question": "A sum of $10,000 is invested for 20 years at 6%. Find the total amount accumulated when the interest is compounded monthly.",
     "choices": [
       {
@@ -3726,7 +3510,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 133,
+    "questionNumber": 125,
     "question": "What is a measure of the average speed with which accounts receivable are collected?",
     "choices": [
       {
@@ -3747,7 +3531,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Receivables turnover",
+    "explanation": "The correct answer is Receivables turnover.",
     "rawSnippet": "What is a measure of the average speed with which accounts receivable are collected?\nA. Profit margin ratio\nB. Receivables turnover\nC. Return of investment ratio\nD. Average age of receivables"
   },
   {
@@ -3755,7 +3539,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 134,
+    "questionNumber": 126,
     "question": "A type of stock that represents ownership and enjoys certain preferences than ordinary stock.",
     "choices": [
       {
@@ -3776,14 +3560,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Preferred stock",
+    "explanation": "The correct answer is Preferred stock.",
     "rawSnippet": "A type of stock that represents ownership and enjoys certain preferences than ordinary stock.\nA. Authorized stock\nB. Incorporator’s stock\nC. Preferred stock\nD. Presidential stock"
   },
   {
     "id": "econ-prob-81",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 135,
+    "questionNumber": 127,
     "question": "A firm charges 1.5% per month on credit purchases. Find the equivalent effective annual interest rate.",
     "choices": [
       {
@@ -3811,7 +3595,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 136,
+    "questionNumber": 128,
     "question": "A depreciation method where the value of an asset decreases at a constant rate.",
     "choices": [
       {
@@ -3832,7 +3616,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Declining balance “Constant rate” here means a constant percentage of the remaining book value.",
+    "explanation": "Declining balance “Constant rate” here means a constant percentage of the remaining book value.",
     "rawSnippet": "A depreciation method where the value of an asset decreases at a constant rate.\nA. Sum of the years-digit\nB. Straight-line\nC. Sinking fund\nD. Declining balance"
   },
   {
@@ -3840,7 +3624,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 137,
+    "questionNumber": 129,
     "question": "Kind of obligation which has no conditions attached.",
     "choices": [
       {
@@ -3861,14 +3645,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Gratuitous — intended answer among the choices. The precise term for an obligation without a condition is a pure obligation.",
+    "explanation": "Gratuitous — intended answer among the choices. The precise term for an obligation without a condition is a pure obligation.",
     "rawSnippet": "Kind of obligation which has no conditions attached.\nA. Deal\nB. Favor\nC. Gratuitous\nD. Agreement"
   },
   {
     "id": "econ-rev-84",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 138,
+    "questionNumber": 130,
     "question": "\"When one of the factors of production is fixed in quantity or is difficult to increase, increasing the other factors of production will result in a less than proportionate increase in output\":",
     "choices": [
       {
@@ -3895,7 +3679,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-85",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 139,
+    "questionNumber": 131,
     "question": "A type of bond to which are attached coupons indicating the interest due and the date when such interest is to be paid:",
     "choices": [
       {
@@ -3922,7 +3706,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-85",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 140,
+    "questionNumber": 132,
     "question": "If the nominal interest is 12% compounded continuously, compute the effective annual rate of interest.",
     "choices": [
       {
@@ -3950,7 +3734,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 141,
+    "questionNumber": 133,
     "question": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called _____.",
     "choices": [
       {
@@ -3971,41 +3755,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". payback period",
+    "explanation": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called payback period.",
     "rawSnippet": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called _____.\nA. payback period\nB. return of investment\nC. receivable turnover\nD. redeemed period"
-  },
-  {
-    "id": "econ-rev-86",
-    "subject": "Economics",
-    "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 142,
-    "question": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Payback period"
-      },
-      {
-        "id": "B",
-        "text": "Return on investment"
-      },
-      {
-        "id": "C",
-        "text": "Receivable turnover"
-      },
-      {
-        "id": "D",
-        "text": "Redeemed period"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": "Payback period is the time required for accumulated cash inflows to recover initial capital investment."
   },
   {
     "id": "econ-rev-87",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 143,
+    "questionNumber": 134,
     "question": "What refers to the residual value of a company's assets after all outside liabilities (shareholders excluded) have been allowed for?",
     "choices": [
       {
@@ -4032,7 +3789,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-89",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 144,
+    "questionNumber": 135,
     "question": "What refers to the buying or selling of goods between two or more markets in order to take profitable advantage of any differences in the prices quoted in these markets?",
     "choices": [
       {
@@ -4059,7 +3816,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-89",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 145,
+    "questionNumber": 136,
     "question": "If the nominal interest rate is 3% compounded continuously, find the worth of a $5,000 investment at the end of 10 years.",
     "choices": [
       {
@@ -4087,7 +3844,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 146,
+    "questionNumber": 137,
     "question": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block new comers form the industry is called _____.",
     "choices": [
       {
@@ -4108,14 +3865,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Cartel",
+    "explanation": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block new comers form the industry is called Cartel.",
     "rawSnippet": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block new comers form the industry is called _____.\nA. Monopoly\nB. Cartel\nC. Corporation\nD. Competitors"
   },
   {
     "id": "econ-prob-90",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 147,
+    "questionNumber": 138,
     "question": "How long will it take money to double if it is invested at 10% compounded continuously?",
     "choices": [
       {
@@ -4142,7 +3899,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-90",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 148,
+    "questionNumber": 139,
     "question": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block newcomers from the industry is called:",
     "choices": [
       {
@@ -4169,7 +3926,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-rev-91",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 149,
+    "questionNumber": 140,
     "question": "It is defined as the analysis and evaluation of the monetary consequences by using the theories and principles of economics to engineering applications, designs and projects:",
     "choices": [
       {
@@ -4197,7 +3954,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 150,
+    "questionNumber": 141,
     "question": "A market situation whereby there is only one buyer of an item for which there is no goods substitute.",
     "choices": [
       {
@@ -4218,14 +3975,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Monopsony",
+    "explanation": "The correct answer is Monopsony.",
     "rawSnippet": "A market situation whereby there is only one buyer of an item for which there is no goods substitute.\nA. Monopsony\nB. Oligopoly\nC. Monopoly\nD. Oligopsony"
   },
   {
     "id": "econ-rev-92",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 151,
+    "questionNumber": 142,
     "question": "A market situation whereby there is only one buyer of an item for which there is no good substitute:",
     "choices": [
       {
@@ -4253,7 +4010,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 152,
+    "questionNumber": 143,
     "question": "Two classifications of goods and services.",
     "choices": [
       {
@@ -4274,7 +4031,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Consumer and producer",
+    "explanation": "The correct answer is Consumer and producer.",
     "rawSnippet": "Two classifications of goods and services.\nA. Ready-made and made-to-order\nB. Consumer and producer\nC. Raw and finished\nD. Local and imported"
   },
   {
@@ -4282,7 +4039,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 153,
+    "questionNumber": 144,
     "question": "Another term for “acid-test ratio”.",
     "choices": [
       {
@@ -4303,7 +4060,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Quick ratio",
+    "explanation": "The correct answer is Quick ratio.",
     "rawSnippet": "Another term for “acid-test ratio”.\nA. Current ratio\nB. Profit margin ratio\nC. Quick ratio\nD. Price-earnings ratio"
   },
   {
@@ -4311,7 +4068,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 154,
+    "questionNumber": 145,
     "question": "Provisions in contract for construction to allow cost adjustments due to changes in cost of materials and statutory minimum wage.",
     "choices": [
       {
@@ -4332,14 +4089,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Escalatory clause",
+    "explanation": "The correct answer is Escalatory clause.",
     "rawSnippet": "Provisions in contract for construction to allow cost adjustments due to changes in cost of materials and statutory minimum wage.\nA. Escalatory clause\nB. Specifications\nC. General condition\nD. Quasi-delects"
   },
   {
     "id": "econ-rev-96",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 155,
+    "questionNumber": 146,
     "question": "What is another term for \"perfect competition\"?",
     "choices": [
       {
@@ -4367,7 +4124,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 156,
+    "questionNumber": 147,
     "question": "It is defined as the certificate of indebtedness of corporation usually for a period not less than 10 years and guaranteed by a mortgage on certain assets of a corporation.",
     "choices": [
       {
@@ -4388,7 +4145,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Bond",
+    "explanation": "The correct answer is Bond.",
     "rawSnippet": "It is defined as the certificate of indebtedness of corporation usually for a period not less than 10 years and guaranteed by a mortgage on certain assets of a corporation.\nA. Bond\nB. Stock\nC. T-bills\nD. Promissory note"
   },
   {
@@ -4396,7 +4153,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 157,
+    "questionNumber": 148,
     "question": "A document that shows proof of legal ownership of a financial security.",
     "choices": [
       {
@@ -4417,14 +4174,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Bond — intended answer among the choices. A security certificate is the more general term.",
+    "explanation": "Bond — intended answer among the choices. A security certificate is the more general term.",
     "rawSnippet": "A document that shows proof of legal ownership of a financial security.\nA. Bond\nB. Coupon\nC. Bank note\nD. Check"
   },
   {
     "id": "econ-prob-98",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 158,
+    "questionNumber": 149,
     "question": "Money borrowed today is to be paid in 6 equal payments at the end of 6 quarters. If the interest is 12% compounded quarterly, how much was initially borrowed if the quarterly payment is P2,000.00?",
     "choices": [
       {
@@ -4452,7 +4209,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Economics",
     "sourceFileName": "My Pasted Reviewer Notes",
     "sourceFileId": "pasted-preview-1791625232830",
-    "questionNumber": 159,
+    "questionNumber": 150,
     "question": "Specifies a definite portion of ownership of the capital of the corporation, all of each being alike in value.",
     "choices": [
       {
@@ -4473,14 +4230,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Stock",
+    "explanation": "The correct answer is Stock.",
     "rawSnippet": "Specifies a definite portion of ownership of the capital of the corporation, all of each being alike in value.\nA. Stock\nB. Same value\nC. Fair value\nD. Common stock"
   },
   {
     "id": "econ-rev-100",
     "subject": "Economics",
     "sourceFileName": "Engineering_Economics_Board_Review.pdf",
-    "questionNumber": 160,
+    "questionNumber": 151,
     "question": "What is the opposite of perfect competition?",
     "choices": [
       {
@@ -4507,7 +4264,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-100",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 161,
+    "questionNumber": 152,
     "question": "A piece of machinery can be bought for P10,000 cash or for P2,000 down and payments of P750 per year for 15 years. What is the annual interest rate for the time payments?",
     "choices": [
       {
@@ -4534,7 +4291,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-101",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 162,
+    "questionNumber": 153,
     "question": "Today, a businessman borrowed money to be paid in 10 equal payments for 10 quarters. If the interest rate is 10% compounded quarterly and the quarterly payment is P2,000, how much did he borrow?",
     "choices": [
       {
@@ -4561,7 +4318,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-104",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 163,
+    "questionNumber": 154,
     "question": "Anne purchased on monthly installment a P100,000 worth of land. The interest rate is 12% nominal and payable in 20 years. What is the monthly amortization?",
     "choices": [
       {
@@ -4588,7 +4345,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "id": "econ-prob-105",
     "subject": "Economics",
     "sourceFileName": "Practice_Problems_Engineering_Economics.pdf",
-    "questionNumber": 164,
+    "questionNumber": 155,
     "question": "What annuity is required over 12 years to equate with a future amount of P20,000? Assume i = 6% annually.",
     "choices": [
       {
@@ -4637,7 +4394,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". angle of repose",
+    "explanation": "When a block is place on an inclined plane, its steepest inclination to which the block will be in equilibrium is called angle of repose.",
     "rawSnippet": "When a block is place on an inclined plane, its steepest inclination to which the block will be in equilibrium is called _____.\nA. angle of friction\nB. angle of reaction\nC. angle of normal\nD. angle of repose"
   },
   {
@@ -4693,7 +4450,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". scalar quantities",
+    "explanation": "The correct answer is scalar quantities.",
     "rawSnippet": "Quantities which possess magnitude.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4749,7 +4506,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Dynamics",
+    "explanation": "The correct answer is Dynamics.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of rigid body in motion under the action of forces?\nA. Statics\nB. Kinematics\nC. Strength of materials\nD. Dynamics"
   },
   {
@@ -4778,7 +4535,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". vector quantities",
+    "explanation": "The correct answer is vector quantities.",
     "rawSnippet": "Quantities having both magnitude and direction.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4834,7 +4591,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". angle of lead",
+    "explanation": "The angle of inclined plane of a jack screw is also known as angle of lead.",
     "rawSnippet": "The angle of inclined plane of a jack screw is also known as _____.\nA. angle of thread\nB. angle of lead\nC. angle of friction\nD. angle of pitch"
   },
   {
@@ -4890,7 +4647,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". kinetics",
+    "explanation": "The correct answer is kinetics.",
     "rawSnippet": "Deals with the forces required to produced motion.\nA. statics\nB. dynamics\nC. kinematics\nD. kinetics"
   },
   {
@@ -4919,7 +4676,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". system of forces",
+    "explanation": "The correct answer is system of forces.",
     "rawSnippet": "When several forces act in a given situation.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4975,7 +4732,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Vector quantities",
+    "explanation": "Vector quantities refers to physical quantities that have a magnitude and a direction.",
     "rawSnippet": "What refers to physical quantities that have a magnitude and a direction?\nA. Scalar quantities\nB. Dot product\nC. Vector product\nD. Vector quantities"
   },
   {
@@ -5004,7 +4761,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Incline plane",
+    "explanation": "The correct answer is Incline plane.",
     "rawSnippet": "What is usually used to move heavy loads by applying a relatively small force that the weight of the load?\nA. Axle\nB. Incline plane\nC. Wedge\nD. Belt"
   },
   {
@@ -5060,7 +4817,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Unit vector",
+    "explanation": "The correct answer is Unit vector.",
     "rawSnippet": "What is a vector with a magnitude of one and with no unit?\nA. Single vector\nB. Dot vector\nC. Unit vector\nD. Scalar vector"
   },
   {
@@ -5089,7 +4846,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Parallelogram Law",
+    "explanation": "Two forces acting on a particle may be replaced by a single force called resultant which can be obtained by drawing diagonal of parallelogram which has the sides equal to the given forces. This statement is known as Parallelogram Law.",
     "rawSnippet": "Two forces acting on a particle may be replaced by a single force called resultant which can be obtained by drawing diagonal of parallelogram which has the sides equal to the given forces. This statement is known as _____.\nA. Pappus Propositions\nB. Principle of Transmissibility\nC. Parallelogram Law\nD. Varignon's Theorem"
   },
   {
@@ -5145,7 +4902,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". To describe the direction in space",
+    "explanation": "The correct answer is To describe the direction in space.",
     "rawSnippet": "What is the purpose of a unit vector?\nA. To describe the direction in space\nB. To indicate a magnitude without reference to direction\nC. To serve as a comparison with other vectors\nD. To set a standard among vectors"
   },
   {
@@ -5174,7 +4931,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". magnitude",
+    "explanation": "The correct answer is magnitude.",
     "rawSnippet": "It is the intensity of the force.\nA. magnitude\nB. direction\nC. mass\nD. force"
   },
   {
@@ -5230,7 +4987,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Cross product",
+    "explanation": "The correct answer is Cross product.",
     "rawSnippet": "What is another term for vector product of two vectors?\nA. Cross product\nB. Dot product\nC. Vector product\nD. Plus product"
   },
   {
@@ -5259,7 +5016,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". All of the above",
+    "explanation": "The correct answer is All of the above.",
     "rawSnippet": "What assumption is used in the analysis of uniform flexible cables?\nA. Cable is flexible.\nB. Cable is inextensible.\nC. The weight of the cable is very small when compared to the loads supported by the cable.\nD. All of the above"
   },
   {
@@ -5288,7 +5045,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". equal to 0",
+    "explanation": "The vector product of two parallel or antiparallel vectors is always equal to 0.",
     "rawSnippet": "The vector product of two parallel or antiparallel vectors is always _____.\nA. equal 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
   {
@@ -5317,7 +5074,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". force",
+    "explanation": "The correct answer is force.",
     "rawSnippet": "The action of one body on another body which changes or tends to change the motion of the body acted on.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -5346,7 +5103,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". equal to 0",
+    "explanation": "The vector product of any vector with itself is equal to 0.",
     "rawSnippet": "The vector product of any vector with itself is _____.\nA. equal to 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
   {
@@ -5375,7 +5132,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". parallel, non-coplanar",
+    "explanation": "The correct answer is parallel, non-coplanar.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and not all lie in the same plane.\nA. collinear, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. nonconcurrent, non-coplanar"
   },
   {
@@ -5404,7 +5161,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Time",
+    "explanation": "The correct answer is Time.",
     "rawSnippet": "Which is NOT a vector quantity?\nA. Displacement\nB. Acceleration\nC. Velocity\nD. Time"
   },
   {
@@ -5433,7 +5190,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Kinematics",
+    "explanation": "The correct answer is Kinematics.",
     "rawSnippet": "Deals with the geometry of motion.\nA. statics\nB. Kinematics\nC. dynamics\nD. Kinetics"
   },
   {
@@ -5462,7 +5219,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Scalar quantities",
+    "explanation": "Scalar quantities refers to physical quantities that are completely specified by just a number and a unit or physical quantities that have magnitudes only.",
     "rawSnippet": "What refers to physical quantities that are completely specified by just a number and a unit or physical quantities that have magnitudes only?\nA. Scalar quantities\nB. Dot product\nC. Vector product\nD. Vector quantities"
   },
   {
@@ -5491,7 +5248,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". linear spring",
+    "explanation": "The correct answer is linear spring.",
     "rawSnippet": "A mechanical device that can which exerts a force along its line of action and proportional to its extension.\nA. equilibrium condition in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -5520,7 +5277,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Speed",
+    "explanation": "The correct answer is Speed.",
     "rawSnippet": "Which of the following is a scalar quantity?\nA. Speed\nB. Displacement\nC. Velocity\nD. Acceleration"
   },
   {
@@ -5549,7 +5306,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". 1",
+    "explanation": "The correct answer is 1.",
     "rawSnippet": "A link or cable support has how many reactions?\nA. None\nB. 1\nC. 2\nD. 3"
   },
   {
@@ -5578,7 +5335,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Dot product",
+    "explanation": "The correct answer is Dot product.",
     "rawSnippet": "What is another term for a scalar product of two vectors?\nA. Cross product\nB. Dot product\nC. Vector product\nD. Plus product"
   },
   {
@@ -5607,7 +5364,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". 2n − 3",
+    "explanation": "A framed structure is perfect if it contains member equal to 2n − 3.",
     "rawSnippet": "A framed structure is perfect if it contains member equal to _____.\nA. 2n − 3\nB. n − 1\nC. 2n − 1\nD. n − 2"
   },
   {
@@ -5636,7 +5393,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". equal to 0",
+    "explanation": "The scalar product of two perpendicular vectors is always equal to 0.",
     "rawSnippet": "The scalar product of two perpendicular vectors is always _____.\nA. equal to 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
   {
@@ -5665,7 +5422,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". nonconcurrent, non-coplanar",
+    "explanation": "The correct answer is nonconcurrent, non-coplanar.",
     "rawSnippet": "The action lines of all the forces of the system are all not in the same plane, but they are all not parallel and do not all intersect at a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. nonconcurrent, non-coplanar"
   },
   {
@@ -5694,7 +5451,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". force",
+    "explanation": "The correct answer is force.",
     "rawSnippet": "Is the action exerted by one body upon another.\nA. mass\nB. rigid body\nC. force\nD. static body"
   },
   {
@@ -5723,7 +5480,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Principle of Transmissibility",
+    "explanation": "The condition of equilibrium or motion of a rigid body remains unchanged if a force acting at a given point of the rigid body is replaced by a force of same magnitude and direction but acting at another point provided that the two forces have the same line of action. This statement is known as Principle of Transmissibility.",
     "rawSnippet": "The condition of equilibrium or motion of a rigid body remains unchanged if a force acting at a given point of the rigid body is replaced by a force of same magnitude and direction but acting at another point provided that the two forces have the same line of action. This statement is known as _____.\nA. Pappus Propositions\nB. Principle of Transmissibility\nC. Parallelogram Law\nD. Varignon's Theorem"
   },
   {
@@ -5752,7 +5509,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Force",
+    "explanation": "Force refers to any influence that can change the velocity of an object.",
     "rawSnippet": "What is defined as any influence that can change the velocity of an object?\nA. Impulse\nB. Energy\nC. Force\nD. Work"
   },
   {
@@ -5781,7 +5538,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". μs ≥ tan θ",
+    "explanation": "A block of mass rests on a plane inclined at an angle θ with the horizontal. It follows that the coefficient of static friction between the block and plane is μs ≥ tan θ.",
     "rawSnippet": "A block of mass rests on a plane inclined at an angle θ with the horizontal. It follows that the coefficient of static friction between the block and plane is _____.\nA. μs ≤ θ\nB. μs = tan θ\nC. μs ≤ tan θ\nD. μs ≥ tan θ"
   },
   {
@@ -5810,7 +5567,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". newton B. pounds is also a unit of force when referring to pound-force.",
+    "explanation": "newton B. pounds is also a unit of force when referring to pound-force.",
     "rawSnippet": "A unit of force.\nA. meter squared\nB. pounds\nC. pascal\nD. newton"
   },
   {
@@ -5839,7 +5596,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". non concurrent, coplanar",
+    "explanation": "The correct answer is non concurrent, coplanar.",
     "rawSnippet": "The action lines of all the forces of the system are in the same plane, but they are not parallel and don't intersect in a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -5868,7 +5625,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parallelogram law",
+    "explanation": "The correct answer is parallelogram law.",
     "rawSnippet": "It is used to obtain the magnitude and direction of the resultant of any two concurrent forces.\nA. parallelogram law\nB. resolution\nC. composition\nD. triangle law"
   },
   {
@@ -5897,7 +5654,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Fixed support",
+    "explanation": "The correct answer is Fixed support.",
     "rawSnippet": "Which support has one moment?\nA. Frictionless guide\nB. Pin connection\nC. Fixed support\nD. Roller"
   },
   {
@@ -5926,7 +5683,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". non-conservative",
+    "explanation": "When a force causes a change in mechanical energy when it moves around a closed path, it is said to be non-conservative.",
     "rawSnippet": "When a force causes a change in mechanical energy when it moves around a closed path, it is said to be _____.\nA. natural\nB. virtual\nC. conservative\nD. non-conservative"
   },
   {
@@ -5955,7 +5712,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". composition",
+    "explanation": "The process of replacing a force system by its resultant is composition.",
     "rawSnippet": "The process of replacing a force system by its resultant is _____.\nA. composition\nB. resolution\nC. components\nD. graphical"
   },
   {
@@ -5984,7 +5741,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Vector",
+    "explanation": "The correct answer is Vector.",
     "rawSnippet": "What is an arrowed line whose length is proportional to the magnitude of some vector quantity and whose direction is that of the quantity?\nA. Vector diagram\nB. Component\nC. Vector\nD. Resultant"
   },
   {
@@ -6013,7 +5770,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". parallel, coplanar",
+    "explanation": "The correct answer is parallel, coplanar.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and all lie in the same plane.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -6042,7 +5799,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Vector diagram",
+    "explanation": "The correct answer is Vector diagram.",
     "rawSnippet": "What is scaled drawing of the various forces, velocities or other vector quantities involved in the motion of a body?\nA. Vector diagram\nB. Component\nC. Vector\nD. Resultant"
   },
   {
@@ -6071,7 +5828,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Dimensional analysis",
+    "explanation": "Dimensional analysis refers to the branch of mathematics which deals with the dimensions of quantities.",
     "rawSnippet": "What refers to the branch of mathematics which deals with the dimensions of quantities?\nA. Unit analysis\nB. Dimensional analysis\nC. System analysis\nD. Homogeneity analysis"
   },
   {
@@ -6100,7 +5857,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". resultant",
+    "explanation": "The correct answer is resultant.",
     "rawSnippet": "The simplest force system that can replace the original system without changing its external effect.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -6129,7 +5886,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parallelogram law",
+    "explanation": "The correct answer is parallelogram law.",
     "rawSnippet": "The resultant of two forces which is the diagonal formed on a parallelogram of these forces.\nA. parallelogram law\nB. equilibrium law\nC. composition law\nD. action and reaction"
   },
   {
@@ -6158,7 +5915,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". composition",
+    "explanation": "The correct answer is composition.",
     "rawSnippet": "The process of replacing a force system by its resultant.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -6187,7 +5944,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". action and reaction",
+    "explanation": "The correct answer is action and reaction.",
     "rawSnippet": "Any pressure from the support causes an equal and opposite pressure from the support.\nA. parallelogram law\nB. equilibrium law\nC. composition law\nD. action and reaction"
   },
   {
@@ -6216,7 +5973,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". graphical",
+    "explanation": "The correct answer is graphical.",
     "rawSnippet": "A pictorial representation in solving a system.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -6245,7 +6002,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Statics",
+    "explanation": "The correct answer is Statics.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of stationary rigid body?\nA. Statics\nB. Kinetics\nC. Kinematics\nD. Dynamics"
   },
   {
@@ -6274,7 +6031,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parallelogram law",
+    "explanation": "The correct answer is parallelogram law.",
     "rawSnippet": "Is used to obtain the magnitude and direction of the resultant of any two concurrent forces.\nA. parallelogram law\nB. cosine law\nC. resolution\nD. triangle law"
   },
   {
@@ -6303,7 +6060,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". coefficient of rolling friction",
+    "explanation": "Rolling resistance coefficient is a dimensionless quantity also known as coefficient of rolling friction.",
     "rawSnippet": "Rolling resistance coefficient is a dimensionless quantity also known as _____.\nA. coefficient of rolling friction\nB. coefficient of friction\nC. coefficient of resistance\nD. rolling friction constant"
   },
   {
@@ -6332,7 +6089,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". weight",
+    "explanation": "Center of gravity for a two dimensional body is the point at which the entire weight acts regardless of the orientation of the body.",
     "rawSnippet": "Center of gravity for a two dimensional body is the point at which the entire _____ acts regardless of the orientation of the body.\nA. mass\nB. weight\nC. mass and weight\nD. volume"
   },
   {
@@ -6361,7 +6118,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". both A and B",
+    "explanation": "The correct answer is both A and B.",
     "rawSnippet": "Which of the following affects the magnitude of rolling resistance an object generates?\nA. type of material\nB. dimensions\nC. both A and B\nD. none of the above"
   },
   {
@@ -6390,7 +6147,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Statically indeterminate",
+    "explanation": "When a body has more supports than are necessary to maintain equilibrium, the body is said to be Statically indeterminate.",
     "rawSnippet": "When a body has more supports than are necessary to maintain equilibrium, the body is said to be _____.\nA. In static equilibrium\nB. In dynamic equilibrium\nC. Statically equilibrium\nD. Statically indeterminate"
   },
   {
@@ -6419,7 +6176,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". mechanical advantage",
+    "explanation": "The correct answer is mechanical advantage.",
     "rawSnippet": "It is the factor by which a mechanism multiplies the force put into it.\nA. factor of safety\nB. mechanical factor\nC. mechanical advantage\nD. mechanical coefficient"
   },
   {
@@ -6448,7 +6205,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". concurrent, coplanar",
+    "explanation": "The correct answer is concurrent, coplanar.",
     "rawSnippet": "The action lines of all the forces are in the same plane and intersect a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -6477,7 +6234,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Method of Section",
+    "explanation": "The correct answer is Method of Section.",
     "rawSnippet": "What method of determining the bar force of a truss if only few members are required to be studied?\nA. Method of Joints\nB. Method of Section\nC. Maxwell's diagram\nD. Method of superposition"
   },
   {
@@ -6506,7 +6263,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". parallel, coplanar",
+    "explanation": "The correct answer is parallel, coplanar.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and lie in the same plane.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -6535,7 +6292,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". the centroid of the area of the loading curve",
+    "explanation": "The correct answer is the centroid of the area of the loading curve.",
     "rawSnippet": "The resulting force of a distributed load is always acting at:\nA. the center of the beam subjected to the distributed load\nB. the centroid of the area of the loading curve\nC. the 1/3 point from the higher intensity side of the loading curve\nD. the 2/3 point from the higher intensity side of the loading curve"
   },
   {
@@ -6564,7 +6321,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". concurrent, non-coplanar",
+    "explanation": "The correct answer is concurrent, non-coplanar.",
     "rawSnippet": "The action lines of all the forces are not in the same plane and intersect a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. non-concurrent, non-coplanar, non-parallel"
   },
   {
@@ -6593,7 +6350,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". moment of force",
+    "explanation": "The correct answer is moment of force.",
     "rawSnippet": "It is used to check the results obtained from the resolution and composition method.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6622,7 +6379,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Equilibrium",
+    "explanation": "The correct answer is Equilibrium.",
     "rawSnippet": "A condition in which all acting influences are canceled by others, resulting in a stable, balanced, or unchanging system.\nA. Chemical Equilibrium\nB. invariant mass\nC. Equilibrium\nD. Gravitation"
   },
   {
@@ -6651,7 +6408,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". the area under the loading curve",
+    "explanation": "The correct answer is the area under the loading curve.",
     "rawSnippet": "The resultant force of a distributed load is always equal to:\nA. twice the area under the loading curve\nB. half the area under the loading curve\nC. the area under the loading curve\nD. one-fourth the area under the loading curve"
   },
   {
@@ -6680,7 +6437,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". translational equilibrium",
+    "explanation": "When the forces that act on an object have a vector sum of zero, the object is said to be in translational equilibrium.",
     "rawSnippet": "When the forces that act on an object have a vector sum of zero, the object is said to be in _____.\nA. unstable equilibrium\nB. stable equilibrium\nC. rotational equilibrium\nD. translational equilibrium"
   },
   {
@@ -6709,7 +6466,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". moment of force",
+    "explanation": "The correct answer is moment of force.",
     "rawSnippet": "Is a vector quantity that is represented as a vector along the moment axis.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6738,7 +6495,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Varignon’s theorem",
+    "explanation": "The correct answer is Varignon’s theorem.",
     "rawSnippet": "“The sum of individual moments about a point caused by multiple concurrent forces is equal to the moment of the resultant force about the same point”. This statement is known as:\nA. Pappus proposition\nB. Varignon’s theorem\nC. D’ Alembert’s principle\nD. Newton’s method"
   },
   {
@@ -6767,7 +6524,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". equilibrium equation for a particle",
+    "explanation": "The correct answer is equilibrium equation for a particle.",
     "rawSnippet": "A particle is in equilibrium if the resultant of all forces acting on the particle is equal to zero.\nA. resolution of the vector\nB. addition of the vector\nC. equilibrium equation for a particle\nD. particle"
   },
   {
@@ -6796,7 +6553,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Principle of Transmissibility",
+    "explanation": "The correct answer is Principle of Transmissibility.",
     "rawSnippet": "“The condition of equilibrium or motion of a rigid body remains unchanged if a force acting at a given point of the rigid body is replaced by a force of same magnitude and direction, but acting at a different point provided that the two forces have the same line of action”. This statement is known as:\nA. Pappus Propositions\nB. Principle of Transmissibility\nC. Parallelogram Law\nD. Varignon’s Theorem"
   },
   {
@@ -6825,7 +6582,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parabolic cable",
+    "explanation": "When the loading is distributed along the cable the cable is analyzed as a parabolic cable.",
     "rawSnippet": "When the loading is distributed along the cable the cable is analyzed as a _____.\nA. parabolic cable\nB. catenary\nC. projectile\nD. rotation"
   },
   {
@@ -6854,7 +6611,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". All of the above In A, the vector sum of two forces must be equal and opposite to the third force.",
+    "explanation": "All of the above In A, the vector sum of two forces must be equal and opposite to the third force.",
     "rawSnippet": "When will a three-force member be considered in equilibrium?\nA. When the sum of the two forces is equal to the third force.\nB. When they are concurrent or parallel.\nC. When they are coplanar.\nD. All of the above"
   },
   {
@@ -6883,7 +6640,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". component",
+    "explanation": "The correct answer is component.",
     "rawSnippet": "Means that three or more of two coplanar forces having the given force as the resultant.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6912,7 +6669,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Polygon Law",
+    "explanation": "“If a number of concurrent forces acting simultaneously on a particle, are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of this system of forces is represented by the closing side of the polygon in the opposite in the opposite order”. This statement is known as Polygon Law.",
     "rawSnippet": "“If a number of concurrent forces acting simultaneously on a particle, are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of this system of forces is represented by the closing side of the polygon in the opposite in the opposite order”. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Polygon Law\nD. Triangle Law of Forces"
   },
   {
@@ -6941,7 +6698,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parabolic cable",
+    "explanation": "When the loading is uniformly distributed horizontally the cable is analyzed as parabolic cable.",
     "rawSnippet": "When the loading is uniformly distributed horizontally the cable is analyzed as _____.\nA. parabolic cable\nB. catenary\nC. projectile\nD. rotation"
   },
   {
@@ -6970,7 +6727,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". either of the above",
+    "explanation": "The correct answer is either of the above.",
     "rawSnippet": "It is the resistance that occurs when a round object such as a ball or tire rolls on a flat surface.\nA. rolling resistance\nB. rolling friction\nC. rolling torque\nD. either of the above"
   },
   {
@@ -6999,7 +6756,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". continuous beam — intended answer. A continuous beam has more than two supports; the printed question is imprecise.",
+    "explanation": "continuous beam — intended answer. A continuous beam has more than two supports; the printed question is imprecise.",
     "rawSnippet": "A beam with more than one supports is called _____.\nA. cantilever beam\nB. complex beam\nC. simple beam\nD. continuous beam"
   },
   {
@@ -7028,7 +6785,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". plane truss",
+    "explanation": "A truss consisting of coplanar members is called plane truss.",
     "rawSnippet": "A truss consisting of coplanar members is called _____.\nA. plane truss\nB. ideal truss\nC. space truss\nD. rigid truss"
   },
   {
@@ -7057,7 +6814,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". 0.002 – 0.0010",
+    "explanation": "The rolling resistance coefficient of rail road steel wheel on steel rail is 0.002 – 0.0010.",
     "rawSnippet": "The rolling resistance coefficient of rail road steel wheel on steel rail is _____.\nA. 0.002 – 0.0010\nB. 0.005\nC. 0.02\nD. 0.3"
   },
   {
@@ -7086,7 +6843,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". 1",
+    "explanation": "The correct answer is 1.",
     "rawSnippet": "A roller support has how many reactions?\nA. None\nB. 2\nC. 1\nD. 3"
   },
   {
@@ -7115,7 +6872,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". may be greater than or less than The question does not specify the friction condition. For static equilibrium, the angle is less than or equal to the angle of friction.",
+    "explanation": "may be greater than or less than The question does not specify the friction condition. For static equilibrium, the angle is less than or equal to the angle of friction.",
     "rawSnippet": "In the analysis of friction, the angle between the normal force and the resultant force _____ the angle of friction.\nA. may be greater than or less than\nB. is greater than\nC. is less than\nD. is equal to"
   },
   {
@@ -7144,7 +6901,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". space truss",
+    "explanation": "A truss consisting of non-coplanar members is called space truss.",
     "rawSnippet": "A truss consisting of non-coplanar members is called _____.\nA. plane truss\nB. space truss\nC. ideal truss\nD. rigid truss"
   },
   {
@@ -7173,7 +6930,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". 2 reactions and 1 moment",
+    "explanation": "The correct answer is 2 reactions and 1 moment.",
     "rawSnippet": "A build-in, fixed support has how many reactions and moment?\nA. 1 reaction and 1 moment\nB. 2 reactions and 1 moment\nC. 1 reaction and 2 moments\nD. 2 reactions and no moment"
   },
   {
@@ -7231,7 +6988,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". resolution",
+    "explanation": "The correct answer is resolution.",
     "rawSnippet": "An analytical method of finding the resultant of concurrent forces.\nA. parallelogram law\nB. resolution\nC. cosine law\nD. triangle law"
   },
   {
@@ -7260,7 +7017,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". moment",
+    "explanation": "The correct answer is moment.",
     "rawSnippet": "The tendency of a force to cause rotation about a specific point or axis is called the:\nA. shear force\nB. resultant force\nC. tension\nD. moment"
   },
   {
@@ -7289,7 +7046,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Kinematics",
+    "explanation": "The correct answer is Kinematics.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of rigid body in motion without reference to the force that causes the motion?\nA. Statics\nB. Kinematics\nC. Kinetics\nD. Dynamics"
   },
   {
@@ -7318,7 +7075,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". A beam supported only at its ends.",
+    "explanation": "The correct answer is A beam supported only at its ends.",
     "rawSnippet": "What is a simple beam?\nA. A beam supported only at its ends.\nB. A beam supported with a fixed support at one end and movable support at the other.\nC. A beam with more than two supports.\nD. A beam with only one support at the midspan."
   },
   {
@@ -7347,7 +7104,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". friction",
+    "explanation": "The correct answer is friction.",
     "rawSnippet": "It may be defined as the contact resistance exerted by one body upon a second body when the second body moves or tends to move past the first body.\nA. resistance\nB. friction\nC. pressure\nD. motion"
   },
   {
@@ -7376,7 +7133,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". resultant of concurrent, coplanar",
+    "explanation": "The correct answer is resultant of concurrent, coplanar.",
     "rawSnippet": "The determination of the resultant of 3 or more concurrent forces that are not collinear.\nA. resultant of concurrent, coplanar\nB. resolution of concurrent, coplanar\nC. non concurrent, coplanar\nD. collinear, coplanar"
   },
   {
@@ -7405,7 +7162,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Impending motion",
+    "explanation": "The correct answer is Impending motion.",
     "rawSnippet": "What term describes the condition when the applied external force reaches the maximum possible static friction force, and the body is on the verge of moving?\nA. Impending motion\nB. Limiting load\nC. Dynamic Equilibrium\nD. Sliding Regime"
   },
   {
@@ -7434,7 +7191,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". addition by the triangle and by the parallelogram law described by the figure.",
+    "explanation": "The correct answer is addition by the triangle and by the parallelogram law described by the figure.",
     "rawSnippet": "Addition of non-concurrent, coplanar.\nA. addition by the triangle and by the parallelogram law described by the figure.\nB. resolution of the vector\nC. addition of the vector\nD. equilibrium equation for a particle"
   },
   {
@@ -7463,7 +7220,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Adjusts to equal the applied force, up to a limit.",
+    "explanation": "The correct answer is Adjusts to equal the applied force, up to a limit.",
     "rawSnippet": "The static friction is classified as a reactive force because it:\nA. Is always constant.\nB. Is independent of the applied force.\nC. Acts perpendicular to the surface.\nD. Adjusts to equal the applied force, up to a limit."
   },
   {
@@ -7492,7 +7249,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". slack side",
+    "explanation": "The correct answer is slack side.",
     "rawSnippet": "The term used to describe the side of the belt that requires the least amount of holding force to prevent it from slipping.\nA. slack side\nB. resistance side\nC. tight side\nD. drive side"
   },
   {
@@ -7521,7 +7278,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Double",
+    "explanation": "The correct answer is Double.",
     "rawSnippet": "If the normal load W acting on a rolling wheel is doubled, the rolling resistance force F will generally:\nA. Double\nB. Remain unchanged\nC. Quadruple\nD. Halved"
   },
   {
@@ -7550,7 +7307,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". principle of transmissibility of a force",
+    "explanation": "The correct answer is principle of transmissibility of a force.",
     "rawSnippet": "The external effect of a force on a rigid body is the same for all points of application along its line of action.\nA. principle of transmissibility of a force\nB. axioms of mechanics\nC. characteristics of force\nD. Scalar and vector quantities"
   },
   {
@@ -7579,44 +7336,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". parallelogram law",
+    "explanation": "The correct answer is parallelogram law.",
     "rawSnippet": "The resultant of two forces is the diagonal formed on two vectors of those forces.\nA. parallelogram law\nB. resolution\nC. cosine law\nD. triangle law"
-  },
-  {
-    "id": "pasted-preview-1791624989167-60-1791624989172-f1q1z",
-    "subject": "Mechanics 1",
-    "sourceFileName": "My Pasted Reviewer Notes",
-    "sourceFileId": "pasted-preview-1791624989167",
-    "questionNumber": 104,
-    "question": "When the loading is uniformly distributed horizontally the cable is analyzed as.",
-    "choices": [
-      {
-        "id": "A",
-        "text": "parabolic cable"
-      },
-      {
-        "id": "B",
-        "text": "projectile"
-      },
-      {
-        "id": "C",
-        "text": "catenary"
-      },
-      {
-        "id": "D",
-        "text": "rotation"
-      }
-    ],
-    "correctChoiceId": "A",
-    "explanation": ". parabolic cable",
-    "rawSnippet": "When the loading is uniformly distributed horizontally the cable is analyzed as.\nA. parabolic cable\nB. projectile\nC. catenary\nD. rotation"
   },
   {
     "id": "pasted-1791624472555-60-1791624472559-x5uay",
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 105,
+    "questionNumber": 104,
     "question": "Is the action exerted by one body on another body.",
     "choices": [
       {
@@ -7637,7 +7365,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". force",
+    "explanation": "The correct answer is force.",
     "rawSnippet": "Is the action exerted by one body on another body.\nA. mass\nB. static body\nC. rigid body\nD. force"
   },
   {
@@ -7645,7 +7373,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 106,
+    "questionNumber": 105,
     "question": "The forces are in equilibrium only when equal in magnitude, opposite in direction and collinear in action.",
     "choices": [
       {
@@ -7666,7 +7394,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". axioms of mechanics",
+    "explanation": "The correct answer is axioms of mechanics.",
     "rawSnippet": "The forces are in equilibrium only when equal in magnitude, opposite in direction and collinear in action.\nA. principle of transmissibility of a force\nB. axioms of mechanics\nC. characteristics of force\nD. Scalar and vector quantities"
   },
   {
@@ -7674,7 +7402,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 107,
+    "questionNumber": 106,
     "question": "It is a scalar quantity.",
     "choices": [
       {
@@ -7695,14 +7423,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "rawSnippet": "It is a scalar quantity.\nA. appears to act on the object from which the force of gravity comes.\nB. center of gravity\nC. centroid\nD. center of mass Answer: No correct choice as printed. The choices do not identify a scalar quantity."
+    "rawSnippet": "It is a scalar quantity.\nA. appears to act on the object from which the force of gravity comes.\nB. center of gravity\nC. centroid\nD. center of mass Answer: No correct choice as printed. The choices do not identify a scalar quantity.",
+    "explanation": "The correct answer is appears to act on the object from which the force of gravity comes."
   },
   {
     "id": "pasted-1791624472555-63-1791624472559-7y27x",
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 108,
+    "questionNumber": 107,
     "question": "All of the above are correct.",
     "choices": [
       {
@@ -7731,7 +7460,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 109,
+    "questionNumber": 108,
     "question": "No amount of mathematically tricks.",
     "choices": [
       {
@@ -7760,7 +7489,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 110,
+    "questionNumber": 109,
     "question": "Which of the following statements about friction is FALSE?",
     "choices": [
       {
@@ -7781,7 +7510,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". The total frictional force is dependent on the area of contact between the two surfaces. D is also incorrect as written; static friction can equal the force it balances.",
+    "explanation": "The total frictional force is dependent on the area of contact between the two surfaces. D is also incorrect as written; static friction can equal the force it balances.",
     "rawSnippet": "Which of the following statements about friction is FALSE?\nA. The frictional force acting on a surface is such as to oppose the tendency of one surface to slide relative to the other.\nB. The total frictional force is dependent on the area of contact between the two surfaces.\nC. The magnitude of the frictional force is equal to the force tending to move the body till the limiting value is reached.\nD. Frictional force is always less than the force required to prevent motion."
   },
   {
@@ -7789,7 +7518,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 111,
+    "questionNumber": 110,
     "question": "Is one whose space is not confined to be associated with a unique line in space.",
     "choices": [
       {
@@ -7810,7 +7539,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". free vector",
+    "explanation": "The correct answer is free vector.",
     "rawSnippet": "Is one whose space is not confined to be associated with a unique line in space.\nA. sliding vector\nB. free vector\nC. fixed vector\nD. none of the above"
   },
   {
@@ -7818,7 +7547,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 112,
+    "questionNumber": 111,
     "question": "What is a concurrent force system?",
     "choices": [
       {
@@ -7839,7 +7568,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". All forces act at the same point.",
+    "explanation": "The correct answer is All forces act at the same point.",
     "rawSnippet": "What is a concurrent force system?\nA. All forces act at the same point.\nB. All forces have the same line of action.\nC. All forces are parallel with one another.\nD. All forces are in the same plane."
   },
   {
@@ -7847,7 +7576,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 113,
+    "questionNumber": 112,
     "question": "The action lines of all the forces are in the same plane and intersect at a common point.",
     "choices": [
       {
@@ -7868,7 +7597,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". concurrent, coplanar",
+    "explanation": "The correct answer is concurrent, coplanar.",
     "rawSnippet": "The action lines of all the forces are in the same plane and intersect at a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -7876,7 +7605,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 114,
+    "questionNumber": 113,
     "question": "What refers to a pair of equal, opposite and parallel forces?",
     "choices": [
       {
@@ -7897,7 +7626,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Couple",
+    "explanation": "Couple refers to a pair of equal, opposite and parallel forces.",
     "rawSnippet": "What refers to a pair of equal, opposite and parallel forces?\nA. Couple\nB. Moment\nC. Torque\nD. All of the above"
   },
   {
@@ -7905,7 +7634,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 115,
+    "questionNumber": 114,
     "question": "Quantities which possess magnitude but require two or more directional aspects.",
     "choices": [
       {
@@ -7926,7 +7655,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". tensors",
+    "explanation": "The correct answer is tensors.",
     "rawSnippet": "Quantities which possess magnitude but require two or more directional aspects.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -7934,7 +7663,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 116,
+    "questionNumber": 115,
     "question": "The action lines of all the forces are not in the same plane and intersect at a common point.",
     "choices": [
       {
@@ -7955,7 +7684,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". concurrent, non-coplanar",
+    "explanation": "The correct answer is concurrent, non-coplanar.",
     "rawSnippet": "The action lines of all the forces are not in the same plane and intersect at a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. non-concurrent, non-coplanar"
   },
   {
@@ -7963,7 +7692,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 117,
+    "questionNumber": 116,
     "question": "A mechanical device that can only transmit a tensile force along itself.",
     "choices": [
       {
@@ -7984,7 +7713,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". string or cable",
+    "explanation": "The correct answer is string or cable.",
     "rawSnippet": "A mechanical device that can only transmit a tensile force along itself.\nA. equilibrium equation in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -7992,7 +7721,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 118,
+    "questionNumber": 117,
     "question": "A built-in, fixed support has how many reactions and moment?",
     "choices": [
       {
@@ -8013,7 +7742,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". 2 reactions and 1 moment",
+    "explanation": "The correct answer is 2 reactions and 1 moment.",
     "rawSnippet": "A built-in, fixed support has how many reactions and moment?\nA. 1 reaction and 1 moment\nB. 2 reactions and 1 moment\nC. 1 reaction and 2 moments\nD. 2 reactions and no moments"
   },
   {
@@ -8021,7 +7750,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 119,
+    "questionNumber": 118,
     "question": "A fixed body is the property of a body which determines its resistance to change in motion.",
     "choices": [
       {
@@ -8042,7 +7771,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". mass",
+    "explanation": "The correct answer is mass.",
     "rawSnippet": "A fixed body is the property of a body which determines its resistance to change in motion.\nA. rigid body\nB. force\nC. mass\nD. static body"
   },
   {
@@ -8050,7 +7779,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 120,
+    "questionNumber": 119,
     "question": "A specific amount of matter all particles of which remain at fixed distance to each other.",
     "choices": [
       {
@@ -8071,7 +7800,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". rigid body",
+    "explanation": "The correct answer is rigid body.",
     "rawSnippet": "A specific amount of matter all particles of which remain at fixed distance to each other.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -8079,7 +7808,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 121,
+    "questionNumber": 120,
     "question": "Deals with the forces required to produce motion.",
     "choices": [
       {
@@ -8100,7 +7829,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". kinetics",
+    "explanation": "The correct answer is kinetics.",
     "rawSnippet": "Deals with the forces required to produce motion.\nA. statics\nB. Kinematics\nC. dynamics\nD. kinetics"
   },
   {
@@ -8108,7 +7837,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 122,
+    "questionNumber": 121,
     "question": "Is a definite amount of matter the parts of which are fixed in position relative to one another.",
     "choices": [
       {
@@ -8129,7 +7858,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". rigid body",
+    "explanation": "The correct answer is rigid body.",
     "rawSnippet": "Is a definite amount of matter the parts of which are fixed in position relative to one another.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -8137,7 +7866,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 123,
+    "questionNumber": 122,
     "question": "Which property by which work done on a particle as it moves around any closed path is zero?",
     "choices": [
       {
@@ -8158,7 +7887,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Conservative force",
+    "explanation": "The correct answer is Conservative force.",
     "rawSnippet": "Which property by which work done on a particle as it moves around any closed path is zero?\nA. Natural force\nB. Virtual force\nC. Conservative force\nD. Non-conservative force"
   },
   {
@@ -8166,7 +7895,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 124,
+    "questionNumber": 123,
     "question": "If two forces acting simultaneously on a particle can be represented by the two sides of a triangle taken in order that the third side represents the resultant in the opposite order. This statement is known as _____.",
     "choices": [
       {
@@ -8187,7 +7916,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Triangle Law of Forces",
+    "explanation": "If two forces acting simultaneously on a particle can be represented by the two sides of a triangle taken in order that the third side represents the resultant in the opposite order. This statement is known as Triangle Law of Forces.",
     "rawSnippet": "If two forces acting simultaneously on a particle can be represented by the two sides of a triangle taken in order that the third side represents the resultant in the opposite order. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Varignon's Theorem\nD. Triangle Law of Forces"
   },
   {
@@ -8195,7 +7924,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 125,
+    "questionNumber": 124,
     "question": "All forces of the system are in a common line action.",
     "choices": [
       {
@@ -8216,7 +7945,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". collinear forces system",
+    "explanation": "The correct answer is collinear forces system.",
     "rawSnippet": "All forces of the system are in a common line action.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non-concurrent, coplanar"
   },
   {
@@ -8224,7 +7953,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 126,
+    "questionNumber": 125,
     "question": "In a rectangular coordinate system the equilibrium equations can be represented by three scalar equations.",
     "choices": [
       {
@@ -8245,7 +7974,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". equilibrium equation in component form",
+    "explanation": "The correct answer is equilibrium equation in component form.",
     "rawSnippet": "In a rectangular coordinate system the equilibrium equations can be represented by three scalar equations.\nA. equilibrium equation in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -8253,7 +7982,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 127,
+    "questionNumber": 126,
     "question": "Results when a body is acted upon by the force.",
     "choices": [
       {
@@ -8274,7 +8003,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". deformation",
+    "explanation": "The correct answer is deformation.",
     "rawSnippet": "Results when a body is acted upon by the force.\nA. bending\nB. deformation\nC. scattering\nD. compression"
   },
   {
@@ -8282,7 +8011,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 128,
+    "questionNumber": 127,
     "question": "A system of forces acting on a body which has no resultant.",
     "choices": [
       {
@@ -8303,7 +8032,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". equilibrium",
+    "explanation": "The correct answer is equilibrium.",
     "rawSnippet": "A system of forces acting on a body which has no resultant.\nA. free body\nB. equilibrium\nC. coplanar\nD. parallelogram law"
   },
   {
@@ -8311,7 +8040,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 129,
+    "questionNumber": 128,
     "question": "Is a convenient corollary of the parallelogram law.",
     "choices": [
       {
@@ -8332,7 +8061,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". Triangle law",
+    "explanation": "The correct answer is Triangle law.",
     "rawSnippet": "Is a convenient corollary of the parallelogram law.\nA. Parallelogram Law\nB. Resolution\nC. Cosine law\nD. Triangle law"
   },
   {
@@ -8340,7 +8069,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 130,
+    "questionNumber": 129,
     "question": "If two or more concurrent forces acting simultaneously on a particle are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of the system of forces is represented by the closing side of the polygon but opposite in the opposite order. This statement is known as _____.",
     "choices": [
       {
@@ -8361,7 +8090,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Polygon Law",
+    "explanation": "If two or more concurrent forces acting simultaneously on a particle are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of the system of forces is represented by the closing side of the polygon but opposite in the opposite order. This statement is known as Polygon Law.",
     "rawSnippet": "If two or more concurrent forces acting simultaneously on a particle are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of the system of forces is represented by the closing side of the polygon but opposite in the opposite order. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Polygon Law\nD. Triangle Law of Forces"
   },
   {
@@ -8369,7 +8098,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 131,
+    "questionNumber": 130,
     "question": "It is the science which deals with bodies in motion or at rest with specific attention being directed primarily to the external effects of a force or a system.",
     "choices": [
       {
@@ -8390,7 +8119,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". mechanics",
+    "explanation": "The correct answer is mechanics.",
     "rawSnippet": "It is the science which deals with bodies in motion or at rest with specific attention being directed primarily to the external effects of a force or a system.\nA. statics\nB. dynamics\nC. kinetics\nD. mechanics"
   },
   {
@@ -8398,7 +8127,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 132,
+    "questionNumber": 131,
     "question": "One calculates the work of a force on a rigid body exactly the same as one would calculate the work for a particle.",
     "choices": [
       {
@@ -8419,7 +8148,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". work of a force",
+    "explanation": "The correct answer is work of a force.",
     "rawSnippet": "One calculates the work of a force on a rigid body exactly the same as one would calculate the work for a particle.\nA. power of a couple\nB. work of a force\nC. work of a couple\nD. work-energy relation"
   },
   {
@@ -8427,7 +8156,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 133,
+    "questionNumber": 132,
     "question": "A pair of parallel forces having same magnitude but opposite senses.",
     "choices": [
       {
@@ -8448,7 +8177,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". couple",
+    "explanation": "The correct answer is couple.",
     "rawSnippet": "A pair of parallel forces having same magnitude but opposite senses.\nA. couple\nB. statical\nC. composition\nD. graphical"
   },
   {
@@ -8456,7 +8185,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 134,
+    "questionNumber": 133,
     "question": "Is a sketch of a body completely isolated or free from all other bodies.",
     "choices": [
       {
@@ -8477,7 +8206,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". free body diagram",
+    "explanation": "The correct answer is free body diagram.",
     "rawSnippet": "Is a sketch of a body completely isolated or free from all other bodies.\nA. free body diagram\nB. equilibrium\nC. coplanar\nD. force"
   },
   {
@@ -8485,7 +8214,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 135,
+    "questionNumber": 134,
     "question": "It is an additional force that exactly balances a resultant force.",
     "choices": [
       {
@@ -8506,7 +8235,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". equilibrant",
+    "explanation": "The correct answer is equilibrant.",
     "rawSnippet": "It is an additional force that exactly balances a resultant force.\nA. reactant\nB. equilibrant\nC. buoyant\nD. reverse effective force"
   },
   {
@@ -8514,7 +8243,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 136,
+    "questionNumber": 135,
     "question": "What refers to the force that holds part of the rigid body together?",
     "choices": [
       {
@@ -8535,7 +8264,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Internal force",
+    "explanation": "Internal force refers to the force that holds part of the rigid body together.",
     "rawSnippet": "What refers to the force that holds part of the rigid body together?\nA. Nuclear force\nB. External force\nC. Internal force\nD. Concentrated force"
   },
   {
@@ -8543,7 +8272,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 137,
+    "questionNumber": 136,
     "question": "A pictorial presentation in solving a system.",
     "choices": [
       {
@@ -8564,7 +8293,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". graphical",
+    "explanation": "The correct answer is graphical.",
     "rawSnippet": "A pictorial presentation in solving a system.\nA. couple\nB. resultant\nC. composition\nD. graphical"
   },
   {
@@ -8572,7 +8301,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 138,
+    "questionNumber": 137,
     "question": "A structure is _____ when the static equilibrium equations are not sufficient for determining the internal forces and the reactions on that structure.",
     "choices": [
       {
@@ -8593,7 +8322,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". statically indeterminate",
+    "explanation": "A structure is statically indeterminate when the static equilibrium equations are not sufficient for determining the internal forces and the reactions on that structure.",
     "rawSnippet": "A structure is _____ when the static equilibrium equations are not sufficient for determining the internal forces and the reactions on that structure.\nA. statically determinate\nB. statically indeterminate\nC. dynamically determinate\nD. dynamically indeterminate"
   },
   {
@@ -8601,7 +8330,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 139,
+    "questionNumber": 138,
     "question": "Two forces on a rigid body will in no way to be changed if one added or subtract from them another system of forces in equilibrium.",
     "choices": [
       {
@@ -8622,7 +8351,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". superposition law",
+    "explanation": "The correct answer is superposition law.",
     "rawSnippet": "Two forces on a rigid body will in no way to be changed if one added or subtract from them another system of forces in equilibrium.\nA. parallelogram law\nB. action and reaction\nC. superposition law\nD. equilibrium law"
   },
   {
@@ -8630,7 +8359,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 140,
+    "questionNumber": 139,
     "question": "Deals with the conditions of equilibrium of rigid bodies acted upon by a balanced system of forces.",
     "choices": [
       {
@@ -8651,7 +8380,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". statics",
+    "explanation": "The correct answer is statics.",
     "rawSnippet": "Deals with the conditions of equilibrium of rigid bodies acted upon by a balanced system of forces.\nA. statics\nB. thermodynamics\nC. kinetics\nD. mechanics"
   },
   {
@@ -8659,7 +8388,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 141,
+    "questionNumber": 140,
     "question": "The algebraic sum of the moment of its forces about any axis perpendicular to the plane of the couple.",
     "choices": [
       {
@@ -8680,7 +8409,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". the moment of the couple",
+    "explanation": "The correct answer is the moment of the couple.",
     "rawSnippet": "The algebraic sum of the moment of its forces about any axis perpendicular to the plane of the couple.\nA. the magnitude of the couple\nB. the sense of the plane of the couple\nC. the sense of rotation of the couple\nD. the moment of the couple"
   },
   {
@@ -8688,7 +8417,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 142,
+    "questionNumber": 141,
     "question": "The force of attraction of the earth on a body.",
     "choices": [
       {
@@ -8709,7 +8438,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". weight",
+    "explanation": "The correct answer is weight.",
     "rawSnippet": "The force of attraction of the earth on a body.\nA. mass\nB. density\nC. weight\nD. direction"
   },
   {
@@ -8717,7 +8446,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "Mechanics 1",
     "sourceFileName": "Drive/Copied_Reviewer.txt",
     "sourceFileId": "pasted-1791624472555",
-    "questionNumber": 143,
+    "questionNumber": 142,
     "question": "What is the science that describes and predicts the effect on bodies at rest or in motion by forces acting on it?",
     "choices": [
       {
@@ -8738,7 +8467,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Engineering Mechanics",
+    "explanation": "The correct answer is Engineering Mechanics.",
     "rawSnippet": "What is the science that describes and predicts the effect on bodies at rest or in motion by forces acting on it?\nA. Engineering Mechanics\nB. Theory of Structures\nC. Mechanics of Materials\nD. Strength of Materials"
   },
   {
@@ -8821,7 +8550,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Distance traveled",
+    "explanation": "The correct answer is Distance traveled.",
     "rawSnippet": "The total length of the path traveled by a particle, irrespective of the direction of travel, is called:\nA. Position vector\nB. Average velocity\nC. Distance traveled\nD. Displacement"
   },
   {
@@ -8877,7 +8606,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". velocity",
+    "explanation": "The correct answer is velocity.",
     "rawSnippet": "Which term describes the rate of change of an object’s position with respect to time, including both magnitude and direction?\nA. speed\nB. displacement\nC. velocity\nD. acceleration"
   },
   {
@@ -8933,7 +8662,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". acceleration",
+    "explanation": "The correct answer is acceleration.",
     "rawSnippet": "It is defined as the time rate of change of velocity.\nA. displacement\nB. acceleration\nC. speed\nD. none of the above"
   },
   {
@@ -8989,7 +8718,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". rectilinear translation",
+    "explanation": "The motion of translating body moving in a straight line is called rectilinear translation.",
     "rawSnippet": "The motion of translating body moving in a straight line is called _____.\nA. rectilinear translation\nB. curve linear translation\nC. parallel axis\nD. kinematic equation of motion"
   },
   {
@@ -9045,7 +8774,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". curve linear translation",
+    "explanation": "The path of the translating body is curved, the motion becomes curve linear translation.",
     "rawSnippet": "The path of the translating body is curved, the motion becomes _____.\nA. rectilinear translation\nB. parallel axes\nC. curve linear translation\nD. none of the above"
   },
   {
@@ -9101,7 +8830,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". displacement",
+    "explanation": "The area under a v-t curve represents the change in displacement.",
     "rawSnippet": "The area under a v-t curve represents the change in _____.\nA. displacement\nB. mass\nC. velocity\nD. acceleration"
   },
   {
@@ -9130,7 +8859,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". velocity",
+    "explanation": "The area under an a-t curve represents the change in velocity.",
     "rawSnippet": "The area under an a-t curve represents the change in _____.\nA. acceleration\nB. velocity\nC. displacement\nD. none of the above"
   },
   {
@@ -9159,7 +8888,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Non-uniform velocity, uniform acceleration.",
+    "explanation": "The correct answer is Non-uniform velocity, uniform acceleration.",
     "rawSnippet": "If a particle’s acceleration is constant and in the same direction as its velocity, the particle is undergoing:\nA. Uniform rectilinear motion.\nB. Deceleration.\nC. Non-uniform velocity, uniform acceleration.\nD. Uniform velocity, non-zero acceleration."
   },
   {
@@ -9188,7 +8917,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Zero, but its acceleration is not necessarily zero.",
+    "explanation": "The correct answer is Zero, but its acceleration is not necessarily zero.",
     "rawSnippet": "When a particle is moving along a straight line and momentarily stops, at that exact instant, its velocity is:\nA. Zero, and its acceleration must be a maximum.\nB. Zero, but its acceleration is not necessarily zero.\nC. Maximum and its acceleration is zero.\nD. Minimum, but its acceleration must be zero."
   },
   {
@@ -9217,7 +8946,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". The force of gravity (weight).",
+    "explanation": "The correct answer is The force of gravity (weight).",
     "rawSnippet": "A body is defined as being in free fall if the only force acting upon it is:\nA. The normal force.\nB. The resultant of all external forces.\nC. The force of air resistance.\nD. The force of gravity (weight)."
   },
   {
@@ -9246,7 +8975,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". gravitational acceleration",
+    "explanation": "The ratio of an object’s weight to its mass is equal to the objects gravitational acceleration.",
     "rawSnippet": "The ratio of an object’s weight to its mass is equal to the objects _____.\nA. momentum\nB. gravitational force\nC. inertia\nD. gravitational acceleration"
   },
   {
@@ -9275,7 +9004,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Zero",
+    "explanation": "The correct answer is Zero.",
     "rawSnippet": "When a ball is thrown vertically upward, its velocity at the exact instant it reaches its maximum height is:\nA. Zero\nB. Non-zero and directed downward\nC. Equal to the initial velocity\nD. Maximum and directed upward"
   },
   {
@@ -9304,7 +9033,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". g, down",
+    "explanation": "The correct answer is g, down.",
     "rawSnippet": "A baseball is thrown vertically into the air. The acceleration of the ball at its highest point is:\nA. zero\nB. g, up\nC. g, down\nD. 2g, down"
   },
   {
@@ -9333,7 +9062,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". The ratio of weight to mass is constant for all objects.",
+    "explanation": "The correct answer is The ratio of weight to mass is constant for all objects.",
     "rawSnippet": "If two objects of different masses are dropped from the same height, they will hit the ground simultaneously, assuming no air resistance. This is because:\nA. The heavier object has a greater initial velocity.\nB. The force of gravity is the same on both objects.\nC. The kinetic energy of the heavier object is greater.\nD. The ratio of weight to mass is constant for all objects."
   },
   {
@@ -9362,7 +9091,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Constant, directed vertically downward",
+    "explanation": "The correct answer is Constant, directed vertically downward.",
     "rawSnippet": "The total acceleration vector of a projectile during its flight (neglecting air resistance) is always:\nA. Constant, directed horizontally\nB. Variable, dependent on the angle of elevation\nC. Constant, directed vertically downward\nD. Zero"
   },
   {
@@ -9391,7 +9120,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Constant throughout the flight",
+    "explanation": "The correct answer is Constant throughout the flight.",
     "rawSnippet": "In the study of projectile motion, the horizontal component of a projectile’s velocity, Vx, is considered:\nA. Variable, decreasing uniformly\nB. Constant throughout the flight\nC. Zero\nD. Variable, decreasing to zero at the maximum height"
   },
   {
@@ -9420,7 +9149,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Vx is non-zero (constant) and Vy is zero",
+    "explanation": "The correct answer is Vx is non-zero (constant) and Vy is zero.",
     "rawSnippet": "At the maximum height of a projectile’s trajectory, which statement is true about its velocity components?\nA. Both Vx and Vy are zero\nB. Vx is non-zero (constant) and Vy is zero\nC. Both Vx and Vy are maximum\nD. Vx is zero and Vy is non-zero"
   },
   {
@@ -9449,7 +9178,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". the wheel turns through equal angles in equal times",
+    "explanation": "The correct answer is the wheel turns through equal angles in equal times.",
     "rawSnippet": "If a wheel turns with constant angular speed then:\nA. each point on its rim moves with constant velocity\nB. each point on its rim moves with constant acceleration\nC. the wheel turns through equal angles in equal times\nD. the angle through which the wheel turns in each second increases as time goes on"
   },
   {
@@ -9478,7 +9207,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". rotation",
+    "explanation": "The correct answer is rotation.",
     "rawSnippet": "It is defined as that motion of rigid body in which the particles move in a circular path with their centers on a fixed straight line.\nA. translation\nB. acceleration\nC. rotation\nD. none of the above"
   },
   {
@@ -9507,7 +9236,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". angular displacement",
+    "explanation": "angular displacement is measured in radians by the angular distance swept through by any radians of or line in the rotating body.",
     "rawSnippet": "_____ is measured in radians by the angular distance swept through by any radians of or line in the rotating body.\nA. angular displacement\nB. angular velocity\nC. angular acceleration\nD. none of the above"
   },
   {
@@ -9536,7 +9265,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". plane motion",
+    "explanation": "The correct answer is plane motion.",
     "rawSnippet": "It is defined as the motion of rigid body in which all particles in the body remain at a constant distance from a fixed reference plane.\nA. angular velocity\nB. rotation\nC. plane motion\nD. translation"
   },
   {
@@ -9565,7 +9294,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Newton’s 2nd law of motion",
+    "explanation": "When a net force acts on a body, it produces acceleration in the body in the direction of the net force which is directly proportional to the net force acting on the body and inversely proportional to its mass. This statement is called Newton’s 2nd law of motion.",
     "rawSnippet": "When a net force acts on a body, it produces acceleration in the body in the direction of the net force which is directly proportional to the net force acting on the body and inversely proportional to its mass. This statement is called _____.\nA. Newton’s 2nd law of motion\nB. Newton’s 1st law of motion\nC. Newton’s 3rd law of motion\nD. Law of momentum"
   },
   {
@@ -9594,7 +9323,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". Newton’s second law",
+    "explanation": "The correct answer is Newton’s second law.",
     "rawSnippet": "The principles of kinetics of particles are derived from which law?\nA. Newton’s first law\nB. Newton’s second law\nC. Newton’s third law\nD. d’Alembert’s principle"
   },
   {
@@ -9623,7 +9352,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". It is directed toward the center of the circular path.",
+    "explanation": "The correct answer is It is directed toward the center of the circular path.",
     "rawSnippet": "Which of the following is true about centripetal force?\nA. It is directed toward the center of the circular path.\nB. It appears to act outward the body.\nC. It is directly proportional to the radius of the circular path.\nD. It is inversely proportional to the square of the tangential velocity."
   },
   {
@@ -9652,7 +9381,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". changes the direction of the velocity.",
+    "explanation": "Centripetal acceleration changes the direction of the velocity.",
     "rawSnippet": "Centripetal acceleration _____.\nA. changes the direction of the velocity.\nB. changes the magnitude of the velocity.\nC. changes the magnitude of angular velocity.\nD. changes nothing about velocity."
   },
   {
@@ -9681,7 +9410,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". changes the magnitude of the velocity.",
+    "explanation": "Tangential acceleration changes the magnitude of the velocity.",
     "rawSnippet": "Tangential acceleration _____.\nA. changes the direction of the velocity.\nB. changes the magnitude of the velocity.\nC. changes the magnitude of the centripetal acceleration.\nD. changes nothing about velocity."
   },
   {
@@ -9710,7 +9439,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": ". centripetal force",
+    "explanation": "The force that keeps the objects in a circular path is called centripetal force.",
     "rawSnippet": "The force that keeps the objects in a circular path is called _____.\nA. centrifugal force\nB. centripetal force\nC. frictional force\nD. inertia"
   },
   {
@@ -9739,7 +9468,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". towards center",
+    "explanation": "The direction of centripetal force is always towards center.",
     "rawSnippet": "The direction of centripetal force is always _____.\nA. towards center\nB. tangent to the circle\nC. away from center\nD. normal to the circle"
   },
   {
@@ -9768,7 +9497,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". centrifugal force",
+    "explanation": "Centripetal reaction that pulls the string outward is sometimes called the centrifugal force.",
     "rawSnippet": "Centripetal reaction that pulls the string outward is sometimes called the _____.\nA. centrifugal force\nB. dynamic force\nC. gravitational force\nD. translatory force"
   },
   {
@@ -9797,7 +9526,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". momentum",
+    "explanation": "The quantity of motion that the body possesses due to its mass and velocity is known as momentum.",
     "rawSnippet": "The quantity of motion that the body possesses due to its mass and velocity is known as _____.\nA. inertia\nB. force\nC. momentum\nD. friction"
   },
   {
@@ -9826,7 +9555,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". impulse",
+    "explanation": "The correct answer is impulse.",
     "rawSnippet": "It is defined as the integral of force with respect to time.\nA. momentum\nB. velocity\nC. impulse\nD. acceleration"
   },
   {
@@ -9855,7 +9584,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". change in momentum A is also correct for constant force. Choice B is printed as “A or B.”",
+    "explanation": "change in momentum A is also correct for constant force. Choice B is printed as “A or B.”.",
     "rawSnippet": "Impulse is equal to _____.\nA. force × time\nB. A or B\nC. change in momentum\nD. none of the above"
   },
   {
@@ -9884,7 +9613,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". newton second (Ns)",
+    "explanation": "SI unit of momentum is newton second (Ns).",
     "rawSnippet": "SI unit of momentum is _____.\nA. newton second (Ns)\nB. μ\nC. θ\nD. λ"
   },
   {
@@ -9913,7 +9642,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". Force, mass, velocity, time",
+    "explanation": "The correct answer is Force, mass, velocity, time.",
     "rawSnippet": "Which of the following set of quantities that describe motion and uses the principle of impulse and momentum?\nA. Force, mass, velocity, time\nB. Force, mass, distance, velocity\nC. Force, mass, distance, velocity\nD. Force, weight, distance, time"
   },
   {
@@ -9942,7 +9671,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". acceleration",
+    "explanation": "The correct answer is acceleration.",
     "rawSnippet": "The momentum of an object at a given instant is independent of its:\nA. inertia\nB. speed\nC. mass\nD. acceleration"
   },
   {
@@ -9971,7 +9700,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". constant",
+    "explanation": "The momentum of an isolated system of two or more than two interacting bodies remains constant.",
     "rawSnippet": "The momentum of an isolated system of two or more than two interacting bodies remains _____.\nA. variable\nB. negative\nC. zero\nD. constant"
   },
   {
@@ -10000,7 +9729,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". the net external impulse is zero",
+    "explanation": "The correct answer is the net external impulse is zero.",
     "rawSnippet": "The law of conservation of momentum applies to a system of colliding objects only if:\nA. there is no change in kinetic energy of the system\nB. the coefficient of restitution is one\nC. the coefficient of restitution is zero\nD. the net external impulse is zero"
   },
   {
@@ -10029,7 +9758,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". linear momentum",
+    "explanation": "The product of the mass and the velocity of the center of the gravity of the body is called linear momentum.",
     "rawSnippet": "The product of the mass and the velocity of the center of the gravity of the body is called _____.\nA. linear momentum\nB. linear impulse\nC. angular impulse\nD. angular impulse"
   },
   {
@@ -10058,7 +9787,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". elastic collisions",
+    "explanation": "Collisions in which objects rebound with the same speed as they had prior to the collision are known as elastic collisions.",
     "rawSnippet": "Collisions in which objects rebound with the same speed as they had prior to the collision are known as _____.\nA. elastic collisions\nB. static collisions\nC. inelastic collisions\nD. plastic collisions"
   },
   {
@@ -10087,7 +9816,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": ". momentum is conserved but kinetic energy is not conserved",
+    "explanation": "The correct answer is momentum is conserved but kinetic energy is not conserved.",
     "rawSnippet": "An inelastic collision is one in which:\nA. momentum is not conserved but kinetic energy is conserved\nB. total mass is not conserved but momentum is conserved\nC. neither kinetic energy nor momentum is conserved\nD. momentum is conserved but kinetic energy is not conserved"
   },
   {
@@ -10116,7 +9845,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". 1 “Resolution” is printed in the photo; the correct term is restitution.",
+    "explanation": "1 “Resolution” is printed in the photo; the correct term is restitution.",
     "rawSnippet": "The collision is perfectly elastic if the coefficient of resolution is _____.\nA. 0\nB. less than 1\nC. 1\nD. greater than 1"
   },
   {
@@ -10145,7 +9874,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": ". 0",
+    "explanation": "The collision is perfectly inelastic if the coefficient of restitution is 0.",
     "rawSnippet": "The collision is perfectly inelastic if the coefficient of restitution is _____.\nA. 0\nB. less than 1\nC. 1\nD. greater than 1"
   },
   {
@@ -10174,7 +9903,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". less than",
+    "explanation": "Inelastic collision is a collision in which the total kinetic energy after the collision is less than before the collision.",
     "rawSnippet": "Inelastic collision is a collision in which the total kinetic energy after the collision is _____ before the collision.\nA. equal to zero\nB. equal\nC. less than\nD. greater than"
   },
   {
@@ -10203,7 +9932,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": ". Both momentum and KE",
+    "explanation": "An elastic collision conserves Both momentum and KE.",
     "rawSnippet": "An elastic collision conserves _____.\nA. Momentum but not KE\nB. KE but not momentum\nC. Both momentum and KE\nD. neither momentum nor KE"
   },
   {
@@ -10423,6 +10152,1815 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "explanation": "The public interest and safety is the foremost ethical obligation."
   },
   {
+    "id": "eelaws-9",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 9,
+    "question": "Who was the Chairman of the BEE when the Code of Ethics RA 7920 was approved?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Engr. Rafael F. Florentino"
+      },
+      {
+        "id": "B",
+        "text": "Engr. Paul Woo"
+      },
+      {
+        "id": "C",
+        "text": "Engr. Gerardo Gaor"
+      },
+      {
+        "id": "D",
+        "text": "Engr. Roy F. Gil"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Engr. Rafael F. Florentino served as the Chairman of the BEE when the Code of Ethics RA 7920 was approved."
+  },
+  {
+    "id": "eelaws-10",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 10,
+    "question": "Who was the chairman of the Board of Electrical Engineering when the Implementing Rules and Regulation of RA 7920 was adopted?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Rafael F. Florentino"
+      },
+      {
+        "id": "B",
+        "text": "Baylon G. Tolentino"
+      },
+      {
+        "id": "C",
+        "text": "Roy F. Gil"
+      },
+      {
+        "id": "D",
+        "text": "Genardo V. Gaor"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Rafael F. Florentino served as the chairman of the Board of Electrical Engineering when the Implementing Rules and Regulation of RA 7920 was adopted."
+  },
+  {
+    "id": "eelaws-11",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 11,
+    "question": "PEE, REE, or RME who has been delinquent in the payment of annual registration fees for ________ consecutive years shall not be allowed to practice his or her profession.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "5"
+      },
+      {
+        "id": "B",
+        "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "10"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "PEE, REE, or RME who has been delinquent in the payment of annual registration fees for 5 consecutive years shall not be allowed to practice his or her profession."
+  },
+  {
+    "id": "eelaws-12",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 12,
+    "question": "To qualified applicants for examination, notice of admission shall be issued not late than ________ days prior to the first day of examination.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "10"
+      },
+      {
+        "id": "B",
+        "text": "30"
+      },
+      {
+        "id": "C",
+        "text": "15"
+      },
+      {
+        "id": "D",
+        "text": "20"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "To qualified applicants for examination, notice of admission shall be issued not late than 10 days prior to the first day of examination."
+  },
+  {
+    "id": "eelaws-13",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 13,
+    "question": "SEC 4 of ARTICLE 11 states the power and duties of the Board of Electrical Engineering. What does it mean by quasi-legislative?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "rule-making"
+      },
+      {
+        "id": "B",
+        "text": "administrative"
+      },
+      {
+        "id": "C",
+        "text": "executive"
+      },
+      {
+        "id": "D",
+        "text": "law-making"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is rule-making."
+  },
+  {
+    "id": "eelaws-14",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 14,
+    "question": "SEC 4 of ARTICLE II state the powers and duties of the Board of Electrical Engineering. What does it mean by quasi-judicial?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "investigative"
+      },
+      {
+        "id": "B",
+        "text": "control"
+      },
+      {
+        "id": "C",
+        "text": "monitoring"
+      },
+      {
+        "id": "D",
+        "text": "Censorship"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is investigative."
+  },
+  {
+    "id": "eelaws-15",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 15,
+    "question": "The new Electrical Engineering law originated from House Bill no. ______ and Senate Bill no. ______.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "11063 and 1766"
+      },
+      {
+        "id": "B",
+        "text": "11065 and 1870"
+      },
+      {
+        "id": "C",
+        "text": "11075 and 1875"
+      },
+      {
+        "id": "D",
+        "text": "11070 and 1871"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The new Electrical Engineering law originated from House Bill no. 11063 and 1766 and Senate Bill no. 11063 and 1766."
+  },
+  {
+    "id": "eelaws-16",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 16,
+    "question": "RA 7920 was approved by former president Fidel V. Ramos on:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Feb 24, 1995"
+      },
+      {
+        "id": "B",
+        "text": "Feb 27, 1995"
+      },
+      {
+        "id": "C",
+        "text": "Feb 21, 1995"
+      },
+      {
+        "id": "D",
+        "text": "Feb 14, 1995"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Feb 24, 1995."
+  },
+  {
+    "id": "eelaws-17",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 17,
+    "question": "Vacancies of the Board of Electrical Engineering shall be filled by the _______ from the list of recommendees selected by the PRC commissioner.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "President of the Philippines"
+      },
+      {
+        "id": "B",
+        "text": "IIEE"
+      },
+      {
+        "id": "C",
+        "text": "PRC Commissioner"
+      },
+      {
+        "id": "D",
+        "text": "Chairman of the Board"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Vacancies of the Board of Electrical Engineering shall be filled by the President of the Philippines from the list of recommendees selected by the PRC commissioner."
+  },
+  {
+    "id": "eelaws-18",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 18,
+    "question": "Who is the present chairman of the Board of Electrical Engineering?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Francis Mapile"
+      },
+      {
+        "id": "B",
+        "text": "Fortunato Leynes"
+      },
+      {
+        "id": "C",
+        "text": "Jaime Mendoza"
+      },
+      {
+        "id": "D",
+        "text": "Rodolfo Penalosa"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Francis Mapile served as the present chairman of the Board of Electrical Engineering."
+  },
+  {
+    "id": "eelaws-19",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 19,
+    "question": "Which of the following is qualified as the Chairman of the Continuing Professional Development Council for Electrical Engineering?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PRBEE board member"
+      },
+      {
+        "id": "B",
+        "text": "Representative from Academy"
+      },
+      {
+        "id": "C",
+        "text": "PRC Commissioner"
+      },
+      {
+        "id": "D",
+        "text": "Representative from Association of Professional Organization"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is PRBEE board member."
+  },
+  {
+    "id": "eelaws-20",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 20,
+    "question": "What does R. A. 9136 stand for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Electric Power Industry Reform Act of 2001"
+      },
+      {
+        "id": "B",
+        "text": "Electrification Power Reform Act of 2001"
+      },
+      {
+        "id": "C",
+        "text": "Energy Power Reform Act of 2001"
+      },
+      {
+        "id": "D",
+        "text": "Energization Power Reform Act of 2001"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "R. A. 9136 stands for Electric Power Industry Reform Act of 2001."
+  },
+  {
+    "id": "eelaws-21",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 21,
+    "question": "What is the term used when an American citizen is allowed to practice his profession, e.g. electrical engineering profession, here in the Philippines?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Foreign Reciprocity"
+      },
+      {
+        "id": "B",
+        "text": "ASEAN Engr."
+      },
+      {
+        "id": "C",
+        "text": "APEC registry"
+      },
+      {
+        "id": "D",
+        "text": "ACPE registry"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Foreign Reciprocity."
+  },
+  {
+    "id": "eelaws-22",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 22,
+    "question": "Which of the following Republic Act that provide framework for the restructuring of the electric power industry including the privatization of the assets of NPC the transition to the desired competitive structure?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "9136"
+      },
+      {
+        "id": "B",
+        "text": "7832"
+      },
+      {
+        "id": "C",
+        "text": "8981"
+      },
+      {
+        "id": "D",
+        "text": "7920"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 9136."
+  },
+  {
+    "id": "eelaws-23",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 23,
+    "question": "The electric power industry was divided into four sectors by RA 9136 namely: generation, transmission, distribution, and ______.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Supply"
+      },
+      {
+        "id": "B",
+        "text": "Residential consumers"
+      },
+      {
+        "id": "C",
+        "text": "Electricity end-users"
+      },
+      {
+        "id": "D",
+        "text": "Commercial consumers"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The electric power industry was divided into four sectors by RA 9136 namely: generation, transmission, distribution, and Supply."
+  },
+  {
+    "id": "eelaws-24",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 24,
+    "question": "Also known as PRC Renewal Law.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RA 8981"
+      },
+      {
+        "id": "B",
+        "text": "RA 7920"
+      },
+      {
+        "id": "C",
+        "text": "RA 184"
+      },
+      {
+        "id": "D",
+        "text": "RA 8189"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is RA 8981."
+  },
+  {
+    "id": "eelaws-25",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 25,
+    "question": "What does PRBEE stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Professional Regulatory Board of Electrical Engineering"
+      },
+      {
+        "id": "B",
+        "text": "Philippine Regulatory Board of Electrical Engineering"
+      },
+      {
+        "id": "C",
+        "text": "Professional Regulating Board of Electrical Engineering"
+      },
+      {
+        "id": "D",
+        "text": "Philippine Regulating Board of Electrical Engineering"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "PRBEE stands for Professional Regulatory Board of Electrical Engineering."
+  },
+  {
+    "id": "eelaws-26",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 26,
+    "question": "Which are NOT included in duties and responsibilities of PRBEE?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Issue special permits to individual foreign electrical engineers and electricians for specific projects"
+      },
+      {
+        "id": "B",
+        "text": "Perform such other functions and duties as may be necessary to implement effectively of this Act"
+      },
+      {
+        "id": "C",
+        "text": "All of these"
+      },
+      {
+        "id": "D",
+        "text": "Supervise and regulate the practice of electrical engineering in the Philippines"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Issue special permits to individual foreign electrical engineers and electricians for specific projects."
+  },
+  {
+    "id": "eelaws-27",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 27,
+    "question": "The overall energy program formulated and updated yearly by the COE and submitted to congress pursuant to R. A. 7638.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Philippine Energy Plan"
+      },
+      {
+        "id": "B",
+        "text": "Preliminary project planning data (PPPD)"
+      },
+      {
+        "id": "C",
+        "text": "Power developed plan (PDP)"
+      },
+      {
+        "id": "D",
+        "text": "Philippine Electrical Code"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Philippine Energy Plan."
+  },
+  {
+    "id": "eelaws-28",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 28,
+    "question": "Article III, Rule 7 of RA 7920:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Assignment of Duties"
+      },
+      {
+        "id": "B",
+        "text": "Enforcement Execution"
+      },
+      {
+        "id": "C",
+        "text": "Official Business with the Commission"
+      },
+      {
+        "id": "D",
+        "text": "Promulgation of Decisions, Rules, etc."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Assignment of Duties."
+  },
+  {
+    "id": "eelaws-29",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 29,
+    "question": "Sec. 14(a)(iii) of Art. III. Examination and registration, states the prior to commencing of work the foreign professional shall secure special permit from the ______.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Commission"
+      },
+      {
+        "id": "B",
+        "text": "IIEE"
+      },
+      {
+        "id": "C",
+        "text": "POEA"
+      },
+      {
+        "id": "D",
+        "text": "BEE"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Sec. 14(a)(iii) of Art. III. Examination and registration, states the prior to commencing of work the foreign professional shall secure special permit from the Commission."
+  },
+  {
+    "id": "eelaws-30",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 30,
+    "question": "Each Board member of the time of his appointment shall be at least ______ years of age.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "35"
+      },
+      {
+        "id": "B",
+        "text": "40"
+      },
+      {
+        "id": "C",
+        "text": "45"
+      },
+      {
+        "id": "D",
+        "text": "50"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Each Board member of the time of his appointment shall be at least 35 years of age."
+  },
+  {
+    "id": "eelaws-31",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 31,
+    "question": "Up to what kVA capacity and voltage rating of an electric plant, requires only one registered master electrician?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "500, 600"
+      },
+      {
+        "id": "B",
+        "text": "500, 440"
+      },
+      {
+        "id": "C",
+        "text": "500, 250"
+      },
+      {
+        "id": "D",
+        "text": "600, 600"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 500, 600."
+  },
+  {
+    "id": "eelaws-32",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 32,
+    "question": "Under Rule 19, the Board upon the approval of the commission shall officially release the results of the examination not later than ________ days from the date of the exam.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "25"
+      },
+      {
+        "id": "B",
+        "text": "10"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "4"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Under Rule 19, the Board upon the approval of the commission shall officially release the results of the examination not later than 25 days from the date of the exam."
+  },
+  {
+    "id": "eelaws-33",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 33,
+    "question": "Exemption from examination and registration granted foreign electrical engineers shall be good only for:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "6 months"
+      },
+      {
+        "id": "B",
+        "text": "1 year"
+      },
+      {
+        "id": "C",
+        "text": "2 years"
+      },
+      {
+        "id": "D",
+        "text": "3 years"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 6 months."
+  },
+  {
+    "id": "eelaws-34",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 34,
+    "question": "Certificate of ________ shall be issued by the Board, subject to the approval of the Commission, to Professional Electrical Engineers who have been screened and recommended by IIEE.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "specialty"
+      },
+      {
+        "id": "B",
+        "text": "excellence"
+      },
+      {
+        "id": "C",
+        "text": "recognition"
+      },
+      {
+        "id": "D",
+        "text": "specialization"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Certificate of specialty shall be issued by the Board, subject to the approval of the Commission, to Professional Electrical Engineers who have been screened and recommended by IIEE."
+  },
+  {
+    "id": "eelaws-35",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 35,
+    "question": "What is PEMC in EPIRA stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Philippine Electricity Market Committee"
+      },
+      {
+        "id": "B",
+        "text": "Philippine Electricity Market Company"
+      },
+      {
+        "id": "C",
+        "text": "Philippine Electricity Market Corporation"
+      },
+      {
+        "id": "D",
+        "text": "Philippine Electricity Market Commission"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "PEMC stands for Philippine Electricity Market Committee."
+  },
+  {
+    "id": "eelaws-36",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 36,
+    "question": "Sec. 23 of Art III: Issuance of Certificates of Registration. The professional is required to renew license every _____ years upon payment of registration fees.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "6"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "2"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Sec. 23 of Art III: Issuance of Certificates of Registration. The professional is required to renew license every 3 years upon payment of registration fees."
+  },
+  {
+    "id": "eelaws-37",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 37,
+    "question": "NGCP warns ________ alert if tropical disturbance is expected to make a landfall within 24 hours.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Blue"
+      },
+      {
+        "id": "B",
+        "text": "Yellow"
+      },
+      {
+        "id": "C",
+        "text": "Red"
+      },
+      {
+        "id": "D",
+        "text": "Green"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "NGCP warns Blue alert if tropical disturbance is expected to make a landfall within 24 hours."
+  },
+  {
+    "id": "eelaws-38",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 38,
+    "question": "A notice issued by the system operator when the Contingency Reserve is less than the capacity of the largest Synchronized Generating unit or power import from a single interconnection whichever is higher.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Yellow Alert"
+      },
+      {
+        "id": "B",
+        "text": "Red Alert"
+      },
+      {
+        "id": "C",
+        "text": "Green Alert"
+      },
+      {
+        "id": "D",
+        "text": "Blue Alert"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Yellow Alert."
+  },
+  {
+    "id": "eelaws-39",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 39,
+    "question": "The executive officer of the Board of Electrical Engineering is ________.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PRC Commissioner"
+      },
+      {
+        "id": "B",
+        "text": "Civil Service Commission"
+      },
+      {
+        "id": "C",
+        "text": "Chairman of the Board of EE"
+      },
+      {
+        "id": "D",
+        "text": "IIEE President"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The executive officer of the Board of Electrical Engineering is PRC Commissioner."
+  },
+  {
+    "id": "eelaws-40",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 40,
+    "question": "Which of the following is not a part of the requirements to take RME?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Graduate of BSEE"
+      },
+      {
+        "id": "B",
+        "text": "Taken 1-year electrician’s course and 3-years apprenticeship"
+      },
+      {
+        "id": "C",
+        "text": "Taken 2-years electrician’s course and 2-years apprenticeship"
+      },
+      {
+        "id": "D",
+        "text": "Taken 3-years of BSEE with apprenticeship"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Graduate of BSEE."
+  },
+  {
+    "id": "eelaws-41",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 41,
+    "question": "For REE board examination, the passing general average is 70 percent provided there is no grade below _____ in any of the 3 subjects.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "50 percent"
+      },
+      {
+        "id": "B",
+        "text": "60 percent"
+      },
+      {
+        "id": "C",
+        "text": "65 percent"
+      },
+      {
+        "id": "D",
+        "text": "40 percent"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "For REE board examination, the passing general average is 70 percent provided there is no grade below 50 percent in any of the 3 subjects."
+  },
+  {
+    "id": "eelaws-42",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 42,
+    "question": "What is the weight percent of mathematics subjects?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "25"
+      },
+      {
+        "id": "B",
+        "text": "45"
+      },
+      {
+        "id": "C",
+        "text": "30"
+      },
+      {
+        "id": "D",
+        "text": "40"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 25."
+  },
+  {
+    "id": "eelaws-43",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 43,
+    "question": "What is the old Electrical Engineering law?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RA 184"
+      },
+      {
+        "id": "B",
+        "text": "RA 9136"
+      },
+      {
+        "id": "C",
+        "text": "RA 7920"
+      },
+      {
+        "id": "D",
+        "text": "RA 814"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is RA 184."
+  },
+  {
+    "id": "eelaws-44",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 44,
+    "question": "The Professional Regulation Commission (PRC) was created under:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PD 223"
+      },
+      {
+        "id": "B",
+        "text": "PD 59"
+      },
+      {
+        "id": "C",
+        "text": "EO 223"
+      },
+      {
+        "id": "D",
+        "text": "EO 59"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is PD 223."
+  },
+  {
+    "id": "eelaws-45",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 45,
+    "question": "What rules are including an Article IV of RA 7920?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Rule 11 to 20"
+      },
+      {
+        "id": "B",
+        "text": "Rule 28 to 34"
+      },
+      {
+        "id": "C",
+        "text": "Rule 21 to 27"
+      },
+      {
+        "id": "D",
+        "text": "Rule 1 to 10"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Rule 11 to 20."
+  },
+  {
+    "id": "eelaws-46",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 46,
+    "question": "What rules are included in Article V of RA 7920?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RULE 21 to 27"
+      },
+      {
+        "id": "B",
+        "text": "RULE 28 to 34"
+      },
+      {
+        "id": "C",
+        "text": "RULE 1 to 10"
+      },
+      {
+        "id": "D",
+        "text": "RULE 11 to 20"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is RULE 21 to 27."
+  },
+  {
+    "id": "eelaws-47",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 47,
+    "question": "For REE board examination, the passing general average is _____ provided there is no grade below _____ in any of the 3 subjects.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "70 percent, 50 percent"
+      },
+      {
+        "id": "B",
+        "text": "75 percent, 60 percent"
+      },
+      {
+        "id": "C",
+        "text": "70 percent, 60 percent"
+      },
+      {
+        "id": "D",
+        "text": "75 percent, 50 percent"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "For REE board examination, the passing general average is 70 percent, 50 percent provided there is no grade below 70 percent, 50 percent in any of the 3 subjects."
+  },
+  {
+    "id": "eelaws-48",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 48,
+    "question": "According to RA 7920 the members of the BEE shall hold office for a term of _____ years from the date of appointment or until their successors shall have been appointed or qualified.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "3"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "6"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "According to RA 7920 the members of the BEE shall hold office for a term of 3 years from the date of appointment or until their successors shall have been appointed or qualified."
+  },
+  {
+    "id": "eelaws-49",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 49,
+    "question": "Article II of Code of Ethics for Electrical Engineers contains:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "SEC 1 to 9"
+      },
+      {
+        "id": "B",
+        "text": "SEC. 1 to 6"
+      },
+      {
+        "id": "C",
+        "text": "SEC. 1 to 7"
+      },
+      {
+        "id": "D",
+        "text": "SEC. 1 to 8"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is SEC 1 to 9."
+  },
+  {
+    "id": "eelaws-50",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 50,
+    "question": "Article IV, Rule _____. Requirements for examination as a REE.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "16"
+      },
+      {
+        "id": "B",
+        "text": "17"
+      },
+      {
+        "id": "C",
+        "text": "14"
+      },
+      {
+        "id": "D",
+        "text": "15"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Article IV, Rule 16. Requirements for examination as a REE."
+  },
+  {
+    "id": "eelaws-51",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 51,
+    "question": "What is PDC stands for in EPIRA?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Philippine Distribution Code"
+      },
+      {
+        "id": "B",
+        "text": "Philippine Distribution Coordination"
+      },
+      {
+        "id": "C",
+        "text": "Philippine Distribution Commission"
+      },
+      {
+        "id": "D",
+        "text": "Philippine Distribution Committee"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Philippine Distribution Code."
+  },
+  {
+    "id": "eelaws-52",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 52,
+    "question": "What is the GMC stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Grid Management Committee"
+      },
+      {
+        "id": "B",
+        "text": "Generator Management Committee"
+      },
+      {
+        "id": "C",
+        "text": "Grid Market Commission"
+      },
+      {
+        "id": "D",
+        "text": "Generation Management Corporation"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "the GMC stands for Grid Management Committee."
+  },
+  {
+    "id": "eelaws-53",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 53,
+    "question": "DMC stands for _________.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Distribution Management committee"
+      },
+      {
+        "id": "B",
+        "text": "Distribution Market commission"
+      },
+      {
+        "id": "C",
+        "text": "Distribution Market committee"
+      },
+      {
+        "id": "D",
+        "text": "Distribution Management commission"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "DMC stands for Distribution Management committee."
+  },
+  {
+    "id": "eelaws-54",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 54,
+    "question": "What is PSALM in EPIRA stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Power Sector Assets and Liabilities Management"
+      },
+      {
+        "id": "B",
+        "text": "Power Section Assets and Liabilities Management"
+      },
+      {
+        "id": "C",
+        "text": "Private Sector Assets and Liabilities Management"
+      },
+      {
+        "id": "D",
+        "text": "Private Section Assets and Liabilities Management"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "PSALM stands for Power Sector Assets and Liabilities Management."
+  },
+  {
+    "id": "eelaws-55",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 55,
+    "question": "Article V Code of Ethics states that: This Code shall take effect upon approval by the _____ and after fifteen (15) days following its publication in the Official Gazette.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Commission"
+      },
+      {
+        "id": "B",
+        "text": "PRC"
+      },
+      {
+        "id": "C",
+        "text": "BEE"
+      },
+      {
+        "id": "D",
+        "text": "CHED"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Article V Code of Ethics states that: This Code shall take effect upon approval by the Commission and after fifteen (15) days following its publication in the Official Gazette."
+  },
+  {
+    "id": "eelaws-56",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 56,
+    "question": "What is CPE in RA 7920 stand for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Continuing Professional Education"
+      },
+      {
+        "id": "B",
+        "text": "Continuing Professional Educator"
+      },
+      {
+        "id": "C",
+        "text": "Continuous Professional Education"
+      },
+      {
+        "id": "D",
+        "text": "Continuous Professional Educator"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "CPE stands for Continuing Professional Education."
+  },
+  {
+    "id": "eelaws-57",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 57,
+    "question": "Applicants for registered master electrician’s examination must be at least _____ years of age.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "18"
+      },
+      {
+        "id": "B",
+        "text": "19"
+      },
+      {
+        "id": "C",
+        "text": "20"
+      },
+      {
+        "id": "D",
+        "text": "21"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Applicants for registered master electrician’s examination must be at least 18 years of age."
+  },
+  {
+    "id": "eelaws-58",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 58,
+    "question": "Which of the following is not a part of the requirements to take REE examination?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "He is of good reputation with moral values."
+      },
+      {
+        "id": "B",
+        "text": "He has not been finally convicted by the court of an offense involving moral turpitude."
+      },
+      {
+        "id": "C",
+        "text": "He is a citizen of the Philippines."
+      },
+      {
+        "id": "D",
+        "text": "He is at least twenty-one (21) years of age."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is He is of good reputation with moral values."
+  },
+  {
+    "id": "eelaws-59",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 59,
+    "question": "RA 9136 has four sectors, which of the following is not included?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "System operation"
+      },
+      {
+        "id": "B",
+        "text": "supply"
+      },
+      {
+        "id": "C",
+        "text": "distribution"
+      },
+      {
+        "id": "D",
+        "text": "generation"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is System operation."
+  },
+  {
+    "id": "eelaws-60",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 60,
+    "question": "Section 40 of Article IV of RA 7920 is the Penalty clause, states that any person who shall violate any of the provisions of this Act shall be guilty of misdemeanor and shall, upon conviction, be sentenced to a fine of not less than _____ nor more than P 50,000 or imprisonment for a period not less than 6 months nor more than 5 years or both at the discretion of the court.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "P 10,000"
+      },
+      {
+        "id": "B",
+        "text": "P 15,000"
+      },
+      {
+        "id": "C",
+        "text": "P 25,000"
+      },
+      {
+        "id": "D",
+        "text": "P 30,000"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Section 40 of Article IV of RA 7920 is the Penalty clause, states that any person who shall violate any of the provisions of this Act shall be guilty of misdemeanor and shall, upon conviction, be sentenced to a fine of not less than P 10,000 nor more than P 50,000 or imprisonment for a period not less than 6 months nor more than 5 years or both at the discretion of the court."
+  },
+  {
+    "id": "eelaws-61",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 61,
+    "question": "May is declared as the electrical safety month in virtue of _______ signed by Pres. Benigno Aquino III last June 27, 2011 for the reason of informing the public of the real reason of faulty electrical wiring.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Proclamation no. 193"
+      },
+      {
+        "id": "B",
+        "text": "Proclamation no. 183"
+      },
+      {
+        "id": "C",
+        "text": "RA 184"
+      },
+      {
+        "id": "D",
+        "text": "RA 7920"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "May is declared as the electrical safety month in virtue of Proclamation no. 193 signed by Pres. Benigno Aquino III last June 27, 2011 for the reason of informing the public of the real reason of faulty electrical wiring."
+  },
+  {
+    "id": "eelaws-62",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 62,
+    "question": "In RA 9136, what is SGC stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Successor Generation Company"
+      },
+      {
+        "id": "B",
+        "text": "Special Generation Company"
+      },
+      {
+        "id": "C",
+        "text": "Successor Generating Company"
+      },
+      {
+        "id": "D",
+        "text": "Special Generating Company"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Successor Generation Company."
+  },
+  {
+    "id": "eelaws-63",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 63,
+    "question": "In RA 9136, what is CREM stands for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Competitive Retail Electricity Market"
+      },
+      {
+        "id": "B",
+        "text": "Competitive Retail Energy Market"
+      },
+      {
+        "id": "C",
+        "text": "Competitor Retail Electricity Market"
+      },
+      {
+        "id": "D",
+        "text": "Competitor Retail Energy Market"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Competitive Retail Electricity Market."
+  },
+  {
+    "id": "eelaws-64",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 64,
+    "question": "What is article II of Code of Ethics for Electrical Engineers?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Relations with Client and Employer"
+      },
+      {
+        "id": "B",
+        "text": "Professional Life"
+      },
+      {
+        "id": "C",
+        "text": "Relations with Fellow Engineers"
+      },
+      {
+        "id": "D",
+        "text": "Penal Provisions"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Relations with Client and Employer."
+  },
+  {
+    "id": "eelaws-65",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 65,
+    "question": "What is the article V of Code of Ethics for Electrical Engineers?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Effectivity"
+      },
+      {
+        "id": "B",
+        "text": "Penal Provision"
+      },
+      {
+        "id": "C",
+        "text": "Relations with Client and Employer"
+      },
+      {
+        "id": "D",
+        "text": "Professional Life"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Effectivity."
+  },
+  {
+    "id": "eelaws-66",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 66,
+    "question": "RA 7920 Rule 2(f) is defining?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Telegram"
+      },
+      {
+        "id": "B",
+        "text": "RA 184, old Electrical Engineering law"
+      },
+      {
+        "id": "C",
+        "text": "CPE"
+      },
+      {
+        "id": "D",
+        "text": "Commission"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Telegram."
+  },
+  {
+    "id": "eelaws-67",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 67,
+    "question": "Which of the following is a ground for disqualification for the applicant for REE licensure examination?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Has been finally convicted by the court of an offense involving moral turpitude"
+      },
+      {
+        "id": "B",
+        "text": "Good reputation with low moral value"
+      },
+      {
+        "id": "C",
+        "text": "Citizen of the Philippines"
+      },
+      {
+        "id": "D",
+        "text": "At least twenty-one (21) years of age"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Has been finally convicted by the court of an offense involving moral turpitude."
+  },
+  {
+    "id": "eelaws-68",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 68,
+    "question": "As specified by the Energy Regulatory Commission, a contestable customer is a customer with a demand of least ____ MW.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "One"
+      },
+      {
+        "id": "B",
+        "text": "Three"
+      },
+      {
+        "id": "C",
+        "text": "Five"
+      },
+      {
+        "id": "D",
+        "text": "Two"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "As specified by the Energy Regulatory Commission, a contestable customer is a customer with a demand of least One MW."
+  },
+  {
+    "id": "eelaws-69",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 69,
+    "question": "A child on a sled is sliding down the hill covered with snow. The combined mass of the child and the sled is \"m\", the angle of inclination of the hill is \"q\" (phi), and the coefficient of kinetic friction between the snow and the sled runners is \"u\" (mu). Which of these expressions gives the frictional force?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "u mg cos phi"
+      },
+      {
+        "id": "B",
+        "text": "u mg sin phi"
+      },
+      {
+        "id": "C",
+        "text": "u mg"
+      },
+      {
+        "id": "D",
+        "text": "mg"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The normal force on an incline of angle phi is N = m * g * cos(phi). The frictional force is f_k = mu * N = u * m * g * cos(phi)."
+  },
+  {
+    "id": "eelaws-70",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 70,
+    "question": "What is the weight percent of engineering sciences subjects?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "30"
+      },
+      {
+        "id": "B",
+        "text": "35"
+      },
+      {
+        "id": "C",
+        "text": "25"
+      },
+      {
+        "id": "D",
+        "text": "40"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Under RA 7920 for the REE Board Examination, Engineering Sciences and Allied Subjects is weighted at 30%."
+  },
+  {
+    "id": "eelaws-71",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 71,
+    "question": "What is the weight percent of EE subjects?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "45"
+      },
+      {
+        "id": "B",
+        "text": "40"
+      },
+      {
+        "id": "C",
+        "text": "35"
+      },
+      {
+        "id": "D",
+        "text": "30"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Under RA 7920 for the REE Board Examination, Electrical Engineering Professional Subjects is weighted at 45%."
+  },
+  {
+    "id": "eelaws-72",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 72,
+    "question": "Who is the member of PRBEE?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Jaime Mendoza"
+      },
+      {
+        "id": "B",
+        "text": "Francis Mapile"
+      },
+      {
+        "id": "C",
+        "text": "Teofilo S. Pilando Jr."
+      },
+      {
+        "id": "D",
+        "text": "Jose Y. Cueto Jr."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Engr. Jaime V. Mendoza serves as Member of the Professional Regulatory Board of Electrical Engineering (PRBEE)."
+  },
+  {
+    "id": "eelaws-73",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 73,
+    "question": "Who is the Chairman of PRC Head office?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Teofilo S. Pilando Jr."
+      },
+      {
+        "id": "B",
+        "text": "Yolanda D. Reyes"
+      },
+      {
+        "id": "C",
+        "text": "Jose Y. Cueto Jr."
+      },
+      {
+        "id": "D",
+        "text": "Jaime V. Mendoza"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Atty. Teofilo S. Pilando Jr. served as Chairman of the Professional Regulation Commission (PRC)."
+  },
+  {
+    "id": "eelaws-74",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 74,
+    "question": "Who is the Commissioner I of PRC Head office?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Yolanda D. Reyes"
+      },
+      {
+        "id": "B",
+        "text": "Teofilo S. Pilando Jr."
+      },
+      {
+        "id": "C",
+        "text": "Jaime V. Mendoza"
+      },
+      {
+        "id": "D",
+        "text": "Jose Y. Cueto Jr."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Arch. Yolanda D. Reyes served as Commissioner I of the Professional Regulation Commission (PRC)."
+  },
+  {
+    "id": "eelaws-75",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
+    "questionNumber": 75,
+    "question": "Who is the Commissioner II of PRC Head office?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Jose Y. Cueto Jr."
+      },
+      {
+        "id": "B",
+        "text": "Yolanda D. Reyes"
+      },
+      {
+        "id": "C",
+        "text": "Jaime V. Mendoza"
+      },
+      {
+        "id": "D",
+        "text": "Teofilo S. Pilando Jr."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Dr. Jose Y. Cueto Jr. served as Commissioner II of the Professional Regulation Commission (PRC)."
+  },
+  {
     "id": "pm-m1-1",
     "subject": "Project Management",
     "sourceFileName": "Drive/Project_Management_Module_1.pdf",
@@ -10528,7 +12066,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Crash the project"
+    "explanation": "The correct answer is Crash the project."
   },
   {
     "id": "pm-m1-2",
@@ -10582,7 +12120,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Develop Schedule"
+    "explanation": "The correct answer is Develop Schedule."
   },
   {
     "id": "pm-exam3-2",
@@ -10609,7 +12147,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Perform resource leveling"
+    "explanation": "The correct answer is Perform resource leveling."
   },
   {
     "id": "pm-m1-3",
@@ -10663,7 +12201,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: It increases the project risk"
+    "explanation": "The correct answer is It increases the project risk."
   },
   {
     "id": "pm-exam3-3",
@@ -10690,7 +12228,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Mandatory dependency"
+    "explanation": "The correct answer is Mandatory dependency."
   },
   {
     "id": "pm-m1-4",
@@ -10744,7 +12282,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Critical path method"
+    "explanation": "The correct answer is Critical path method."
   },
   {
     "id": "pm-exam3-4",
@@ -10771,7 +12309,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Verify Scope"
+    "explanation": "The correct answer is Verify Scope."
   },
   {
     "id": "pm-m1-5",
@@ -10879,7 +12417,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Leveling"
+    "explanation": "The correct answer is Leveling."
   },
   {
     "id": "pm-exam3-5",
@@ -10906,7 +12444,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Confirm that all the stakeholders have had input into the scope"
+    "explanation": "The correct answer is Confirm that all the stakeholders have had input into the scope."
   },
   {
     "id": "pm-m1-6",
@@ -10987,7 +12525,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Reporting to management"
+    "explanation": "The correct answer is Reporting to management."
   },
   {
     "id": "pm-exam3-6",
@@ -11014,7 +12552,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Until it can be done by one person"
+    "explanation": "The correct answer is Until it can be done by one person."
   },
   {
     "id": "pm-m1-7",
@@ -11068,7 +12606,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Determining the amount of time the activity can be delayed before it delays the critical path"
+    "explanation": "The correct answer is Determining the amount of time the activity can be delayed before it delays the critical path."
   },
   {
     "id": "pm-exam3-7",
@@ -11095,7 +12633,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Scope management"
+    "explanation": "The correct answer is Scope management."
   },
   {
     "id": "pm-m1-8",
@@ -11203,7 +12741,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Standard deviation tells you how unsure the estimate"
+    "explanation": "The correct answer is Standard deviation tells you how unsure the estimate."
   },
   {
     "id": "pm-exam3-8",
@@ -11230,7 +12768,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: ETC and VAC"
+    "explanation": "The correct answer is ETC and VAC."
   },
   {
     "id": "pm-m1-9",
@@ -11311,7 +12849,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: There is no duration"
+    "explanation": "The correct answer is There is no duration."
   },
   {
     "id": "pm-exam3-9",
@@ -11338,7 +12876,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Direct costs and variable costs"
+    "explanation": "The correct answer is Direct costs and variable costs."
   },
   {
     "id": "pm-m1-10",
@@ -11392,7 +12930,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: The management reserve"
+    "explanation": "The correct answer is The management reserve."
   },
   {
     "id": "pm-m1-11",
@@ -11446,7 +12984,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Network diagram"
+    "explanation": "The correct answer is Network diagram."
   },
   {
     "id": "pm-exam3-11",
@@ -11473,7 +13011,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: complex"
+    "explanation": "The correct answer is complex."
   },
   {
     "id": "pm-m1-12",
@@ -11554,7 +13092,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Rule of thumb"
+    "explanation": "The correct answer is Rule of thumb."
   },
   {
     "id": "pm-m1-13",
@@ -11608,7 +13146,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Progress or status"
+    "explanation": "The correct answer is Progress or status."
   },
   {
     "id": "pm-m1-14",
@@ -11716,7 +13254,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Project Scope Statement"
+    "explanation": "The correct answer is Project Scope Statement."
   },
   {
     "id": "pm-m1-15",
@@ -11770,7 +13308,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Quality assurance"
+    "explanation": "The correct answer is Quality assurance."
   },
   {
     "id": "pm-exam3-15",
@@ -11797,7 +13335,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Project Management Information System (PMIS)"
+    "explanation": "The correct answer is Project Management Information System (PMIS)."
   },
   {
     "id": "pm-m1-16",
@@ -11851,7 +13389,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Inspection"
+    "explanation": "You can determine whether requirements have been met by using Inspection."
   },
   {
     "id": "pm-exam3-16",
@@ -11878,7 +13416,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Correlates the need for the project to the organizations strategic plan"
+    "explanation": "The correct answer is Correlates the need for the project to the organizations strategic plan."
   },
   {
     "id": "pm-m1-17",
@@ -11932,7 +13470,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Team buy-in"
+    "explanation": "The correct answer is Team buy-in."
   },
   {
     "id": "pm-m1-18",
@@ -11986,7 +13524,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives"
+    "explanation": "The correct answer is A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives."
   },
   {
     "id": "pm-exam2-18",
@@ -12013,7 +13551,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Inspection"
+    "explanation": "The correct answer is Inspection."
   },
   {
     "id": "pm-exam2-19",
@@ -12040,7 +13578,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: three"
+    "explanation": "The correct answer is three."
   },
   {
     "id": "pm-m1-20",
@@ -12094,7 +13632,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Create WBS"
+    "explanation": "The correct answer is Create WBS."
   },
   {
     "id": "pm-exam3-20",
@@ -12121,7 +13659,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Not be viewed as part of a project"
+    "explanation": "The correct answer is Not be viewed as part of a project."
   },
   {
     "id": "pm-m1-21",
@@ -12202,7 +13740,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Alternatives identification"
+    "explanation": "The correct answer is Alternatives identification."
   },
   {
     "id": "pm-m1-22",
@@ -12256,7 +13794,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Scope Changes"
+    "explanation": "The correct answer is Scope Changes."
   },
   {
     "id": "pm-m1-23",
@@ -12310,7 +13848,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Scope Statement"
+    "explanation": "The correct answer is Scope Statement."
   },
   {
     "id": "pm-m1-24",
@@ -12364,7 +13902,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Product Scope; Project Scope"
+    "explanation": "The features and functions of a product or service are considered Product Scope; Project Scope; and the work that must be done to deliver a product/service as the output of the project is considered Product Scope; Project Scope."
   },
   {
     "id": "pm-m1-25",
@@ -12418,7 +13956,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Accepted Deliverables"
+    "explanation": "The correct answer is Accepted Deliverables."
   },
   {
     "id": "pm-exam3-25",
@@ -12445,7 +13983,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Project Scope Statement"
+    "explanation": "The correct answer is Project Scope Statement."
   },
   {
     "id": "pm-m1-26",
@@ -12499,7 +14037,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Imprecise language"
+    "explanation": "The correct answer is Imprecise language."
   },
   {
     "id": "pm-exam3-26",
@@ -12526,7 +14064,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Start to create management plans"
+    "explanation": "The correct answer is Start to create management plans."
   },
   {
     "id": "pm-m1-27",
@@ -12580,7 +14118,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Perform Quality Control"
+    "explanation": "The correct answer is Perform Quality Control."
   },
   {
     "id": "pm-exam3-27",
@@ -12607,7 +14145,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Initiating"
+    "explanation": "The correct answer is Initiating."
   },
   {
     "id": "pm-exam2-28",
@@ -12634,7 +14172,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Requirements traceability matrix"
+    "explanation": "The correct answer is Requirements traceability matrix."
   },
   {
     "id": "pm-exam3-28",
@@ -12661,7 +14199,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Initiating"
+    "explanation": "The correct answer is Initiating."
   },
   {
     "id": "pm-exam2-29",
@@ -12688,7 +14226,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: The project team"
+    "explanation": "The correct answer is The project team."
   },
   {
     "id": "pm-exam3-29",
@@ -12715,7 +14253,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Iterative"
+    "explanation": "The correct answer is Iterative."
   },
   {
     "id": "pm-m4-30",
@@ -12769,7 +14307,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Scope management plan"
+    "explanation": "The correct answer is Scope management plan."
   },
   {
     "id": "pm-exam3-30",
@@ -12796,7 +14334,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Executing"
+    "explanation": "The correct answer is Executing."
   },
   {
     "id": "pm-exam2-31",
@@ -12823,7 +14361,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: A WBS dictionary"
+    "explanation": "The correct answer is A WBS dictionary."
   },
   {
     "id": "pm-exam3-31",
@@ -12850,7 +14388,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Monitoring and Control"
+    "explanation": "The correct answer is Monitoring and Control."
   },
   {
     "id": "pm-exam2-32",
@@ -12877,7 +14415,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: At the end of each phase of the project"
+    "explanation": "The correct answer is At the end of each phase of the project."
   },
   {
     "id": "pm-exam3-32",
@@ -12904,7 +14442,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Executing"
+    "explanation": "The correct answer is Executing."
   },
   {
     "id": "pm-exam2-33",
@@ -12931,7 +14469,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Planning"
+    "explanation": "The correct answer is Planning."
   },
   {
     "id": "pm-exam3-33",
@@ -12958,7 +14496,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Develop Project Charter"
+    "explanation": "The correct answer is Develop Project Charter."
   },
   {
     "id": "pm-exam2-34",
@@ -12985,7 +14523,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Stakeholder"
+    "explanation": "The correct answer is Stakeholder."
   },
   {
     "id": "pm-exam3-34",
@@ -13012,7 +14550,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Lessons Learned"
+    "explanation": "The correct answer is Lessons Learned."
   },
   {
     "id": "pm-exam2-35",
@@ -13039,7 +14577,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: There is a risk that project costs could go higher than planned"
+    "explanation": "The correct answer is There is a risk that project costs could go higher than planned."
   },
   {
     "id": "pm-exam2-36",
@@ -13066,7 +14604,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Performance reporting"
+    "explanation": "The correct answer is Performance reporting."
   },
   {
     "id": "pm-exam2-37",
@@ -13093,7 +14631,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Determine Budget"
+    "explanation": "The correct answer is Determine Budget."
   },
   {
     "id": "pm-exam3-37",
@@ -13120,7 +14658,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Effective communication at key interface points"
+    "explanation": "The correct answer is Effective communication at key interface points."
   },
   {
     "id": "pm-exam2-38",
@@ -13147,7 +14685,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Earned value (EV)"
+    "explanation": "The correct answer is Earned value (EV)."
   },
   {
     "id": "pm-exam3-38",
@@ -13174,7 +14712,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Direct and Manage Project Work"
+    "explanation": "The correct answer is Direct and Manage Project Work."
   },
   {
     "id": "pm-exam2-39",
@@ -13201,7 +14739,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: The seller"
+    "explanation": "The correct answer is The seller."
   },
   {
     "id": "pm-exam3-39",
@@ -13228,7 +14766,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Scope, Risk, Resource and other management plans"
+    "explanation": "The correct answer is Scope, Risk, Resource and other management plans."
   },
   {
     "id": "pm-m5-40",
@@ -13282,7 +14820,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: A less costly way of doing the same work"
+    "explanation": "The correct answer is A less costly way of doing the same work."
   },
   {
     "id": "pm-exam3-40",
@@ -13309,7 +14847,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Risk management plan"
+    "explanation": "The correct answer is Risk management plan."
   },
   {
     "id": "pm-exam2-41",
@@ -13336,7 +14874,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Fixed costs"
+    "explanation": "The correct answer is Fixed costs."
   },
   {
     "id": "pm-exam3-41",
@@ -13363,7 +14901,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Setting up a project control system"
+    "explanation": "The correct answer is Setting up a project control system."
   },
   {
     "id": "pm-exam2-42",
@@ -13390,7 +14928,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Direct"
+    "explanation": "The correct answer is Direct."
   },
   {
     "id": "pm-exam3-42",
@@ -13417,7 +14955,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Sunk Costs"
+    "explanation": "The correct answer is Sunk Costs."
   },
   {
     "id": "pm-exam2-43",
@@ -13444,7 +14982,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Monitoring and controlling"
+    "explanation": "The correct answer is Monitoring and controlling."
   },
   {
     "id": "pm-exam3-43",
@@ -13471,7 +15009,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Performing Cost Benefit"
+    "explanation": "The correct answer is Performing Cost Benefit."
   },
   {
     "id": "pm-exam2-44",
@@ -13498,7 +15036,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Determine Budget"
+    "explanation": "The correct answer is Determine Budget."
   },
   {
     "id": "pm-exam3-44",
@@ -13525,7 +15063,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Stakeholder"
+    "explanation": "The work breakdown structure can best be thought of as effective aid for Stakeholder communications."
   },
   {
     "id": "pm-exam2-45",
@@ -13552,7 +15090,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Initiating"
+    "explanation": "The correct answer is Initiating."
   },
   {
     "id": "pm-exam3-45",
@@ -13579,7 +15117,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Planning"
+    "explanation": "The correct answer is Planning."
   },
   {
     "id": "pm-exam2-46",
@@ -13606,7 +15144,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Dollars per module"
+    "explanation": "The correct answer is Dollars per module."
   },
   {
     "id": "pm-exam3-46",
@@ -13633,7 +15171,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Control Quality"
+    "explanation": "The correct answer is Control Quality."
   },
   {
     "id": "pm-exam2-47",
@@ -13660,7 +15198,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: A change control system"
+    "explanation": "The correct answer is A change control system."
   },
   {
     "id": "pm-exam3-48",
@@ -13687,7 +15225,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: The critical path helps prove how long the project will take."
+    "explanation": "The correct answer is The critical path helps prove how long the project will take."
   },
   {
     "id": "pm-exam2-48",
@@ -13714,7 +15252,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Milestone reports"
+    "explanation": "The correct answer is Milestone reports."
   },
   {
     "id": "pm-exam2-49",
@@ -13741,7 +15279,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: PERT"
+    "explanation": "The correct answer is PERT."
   },
   {
     "id": "pm-exam3-49",
@@ -13768,7 +15306,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Reporting to management"
+    "explanation": "The correct answer is Reporting to management."
   },
   {
     "id": "pm-exam2-50",
@@ -13795,7 +15333,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Reserves"
+    "explanation": "The correct answer is Reserves."
   },
   {
     "id": "pm-exam3-50",
@@ -13822,7 +15360,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Correct answer: Determine options for schedule compression and present management with the recommended option."
+    "explanation": "The correct answer is Determine options for schedule compression and present management with the recommended option."
   },
   {
     "id": "pm-m5-55",
@@ -14173,7 +15711,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "Modulation index m = Vm / Vc."
+    "explanation": "Modulation index: Modulation index m = Vm / Vc."
   },
   {
     "id": "comm-22",
@@ -14876,5 +16414,11552 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     ],
     "correctChoiceId": "D",
     "explanation": "Sky waves bounce between the ionosphere and Earth's surface for long-distance skips."
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-ganwb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 37,
+    "question": "Electronic Communications is discovered on which century?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Sixteenth"
+      },
+      {
+        "id": "B",
+        "text": "Eighteenth"
+      },
+      {
+        "id": "C",
+        "text": "Nineteenth"
+      },
+      {
+        "id": "D",
+        "text": "Twentieth"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Nineteenth.",
+    "rawSnippet": "Electronic Communications is discovered on which century?\nA. Sixteenth\nB. Eighteenth\nC. Nineteenth\nD. Twentieth"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-fn1lb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 38,
+    "question": "Which of the following is not a major communication medium?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Free Space"
+      },
+      {
+        "id": "B",
+        "text": "Water"
+      },
+      {
+        "id": "C",
+        "text": "Wires"
+      },
+      {
+        "id": "D",
+        "text": "Fiber Optic Cable"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Water.",
+    "rawSnippet": "Which of the following is not a major communication medium?\nA. Free Space\nB. Water\nC. Wires\nD. Fiber Optic Cable"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-lav42",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 39,
+    "question": "Random interference to transmitted signal is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Adjacent channel overlap"
+      },
+      {
+        "id": "B",
+        "text": "Crosstalk"
+      },
+      {
+        "id": "C",
+        "text": "Garbage in – Garbage out"
+      },
+      {
+        "id": "D",
+        "text": "Noise"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Random interference to transmitted signal is called Noise.",
+    "rawSnippet": "Random interference to transmitted signal is called\nA. Adjacent channel overlap\nB. Crosstalk\nC. Garbage in – Garbage out\nD. Noise"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-5ytos",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 40,
+    "question": "The communications medium causes the signal to be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplified"
+      },
+      {
+        "id": "B",
+        "text": "Modulated"
+      },
+      {
+        "id": "C",
+        "text": "Attenuated"
+      },
+      {
+        "id": "D",
+        "text": "Interferred with"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Attenuated.",
+    "rawSnippet": "The communications medium causes the signal to be\nA. Amplified\nB. Modulated\nC. Attenuated\nD. Interferred with"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-gskkv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 41,
+    "question": "Which of the following is not a source of noise?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Another communication signal"
+      },
+      {
+        "id": "B",
+        "text": "Atmospheric effects"
+      },
+      {
+        "id": "C",
+        "text": "Manufactured electrical systems"
+      },
+      {
+        "id": "D",
+        "text": "Thermal agitation in electronic components"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Another communication signal.",
+    "rawSnippet": "Which of the following is not a source of noise?\nA. Another communication signal\nB. Atmospheric effects\nC. Manufactured electrical systems\nD. Thermal agitation in electronic components"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-qasb1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 42,
+    "question": "Transmission of graphical information over the telephone network is accomplished by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Television"
+      },
+      {
+        "id": "B",
+        "text": "CATV"
+      },
+      {
+        "id": "C",
+        "text": "Videotext"
+      },
+      {
+        "id": "D",
+        "text": "Facsimile"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Facsimile.",
+    "rawSnippet": "Transmission of graphical information over the telephone network is accomplished by\nA. Television\nB. CATV\nC. Videotext\nD. Facsimile"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-sy4cm",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 43,
+    "question": "Receiving electromagnetic emissions from stars is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Astrology"
+      },
+      {
+        "id": "B",
+        "text": "Optical astronomy"
+      },
+      {
+        "id": "C",
+        "text": "Radio Astronomy"
+      },
+      {
+        "id": "D",
+        "text": "Space surveillance"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Receiving electromagnetic emissions from stars is called Radio Astronomy.",
+    "rawSnippet": "Receiving electromagnetic emissions from stars is called\nA. Astrology\nB. Optical astronomy\nC. Radio Astronomy\nD. Space surveillance"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-tl7tg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 44,
+    "question": "A personal communications hobby for individuals is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ham radio"
+      },
+      {
+        "id": "B",
+        "text": "Electronic Bulletin Board"
+      },
+      {
+        "id": "C",
+        "text": "CB radio"
+      },
+      {
+        "id": "D",
+        "text": "Cellular radio"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Ham radio.",
+    "rawSnippet": "A personal communications hobby for individuals is\nA. Ham radio\nB. Electronic Bulletin Board\nC. CB radio\nD. Cellular radio"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-t86wk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 45,
+    "question": "Radar is based upon",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Microwaves"
+      },
+      {
+        "id": "B",
+        "text": "A water medium"
+      },
+      {
+        "id": "C",
+        "text": "The directional nature of radio signals"
+      },
+      {
+        "id": "D",
+        "text": "Reflected radio signals"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Reflected radio signals.",
+    "rawSnippet": "Radar is based upon\nA. Microwaves\nB. A water medium\nC. The directional nature of radio signals\nD. Reflected radio signals"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-mx7gd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 46,
+    "question": "Radio signals are made of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Voltages and Currents"
+      },
+      {
+        "id": "B",
+        "text": "Electric and Magnetic Fields"
+      },
+      {
+        "id": "C",
+        "text": "Electrons and protons"
+      },
+      {
+        "id": "D",
+        "text": "Noise and data"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Electric and Magnetic Fields.",
+    "rawSnippet": "Radio signals are made of\nA. Voltages and Currents\nB. Electric and Magnetic Fields\nC. Electrons and protons\nD. Noise and data"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-rnv62",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 47,
+    "question": "Another name for signals in the HF range is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Microwaves"
+      },
+      {
+        "id": "B",
+        "text": "RF waves"
+      },
+      {
+        "id": "C",
+        "text": "Short waves"
+      },
+      {
+        "id": "D",
+        "text": "Millimeter waves"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Short waves.",
+    "rawSnippet": "Another name for signals in the HF range is\nA. Microwaves\nB. RF waves\nC. Short waves\nD. Millimeter waves"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-6xuih",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 48,
+    "question": "A micron is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "one millionth of a foot"
+      },
+      {
+        "id": "B",
+        "text": "one millionth of a meter"
+      },
+      {
+        "id": "C",
+        "text": "one thousandth of a meter"
+      },
+      {
+        "id": "D",
+        "text": "one ten thousandth of an inch"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is one millionth of a meter.",
+    "rawSnippet": "A micron is\nA. one millionth of a foot\nB. one millionth of a meter\nC. one thousandth of a meter\nD. one ten thousandth of an inch"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-b2xu3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 49,
+    "question": "The frequency range of infrared rays is approximately",
+    "choices": [
+      {
+        "id": "A",
+        "text": "30 to 300GHZ"
+      },
+      {
+        "id": "B",
+        "text": "4000 to 8000 A"
+      },
+      {
+        "id": "C",
+        "text": "1000 to 10000 A"
+      },
+      {
+        "id": "D",
+        "text": "0.7 to 100 µm"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 0.7 to 100 µm.",
+    "rawSnippet": "The frequency range of infrared rays is approximately\nA. 30 to 300GHZ\nB. 4000 to 8000 A\nC. 1000 to 10000 A\nD. 0.7 to 100 µm"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-1i37r",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 50,
+    "question": "The approximate wavelength of red light is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1000 µm"
+      },
+      {
+        "id": "B",
+        "text": "7000 A"
+      },
+      {
+        "id": "C",
+        "text": "3500 A"
+      },
+      {
+        "id": "D",
+        "text": "4000 A"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 7000 A.",
+    "rawSnippet": "The approximate wavelength of red light is\nA. 1000 µm\nB. 7000 A\nC. 3500 A\nD. 4000 A"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-smeja",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 51,
+    "question": "Which of the following is not used for communications?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "X-rays"
+      },
+      {
+        "id": "B",
+        "text": "Millimeter waves"
+      },
+      {
+        "id": "C",
+        "text": "infrared"
+      },
+      {
+        "id": "D",
+        "text": "microwaves"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is X-rays.",
+    "rawSnippet": "Which of the following is not used for communications?\nA. X-rays\nB. Millimeter waves\nC. infrared\nD. microwaves"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488168-lqpax",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 52,
+    "question": "For a given bandwidth signal, more channel space is available for signals in the range of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "VHF"
+      },
+      {
+        "id": "B",
+        "text": "UHF"
+      },
+      {
+        "id": "C",
+        "text": "SHF"
+      },
+      {
+        "id": "D",
+        "text": "EHF"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is EHF.",
+    "rawSnippet": "For a given bandwidth signal, more channel space is available for signals in the range of\nA. VHF\nB. UHF\nC. SHF\nD. EHF"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-1oqfe",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 53,
+    "question": "Which of the following is not true about AM?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "the carrier amplitude varies"
+      },
+      {
+        "id": "B",
+        "text": "the carrier frequency remains constant"
+      },
+      {
+        "id": "C",
+        "text": "the carrier frequency changes"
+      },
+      {
+        "id": "D",
+        "text": "the information signal amplitude changes the carrier amplitude"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is the carrier frequency changes.",
+    "rawSnippet": "Which of the following is not true about AM?\nA. the carrier amplitude varies\nB. the carrier frequency remains constant\nC. the carrier frequency changes\nD. the information signal amplitude changes the carrier amplitude"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-gpkqs",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 54,
+    "question": "The circuit used to produced modulation is called a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulator"
+      },
+      {
+        "id": "B",
+        "text": "Demodulator"
+      },
+      {
+        "id": "C",
+        "text": "Variable Gain amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Multiplexer"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Modulator.",
+    "rawSnippet": "The circuit used to produced modulation is called a\nA. Modulator\nB. Demodulator\nC. Variable Gain amplifier\nD. Multiplexer"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-fl9g9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 55,
+    "question": "A modulator circuit performs what mathematical operation on its two inputs?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "addition"
+      },
+      {
+        "id": "B",
+        "text": "multiplication"
+      },
+      {
+        "id": "C",
+        "text": "division"
+      },
+      {
+        "id": "D",
+        "text": "square root"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is multiplication.",
+    "rawSnippet": "A modulator circuit performs what mathematical operation on its two inputs?\nA. addition\nB. multiplication\nC. division\nD. square root"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-ewc92",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 56,
+    "question": "If m is greater than 1, what happens?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "normal operation"
+      },
+      {
+        "id": "B",
+        "text": "carrier frequency shifts"
+      },
+      {
+        "id": "C",
+        "text": "carrier drops to zero"
+      },
+      {
+        "id": "D",
+        "text": "information signal is distorted"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is information signal is distorted.",
+    "rawSnippet": "If m is greater than 1, what happens?\nA. normal operation\nB. carrier frequency shifts\nC. carrier drops to zero\nD. information signal is distorted"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-dn9o6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 57,
+    "question": "For ideal AM, which of the following is true?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "m = 0"
+      },
+      {
+        "id": "B",
+        "text": "m = 1"
+      },
+      {
+        "id": "C",
+        "text": "m < 1"
+      },
+      {
+        "id": "D",
+        "text": "m > 1"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is m = 1.",
+    "rawSnippet": "For ideal AM, which of the following is true?\nA. m = 0\nB. m = 1\nC. m < 1\nD. m > 1"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-v9qfu",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 58,
+    "question": "Overmodulation occurs when",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Vm > Vc"
+      },
+      {
+        "id": "B",
+        "text": "Vm < Vc"
+      },
+      {
+        "id": "C",
+        "text": "Vm = Vc"
+      },
+      {
+        "id": "D",
+        "text": "Vm = Vc = 0"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Vm > Vc.",
+    "rawSnippet": "Overmodulation occurs when\nA. Vm > Vc\nB. Vm < Vc\nC. Vm = Vc\nD. Vm = Vc = 0"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-xa0yl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 59,
+    "question": "The new signals produced by modulation are called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "spurious emissions."
+      },
+      {
+        "id": "B",
+        "text": "harmonics"
+      },
+      {
+        "id": "C",
+        "text": "intermodulation products"
+      },
+      {
+        "id": "D",
+        "text": "sidebands"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The new signals produced by modulation is called sidebands.",
+    "rawSnippet": "The new signals produced by modulation are called\nA. spurious emissions.\nB. harmonics\nC. intermodulation products\nD. sidebands"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-7lfo3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 60,
+    "question": "A display of signal amplitude versus frequency is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "time domain"
+      },
+      {
+        "id": "B",
+        "text": "frequency spectrum"
+      },
+      {
+        "id": "C",
+        "text": "amplitude spectrum"
+      },
+      {
+        "id": "D",
+        "text": "frequency domain"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is frequency domain.",
+    "rawSnippet": "A display of signal amplitude versus frequency is called the\nA. time domain\nB. frequency spectrum\nC. amplitude spectrum\nD. frequency domain"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-znps2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 61,
+    "question": "Most of the power in an AM signal is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "carrier"
+      },
+      {
+        "id": "B",
+        "text": "upper sideband"
+      },
+      {
+        "id": "C",
+        "text": "lower sideband"
+      },
+      {
+        "id": "D",
+        "text": "modulating signal"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is carrier.",
+    "rawSnippet": "Most of the power in an AM signal is the\nA. carrier\nB. upper sideband\nC. lower sideband\nD. modulating signal"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-wfgi5",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 62,
+    "question": "In an AM signal, the transmitted information is contained within the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "carrier"
+      },
+      {
+        "id": "B",
+        "text": "modulating signal"
+      },
+      {
+        "id": "C",
+        "text": "sidebands"
+      },
+      {
+        "id": "D",
+        "text": "envelope"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is sidebands.",
+    "rawSnippet": "In an AM signal, the transmitted information is contained within the\nA. carrier\nB. modulating signal\nC. sidebands\nD. envelope"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-a80v7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 63,
+    "question": "An AM signal without the carrier is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "SSB"
+      },
+      {
+        "id": "B",
+        "text": "vestigial sideband"
+      },
+      {
+        "id": "C",
+        "text": "FM signal"
+      },
+      {
+        "id": "D",
+        "text": "DSB"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is DSB.",
+    "rawSnippet": "An AM signal without the carrier is called a(n)\nA. SSB\nB. vestigial sideband\nC. FM signal\nD. DSB"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-3qsvd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 64,
+    "question": "What is the minimum AM signal needed to transmit information?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "carrier plus sidebands"
+      },
+      {
+        "id": "B",
+        "text": "carrier only"
+      },
+      {
+        "id": "C",
+        "text": "one sideband"
+      },
+      {
+        "id": "D",
+        "text": "both isdeband"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is one sideband.",
+    "rawSnippet": "What is the minimum AM signal needed to transmit information?\nA. carrier plus sidebands\nB. carrier only\nC. one sideband\nD. both isdeband"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-ha4bj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 65,
+    "question": "In SSB, which sideband is the best to use?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "upper"
+      },
+      {
+        "id": "B",
+        "text": "lower"
+      },
+      {
+        "id": "C",
+        "text": "neither"
+      },
+      {
+        "id": "D",
+        "text": "depends upon use"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is neither.",
+    "rawSnippet": "In SSB, which sideband is the best to use?\nA. upper\nB. lower\nC. neither\nD. depends upon use"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-p107b",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 66,
+    "question": "The typical audio modulating frequency range used in radio and telephone communications is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "50 Hz to 5KHz"
+      },
+      {
+        "id": "B",
+        "text": "50 Hz to 15 Khz"
+      },
+      {
+        "id": "C",
+        "text": "100 Hz to 10kHz"
+      },
+      {
+        "id": "D",
+        "text": "300hz to 3khz"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 300hz to 3khz.",
+    "rawSnippet": "The typical audio modulating frequency range used in radio and telephone communications is\nA. 50 Hz to 5KHz\nB. 50 Hz to 15 Khz\nC. 100 Hz to 10kHz\nD. 300hz to 3khz"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-wbkh9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 67,
+    "question": "Distortion of the modulating signal produces harmonics which cause an increase in the signal",
+    "choices": [
+      {
+        "id": "A",
+        "text": "carrier power"
+      },
+      {
+        "id": "B",
+        "text": "bandwidth"
+      },
+      {
+        "id": "C",
+        "text": "sideband power"
+      },
+      {
+        "id": "D",
+        "text": "envelope voltage"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is bandwidth.",
+    "rawSnippet": "Distortion of the modulating signal produces harmonics which cause an increase in the signal\nA. carrier power\nB. bandwidth\nC. sideband power\nD. envelope voltage"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-swwsg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 68,
+    "question": "The process of translating a signal, with or without modulation, to a higher or lower frequency for processing is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "frequency multiplication"
+      },
+      {
+        "id": "B",
+        "text": "frequency division"
+      },
+      {
+        "id": "C",
+        "text": "frequency shift"
+      },
+      {
+        "id": "D",
+        "text": "frequency conversion"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The process of translating a signal, with or without modulation, to a higher or lower frequency for processing is called frequency conversion.",
+    "rawSnippet": "The process of translating a signal, with or without modulation, to a higher or lower frequency for processing is called\nA. frequency multiplication\nB. frequency division\nC. frequency shift\nD. frequency conversion"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-sg58e",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 69,
+    "question": "Frequency translation is carried out by a circuit called a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "translator"
+      },
+      {
+        "id": "B",
+        "text": "converter"
+      },
+      {
+        "id": "C",
+        "text": "balanced modulator"
+      },
+      {
+        "id": "D",
+        "text": "local oscillator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is converter.",
+    "rawSnippet": "Frequency translation is carried out by a circuit called a\nA. translator\nB. converter\nC. balanced modulator\nD. local oscillator"
+  },
+  {
+    "id": "comm-batch-1-34-1791677488168-qev3n",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 70,
+    "question": "The output power of an SSB transmitter is usually expressed in terms of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "average power"
+      },
+      {
+        "id": "B",
+        "text": "RMS power"
+      },
+      {
+        "id": "C",
+        "text": "peak to peak power"
+      },
+      {
+        "id": "D",
+        "text": "peak envelope power"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is peak envelope power.",
+    "rawSnippet": "The output power of an SSB transmitter is usually expressed in terms of\nA. average power\nB. RMS power\nC. peak to peak power\nD. peak envelope power"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-m47t1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 71,
+    "question": "Amplitude modulation is the same as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Linear Mixing"
+      },
+      {
+        "id": "B",
+        "text": "Analog Multiplication"
+      },
+      {
+        "id": "C",
+        "text": "Signal Summation"
+      },
+      {
+        "id": "D",
+        "text": "Multiplexing"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Analog Multiplication.",
+    "rawSnippet": "Amplitude modulation is the same as\nA. Linear Mixing\nB. Analog Multiplication\nC. Signal Summation\nD. Multiplexing"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-jjsf3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 72,
+    "question": "In a diode modulator, the negative half of the AM wave is supplied by a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Tuned Circuit"
+      },
+      {
+        "id": "B",
+        "text": "Transformer"
+      },
+      {
+        "id": "C",
+        "text": "Capacitor"
+      },
+      {
+        "id": "D",
+        "text": "Inductor"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Tuned Circuit.",
+    "rawSnippet": "In a diode modulator, the negative half of the AM wave is supplied by a(n)\nA. Tuned Circuit\nB. Transformer\nC. Capacitor\nD. Inductor"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-0bo82",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 73,
+    "question": "Amplitude modulation can be produced by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Having the carrier vary a resistance"
+      },
+      {
+        "id": "B",
+        "text": "Having the modulating signal vary a capacitance"
+      },
+      {
+        "id": "C",
+        "text": "Varying the carrier frequency"
+      },
+      {
+        "id": "D",
+        "text": "Varying the gain of an amplifier"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Having the carrier vary a resistance.",
+    "rawSnippet": "Amplitude modulation can be produced by\nA. Having the carrier vary a resistance\nB. Having the modulating signal vary a capacitance\nC. Varying the carrier frequency\nD. Varying the gain of an amplifier"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-ci2lu",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 74,
+    "question": "Amplitude modulators that vary the carrier amplitude with the modulating signal by passing it through an attenuator work on the principle of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Rectification"
+      },
+      {
+        "id": "B",
+        "text": "Resonance"
+      },
+      {
+        "id": "C",
+        "text": "Variable resistance"
+      },
+      {
+        "id": "D",
+        "text": "Absorption"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Variable resistance.",
+    "rawSnippet": "Amplitude modulators that vary the carrier amplitude with the modulating signal by passing it through an attenuator work on the principle of\nA. Rectification\nB. Resonance\nC. Variable resistance\nD. Absorption"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-kblrd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 75,
+    "question": "In Fig. 3-4, D1 is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Variable resistor"
+      },
+      {
+        "id": "B",
+        "text": "Mixer"
+      },
+      {
+        "id": "C",
+        "text": "Clipper"
+      },
+      {
+        "id": "D",
+        "text": "Rexctifier"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Variable resistor.",
+    "rawSnippet": "In Fig. 3-4, D1 is a\nA. Variable resistor\nB. Mixer\nC. Clipper\nD. Rexctifier"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-d9reo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 76,
+    "question": "The component used to produce AM at very high frequencies is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Varactor"
+      },
+      {
+        "id": "B",
+        "text": "Thermistor"
+      },
+      {
+        "id": "C",
+        "text": "Cavity resonator"
+      },
+      {
+        "id": "D",
+        "text": "PIN diode"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Varactor.",
+    "rawSnippet": "The component used to produce AM at very high frequencies is a\nA. Varactor\nB. Thermistor\nC. Cavity resonator\nD. PIN diode"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-1bjzv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 77,
+    "question": "Amplitude modulation generated at a very low voltage or power amplitude is known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "High-level Modulation"
+      },
+      {
+        "id": "B",
+        "text": "Low-level Modulation"
+      },
+      {
+        "id": "C",
+        "text": "Collector Modulation"
+      },
+      {
+        "id": "D",
+        "text": "Minimum Modulation"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Amplitude modulation generated at a very low voltage or power amplitude is called Low-level Modulation.",
+    "rawSnippet": "Amplitude modulation generated at a very low voltage or power amplitude is known as\nA. High-level Modulation\nB. Low-level Modulation\nC. Collector Modulation\nD. Minimum Modulation"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-ihgqp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 78,
+    "question": "The circuit that recovers the original modulating information from an AM signal is known as a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulator"
+      },
+      {
+        "id": "B",
+        "text": "Demodulator"
+      },
+      {
+        "id": "C",
+        "text": "Mixer"
+      },
+      {
+        "id": "D",
+        "text": "Crystal set"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Demodulator.",
+    "rawSnippet": "The circuit that recovers the original modulating information from an AM signal is known as a\nA. Modulator\nB. Demodulator\nC. Mixer\nD. Crystal set"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-9xhvq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 79,
+    "question": "The most commonly used amplitude demodulator is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Diode Mixer"
+      },
+      {
+        "id": "B",
+        "text": "Balanced Modulator"
+      },
+      {
+        "id": "C",
+        "text": "Envelope Detector"
+      },
+      {
+        "id": "D",
+        "text": "Crystal Filter"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Envelope Detector.",
+    "rawSnippet": "The most commonly used amplitude demodulator is the\nA. Diode Mixer\nB. Balanced Modulator\nC. Envelope Detector\nD. Crystal Filter"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-z70pv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 80,
+    "question": "A circuit that generates the upper and lower sidebands but no carriers is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplitude Modulator"
+      },
+      {
+        "id": "B",
+        "text": "Diode Detector"
+      },
+      {
+        "id": "C",
+        "text": "Class C Amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Balanced Modulator"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Balanced Modulator.",
+    "rawSnippet": "A circuit that generates the upper and lower sidebands but no carriers is called a(n)\nA. Amplitude Modulator\nB. Diode Detector\nC. Class C Amplifier\nD. Balanced Modulator"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-ghak6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 81,
+    "question": "A widely used balanced modulator is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Diode Bridge Circuit"
+      },
+      {
+        "id": "B",
+        "text": "Full-wave Bridge Rectifier"
+      },
+      {
+        "id": "C",
+        "text": "Lattice Modulator"
+      },
+      {
+        "id": "D",
+        "text": "Balanced Bridge Modulator"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Lattice Modulator.",
+    "rawSnippet": "A widely used balanced modulator is called the\nA. Diode Bridge Circuit\nB. Full-wave Bridge Rectifier\nC. Lattice Modulator\nD. Balanced Bridge Modulator"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-bzk8l",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 82,
+    "question": "In a diode ring modulator, the diodes act like",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Variable Resistors"
+      },
+      {
+        "id": "B",
+        "text": "Switches"
+      },
+      {
+        "id": "C",
+        "text": "Rectifiers"
+      },
+      {
+        "id": "D",
+        "text": "Variable capacitors"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Switches.",
+    "rawSnippet": "In a diode ring modulator, the diodes act like\nA. Variable Resistors\nB. Switches\nC. Rectifiers\nD. Variable capacitors"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488168-hcw6e",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 83,
+    "question": "The output of a balanced modulator is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "DSB"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is DSB.",
+    "rawSnippet": "The output of a balanced modulator is\nA. AM\nB. FM\nC. SSB\nD. DSB"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-ed0f6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 84,
+    "question": "The principal circuit in the popular 1496/1596 IC balanced modulator is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Differential Amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Rectifier"
+      },
+      {
+        "id": "C",
+        "text": "Bridge"
+      },
+      {
+        "id": "D",
+        "text": "Constant Current Source"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Differential Amplifier.",
+    "rawSnippet": "The principal circuit in the popular 1496/1596 IC balanced modulator is a\nA. Differential Amplifier\nB. Rectifier\nC. Bridge\nD. Constant Current Source"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-jy36r",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 85,
+    "question": "The most commonly used filter in SSB generators uses",
+    "choices": [
+      {
+        "id": "A",
+        "text": "LC networks"
+      },
+      {
+        "id": "B",
+        "text": "Mechanical Resonators"
+      },
+      {
+        "id": "C",
+        "text": "Crystals"
+      },
+      {
+        "id": "D",
+        "text": "RC Networks and Op amps"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Crystals.",
+    "rawSnippet": "The most commonly used filter in SSB generators uses\nA. LC networks\nB. Mechanical Resonators\nC. Crystals\nD. RC Networks and Op amps"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-8qy9j",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 86,
+    "question": "The equivalent circuit of a quartz crystal is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Series Resonant Circuit"
+      },
+      {
+        "id": "B",
+        "text": "Parallel Resonant Circuit"
+      },
+      {
+        "id": "C",
+        "text": "Neither a nor b"
+      },
+      {
+        "id": "D",
+        "text": "Both a and b"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Both a and b.",
+    "rawSnippet": "The equivalent circuit of a quartz crystal is a\nA. Series Resonant Circuit\nB. Parallel Resonant Circuit\nC. Neither a nor b\nD. Both a and b"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-s618x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 87,
+    "question": "In the phasing method of SSB generation, one sideband is canceled out due to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Phase Shift"
+      },
+      {
+        "id": "B",
+        "text": "Sharp Selectivity"
+      },
+      {
+        "id": "C",
+        "text": "Carrier Suppression"
+      },
+      {
+        "id": "D",
+        "text": "Phase Inversion"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Phase Shift.",
+    "rawSnippet": "In the phasing method of SSB generation, one sideband is canceled out due to\nA. Phase Shift\nB. Sharp Selectivity\nC. Carrier Suppression\nD. Phase Inversion"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-6tw2s",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 88,
+    "question": "A balanced modulator used to demodulate a SSB signal is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Transponder"
+      },
+      {
+        "id": "B",
+        "text": "Product Detector"
+      },
+      {
+        "id": "C",
+        "text": "Converter"
+      },
+      {
+        "id": "D",
+        "text": "Modulator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Product Detector.",
+    "rawSnippet": "A balanced modulator used to demodulate a SSB signal is called a(n)\nA. Transponder\nB. Product Detector\nC. Converter\nD. Modulator"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-ex1g4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 89,
+    "question": "Frequency translation is done with circuit called a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Summer"
+      },
+      {
+        "id": "B",
+        "text": "Multiplier"
+      },
+      {
+        "id": "C",
+        "text": "Filter"
+      },
+      {
+        "id": "D",
+        "text": "Mixer"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Mixer.",
+    "rawSnippet": "Frequency translation is done with circuit called a\nA. Summer\nB. Multiplier\nC. Filter\nD. Mixer"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-l9fwt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 90,
+    "question": "The inputs to a mixer are fo and fm. In down conversion, which of the following mixer output signals is selected?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "fo"
+      },
+      {
+        "id": "B",
+        "text": "fm"
+      },
+      {
+        "id": "C",
+        "text": "fo - fm"
+      },
+      {
+        "id": "D",
+        "text": "fo + fm"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is fo - fm.",
+    "rawSnippet": "The inputs to a mixer are fo and fm. In down conversion, which of the following mixer output signals is selected?\nA. fo\nB. fm\nC. fo - fm\nD. fo + fm"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-etlzb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 91,
+    "question": "Mixing for frequency conversion is the same as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Rectification"
+      },
+      {
+        "id": "B",
+        "text": "AM"
+      },
+      {
+        "id": "C",
+        "text": "Linear Summing"
+      },
+      {
+        "id": "D",
+        "text": "Filtering"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Linear Summing.",
+    "rawSnippet": "Mixing for frequency conversion is the same as\nA. Rectification\nB. AM\nC. Linear Summing\nD. Filtering"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-x91ey",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 92,
+    "question": "Which of the following can be used as a mixer",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Balanced Modulator"
+      },
+      {
+        "id": "B",
+        "text": "FET"
+      },
+      {
+        "id": "C",
+        "text": "Diode Modulator"
+      },
+      {
+        "id": "D",
+        "text": "All of the above"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is All of the above.",
+    "rawSnippet": "Which of the following can be used as a mixer\nA. Balanced Modulator\nB. FET\nC. Diode Modulator\nD. All of the above"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-vp6xz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 93,
+    "question": "The desired output from a mixer is usually selected with a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Phase-shift circuit"
+      },
+      {
+        "id": "B",
+        "text": "Crystal Filter"
+      },
+      {
+        "id": "C",
+        "text": "Resonant Circuit"
+      },
+      {
+        "id": "D",
+        "text": "Transformer"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Crystal Filter.",
+    "rawSnippet": "The desired output from a mixer is usually selected with a\nA. Phase-shift circuit\nB. Crystal Filter\nC. Resonant Circuit\nD. Transformer"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-zrits",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 94,
+    "question": "The two inputs to a mixer are the signal to be translated and a signal from a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulator"
+      },
+      {
+        "id": "B",
+        "text": "Filter"
+      },
+      {
+        "id": "C",
+        "text": "Antenna"
+      },
+      {
+        "id": "D",
+        "text": "Local Oscillator"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Local Oscillator.",
+    "rawSnippet": "The two inputs to a mixer are the signal to be translated and a signal from a(n)\nA. Modulator\nB. Filter\nC. Antenna\nD. Local Oscillator"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-tr6d4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 95,
+    "question": "The amount of frequency deviation from the carrier center frequency in an FM transmitter is proportional to what characteristic of the modulating signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplitude"
+      },
+      {
+        "id": "B",
+        "text": "Frequency"
+      },
+      {
+        "id": "C",
+        "text": "Phase"
+      },
+      {
+        "id": "D",
+        "text": "Shape"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Amplitude.",
+    "rawSnippet": "The amount of frequency deviation from the carrier center frequency in an FM transmitter is proportional to what characteristic of the modulating signal?\nA. Amplitude\nB. Frequency\nC. Phase\nD. Shape"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-l760h",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 96,
+    "question": "Both FM and PM are types of kind of modulation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplitude"
+      },
+      {
+        "id": "B",
+        "text": "Phase"
+      },
+      {
+        "id": "C",
+        "text": "Angle"
+      },
+      {
+        "id": "D",
+        "text": "Duty Cycle"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Angle.",
+    "rawSnippet": "Both FM and PM are types of kind of modulation?\nA. Amplitude\nB. Phase\nC. Angle\nD. Duty Cycle"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-twnah",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 97,
+    "question": "If the amplitude of the modulating signal decreases, the carrier deviation",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increases"
+      },
+      {
+        "id": "B",
+        "text": "Decreases"
+      },
+      {
+        "id": "C",
+        "text": "remains constant"
+      },
+      {
+        "id": "D",
+        "text": "goes to zero"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Decreases.",
+    "rawSnippet": "If the amplitude of the modulating signal decreases, the carrier deviation\nA. Increases\nB. Decreases\nC. remains constant\nD. goes to zero"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-jtwdh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 98,
+    "question": "On an FM signal, maximum deviation occurs at what point on the modulating signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zero-signaling points"
+      },
+      {
+        "id": "B",
+        "text": "Peak positive peak amplitude"
+      },
+      {
+        "id": "C",
+        "text": "Peak negative peak amplitude"
+      },
+      {
+        "id": "D",
+        "text": "Both b and c"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Peak negative peak amplitude.",
+    "rawSnippet": "On an FM signal, maximum deviation occurs at what point on the modulating signal?\nA. Zero-signaling points\nB. Peak positive peak amplitude\nC. Peak negative peak amplitude\nD. Both b and c"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-pc72y",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 99,
+    "question": "In PM, a frequency shift occurs while what characteristic of the modulating signal is changing?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Shape"
+      },
+      {
+        "id": "B",
+        "text": "Phase"
+      },
+      {
+        "id": "C",
+        "text": "Frequency"
+      },
+      {
+        "id": "D",
+        "text": "Amplitude"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Amplitude.",
+    "rawSnippet": "In PM, a frequency shift occurs while what characteristic of the modulating signal is changing?\nA. Shape\nB. Phase\nC. Frequency\nD. Amplitude"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-pmg9v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 100,
+    "question": "Maximum frequency deviation of a PM signal occurs at",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zero crossing points"
+      },
+      {
+        "id": "B",
+        "text": "Peak positive peak amplitude"
+      },
+      {
+        "id": "C",
+        "text": "Peak negative peak amplitude"
+      },
+      {
+        "id": "D",
+        "text": "Peak positive or negative peak amplitude"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Zero crossing points.",
+    "rawSnippet": "Maximum frequency deviation of a PM signal occurs at\nA. Zero crossing points\nB. Peak positive peak amplitude\nC. Peak negative peak amplitude\nD. Peak positive or negative peak amplitude"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-7heo1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 101,
+    "question": "In PM, carrier frequency deviation is not proportional to:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulating signal amplitude"
+      },
+      {
+        "id": "B",
+        "text": "Carrier amplitude and frequency"
+      },
+      {
+        "id": "C",
+        "text": "Modulating signal frequency"
+      },
+      {
+        "id": "D",
+        "text": "Modulator phase shift"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Carrier amplitude and frequency.",
+    "rawSnippet": "In PM, carrier frequency deviation is not proportional to:\nA. Modulating signal amplitude\nB. Carrier amplitude and frequency\nC. Modulating signal frequency\nD. Modulator phase shift"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-lykmf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 102,
+    "question": "To compensate for increases in carrier frequency deviation with an increase in modulating signal frequency, what circuit is used between the modulating signal and the phase modulator?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Low-pass filter"
+      },
+      {
+        "id": "B",
+        "text": "High-pass filter"
+      },
+      {
+        "id": "C",
+        "text": "Phase shifter"
+      },
+      {
+        "id": "D",
+        "text": "Bandpass filter"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Low-pass filter.",
+    "rawSnippet": "To compensate for increases in carrier frequency deviation with an increase in modulating signal frequency, what circuit is used between the modulating signal and the phase modulator?\nA. Low-pass filter\nB. High-pass filter\nC. Phase shifter\nD. Bandpass filter"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-qdce3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 103,
+    "question": "The FM produced by PM is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "FM"
+      },
+      {
+        "id": "B",
+        "text": "PM"
+      },
+      {
+        "id": "C",
+        "text": "Indirect FM"
+      },
+      {
+        "id": "D",
+        "text": "Indirect PM"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The FM produced by PM is called Indirect FM.",
+    "rawSnippet": "The FM produced by PM is called\nA. FM\nB. PM\nC. Indirect FM\nD. Indirect PM"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-37jmc",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 104,
+    "question": "If the amplitude of the modulating signal applied to a phase modulator is constant, the output signal will be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "The carrier frequency"
+      },
+      {
+        "id": "C",
+        "text": "Above the carrier frequency"
+      },
+      {
+        "id": "D",
+        "text": "Below the carrier frequency"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is The carrier frequency.",
+    "rawSnippet": "If the amplitude of the modulating signal applied to a phase modulator is constant, the output signal will be\nA. Zero\nB. The carrier frequency\nC. Above the carrier frequency\nD. Below the carrier frequency"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-kqdx9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 105,
+    "question": "Which of the following is not a major benefit of FM over AM?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Greater efficiency"
+      },
+      {
+        "id": "B",
+        "text": "Noise Immunity"
+      },
+      {
+        "id": "C",
+        "text": "Capture Effect"
+      },
+      {
+        "id": "D",
+        "text": "Lower complexity and cost"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Lower complexity and cost.",
+    "rawSnippet": "Which of the following is not a major benefit of FM over AM?\nA. Greater efficiency\nB. Noise Immunity\nC. Capture Effect\nD. Lower complexity and cost"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-jfk16",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 106,
+    "question": "The primary disadvantage of FM is its",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Higher cost and complexity"
+      },
+      {
+        "id": "B",
+        "text": "Excessive use of spectrum space"
+      },
+      {
+        "id": "C",
+        "text": "Noise susceptibility"
+      },
+      {
+        "id": "D",
+        "text": "Lower efficiency"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Excessive use of spectrum space.",
+    "rawSnippet": "The primary disadvantage of FM is its\nA. Higher cost and complexity\nB. Excessive use of spectrum space\nC. Noise susceptibility\nD. Lower efficiency"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-rxcy4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 107,
+    "question": "Noise is primarily",
+    "choices": [
+      {
+        "id": "A",
+        "text": "High frequency spikes"
+      },
+      {
+        "id": "B",
+        "text": "Low-frequency variations"
+      },
+      {
+        "id": "C",
+        "text": "Random level shifts"
+      },
+      {
+        "id": "D",
+        "text": "Random frequency variations"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is High frequency spikes.",
+    "rawSnippet": "Noise is primarily\nA. High frequency spikes\nB. Low-frequency variations\nC. Random level shifts\nD. Random frequency variations"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-3xin4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 108,
+    "question": "The receiver circuit that rids FM of noise is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulator"
+      },
+      {
+        "id": "B",
+        "text": "Demodulator"
+      },
+      {
+        "id": "C",
+        "text": "Limiter"
+      },
+      {
+        "id": "D",
+        "text": "Low-pass filter"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Limiter.",
+    "rawSnippet": "The receiver circuit that rids FM of noise is the\nA. Modulator\nB. Demodulator\nC. Limiter\nD. Low-pass filter"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-xmt8x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 109,
+    "question": "The phenomenon of a strong FM signal dominating a weaker signa on a common frequency is referred to as the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Capture effect"
+      },
+      {
+        "id": "B",
+        "text": "Blot out"
+      },
+      {
+        "id": "C",
+        "text": "Quieting factor"
+      },
+      {
+        "id": "D",
+        "text": "Domination syndrome"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Capture effect.",
+    "rawSnippet": "The phenomenon of a strong FM signal dominating a weaker signa on a common frequency is referred to as the\nA. Capture effect\nB. Blot out\nC. Quieting factor\nD. Domination syndrome"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-pgnqk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 110,
+    "question": "The AM signals generated at a low level may only be amplified by what type of amplifier?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Op Amp"
+      },
+      {
+        "id": "B",
+        "text": "Linear"
+      },
+      {
+        "id": "C",
+        "text": "Class C"
+      },
+      {
+        "id": "D",
+        "text": "Push-pull"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Linear.",
+    "rawSnippet": "The AM signals generated at a low level may only be amplified by what type of amplifier?\nA. Op Amp\nB. Linear\nC. Class C\nD. Push-pull"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-eg64z",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 111,
+    "question": "Frequency modulation transmitters are more efficient because their power is increased by what type of amplifier",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Class A"
+      },
+      {
+        "id": "B",
+        "text": "Class B"
+      },
+      {
+        "id": "C",
+        "text": "Class C"
+      },
+      {
+        "id": "D",
+        "text": "All of the above"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Class C.",
+    "rawSnippet": "Frequency modulation transmitters are more efficient because their power is increased by what type of amplifier\nA. Class A\nB. Class B\nC. Class C\nD. All of the above"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-xrk4n",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 112,
+    "question": "Noise interferes mainly with modulating signals that are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Sinusoidal"
+      },
+      {
+        "id": "B",
+        "text": "Nonsinusoidal"
+      },
+      {
+        "id": "C",
+        "text": "Low Frequency"
+      },
+      {
+        "id": "D",
+        "text": "High frequencies"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is High frequencies.",
+    "rawSnippet": "Noise interferes mainly with modulating signals that are\nA. Sinusoidal\nB. Nonsinusoidal\nC. Low Frequency\nD. High frequencies"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-9xqw3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 113,
+    "question": "Pre-emphasis circuits boost what modulating frequencies before modulation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "High frequencies"
+      },
+      {
+        "id": "B",
+        "text": "Mid-range frequencies"
+      },
+      {
+        "id": "C",
+        "text": "Low frequencies"
+      },
+      {
+        "id": "D",
+        "text": "All of the above"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is High frequencies.",
+    "rawSnippet": "Pre-emphasis circuits boost what modulating frequencies before modulation?\nA. High frequencies\nB. Mid-range frequencies\nC. Low frequencies\nD. All of the above"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-noi4c",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 114,
+    "question": "A pre-emphasis circuit is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Low-pass filter"
+      },
+      {
+        "id": "B",
+        "text": "High-pass filter"
+      },
+      {
+        "id": "C",
+        "text": "Phase shifter"
+      },
+      {
+        "id": "D",
+        "text": "Bandpass filter"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is High-pass filter.",
+    "rawSnippet": "A pre-emphasis circuit is a\nA. Low-pass filter\nB. High-pass filter\nC. Phase shifter\nD. Bandpass filter"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-cs0ly",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 115,
+    "question": "Pre-emphasis is compensated for at the receiver by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Phase Inverter"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
+        "id": "C",
+        "text": "High-pass filter"
+      },
+      {
+        "id": "D",
+        "text": "Low-pass filter"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Low-pass filter.",
+    "rawSnippet": "Pre-emphasis is compensated for at the receiver by\nA. Phase Inverter\nB. Bandpass filter\nC. High-pass filter\nD. Low-pass filter"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-skqwl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 116,
+    "question": "The cut-off frequency of pre-emphasis and de-emphasis circuits is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1 kHz"
+      },
+      {
+        "id": "B",
+        "text": "2.122 kHz"
+      },
+      {
+        "id": "C",
+        "text": "5 kHz"
+      },
+      {
+        "id": "D",
+        "text": "75 kHz"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 2.122 kHz.",
+    "rawSnippet": "The cut-off frequency of pre-emphasis and de-emphasis circuits is\nA. 1 kHz\nB. 2.122 kHz\nC. 5 kHz\nD. 75 kHz"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-k9y8e",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 117,
+    "question": "Another name for a VVC is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PIN diode"
+      },
+      {
+        "id": "B",
+        "text": "Varactor diode"
+      },
+      {
+        "id": "C",
+        "text": "Snap diode"
+      },
+      {
+        "id": "D",
+        "text": "Hot-carrier diode"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Varactor diode.",
+    "rawSnippet": "Another name for a VVC is\nA. PIN diode\nB. Varactor diode\nC. Snap diode\nD. Hot-carrier diode"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-s45j7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 118,
+    "question": "The depletion region in a junction diode forms what part of a capacitor",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Plates"
+      },
+      {
+        "id": "B",
+        "text": "Leads"
+      },
+      {
+        "id": "C",
+        "text": "Package"
+      },
+      {
+        "id": "D",
+        "text": "Dielectric"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Dielectric.",
+    "rawSnippet": "The depletion region in a junction diode forms what part of a capacitor\nA. Plates\nB. Leads\nC. Package\nD. Dielectric"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-z2j2e",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 119,
+    "question": "Increasing the reverse bias on a varactor diode will cause its capacitance",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Decrease"
+      },
+      {
+        "id": "B",
+        "text": "Increase"
+      },
+      {
+        "id": "C",
+        "text": "Remain the same"
+      },
+      {
+        "id": "D",
+        "text": "Drop to zero"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Decrease.",
+    "rawSnippet": "Increasing the reverse bias on a varactor diode will cause its capacitance\nA. Decrease\nB. Increase\nC. Remain the same\nD. Drop to zero"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-06fs9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 120,
+    "question": "The capacitance of a varactor diode is in what general range",
+    "choices": [
+      {
+        "id": "A",
+        "text": "pF"
+      },
+      {
+        "id": "B",
+        "text": "nF"
+      },
+      {
+        "id": "C",
+        "text": "µF"
+      },
+      {
+        "id": "D",
+        "text": "F"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is pF.",
+    "rawSnippet": "The capacitance of a varactor diode is in what general range\nA. pF\nB. nF\nC. µF\nD. F"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-gd5y3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 121,
+    "question": "In Fig. 5-3, the varactor diode is biased by which components?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "R1, R2"
+      },
+      {
+        "id": "B",
+        "text": "R1, C2"
+      },
+      {
+        "id": "C",
+        "text": "L1, C1"
+      },
+      {
+        "id": "D",
+        "text": "RFC, C3"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is R1, R2.",
+    "rawSnippet": "In Fig. 5-3, the varactor diode is biased by which components?\nA. R1, R2\nB. R1, C2\nC. L1, C1\nD. RFC, C3"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-muctf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 122,
+    "question": "In Fig. 5-3, if the reverse bias on D1 is reduced, the resonant frequency of C1",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increase"
+      },
+      {
+        "id": "B",
+        "text": "Decreases"
+      },
+      {
+        "id": "C",
+        "text": "Remains the same"
+      },
+      {
+        "id": "D",
+        "text": "Cannot be determined"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Decreases.",
+    "rawSnippet": "In Fig. 5-3, if the reverse bias on D1 is reduced, the resonant frequency of C1\nA. Increase\nB. Decreases\nC. Remains the same\nD. Cannot be determined"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-volx3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 123,
+    "question": "The frequency change of a crystal oscillator produced by a varactor diode is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "Small"
+      },
+      {
+        "id": "C",
+        "text": "Medium"
+      },
+      {
+        "id": "D",
+        "text": "Large"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Small.",
+    "rawSnippet": "The frequency change of a crystal oscillator produced by a varactor diode is\nA. Zero\nB. Small\nC. Medium\nD. Large"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-fgsy4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 124,
+    "question": "A phase modulator varies the phase shift of the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Carrier"
+      },
+      {
+        "id": "B",
+        "text": "Modulating Signal"
+      },
+      {
+        "id": "C",
+        "text": "Both a and b"
+      },
+      {
+        "id": "D",
+        "text": "Neither a nor b"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Carrier.",
+    "rawSnippet": "A phase modulator varies the phase shift of the\nA. Carrier\nB. Modulating Signal\nC. Both a and b\nD. Neither a nor b"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-umcwt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 125,
+    "question": "The widest phase variation is obtained with a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RC low-pass filter"
+      },
+      {
+        "id": "B",
+        "text": "RC high-pass filter"
+      },
+      {
+        "id": "C",
+        "text": "LR low-pass filter"
+      },
+      {
+        "id": "D",
+        "text": "LC resonant circuit"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is LC resonant circuit.",
+    "rawSnippet": "The widest phase variation is obtained with a(n)\nA. RC low-pass filter\nB. RC high-pass filter\nC. LR low-pass filter\nD. LC resonant circuit"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-uzemi",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 126,
+    "question": "In Fig. 5-7, R4 is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pre-emphasis circuit"
+      },
+      {
+        "id": "B",
+        "text": "De-emphasis circuit"
+      },
+      {
+        "id": "C",
+        "text": "Deviation control"
+      },
+      {
+        "id": "D",
+        "text": "Frequency determining component in the tuned circuit"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Deviation control.",
+    "rawSnippet": "In Fig. 5-7, R4 is the\nA. Pre-emphasis circuit\nB. De-emphasis circuit\nC. Deviation control\nD. Frequency determining component in the tuned circuit"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-9whcq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 127,
+    "question": "The small frequency change produced by a phase modulator can be increased by using a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Mixer"
+      },
+      {
+        "id": "C",
+        "text": "Frequency multiplier"
+      },
+      {
+        "id": "D",
+        "text": "Frequency Divider"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Frequency multiplier.",
+    "rawSnippet": "The small frequency change produced by a phase modulator can be increased by using a(n)\nA. Amplifier\nB. Mixer\nC. Frequency multiplier\nD. Frequency Divider"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-qyllz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 128,
+    "question": "A crystal oscillator whose frequency can be changed by an input voltage is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "VCO"
+      },
+      {
+        "id": "B",
+        "text": "VXO"
+      },
+      {
+        "id": "C",
+        "text": "VFO"
+      },
+      {
+        "id": "D",
+        "text": "VHF"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is VCO.",
+    "rawSnippet": "A crystal oscillator whose frequency can be changed by an input voltage is called a(n)\nA. VCO\nB. VXO\nC. VFO\nD. VHF"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-oh64i",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 129,
+    "question": "Which oscillators are preferred for carrier generators because of their good frequency stability?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "LC"
+      },
+      {
+        "id": "B",
+        "text": "RC"
+      },
+      {
+        "id": "C",
+        "text": "LR"
+      },
+      {
+        "id": "D",
+        "text": "Crystal"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Crystal.",
+    "rawSnippet": "Which oscillators are preferred for carrier generators because of their good frequency stability?\nA. LC\nB. RC\nC. LR\nD. Crystal"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-kgzi6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 130,
+    "question": "Which of the following frequency demodulators requires an input limiter?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Foster-Seeley discriminator"
+      },
+      {
+        "id": "B",
+        "text": "Pulse-averaging discriminator"
+      },
+      {
+        "id": "C",
+        "text": "Quadrature discriminator"
+      },
+      {
+        "id": "D",
+        "text": "PLL"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Foster-Seeley discriminator.",
+    "rawSnippet": "Which of the following frequency demodulators requires an input limiter?\nA. Foster-Seeley discriminator\nB. Pulse-averaging discriminator\nC. Quadrature discriminator\nD. PLL"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-ylakf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 131,
+    "question": "Which discriminator averages pulses in a low-pass filter?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Radio detector"
+      },
+      {
+        "id": "B",
+        "text": "PLL"
+      },
+      {
+        "id": "C",
+        "text": "Quadrature detector"
+      },
+      {
+        "id": "D",
+        "text": "Foster-Seeley discriminator"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Quadrature detector.",
+    "rawSnippet": "Which discriminator averages pulses in a low-pass filter?\nA. Radio detector\nB. PLL\nC. Quadrature detector\nD. Foster-Seeley discriminator"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488168-xkhbz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 132,
+    "question": "Which frequency demodulator is considered the best overall?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Radio Detector"
+      },
+      {
+        "id": "B",
+        "text": "PLL"
+      },
+      {
+        "id": "C",
+        "text": "Quadrature"
+      },
+      {
+        "id": "D",
+        "text": "Pulse-averaging discriminator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is PLL.",
+    "rawSnippet": "Which frequency demodulator is considered the best overall?\nA. Radio Detector\nB. PLL\nC. Quadrature\nD. Pulse-averaging discriminator"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-s6u3k",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 133,
+    "question": "In Fig. 5-8, the voltage at point A when the input frequency is below the FM center frequency is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Negative"
+      },
+      {
+        "id": "B",
+        "text": "Positive"
+      },
+      {
+        "id": "C",
+        "text": "Zero"
+      },
+      {
+        "id": "D",
+        "text": "Indeterminant"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Positive.",
+    "rawSnippet": "In Fig. 5-8, the voltage at point A when the input frequency is below the FM center frequency is\nA. Negative\nB. Positive\nC. Zero\nD. Indeterminant"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-et6if",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 134,
+    "question": "In Fig. 5-8, R3 and C6 form which kind of circuit?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Carrier Filter"
+      },
+      {
+        "id": "B",
+        "text": "Pulse-averaging filter"
+      },
+      {
+        "id": "C",
+        "text": "Pre-emphasis"
+      },
+      {
+        "id": "D",
+        "text": "De-emphasis"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is De-emphasis.",
+    "rawSnippet": "In Fig. 5-8, R3 and C6 form which kind of circuit?\nA. Carrier Filter\nB. Pulse-averaging filter\nC. Pre-emphasis\nD. De-emphasis"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-wpklc",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 135,
+    "question": "In Fig. 5-10, the voltage across C6 is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Inversely proportional to signal amplitude"
+      },
+      {
+        "id": "B",
+        "text": "Directly proportional to signal amplitude"
+      },
+      {
+        "id": "C",
+        "text": "Directly proportional to frequency deviation"
+      },
+      {
+        "id": "D",
+        "text": "Constant"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Directly proportional to frequency deviation.",
+    "rawSnippet": "In Fig. 5-10, the voltage across C6 is\nA. Inversely proportional to signal amplitude\nB. Directly proportional to signal amplitude\nC. Directly proportional to frequency deviation\nD. Constant"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-69yx8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 136,
+    "question": "In a pulse averaging discriminator, the pulses are produced by a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Astable multivibrator"
+      },
+      {
+        "id": "B",
+        "text": "Zero-crossing detector"
+      },
+      {
+        "id": "C",
+        "text": "One shot"
+      },
+      {
+        "id": "D",
+        "text": "Low-pass filter"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Astable multivibrator.",
+    "rawSnippet": "In a pulse averaging discriminator, the pulses are produced by a(n)\nA. Astable multivibrator\nB. Zero-crossing detector\nC. One shot\nD. Low-pass filter"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-w8ucn",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 137,
+    "question": "Which of the following is true about the NE566 IC?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "It is a VCO"
+      },
+      {
+        "id": "B",
+        "text": "Its output is sinusoidal"
+      },
+      {
+        "id": "C",
+        "text": "It is an FM demodulator"
+      },
+      {
+        "id": "D",
+        "text": "It uses LC-tuned circuits"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is It is a VCO.",
+    "rawSnippet": "Which of the following is true about the NE566 IC?\nA. It is a VCO\nB. Its output is sinusoidal\nC. It is an FM demodulator\nD. It uses LC-tuned circuits"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-ly8vl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 138,
+    "question": "An FM demodulator that uses a differential amplifier and tuned circuits to convert frequency variations into voltage variations is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Quadrature detector"
+      },
+      {
+        "id": "B",
+        "text": "Foster-Seeley discriminator"
+      },
+      {
+        "id": "C",
+        "text": "Differential peak detector"
+      },
+      {
+        "id": "D",
+        "text": "Phase-Locked Loop"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Differential peak detector.",
+    "rawSnippet": "An FM demodulator that uses a differential amplifier and tuned circuits to convert frequency variations into voltage variations is the\nA. Quadrature detector\nB. Foster-Seeley discriminator\nC. Differential peak detector\nD. Phase-Locked Loop"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-ghj7e",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 139,
+    "question": "The output amplitude of the phase detector in a quadrature detector is proportional to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pulse width"
+      },
+      {
+        "id": "B",
+        "text": "Pulse frequency"
+      },
+      {
+        "id": "C",
+        "text": "Input amplitude"
+      },
+      {
+        "id": "D",
+        "text": "The phase shift value at center frequency"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Pulse width.",
+    "rawSnippet": "The output amplitude of the phase detector in a quadrature detector is proportional to\nA. Pulse width\nB. Pulse frequency\nC. Input amplitude\nD. The phase shift value at center frequency"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-2z4is",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 140,
+    "question": "Decreasing the input frequency to a locked PLL will cause the VCO output to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Decrease"
+      },
+      {
+        "id": "B",
+        "text": "Increase"
+      },
+      {
+        "id": "C",
+        "text": "Remain constant"
+      },
+      {
+        "id": "D",
+        "text": "Jump to the free-running frequency"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Jump to the free-running frequency.",
+    "rawSnippet": "Decreasing the input frequency to a locked PLL will cause the VCO output to\nA. Decrease\nB. Increase\nC. Remain constant\nD. Jump to the free-running frequency"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-fe3t5",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 141,
+    "question": "The range of frequencies over which a PLL will track input signal variations is known as the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Circuit bandwidth"
+      },
+      {
+        "id": "B",
+        "text": "Capture range"
+      },
+      {
+        "id": "C",
+        "text": "Band of Acceptance"
+      },
+      {
+        "id": "D",
+        "text": "Lock range"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Lock range.",
+    "rawSnippet": "The range of frequencies over which a PLL will track input signal variations is known as the\nA. Circuit bandwidth\nB. Capture range\nC. Band of Acceptance\nD. Lock range"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-lbuir",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 142,
+    "question": "The band of frequencies over which a PLL will acquire or recognize an input signal is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Circuit Bandwidth"
+      },
+      {
+        "id": "B",
+        "text": "Capture range"
+      },
+      {
+        "id": "C",
+        "text": "Band of acceptance"
+      },
+      {
+        "id": "D",
+        "text": "Lock range"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Capture range.",
+    "rawSnippet": "The band of frequencies over which a PLL will acquire or recognize an input signal is called the\nA. Circuit Bandwidth\nB. Capture range\nC. Band of acceptance\nD. Lock range"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-lmgqz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 143,
+    "question": "Over a narrow range of frequencies, the PLL acts like a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Low-pass filter"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
+        "id": "C",
+        "text": "Tunable oscillator"
+      },
+      {
+        "id": "D",
+        "text": "Frequency modulator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Bandpass filter.",
+    "rawSnippet": "Over a narrow range of frequencies, the PLL acts like a\nA. Low-pass filter\nB. Bandpass filter\nC. Tunable oscillator\nD. Frequency modulator"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-vou5d",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 144,
+    "question": "The output of a PLL frequency demodulator is taken from",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Low-pass filter"
+      },
+      {
+        "id": "B",
+        "text": "VCO"
+      },
+      {
+        "id": "C",
+        "text": "Phase detector"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Low-pass filter.",
+    "rawSnippet": "The output of a PLL frequency demodulator is taken from\nA. Low-pass filter\nB. VCO\nC. Phase detector\nD. None of the above"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-u533m",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 145,
+    "question": "Which of the following circuits is not typically part of every radio transmitter?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Driver Amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Carrier Oscillator"
+      },
+      {
+        "id": "C",
+        "text": "Mixer"
+      },
+      {
+        "id": "D",
+        "text": "Final Power Amplifier"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Mixer.",
+    "rawSnippet": "Which of the following circuits is not typically part of every radio transmitter?\nA. Driver Amplifier\nB. Carrier Oscillator\nC. Mixer\nD. Final Power Amplifier"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-xolu1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 146,
+    "question": "Class C amplifiers are not used in which type of transmitter?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "SSB"
+      },
+      {
+        "id": "C",
+        "text": "CW"
+      },
+      {
+        "id": "D",
+        "text": "FM"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is SSB.",
+    "rawSnippet": "Class C amplifiers are not used in which type of transmitter?\nA. AM\nB. SSB\nC. CW\nD. FM"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-bsrwf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 147,
+    "question": "A circuit that isolates the carrier oscillator from load changes is called a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Final Amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Driver Amplifier"
+      },
+      {
+        "id": "C",
+        "text": "Linear Amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Buffer Amplifier"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Buffer Amplifier.",
+    "rawSnippet": "A circuit that isolates the carrier oscillator from load changes is called a\nA. Final Amplifier\nB. Driver Amplifier\nC. Linear Amplifier\nD. Buffer Amplifier"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-gxs1a",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 148,
+    "question": "A class B amplifier conducts for how many degrees of an input sine wave?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "90 o - 150 o"
+      },
+      {
+        "id": "B",
+        "text": "180 o"
+      },
+      {
+        "id": "C",
+        "text": "180 o - 360 o"
+      },
+      {
+        "id": "D",
+        "text": "360 o"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 180 o.",
+    "rawSnippet": "A class B amplifier conducts for how many degrees of an input sine wave?\nA. 90 o - 150 o\nB. 180 o\nC. 180 o - 360 o\nD. 360 o"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-c22f6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 149,
+    "question": "Bias for a class C amplifier produced by an input RC network is known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Signal Bias"
+      },
+      {
+        "id": "B",
+        "text": "Self Bias"
+      },
+      {
+        "id": "C",
+        "text": "Fixed External Bias"
+      },
+      {
+        "id": "D",
+        "text": "Threshold Bias"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Bias for a class C amplifier produced by an input RC network is called Signal Bias.",
+    "rawSnippet": "Bias for a class C amplifier produced by an input RC network is known as\nA. Signal Bias\nB. Self Bias\nC. Fixed External Bias\nD. Threshold Bias"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-z03jv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 150,
+    "question": "The most efficient RF power amplifier is which class amplifier?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Class B"
+      },
+      {
+        "id": "B",
+        "text": "Class A"
+      },
+      {
+        "id": "C",
+        "text": "Class AB"
+      },
+      {
+        "id": "D",
+        "text": "Class C"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Class C.",
+    "rawSnippet": "The most efficient RF power amplifier is which class amplifier?\nA. Class B\nB. Class A\nC. Class AB\nD. Class C"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-axfr9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 151,
+    "question": "Collector current in a class C amplifier is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Square Wave"
+      },
+      {
+        "id": "B",
+        "text": "Sine Wave"
+      },
+      {
+        "id": "C",
+        "text": "Pulse"
+      },
+      {
+        "id": "D",
+        "text": "Half Sine Wave"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Pulse.",
+    "rawSnippet": "Collector current in a class C amplifier is a\nA. Square Wave\nB. Sine Wave\nC. Pulse\nD. Half Sine Wave"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-702qk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 152,
+    "question": "The maximum power of typical transistor RF power amplifiers is in what range?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Kilowatts"
+      },
+      {
+        "id": "B",
+        "text": "Milliwatts"
+      },
+      {
+        "id": "C",
+        "text": "Hundreds of Watts"
+      },
+      {
+        "id": "D",
+        "text": "Watts"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Hundreds of Watts.",
+    "rawSnippet": "The maximum power of typical transistor RF power amplifiers is in what range?\nA. Kilowatts\nB. Milliwatts\nC. Hundreds of Watts\nD. Watts"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-yhls7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 153,
+    "question": "Self-oscillation in a transistor amplifier is usually caused by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Excessive Gain"
+      },
+      {
+        "id": "B",
+        "text": "Stray Inductance"
+      },
+      {
+        "id": "C",
+        "text": "Internal Capacitance"
+      },
+      {
+        "id": "D",
+        "text": "Unmatched Impedances"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Internal Capacitance.",
+    "rawSnippet": "Self-oscillation in a transistor amplifier is usually caused by\nA. Excessive Gain\nB. Stray Inductance\nC. Internal Capacitance\nD. Unmatched Impedances"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-9hysy",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 154,
+    "question": "Neutralization is the process of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Cancelling the effect of internal device capacitance"
+      },
+      {
+        "id": "B",
+        "text": "Bypassing undesired alternating current"
+      },
+      {
+        "id": "C",
+        "text": "Reducing gain"
+      },
+      {
+        "id": "D",
+        "text": "Eliminating Harmonics"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Cancelling the effect of internal device capacitance.",
+    "rawSnippet": "Neutralization is the process of\nA. Cancelling the effect of internal device capacitance\nB. Bypassing undesired alternating current\nC. Reducing gain\nD. Eliminating Harmonics"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-qeb13",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 155,
+    "question": "Maximum power transfer occurs when what relationship exists between the generator impedance ZI and the load impedance Zl?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zi = Zl"
+      },
+      {
+        "id": "B",
+        "text": "Zi > Zl"
+      },
+      {
+        "id": "C",
+        "text": "Zi < Zl"
+      },
+      {
+        "id": "D",
+        "text": "Zi = 0"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Zi = Zl.",
+    "rawSnippet": "Maximum power transfer occurs when what relationship exists between the generator impedance ZI and the load impedance Zl?\nA. Zi = Zl\nB. Zi > Zl\nC. Zi < Zl\nD. Zi = 0"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-ll0xo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 156,
+    "question": "Which of the following is not a benefit of a toroid RF inductor?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Higher Q"
+      },
+      {
+        "id": "B",
+        "text": "No shielding required"
+      },
+      {
+        "id": "C",
+        "text": "Fewer turns of wire"
+      },
+      {
+        "id": "D",
+        "text": "Self - supporting"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Self - supporting.",
+    "rawSnippet": "Which of the following is not a benefit of a toroid RF inductor?\nA. Higher Q\nB. No shielding required\nC. Fewer turns of wire\nD. Self - supporting"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-yhzht",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 157,
+    "question": "A toroid is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Coil Holder"
+      },
+      {
+        "id": "B",
+        "text": "Type of Inductor"
+      },
+      {
+        "id": "C",
+        "text": "Magnetic Core"
+      },
+      {
+        "id": "D",
+        "text": "Transformer"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Magnetic Core.",
+    "rawSnippet": "A toroid is a\nA. Coil Holder\nB. Type of Inductor\nC. Magnetic Core\nD. Transformer"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-9hi1m",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 158,
+    "question": "Which of the following is not commonly used for impedance matching in a transmitter?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Resistive attenuator"
+      },
+      {
+        "id": "B",
+        "text": "Transformer"
+      },
+      {
+        "id": "C",
+        "text": "L Network"
+      },
+      {
+        "id": "D",
+        "text": "T Network"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Resistive attenuator.",
+    "rawSnippet": "Which of the following is not commonly used for impedance matching in a transmitter?\nA. Resistive attenuator\nB. Transformer\nC. L Network\nD. T Network"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-f2r0i",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 159,
+    "question": "Impedance matching in a broadband linear RF amplifier is handled with a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pi Network"
+      },
+      {
+        "id": "B",
+        "text": "L Network"
+      },
+      {
+        "id": "C",
+        "text": "Parallel Tuned Circuit"
+      },
+      {
+        "id": "D",
+        "text": "Balun"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Balun.",
+    "rawSnippet": "Impedance matching in a broadband linear RF amplifier is handled with a(n)\nA. Pi Network\nB. L Network\nC. Parallel Tuned Circuit\nD. Balun"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-tzw5b",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 160,
+    "question": "Which of the following is not a benefit of speech-processing circuits?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Improved frequency stability"
+      },
+      {
+        "id": "B",
+        "text": "Increased average output power"
+      },
+      {
+        "id": "C",
+        "text": "Limited bandwidth"
+      },
+      {
+        "id": "D",
+        "text": "Prevention of overmodulation"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Improved frequency stability.",
+    "rawSnippet": "Which of the following is not a benefit of speech-processing circuits?\nA. Improved frequency stability\nB. Increased average output power\nC. Limited bandwidth\nD. Prevention of overmodulation"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-48rsu",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 161,
+    "question": "In an AM transmitter, a clipper circuit eliminates",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Harmonics"
+      },
+      {
+        "id": "B",
+        "text": "Splatter"
+      },
+      {
+        "id": "C",
+        "text": "Overdeviation"
+      },
+      {
+        "id": "D",
+        "text": "Excessive gain"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Splatter.",
+    "rawSnippet": "In an AM transmitter, a clipper circuit eliminates\nA. Harmonics\nB. Splatter\nC. Overdeviation\nD. Excessive gain"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-58z00",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 162,
+    "question": "In a speech-processing circuit, a low-pass filter prevents",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Overdeviation"
+      },
+      {
+        "id": "B",
+        "text": "Overmodulation"
+      },
+      {
+        "id": "C",
+        "text": "High gain"
+      },
+      {
+        "id": "D",
+        "text": "Excessive signal bandwidth"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Excessive signal bandwidth.",
+    "rawSnippet": "In a speech-processing circuit, a low-pass filter prevents\nA. Overdeviation\nB. Overmodulation\nC. High gain\nD. Excessive signal bandwidth"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-9w3km",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 163,
+    "question": "The gain of a transistor amplifier is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Inversely proportional to collector current"
+      },
+      {
+        "id": "B",
+        "text": "Directly proportional to frequency"
+      },
+      {
+        "id": "C",
+        "text": "Directly proportional to collector current"
+      },
+      {
+        "id": "D",
+        "text": "Inversely proportional to frequency"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Directly proportional to collector current.",
+    "rawSnippet": "The gain of a transistor amplifier is\nA. Inversely proportional to collector current\nB. Directly proportional to frequency\nC. Directly proportional to collector current\nD. Inversely proportional to frequency"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-1q3f9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 164,
+    "question": "The simplest receiver is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Demodulator"
+      },
+      {
+        "id": "C",
+        "text": "AF amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Tuned circuit"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Tuned circuit.",
+    "rawSnippet": "The simplest receiver is a(n)\nA. RF amplifier\nB. Demodulator\nC. AF amplifier\nD. Tuned circuit"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-ilyj2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 165,
+    "question": "The key conceptual circuit in a superhet receiver is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Mixer"
+      },
+      {
+        "id": "B",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "C",
+        "text": "Demodulator"
+      },
+      {
+        "id": "D",
+        "text": "AF amplifer"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Mixer.",
+    "rawSnippet": "The key conceptual circuit in a superhet receiver is the\nA. Mixer\nB. RF amplifier\nC. Demodulator\nD. AF amplifer"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-sa0r4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 166,
+    "question": "Most of the gain and selectivity in a superhet is obtained in the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Mixer"
+      },
+      {
+        "id": "C",
+        "text": "IF amplifier"
+      },
+      {
+        "id": "D",
+        "text": "AF amplifier"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is IF amplifier.",
+    "rawSnippet": "Most of the gain and selectivity in a superhet is obtained in the\nA. RF amplifier\nB. Mixer\nC. IF amplifier\nD. AF amplifier"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-93woi",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 167,
+    "question": "The sensitivity of a receiver depends upon the receiver’s overall",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Bandwidth"
+      },
+      {
+        "id": "B",
+        "text": "Selectivity"
+      },
+      {
+        "id": "C",
+        "text": "Noise response"
+      },
+      {
+        "id": "D",
+        "text": "Gain"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Gain.",
+    "rawSnippet": "The sensitivity of a receiver depends upon the receiver’s overall\nA. Bandwidth\nB. Selectivity\nC. Noise response\nD. Gain"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-b2xdh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 168,
+    "question": "The ability of a receiver to separate one signal from others on closely adjacent frequencies is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Sensitivity"
+      },
+      {
+        "id": "B",
+        "text": "S/N ratio"
+      },
+      {
+        "id": "C",
+        "text": "Selectivity"
+      },
+      {
+        "id": "D",
+        "text": "Gain"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Selectivity.",
+    "rawSnippet": "The ability of a receiver to separate one signal from others on closely adjacent frequencies is called the\nA. Sensitivity\nB. S/N ratio\nC. Selectivity\nD. Gain"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-aqrq7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 169,
+    "question": "A signal 2 times the IF away from the desired signal that causes interference is referred to as a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ghost"
+      },
+      {
+        "id": "B",
+        "text": "Image"
+      },
+      {
+        "id": "C",
+        "text": "Phantom"
+      },
+      {
+        "id": "D",
+        "text": "Inverted Signal"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Image.",
+    "rawSnippet": "A signal 2 times the IF away from the desired signal that causes interference is referred to as a(n)\nA. Ghost\nB. Image\nC. Phantom\nD. Inverted Signal"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-slo0u",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 170,
+    "question": "The main cause of image interference is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Poor front-end selectivity"
+      },
+      {
+        "id": "B",
+        "text": "Low gain"
+      },
+      {
+        "id": "C",
+        "text": "A high IF"
+      },
+      {
+        "id": "D",
+        "text": "A low S/N ratio"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Poor front-end selectivity.",
+    "rawSnippet": "The main cause of image interference is\nA. Poor front-end selectivity\nB. Low gain\nC. A high IF\nD. A low S/N ratio"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-gesv6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 171,
+    "question": "For best image rejection, the IF for a 30 MHz signal would be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "455 kHz"
+      },
+      {
+        "id": "B",
+        "text": "3.3 MHz"
+      },
+      {
+        "id": "C",
+        "text": "9 MHz"
+      },
+      {
+        "id": "D",
+        "text": "55 MHz"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 55 MHz.",
+    "rawSnippet": "For best image rejection, the IF for a 30 MHz signal would be\nA. 455 kHz\nB. 3.3 MHz\nC. 9 MHz\nD. 55 MHz"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-s9ymv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 172,
+    "question": "Most internal noise comes from",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Shot noise"
+      },
+      {
+        "id": "B",
+        "text": "Transit-time noise"
+      },
+      {
+        "id": "C",
+        "text": "Thermal agitation"
+      },
+      {
+        "id": "D",
+        "text": "Skin effect"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Thermal agitation.",
+    "rawSnippet": "Most internal noise comes from\nA. Shot noise\nB. Transit-time noise\nC. Thermal agitation\nD. Skin effect"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-heu40",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 173,
+    "question": "Which of the following is not a source of external noise",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Thermal agitation"
+      },
+      {
+        "id": "B",
+        "text": "Auto ignitions"
+      },
+      {
+        "id": "C",
+        "text": "The sun"
+      },
+      {
+        "id": "D",
+        "text": "Fluorescent lights"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Thermal agitation.",
+    "rawSnippet": "Which of the following is not a source of external noise\nA. Thermal agitation\nB. Auto ignitions\nC. The sun\nD. Fluorescent lights"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-ab64y",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 174,
+    "question": "Noise can be reduced by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Widening the bandwidth"
+      },
+      {
+        "id": "B",
+        "text": "Narrowing the bandwidth"
+      },
+      {
+        "id": "C",
+        "text": "Increasing temperature"
+      },
+      {
+        "id": "D",
+        "text": "Increasing transistor current levels"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Narrowing the bandwidth.",
+    "rawSnippet": "Noise can be reduced by\nA. Widening the bandwidth\nB. Narrowing the bandwidth\nC. Increasing temperature\nD. Increasing transistor current levels"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488168-n4nsn",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 175,
+    "question": "Noise at the input to a receiver can be as high as several",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Microvolts"
+      },
+      {
+        "id": "B",
+        "text": "Millivolts"
+      },
+      {
+        "id": "C",
+        "text": "Volts"
+      },
+      {
+        "id": "D",
+        "text": "Kilovolts"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Microvolts.",
+    "rawSnippet": "Noise at the input to a receiver can be as high as several\nA. Microvolts\nB. Millivolts\nC. Volts\nD. Kilovolts"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-fjmqx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 176,
+    "question": "Which circuit contributes most to the noise in a receiver?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "IF amplifier"
+      },
+      {
+        "id": "B",
+        "text": "Demodulator"
+      },
+      {
+        "id": "C",
+        "text": "AF amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Mixer"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Mixer.",
+    "rawSnippet": "Which circuit contributes most to the noise in a receiver?\nA. IF amplifier\nB. Demodulator\nC. AF amplifier\nD. Mixer"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-91hg2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 177,
+    "question": "Which noise figure represents the lowest noise",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1.6 dB"
+      },
+      {
+        "id": "B",
+        "text": "2.1 dB"
+      },
+      {
+        "id": "C",
+        "text": "2.7 dB"
+      },
+      {
+        "id": "D",
+        "text": "3.4 dB"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 1.6 dB.",
+    "rawSnippet": "Which noise figure represents the lowest noise\nA. 1.6 dB\nB. 2.1 dB\nC. 2.7 dB\nD. 3.4 dB"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-g3l0v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 178,
+    "question": "Which filter shape factor represents the best skirt selectivity?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1.6"
+      },
+      {
+        "id": "B",
+        "text": "2.1"
+      },
+      {
+        "id": "C",
+        "text": "5.3"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 1.6.",
+    "rawSnippet": "Which filter shape factor represents the best skirt selectivity?\nA. 1.6\nB. 2.1\nC. 5.3\nD. 8"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-a86do",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 179,
+    "question": "Which input signal below represents the best receiver sensitivity?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "0.5 µV"
+      },
+      {
+        "id": "B",
+        "text": "1 µV"
+      },
+      {
+        "id": "C",
+        "text": "1.8 µV"
+      },
+      {
+        "id": "D",
+        "text": "2 µV"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 0.5 µV.",
+    "rawSnippet": "Which input signal below represents the best receiver sensitivity?\nA. 0.5 µV\nB. 1 µV\nC. 1.8 µV\nD. 2 µV"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-uuluz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 180,
+    "question": "Transistor with the lowest noise figure in the microwave region is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "MOSFET"
+      },
+      {
+        "id": "B",
+        "text": "Dual-gate MOSFET"
+      },
+      {
+        "id": "C",
+        "text": "JFET"
+      },
+      {
+        "id": "D",
+        "text": "MESFET"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is MESFET.",
+    "rawSnippet": "Transistor with the lowest noise figure in the microwave region is a(n)\nA. MOSFET\nB. Dual-gate MOSFET\nC. JFET\nD. MESFET"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-2lkqv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 181,
+    "question": "The AGC circuits usually control the gain of the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Mixer"
+      },
+      {
+        "id": "B",
+        "text": "Detector"
+      },
+      {
+        "id": "C",
+        "text": "IF amplifiers"
+      },
+      {
+        "id": "D",
+        "text": "Audio amplifiers"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is IF amplifiers.",
+    "rawSnippet": "The AGC circuits usually control the gain of the\nA. Mixer\nB. Detector\nC. IF amplifiers\nD. Audio amplifiers"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-28da8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 182,
+    "question": "Selectivity is obtained in most receivers from",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Crystal filters"
+      },
+      {
+        "id": "B",
+        "text": "Mechanical filters"
+      },
+      {
+        "id": "C",
+        "text": "Double-tuned circuits"
+      },
+      {
+        "id": "D",
+        "text": "Audio filters"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Double-tuned circuits.",
+    "rawSnippet": "Selectivity is obtained in most receivers from\nA. Crystal filters\nB. Mechanical filters\nC. Double-tuned circuits\nD. Audio filters"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-a1ocj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 183,
+    "question": "Widest bandwidth in a double-tuned circuit is obtained with",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Undercoupling"
+      },
+      {
+        "id": "B",
+        "text": "Critical coupling"
+      },
+      {
+        "id": "C",
+        "text": "Optimum coupling"
+      },
+      {
+        "id": "D",
+        "text": "Overcoupling"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Overcoupling.",
+    "rawSnippet": "Widest bandwidth in a double-tuned circuit is obtained with\nA. Undercoupling\nB. Critical coupling\nC. Optimum coupling\nD. Overcoupling"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-52rat",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 184,
+    "question": "Automatic gain control permits a wide range of signal amplitudes to be accommodated by controlling the gain of the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "B",
+        "text": "IF amplifier"
+      },
+      {
+        "id": "C",
+        "text": "Mixer"
+      },
+      {
+        "id": "D",
+        "text": "AF amplifier"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is IF amplifier.",
+    "rawSnippet": "Automatic gain control permits a wide range of signal amplitudes to be accommodated by controlling the gain of the\nA. RF amplifier\nB. IF amplifier\nC. Mixer\nD. AF amplifier"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-bskou",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 185,
+    "question": "In an IF amplifier with reverse AGC, a strong signal will cause the collector current to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increase"
+      },
+      {
+        "id": "B",
+        "text": "Decrease"
+      },
+      {
+        "id": "C",
+        "text": "Remain the same"
+      },
+      {
+        "id": "D",
+        "text": "Drop to zero"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Decrease.",
+    "rawSnippet": "In an IF amplifier with reverse AGC, a strong signal will cause the collector current to\nA. Increase\nB. Decrease\nC. Remain the same\nD. Drop to zero"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-ncfdu",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 186,
+    "question": "Usually AGC voltage is derived by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "B",
+        "text": "IF amplifier"
+      },
+      {
+        "id": "C",
+        "text": "Demodulator"
+      },
+      {
+        "id": "D",
+        "text": "AF amplifier"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Demodulator.",
+    "rawSnippet": "Usually AGC voltage is derived by the\nA. RF amplifier\nB. IF amplifier\nC. Demodulator\nD. AF amplifier"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-4h9v4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 187,
+    "question": "An AFC circuit is used to correct for",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Audio distortion"
+      },
+      {
+        "id": "B",
+        "text": "Strong input signals"
+      },
+      {
+        "id": "C",
+        "text": "Instability in the IF amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Frequency drift in the LO"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Frequency drift in the LO.",
+    "rawSnippet": "An AFC circuit is used to correct for\nA. Audio distortion\nB. Strong input signals\nC. Instability in the IF amplifier\nD. Frequency drift in the LO"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-vopiv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 188,
+    "question": "A circuit keeps the audio cut off until a signal is received is known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "A squelch"
+      },
+      {
+        "id": "B",
+        "text": "AFC"
+      },
+      {
+        "id": "C",
+        "text": "AGC"
+      },
+      {
+        "id": "D",
+        "text": "A noise blanker"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "A circuit keeps the audio cut off until a signal is received is called A squelch.",
+    "rawSnippet": "A circuit keeps the audio cut off until a signal is received is known as\nA. A squelch\nB. AFC\nC. AGC\nD. A noise blanker"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-jekgt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 189,
+    "question": "A BFO is used in the demodulation of which types of signals?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB or CW"
+      },
+      {
+        "id": "D",
+        "text": "QPSK"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is SSB or CW.",
+    "rawSnippet": "A BFO is used in the demodulation of which types of signals?\nA. AM\nB. FM\nC. SSB or CW\nD. QPSK"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488168-1kezx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 190,
+    "question": "Which of the following circuits are not typically shared in an SSB transceiver?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Crystal filter"
+      },
+      {
+        "id": "B",
+        "text": "Mixers"
+      },
+      {
+        "id": "C",
+        "text": "Power supply"
+      },
+      {
+        "id": "D",
+        "text": "LO"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Mixers.",
+    "rawSnippet": "Which of the following circuits are not typically shared in an SSB transceiver?\nA. Crystal filter\nB. Mixers\nC. Power supply\nD. LO"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488168-8lngd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 191,
+    "question": "The basic frequency synthesizer circuit is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Mixer"
+      },
+      {
+        "id": "B",
+        "text": "Frequency multiplier"
+      },
+      {
+        "id": "C",
+        "text": "Frequency divider"
+      },
+      {
+        "id": "D",
+        "text": "PLL"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is PLL.",
+    "rawSnippet": "The basic frequency synthesizer circuit is a(n)\nA. Mixer\nB. Frequency multiplier\nC. Frequency divider\nD. PLL"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488168-t2zt7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 192,
+    "question": "The output frequency increment of a frequency synthesizer is determined by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Frequency division ratio"
+      },
+      {
+        "id": "B",
+        "text": "Reference input to the phase detector"
+      },
+      {
+        "id": "C",
+        "text": "Percentage of output frequency"
+      },
+      {
+        "id": "D",
+        "text": "Frequency multiplication factor"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Reference input to the phase detector.",
+    "rawSnippet": "The output frequency increment of a frequency synthesizer is determined by the\nA. Frequency division ratio\nB. Reference input to the phase detector\nC. Percentage of output frequency\nD. Frequency multiplication factor"
+  },
+  {
+    "id": "comm-batch-1-34-1791677488168-schqx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 193,
+    "question": "The output of the frequency synthesizer is changed by varying the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Reference frequency input to the phase detector"
+      },
+      {
+        "id": "B",
+        "text": "Frequency division ratio"
+      },
+      {
+        "id": "C",
+        "text": "Frequency multiplication factor"
+      },
+      {
+        "id": "D",
+        "text": "Mixer LO frequency"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Frequency division ratio.",
+    "rawSnippet": "The output of the frequency synthesizer is changed by varying the\nA. Reference frequency input to the phase detector\nB. Frequency division ratio\nC. Frequency multiplication factor\nD. Mixer LO frequency"
+  },
+  {
+    "id": "comm-batch-1-36-1791677488168-l6uxe",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 194,
+    "question": "The bandwidth of a parallel LC circuit can be increased by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increasing XC"
+      },
+      {
+        "id": "B",
+        "text": "Decreasing XL"
+      },
+      {
+        "id": "C",
+        "text": "Decreasing coil resistance"
+      },
+      {
+        "id": "D",
+        "text": "A resistor connected in parallel"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Decreasing XL.",
+    "rawSnippet": "The bandwidth of a parallel LC circuit can be increased by\nA. Increasing XC\nB. Decreasing XL\nC. Decreasing coil resistance\nD. A resistor connected in parallel"
+  },
+  {
+    "id": "comm-batch-1-41-1791677488168-spyko",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 195,
+    "question": "In a receiver with noise-derived squelch, the presence of an audio signal causes the audio amplifier to be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Enabled"
+      },
+      {
+        "id": "B",
+        "text": "Disabled"
+      },
+      {
+        "id": "C",
+        "text": "Muted"
+      },
+      {
+        "id": "D",
+        "text": "Clipped"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Enabled.",
+    "rawSnippet": "In a receiver with noise-derived squelch, the presence of an audio signal causes the audio amplifier to be\nA. Enabled\nB. Disabled\nC. Muted\nD. Clipped"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-r621k",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 196,
+    "question": "Multiplexing is the process of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Several signal sources transmitting simultaneously to a receiver on a common frequency"
+      },
+      {
+        "id": "B",
+        "text": "Sending the same signal over multiple channels to multiple destinations"
+      },
+      {
+        "id": "C",
+        "text": "Transmitting multiple signals over multiple channels"
+      },
+      {
+        "id": "D",
+        "text": "Sending multiple signals simultaneously over a single channel"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Sending multiple signals simultaneously over a single channel.",
+    "rawSnippet": "Multiplexing is the process of\nA. Several signal sources transmitting simultaneously to a receiver on a common frequency\nB. Sending the same signal over multiple channels to multiple destinations\nC. Transmitting multiple signals over multiple channels\nD. Sending multiple signals simultaneously over a single channel"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-88tqq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 197,
+    "question": "In FDM, multiple signals",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Transmit at different times"
+      },
+      {
+        "id": "B",
+        "text": "Share a common bandwidth"
+      },
+      {
+        "id": "C",
+        "text": "Use multiple channels"
+      },
+      {
+        "id": "D",
+        "text": "Modulate one another"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Share a common bandwidth.",
+    "rawSnippet": "In FDM, multiple signals\nA. Transmit at different times\nB. Share a common bandwidth\nC. Use multiple channels\nD. Modulate one another"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-3khl6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 198,
+    "question": "Each signal in a an FDM system",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulates a subcarrier"
+      },
+      {
+        "id": "B",
+        "text": "Modulates the final carrier"
+      },
+      {
+        "id": "C",
+        "text": "Is mixed with all the others before modulation"
+      },
+      {
+        "id": "D",
+        "text": "Serves as a subcarrier"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Modulates a subcarrier.",
+    "rawSnippet": "Each signal in a an FDM system\nA. Modulates a subcarrier\nB. Modulates the final carrier\nC. Is mixed with all the others before modulation\nD. Serves as a subcarrier"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-0qibk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 199,
+    "question": "Frequency modulation in FDM systems is usually accomplished with a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Reactance modulator"
+      },
+      {
+        "id": "B",
+        "text": "Varactor"
+      },
+      {
+        "id": "C",
+        "text": "VCO"
+      },
+      {
+        "id": "D",
+        "text": "PLL"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is VCO.",
+    "rawSnippet": "Frequency modulation in FDM systems is usually accomplished with a\nA. Reactance modulator\nB. Varactor\nC. VCO\nD. PLL"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-kko0d",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 200,
+    "question": "Which of the following is not a typical FDM application",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Telemetry"
+      },
+      {
+        "id": "B",
+        "text": "Stereo Broadcasting"
+      },
+      {
+        "id": "C",
+        "text": "Telephone"
+      },
+      {
+        "id": "D",
+        "text": "Secure communications"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Secure communications.",
+    "rawSnippet": "Which of the following is not a typical FDM application\nA. Telemetry\nB. Stereo Broadcasting\nC. Telephone\nD. Secure communications"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-j1p8p",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 201,
+    "question": "The circuit the performs demultiplexing in an FDM system is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Op amp"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
+        "id": "C",
+        "text": "Discriminator"
+      },
+      {
+        "id": "D",
+        "text": "Subcarrier oscillator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Bandpass filter.",
+    "rawSnippet": "The circuit the performs demultiplexing in an FDM system is a(n)\nA. Op amp\nB. Bandpass filter\nC. Discriminator\nD. Subcarrier oscillator"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-8agjw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 202,
+    "question": "Most FDM telemetry systems use",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "PSK"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is FM.",
+    "rawSnippet": "Most FDM telemetry systems use\nA. AM\nB. FM\nC. SSB\nD. PSK"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-z2l20",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 203,
+    "question": "The best frequency demodulator is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PLL discriminator"
+      },
+      {
+        "id": "B",
+        "text": "Pulse-averaging discriminator"
+      },
+      {
+        "id": "C",
+        "text": "Foster-Seeley discriminator"
+      },
+      {
+        "id": "D",
+        "text": "Ratio detector"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is PLL discriminator.",
+    "rawSnippet": "The best frequency demodulator is the\nA. PLL discriminator\nB. Pulse-averaging discriminator\nC. Foster-Seeley discriminator\nD. Ratio detector"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-stj8l",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 204,
+    "question": "The modulation used in FDM telephone systems is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "PSK"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is SSB.",
+    "rawSnippet": "The modulation used in FDM telephone systems is\nA. AM\nB. FM\nC. SSB\nD. PSK"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-hgae1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 205,
+    "question": "The FDM telephone systems accommodate many channels by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increasing the multiplexer size"
+      },
+      {
+        "id": "B",
+        "text": "Using many final carriers"
+      },
+      {
+        "id": "C",
+        "text": "Narrowing the bandwidth of each"
+      },
+      {
+        "id": "D",
+        "text": "Using multiple levels of multiplexing"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Using multiple levels of multiplexing.",
+    "rawSnippet": "The FDM telephone systems accommodate many channels by\nA. Increasing the multiplexer size\nB. Using many final carriers\nC. Narrowing the bandwidth of each\nD. Using multiple levels of multiplexing"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-3mfdz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 206,
+    "question": "In FM stereo broadcasting, the L + R signal",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Double-sideband modulates a subcarrier"
+      },
+      {
+        "id": "B",
+        "text": "Modulates the FM carrier"
+      },
+      {
+        "id": "C",
+        "text": "Frequency modulates a subcarrier"
+      },
+      {
+        "id": "D",
+        "text": "Is not transmitted"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Modulates the FM carrier.",
+    "rawSnippet": "In FM stereo broadcasting, the L + R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-4oo7t",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 207,
+    "question": "In FM stereo broadcasting, the L – R signal",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Double-sideband modulates a subcarrier"
+      },
+      {
+        "id": "B",
+        "text": "Modulates the FM carrier"
+      },
+      {
+        "id": "C",
+        "text": "Frequency modulates a subcarrier"
+      },
+      {
+        "id": "D",
+        "text": "Is not transmitted"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Double-sideband modulates a subcarrier.",
+    "rawSnippet": "In FM stereo broadcasting, the L – R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-gcscb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 208,
+    "question": "The SCA signal if used in FM broadcasting is transmitted via",
+    "choices": [
+      {
+        "id": "A",
+        "text": "A 19-kHZ subcarrier"
+      },
+      {
+        "id": "B",
+        "text": "A 38-kHz subcarrier"
+      },
+      {
+        "id": "C",
+        "text": "A 67-kHz subcarrier"
+      },
+      {
+        "id": "D",
+        "text": "The main FM carrier"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is A 67-kHz subcarrier.",
+    "rawSnippet": "The SCA signal if used in FM broadcasting is transmitted via\nA. A 19-kHZ subcarrier\nB. A 38-kHz subcarrier\nC. A 67-kHz subcarrier\nD. The main FM carrier"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-ykjlw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 209,
+    "question": "In TDM, multiple signals",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Share a common bandwidth"
+      },
+      {
+        "id": "B",
+        "text": "Modulate subcarriers"
+      },
+      {
+        "id": "C",
+        "text": "Are sampled at high speeds"
+      },
+      {
+        "id": "D",
+        "text": "Take turns transmitting"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Take turns transmitting.",
+    "rawSnippet": "In TDM, multiple signals\nA. Share a common bandwidth\nB. Modulate subcarriers\nC. Are sampled at high speeds\nD. Take turns transmitting"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-llbq2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 210,
+    "question": "In TDM, each signal may use he full bandwidth of the channel",
+    "choices": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      },
+      {
+        "id": "C",
+        "text": "Sometimes"
+      },
+      {
+        "id": "D",
+        "text": "Never"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is True.",
+    "rawSnippet": "In TDM, each signal may use he full bandwidth of the channel\nA. True\nB. False\nC. Sometimes\nD. Never"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488168-d8i8z",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 211,
+    "question": "Sampling an analog signal produces",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PAM"
+      },
+      {
+        "id": "B",
+        "text": "AM"
+      },
+      {
+        "id": "C",
+        "text": "FM"
+      },
+      {
+        "id": "D",
+        "text": "PCM"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is PAM.",
+    "rawSnippet": "Sampling an analog signal produces\nA. PAM\nB. AM\nC. FM\nD. PCM"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-8d3l4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 212,
+    "question": "Pulse-amplitude modulation signals are multiplexed by using",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Subcarriers"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filters"
+      },
+      {
+        "id": "C",
+        "text": "A/D converters"
+      },
+      {
+        "id": "D",
+        "text": "FET switches"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is FET switches.",
+    "rawSnippet": "Pulse-amplitude modulation signals are multiplexed by using\nA. Subcarriers\nB. Bandpass filters\nC. A/D converters\nD. FET switches"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-ml2q1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 213,
+    "question": "In PAM demultiplexing, the receiver clock is derived from",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Standard radio station WWV"
+      },
+      {
+        "id": "B",
+        "text": "A highly accurate internal oscillator"
+      },
+      {
+        "id": "C",
+        "text": "The PAM signal itself"
+      },
+      {
+        "id": "D",
+        "text": "The 60-Hz power line"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is The PAM signal itself.",
+    "rawSnippet": "In PAM demultiplexing, the receiver clock is derived from\nA. Standard radio station WWV\nB. A highly accurate internal oscillator\nC. The PAM signal itself\nD. The 60-Hz power line"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-8497q",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 214,
+    "question": "In PAM/TDM system, keeping the multiplexer and DEMUX channels step with one another is done by a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Clock recovery circuit"
+      },
+      {
+        "id": "B",
+        "text": "Sync pulse"
+      },
+      {
+        "id": "C",
+        "text": "Sampling"
+      },
+      {
+        "id": "D",
+        "text": "Sequencer"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Sync pulse.",
+    "rawSnippet": "In PAM/TDM system, keeping the multiplexer and DEMUX channels step with one another is done by a\nA. Clock recovery circuit\nB. Sync pulse\nC. Sampling\nD. Sequencer"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-zs4ik",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 215,
+    "question": "Transmitting data as serial binary words is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Digital communications"
+      },
+      {
+        "id": "B",
+        "text": "Quantizing"
+      },
+      {
+        "id": "C",
+        "text": "PAM"
+      },
+      {
+        "id": "D",
+        "text": "PCM"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Transmitting data as serial binary words is called PCM.",
+    "rawSnippet": "Transmitting data as serial binary words is called\nA. Digital communications\nB. Quantizing\nC. PAM\nD. PCM"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-3zaht",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 216,
+    "question": "Converting analog signals to digital is done by sampling and",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Quantizing"
+      },
+      {
+        "id": "B",
+        "text": "Companding"
+      },
+      {
+        "id": "C",
+        "text": "Pre-emphasis"
+      },
+      {
+        "id": "D",
+        "text": "Mixing"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Quantizing.",
+    "rawSnippet": "Converting analog signals to digital is done by sampling and\nA. Quantizing\nB. Companding\nC. Pre-emphasis\nD. Mixing"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-9uh0v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 217,
+    "question": "A quantizer is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Multiplexer"
+      },
+      {
+        "id": "B",
+        "text": "Demultiplexer"
+      },
+      {
+        "id": "C",
+        "text": "A/D converter"
+      },
+      {
+        "id": "D",
+        "text": "D/A converter"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is A/D converter.",
+    "rawSnippet": "A quantizer is a(n)\nA. Multiplexer\nB. Demultiplexer\nC. A/D converter\nD. D/A converter"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-mp3ok",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 218,
+    "question": "Emphasizing low-level signals and compressing higher-level signals is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Quantizing"
+      },
+      {
+        "id": "B",
+        "text": "Companding"
+      },
+      {
+        "id": "C",
+        "text": "Pre-emphasis"
+      },
+      {
+        "id": "D",
+        "text": "Sampling"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Emphasizing low-level signals and compressing higher-level signals is called Companding.",
+    "rawSnippet": "Emphasizing low-level signals and compressing higher-level signals is called\nA. Quantizing\nB. Companding\nC. Pre-emphasis\nD. Sampling"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-c0rvj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 219,
+    "question": "Which of the following is not a benefit of companding?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Minimizes noise"
+      },
+      {
+        "id": "B",
+        "text": "Minimizes number of bits"
+      },
+      {
+        "id": "C",
+        "text": "Minimizes quantizing error"
+      },
+      {
+        "id": "D",
+        "text": "Minimizes signal bandwidth"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Minimizes signal bandwidth.",
+    "rawSnippet": "Which of the following is not a benefit of companding?\nA. Minimizes noise\nB. Minimizes number of bits\nC. Minimizes quantizing error\nD. Minimizes signal bandwidth"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-1vu4r",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 220,
+    "question": "A telephone system using TDM and PCM is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PBX"
+      },
+      {
+        "id": "B",
+        "text": "RS-232"
+      },
+      {
+        "id": "C",
+        "text": "T-1"
+      },
+      {
+        "id": "D",
+        "text": "Bell 212"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "A telephone system using TDM and PCM is called T-1.",
+    "rawSnippet": "A telephone system using TDM and PCM is called\nA. PBX\nB. RS-232\nC. T-1\nD. Bell 212"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-ebzzp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 221,
+    "question": "An IC that contains A/D and D/A converters, companders and parallel-to-serial converters is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Codec"
+      },
+      {
+        "id": "B",
+        "text": "Data converter"
+      },
+      {
+        "id": "C",
+        "text": "Multiplexer"
+      },
+      {
+        "id": "D",
+        "text": "Modem"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "An IC that contains A/D and D/A converters, companders and parallel-to-serial converters is called Codec.",
+    "rawSnippet": "An IC that contains A/D and D/A converters, companders and parallel-to-serial converters is called\nA. Codec\nB. Data converter\nC. Multiplexer\nD. Modem"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-kq3b6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 222,
+    "question": "Pulse-code modulation is preferred to PAM because of its",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Resistance to quantizing error"
+      },
+      {
+        "id": "B",
+        "text": "Simplicity"
+      },
+      {
+        "id": "C",
+        "text": "Lower cost"
+      },
+      {
+        "id": "D",
+        "text": "Superior noise immunity"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Superior noise immunity.",
+    "rawSnippet": "Pulse-code modulation is preferred to PAM because of its\nA. Resistance to quantizing error\nB. Simplicity\nC. Lower cost\nD. Superior noise immunity"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-7n7aj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 223,
+    "question": "The characteristic impedance of a transmission line does not depend upon its",
+    "choices": [
+      {
+        "id": "A",
+        "text": "length"
+      },
+      {
+        "id": "B",
+        "text": "conductor diameter"
+      },
+      {
+        "id": "C",
+        "text": "conductor spacing"
+      },
+      {
+        "id": "D",
+        "text": "none of the above"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is none of the above.",
+    "rawSnippet": "The characteristic impedance of a transmission line does not depend upon its\nA. length\nB. conductor diameter\nC. conductor spacing\nD. none of the above"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-c30vs",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 224,
+    "question": "Which of the following is not a common transmission line impedance?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "50 Ω"
+      },
+      {
+        "id": "B",
+        "text": "75 Ω"
+      },
+      {
+        "id": "C",
+        "text": "120 Ω"
+      },
+      {
+        "id": "D",
+        "text": "300 Ω"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 120 Ω.",
+    "rawSnippet": "Which of the following is not a common transmission line impedance?\nA. 50 Ω\nB. 75 Ω\nC. 120 Ω\nD. 300 Ω"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-4vgpq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 225,
+    "question": "For maximum absorption of power at the antenna, the relationship between the characteristic impedance of the line ZO and the load impedance Zl should be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "ZO = Zl"
+      },
+      {
+        "id": "B",
+        "text": "ZO > Zl"
+      },
+      {
+        "id": "C",
+        "text": "ZO < Zl"
+      },
+      {
+        "id": "D",
+        "text": "ZO = 0"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is ZO = Zl.",
+    "rawSnippet": "For maximum absorption of power at the antenna, the relationship between the characteristic impedance of the line ZO and the load impedance Zl should be\nA. ZO = Zl\nB. ZO > Zl\nC. ZO < Zl\nD. ZO = 0"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-d3s7n",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 226,
+    "question": "The mismatch between antenna and transmission line impedances cannot be corrected for by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "using an LC matching network"
+      },
+      {
+        "id": "B",
+        "text": "adjusting antenna length"
+      },
+      {
+        "id": "C",
+        "text": "using a balun"
+      },
+      {
+        "id": "D",
+        "text": "adjusting the length of transmission line"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is adjusting the length of transmission line.",
+    "rawSnippet": "The mismatch between antenna and transmission line impedances cannot be corrected for by\nA. using an LC matching network\nB. adjusting antenna length\nC. using a balun\nD. adjusting the length of transmission line"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-v1j92",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 227,
+    "question": "A pattern of voltage and current variations along a transmission line not terminated in its characteristic impedance is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "an electric field"
+      },
+      {
+        "id": "B",
+        "text": "radio waves"
+      },
+      {
+        "id": "C",
+        "text": "standing waves"
+      },
+      {
+        "id": "D",
+        "text": "a magnetic field"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "A pattern of voltage and current variations along a transmission line not terminated in its characteristic impedance is called standing waves.",
+    "rawSnippet": "A pattern of voltage and current variations along a transmission line not terminated in its characteristic impedance is called\nA. an electric field\nB. radio waves\nC. standing waves\nD. a magnetic field"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-4dr5b",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 228,
+    "question": "The desirable SWR on a transmission line is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "1"
+      },
+      {
+        "id": "C",
+        "text": "2"
+      },
+      {
+        "id": "D",
+        "text": "infinity"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 1.",
+    "rawSnippet": "The desirable SWR on a transmission line is\nA. 0\nB. 1\nC. 2\nD. infinity"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-3zprg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 229,
+    "question": "The most desirable reflection coefficient is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "0"
+      },
+      {
+        "id": "B",
+        "text": "0.5"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "infinity"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 0.",
+    "rawSnippet": "The most desirable reflection coefficient is\nA. 0\nB. 0.5\nC. 1\nD. infinity"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-pnns2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 230,
+    "question": "A ratio expressing the percentage of incident voltage reflected on a transmission line is know as the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "velocity factor"
+      },
+      {
+        "id": "B",
+        "text": "standing wave ratio"
+      },
+      {
+        "id": "C",
+        "text": "reflection coefficient"
+      },
+      {
+        "id": "D",
+        "text": "line efficiency"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is reflection coefficient.",
+    "rawSnippet": "A ratio expressing the percentage of incident voltage reflected on a transmission line is know as the\nA. velocity factor\nB. standing wave ratio\nC. reflection coefficient\nD. line efficiency"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-b69qz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 231,
+    "question": "At very high frequencies, transmission lines are used as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "tuned circuits"
+      },
+      {
+        "id": "B",
+        "text": "antennas"
+      },
+      {
+        "id": "C",
+        "text": "insulators"
+      },
+      {
+        "id": "D",
+        "text": "resistors"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is tuned circuits.",
+    "rawSnippet": "At very high frequencies, transmission lines are used as\nA. tuned circuits\nB. antennas\nC. insulators\nD. resistors"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-14pub",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 232,
+    "question": "A shorted quarter-wave line at the operating frequency acts like a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "series resonant circuit"
+      },
+      {
+        "id": "B",
+        "text": "parallel resonant circuit"
+      },
+      {
+        "id": "C",
+        "text": "capacitor"
+      },
+      {
+        "id": "D",
+        "text": "inductor"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is parallel resonant circuit.",
+    "rawSnippet": "A shorted quarter-wave line at the operating frequency acts like a(n)\nA. series resonant circuit\nB. parallel resonant circuit\nC. capacitor\nD. inductor"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-xt1e4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 233,
+    "question": "A shorted half-wave line at the operating frequency acts like a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "capacitor"
+      },
+      {
+        "id": "B",
+        "text": "inductor"
+      },
+      {
+        "id": "C",
+        "text": "series resonant circuit"
+      },
+      {
+        "id": "D",
+        "text": "parallel resonant circuit"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is series resonant circuit.",
+    "rawSnippet": "A shorted half-wave line at the operating frequency acts like a(n)\nA. capacitor\nB. inductor\nC. series resonant circuit\nD. parallel resonant circuit"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-yigag",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 234,
+    "question": "A popular vertical antenna is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "collinear"
+      },
+      {
+        "id": "B",
+        "text": "dipole"
+      },
+      {
+        "id": "C",
+        "text": "ground plane"
+      },
+      {
+        "id": "D",
+        "text": "broadside"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is ground plane.",
+    "rawSnippet": "A popular vertical antenna is the\nA. collinear\nB. dipole\nC. ground plane\nD. broadside"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-imnsi",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 235,
+    "question": "The magnetic field of an antenna is perpendicular to the earth. The antenna’s polarization",
+    "choices": [
+      {
+        "id": "A",
+        "text": "is vertical"
+      },
+      {
+        "id": "B",
+        "text": "is horizontal"
+      },
+      {
+        "id": "C",
+        "text": "is circular"
+      },
+      {
+        "id": "D",
+        "text": "cannot be determined from the information given"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is is horizontal.",
+    "rawSnippet": "The magnetic field of an antenna is perpendicular to the earth. The antenna’s polarization\nA. is vertical\nB. is horizontal\nC. is circular\nD. cannot be determined from the information given"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-nj4lf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 236,
+    "question": "An antenna that transmits or receives equally well in all directions is said to be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "omnidirectional"
+      },
+      {
+        "id": "B",
+        "text": "bidirectional"
+      },
+      {
+        "id": "C",
+        "text": "unidirectional"
+      },
+      {
+        "id": "D",
+        "text": "quasidirectional"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is omnidirectional.",
+    "rawSnippet": "An antenna that transmits or receives equally well in all directions is said to be\nA. omnidirectional\nB. bidirectional\nC. unidirectional\nD. quasidirectional"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-7vmvf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 237,
+    "question": "The horizontal radiation pattern of a dipole is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "circle"
+      },
+      {
+        "id": "B",
+        "text": "figure eight"
+      },
+      {
+        "id": "C",
+        "text": "clover leaf"
+      },
+      {
+        "id": "D",
+        "text": "narrow beam"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is figure eight.",
+    "rawSnippet": "The horizontal radiation pattern of a dipole is a\nA. circle\nB. figure eight\nC. clover leaf\nD. narrow beam"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-o5oc9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 238,
+    "question": "The impedance of a dipole is about",
+    "choices": [
+      {
+        "id": "A",
+        "text": "50 Ω"
+      },
+      {
+        "id": "B",
+        "text": "73 Ω"
+      },
+      {
+        "id": "C",
+        "text": "93 Ω"
+      },
+      {
+        "id": "D",
+        "text": "300 Ω"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 73 Ω.",
+    "rawSnippet": "The impedance of a dipole is about\nA. 50 Ω\nB. 73 Ω\nC. 93 Ω\nD. 300 Ω"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-x8odp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 239,
+    "question": "A direction antenna with two or more elements is known as a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "folded dipole"
+      },
+      {
+        "id": "B",
+        "text": "ground plane"
+      },
+      {
+        "id": "C",
+        "text": "loop"
+      },
+      {
+        "id": "D",
+        "text": "array"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is array.",
+    "rawSnippet": "A direction antenna with two or more elements is known as a(n)\nA. folded dipole\nB. ground plane\nC. loop\nD. array"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-159ms",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 240,
+    "question": "The horizontal radiation pattern o a vertical dipole is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "figure eight"
+      },
+      {
+        "id": "B",
+        "text": "circle"
+      },
+      {
+        "id": "C",
+        "text": "narrow beam"
+      },
+      {
+        "id": "D",
+        "text": "clover leaf"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is circle.",
+    "rawSnippet": "The horizontal radiation pattern o a vertical dipole is\nA. figure eight\nB. circle\nC. narrow beam\nD. clover leaf"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-qik36",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 241,
+    "question": "In a Yagi antenna, maximum direction of radiation is toward the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "director"
+      },
+      {
+        "id": "B",
+        "text": "driven element"
+      },
+      {
+        "id": "C",
+        "text": "reflector"
+      },
+      {
+        "id": "D",
+        "text": "sky"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is director.",
+    "rawSnippet": "In a Yagi antenna, maximum direction of radiation is toward the\nA. director\nB. driven element\nC. reflector\nD. sky"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-hic9q",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 242,
+    "question": "Conductors in multielement antennas that do not receive energy directly from the transmission line are known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "parasitic elements"
+      },
+      {
+        "id": "B",
+        "text": "driven elements"
+      },
+      {
+        "id": "C",
+        "text": "the boom"
+      },
+      {
+        "id": "D",
+        "text": "receptors"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Conductors in multielement antennas that do not receive energy directly from the transmission line is called parasitic elements.",
+    "rawSnippet": "Conductors in multielement antennas that do not receive energy directly from the transmission line are known as\nA. parasitic elements\nB. driven elements\nC. the boom\nD. receptors"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-siai6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 243,
+    "question": "Which beamwidth represents the best antenna directivity",
+    "choices": [
+      {
+        "id": "A",
+        "text": "7°"
+      },
+      {
+        "id": "B",
+        "text": "12°"
+      },
+      {
+        "id": "C",
+        "text": "19°"
+      },
+      {
+        "id": "D",
+        "text": "28°"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 7°.",
+    "rawSnippet": "Which beamwidth represents the best antenna directivity\nA. 7°\nB. 12°\nC. 19°\nD. 28°"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488168-0znwo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 244,
+    "question": "The radiation pattern of collinear and broadside antennas",
+    "choices": [
+      {
+        "id": "A",
+        "text": "omnidirectional"
+      },
+      {
+        "id": "B",
+        "text": "bidirectional"
+      },
+      {
+        "id": "C",
+        "text": "unidirectional"
+      },
+      {
+        "id": "D",
+        "text": "clover-leaf shaped"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is bidirectional.",
+    "rawSnippet": "The radiation pattern of collinear and broadside antennas\nA. omnidirectional\nB. bidirectional\nC. unidirectional\nD. clover-leaf shaped"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488168-r2cx9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 245,
+    "question": "Which antenna has a unidirectional radiation pattern and gain",
+    "choices": [
+      {
+        "id": "A",
+        "text": "dipole"
+      },
+      {
+        "id": "B",
+        "text": "ground plane"
+      },
+      {
+        "id": "C",
+        "text": "yagi"
+      },
+      {
+        "id": "D",
+        "text": "collinear"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is yagi.",
+    "rawSnippet": "Which antenna has a unidirectional radiation pattern and gain\nA. dipole\nB. ground plane\nC. yagi\nD. collinear"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488168-udo7v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 246,
+    "question": "A wide-bandwidth multielement driven array is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "end-fire"
+      },
+      {
+        "id": "B",
+        "text": "log-periodic"
+      },
+      {
+        "id": "C",
+        "text": "yagi"
+      },
+      {
+        "id": "D",
+        "text": "collinear"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is log-periodic.",
+    "rawSnippet": "A wide-bandwidth multielement driven array is the\nA. end-fire\nB. log-periodic\nC. yagi\nD. collinear"
+  },
+  {
+    "id": "comm-batch-1-34-1791677488168-vmm0q",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 247,
+    "question": "Ground-wave communications is most effective in what frequency range?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "300 kHz to 3 MHz"
+      },
+      {
+        "id": "B",
+        "text": "3 to 30 MHz"
+      },
+      {
+        "id": "C",
+        "text": "30 to 300 MHz"
+      },
+      {
+        "id": "D",
+        "text": "above 300 MHz"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 300 kHz to 3 MHz.",
+    "rawSnippet": "Ground-wave communications is most effective in what frequency range?\nA. 300 kHz to 3 MHz\nB. 3 to 30 MHz\nC. 30 to 300 MHz\nD. above 300 MHz"
+  },
+  {
+    "id": "comm-batch-1-36-1791677488168-ir2di",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 248,
+    "question": "The ionosphere has its greatest effect on signals in what frequency range?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "300 kHz to 3 MHz"
+      },
+      {
+        "id": "B",
+        "text": "3 to 30 MHz"
+      },
+      {
+        "id": "C",
+        "text": "30 to 300 MHz"
+      },
+      {
+        "id": "D",
+        "text": "above 300 MHz"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 3 to 30 MHz.",
+    "rawSnippet": "The ionosphere has its greatest effect on signals in what frequency range?\nA. 300 kHz to 3 MHz\nB. 3 to 30 MHz\nC. 30 to 300 MHz\nD. above 300 MHz"
+  },
+  {
+    "id": "comm-batch-1-38-1791677488168-lhff9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 249,
+    "question": "Microwave signals propagate by way of the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "direct wave"
+      },
+      {
+        "id": "B",
+        "text": "sky wave"
+      },
+      {
+        "id": "C",
+        "text": "surface wave"
+      },
+      {
+        "id": "D",
+        "text": "standing wave"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is direct wave.",
+    "rawSnippet": "Microwave signals propagate by way of the\nA. direct wave\nB. sky wave\nC. surface wave\nD. standing wave"
+  },
+  {
+    "id": "comm-batch-1-39-1791677488168-eiwhm",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 250,
+    "question": "The line-of-sight communications is not a factor in which frequency range?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "VHF"
+      },
+      {
+        "id": "B",
+        "text": "UHF"
+      },
+      {
+        "id": "C",
+        "text": "HF"
+      },
+      {
+        "id": "D",
+        "text": "microwave"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is HF.",
+    "rawSnippet": "The line-of-sight communications is not a factor in which frequency range?\nA. VHF\nB. UHF\nC. HF\nD. microwave"
+  },
+  {
+    "id": "comm-batch-1-41-1791677488168-337lx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 251,
+    "question": "To increase the transmission distance of a UHF signal, which of the following should be done?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "increase antenna gain"
+      },
+      {
+        "id": "B",
+        "text": "increase antenna height"
+      },
+      {
+        "id": "C",
+        "text": "increase transmitter power"
+      },
+      {
+        "id": "D",
+        "text": "increase receiver sensitivity"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is increase antenna height.",
+    "rawSnippet": "To increase the transmission distance of a UHF signal, which of the following should be done?\nA. increase antenna gain\nB. increase antenna height\nC. increase transmitter power\nD. increase receiver sensitivity"
+  },
+  {
+    "id": "comm-batch-1-43-1791677488168-c4x9w",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 252,
+    "question": "Which transmission line has the lowest attenuation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "twin lead"
+      },
+      {
+        "id": "B",
+        "text": "RG-11/U"
+      },
+      {
+        "id": "C",
+        "text": "RG-59/U"
+      },
+      {
+        "id": "D",
+        "text": "RG-214/U"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is twin lead.",
+    "rawSnippet": "Which transmission line has the lowest attenuation?\nA. twin lead\nB. RG-11/U\nC. RG-59/U\nD. RG-214/U"
+  },
+  {
+    "id": "comm-batch-1-44-1791677488168-l48kt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 253,
+    "question": "Refer to Fig. 9-39. The beam width of this antenna pattern is approximately",
+    "choices": [
+      {
+        "id": "A",
+        "text": "30°"
+      },
+      {
+        "id": "B",
+        "text": "38°"
+      },
+      {
+        "id": "C",
+        "text": "45°"
+      },
+      {
+        "id": "D",
+        "text": "60°"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 60°.",
+    "rawSnippet": "Refer to Fig. 9-39. The beam width of this antenna pattern is approximately\nA. 30°\nB. 38°\nC. 45°\nD. 60°"
+  },
+  {
+    "id": "comm-batch-1-45-1791677488168-4g9p8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 254,
+    "question": "A receiver-transmitter station used to increase the communications range of VHF, UHF, and microwave signals is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "transceiver"
+      },
+      {
+        "id": "B",
+        "text": "remitter"
+      },
+      {
+        "id": "C",
+        "text": "repeater"
+      },
+      {
+        "id": "D",
+        "text": "amplifier"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is repeater.",
+    "rawSnippet": "A receiver-transmitter station used to increase the communications range of VHF, UHF, and microwave signals is called a(n)\nA. transceiver\nB. remitter\nC. repeater\nD. amplifier"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-p5cem",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 255,
+    "question": "The main benefit of using microwaves is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "lower-cost equipment"
+      },
+      {
+        "id": "B",
+        "text": "simpler equipment"
+      },
+      {
+        "id": "C",
+        "text": "greater transmission distances"
+      },
+      {
+        "id": "D",
+        "text": "more spectrum space"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is more spectrum space.",
+    "rawSnippet": "The main benefit of using microwaves is\nA. lower-cost equipment\nB. simpler equipment\nC. greater transmission distances\nD. more spectrum space"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-2uok8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 256,
+    "question": "Radio communications are regulated in the United States by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Federal Trade Commission"
+      },
+      {
+        "id": "B",
+        "text": "Congress"
+      },
+      {
+        "id": "C",
+        "text": "Federal Communications Commission"
+      },
+      {
+        "id": "D",
+        "text": "Military"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Federal Communications Commission.",
+    "rawSnippet": "Radio communications are regulated in the United States by the\nA. Federal Trade Commission\nB. Congress\nC. Federal Communications Commission\nD. Military"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488168-zzkrg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 257,
+    "question": "Which of the following is not a disadvantage of microwaves?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "higher-cost equipment"
+      },
+      {
+        "id": "B",
+        "text": "line-of-sight transmission"
+      },
+      {
+        "id": "C",
+        "text": "conventional components are not usable"
+      },
+      {
+        "id": "D",
+        "text": "circuits are more difficult to analyze"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is higher-cost equipment.",
+    "rawSnippet": "Which of the following is not a disadvantage of microwaves?\nA. higher-cost equipment\nB. line-of-sight transmission\nC. conventional components are not usable\nD. circuits are more difficult to analyze"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-unyrc",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 258,
+    "question": "Which of the following is a microwave frequency",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1.7 MHz"
+      },
+      {
+        "id": "B",
+        "text": "750 MHz"
+      },
+      {
+        "id": "C",
+        "text": "0.98 GHz"
+      },
+      {
+        "id": "D",
+        "text": "22 GHz"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 22 GHz.",
+    "rawSnippet": "Which of the following is a microwave frequency\nA. 1.7 MHz\nB. 750 MHz\nC. 0.98 GHz\nD. 22 GHz"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-o93b4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 259,
+    "question": "Which of the following is not a common microwave application?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "radar"
+      },
+      {
+        "id": "B",
+        "text": "mobile radio"
+      },
+      {
+        "id": "C",
+        "text": "telephone"
+      },
+      {
+        "id": "D",
+        "text": "spacecraft communications"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is mobile radio.",
+    "rawSnippet": "Which of the following is not a common microwave application?\nA. radar\nB. mobile radio\nC. telephone\nD. spacecraft communications"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-65ds9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 260,
+    "question": "Coaxial cable is not widely used for long microwave transmission lines because of its",
+    "choices": [
+      {
+        "id": "A",
+        "text": "high loss"
+      },
+      {
+        "id": "B",
+        "text": "high cost"
+      },
+      {
+        "id": "C",
+        "text": "large size"
+      },
+      {
+        "id": "D",
+        "text": "excessive radiation"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is high loss.",
+    "rawSnippet": "Coaxial cable is not widely used for long microwave transmission lines because of its\nA. high loss\nB. high cost\nC. large size\nD. excessive radiation"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-5c5de",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 261,
+    "question": "Stripline and microstrip transmission lines are usually made with",
+    "choices": [
+      {
+        "id": "A",
+        "text": "coax"
+      },
+      {
+        "id": "B",
+        "text": "parallel wires"
+      },
+      {
+        "id": "C",
+        "text": "twisted pair"
+      },
+      {
+        "id": "D",
+        "text": "PCBs"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is PCBs.",
+    "rawSnippet": "Stripline and microstrip transmission lines are usually made with\nA. coax\nB. parallel wires\nC. twisted pair\nD. PCBs"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-wszoo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 262,
+    "question": "The most common cross section of a wave guide is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "square"
+      },
+      {
+        "id": "B",
+        "text": "circle"
+      },
+      {
+        "id": "C",
+        "text": "triangle"
+      },
+      {
+        "id": "D",
+        "text": "rectangle"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is rectangle.",
+    "rawSnippet": "The most common cross section of a wave guide is a\nA. square\nB. circle\nC. triangle\nD. rectangle"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-i8832",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 263,
+    "question": "Signal propagation in a waveguide is by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "electrons"
+      },
+      {
+        "id": "B",
+        "text": "electric and magnetic fields"
+      },
+      {
+        "id": "C",
+        "text": "holes"
+      },
+      {
+        "id": "D",
+        "text": "air pressure"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is electric and magnetic fields.",
+    "rawSnippet": "Signal propagation in a waveguide is by\nA. electrons\nB. electric and magnetic fields\nC. holes\nD. air pressure"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-r0y1b",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 264,
+    "question": "When the electric field in a waveguide is perpendicular to the direction of wave propagation, the mode is said to be",
+    "choices": [
+      {
+        "id": "A",
+        "text": "vertical polarization"
+      },
+      {
+        "id": "B",
+        "text": "horizontal polarization"
+      },
+      {
+        "id": "C",
+        "text": "transverse electric"
+      },
+      {
+        "id": "D",
+        "text": "transverse magnetic"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is transverse electric.",
+    "rawSnippet": "When the electric field in a waveguide is perpendicular to the direction of wave propagation, the mode is said to be\nA. vertical polarization\nB. horizontal polarization\nC. transverse electric\nD. transverse magnetic"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-b5i4i",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 265,
+    "question": "The dominant mode in most waveguides is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "TE0,1"
+      },
+      {
+        "id": "B",
+        "text": "TE1,2"
+      },
+      {
+        "id": "C",
+        "text": "TM0,1"
+      },
+      {
+        "id": "D",
+        "text": "TM1,1"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is TE0,1.",
+    "rawSnippet": "The dominant mode in most waveguides is\nA. TE0,1\nB. TE1,2\nC. TM0,1\nD. TM1,1"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-oyg14",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 266,
+    "question": "A magnetic field is introduced into a waveguide by a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "probe"
+      },
+      {
+        "id": "B",
+        "text": "dipole"
+      },
+      {
+        "id": "C",
+        "text": "stripline"
+      },
+      {
+        "id": "D",
+        "text": "capacitor"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is probe.",
+    "rawSnippet": "A magnetic field is introduced into a waveguide by a\nA. probe\nB. dipole\nC. stripline\nD. capacitor"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488168-n7zov",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 267,
+    "question": "A half-wavelength, closed section of a waveguide that acts as a parallel resonant circuit is known as a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "half-wave section"
+      },
+      {
+        "id": "B",
+        "text": "cavity resonator"
+      },
+      {
+        "id": "C",
+        "text": "LCR circuit"
+      },
+      {
+        "id": "D",
+        "text": "directional coupler"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is cavity resonator.",
+    "rawSnippet": "A half-wavelength, closed section of a waveguide that acts as a parallel resonant circuit is known as a(n)\nA. half-wave section\nB. cavity resonator\nC. LCR circuit\nD. directional coupler"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488168-acula",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 268,
+    "question": "Decreasing the volume of a cavity causes its resonant frequency to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "increase"
+      },
+      {
+        "id": "B",
+        "text": "decrease"
+      },
+      {
+        "id": "C",
+        "text": "remain the same"
+      },
+      {
+        "id": "D",
+        "text": "drop to zero"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is increase.",
+    "rawSnippet": "Decreasing the volume of a cavity causes its resonant frequency to\nA. increase\nB. decrease\nC. remain the same\nD. drop to zero"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488168-329lz",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 269,
+    "question": "A popular microwave mixer diode is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Gunn"
+      },
+      {
+        "id": "B",
+        "text": "Varactor"
+      },
+      {
+        "id": "C",
+        "text": "Hot carrier"
+      },
+      {
+        "id": "D",
+        "text": "IMPATT"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Gunn.",
+    "rawSnippet": "A popular microwave mixer diode is the\nA. Gunn\nB. Varactor\nC. Hot carrier\nD. IMPATT"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488168-3zuj6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 270,
+    "question": "Varactor and step-recovery diodes are widely used in what type of circuit",
+    "choices": [
+      {
+        "id": "A",
+        "text": "amplifier"
+      },
+      {
+        "id": "B",
+        "text": "oscillator"
+      },
+      {
+        "id": "C",
+        "text": "frequency multiplier"
+      },
+      {
+        "id": "D",
+        "text": "mixer"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is frequency multiplier.",
+    "rawSnippet": "Varactor and step-recovery diodes are widely used in what type of circuit\nA. amplifier\nB. oscillator\nC. frequency multiplier\nD. mixer"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488168-n1jer",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 271,
+    "question": "Which diode is a popular microwave oscillator",
+    "choices": [
+      {
+        "id": "A",
+        "text": "IMPATT"
+      },
+      {
+        "id": "B",
+        "text": "Gunn"
+      },
+      {
+        "id": "C",
+        "text": "Varactor"
+      },
+      {
+        "id": "D",
+        "text": "Mixer"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Gunn.",
+    "rawSnippet": "Which diode is a popular microwave oscillator\nA. IMPATT\nB. Gunn\nC. Varactor\nD. Mixer"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488168-13rb9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 272,
+    "question": "Which type of diode does not ordinarily operate with reverse bias",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Varactor"
+      },
+      {
+        "id": "B",
+        "text": "IMPATT"
+      },
+      {
+        "id": "C",
+        "text": "Snap-off"
+      },
+      {
+        "id": "D",
+        "text": "Tunnel"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Tunnel.",
+    "rawSnippet": "Which type of diode does not ordinarily operate with reverse bias\nA. Varactor\nB. IMPATT\nC. Snap-off\nD. Tunnel"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488168-0ildb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 273,
+    "question": "Low-power Gunn diodes are replacing",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Reflex klystrons"
+      },
+      {
+        "id": "B",
+        "text": "TWTs"
+      },
+      {
+        "id": "C",
+        "text": "Magnetrons"
+      },
+      {
+        "id": "D",
+        "text": "Varactor diodes"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Reflex klystrons.",
+    "rawSnippet": "Low-power Gunn diodes are replacing\nA. Reflex klystrons\nB. TWTs\nC. Magnetrons\nD. Varactor diodes"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488168-k2265",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 274,
+    "question": "Which of the following is not a microwave tube?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "travelling-wave tube"
+      },
+      {
+        "id": "B",
+        "text": "cathode-ray tube"
+      },
+      {
+        "id": "C",
+        "text": "klystron"
+      },
+      {
+        "id": "D",
+        "text": "magnetron"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is cathode-ray tube.",
+    "rawSnippet": "Which of the following is not a microwave tube?\nA. travelling-wave tube\nB. cathode-ray tube\nC. klystron\nD. magnetron"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488168-nop6f",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 275,
+    "question": "In a klystron amplifier, velocity modulation of the electron beam is produced by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "collector"
+      },
+      {
+        "id": "B",
+        "text": "catcher cavity"
+      },
+      {
+        "id": "C",
+        "text": "cathode"
+      },
+      {
+        "id": "D",
+        "text": "buncher cavity"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is buncher cavity.",
+    "rawSnippet": "In a klystron amplifier, velocity modulation of the electron beam is produced by the\nA. collector\nB. catcher cavity\nC. cathode\nD. buncher cavity"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488168-7dyt6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 276,
+    "question": "A reflex klystron is used as a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "amplifier"
+      },
+      {
+        "id": "B",
+        "text": "oscillator"
+      },
+      {
+        "id": "C",
+        "text": "mixer"
+      },
+      {
+        "id": "D",
+        "text": "frequency multiplier"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is oscillator.",
+    "rawSnippet": "A reflex klystron is used as a(n)\nA. amplifier\nB. oscillator\nC. mixer\nD. frequency multiplier"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488168-lueu4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 277,
+    "question": "For proper operation, a magnetron must be accompanied by a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "cavity resonator"
+      },
+      {
+        "id": "B",
+        "text": "strong electric field"
+      },
+      {
+        "id": "C",
+        "text": "permanent magnet"
+      },
+      {
+        "id": "D",
+        "text": "high dc voltage"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is permanent magnet.",
+    "rawSnippet": "For proper operation, a magnetron must be accompanied by a\nA. cavity resonator\nB. strong electric field\nC. permanent magnet\nD. high dc voltage"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488168-ffjjl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 278,
+    "question": "The operating frequency of klystrons and magnetrons is set by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "cavity resonators"
+      },
+      {
+        "id": "B",
+        "text": "DC supply voltage"
+      },
+      {
+        "id": "C",
+        "text": "input signal frequency"
+      },
+      {
+        "id": "D",
+        "text": "number of cavities"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is cavity resonators.",
+    "rawSnippet": "The operating frequency of klystrons and magnetrons is set by the\nA. cavity resonators\nB. DC supply voltage\nC. input signal frequency\nD. number of cavities"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488168-5ibsg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 279,
+    "question": "A magnetron is used only as a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "amplifier"
+      },
+      {
+        "id": "B",
+        "text": "oscillator"
+      },
+      {
+        "id": "C",
+        "text": "mixer"
+      },
+      {
+        "id": "D",
+        "text": "frequency multiplier"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is oscillator.",
+    "rawSnippet": "A magnetron is used only as a(n)\nA. amplifier\nB. oscillator\nC. mixer\nD. frequency multiplier"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488168-qdx4i",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 280,
+    "question": "A common application for magnetrons is in",
+    "choices": [
+      {
+        "id": "A",
+        "text": "radar"
+      },
+      {
+        "id": "B",
+        "text": "satellites"
+      },
+      {
+        "id": "C",
+        "text": "two-way radio"
+      },
+      {
+        "id": "D",
+        "text": "TV sets"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is radar.",
+    "rawSnippet": "A common application for magnetrons is in\nA. radar\nB. satellites\nC. two-way radio\nD. TV sets"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488168-2vj21",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 281,
+    "question": "In a TWT, the electron beam is density- modulated by a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "permanent magnet"
+      },
+      {
+        "id": "B",
+        "text": "modulation transformer"
+      },
+      {
+        "id": "C",
+        "text": "helix"
+      },
+      {
+        "id": "D",
+        "text": "cavity resonator"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is helix.",
+    "rawSnippet": "In a TWT, the electron beam is density- modulated by a\nA. permanent magnet\nB. modulation transformer\nC. helix\nD. cavity resonator"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488168-3jseq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 282,
+    "question": "The main advantage of a TWT over a klystron for microwave amplification is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "lower cost"
+      },
+      {
+        "id": "B",
+        "text": "smaller size"
+      },
+      {
+        "id": "C",
+        "text": "higher power"
+      },
+      {
+        "id": "D",
+        "text": "wider bandwidth"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is wider bandwidth.",
+    "rawSnippet": "The main advantage of a TWT over a klystron for microwave amplification is\nA. lower cost\nB. smaller size\nC. higher power\nD. wider bandwidth"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488168-5uxqy",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 283,
+    "question": "High-power TWTs are replacing what in microwave amplifiers?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "MESFETs"
+      },
+      {
+        "id": "B",
+        "text": "Magnetrons"
+      },
+      {
+        "id": "C",
+        "text": "Klystrons"
+      },
+      {
+        "id": "D",
+        "text": "IMPATT diodes"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Klystrons.",
+    "rawSnippet": "High-power TWTs are replacing what in microwave amplifiers?\nA. MESFETs\nB. Magnetrons\nC. Klystrons\nD. IMPATT diodes"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488168-tfl7t",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 284,
+    "question": "The most widely used microwave antenna is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "half-wave dipole"
+      },
+      {
+        "id": "B",
+        "text": "quarter-wave probe"
+      },
+      {
+        "id": "C",
+        "text": "single loop"
+      },
+      {
+        "id": "D",
+        "text": "horn"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is horn.",
+    "rawSnippet": "The most widely used microwave antenna is a\nA. half-wave dipole\nB. quarter-wave probe\nC. single loop\nD. horn"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488168-vlmd4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 285,
+    "question": "What happens when a horn antenna is made longer?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "gain increases"
+      },
+      {
+        "id": "B",
+        "text": "beam width increases"
+      },
+      {
+        "id": "C",
+        "text": "both a and b"
+      },
+      {
+        "id": "D",
+        "text": "neither a nor b"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is gain increases.",
+    "rawSnippet": "What happens when a horn antenna is made longer?\nA. gain increases\nB. beam width increases\nC. both a and b\nD. neither a nor b"
+  },
+  {
+    "id": "comm-batch-1-36-1791677488168-4j9tv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 286,
+    "question": "The diameter of a parabolic reflector should be at least how many wavelengths at the operating frequency?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1"
+      },
+      {
+        "id": "B",
+        "text": "2"
+      },
+      {
+        "id": "C",
+        "text": "5"
+      },
+      {
+        "id": "D",
+        "text": "10"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 10.",
+    "rawSnippet": "The diameter of a parabolic reflector should be at least how many wavelengths at the operating frequency?\nA. 1\nB. 2\nC. 5\nD. 10"
+  },
+  {
+    "id": "comm-batch-1-37-1791677488168-k7oej",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 287,
+    "question": "The point where the antenna is mounted with respect to the parabolic reflector is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "focal point"
+      },
+      {
+        "id": "B",
+        "text": "center"
+      },
+      {
+        "id": "C",
+        "text": "locus"
+      },
+      {
+        "id": "D",
+        "text": "tangent"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The point where the antenna is mounted with respect to the parabolic reflector is called focal point.",
+    "rawSnippet": "The point where the antenna is mounted with respect to the parabolic reflector is called\nA. focal point\nB. center\nC. locus\nD. tangent"
+  },
+  {
+    "id": "comm-batch-1-38-1791677488168-p7ukg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 288,
+    "question": "Using a small reflector to beam waves to the larger parabolic reflector is known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "focal feed"
+      },
+      {
+        "id": "B",
+        "text": "horn feed"
+      },
+      {
+        "id": "C",
+        "text": "cassegrain feed"
+      },
+      {
+        "id": "D",
+        "text": "coax feed"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Using a small reflector to beam waves to the larger parabolic reflector is called cassegrain feed.",
+    "rawSnippet": "Using a small reflector to beam waves to the larger parabolic reflector is known as\nA. focal feed\nB. horn feed\nC. cassegrain feed\nD. coax feed"
+  },
+  {
+    "id": "comm-batch-1-39-1791677488168-0d7bq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 289,
+    "question": "Increasing the diameter of a parabolic reflector causes which of the following",
+    "choices": [
+      {
+        "id": "A",
+        "text": "decrease beamwidth"
+      },
+      {
+        "id": "B",
+        "text": "increase gain"
+      },
+      {
+        "id": "C",
+        "text": "increase beam width"
+      },
+      {
+        "id": "D",
+        "text": "a and b"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is a and b.",
+    "rawSnippet": "Increasing the diameter of a parabolic reflector causes which of the following\nA. decrease beamwidth\nB. increase gain\nC. increase beam width\nD. a and b"
+  },
+  {
+    "id": "comm-batch-1-40-1791677488168-l9ntt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 290,
+    "question": "A helical antenna is made up of a coil and a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "director"
+      },
+      {
+        "id": "B",
+        "text": "reflector"
+      },
+      {
+        "id": "C",
+        "text": "dipole"
+      },
+      {
+        "id": "D",
+        "text": "horn"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is reflector.",
+    "rawSnippet": "A helical antenna is made up of a coil and a\nA. director\nB. reflector\nC. dipole\nD. horn"
+  },
+  {
+    "id": "comm-batch-1-41-1791677488168-m69uv",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 291,
+    "question": "The output of a helical antenna is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "vertically polarized"
+      },
+      {
+        "id": "B",
+        "text": "horizontally polarized"
+      },
+      {
+        "id": "C",
+        "text": "circularly polarized"
+      },
+      {
+        "id": "D",
+        "text": "both a and b"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is circularly polarized.",
+    "rawSnippet": "The output of a helical antenna is\nA. vertically polarized\nB. horizontally polarized\nC. circularly polarized\nD. both a and b"
+  },
+  {
+    "id": "comm-batch-1-42-1791677488168-ga265",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 292,
+    "question": "A common omnidirectional microwave antenna is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "horn"
+      },
+      {
+        "id": "B",
+        "text": "parabolic reflector"
+      },
+      {
+        "id": "C",
+        "text": "helical"
+      },
+      {
+        "id": "D",
+        "text": "bicone"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is bicone.",
+    "rawSnippet": "A common omnidirectional microwave antenna is the\nA. horn\nB. parabolic reflector\nC. helical\nD. bicone"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488168-x9ger",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 293,
+    "question": "As the height of a satellite orbit gets lower, the speed of the satellite",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Increases"
+      },
+      {
+        "id": "B",
+        "text": "Decreases"
+      },
+      {
+        "id": "C",
+        "text": "Remains the same"
+      },
+      {
+        "id": "D",
+        "text": "None of the above"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Increases.",
+    "rawSnippet": "As the height of a satellite orbit gets lower, the speed of the satellite\nA. Increases\nB. Decreases\nC. Remains the same\nD. None of the above"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488168-bb4j9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 294,
+    "question": "The main functions of a communications satellite is a a(a)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Repeater"
+      },
+      {
+        "id": "B",
+        "text": "Reflector"
+      },
+      {
+        "id": "C",
+        "text": "Beacon"
+      },
+      {
+        "id": "D",
+        "text": "Observation platform"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Repeater.",
+    "rawSnippet": "The main functions of a communications satellite is a a(a)\nA. Repeater\nB. Reflector\nC. Beacon\nD. Observation platform"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488168-l2lu0",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 295,
+    "question": "A circular orbit around the equator with a 24 h period is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Elliptical orbit"
+      },
+      {
+        "id": "B",
+        "text": "Geostationary orbit"
+      },
+      {
+        "id": "C",
+        "text": "Polar orbit"
+      },
+      {
+        "id": "D",
+        "text": "Transfer orbit"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Geostationary orbit.",
+    "rawSnippet": "A circular orbit around the equator with a 24 h period is called a(n)\nA. Elliptical orbit\nB. Geostationary orbit\nC. Polar orbit\nD. Transfer orbit"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488168-kdm2q",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 296,
+    "question": "A satellite stays in orbit because the following 2 factor are balanced",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Satellite weight and speed"
+      },
+      {
+        "id": "B",
+        "text": "Gravitational pull and inertia"
+      },
+      {
+        "id": "C",
+        "text": "Centripetal force and speed"
+      },
+      {
+        "id": "D",
+        "text": "Satellite weight and the pull of the moon and sun"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Gravitational pull and inertia.",
+    "rawSnippet": "A satellite stays in orbit because the following 2 factor are balanced\nA. Satellite weight and speed\nB. Gravitational pull and inertia\nC. Centripetal force and speed\nD. Satellite weight and the pull of the moon and sun"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488168-1m8oq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 297,
+    "question": "The height of a satellite in a synchronous equatorial orbit is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "100 mi"
+      },
+      {
+        "id": "B",
+        "text": "6800 mi"
+      },
+      {
+        "id": "C",
+        "text": "22,300 mi"
+      },
+      {
+        "id": "D",
+        "text": "35,860 mi"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 22,300 mi.",
+    "rawSnippet": "The height of a satellite in a synchronous equatorial orbit is\nA. 100 mi\nB. 6800 mi\nC. 22,300 mi\nD. 35,860 mi"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488168-qjgt2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 298,
+    "question": "Most satellites operate in which frequency band?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "30 to 300 MHz"
+      },
+      {
+        "id": "B",
+        "text": "300 MHz to 3GHz"
+      },
+      {
+        "id": "C",
+        "text": "3 GHz to 30 GHz"
+      },
+      {
+        "id": "D",
+        "text": "above 300 GHz"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 3 GHz to 30 GHz.",
+    "rawSnippet": "Most satellites operate in which frequency band?\nA. 30 to 300 MHz\nB. 300 MHz to 3GHz\nC. 3 GHz to 30 GHz\nD. above 300 GHz"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488168-get7c",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 299,
+    "question": "The main power sources for a satellite are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Batteries"
+      },
+      {
+        "id": "B",
+        "text": "Solar cells"
+      },
+      {
+        "id": "C",
+        "text": "Fuel cells"
+      },
+      {
+        "id": "D",
+        "text": "Thermoelectric generators"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Solar cells.",
+    "rawSnippet": "The main power sources for a satellite are\nA. Batteries\nB. Solar cells\nC. Fuel cells\nD. Thermoelectric generators"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488168-y5xh2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 300,
+    "question": "The maximum height of an elliptical orbit is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Perigee"
+      },
+      {
+        "id": "B",
+        "text": "Apex"
+      },
+      {
+        "id": "C",
+        "text": "Zenith"
+      },
+      {
+        "id": "D",
+        "text": "Apogee"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The maximum height of an elliptical orbit is called Apogee.",
+    "rawSnippet": "The maximum height of an elliptical orbit is called\nA. Perigee\nB. Apex\nC. Zenith\nD. Apogee"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488168-7lpd0",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 301,
+    "question": "Batteries are used to power all satellite subsystems",
+    "choices": [
+      {
+        "id": "A",
+        "text": "At all times"
+      },
+      {
+        "id": "B",
+        "text": "Only during emergencies"
+      },
+      {
+        "id": "C",
+        "text": "During ellipse periods"
+      },
+      {
+        "id": "D",
+        "text": "To give the solar arrays a rest"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is During ellipse periods.",
+    "rawSnippet": "Batteries are used to power all satellite subsystems\nA. At all times\nB. Only during emergencies\nC. During ellipse periods\nD. To give the solar arrays a rest"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488168-sgodl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 302,
+    "question": "The satellite subsystem that monitors and controls the satellite is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Propulsion subsystem"
+      },
+      {
+        "id": "B",
+        "text": "Power subsystem"
+      },
+      {
+        "id": "C",
+        "text": "Communications subsystems"
+      },
+      {
+        "id": "D",
+        "text": "Telemetry, tracking and command system"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Telemetry, tracking and command system.",
+    "rawSnippet": "The satellite subsystem that monitors and controls the satellite is the\nA. Propulsion subsystem\nB. Power subsystem\nC. Communications subsystems\nD. Telemetry, tracking and command system"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488168-swud9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 303,
+    "question": "The basic technique used to stabilize a satellite is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Gravity-forward motion balance"
+      },
+      {
+        "id": "B",
+        "text": "Spin"
+      },
+      {
+        "id": "C",
+        "text": "Thruster control"
+      },
+      {
+        "id": "D",
+        "text": "Solar panel orientation"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Spin.",
+    "rawSnippet": "The basic technique used to stabilize a satellite is\nA. Gravity-forward motion balance\nB. Spin\nC. Thruster control\nD. Solar panel orientation"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488168-uat3t",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 304,
+    "question": "The jet thrusters are usually fired to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Maintain altitude"
+      },
+      {
+        "id": "B",
+        "text": "Put the satellite into the transfer orbit"
+      },
+      {
+        "id": "C",
+        "text": "Inject the satellite into the geosynchronous orbit"
+      },
+      {
+        "id": "D",
+        "text": "Bring the satellite back to the earth"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Maintain altitude.",
+    "rawSnippet": "The jet thrusters are usually fired to\nA. Maintain altitude\nB. Put the satellite into the transfer orbit\nC. Inject the satellite into the geosynchronous orbit\nD. Bring the satellite back to the earth"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488168-jeoad",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 305,
+    "question": "Most commercial satellite activity occurs in which bands?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "L"
+      },
+      {
+        "id": "B",
+        "text": "C and Ku"
+      },
+      {
+        "id": "C",
+        "text": "X"
+      },
+      {
+        "id": "D",
+        "text": "S and P"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is C and Ku.",
+    "rawSnippet": "Most commercial satellite activity occurs in which bands?\nA. L\nB. C and Ku\nC. X\nD. S and P"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488169-nm0sp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 306,
+    "question": "How can multiple earth stations share a satellite on the same frequency",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Frequency reuse"
+      },
+      {
+        "id": "B",
+        "text": "Multiplexing"
+      },
+      {
+        "id": "C",
+        "text": "Mixing"
+      },
+      {
+        "id": "D",
+        "text": "They can’t"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Frequency reuse.",
+    "rawSnippet": "How can multiple earth stations share a satellite on the same frequency\nA. Frequency reuse\nB. Multiplexing\nC. Mixing\nD. They can’t"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488169-nlsxh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 307,
+    "question": "The typical bandwidth of a satellite band is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "36 MHz"
+      },
+      {
+        "id": "B",
+        "text": "40 MHz"
+      },
+      {
+        "id": "C",
+        "text": "70 MHz"
+      },
+      {
+        "id": "D",
+        "text": "500 MHz"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 500 MHz.",
+    "rawSnippet": "The typical bandwidth of a satellite band is\nA. 36 MHz\nB. 40 MHz\nC. 70 MHz\nD. 500 MHz"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488169-57jpr",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 308,
+    "question": "Which of the following is not usually a part of a transponder",
+    "choices": [
+      {
+        "id": "A",
+        "text": "LNA"
+      },
+      {
+        "id": "B",
+        "text": "Mixer"
+      },
+      {
+        "id": "C",
+        "text": "Modulator"
+      },
+      {
+        "id": "D",
+        "text": "HPA"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Modulator.",
+    "rawSnippet": "Which of the following is not usually a part of a transponder\nA. LNA\nB. Mixer\nC. Modulator\nD. HPA"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488169-ix6wb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 309,
+    "question": "The satellite communications channels in a transponder are defined by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "LNA"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
+        "id": "C",
+        "text": "Mixer"
+      },
+      {
+        "id": "D",
+        "text": "Input signals"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Bandpass filter.",
+    "rawSnippet": "The satellite communications channels in a transponder are defined by the\nA. LNA\nB. Bandpass filter\nC. Mixer\nD. Input signals"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488169-yl9li",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 310,
+    "question": "The HPAs in most satellites are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "TSTs"
+      },
+      {
+        "id": "B",
+        "text": "Klystrons"
+      },
+      {
+        "id": "C",
+        "text": "Vacuum tubes"
+      },
+      {
+        "id": "D",
+        "text": "Magnetrons"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Klystrons.",
+    "rawSnippet": "The HPAs in most satellites are\nA. TSTs\nB. Klystrons\nC. Vacuum tubes\nD. Magnetrons"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488169-dhx7p",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 311,
+    "question": "The physical location of a satellite is determined by its",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Distance from the earth"
+      },
+      {
+        "id": "B",
+        "text": "Latitude and longitude"
+      },
+      {
+        "id": "C",
+        "text": "Reference to the stars"
+      },
+      {
+        "id": "D",
+        "text": "Position relative to the sun"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Latitude and longitude.",
+    "rawSnippet": "The physical location of a satellite is determined by its\nA. Distance from the earth\nB. Latitude and longitude\nC. Reference to the stars\nD. Position relative to the sun"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488169-60h2q",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 312,
+    "question": "The receive GCE system in an earth station performs what function(s)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Modulation and multiplexing"
+      },
+      {
+        "id": "B",
+        "text": "Up conversion"
+      },
+      {
+        "id": "C",
+        "text": "Demodulation and demultiplexing"
+      },
+      {
+        "id": "D",
+        "text": "Down conversion"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Demodulation and demultiplexing.",
+    "rawSnippet": "The receive GCE system in an earth station performs what function(s)\nA. Modulation and multiplexing\nB. Up conversion\nC. Demodulation and demultiplexing\nD. Down conversion"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488169-igm19",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 313,
+    "question": "Which of the following types of HPA is not used in earth stations",
+    "choices": [
+      {
+        "id": "A",
+        "text": "TWT"
+      },
+      {
+        "id": "B",
+        "text": "Transistor"
+      },
+      {
+        "id": "C",
+        "text": "Klystron"
+      },
+      {
+        "id": "D",
+        "text": "Magnetron"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Magnetron.",
+    "rawSnippet": "Which of the following types of HPA is not used in earth stations\nA. TWT\nB. Transistor\nC. Klystron\nD. Magnetron"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488169-aii41",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 314,
+    "question": "A common up-converter and down- converter IF is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "36 MHz"
+      },
+      {
+        "id": "B",
+        "text": "40 MHz"
+      },
+      {
+        "id": "C",
+        "text": "70 MHz"
+      },
+      {
+        "id": "D",
+        "text": "500 MHz"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 70 MHz.",
+    "rawSnippet": "A common up-converter and down- converter IF is\nA. 36 MHz\nB. 40 MHz\nC. 70 MHz\nD. 500 MHz"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488169-4su8t",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 315,
+    "question": "The type of modulation used on voice and video signals is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "QPSK"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is FM.",
+    "rawSnippet": "The type of modulation used on voice and video signals is\nA. AM\nB. FM\nC. SSB\nD. QPSK"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488169-lo9ki",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 316,
+    "question": "The modulation normally used with digital data is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM"
+      },
+      {
+        "id": "B",
+        "text": "FM"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "QPSK"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is QPSK.",
+    "rawSnippet": "The modulation normally used with digital data is\nA. AM\nB. FM\nC. SSB\nD. QPSK"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488169-c31uw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 317,
+    "question": "Which of the following is not a typical output from a GPS receiver?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Latitude"
+      },
+      {
+        "id": "B",
+        "text": "Speed"
+      },
+      {
+        "id": "C",
+        "text": "Altitude"
+      },
+      {
+        "id": "D",
+        "text": "Longitude"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Speed.",
+    "rawSnippet": "Which of the following is not a typical output from a GPS receiver?\nA. Latitude\nB. Speed\nC. Altitude\nD. Longitude"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488169-xlf7j",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 318,
+    "question": "Data communications uses",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Analog methods"
+      },
+      {
+        "id": "B",
+        "text": "Digital methods"
+      },
+      {
+        "id": "C",
+        "text": "Either of the above"
+      },
+      {
+        "id": "D",
+        "text": "Neither of the above"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Either of the above.",
+    "rawSnippet": "Data communications uses\nA. Analog methods\nB. Digital methods\nC. Either of the above\nD. Neither of the above"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488169-5w0ap",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 319,
+    "question": "Which of the following is not primarily a type of data communications",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Telephone"
+      },
+      {
+        "id": "B",
+        "text": "Teletype"
+      },
+      {
+        "id": "C",
+        "text": "Telegraph"
+      },
+      {
+        "id": "D",
+        "text": "CW"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Telephone.",
+    "rawSnippet": "Which of the following is not primarily a type of data communications\nA. Telephone\nB. Teletype\nC. Telegraph\nD. CW"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488169-99wfd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 320,
+    "question": "The main reason that serial transmission is preferred to parallel transmission is that",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Serial is faster"
+      },
+      {
+        "id": "B",
+        "text": "Serial requires only a single channel"
+      },
+      {
+        "id": "C",
+        "text": "Serial requires multiple channels"
+      },
+      {
+        "id": "D",
+        "text": "Parallel is too expensive"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Serial requires only a single channel.",
+    "rawSnippet": "The main reason that serial transmission is preferred to parallel transmission is that\nA. Serial is faster\nB. Serial requires only a single channel\nC. Serial requires multiple channels\nD. Parallel is too expensive"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488169-o4z9d",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 321,
+    "question": "Mark and space refer respectively to",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Dot and dash"
+      },
+      {
+        "id": "B",
+        "text": "Messege and interval"
+      },
+      {
+        "id": "C",
+        "text": "Binary 1 and binary 0"
+      },
+      {
+        "id": "D",
+        "text": "On and off"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Binary 1 and binary 0.",
+    "rawSnippet": "Mark and space refer respectively to\nA. Dot and dash\nB. Messege and interval\nC. Binary 1 and binary 0\nD. On and off"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488169-1l2n0",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 322,
+    "question": "The number of amplitude, frequency, or phase changes that take place per second is known as the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Data rate in bits per second"
+      },
+      {
+        "id": "B",
+        "text": "Frequency of operation"
+      },
+      {
+        "id": "C",
+        "text": "Speed limit"
+      },
+      {
+        "id": "D",
+        "text": "Baud rate"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Baud rate.",
+    "rawSnippet": "The number of amplitude, frequency, or phase changes that take place per second is known as the\nA. Data rate in bits per second\nB. Frequency of operation\nC. Speed limit\nD. Baud rate"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488169-34u5v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 323,
+    "question": "Data transmission of one character at a time with start and stop bits is known as what type of transmission?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Asynchronous"
+      },
+      {
+        "id": "B",
+        "text": "Serial"
+      },
+      {
+        "id": "C",
+        "text": "Synchronous"
+      },
+      {
+        "id": "D",
+        "text": "Parallel"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Asynchronous.",
+    "rawSnippet": "Data transmission of one character at a time with start and stop bits is known as what type of transmission?\nA. Asynchronous\nB. Serial\nC. Synchronous\nD. Parallel"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488169-z71a4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 324,
+    "question": "The ASCII code has",
+    "choices": [
+      {
+        "id": "A",
+        "text": "4 bits"
+      },
+      {
+        "id": "B",
+        "text": "5 bits"
+      },
+      {
+        "id": "C",
+        "text": "7 bits"
+      },
+      {
+        "id": "D",
+        "text": "8 bits"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 7 bits.",
+    "rawSnippet": "The ASCII code has\nA. 4 bits\nB. 5 bits\nC. 7 bits\nD. 8 bits"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488169-mnj6h",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 325,
+    "question": "Digital signals may be transmitted over the telephone network if",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Their speed is low enough"
+      },
+      {
+        "id": "B",
+        "text": "They are converted to analog first"
+      },
+      {
+        "id": "C",
+        "text": "They are ac instead of dc"
+      },
+      {
+        "id": "D",
+        "text": "They are digital only"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is They are converted to analog first.",
+    "rawSnippet": "Digital signals may be transmitted over the telephone network if\nA. Their speed is low enough\nB. They are converted to analog first\nC. They are ac instead of dc\nD. They are digital only"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488169-tuoel",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 326,
+    "question": "Start and stop bits, respectively, are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Mark, space"
+      },
+      {
+        "id": "B",
+        "text": "Space, mark"
+      },
+      {
+        "id": "C",
+        "text": "Space, space"
+      },
+      {
+        "id": "D",
+        "text": "Mark, mark"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Space, mark.",
+    "rawSnippet": "Start and stop bits, respectively, are\nA. Mark, space\nB. Space, mark\nC. Space, space\nD. Mark, mark"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488169-gznj3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 327,
+    "question": "Slow-speed modems use",
+    "choices": [
+      {
+        "id": "A",
+        "text": "FSK"
+      },
+      {
+        "id": "B",
+        "text": "BPSK"
+      },
+      {
+        "id": "C",
+        "text": "QPSK"
+      },
+      {
+        "id": "D",
+        "text": "QAM"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is FSK.",
+    "rawSnippet": "Slow-speed modems use\nA. FSK\nB. BPSK\nC. QPSK\nD. QAM"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488169-yvzwa",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 328,
+    "question": "A carrier recovery circuit is not needed with",
+    "choices": [
+      {
+        "id": "A",
+        "text": "BPSK"
+      },
+      {
+        "id": "B",
+        "text": "QPSK"
+      },
+      {
+        "id": "C",
+        "text": "DPSK"
+      },
+      {
+        "id": "D",
+        "text": "QAM"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is DPSK.",
+    "rawSnippet": "A carrier recovery circuit is not needed with\nA. BPSK\nB. QPSK\nC. DPSK\nD. QAM"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488169-dhzcs",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 329,
+    "question": "The basic modulator and demodulator circuits in PSK are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PLLs"
+      },
+      {
+        "id": "B",
+        "text": "Balanced modulators"
+      },
+      {
+        "id": "C",
+        "text": "Shift registers"
+      },
+      {
+        "id": "D",
+        "text": "Linear summers"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Balanced modulators.",
+    "rawSnippet": "The basic modulator and demodulator circuits in PSK are\nA. PLLs\nB. Balanced modulators\nC. Shift registers\nD. Linear summers"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488169-475re",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 330,
+    "question": "The carrier used with a BPSK demodulator is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Generated by oscillator"
+      },
+      {
+        "id": "B",
+        "text": "The BPSK signal itself"
+      },
+      {
+        "id": "C",
+        "text": "Twice the frequency of the transmitted carrier"
+      },
+      {
+        "id": "D",
+        "text": "Recovered from the BPSK signal"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is The BPSK signal itself.",
+    "rawSnippet": "The carrier used with a BPSK demodulator is\nA. Generated by oscillator\nB. The BPSK signal itself\nC. Twice the frequency of the transmitted carrier\nD. Recovered from the BPSK signal"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488169-o2yt9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 331,
+    "question": "Quadrature amplitude modulation is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM only"
+      },
+      {
+        "id": "B",
+        "text": "QPSK only"
+      },
+      {
+        "id": "C",
+        "text": "AM plus QPSK"
+      },
+      {
+        "id": "D",
+        "text": "AM plus FSK"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is AM plus QPSK.",
+    "rawSnippet": "Quadrature amplitude modulation is\nA. AM only\nB. QPSK only\nC. AM plus QPSK\nD. AM plus FSK"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488169-s82fp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 332,
+    "question": "A QAM modulator does not use a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "XNOR"
+      },
+      {
+        "id": "B",
+        "text": "Bit splitter"
+      },
+      {
+        "id": "C",
+        "text": "Balanced modulator"
+      },
+      {
+        "id": "D",
+        "text": "2-to-4 level converter"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is XNOR.",
+    "rawSnippet": "A QAM modulator does not use a(n)\nA. XNOR\nB. Bit splitter\nC. Balanced modulator\nD. 2-to-4 level converter"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488169-2sq6x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 333,
+    "question": "A rule or procedure that defines how data is to be transmitted is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Handshake"
+      },
+      {
+        "id": "B",
+        "text": "Error-detection scheme"
+      },
+      {
+        "id": "C",
+        "text": "Data specification"
+      },
+      {
+        "id": "D",
+        "text": "Protocol"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Protocol.",
+    "rawSnippet": "A rule or procedure that defines how data is to be transmitted is called a(n)\nA. Handshake\nB. Error-detection scheme\nC. Data specification\nD. Protocol"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488169-bk5t8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 334,
+    "question": "A popular PC protocol is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Parity"
+      },
+      {
+        "id": "B",
+        "text": "X modem"
+      },
+      {
+        "id": "C",
+        "text": "CRC"
+      },
+      {
+        "id": "D",
+        "text": "LRC"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is X modem.",
+    "rawSnippet": "A popular PC protocol is\nA. Parity\nB. X modem\nC. CRC\nD. LRC"
+  },
+  {
+    "id": "comm-batch-1-23-1791677488169-txnzr",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 335,
+    "question": "A synchronous transmission usually begins with which character?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "SYN"
+      },
+      {
+        "id": "B",
+        "text": "STX"
+      },
+      {
+        "id": "C",
+        "text": "SOH"
+      },
+      {
+        "id": "D",
+        "text": "ETB"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is SYN.",
+    "rawSnippet": "A synchronous transmission usually begins with which character?\nA. SYN\nB. STX\nC. SOH\nD. ETB"
+  },
+  {
+    "id": "comm-batch-1-24-1791677488169-4lq06",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 336,
+    "question": "The characters making up the message in a synchronous transmission are collectively referred to as a data",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Set"
+      },
+      {
+        "id": "B",
+        "text": "Sequence"
+      },
+      {
+        "id": "C",
+        "text": "Block"
+      },
+      {
+        "id": "D",
+        "text": "Collection"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Block.",
+    "rawSnippet": "The characters making up the message in a synchronous transmission are collectively referred to as a data\nA. Set\nB. Sequence\nC. Block\nD. Collection"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488169-it8et",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 337,
+    "question": "Bit errors in data transmission are usually cause by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Equipment failures"
+      },
+      {
+        "id": "B",
+        "text": "Typing mistake"
+      },
+      {
+        "id": "C",
+        "text": "Noise"
+      },
+      {
+        "id": "D",
+        "text": "Poor S/N ratio at the receiver"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Noise.",
+    "rawSnippet": "Bit errors in data transmission are usually cause by\nA. Equipment failures\nB. Typing mistake\nC. Noise\nD. Poor S/N ratio at the receiver"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488169-iwuu1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 338,
+    "question": "Which of the following is not a commonly used method of error detection?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Parity"
+      },
+      {
+        "id": "B",
+        "text": "BCC"
+      },
+      {
+        "id": "C",
+        "text": "CRC"
+      },
+      {
+        "id": "D",
+        "text": "Redundancy"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Redundancy.",
+    "rawSnippet": "Which of the following is not a commonly used method of error detection?\nA. Parity\nB. BCC\nC. CRC\nD. Redundancy"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488169-nkw6z",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 339,
+    "question": "Another name for parity is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Vertical redundancy check"
+      },
+      {
+        "id": "B",
+        "text": "Block check character"
+      },
+      {
+        "id": "C",
+        "text": "Longitudinal redundancy check"
+      },
+      {
+        "id": "D",
+        "text": "Cyclical redundancy check"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Vertical redundancy check.",
+    "rawSnippet": "Another name for parity is\nA. Vertical redundancy check\nB. Block check character\nC. Longitudinal redundancy check\nD. Cyclical redundancy check"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488169-e1vlp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 340,
+    "question": "The building block of a parity or BCC generator is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Shift register"
+      },
+      {
+        "id": "B",
+        "text": "XOR"
+      },
+      {
+        "id": "C",
+        "text": "2 to 4 level converter"
+      },
+      {
+        "id": "D",
+        "text": "UART"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is XOR.",
+    "rawSnippet": "The building block of a parity or BCC generator is a(n)\nA. Shift register\nB. XOR\nC. 2 to 4 level converter\nD. UART"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488169-u6hr6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 341,
+    "question": "A longitudinal redundancy check produces a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Block check character"
+      },
+      {
+        "id": "B",
+        "text": "Parity bit"
+      },
+      {
+        "id": "C",
+        "text": "CRC"
+      },
+      {
+        "id": "D",
+        "text": "Error correction"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Block check character.",
+    "rawSnippet": "A longitudinal redundancy check produces a(n)\nA. Block check character\nB. Parity bit\nC. CRC\nD. Error correction"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488169-ju4ni",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 342,
+    "question": "Dividing the data block by a constant produces a remainder that is used for error detection. It is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Vertical redundancy check"
+      },
+      {
+        "id": "B",
+        "text": "Horizontal redundancy check"
+      },
+      {
+        "id": "C",
+        "text": "Block check character"
+      },
+      {
+        "id": "D",
+        "text": "Cyclical redundancy check"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Cyclical redundancy check.",
+    "rawSnippet": "Dividing the data block by a constant produces a remainder that is used for error detection. It is called the\nA. Vertical redundancy check\nB. Horizontal redundancy check\nC. Block check character\nD. Cyclical redundancy check"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488169-46ew4",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 343,
+    "question": "A CRC generator uses which components?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Balanced modulator"
+      },
+      {
+        "id": "B",
+        "text": "Shift register"
+      },
+      {
+        "id": "C",
+        "text": "Binary adder"
+      },
+      {
+        "id": "D",
+        "text": "Multiplexer"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Shift register.",
+    "rawSnippet": "A CRC generator uses which components?\nA. Balanced modulator\nB. Shift register\nC. Binary adder\nD. Multiplexer"
+  },
+  {
+    "id": "comm-batch-1-34-1791677488169-rb30n",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 344,
+    "question": "Which of the following is not a LAN?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PBX system"
+      },
+      {
+        "id": "B",
+        "text": "Hospital system"
+      },
+      {
+        "id": "C",
+        "text": "Office building system"
+      },
+      {
+        "id": "D",
+        "text": "Cable TV system"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Cable TV system.",
+    "rawSnippet": "Which of the following is not a LAN?\nA. PBX system\nB. Hospital system\nC. Office building system\nD. Cable TV system"
+  },
+  {
+    "id": "comm-batch-1-35-1791677488169-87n4x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 345,
+    "question": "The fastest LAN topology is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ring"
+      },
+      {
+        "id": "B",
+        "text": "Bus"
+      },
+      {
+        "id": "C",
+        "text": "Star"
+      },
+      {
+        "id": "D",
+        "text": "Square"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Bus.",
+    "rawSnippet": "The fastest LAN topology is the\nA. Ring\nB. Bus\nC. Star\nD. Square"
+  },
+  {
+    "id": "comm-batch-1-36-1791677488169-9a197",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 346,
+    "question": "Which is not a common LAN medium?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Twin lead"
+      },
+      {
+        "id": "B",
+        "text": "Twisted pair"
+      },
+      {
+        "id": "C",
+        "text": "Fiber-optic cable"
+      },
+      {
+        "id": "D",
+        "text": "Coax"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Twin lead.",
+    "rawSnippet": "Which is not a common LAN medium?\nA. Twin lead\nB. Twisted pair\nC. Fiber-optic cable\nD. Coax"
+  },
+  {
+    "id": "comm-batch-1-37-1791677488169-0fwkj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 347,
+    "question": "A mainframe computer connected to multiple terminals and PCs usually uses which configuration?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Bus"
+      },
+      {
+        "id": "B",
+        "text": "Ring"
+      },
+      {
+        "id": "C",
+        "text": "Star"
+      },
+      {
+        "id": "D",
+        "text": "Tree"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Star.",
+    "rawSnippet": "A mainframe computer connected to multiple terminals and PCs usually uses which configuration?\nA. Bus\nB. Ring\nC. Star\nD. Tree"
+  },
+  {
+    "id": "comm-batch-1-38-1791677488169-07lzr",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 348,
+    "question": "A small telephone switching system that can be used as a LAN is called a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ring"
+      },
+      {
+        "id": "B",
+        "text": "WAN"
+      },
+      {
+        "id": "C",
+        "text": "UART"
+      },
+      {
+        "id": "D",
+        "text": "PBX"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is PBX.",
+    "rawSnippet": "A small telephone switching system that can be used as a LAN is called a\nA. Ring\nB. WAN\nC. UART\nD. PBX"
+  },
+  {
+    "id": "comm-batch-1-39-1791677488169-872ok",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 349,
+    "question": "Which medium is the least susceptible to noise?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Twin Lead"
+      },
+      {
+        "id": "B",
+        "text": "Twisted pair"
+      },
+      {
+        "id": "C",
+        "text": "Fiber optic cable"
+      },
+      {
+        "id": "D",
+        "text": "Coax"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Fiber optic cable.",
+    "rawSnippet": "Which medium is the least susceptible to noise?\nA. Twin Lead\nB. Twisted pair\nC. Fiber optic cable\nD. Coax"
+  },
+  {
+    "id": "comm-batch-1-40-1791677488169-amdk7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 350,
+    "question": "Which medium is the most widely used in LANs?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Twin Lead"
+      },
+      {
+        "id": "B",
+        "text": "Twisted pair"
+      },
+      {
+        "id": "C",
+        "text": "Fiber optic cable"
+      },
+      {
+        "id": "D",
+        "text": "Coax"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Twisted pair.",
+    "rawSnippet": "Which medium is the most widely used in LANs?\nA. Twin Lead\nB. Twisted pair\nC. Fiber optic cable\nD. Coax"
+  },
+  {
+    "id": "comm-batch-1-41-1791677488169-9q7uk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 351,
+    "question": "Transmitting the data signal directly over the medium is referred to as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Baseband"
+      },
+      {
+        "id": "B",
+        "text": "Broadband"
+      },
+      {
+        "id": "C",
+        "text": "Ring"
+      },
+      {
+        "id": "D",
+        "text": "Bus"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Baseband.",
+    "rawSnippet": "Transmitting the data signal directly over the medium is referred to as\nA. Baseband\nB. Broadband\nC. Ring\nD. Bus"
+  },
+  {
+    "id": "comm-batch-1-42-1791677488169-3cep0",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 352,
+    "question": "The techniques of using modulation and FDM to transmit multiple data channels of a common medium is known as",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Baseband"
+      },
+      {
+        "id": "B",
+        "text": "Broadband"
+      },
+      {
+        "id": "C",
+        "text": "Ring"
+      },
+      {
+        "id": "D",
+        "text": "Bus"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The techniques of using modulation and FDM to transmit multiple data channels of a common medium is called Broadband.",
+    "rawSnippet": "The techniques of using modulation and FDM to transmit multiple data channels of a common medium is known as\nA. Baseband\nB. Broadband\nC. Ring\nD. Bus"
+  },
+  {
+    "id": "comm-batch-1-46-1791677488169-2k6ez",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 353,
+    "question": "Which circuit is common to bot frequency- hopping and direct-sequence SS transmitters?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Correlator"
+      },
+      {
+        "id": "B",
+        "text": "PSN code generator"
+      },
+      {
+        "id": "C",
+        "text": "Frequency synthesizer"
+      },
+      {
+        "id": "D",
+        "text": "Sweep generator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is PSN code generator.",
+    "rawSnippet": "Which circuit is common to bot frequency- hopping and direct-sequence SS transmitters?\nA. Correlator\nB. PSN code generator\nC. Frequency synthesizer\nD. Sweep generator"
+  },
+  {
+    "id": "comm-batch-1-47-1791677488169-0tq3g",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 354,
+    "question": "Spread spectrum stations sharing a band are identified by and distinguished from one another by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PSN code"
+      },
+      {
+        "id": "B",
+        "text": "Frequency of operation"
+      },
+      {
+        "id": "C",
+        "text": "Clock rate"
+      },
+      {
+        "id": "D",
+        "text": "Modulation type"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is PSN code.",
+    "rawSnippet": "Spread spectrum stations sharing a band are identified by and distinguished from one another by\nA. PSN code\nB. Frequency of operation\nC. Clock rate\nD. Modulation type"
+  },
+  {
+    "id": "comm-batch-1-48-1791677488169-x5a6u",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 355,
+    "question": "The type of modulation most often used with direct-sequence SS is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "QAM"
+      },
+      {
+        "id": "B",
+        "text": "SSB"
+      },
+      {
+        "id": "C",
+        "text": "FSK"
+      },
+      {
+        "id": "D",
+        "text": "PSK"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is PSK.",
+    "rawSnippet": "The type of modulation most often used with direct-sequence SS is\nA. QAM\nB. SSB\nC. FSK\nD. PSK"
+  },
+  {
+    "id": "comm-batch-1-49-1791677488169-0f07x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 356,
+    "question": "The main circuit in a PSN generator is a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "XOR"
+      },
+      {
+        "id": "B",
+        "text": "Multiplexer"
+      },
+      {
+        "id": "C",
+        "text": "Shift register"
+      },
+      {
+        "id": "D",
+        "text": "Mixer"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is XOR.",
+    "rawSnippet": "The main circuit in a PSN generator is a(n)\nA. XOR\nB. Multiplexer\nC. Shift register\nD. Mixer"
+  },
+  {
+    "id": "comm-batch-1-50-1791677488169-bym0s",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 357,
+    "question": "To a conventional narrowband receiver, an SS signal appears to be like",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Noise"
+      },
+      {
+        "id": "B",
+        "text": "Fading"
+      },
+      {
+        "id": "C",
+        "text": "A jamming signal"
+      },
+      {
+        "id": "D",
+        "text": "An intermittent connection"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Noise.",
+    "rawSnippet": "To a conventional narrowband receiver, an SS signal appears to be like\nA. Noise\nB. Fading\nC. A jamming signal\nD. An intermittent connection"
+  },
+  {
+    "id": "comm-batch-1-51-1791677488169-k21pl",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 358,
+    "question": "Which of the following is not a benefit of SS?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Jam-proof"
+      },
+      {
+        "id": "B",
+        "text": "Security"
+      },
+      {
+        "id": "C",
+        "text": "Immunity to fading"
+      },
+      {
+        "id": "D",
+        "text": "Noise proof"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Noise proof.",
+    "rawSnippet": "Which of the following is not a benefit of SS?\nA. Jam-proof\nB. Security\nC. Immunity to fading\nD. Noise proof"
+  },
+  {
+    "id": "comm-batch-1-52-1791677488169-v1da3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 359,
+    "question": "Spread spectrum is a form of multiplexing",
+    "choices": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      },
+      {
+        "id": "C",
+        "text": "Sometimes"
+      },
+      {
+        "id": "D",
+        "text": "Never"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is True.",
+    "rawSnippet": "Spread spectrum is a form of multiplexing\nA. True\nB. False\nC. Sometimes\nD. Never"
+  },
+  {
+    "id": "comm-batch-1-53-1791677488169-ym6k3",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 360,
+    "question": "The most critical and difficult part of receiving a direct-sequence SS signal is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Frequency synthesis"
+      },
+      {
+        "id": "B",
+        "text": "Synchronism"
+      },
+      {
+        "id": "C",
+        "text": "PSN code generation"
+      },
+      {
+        "id": "D",
+        "text": "Carrier recovery"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Synchronism.",
+    "rawSnippet": "The most critical and difficult part of receiving a direct-sequence SS signal is\nA. Frequency synthesis\nB. Synchronism\nC. PSN code generation\nD. Carrier recovery"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488169-v1rmn",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 361,
+    "question": "Which of the following is not a common application of fiber-optic cable?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Closed circuit TV"
+      },
+      {
+        "id": "B",
+        "text": "Consumer network"
+      },
+      {
+        "id": "C",
+        "text": "Long - distance telephone systems"
+      },
+      {
+        "id": "D",
+        "text": "Consumer TV"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Consumer TV.",
+    "rawSnippet": "Which of the following is not a common application of fiber-optic cable?\nA. Closed circuit TV\nB. Consumer network\nC. Long - distance telephone systems\nD. Consumer TV"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488169-xqil1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 362,
+    "question": "Total internal reflection takes place if the light ray strikes the interface at an angle with what relationship to the critical angle?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Less than"
+      },
+      {
+        "id": "B",
+        "text": "Greater than"
+      },
+      {
+        "id": "C",
+        "text": "Equal to"
+      },
+      {
+        "id": "D",
+        "text": "Zero"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Greater than.",
+    "rawSnippet": "Total internal reflection takes place if the light ray strikes the interface at an angle with what relationship to the critical angle?\nA. Less than\nB. Greater than\nC. Equal to\nD. Zero"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488169-ym59a",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 363,
+    "question": "The operation of a fiber-optic cable is based on the principle of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Refraction"
+      },
+      {
+        "id": "B",
+        "text": "Reflection"
+      },
+      {
+        "id": "C",
+        "text": "Dispersion"
+      },
+      {
+        "id": "D",
+        "text": "Absorption"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Reflection.",
+    "rawSnippet": "The operation of a fiber-optic cable is based on the principle of\nA. Refraction\nB. Reflection\nC. Dispersion\nD. Absorption"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488169-497or",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 364,
+    "question": "Which of the following is not a common type of fiber-optic cable?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Single - mode step - index"
+      },
+      {
+        "id": "B",
+        "text": "Multimode graded - index"
+      },
+      {
+        "id": "C",
+        "text": "Single - mode grade - index"
+      },
+      {
+        "id": "D",
+        "text": "Multimode step - index"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Single - mode grade - index.",
+    "rawSnippet": "Which of the following is not a common type of fiber-optic cable?\nA. Single - mode step - index\nB. Multimode graded - index\nC. Single - mode grade - index\nD. Multimode step - index"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488169-h8shx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 365,
+    "question": "Cable attenuation is usually expressed in terms of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Loss per foot"
+      },
+      {
+        "id": "B",
+        "text": "dB/km"
+      },
+      {
+        "id": "C",
+        "text": "Intensity per mile"
+      },
+      {
+        "id": "D",
+        "text": "Voltage drop per inch"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is dB/km.",
+    "rawSnippet": "Cable attenuation is usually expressed in terms of\nA. Loss per foot\nB. dB/km\nC. Intensity per mile\nD. Voltage drop per inch"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488169-abedx",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 366,
+    "question": "Which cable length has the highest attenuation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1 km"
+      },
+      {
+        "id": "B",
+        "text": "2 km"
+      },
+      {
+        "id": "C",
+        "text": "95 ft"
+      },
+      {
+        "id": "D",
+        "text": "500 ft"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 2 km.",
+    "rawSnippet": "Which cable length has the highest attenuation?\nA. 1 km\nB. 2 km\nC. 95 ft\nD. 500 ft"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488169-igdg9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 367,
+    "question": "The upper pulse rate and information- carrying capacity of a cable is limited by",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pulse shortening"
+      },
+      {
+        "id": "B",
+        "text": "Attenuation"
+      },
+      {
+        "id": "C",
+        "text": "Light leakage"
+      },
+      {
+        "id": "D",
+        "text": "Modal dispersion"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Attenuation.",
+    "rawSnippet": "The upper pulse rate and information- carrying capacity of a cable is limited by\nA. Pulse shortening\nB. Attenuation\nC. Light leakage\nD. Modal dispersion"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488169-bx7h7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 368,
+    "question": "The speed of light in plastic compared to the speed of light in air is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Less"
+      },
+      {
+        "id": "B",
+        "text": "More"
+      },
+      {
+        "id": "C",
+        "text": "The same"
+      },
+      {
+        "id": "D",
+        "text": "Zero"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Less.",
+    "rawSnippet": "The speed of light in plastic compared to the speed of light in air is\nA. Less\nB. More\nC. The same\nD. Zero"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488169-5fufa",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 369,
+    "question": "Which of the following is not a major benefit of fiber-optic cable?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Immunity from interference"
+      },
+      {
+        "id": "B",
+        "text": "Excellent data security"
+      },
+      {
+        "id": "C",
+        "text": "No electrical safety problems"
+      },
+      {
+        "id": "D",
+        "text": "Lower cost"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Lower cost.",
+    "rawSnippet": "Which of the following is not a major benefit of fiber-optic cable?\nA. Immunity from interference\nB. Excellent data security\nC. No electrical safety problems\nD. Lower cost"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488169-e4c8g",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 370,
+    "question": "The main benefit of light-wave communications over microwaves or any other communications media are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Lower cost"
+      },
+      {
+        "id": "B",
+        "text": "Better security"
+      },
+      {
+        "id": "C",
+        "text": "Wider bandwidth"
+      },
+      {
+        "id": "D",
+        "text": "Freedom from interference"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Wider bandwidth.",
+    "rawSnippet": "The main benefit of light-wave communications over microwaves or any other communications media are\nA. Lower cost\nB. Better security\nC. Wider bandwidth\nD. Freedom from interference"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488169-6z28o",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 371,
+    "question": "Which of the following is not part of the optical spectrum",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Infrared"
+      },
+      {
+        "id": "B",
+        "text": "Ultraviolet"
+      },
+      {
+        "id": "C",
+        "text": "Visible color"
+      },
+      {
+        "id": "D",
+        "text": "X-rays"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is X-rays.",
+    "rawSnippet": "Which of the following is not part of the optical spectrum\nA. Infrared\nB. Ultraviolet\nC. Visible color\nD. X-rays"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488169-8l7i9",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 372,
+    "question": "The wavelength of visible light extends from",
+    "choices": [
+      {
+        "id": "A",
+        "text": "0.8 to 1.6 µm"
+      },
+      {
+        "id": "B",
+        "text": "400 to 750 nm"
+      },
+      {
+        "id": "C",
+        "text": "200 to 600 nm"
+      },
+      {
+        "id": "D",
+        "text": "700 to 1200 nm"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 400 to 750 nm.",
+    "rawSnippet": "The wavelength of visible light extends from\nA. 0.8 to 1.6 µm\nB. 400 to 750 nm\nC. 200 to 600 nm\nD. 700 to 1200 nm"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488171-u2iyj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 373,
+    "question": "The speed of light is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "180,000 mi/h"
+      },
+      {
+        "id": "B",
+        "text": "300,000 mi/h"
+      },
+      {
+        "id": "C",
+        "text": "300,000 m/s"
+      },
+      {
+        "id": "D",
+        "text": "300,000,000 m/s"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 300,000,000 m/s.",
+    "rawSnippet": "The speed of light is\nA. 180,000 mi/h\nB. 300,000 mi/h\nC. 300,000 m/s\nD. 300,000,000 m/s"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488171-ohki2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 374,
+    "question": "Refraction is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Bending of light waves"
+      },
+      {
+        "id": "B",
+        "text": "Reflection of light waves"
+      },
+      {
+        "id": "C",
+        "text": "Distortion of light waves"
+      },
+      {
+        "id": "D",
+        "text": "Diffusion of light waves"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Bending of light waves.",
+    "rawSnippet": "Refraction is the\nA. Bending of light waves\nB. Reflection of light waves\nC. Distortion of light waves\nD. Diffusion of light waves"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488171-4ymjd",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 375,
+    "question": "The ratio of the speed of light in air to the speed of light in another substance is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Speed factor"
+      },
+      {
+        "id": "B",
+        "text": "Index of reflection"
+      },
+      {
+        "id": "C",
+        "text": "Index of refraction"
+      },
+      {
+        "id": "D",
+        "text": "Speed gain"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Index of refraction.",
+    "rawSnippet": "The ratio of the speed of light in air to the speed of light in another substance is called the\nA. Speed factor\nB. Index of reflection\nC. Index of refraction\nD. Speed gain"
+  },
+  {
+    "id": "comm-batch-1-18-1791677488171-wjc09",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 376,
+    "question": "A popular light wavelength in fiber-optic cable is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "0.7 µm"
+      },
+      {
+        "id": "B",
+        "text": "1.3 µm"
+      },
+      {
+        "id": "C",
+        "text": "1.5 µm"
+      },
+      {
+        "id": "D",
+        "text": "1.8 µm"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 1.3 µm.",
+    "rawSnippet": "A popular light wavelength in fiber-optic cable is\nA. 0.7 µm\nB. 1.3 µm\nC. 1.5 µm\nD. 1.8 µm"
+  },
+  {
+    "id": "comm-batch-1-19-1791677488171-1t4xk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 377,
+    "question": "Which type of fiber-optic cable is the most widely used?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Single - mode step - index"
+      },
+      {
+        "id": "B",
+        "text": "Multimode step-index"
+      },
+      {
+        "id": "C",
+        "text": "Single - mode graded - index"
+      },
+      {
+        "id": "D",
+        "text": "Multimode graded - index"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Multimode step-index.",
+    "rawSnippet": "Which type of fiber-optic cable is the most widely used?\nA. Single - mode step - index\nB. Multimode step-index\nC. Single - mode graded - index\nD. Multimode graded - index"
+  },
+  {
+    "id": "comm-batch-1-20-1791677488171-wa5jy",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 378,
+    "question": "Which type of fiber-optic cable is best for very high speed data?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Single - mode step - index"
+      },
+      {
+        "id": "B",
+        "text": "Multimode step-index"
+      },
+      {
+        "id": "C",
+        "text": "Single - mode graded - index"
+      },
+      {
+        "id": "D",
+        "text": "Multimode graded - index"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Single - mode step - index.",
+    "rawSnippet": "Which type of fiber-optic cable is best for very high speed data?\nA. Single - mode step - index\nB. Multimode step-index\nC. Single - mode graded - index\nD. Multimode graded - index"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488171-87be2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 379,
+    "question": "Which of the following is not a factor in cable light loss?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Reflection"
+      },
+      {
+        "id": "B",
+        "text": "Absorption"
+      },
+      {
+        "id": "C",
+        "text": "Scattering"
+      },
+      {
+        "id": "D",
+        "text": "Dispersion"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Reflection.",
+    "rawSnippet": "Which of the following is not a factor in cable light loss?\nA. Reflection\nB. Absorption\nC. Scattering\nD. Dispersion"
+  },
+  {
+    "id": "comm-batch-1-26-1791677488171-iecjo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 380,
+    "question": "Which light emitter is preferred for high- speed data in a fiber-optic system?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Incandescent"
+      },
+      {
+        "id": "B",
+        "text": "LED"
+      },
+      {
+        "id": "C",
+        "text": "Neon"
+      },
+      {
+        "id": "D",
+        "text": "Laser"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Laser.",
+    "rawSnippet": "Which light emitter is preferred for high- speed data in a fiber-optic system?\nA. Incandescent\nB. LED\nC. Neon\nD. Laser"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488171-fnjub",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 381,
+    "question": "Most fiber-optic light sources emit light in which spectrum?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Visible"
+      },
+      {
+        "id": "B",
+        "text": "Infrared"
+      },
+      {
+        "id": "C",
+        "text": "Ultraviolet"
+      },
+      {
+        "id": "D",
+        "text": "X- ray"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Visible.",
+    "rawSnippet": "Most fiber-optic light sources emit light in which spectrum?\nA. Visible\nB. Infrared\nC. Ultraviolet\nD. X- ray"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488171-053mf",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 382,
+    "question": "Both LEDs and ILDs operate correctly with",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Forward bias"
+      },
+      {
+        "id": "B",
+        "text": "Reverse bias"
+      },
+      {
+        "id": "C",
+        "text": "Neither a or b"
+      },
+      {
+        "id": "D",
+        "text": "Either a or b"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Forward bias.",
+    "rawSnippet": "Both LEDs and ILDs operate correctly with\nA. Forward bias\nB. Reverse bias\nC. Neither a or b\nD. Either a or b"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488171-m9or8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 383,
+    "question": "Single-frequency light is called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pure"
+      },
+      {
+        "id": "B",
+        "text": "Intense"
+      },
+      {
+        "id": "C",
+        "text": "Coherent"
+      },
+      {
+        "id": "D",
+        "text": "Monochromatic"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Single-frequency light is called Monochromatic.",
+    "rawSnippet": "Single-frequency light is called\nA. Pure\nB. Intense\nC. Coherent\nD. Monochromatic"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488171-6ce0d",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 384,
+    "question": "Laser light is very bright because it is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pure"
+      },
+      {
+        "id": "B",
+        "text": "White"
+      },
+      {
+        "id": "C",
+        "text": "Coherent"
+      },
+      {
+        "id": "D",
+        "text": "Monochromatic"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Coherent.",
+    "rawSnippet": "Laser light is very bright because it is\nA. Pure\nB. White\nC. Coherent\nD. Monochromatic"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488171-2itzw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 385,
+    "question": "Which of the following is not a common detector?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PIN diode"
+      },
+      {
+        "id": "B",
+        "text": "Photovoltaic diode"
+      },
+      {
+        "id": "C",
+        "text": "Photodiode"
+      },
+      {
+        "id": "D",
+        "text": "Avalanche photodiode"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Photovoltaic diode.",
+    "rawSnippet": "Which of the following is not a common detector?\nA. PIN diode\nB. Photovoltaic diode\nC. Photodiode\nD. Avalanche photodiode"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488171-sukav",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 386,
+    "question": "Which of the following is the fastest light sensor?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "PIN diode"
+      },
+      {
+        "id": "B",
+        "text": "Photovoltaic diode"
+      },
+      {
+        "id": "C",
+        "text": "Phototransistor"
+      },
+      {
+        "id": "D",
+        "text": "Avalanche photodiode"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Avalanche photodiode.",
+    "rawSnippet": "Which of the following is the fastest light sensor?\nA. PIN diode\nB. Photovoltaic diode\nC. Phototransistor\nD. Avalanche photodiode"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488171-axcuw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 387,
+    "question": "Photodiodes operate properly with",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Forward bias"
+      },
+      {
+        "id": "B",
+        "text": "Reverse bias"
+      },
+      {
+        "id": "C",
+        "text": "Neither a or b"
+      },
+      {
+        "id": "D",
+        "text": "Either a or b"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Reverse bias.",
+    "rawSnippet": "Photodiodes operate properly with\nA. Forward bias\nB. Reverse bias\nC. Neither a or b\nD. Either a or b"
+  },
+  {
+    "id": "comm-batch-1-35-1791677488171-5fdtj",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 388,
+    "question": "Which fiber-optic system is better?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "3 repeaters"
+      },
+      {
+        "id": "B",
+        "text": "8 repeaters"
+      },
+      {
+        "id": "C",
+        "text": "11 repeaters"
+      },
+      {
+        "id": "D",
+        "text": "20 repeaters"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 3 repeaters.",
+    "rawSnippet": "Which fiber-optic system is better?\nA. 3 repeaters\nB. 8 repeaters\nC. 11 repeaters\nD. 20 repeaters"
+  },
+  {
+    "id": "comm-batch-1-1-1791677488171-qugrh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 389,
+    "question": "Printed documents to be transmitted by fax are converted into a baseband electrical signal by the process of",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Relfelction"
+      },
+      {
+        "id": "B",
+        "text": "Scanning"
+      },
+      {
+        "id": "C",
+        "text": "Modulation"
+      },
+      {
+        "id": "D",
+        "text": "Light Variation"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Scanning.",
+    "rawSnippet": "Printed documents to be transmitted by fax are converted into a baseband electrical signal by the process of\nA. Relfelction\nB. Scanning\nC. Modulation\nD. Light Variation"
+  },
+  {
+    "id": "comm-batch-1-2-1791677488171-qpzve",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 390,
+    "question": "most commonly used light sensor in a modern fax machine is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Phototube"
+      },
+      {
+        "id": "B",
+        "text": "Phototransistor"
+      },
+      {
+        "id": "C",
+        "text": "Liquid - crystal display"
+      },
+      {
+        "id": "D",
+        "text": "Charge coupled device"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Charge coupled device.",
+    "rawSnippet": "most commonly used light sensor in a modern fax machine is a\nA. Phototube\nB. Phototransistor\nC. Liquid - crystal display\nD. Charge coupled device"
+  },
+  {
+    "id": "comm-batch-1-3-1791677488171-x5bj0",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 391,
+    "question": "In FM fax, the frequencies for black and white are",
+    "choices": [
+      {
+        "id": "A",
+        "text": "1500 and 2300 Hz"
+      },
+      {
+        "id": "B",
+        "text": "2300 and 1500 Hz"
+      },
+      {
+        "id": "C",
+        "text": "1300 and 2400 Hz"
+      },
+      {
+        "id": "D",
+        "text": "1070 and 1270 Hz"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is 1500 and 2300 Hz.",
+    "rawSnippet": "In FM fax, the frequencies for black and white are\nA. 1500 and 2300 Hz\nB. 2300 and 1500 Hz\nC. 1300 and 2400 Hz\nD. 1070 and 1270 Hz"
+  },
+  {
+    "id": "comm-batch-1-4-1791677488171-l2oqq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 392,
+    "question": "Which resolution produces the best quality fax?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "96 lines per inch"
+      },
+      {
+        "id": "B",
+        "text": "150 lines per inch"
+      },
+      {
+        "id": "C",
+        "text": "200 lines per inch"
+      },
+      {
+        "id": "D",
+        "text": "400 lines per inch"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 400 lines per inch.",
+    "rawSnippet": "Which resolution produces the best quality fax?\nA. 96 lines per inch\nB. 150 lines per inch\nC. 200 lines per inch\nD. 400 lines per inch"
+  },
+  {
+    "id": "comm-batch-1-5-1791677488171-e83tk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 393,
+    "question": "Group 2 fax uses which modulation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "SSB"
+      },
+      {
+        "id": "B",
+        "text": "FSK"
+      },
+      {
+        "id": "C",
+        "text": "Vestigial sideband AM"
+      },
+      {
+        "id": "D",
+        "text": "PSK"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Vestigial sideband AM.",
+    "rawSnippet": "Group 2 fax uses which modulation?\nA. SSB\nB. FSK\nC. Vestigial sideband AM\nD. PSK"
+  },
+  {
+    "id": "comm-batch-1-6-1791677488171-azxrp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 394,
+    "question": "The most widely used fax standard is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Group 1"
+      },
+      {
+        "id": "B",
+        "text": "Group 2"
+      },
+      {
+        "id": "C",
+        "text": "Group 3"
+      },
+      {
+        "id": "D",
+        "text": "Group 4"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Group 3.",
+    "rawSnippet": "The most widely used fax standard is\nA. Group 1\nB. Group 2\nC. Group 3\nD. Group 4"
+  },
+  {
+    "id": "comm-batch-1-7-1791677488171-1rp45",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 395,
+    "question": "Group 3 fax uses which modulation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "QAM"
+      },
+      {
+        "id": "B",
+        "text": "FSK"
+      },
+      {
+        "id": "C",
+        "text": "Vestigial sideband AM"
+      },
+      {
+        "id": "D",
+        "text": "FM"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is QAM.",
+    "rawSnippet": "Group 3 fax uses which modulation?\nA. QAM\nB. FSK\nC. Vestigial sideband AM\nD. FM"
+  },
+  {
+    "id": "comm-batch-1-8-1791677488171-pmur5",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 396,
+    "question": "Most fax printers are of which type?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Impact"
+      },
+      {
+        "id": "B",
+        "text": "Thermal"
+      },
+      {
+        "id": "C",
+        "text": "Electrosensitive"
+      },
+      {
+        "id": "D",
+        "text": "Laser xerographic"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Thermal.",
+    "rawSnippet": "Most fax printers are of which type?\nA. Impact\nB. Thermal\nC. Electrosensitive\nD. Laser xerographic"
+  },
+  {
+    "id": "comm-batch-1-9-1791677488171-1xi4j",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 397,
+    "question": "Facsimile standards are set by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "FCC"
+      },
+      {
+        "id": "B",
+        "text": "DOD"
+      },
+      {
+        "id": "C",
+        "text": "CCITT"
+      },
+      {
+        "id": "D",
+        "text": "IEEE"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is CCITT.",
+    "rawSnippet": "Facsimile standards are set by the\nA. FCC\nB. DOD\nC. CCITT\nD. IEEE"
+  },
+  {
+    "id": "comm-batch-1-10-1791677488171-vei3k",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 398,
+    "question": "What type of graphics is commonly transmitted by radio fax?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Newspaper text"
+      },
+      {
+        "id": "B",
+        "text": "Architectural drawings"
+      },
+      {
+        "id": "C",
+        "text": "Cable movies"
+      },
+      {
+        "id": "D",
+        "text": "Satellite weather photos"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Satellite weather photos.",
+    "rawSnippet": "What type of graphics is commonly transmitted by radio fax?\nA. Newspaper text\nB. Architectural drawings\nC. Cable movies\nD. Satellite weather photos"
+  },
+  {
+    "id": "comm-batch-1-11-1791677488171-iylr1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 399,
+    "question": "The transmission speed of group 4 fax is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "4800 baud"
+      },
+      {
+        "id": "B",
+        "text": "9600 baud"
+      },
+      {
+        "id": "C",
+        "text": "56 kbits/s"
+      },
+      {
+        "id": "D",
+        "text": "192 kbits/s"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 56 kbits/s.",
+    "rawSnippet": "The transmission speed of group 4 fax is\nA. 4800 baud\nB. 9600 baud\nC. 56 kbits/s\nD. 192 kbits/s"
+  },
+  {
+    "id": "comm-batch-1-12-1791677488171-kj6ku",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 400,
+    "question": "The master control center for a cellular telephone system is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Cell site"
+      },
+      {
+        "id": "B",
+        "text": "Mobile telephone switching office"
+      },
+      {
+        "id": "C",
+        "text": "Center office"
+      },
+      {
+        "id": "D",
+        "text": "Branch office"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Mobile telephone switching office.",
+    "rawSnippet": "The master control center for a cellular telephone system is the\nA. Cell site\nB. Mobile telephone switching office\nC. Center office\nD. Branch office"
+  },
+  {
+    "id": "comm-batch-1-13-1791677488171-pcun2",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 401,
+    "question": "Each cell site contains a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Repeater"
+      },
+      {
+        "id": "B",
+        "text": "Control computer"
+      },
+      {
+        "id": "C",
+        "text": "Direct link to a branch exchange"
+      },
+      {
+        "id": "D",
+        "text": "Touch - tone processor"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Repeater.",
+    "rawSnippet": "Each cell site contains a\nA. Repeater\nB. Control computer\nC. Direct link to a branch exchange\nD. Touch - tone processor"
+  },
+  {
+    "id": "comm-batch-1-14-1791677488171-f1wt6",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 402,
+    "question": "Multiple cells within an area may use the same channel frequencies",
+    "choices": [
+      {
+        "id": "A",
+        "text": "True"
+      },
+      {
+        "id": "B",
+        "text": "False"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is True.",
+    "rawSnippet": "Multiple cells within an area may use the same channel frequencies\nA. True\nB. False"
+  },
+  {
+    "id": "comm-batch-1-15-1791677488171-xmhg8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 403,
+    "question": "Cellular telephones use which type of operation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Simplex"
+      },
+      {
+        "id": "B",
+        "text": "Half - duplex"
+      },
+      {
+        "id": "C",
+        "text": "Full-duplex"
+      },
+      {
+        "id": "D",
+        "text": "Triplex"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Full-duplex.",
+    "rawSnippet": "Cellular telephones use which type of operation?\nA. Simplex\nB. Half - duplex\nC. Full-duplex\nD. Triplex"
+  },
+  {
+    "id": "comm-batch-1-16-1791677488171-p06oo",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 404,
+    "question": "The maximum frequency deviation of an FM cellular transmitter is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "6 kHz"
+      },
+      {
+        "id": "B",
+        "text": "12 kHz"
+      },
+      {
+        "id": "C",
+        "text": "30 kHz"
+      },
+      {
+        "id": "D",
+        "text": "45 kHz"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 12 kHz.",
+    "rawSnippet": "The maximum frequency deviation of an FM cellular transmitter is\nA. 6 kHz\nB. 12 kHz\nC. 30 kHz\nD. 45 kHz"
+  },
+  {
+    "id": "comm-batch-1-17-1791677488171-xumj1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 405,
+    "question": "The maximum output power of a cellular transmitter is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "4.75 W"
+      },
+      {
+        "id": "B",
+        "text": "1.5 W"
+      },
+      {
+        "id": "C",
+        "text": "3 W"
+      },
+      {
+        "id": "D",
+        "text": "5 W"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 3 W.",
+    "rawSnippet": "The maximum output power of a cellular transmitter is\nA. 4.75 W\nB. 1.5 W\nC. 3 W\nD. 5 W"
+  },
+  {
+    "id": "comm-batch-1-21-1791677488171-9jgf1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 406,
+    "question": "The output power of a cellular radio is controlled by the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "User or Caller"
+      },
+      {
+        "id": "B",
+        "text": "Cell site"
+      },
+      {
+        "id": "C",
+        "text": "Caller party"
+      },
+      {
+        "id": "D",
+        "text": "MTSO"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is MTSO.",
+    "rawSnippet": "The output power of a cellular radio is controlled by the\nA. User or Caller\nB. Cell site\nC. Caller party\nD. MTSO"
+  },
+  {
+    "id": "comm-batch-1-22-1791677488171-m9oxa",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 407,
+    "question": "When the signal from a mobile cellular unit drops below a certain level, what action occurs?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The unit is “handed off” to a closer cell."
+      },
+      {
+        "id": "B",
+        "text": "The call is terminated."
+      },
+      {
+        "id": "C",
+        "text": "The MTSO increases power level."
+      },
+      {
+        "id": "D",
+        "text": "The cell site switches antennas."
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is The unit is “handed off” to a closer cell.",
+    "rawSnippet": "When the signal from a mobile cellular unit drops below a certain level, what action occurs?\nA. The unit is “handed off” to a closer cell.\nB. The call is terminated.\nC. The MTSO increases power level.\nD. The cell site switches antennas."
+  },
+  {
+    "id": "comm-batch-1-23-1791677488171-ql6v1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 408,
+    "question": "In a cellular radio, the duplexer is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ferrite isolator"
+      },
+      {
+        "id": "B",
+        "text": "Wavegiude assembly"
+      },
+      {
+        "id": "C",
+        "text": "Pair of TR/ ATR tubes"
+      },
+      {
+        "id": "D",
+        "text": "Pair of sharp bandpass filter"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Pair of sharp bandpass filter.",
+    "rawSnippet": "In a cellular radio, the duplexer is a\nA. Ferrite isolator\nB. Wavegiude assembly\nC. Pair of TR/ ATR tubes\nD. Pair of sharp bandpass filter"
+  },
+  {
+    "id": "comm-batch-1-25-1791677488171-5cf3g",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 409,
+    "question": "The ability of a radar to determine the bearing to a target depends upon the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Antenna directivity"
+      },
+      {
+        "id": "B",
+        "text": "Speed of light"
+      },
+      {
+        "id": "C",
+        "text": "Speed of the target"
+      },
+      {
+        "id": "D",
+        "text": "Frequency of the signal"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Antenna directivity.",
+    "rawSnippet": "The ability of a radar to determine the bearing to a target depends upon the\nA. Antenna directivity\nB. Speed of light\nC. Speed of the target\nD. Frequency of the signal"
+  },
+  {
+    "id": "comm-batch-1-27-1791677488171-8zj0f",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 410,
+    "question": "The Doppler effect is used to produce modulation of which type of radar signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pulse"
+      },
+      {
+        "id": "B",
+        "text": "CW"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is CW.",
+    "rawSnippet": "The Doppler effect is used to produce modulation of which type of radar signal?\nA. Pulse\nB. CW"
+  },
+  {
+    "id": "comm-batch-1-28-1791677488171-b7s4v",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 411,
+    "question": "The Doppler Effect allows which characteristics of a target to be measured?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Distance"
+      },
+      {
+        "id": "B",
+        "text": "Azimuth"
+      },
+      {
+        "id": "C",
+        "text": "Altitude"
+      },
+      {
+        "id": "D",
+        "text": "Speed"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Speed.",
+    "rawSnippet": "The Doppler Effect allows which characteristics of a target to be measured?\nA. Distance\nB. Azimuth\nC. Altitude\nD. Speed"
+  },
+  {
+    "id": "comm-batch-1-29-1791677488171-axwxg",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 412,
+    "question": "The Doppler Effect is a change in what signal characteristic produced by relative motion between the radar set and a target?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Amplitude"
+      },
+      {
+        "id": "B",
+        "text": "Phase"
+      },
+      {
+        "id": "C",
+        "text": "Frequency"
+      },
+      {
+        "id": "D",
+        "text": "Duty cycle"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Frequency.",
+    "rawSnippet": "The Doppler Effect is a change in what signal characteristic produced by relative motion between the radar set and a target?\nA. Amplitude\nB. Phase\nC. Frequency\nD. Duty cycle"
+  },
+  {
+    "id": "comm-batch-1-30-1791677488171-xhob5",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 413,
+    "question": "The most widely used radar transmitter component is a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Klystron"
+      },
+      {
+        "id": "B",
+        "text": "Magnetron"
+      },
+      {
+        "id": "C",
+        "text": "TWT"
+      },
+      {
+        "id": "D",
+        "text": "Power transistor"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Magnetron.",
+    "rawSnippet": "The most widely used radar transmitter component is a\nA. Klystron\nB. Magnetron\nC. TWT\nD. Power transistor"
+  },
+  {
+    "id": "comm-batch-1-31-1791677488171-dbvm8",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 414,
+    "question": "Low-power radar transmitters and receiver LOs use which component?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "GaAs FET"
+      },
+      {
+        "id": "B",
+        "text": "Magnetron"
+      },
+      {
+        "id": "C",
+        "text": "Gunn diode"
+      },
+      {
+        "id": "D",
+        "text": "Klystron"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Gunn diode.",
+    "rawSnippet": "Low-power radar transmitters and receiver LOs use which component?\nA. GaAs FET\nB. Magnetron\nC. Gunn diode\nD. Klystron"
+  },
+  {
+    "id": "comm-batch-1-32-1791677488171-7yy1x",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 415,
+    "question": "What component in a duplexer protects the receiver from the high-power transmitter output?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Waivegiude"
+      },
+      {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
+        "id": "C",
+        "text": "Notch filter"
+      },
+      {
+        "id": "D",
+        "text": "Spark gap"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Spark gap.",
+    "rawSnippet": "What component in a duplexer protects the receiver from the high-power transmitter output?\nA. Waivegiude\nB. Bandpass filter\nC. Notch filter\nD. Spark gap"
+  },
+  {
+    "id": "comm-batch-1-33-1791677488171-4sflp",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 416,
+    "question": "Most radar antennas usa a",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Dipole"
+      },
+      {
+        "id": "B",
+        "text": "Broadside array"
+      },
+      {
+        "id": "C",
+        "text": "Horn and parabolic reflector"
+      },
+      {
+        "id": "D",
+        "text": "Collinear array"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Horn and parabolic reflector.",
+    "rawSnippet": "Most radar antennas usa a\nA. Dipole\nB. Broadside array\nC. Horn and parabolic reflector\nD. Collinear array"
+  },
+  {
+    "id": "comm-batch-1-34-1791677488171-yb5hu",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 417,
+    "question": "The most common radar display is the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "A scan."
+      },
+      {
+        "id": "B",
+        "text": "Color CRT"
+      },
+      {
+        "id": "C",
+        "text": "Liquid - crystal display"
+      },
+      {
+        "id": "D",
+        "text": "Plan position indicator"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Plan position indicator.",
+    "rawSnippet": "The most common radar display is the\nA. A scan.\nB. Color CRT\nC. Liquid - crystal display\nD. Plan position indicator"
+  },
+  {
+    "id": "comm-batch-1-35-1791677488171-lk0bk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 418,
+    "question": "A radar antenna using multiple dipoles or slot antennas in a matrix with variable phase shifters is called a(n)",
+    "choices": [
+      {
+        "id": "A",
+        "text": "A scan"
+      },
+      {
+        "id": "B",
+        "text": "Phased array"
+      },
+      {
+        "id": "C",
+        "text": "Broadside"
+      },
+      {
+        "id": "D",
+        "text": "Circular polarized array"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Phased array.",
+    "rawSnippet": "A radar antenna using multiple dipoles or slot antennas in a matrix with variable phase shifters is called a(n)\nA. A scan\nB. Phased array\nC. Broadside\nD. Circular polarized array"
+  },
+  {
+    "id": "comm-batch-1-36-1791677488171-mqxd7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 419,
+    "question": "Police radars use which technique?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Pulse"
+      },
+      {
+        "id": "B",
+        "text": "CW"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is CW.",
+    "rawSnippet": "Police radars use which technique?\nA. Pulse\nB. CW"
+  },
+  {
+    "id": "comm-batch-1-37-1791677488171-4enjc",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 420,
+    "question": "Which of the following is a typical radar operating frequency?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "60 MHz"
+      },
+      {
+        "id": "B",
+        "text": "450 MHz"
+      },
+      {
+        "id": "C",
+        "text": "900 MHz"
+      },
+      {
+        "id": "D",
+        "text": "10 GHz"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 10 GHz.",
+    "rawSnippet": "Which of the following is a typical radar operating frequency?\nA. 60 MHz\nB. 450 MHz\nC. 900 MHz\nD. 10 GHz"
+  },
+  {
+    "id": "comm-batch-1-38-1791677488171-lmt38",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 421,
+    "question": "The TV signal uses which types of modulation for picture and sound respectively?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "AM, FM"
+      },
+      {
+        "id": "B",
+        "text": "DSB , FM"
+      },
+      {
+        "id": "C",
+        "text": "FM, AM"
+      },
+      {
+        "id": "D",
+        "text": "AM, DSB"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is AM, FM.",
+    "rawSnippet": "The TV signal uses which types of modulation for picture and sound respectively?\nA. AM, FM\nB. DSB , FM\nC. FM, AM\nD. AM, DSB"
+  },
+  {
+    "id": "comm-batch-1-40-1791677488171-56ert",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 422,
+    "question": "The total bandwidth of an NTSC TV signal is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "3.58 MHz"
+      },
+      {
+        "id": "B",
+        "text": "4.5 MHz"
+      },
+      {
+        "id": "C",
+        "text": "6 MHz"
+      },
+      {
+        "id": "D",
+        "text": "10.7 MHz"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 6 MHz.",
+    "rawSnippet": "The total bandwidth of an NTSC TV signal is\nA. 3.58 MHz\nB. 4.5 MHz\nC. 6 MHz\nD. 10.7 MHz"
+  },
+  {
+    "id": "comm-batch-1-41-1791677488171-8wel1",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 423,
+    "question": "What is the total number of interlaced scan lines in one complete frame of a NTSC U.S. TV signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "262 ½"
+      },
+      {
+        "id": "B",
+        "text": "525"
+      },
+      {
+        "id": "C",
+        "text": "480"
+      },
+      {
+        "id": "D",
+        "text": "625"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 525.",
+    "rawSnippet": "What is the total number of interlaced scan lines in one complete frame of a NTSC U.S. TV signal?\nA. 262 ½\nB. 525\nC. 480\nD. 625"
+  },
+  {
+    "id": "comm-batch-1-42-1791677488171-ia1wt",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 424,
+    "question": "What keeps the scanning process at the receiver in step with the scanning in the picture tube at receiver?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Nothing"
+      },
+      {
+        "id": "B",
+        "text": "Color burst"
+      },
+      {
+        "id": "C",
+        "text": "Sync pulses"
+      },
+      {
+        "id": "D",
+        "text": "Deflection oscillators"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Sync pulses.",
+    "rawSnippet": "What keeps the scanning process at the receiver in step with the scanning in the picture tube at receiver?\nA. Nothing\nB. Color burst\nC. Sync pulses\nD. Deflection oscillators"
+  },
+  {
+    "id": "comm-batch-1-43-1791677488171-pqyhk",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 425,
+    "question": "What is the black-and-white or monochrome brightness signal in TV called",
+    "choices": [
+      {
+        "id": "A",
+        "text": "RGB"
+      },
+      {
+        "id": "B",
+        "text": "Color subcarrier"
+      },
+      {
+        "id": "C",
+        "text": "Q and I"
+      },
+      {
+        "id": "D",
+        "text": "Luminance Y"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Luminance Y.",
+    "rawSnippet": "What is the black-and-white or monochrome brightness signal in TV called\nA. RGB\nB. Color subcarrier\nC. Q and I\nD. Luminance Y"
+  },
+  {
+    "id": "comm-batch-1-44-1791677488171-yrrwb",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 426,
+    "question": "What is the name of the solid-state imaging device used int TV cameras that converts the light in a scene into an electrical signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "CCD"
+      },
+      {
+        "id": "B",
+        "text": "Photodiode matrix"
+      },
+      {
+        "id": "C",
+        "text": "Vidicon"
+      },
+      {
+        "id": "D",
+        "text": "MOSFET array"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is CCD.",
+    "rawSnippet": "What is the name of the solid-state imaging device used int TV cameras that converts the light in a scene into an electrical signal?\nA. CCD\nB. Photodiode matrix\nC. Vidicon\nD. MOSFET array"
+  },
+  {
+    "id": "comm-batch-1-45-1791677488171-x9puh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 427,
+    "question": "The I and Q composite color signals are multiplexed onto the picture carrier by modulating a 3.58 MHz subcarrier using",
+    "choices": [
+      {
+        "id": "A",
+        "text": "FM"
+      },
+      {
+        "id": "B",
+        "text": "PM"
+      },
+      {
+        "id": "C",
+        "text": "DSB AM"
+      },
+      {
+        "id": "D",
+        "text": "Vestigial sideband AM"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is DSB AM.",
+    "rawSnippet": "The I and Q composite color signals are multiplexed onto the picture carrier by modulating a 3.58 MHz subcarrier using\nA. FM\nB. PM\nC. DSB AM\nD. Vestigial sideband AM"
+  },
+  {
+    "id": "comm-batch-1-46-1791677488171-8w140",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 428,
+    "question": "The assembly around the neck of a picture tube that produces the magnetic fields that deflect and scan the electron beams is called the",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Shadow mask"
+      },
+      {
+        "id": "B",
+        "text": "Phosphor"
+      },
+      {
+        "id": "C",
+        "text": "Electron gun"
+      },
+      {
+        "id": "D",
+        "text": "Yoke"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Yoke.",
+    "rawSnippet": "The assembly around the neck of a picture tube that produces the magnetic fields that deflect and scan the electron beams is called the\nA. Shadow mask\nB. Phosphor\nC. Electron gun\nD. Yoke"
+  },
+  {
+    "id": "comm-batch-1-47-1791677488171-8g17s",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 429,
+    "question": "The picture and sound carrier frequencies in a TV receiver IF are respectively",
+    "choices": [
+      {
+        "id": "A",
+        "text": "41.25 and 45.75 MHz"
+      },
+      {
+        "id": "B",
+        "text": "45.75 and 41.25 MHz"
+      },
+      {
+        "id": "C",
+        "text": "41.75 and 45.25 MHz"
+      },
+      {
+        "id": "D",
+        "text": "45.25 and 41.75 MHz"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is 45.75 and 41.25 MHz.",
+    "rawSnippet": "The picture and sound carrier frequencies in a TV receiver IF are respectively\nA. 41.25 and 45.75 MHz\nB. 45.75 and 41.25 MHz\nC. 41.75 and 45.25 MHz\nD. 45.25 and 41.75 MHz"
+  },
+  {
+    "id": "comm-batch-1-48-1791677488171-39bfw",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 430,
+    "question": "The sound IF in a TV receiver is",
+    "choices": [
+      {
+        "id": "A",
+        "text": "4.5 MHz"
+      },
+      {
+        "id": "B",
+        "text": "10.7 MHz"
+      },
+      {
+        "id": "C",
+        "text": "41.25 MHz"
+      },
+      {
+        "id": "D",
+        "text": "45.75 MHz"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is 41.25 MHz.",
+    "rawSnippet": "The sound IF in a TV receiver is\nA. 4.5 MHz\nB. 10.7 MHz\nC. 41.25 MHz\nD. 45.75 MHz"
+  },
+  {
+    "id": "comm-batch-1-49-1791677488171-qo2vh",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 431,
+    "question": "What type of circuit is used to modulate and demodulate the color signals?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Phased - locked loop"
+      },
+      {
+        "id": "B",
+        "text": "Differential peak detector"
+      },
+      {
+        "id": "C",
+        "text": "Quadrature detector"
+      },
+      {
+        "id": "D",
+        "text": "Balanced demodulator"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is Balanced demodulator.",
+    "rawSnippet": "What type of circuit is used to modulate and demodulate the color signals?\nA. Phased - locked loop\nB. Differential peak detector\nC. Quadrature detector\nD. Balanced demodulator"
+  },
+  {
+    "id": "comm-batch-1-50-1791677488171-evggn",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 432,
+    "question": "What circuit in the TV receiver is used to develop the high voltage needed to operate the picture tube?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Low - voltage power supply"
+      },
+      {
+        "id": "B",
+        "text": "Horizontal output"
+      },
+      {
+        "id": "C",
+        "text": "Vertical sweep"
+      },
+      {
+        "id": "D",
+        "text": "Sync separator"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "The correct answer is Horizontal output.",
+    "rawSnippet": "What circuit in the TV receiver is used to develop the high voltage needed to operate the picture tube?\nA. Low - voltage power supply\nB. Horizontal output\nC. Vertical sweep\nD. Sync separator"
+  },
+  {
+    "id": "comm-batch-1-51-1791677488171-ul0o7",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 433,
+    "question": "What ensures proper color synchronization at the receiver?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Sync pulses"
+      },
+      {
+        "id": "B",
+        "text": "Quadrature modulation"
+      },
+      {
+        "id": "C",
+        "text": "4.5 MHz carrier spacing"
+      },
+      {
+        "id": "D",
+        "text": "3.58 MHz color burst"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "The correct answer is 3.58 MHz color burst.",
+    "rawSnippet": "What ensures proper color synchronization at the receiver?\nA. Sync pulses\nB. Quadrature modulation\nC. 4.5 MHz carrier spacing\nD. 3.58 MHz color burst"
+  },
+  {
+    "id": "comm-batch-1-52-1791677488171-ebx2h",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 434,
+    "question": "Which of the following is not a benefit of cable TV?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Lower-cost reception"
+      },
+      {
+        "id": "B",
+        "text": "Greater reliability"
+      },
+      {
+        "id": "C",
+        "text": "Less noise, stronger signals"
+      },
+      {
+        "id": "D",
+        "text": "Premium cable channels"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "The correct answer is Lower-cost reception.",
+    "rawSnippet": "Which of the following is not a benefit of cable TV?\nA. Lower-cost reception\nB. Greater reliability\nC. Less noise, stronger signals\nD. Premium cable channels"
+  },
+  {
+    "id": "comm-batch-1-53-1791677488171-vj9kq",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 435,
+    "question": "What technique is used to permit hundreds of TV signals to share a common cable?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Frequency modulation"
+      },
+      {
+        "id": "B",
+        "text": "Mixing"
+      },
+      {
+        "id": "C",
+        "text": "Frequency division multiplexing"
+      },
+      {
+        "id": "D",
+        "text": "Time division multiplexing"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "The correct answer is Frequency division multiplexing.",
+    "rawSnippet": "What technique is used to permit hundreds of TV signals to share a common cable?\nA. Frequency modulation\nB. Mixing\nC. Frequency division multiplexing\nD. Time division multiplexing"
   }
 ];

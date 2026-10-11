@@ -368,6 +368,14 @@ export function parseQuestionsFromText(
 
     const subject = explicitSubject || b.currentSubject || detectSubject(questionText, fileName);
 
+    let explanationText = b.explanationLines.join(' ').trim();
+    if (explanationText.startsWith('.')) {
+      explanationText = explanationText.replace(/^\.+\s*/, '').trim();
+    }
+    if (explanationText.toLowerCase().startsWith('correct answer:')) {
+      explanationText = explanationText.replace(/^correct\s+answer:\s*/i, '').trim();
+    }
+
     questions.push({
       id: `${fileId}-${b.qNum || idx + 1}-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
       subject,
@@ -377,7 +385,7 @@ export function parseQuestionsFromText(
       question: questionText,
       choices,
       correctChoiceId: correctId,
-      explanation: b.explanationLines.join(' ').trim() || undefined,
+      explanation: explanationText || undefined,
       rawSnippet: questionText + '\n' + choices.map((c) => `${c.id}. ${c.text}`).join('\n'),
     });
   });
