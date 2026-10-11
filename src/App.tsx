@@ -33,6 +33,19 @@ import {
   downloadDriveQuestionsTs,
 } from './services/storageService';
 import { parseCurrentLocationParams } from './services/shareService';
+import { AiVoiceMode } from './services/speechService';
+
+function pseudoRandomRank(id: string, subject: string, seed: number): number {
+  const str = `${id}_${subject}_${seed}`;
+  let h = 2166136261 >>> 0;
+  for (let i = 0; i < str.length; i++) {
+    h = Math.imul(h ^ str.charCodeAt(i), 16777619);
+  }
+  h = (h + 0xe120fc15) >>> 0;
+  let t = Math.imul(h ^ (h >>> 15), 1 | h);
+  t ^= t + Math.imul(t ^ (t >>> 7), 61 | t);
+  return (t ^ (t >>> 14)) >>> 0;
+}
 
 export default function App() {
   const [user, setUser] = useState<User | null>(null);
@@ -152,8 +165,21 @@ export default function App() {
   // Study session state
   const [selectedSubject, setSelectedSubject] = useState<SubjectCategory | 'All'>('All');
   const [studyMode, setStudyMode] = useState<'all' | 'missed' | 'flagged'>('all');
+  const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
   const [isShuffled, setIsShuffled] = useState(false);
+  const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  const handleToggleShuffle = useCallback(() => {
+    setIsShuffled(true);
+    setShuffleSeed(Date.now() + Math.random());
+    setCurrentCardIndex(0);
+  }, []);
+
+  const handleDisableShuffle = useCallback(() => {
+    setIsShuffled(false);
+    setCurrentCardIndex(0);
+  }, []);
 
   // User answers & metrics: mapping questionId -> selectedChoiceId
   const [userAnswers, setUserAnswers] = useState<Record<string, string>>({});
@@ -508,17 +534,25 @@ export default function App() {
       list = list.filter((q) => flaggedQuestionIds.has(q.id));
     }
 
-    // Shuffle if enabled
+    // Shuffle if enabled: unique random permutation per press and per subject
     if (isShuffled) {
       list = [...list].sort((a, b) => {
-        const hashA = (a.id.charCodeAt(0) * 31 + a.id.length) % 100;
-        const hashB = (b.id.charCodeAt(0) * 31 + b.id.length) % 100;
-        return hashA - hashB;
+        const rankA = pseudoRandomRank(a.id, selectedSubject, shuffleSeed);
+        const rankB = pseudoRandomRank(b.id, selectedSubject, shuffleSeed);
+        return rankA - rankB;
       });
     }
 
     return list;
-  }, [allQuestions, selectedSubject, studyMode, isShuffled, missedQuestionIds, flaggedQuestionIds]);
+  }, [
+    allQuestions,
+    selectedSubject,
+    studyMode,
+    isShuffled,
+    shuffleSeed,
+    missedQuestionIds,
+    flaggedQuestionIds,
+  ]);
 
   // Subject counts
   const subjectCounts = useMemo(() => {
@@ -655,12 +689,15 @@ export default function App() {
           setStudyMode(m);
           setCurrentCardIndex(0);
         }}
+        aiVoiceMode={aiVoiceMode}
+        onSetAiVoiceMode={setAiVoiceMode}
         missedCount={missedQuestionIds.size}
         flaggedCount={flaggedQuestionIds.size}
         correctCount={correctCount}
         incorrectCount={incorrectCount}
         isShuffled={isShuffled}
-        onToggleShuffle={() => setIsShuffled((prev) => !prev)}
+        onToggleShuffle={handleToggleShuffle}
+        onDisableShuffle={handleDisableShuffle}
         onOpenPasteModal={() => setIsPasteModalOpen(true)}
         customQuestionsCount={customQuestions.length}
       />
@@ -741,6 +778,8 @@ export default function App() {
               hasNext={currentCardIndex < filteredQuestions.length - 1}
               isFlagged={flaggedQuestionIds.has(currentQuestion.id)}
               onToggleFlag={handleToggleFlag}
+              aiVoiceMode={aiVoiceMode}
+              onSetAiVoiceMode={setAiVoiceMode}
             />
           )
         )}

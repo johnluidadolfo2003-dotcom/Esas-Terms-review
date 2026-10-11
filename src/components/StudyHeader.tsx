@@ -1,5 +1,6 @@
 import React from 'react';
 import { SubjectCategory } from '../services/questionParser';
+import { AiVoiceMode } from '../services/speechService';
 
 interface StudyHeaderProps {
   selectedSubject: SubjectCategory | 'All';
@@ -8,12 +9,15 @@ interface StudyHeaderProps {
   totalQuestions: number;
   studyMode: 'all' | 'missed' | 'flagged';
   onSetStudyMode: (mode: 'all' | 'missed' | 'flagged') => void;
+  aiVoiceMode: AiVoiceMode;
+  onSetAiVoiceMode: (mode: AiVoiceMode) => void;
   missedCount: number;
   flaggedCount: number;
   correctCount: number;
   incorrectCount: number;
   isShuffled: boolean;
   onToggleShuffle: () => void;
+  onDisableShuffle?: () => void;
   onOpenPasteModal?: () => void;
   customQuestionsCount?: number;
 }
@@ -34,12 +38,15 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   subjectCounts,
   studyMode,
   onSetStudyMode,
+  aiVoiceMode,
+  onSetAiVoiceMode,
   missedCount,
   flaggedCount,
   correctCount,
   incorrectCount,
   isShuffled,
   onToggleShuffle,
+  onDisableShuffle,
   onOpenPasteModal,
   customQuestionsCount,
 }) => {
@@ -133,8 +140,51 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             </div>
           </div>
 
-          {/* Mode Toggles & Shuffle */}
-          <div className="flex items-center gap-1.5 shrink-0">
+          {/* Mode Toggles, AI Voice Mode & Shuffle */}
+          <div className="flex items-center gap-1.5 shrink-0 flex-wrap sm:flex-nowrap justify-end">
+            {/* AI Voice Mode Selector */}
+            <div className="flex items-center gap-1 rounded-md border border-slate-700/80 bg-slate-900/90 p-0.5 text-[11px]">
+              <span className="text-[10px] font-semibold text-slate-400 px-1 hidden md:inline uppercase tracking-wide">
+                AI Voice:
+              </span>
+              <button
+                type="button"
+                onClick={() => onSetAiVoiceMode('off')}
+                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer ${
+                  aiVoiceMode === 'off'
+                    ? 'bg-slate-700 text-slate-100 font-semibold'
+                    : 'text-slate-400 hover:text-slate-200'
+                }`}
+                title="Manual study (Speech OFF)"
+              >
+                Off
+              </button>
+              <button
+                type="button"
+                onClick={() => onSetAiVoiceMode('ai_reads_you_answer')}
+                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer flex items-center gap-1 ${
+                  aiVoiceMode === 'ai_reads_you_answer'
+                    ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                    : 'text-slate-400 hover:text-emerald-300'
+                }`}
+                title="AI reads question & options, then you answer"
+              >
+                <span>🗣️ AI Reads, You Answer</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => onSetAiVoiceMode('ai_reads_and_answers')}
+                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-colors cursor-pointer flex items-center gap-1 ${
+                  aiVoiceMode === 'ai_reads_and_answers'
+                    ? 'bg-cyan-600 text-white font-semibold shadow-xs'
+                    : 'text-slate-400 hover:text-cyan-300'
+                }`}
+                title="AI reads question & options, then AI answers & explains"
+              >
+                <span>🧠 AI Reads & Answers</span>
+              </button>
+            </div>
+
             <div className="flex items-center rounded border border-slate-800 bg-slate-900 p-0.5">
               <button
                 type="button"
@@ -165,18 +215,37 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               </button>
             </div>
 
-            <button
-              type="button"
-              onClick={onToggleShuffle}
-              className={`px-2 py-1 rounded text-[11px] font-semibold border transition-colors cursor-pointer ${
-                isShuffled
-                  ? 'bg-amber-500/20 border-amber-500 text-amber-300'
-                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
-              }`}
-              title="Shuffle question order"
-            >
-              {isShuffled ? '🔀 On' : '🔀'}
-            </button>
+            {isShuffled ? (
+              <div className="flex items-center gap-1 shrink-0">
+                <button
+                  type="button"
+                  onClick={onToggleShuffle}
+                  className="px-2 py-1 rounded text-[11px] font-semibold border bg-amber-500/20 border-amber-500/80 text-amber-300 hover:bg-amber-500/30 transition-colors cursor-pointer flex items-center gap-1 shadow-xs"
+                  title="Press to reshuffle into a new random order for this subject"
+                >
+                  <span>🔀 Reshuffle</span>
+                </button>
+                {onDisableShuffle && (
+                  <button
+                    type="button"
+                    onClick={onDisableShuffle}
+                    className="px-1.5 py-1 rounded text-[11px] font-semibold border bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer"
+                    title="Reset to original linear order"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={onToggleShuffle}
+                className="px-2 py-1 rounded text-[11px] font-semibold border bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer flex items-center gap-1"
+                title="Shuffle question order for this subject"
+              >
+                <span>🔀 Shuffle</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

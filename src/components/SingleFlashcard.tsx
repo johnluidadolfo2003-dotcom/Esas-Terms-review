@@ -1,5 +1,6 @@
-import React, { useEffect, useCallback } from 'react';
-import { FlashcardQuestion } from '../services/questionParser';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
+import { FlashcardQuestion, generateContextualExplanation } from '../services/questionParser';
+import { AiVoiceMode, stopSpeech, speakPhrase } from '../services/speechService';
 
 interface SingleFlashcardProps {
   question: FlashcardQuestion;
@@ -14,6 +15,8 @@ interface SingleFlashcardProps {
   hasNext: boolean;
   isFlagged: boolean;
   onToggleFlag: () => void;
+  aiVoiceMode: AiVoiceMode;
+  onSetAiVoiceMode: (mode: AiVoiceMode) => void;
 }
 
 export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
@@ -29,9 +32,158 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   hasNext,
   isFlagged,
   onToggleFlag,
+  aiVoiceMode,
+  onSetAiVoiceMode,
 }) => {
   const isAnswered = selectedChoice !== null;
   const isCorrect = isAnswered && selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+
+  // Voice Engine State
+  const [speechStatus, setSpeechStatus] = useState<
+    'idle' | 'reading_question' | 'reading_options' | 'waiting_user' | 'ai_answering' | 'reading_explanation' | 'paused'
+  >('idle');
+  const [speechRate, setSpeechRate] = useState<number>(1.0);
+  const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
+  const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const currentSeqIdRef = useRef<number>(0);
+
+  const clearAutoAdvanceTimer = () => {
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
+    }
+  };
+
+  const handlePauseSpeech = () => {
+    stopSpeech();
+    clearAutoAdvanceTimer();
+    setSpeechStatus('paused');
+  };
+
+  const handleReplaySpeech = useCallback(() => {
+    stopSpeech();
+    clearAutoAdvanceTimer();
+
+    if (aiVoiceMode === 'off') {
+      setSpeechStatus('idle');
+      return;
+    }
+
+    const seqId = ++currentSeqIdRef.current;
+
+    // Step 1: Speak Question
+    setSpeechStatus('reading_question');
+    const questionPrompt = `Question ${currentIndex + 1}. ${question.question}`;
+    speakPhrase(questionPrompt, speechRate, () => {
+      if (seqId !== currentSeqIdRef.current) return;
+
+      // Step 2: Speak Choices
+      setSpeechStatus('reading_options');
+      const optionsText = question.choices
+        .map((c) => `Option ${c.id}: ${c.text}`)
+        .join('. ');
+
+      speakPhrase(optionsText, speechRate, () => {
+        if (seqId !== currentSeqIdRef.current) return;
+
+        if (aiVoiceMode === 'ai_reads_you_answer') {
+          setSpeechStatus('waiting_user');
+        } else if (aiVoiceMode === 'ai_reads_and_answers') {
+          setSpeechStatus('ai_answering');
+          const correctChoice = question.choices.find(
+            (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
+          );
+          const answerText = `Thinking. The correct answer is Option ${
+            question.correctChoiceId
+          }${correctChoice ? ': ' + correctChoice.text : ''}.`;
+
+          speakPhrase(answerText, speechRate, () => {
+            if (seqId !== currentSeqIdRef.current) return;
+
+            // Trigger AI answer selection
+            onSelectChoice(question.correctChoiceId);
+
+            // Speak explanation
+            const expl = generateContextualExplanation(
+              question.question,
+              question.choices,
+              question.correctChoiceId,
+              question.subject,
+              question.explanation
+            );
+
+            setSpeechStatus('reading_explanation');
+            const explText = `Explanation: ${expl}`;
+
+            speakPhrase(explText, speechRate, () => {
+              if (seqId !== currentSeqIdRef.current) return;
+              setSpeechStatus('idle');
+
+              if (autoAdvance && hasNext) {
+                autoAdvanceTimerRef.current = setTimeout(() => {
+                  onNext();
+                }, 2200);
+              }
+            });
+          });
+        }
+      });
+    });
+  }, [
+    aiVoiceMode,
+    currentIndex,
+    question,
+    speechRate,
+    onSelectChoice,
+    autoAdvance,
+    hasNext,
+    onNext,
+  ]);
+
+  // Handle Voice trigger when card or mode changes
+  useEffect(() => {
+    handleReplaySpeech();
+    return () => {
+      stopSpeech();
+      clearAutoAdvanceTimer();
+    };
+  }, [question.id, aiVoiceMode, speechRate]);
+
+  // Handle user answer in "AI Reads, You Answer" mode
+  useEffect(() => {
+    if (
+      aiVoiceMode === 'ai_reads_you_answer' &&
+      selectedChoice !== null &&
+      (speechStatus === 'waiting_user' || speechStatus === 'reading_question' || speechStatus === 'reading_options')
+    ) {
+      stopSpeech();
+      clearAutoAdvanceTimer();
+
+      const seqId = ++currentSeqIdRef.current;
+      const isUserCorrect =
+        selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+
+      const resultIntro = isUserCorrect
+        ? `Correct! Option ${selectedChoice} is correct.`
+        : `Incorrect. You chose Option ${selectedChoice}. The correct answer is Option ${question.correctChoiceId}.`;
+
+      const expl = generateContextualExplanation(
+        question.question,
+        question.choices,
+        question.correctChoiceId,
+        question.subject,
+        question.explanation
+      );
+
+      const fullSpeechText = `${resultIntro} Explanation: ${expl}`;
+      setSpeechStatus('reading_explanation');
+
+      speakPhrase(fullSpeechText, speechRate, () => {
+        if (seqId !== currentSeqIdRef.current) return;
+        setSpeechStatus('idle');
+      });
+    }
+  }, [selectedChoice, aiVoiceMode, question, speechRate, speechStatus]);
 
   // Keyboard navigation support (A, B, C, D, Left Arrow, Right Arrow)
   const handleKeyDown = useCallback(
@@ -115,6 +267,120 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             <span className="text-slate-500 shrink-0">#{question.questionNumber}</span>
           )}
         </div>
+
+        {/* AI Voice Status Banner when active */}
+        {aiVoiceMode !== 'off' && (
+          <div className="bg-slate-950 border border-slate-800 rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+            <div className="flex items-center gap-2">
+              <span
+                className={`px-2 py-0.5 rounded text-[11px] font-bold ${
+                  aiVoiceMode === 'ai_reads_you_answer'
+                    ? 'bg-emerald-950 text-emerald-300 border border-emerald-800'
+                    : 'bg-cyan-950 text-cyan-300 border border-cyan-800'
+                }`}
+              >
+                {aiVoiceMode === 'ai_reads_you_answer' ? '🗣️ AI Reads, You Answer' : '🧠 AI Reads & Answers'}
+              </span>
+
+              {/* Status Indicator */}
+              <span className="text-slate-300 font-medium flex items-center gap-1.5">
+                {speechStatus === 'reading_question' && (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Reading question...</span>
+                  </>
+                )}
+                {speechStatus === 'reading_options' && (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                    <span>Reading options...</span>
+                  </>
+                )}
+                {speechStatus === 'waiting_user' && (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+                    <span className="text-amber-300 font-semibold">Your turn to pick an answer!</span>
+                  </>
+                )}
+                {speechStatus === 'ai_answering' && (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <span className="text-cyan-300 font-semibold">AI selecting answer...</span>
+                  </>
+                )}
+                {speechStatus === 'reading_explanation' && (
+                  <>
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Explaining answer...</span>
+                  </>
+                )}
+                {speechStatus === 'paused' && (
+                  <span className="text-slate-400 italic">Paused</span>
+                )}
+                {speechStatus === 'idle' && (
+                  <span className="text-slate-400">Ready</span>
+                )}
+              </span>
+            </div>
+
+            {/* Voice Controls: Replay / Pause & Speed & Auto-Next */}
+            <div className="flex items-center gap-1.5 flex-wrap">
+              {speechStatus === 'paused' || speechStatus === 'idle' ? (
+                <button
+                  type="button"
+                  onClick={handleReplaySpeech}
+                  className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
+                  title="Play / Re-read aloud"
+                >
+                  ▶️ Play
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handlePauseSpeech}
+                  className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
+                  title="Pause AI speech"
+                >
+                  ⏸️ Pause
+                </button>
+              )}
+
+              {/* Speed Toggles */}
+              <div className="flex items-center rounded border border-slate-800 bg-slate-900 p-0.5">
+                {[0.8, 1.0, 1.25, 1.5].map((rate) => (
+                  <button
+                    key={rate}
+                    type="button"
+                    onClick={() => setSpeechRate(rate)}
+                    className={`px-1.5 py-0.5 rounded text-[10px] font-mono cursor-pointer ${
+                      speechRate === rate
+                        ? 'bg-emerald-600 text-white font-bold'
+                        : 'text-slate-400 hover:text-slate-200'
+                    }`}
+                  >
+                    {rate}x
+                  </button>
+                ))}
+              </div>
+
+              {/* Auto Advance Toggle (for AI Reads & Answers) */}
+              {aiVoiceMode === 'ai_reads_and_answers' && (
+                <button
+                  type="button"
+                  onClick={() => setAutoAdvance(!autoAdvance)}
+                  className={`px-2 py-1 rounded text-[10px] font-semibold border cursor-pointer ${
+                    autoAdvance
+                      ? 'bg-emerald-950 border-emerald-800 text-emerald-300'
+                      : 'bg-slate-900 border-slate-800 text-slate-400'
+                  }`}
+                  title="Automatically advance to next question after AI finishes explanation"
+                >
+                  {autoAdvance ? 'Auto-Next: ON' : 'Auto-Next: OFF'}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
         <div className="py-0.5 sm:py-1">
@@ -225,17 +491,26 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 </span>
               </div>
             </div>
-            {question.explanation && (
-              <div className="border-t border-white/15 pt-2 mt-0.5 flex flex-col gap-1">
-                <span className="text-[11px] sm:text-xs font-semibold tracking-wide uppercase text-slate-300 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
-                  Explanation
-                </span>
-                <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
-                  {question.explanation}
-                </p>
-              </div>
-            )}
+            {(() => {
+              const displayExplanation = generateContextualExplanation(
+                question.question,
+                question.choices,
+                question.correctChoiceId,
+                question.subject,
+                question.explanation
+              );
+              return displayExplanation ? (
+                <div className="border-t border-white/15 pt-2 mt-0.5 flex flex-col gap-1">
+                  <span className="text-[11px] sm:text-xs font-semibold tracking-wide uppercase text-slate-300 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                    Explanation
+                  </span>
+                  <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
+                    {displayExplanation}
+                  </p>
+                </div>
+              ) : null;
+            })()}
           </div>
         )}
 

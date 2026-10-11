@@ -1,4 +1,4 @@
-import { FlashcardQuestion } from "../services/questionParser";
+import { FlashcardQuestion } from '../services/questionParser';
 
 export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
   {
@@ -15,18 +15,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Nominal rate of interest"
+        "text": "Simple interest"
       },
       {
         "id": "C",
-        "text": "Compound interest"
+        "text": "Nominal rate of interest"
       },
       {
         "id": "D",
-        "text": "Simple interest"
+        "text": "Compound interest"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Simple interest refers to the interest on a load or principal that is based only on the original amount of the loan or principal.",
     "rawSnippet": "What is defined as the interest on a load or principal that is based only on the original amount of the loan or principal?\nA. Effective rate of interest\nB. Nominal rate of interest\nC. Compound interest\nD. Simple interest"
   },
@@ -43,7 +43,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Simple interest"
+        "text": "Principal"
       },
       {
         "id": "C",
@@ -51,7 +51,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Principal"
+        "text": "Simple interest"
       }
     ],
     "correctChoiceId": "A",
@@ -66,22 +66,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amortization"
-      },
-      {
-        "id": "B",
         "text": "Annuity"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Depreciation"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Sinking fund"
+      },
+      {
+        "id": "D",
+        "text": "Amortization"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "An annuity is a series of equal payments occurring at uniform time intervals."
   },
   {
@@ -93,7 +93,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Marginal cost"
+        "text": "Sunk cost"
       },
       {
         "id": "B",
@@ -101,14 +101,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Sunk cost"
+        "text": "Marginal cost"
       },
       {
         "id": "D",
         "text": "Fixed cost"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Sunk cost represents money already spent that should not influence future alternative decisions."
   },
   {
@@ -121,7 +121,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "compound interest"
+        "text": "perpetuity"
       },
       {
         "id": "B",
@@ -129,11 +129,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "perpetuity"
+        "text": "depreciation"
       },
       {
         "id": "D",
-        "text": "depreciation"
+        "text": "compound interest"
       }
     ],
     "correctChoiceId": "B",
@@ -149,22 +149,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Differential cost"
-      },
-      {
-        "id": "B",
         "text": "Opportunity cost"
       },
       {
+        "id": "B",
+        "text": "Differential cost"
+      },
+      {
         "id": "C",
-        "text": "Incremental cost"
+        "text": "Variable cost"
       },
       {
         "id": "D",
-        "text": "Variable cost"
+        "text": "Incremental cost"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Opportunity cost is the foregone benefit from the best rejected alternative."
   },
   {
@@ -205,22 +205,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sum-of-the-Years-Digits Method"
-      },
-      {
-        "id": "B",
         "text": "Straight-Line Method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Declining Balance Method"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Sinking Fund Method"
+      },
+      {
+        "id": "D",
+        "text": "Sum-of-the-Years-Digits Method"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Straight-line depreciation divides the depreciable cost equally over the life of the asset."
   },
   {
@@ -233,22 +233,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Net sale"
-      },
-      {
-        "id": "B",
-        "text": "Owner’s equity"
-      },
-      {
-        "id": "C",
         "text": "Inventory turnover"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Quick assets"
+      },
+      {
+        "id": "C",
+        "text": "Net sale"
+      },
+      {
+        "id": "D",
+        "text": "Owner’s equity"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Gross margin is the ratio of the gross profit to Net sale.",
     "rawSnippet": "Gross margin is the ratio of the gross profit to _____.\nA. Net sale\nB. Owner’s equity\nC. Inventory turnover\nD. Quick assets"
   },
@@ -262,11 +262,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Yield rate"
+        "text": "Economic return"
       },
       {
         "id": "B",
-        "text": "Rate of interest"
+        "text": "Yield rate"
       },
       {
         "id": "C",
@@ -274,10 +274,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Economic return"
+        "text": "Rate of interest"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Rate of interest refers to the cost of borrowing money or the amount earned by a unit principal per unit time.",
     "rawSnippet": "What refers to the cost of borrowing money or the amount earned by a unit principal per unit time?\nA. Yield rate\nB. Rate of interest\nC. Rate of return\nD. Economic return"
   },
@@ -294,7 +294,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Book value"
+        "text": "Scrap value"
       },
       {
         "id": "C",
@@ -302,10 +302,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Scrap value"
+        "text": "Book value"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Book value is the initial asset cost minus total accumulated depreciation to date."
   },
   {
@@ -318,11 +318,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "discount"
+        "text": "profit"
       },
       {
         "id": "B",
-        "text": "profit"
+        "text": "discount"
       },
       {
         "id": "C",
@@ -333,7 +333,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "debit"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The difference between the present worth and the worth at some future time is discount.",
     "rawSnippet": "The difference between the present worth and the worth at some future time is _____.\nA. discount\nB. profit\nC. credit\nD. debit"
   },
@@ -347,22 +347,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "present amount factor"
+        "text": "interest amount factor"
       },
       {
         "id": "B",
-        "text": "future amount factor"
-      },
-      {
-        "id": "C",
         "text": "compound amount factor"
       },
       {
+        "id": "C",
+        "text": "present amount factor"
+      },
+      {
         "id": "D",
-        "text": "interest amount factor"
+        "text": "future amount factor"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "compound amount factor refers to the (1 + i) to the power n is called.",
     "rawSnippet": "What refers to the (1 + i) to the power n is called _____.\nA. present amount factor\nB. future amount factor\nC. compound amount factor\nD. interest amount factor"
   },
@@ -379,18 +379,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Break-even point"
+        "text": "Optimal operating point"
       },
       {
         "id": "C",
-        "text": "Capital recovery point"
+        "text": "Break-even point"
       },
       {
         "id": "D",
-        "text": "Optimal operating point"
+        "text": "Capital recovery point"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "At the break-even point, Total Revenue = Fixed Costs + Variable Costs."
   },
   {
@@ -402,22 +402,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Present amount factor"
-      },
-      {
-        "id": "B",
         "text": "Future amount factor"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Compound amount factor"
+      },
+      {
+        "id": "C",
+        "text": "Present amount factor"
       },
       {
         "id": "D",
         "text": "Interest amount factor"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "(1 + i)^n is the single payment compound amount factor."
   },
   {
@@ -430,22 +430,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "3 months"
-      },
-      {
-        "id": "B",
         "text": "6 months"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "0.5-month"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "2 months"
+      },
+      {
+        "id": "D",
+        "text": "3 months"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Compounded bimonthly has an interest period of 2 months.",
     "rawSnippet": "Compounded bimonthly has an interest period of _____.\nA. 3 months\nB. 6 months\nC. 0.5-month\nD. 2 months"
   },
@@ -458,22 +458,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Capitalized cost"
-      },
-      {
-        "id": "B",
         "text": "Annual worth"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Future worth"
+      },
+      {
+        "id": "C",
+        "text": "Capitalized cost"
       },
       {
         "id": "D",
         "text": "Perpetual annuity"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Capitalized cost equals the first cost plus the present worth of perpetual replacements and maintenance."
   },
   {
@@ -486,22 +486,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "amortization"
-      },
-      {
-        "id": "B",
         "text": "annuity"
       },
       {
+        "id": "B",
+        "text": "capital recovery"
+      },
+      {
         "id": "C",
-        "text": "depreciation"
+        "text": "amortization"
       },
       {
         "id": "D",
-        "text": "capital recovery"
+        "text": "depreciation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the depth by either periodic or irregular prearranged program is called amortization.",
     "rawSnippet": "As applied to capitalized asset, the distribution of the initial cost by periodic changes to operation as in depreciation or the reduction of the depth by either periodic or irregular prearranged program is called _____.\nA. amortization\nB. annuity\nC. depreciation\nD. capital recovery"
   },
@@ -515,23 +515,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Yield period"
-      },
-      {
-        "id": "B",
         "text": "Simple rate"
       },
       {
+        "id": "B",
+        "text": "Yield period"
+      },
+      {
         "id": "C",
-        "text": "Effective rate"
+        "text": "Compound rate"
       },
       {
         "id": "D",
-        "text": "Compound rate"
+        "text": "Effective rate"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Effective rate.",
+    "correctChoiceId": "D",
+    "explanation": "Effective interest rate calculates the exact annual return accounting for intra-year compounding frequencies, unlike nominal annual interest rates.",
     "rawSnippet": "It is the actual interest earned.\nA. Yield period\nB. Simple rate\nC. Effective rate\nD. Compound rate"
   },
   {
@@ -543,7 +543,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Nominal rate of interest"
+        "text": "Discount rate"
       },
       {
         "id": "B",
@@ -555,7 +555,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Discount rate"
+        "text": "Nominal rate of interest"
       }
     ],
     "correctChoiceId": "B",
@@ -575,11 +575,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "The cost of manufacturing a product."
+        "text": "An investment that yields an equal amount of interest each year."
       },
       {
         "id": "C",
-        "text": "An investment that yields an equal amount of interest each year."
+        "text": "The cost of manufacturing a product."
       },
       {
         "id": "D",
@@ -587,7 +587,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is A series of equal payments at equal time periods.",
+    "explanation": "In engineering economics, an ordinary annuity has payments at the end of each compounding period, while an annuity due has payments occurring at the beginning of each period.",
     "rawSnippet": "What is an annuity?\nA. A series of equal payments at equal time periods.\nB. The cost of manufacturing a product.\nC. An investment that yields an equal amount of interest each year.\nD. The overhead cost per unit of production."
   },
   {
@@ -599,22 +599,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ordinary annuity"
-      },
-      {
-        "id": "B",
         "text": "Annuity due"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Deferred annuity"
+      },
+      {
+        "id": "C",
+        "text": "Ordinary annuity"
       },
       {
         "id": "D",
         "text": "Perpetuity"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "An annuity due has cash flows that occur at the start of each compounding interval."
   },
   {
@@ -627,7 +627,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Expected return"
+        "text": "Economic return"
       },
       {
         "id": "B",
@@ -635,14 +635,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Effective interest"
+        "text": "Expected return"
       },
       {
         "id": "D",
-        "text": "Economic return"
+        "text": "Effective interest"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as Effective interest.",
     "rawSnippet": "The true value of interest rate computed by equations for compound interest for a 1 year period is known as _____.\nA. Expected return\nB. Nominal interest\nC. Effective interest\nD. Economic return"
   },
@@ -660,11 +660,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Sinking fund factor"
+        "text": "Demand factor"
       },
       {
         "id": "C",
-        "text": "Demand factor"
+        "text": "Sinking fund factor"
       },
       {
         "id": "D",
@@ -684,22 +684,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Salvage value"
-      },
-      {
-        "id": "B",
-        "text": "Scrap value"
-      },
-      {
-        "id": "C",
         "text": "Fair value"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Salvage value"
+      },
+      {
+        "id": "C",
         "text": "Assessed value"
+      },
+      {
+        "id": "D",
+        "text": "Scrap value"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Scrap (or junk) value is the value of physical material when the equipment is dismantled."
   },
   {
@@ -712,23 +712,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "funds"
+        "text": "assets"
       },
       {
         "id": "B",
-        "text": "capital"
-      },
-      {
-        "id": "C",
         "text": "liabilities"
       },
       {
+        "id": "C",
+        "text": "funds"
+      },
+      {
         "id": "D",
-        "text": "assets"
+        "text": "capital"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is capital.",
+    "correctChoiceId": "D",
+    "explanation": "Effective interest rate calculates the exact annual return accounting for intra-year compounding frequencies, unlike nominal annual interest rates.",
     "rawSnippet": "Cash money credit necessary to establish and operate an enterprise.\nA. funds\nB. capital\nC. liabilities\nD. assets"
   },
   {
@@ -741,7 +741,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ordinary annuity"
+        "text": "Deferred annuity"
       },
       {
         "id": "B",
@@ -753,11 +753,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Deferred annuity"
+        "text": "Ordinary annuity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Ordinary annuity.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economics, an ordinary annuity has payments at the end of each compounding period, while an annuity due has payments occurring at the beginning of each period.",
     "rawSnippet": "What is the type of annuity where the payments are made at the end of each period starting from the first period?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
   },
   {
@@ -769,22 +769,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Effective rate of interest"
-      },
-      {
-        "id": "B",
-        "text": "Nominal rate of interest"
-      },
-      {
-        "id": "C",
         "text": "Compound interest"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Simple interest"
+      },
+      {
+        "id": "C",
+        "text": "Nominal rate of interest"
+      },
+      {
+        "id": "D",
+        "text": "Effective rate of interest"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Simple interest is computed solely on the principal sum throughout the duration of the loan."
   },
   {
@@ -796,7 +796,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "T-bills"
+        "text": "Bank notes"
       },
       {
         "id": "B",
@@ -808,7 +808,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Bank notes"
+        "text": "T-bills"
       }
     ],
     "correctChoiceId": "B",
@@ -824,23 +824,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ordinary annuity"
-      },
-      {
-        "id": "B",
         "text": "Annuity due"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Perpetuity"
+      },
+      {
+        "id": "C",
+        "text": "Ordinary annuity"
       },
       {
         "id": "D",
         "text": "Deferred annuity"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Annuity due.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economics, an ordinary annuity has payments at the end of each compounding period, while an annuity due has payments occurring at the beginning of each period.",
     "rawSnippet": "What is the type of annuity where the payments are made at the beginning of each period starting from the first period?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
   },
   {
@@ -853,23 +853,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ordinary annuity"
-      },
-      {
-        "id": "B",
         "text": "Perpetuity"
       },
       {
+        "id": "B",
+        "text": "Ordinary annuity"
+      },
+      {
         "id": "C",
-        "text": "Annuity due"
+        "text": "Deferred annuity"
       },
       {
         "id": "D",
-        "text": "Deferred annuity"
+        "text": "Annuity due"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Deferred annuity.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economics, an ordinary annuity has payments at the end of each compounding period, while an annuity due has payments occurring at the beginning of each period.",
     "rawSnippet": "What is the type of annuity where the first payment does not begin until some later date in the cash flow?\nA. Ordinary annuity\nB. Perpetuity\nC. Annuity due\nD. Deferred annuity"
   },
   {
@@ -881,7 +881,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line method and sinking fund method"
+        "text": "SYD method and sinking fund method"
       },
       {
         "id": "B",
@@ -893,7 +893,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "SYD method and sinking fund method"
+        "text": "Straight line method and sinking fund method"
       }
     ],
     "correctChoiceId": "C",
@@ -917,15 +917,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Perpetuity"
+        "text": "Deferred annuity"
       },
       {
         "id": "D",
-        "text": "Deferred annuity"
+        "text": "Perpetuity"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Perpetuity.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economics, an ordinary annuity has payments at the end of each compounding period, while an annuity due has payments occurring at the beginning of each period.",
     "rawSnippet": "What is the type of annuity that does not have a fixed time span but continues indefinitely or forever?\nA. Ordinary annuity\nB. Annuity due\nC. Perpetuity\nD. Deferred annuity"
   },
   {
@@ -938,23 +938,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scrap value"
+        "text": "Market value"
       },
       {
         "id": "B",
-        "text": "Book value"
+        "text": "Scrap value"
       },
       {
         "id": "C",
-        "text": "Salvage value"
+        "text": "Book value"
       },
       {
         "id": "D",
-        "text": "Market value"
+        "text": "Salvage value"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Book value.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Book value represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The worth of the property which is equal to the original cost less the amount which has been charged to depreciation.\nA. Scrap value\nB. Book value\nC. Salvage value\nD. Market value"
   },
   {
@@ -966,22 +966,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Gross margin"
-      },
-      {
-        "id": "B",
-        "text": "Price-earnings ratio"
-      },
-      {
-        "id": "C",
         "text": "Book value per share of common stock"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Inventory turnover"
+      },
+      {
+        "id": "C",
+        "text": "Gross margin"
+      },
+      {
+        "id": "D",
+        "text": "Price-earnings ratio"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Price-earnings (P/E) ratio equals Market Price per Share divided by Earnings per Share."
   },
   {
@@ -994,23 +994,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "300"
+        "text": "366"
       },
       {
         "id": "B",
-        "text": "360"
-      },
-      {
-        "id": "C",
         "text": "365"
       },
       {
+        "id": "C",
+        "text": "300"
+      },
+      {
         "id": "D",
-        "text": "366"
+        "text": "360"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 360.",
+    "correctChoiceId": "D",
+    "explanation": "Effective interest rate calculates the exact annual return accounting for intra-year compounding frequencies, unlike nominal annual interest rates.",
     "rawSnippet": "Under ordinary simple interest, how many days in one year?\nA. 300\nB. 360\nC. 365\nD. 366"
   },
   {
@@ -1027,7 +1027,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Scrap value"
+        "text": "Book value"
       },
       {
         "id": "C",
@@ -1035,11 +1035,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Book value"
+        "text": "Scrap value"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Scrap value.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Scrap value is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "The amount that the property would give if sold for junk.\nA. Junk value\nB. Scrap value\nC. Salvage value\nD. Book value"
   },
   {
@@ -1052,11 +1052,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Market value"
+        "text": "Salvage value"
       },
       {
         "id": "B",
-        "text": "Salvage value"
+        "text": "Book value"
       },
       {
         "id": "C",
@@ -1064,11 +1064,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Book value"
+        "text": "Market value"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Salvage value.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, Salvage value is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Estimated value of the property at the useful life.\nA. Market value\nB. Salvage value\nC. Fair value\nD. Book value"
   },
   {
@@ -1080,22 +1080,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amortization"
-      },
-      {
-        "id": "B",
         "text": "Annuity"
       },
       {
+        "id": "B",
+        "text": "Capital recovery"
+      },
+      {
         "id": "C",
-        "text": "Depreciation"
+        "text": "Amortization"
       },
       {
         "id": "D",
-        "text": "Capital recovery"
+        "text": "Depreciation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Amortization refers to the systematic repayment or spreading of capital debt/costs."
   },
   {
@@ -1111,18 +1111,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Nominal test"
+        "text": "Interest rate"
       },
       {
         "id": "C",
-        "text": "Interest"
+        "text": "Nominal test"
       },
       {
         "id": "D",
-        "text": "Interest rate"
+        "text": "Interest"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Interest rate is the ratio of interest earned or paid per unit time to the principal."
   },
   {
@@ -1135,7 +1135,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sunk cost"
+        "text": "Construction cost"
       },
       {
         "id": "B",
@@ -1143,15 +1143,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Fixed costs"
+        "text": "Sunk cost"
       },
       {
         "id": "D",
-        "text": "Construction cost"
+        "text": "Fixed costs"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Sunk cost.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Sunk cost represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The amount which has been spent or capital invested which for some reasons cannot be recovered.\nA. Sunk cost\nB. Depletion cost\nC. Fixed costs\nD. Construction cost"
   },
   {
@@ -1193,23 +1193,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line method"
-      },
-      {
-        "id": "B",
         "text": "Sinking fund method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Sum-of-the-years digit method"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Declining balance method"
+      },
+      {
+        "id": "D",
+        "text": "Straight line method"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Straight line method.",
+    "correctChoiceId": "D",
+    "explanation": "Depreciation methods allocate the asset's initial cost minus salvage value over its useful life. The straight-line method yields equal annual depreciation charges.",
     "rawSnippet": "In what method of computing depreciation where it assumes that the loss in value is directly proportional to the age of the equipment or structure?\nA. Straight line method\nB. Sinking fund method\nC. Sum-of-the-years digit method\nD. Declining balance method"
   },
   {
@@ -1222,11 +1222,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It is one that calculates a depreciation amount greater than a straight line amount."
+        "text": "It is one that calculates a depreciation amount lesser than a straight line amount."
       },
       {
         "id": "B",
-        "text": "It is one that calculates a depreciation amount lesser than a straight line amount."
+        "text": "It is one that calculates a depreciation amount greater than a straight line amount."
       },
       {
         "id": "C",
@@ -1237,7 +1237,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "It is one that calculates a depreciation not in any way related to straight line amount."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "It is one that calculates a depreciation amount greater than a straight line amount. This applies to the earlier years of the asset’s life.",
     "rawSnippet": "What is an accelerated depreciation method?\nA. It is one that calculates a depreciation amount greater than a straight line amount.\nB. It is one that calculates a depreciation amount lesser than a straight line amount.\nC. It is one that calculates a depreciation amount equal to straight line amount.\nD. It is one that calculates a depreciation not in any way related to straight line amount."
   },
@@ -1250,22 +1250,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Book value"
+        "text": "Fair value"
       },
       {
         "id": "B",
-        "text": "Use value"
-      },
-      {
-        "id": "C",
         "text": "Market value"
       },
       {
+        "id": "C",
+        "text": "Book value"
+      },
+      {
         "id": "D",
-        "text": "Fair value"
+        "text": "Use value"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Market value is the agreed transaction price between a willing buyer and seller under no compulsion."
   },
   {
@@ -1285,11 +1285,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Liabilities"
+        "text": "Assets"
       },
       {
         "id": "D",
-        "text": "Assets"
+        "text": "Liabilities"
       }
     ],
     "correctChoiceId": "B",
@@ -1332,23 +1332,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Rate discount"
+        "text": "Sales discount"
       },
       {
         "id": "B",
-        "text": "Nominal discount"
+        "text": "Rate discount"
       },
       {
         "id": "C",
-        "text": "Actual discount"
+        "text": "Nominal discount"
       },
       {
         "id": "D",
-        "text": "Sales discount"
+        "text": "Actual discount"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Rate discount.",
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Rate discount is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "The discount of one unit of principal for one unit of time.\nA. Rate discount\nB. Nominal discount\nC. Actual discount\nD. Sales discount"
   },
   {
@@ -1361,7 +1361,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line method"
+        "text": "Declining balance method"
       },
       {
         "id": "B",
@@ -1369,7 +1369,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Declining balance method"
+        "text": "Straight line method"
       },
       {
         "id": "D",
@@ -1377,7 +1377,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Sinking fund method.",
+    "explanation": "Depreciation methods allocate the asset's initial cost minus salvage value over its useful life. The straight-line method yields equal annual depreciation charges.",
     "rawSnippet": "A method of depreciation where a fixed sum of money is regularly deposited at compound interest in a real or imaginary fund in order to accumulate an amount equal to the total depreciation of an asset at the end of the asset’s estimated life.\nA. Straight line method\nB. Sinking fund method\nC. Declining balance method\nD. SYD method"
   },
   {
@@ -1393,18 +1393,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Borrowed capital"
-      },
-      {
-        "id": "C",
         "text": "Working capital"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Cash flow"
+      },
+      {
+        "id": "D",
+        "text": "Borrowed capital"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Borrowed capital is debt financing requiring fixed interest and repayment."
   },
   {
@@ -1417,22 +1417,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "yield"
-      },
-      {
-        "id": "B",
-        "text": "earning value"
-      },
-      {
-        "id": "C",
         "text": "economic return"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "expected yield"
+      },
+      {
+        "id": "C",
+        "text": "yield"
+      },
+      {
+        "id": "D",
+        "text": "earning value"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "The profit derived from a project or business enterprise without consideration of obligations to financial contributors and claims of others based on profit is known as economic return.",
     "rawSnippet": "The profit derived from a project or business enterprise without consideration of obligations to financial contributors and claims of others based on profit is known as _____.\nA. yield\nB. earning value\nC. economic return\nD. expected yield"
   },
@@ -1446,7 +1446,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scrap value"
+        "text": "Second-hand value"
       },
       {
         "id": "B",
@@ -1454,14 +1454,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Going value"
+        "text": "Scrap value"
       },
       {
         "id": "D",
-        "text": "Second-hand value"
+        "text": "Going value"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Salvage value is sometimes known as Scrap value.",
     "rawSnippet": "Salvage value is sometimes known as _____.\nA. Scrap value\nB. Junk value\nC. Going value\nD. Second-hand value"
   },
@@ -1474,7 +1474,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Utility"
+        "text": "Commodity"
       },
       {
         "id": "B",
@@ -1482,14 +1482,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Commodity"
+        "text": "Utility"
       },
       {
         "id": "D",
         "text": "Stock"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "A commodity is a basic good used in commerce that is interchangeable with other commodities of the same type."
   },
   {
@@ -1530,11 +1530,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Book value"
+        "text": "Fair value"
       },
       {
         "id": "B",
-        "text": "Fair value"
+        "text": "Book value"
       },
       {
         "id": "C",
@@ -1545,7 +1545,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Franchise value"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Fair value is the objective valuation determined by a neutral third party."
   },
   {
@@ -1561,7 +1561,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "The payments are made at equal interval of time."
+        "text": "Compound interest is paid on all amounts in the annuity."
       },
       {
         "id": "C",
@@ -1569,7 +1569,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Compound interest is paid on all amounts in the annuity."
+        "text": "The payments are made at equal interval of time."
       }
     ],
     "correctChoiceId": "C",
@@ -1585,15 +1585,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "n(n − 1)"
-      },
-      {
-        "id": "B",
         "text": "[n(n − 1)]/2"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "[n(n + 2)]/2"
+      },
+      {
+        "id": "C",
+        "text": "n(n − 1)"
       },
       {
         "id": "D",
@@ -1601,7 +1601,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is [n(n + 1)]/2.",
+    "explanation": "Depreciation methods allocate the asset's initial cost minus salvage value over its useful life. The straight-line method yields equal annual depreciation charges.",
     "rawSnippet": "In SYD method of computing depreciation, which of the following is the formula in determining the sum of years’ digits?\nA. n(n − 1)\nB. [n(n − 1)]/2\nC. [n(n + 2)]/2\nD. [n(n + 1)]/2"
   },
   {
@@ -1617,7 +1617,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "[n(n - 1)] / 2"
+        "text": "[n(n + 1)] / 2"
       },
       {
         "id": "C",
@@ -1625,10 +1625,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "[n(n + 1)] / 2"
+        "text": "[n(n - 1)] / 2"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Sum of years digits = 1 + 2 + ... + n = n(n + 1) / 2."
   },
   {
@@ -1640,22 +1640,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Physical inventory"
+        "text": "Technological assessment"
       },
       {
         "id": "B",
-        "text": "Material update"
+        "text": "Physical inventory"
       },
       {
         "id": "C",
-        "text": "Technological assessment"
+        "text": "Material update"
       },
       {
         "id": "D",
         "text": "Material count"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Physical inventory is an actual count of stock items on hand."
   },
   {
@@ -1672,19 +1672,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "modified accelerated cost recovery system"
-      },
-      {
-        "id": "C",
         "text": "sum-of-years digits method"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "straight-line method"
+      },
+      {
+        "id": "D",
+        "text": "modified accelerated cost recovery system"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is double-entry method.",
+    "explanation": "In engineering economic analysis, double-entry method is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Which one of the following is NOT a method of depreciating plant equipment for accounting and engineering economics purposes?\nA. double-entry method\nB. modified accelerated cost recovery system\nC. sum-of-years digits method\nD. straight-line method"
   },
   {
@@ -1697,22 +1697,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Double percentage method"
-      },
-      {
-        "id": "B",
         "text": "Constant percentage method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Modified sinking fund method"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Modified SYD method"
+      },
+      {
+        "id": "D",
+        "text": "Double percentage method"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The declining balance method is also known as Constant percentage method.",
     "rawSnippet": "The declining balance method is also known as _____.\nA. Double percentage method\nB. Constant percentage method\nC. Modified sinking fund method\nD. Modified SYD method"
   },
@@ -1726,23 +1726,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Debenture"
-      },
-      {
-        "id": "B",
         "text": "Mortgage"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Collateral"
+      },
+      {
+        "id": "C",
+        "text": "Debenture"
       },
       {
         "id": "D",
         "text": "Lien"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Mortgage.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, Mortgage is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A bond where the security behind it are the equipment of the issuing corporation.\nA. Debenture\nB. Mortgage\nC. Collateral\nD. Lien"
   },
   {
@@ -1754,22 +1754,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Declining balance method"
-      },
-      {
-        "id": "B",
         "text": "Sinking fund method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Straight line method"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "SYD method"
+      },
+      {
+        "id": "D",
+        "text": "Declining balance method"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "In declining balance, k = 1 - (C_L / C_0)^(1/L). If salvage value C_L is 0, k becomes 1 (100% depreciation in first year)."
   },
   {
@@ -1781,11 +1781,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "300"
+        "text": "360"
       },
       {
         "id": "B",
-        "text": "360"
+        "text": "300"
       },
       {
         "id": "C",
@@ -1796,7 +1796,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "366"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Ordinary simple interest (banker's year) assumes 360 days per year (12 months of 30 days)."
   },
   {
@@ -1809,22 +1809,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sinking fund factor"
-      },
-      {
-        "id": "B",
         "text": "Single payment present worth factor"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Single payment compound amount factor"
+      },
+      {
+        "id": "C",
+        "text": "Sinking fund factor"
       },
       {
         "id": "D",
         "text": "Capital recovery factor"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Single payment compound amount factor For a positive exponent, the correct compound-amount equation is F = P(1 + i)ⁿ.",
     "rawSnippet": "In the formula, P = F(1 + i)ⁿ, the factor (1 + i)ⁿ is called the _____.\nA. Sinking fund factor\nB. Single payment present worth factor\nC. Single payment compound amount factor\nD. Capital recovery factor"
   },
@@ -1838,23 +1838,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Depletion"
+        "text": "Deflation"
       },
       {
         "id": "B",
-        "text": "Depreciation"
+        "text": "Depletion"
       },
       {
         "id": "C",
-        "text": "Inflation"
+        "text": "Depreciation"
       },
       {
         "id": "D",
-        "text": "Deflation"
+        "text": "Inflation"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Inflation.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Inflation is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "The rise in the prices of goods and services over a period of time.\nA. Depletion\nB. Depreciation\nC. Inflation\nD. Deflation"
   },
   {
@@ -1866,22 +1866,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line"
-      },
-      {
-        "id": "B",
-        "text": "Sinking fund"
-      },
-      {
-        "id": "C",
         "text": "Declining balance"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Straight line"
+      },
+      {
+        "id": "C",
         "text": "Sum of Years Digit"
+      },
+      {
+        "id": "D",
+        "text": "Sinking fund"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "D = ($200,000 - $25,000) / 8 = $175,000 / 8 = $21,875 per year, which is the Straight Line method."
   },
   {
@@ -1893,22 +1893,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Depletion"
-      },
-      {
-        "id": "B",
-        "text": "Inflation"
-      },
-      {
-        "id": "C",
         "text": "Depreciation"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Depletion"
+      },
+      {
+        "id": "C",
         "text": "Deflation"
+      },
+      {
+        "id": "D",
+        "text": "Inflation"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Depreciation is the decline in asset value over time from physical wear and obsolescence."
   },
   {
@@ -1929,15 +1929,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Perpetuity"
+        "text": "Inflation"
       },
       {
         "id": "D",
-        "text": "Inflation"
+        "text": "Perpetuity"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Perpetuity.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Perpetuity is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A series of uniform amounts over an infinite period of time.\nA. Depreciation\nB. Annuity\nC. Perpetuity\nD. Inflation"
   },
   {
@@ -1950,7 +1950,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Deflation"
+        "text": "Inflation"
       },
       {
         "id": "B",
@@ -1958,14 +1958,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Inflation"
+        "text": "Deflation"
       },
       {
         "id": "D",
         "text": "Depreciation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Deflation refers to the reduction in the level of a national income and output usually accompanied by a fall in the general price level.",
     "rawSnippet": "What refers to the reduction in the level of a national income and output usually accompanied by a fall in the general price level?\nA. Deflation\nB. Devaluation\nC. Inflation\nD. Depreciation"
   },
@@ -1978,11 +1978,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Capitalized cost method"
+        "text": "Annual cost method"
       },
       {
         "id": "B",
-        "text": "Annual cost method"
+        "text": "Capitalized cost method"
       },
       {
         "id": "C",
@@ -1993,7 +1993,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "MARR"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The Equivalent Uniform Annual Cost (EUAC) or annual cost method allows direct comparison across unequal lifespans."
   },
   {
@@ -2006,11 +2006,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Capitalized cost method"
+        "text": "Annual cost method"
       },
       {
         "id": "B",
-        "text": "Annual cost method"
+        "text": "MARR"
       },
       {
         "id": "C",
@@ -2018,11 +2018,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "MARR"
+        "text": "Capitalized cost method"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Annual cost method.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, Annual cost method is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What is normally used to compare alternatives that accomplish the same purpose but have equal lives?\nA. Capitalized cost method\nB. Annual cost method\nC. Present worth method\nD. MARR"
   },
   {
@@ -2039,18 +2039,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "scrap value"
-      },
-      {
-        "id": "C",
         "text": "declining balance"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "depletion"
+      },
+      {
+        "id": "D",
+        "text": "scrap value"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "The decrease in the value of a certain property due to the gradual extraction of its content is called depletion.",
     "rawSnippet": "The decrease in the value of a certain property due to the gradual extraction of its content is called _____.\nA. depreciation\nB. scrap value\nC. declining balance\nD. depletion"
   },
@@ -2067,7 +2067,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Rate of return method"
+        "text": "EUAC"
       },
       {
         "id": "C",
@@ -2075,7 +2075,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "EUAC"
+        "text": "Rate of return method"
       }
     ],
     "correctChoiceId": "C",
@@ -2090,22 +2090,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amortization"
+        "text": "Sinking fund"
       },
       {
         "id": "B",
-        "text": "Annuity"
-      },
-      {
-        "id": "C",
         "text": "Depreciation"
       },
       {
+        "id": "C",
+        "text": "Amortization"
+      },
+      {
         "id": "D",
-        "text": "Sinking fund"
+        "text": "Annuity"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "A sinking fund is an interest-bearing account into which periodic deposits are made to accumulate a target sum."
   },
   {
@@ -2118,23 +2118,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Delict"
-      },
-      {
-        "id": "B",
         "text": "Escalatory"
       },
       {
+        "id": "B",
+        "text": "Delict"
+      },
+      {
         "id": "C",
-        "text": "Technological assessment"
+        "text": "Bid bulletin"
       },
       {
         "id": "D",
-        "text": "Bid bulletin"
+        "text": "Technological assessment"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Bid bulletin.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Bid bulletin represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Additional information of prospective bidders on contract documents issued prior to bidding date.\nA. Delict\nB. Escalatory\nC. Technological assessment\nD. Bid bulletin"
   },
   {
@@ -2147,22 +2147,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Annual cost"
-      },
-      {
-        "id": "B",
         "text": "Capitalized cost"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Increment cost"
+      },
+      {
+        "id": "C",
+        "text": "Annual cost"
       },
       {
         "id": "D",
         "text": "Operating cost"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Capitalized cost refers to the present worth of cost associated with an asset for an infinite period of time.",
     "rawSnippet": "What refers to the present worth of cost associated with an asset for an infinite period of time?\nA. Annual cost\nB. Capitalized cost\nC. Increment cost\nD. Operating cost"
   },
@@ -2176,23 +2176,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Total asset turn-over ratio"
+        "text": "Price-earning ratio"
       },
       {
         "id": "B",
-        "text": "Debt ratio"
-      },
-      {
-        "id": "C",
         "text": "Profit ratio"
       },
       {
+        "id": "C",
+        "text": "Debt ratio"
+      },
+      {
         "id": "D",
-        "text": "Price-earning ratio"
+        "text": "Total asset turn-over ratio"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Price-earning ratio.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, Price-earning ratio is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "You are planning to buy stocks in a high growth company. Which of the following ratios best indicates the company’s growth potential?\nA. Total asset turn-over ratio\nB. Debt ratio\nC. Profit ratio\nD. Price-earning ratio"
   },
   {
@@ -2209,15 +2209,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Life cost"
+        "text": "Project cost"
       },
       {
         "id": "C",
-        "text": "Life cycle cost"
+        "text": "Life cost"
       },
       {
         "id": "D",
-        "text": "Project cost"
+        "text": "Life cycle cost"
       }
     ],
     "correctChoiceId": "A",
@@ -2233,22 +2233,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sinking fund factor"
-      },
-      {
-        "id": "B",
         "text": "Single payment present worth factor"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Single payment compound amount factor"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Capital recovery factor"
+      },
+      {
+        "id": "D",
+        "text": "Sinking fund factor"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "(1 + i)^-n computes present worth P from future worth F."
   },
   {
@@ -2261,23 +2261,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Dividends paid"
+        "text": "Expense to get license to start operation"
       },
       {
         "id": "B",
-        "text": "License to start operation"
-      },
-      {
-        "id": "C",
         "text": "Invested capital"
       },
       {
+        "id": "C",
+        "text": "License to start operation"
+      },
+      {
         "id": "D",
-        "text": "Expense to get license to start operation"
+        "text": "Dividends paid"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is License to start operation.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, License to start operation is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Which of the following does NOT affect owner’s equity?\nA. Dividends paid\nB. License to start operation\nC. Invested capital\nD. Expense to get license to start operation"
   },
   {
@@ -2293,18 +2293,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Annuity"
+        "text": "Perpetuity"
       },
       {
         "id": "C",
-        "text": "Perpetuity"
+        "text": "Annuity"
       },
       {
         "id": "D",
         "text": "Inflation"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "A perpetuity is an annuity that continues indefinitely."
   },
   {
@@ -2316,7 +2316,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Net income to owner's equity"
+        "text": "Net credit sales to average net receivable"
       },
       {
         "id": "B",
@@ -2328,10 +2328,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Net credit sales to average net receivable"
+        "text": "Net income to owner's equity"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "ROI evaluates net profit relative to invested equity or total investment."
   },
   {
@@ -2352,14 +2352,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Cash flow"
+        "text": "Earning value"
       },
       {
         "id": "D",
-        "text": "Earning value"
+        "text": "Cash flow"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "The flow back of profit plus depreciation from a given project is called Cash flow.",
     "rawSnippet": "The flow back of profit plus depreciation from a given project is called _____.\nA. Capital recovery\nB. Economic return\nC. Cash flow\nD. Earning value"
   },
@@ -2373,11 +2373,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Experimental method"
+        "text": "None of the above"
       },
       {
         "id": "B",
-        "text": "Rank-ad method"
+        "text": "Experimental method"
       },
       {
         "id": "C",
@@ -2385,11 +2385,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "None of the above"
+        "text": "Rank-ad method"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Break-even method.",
+    "explanation": "In engineering economic analysis, Break-even method is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A method of determining when cost is exactly equal to revenue.\nA. Experimental method\nB. Rank-ad method\nC. Break-even method\nD. None of the above"
   },
   {
@@ -2406,7 +2406,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Nominal interest"
+        "text": "Effective interest"
       },
       {
         "id": "C",
@@ -2414,10 +2414,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Effective interest"
+        "text": "Nominal interest"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "The actual interest earned by a given principal is called Effective interest.",
     "rawSnippet": "The actual interest earned by a given principal is known as?\nA. Compounded interest\nB. Nominal interest\nC. Simple interest\nD. Effective interest"
   },
@@ -2434,7 +2434,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Scrap value"
+        "text": "Depletion"
       },
       {
         "id": "C",
@@ -2442,10 +2442,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Depletion"
+        "text": "Scrap value"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Depletion refers to the exhaustion of natural resources (mines, oil wells, timber tracts)."
   },
   {
@@ -2458,22 +2458,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Supply"
+        "text": "Good"
       },
       {
         "id": "B",
-        "text": "Demand"
-      },
-      {
-        "id": "C",
         "text": "Product"
       },
       {
+        "id": "C",
+        "text": "Demand"
+      },
+      {
         "id": "D",
-        "text": "Good"
+        "text": "Supply"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Demand refers to the need, want or desire for a product backed by the money to purchase it.",
     "rawSnippet": "What refers to the need, want or desire for a product backed by the money to purchase it?\nA. Supply\nB. Demand\nC. Product\nD. Good"
   },
@@ -2486,22 +2486,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Delict"
-      },
-      {
-        "id": "B",
         "text": "Escalatory"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Technological assessment"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Bid bulletin"
+      },
+      {
+        "id": "D",
+        "text": "Delict"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "A bid bulletin or addendum clarifies or amends contract documents before bidding closes."
   },
   {
@@ -2518,19 +2518,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "effective rate"
+        "text": "yield"
       },
       {
         "id": "C",
-        "text": "nominal rate"
+        "text": "effective rate"
       },
       {
         "id": "D",
-        "text": "yield"
+        "text": "nominal rate"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is rate of return.",
+    "explanation": "Effective interest rate calculates the exact annual return accounting for intra-year compounding frequencies, unlike nominal annual interest rates.",
     "rawSnippet": "The interest rate at which the present worth of cash flow on a project is zero, or the interest earned by an investment.\nA. rate of return\nB. effective rate\nC. nominal rate\nD. yield"
   },
   {
@@ -2547,19 +2547,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Mortgage bond"
-      },
-      {
-        "id": "C",
         "text": "Collateral bond"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Debenture bond"
+      },
+      {
+        "id": "D",
+        "text": "Mortgage bond"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Mortgage bond.",
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, Mortgage bond represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Type of bond whose security is a mortgage on certain specified assets of the corporation.\nA. Registered bond\nB. Mortgage bond\nC. Collateral bond\nD. Debenture bond"
   },
   {
@@ -2572,23 +2572,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scrap value"
+        "text": "Use value"
       },
       {
         "id": "B",
-        "text": "Fair value"
-      },
-      {
-        "id": "C",
         "text": "Book value"
       },
       {
+        "id": "C",
+        "text": "Fair value"
+      },
+      {
         "id": "D",
-        "text": "Use value"
+        "text": "Scrap value"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Book value.",
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, Book value represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "It is the worth of the property which is equal to the original cost less the amount which has been charged to depreciation.\nA. Scrap value\nB. Fair value\nC. Book value\nD. Use value"
   },
   {
@@ -2601,23 +2601,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Mortgage bond"
+        "text": "Trust bond"
       },
       {
         "id": "B",
-        "text": "Tie-up bond"
-      },
-      {
-        "id": "C",
         "text": "Joint bond"
       },
       {
+        "id": "C",
+        "text": "Mortgage bond"
+      },
+      {
         "id": "D",
-        "text": "Trust bond"
+        "text": "Tie-up bond"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Joint bond.",
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Joint bond is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Type of bond is issued jointly by two or more corporations.\nA. Mortgage bond\nB. Tie-up bond\nC. Joint bond\nD. Trust bond"
   },
   {
@@ -2659,23 +2659,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Corporation"
-      },
-      {
-        "id": "B",
         "text": "Partnership"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Property"
+      },
+      {
+        "id": "C",
+        "text": "Corporation"
       },
       {
         "id": "D",
         "text": "Organization"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Corporation.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Corporation is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "An artificial being created by operation of law, having the right of succession and the process, attributes and properties expressly authorized by the law or incident to its existence.\nA. Corporation\nB. Partnership\nC. Property\nD. Organization"
   },
   {
@@ -2688,11 +2688,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Currency appreciation"
+        "text": "Currency devaluation"
       },
       {
         "id": "B",
-        "text": "Currency devaluation"
+        "text": "Currency float"
       },
       {
         "id": "C",
@@ -2700,11 +2700,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Currency float"
+        "text": "Currency appreciation"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Currency depreciation.",
+    "explanation": "Effective interest rate calculates the exact annual return accounting for intra-year compounding frequencies, unlike nominal annual interest rates.",
     "rawSnippet": "What denotes in the fall in the exchange rate of one currency in terms of the others?\nA. Currency appreciation\nB. Currency devaluation\nC. Currency depreciation\nD. Currency float"
   },
   {
@@ -2721,11 +2721,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Standard cost"
+        "text": "Cost accounting"
       },
       {
         "id": "C",
-        "text": "Cost accounting"
+        "text": "Standard cost"
       },
       {
         "id": "D",
@@ -2733,7 +2733,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Cost of goods sold.",
+    "explanation": "In engineering economic analysis, Cost of goods sold is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "An accounting term that represents an inventory account adjustment.\nA. Cost of goods sold\nB. Standard cost\nC. Cost accounting\nD. Overhead cost"
   },
   {
@@ -2746,11 +2746,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Stock pile"
+        "text": "Buffer stock"
       },
       {
         "id": "B",
-        "text": "Buffer stock"
+        "text": "Stock pile"
       },
       {
         "id": "C",
@@ -2761,8 +2761,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Withheld stock"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Buffer stock.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, Buffer stock is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "It is a stock of a product which is held by a trade body or government as a means of regulating the price of that product.\nA. Stock pile\nB. Buffer stock\nC. Hoard stock\nD. Withheld stock"
   },
   {
@@ -2775,22 +2775,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Gross margin"
-      },
-      {
-        "id": "B",
-        "text": "Return of investment ratio"
-      },
-      {
-        "id": "C",
         "text": "Book value per share of common stock"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Gross margin"
+      },
+      {
+        "id": "C",
         "text": "Inventory turnover"
+      },
+      {
+        "id": "D",
+        "text": "Return of investment ratio"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Return of investment ratio — as used in this reviewer.",
     "rawSnippet": "What is the ratio of the net income to owner’s equity?\nA. Gross margin\nB. Return of investment ratio\nC. Book value per share of common stock\nD. Inventory turnover"
   },
@@ -2804,23 +2804,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Return clause"
-      },
-      {
-        "id": "B",
-        "text": "Callability"
-      },
-      {
-        "id": "C",
         "text": "Recall clause"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Return clause"
+      },
+      {
+        "id": "C",
         "text": "Call class"
+      },
+      {
+        "id": "D",
+        "text": "Callability"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Callability.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Callability is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What is the feature of some bonds whereby the issuer can redeem it before it matures?\nA. Return clause\nB. Callability\nC. Recall clause\nD. Call class"
   },
   {
@@ -2837,15 +2837,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Adolescence"
+        "text": "Failure depreciation"
       },
       {
         "id": "C",
-        "text": "Life depreciation"
+        "text": "Adolescence"
       },
       {
         "id": "D",
-        "text": "Failure depreciation"
+        "text": "Life depreciation"
       }
     ],
     "correctChoiceId": "A",
@@ -2862,23 +2862,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It has a perpetual life."
-      },
-      {
-        "id": "B",
         "text": "It will be dissolved if one of the partners ceases to be connected with the partnership."
       },
       {
+        "id": "B",
+        "text": "Its capitalization must be equal for each partner."
+      },
+      {
         "id": "C",
-        "text": "It can be handed down from one generation of partners to another."
+        "text": "It has a perpetual life."
       },
       {
         "id": "D",
-        "text": "Its capitalization must be equal for each partner."
+        "text": "It can be handed down from one generation of partners to another."
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is It will be dissolved if one of the partners ceases to be connected with the partnership.",
+    "correctChoiceId": "A",
+    "explanation": "In engineering economic analysis, It will be dissolved if one of the partners ceases to be connected with the partnership. is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Which is true about partnership?\nA. It has a perpetual life.\nB. It will be dissolved if one of the partners ceases to be connected with the partnership.\nC. It can be handed down from one generation of partners to another.\nD. Its capitalization must be equal for each partner."
   },
   {
@@ -2891,22 +2891,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Solvency"
-      },
-      {
-        "id": "B",
-        "text": "Liquidity"
-      },
-      {
-        "id": "C",
         "text": "Leverage"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Insolvency"
+      },
+      {
+        "id": "C",
+        "text": "Liquidity"
+      },
+      {
+        "id": "D",
+        "text": "Solvency"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "The ability to convert assets to cash quickly is known as Liquidity.",
     "rawSnippet": "The ability to convert assets to cash quickly is known as _____.\nA. Solvency\nB. Liquidity\nC. Leverage\nD. Insolvency"
   },
@@ -2920,23 +2920,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Assets = liability + owners’ equity"
-      },
-      {
-        "id": "B",
         "text": "Liability = assets + owners’ equity"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Owner’s equity = assets + liability"
+      },
+      {
+        "id": "C",
+        "text": "Assets = liability + owners’ equity"
       },
       {
         "id": "D",
         "text": "Owner’s equity = liability − assets"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Assets = liability + owners’ equity.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Assets = liability + owners’ equity is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What is the basic accounting equation?\nA. Assets = liability + owners’ equity\nB. Liability = assets + owners’ equity\nC. Owner’s equity = assets + liability\nD. Owner’s equity = liability − assets"
   },
   {
@@ -2953,15 +2953,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Insolvency"
-      },
-      {
-        "id": "C",
         "text": "Leverage"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Liquidity"
+      },
+      {
+        "id": "D",
+        "text": "Insolvency"
       }
     ],
     "correctChoiceId": "A",
@@ -2978,23 +2978,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line method"
-      },
-      {
-        "id": "B",
         "text": "Sinking fund method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Sum-of-year digit method"
+      },
+      {
+        "id": "C",
+        "text": "Straight line method"
       },
       {
         "id": "D",
         "text": "Declining balance method"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Sinking fund method.",
+    "correctChoiceId": "A",
+    "explanation": "Depreciation methods allocate the asset's initial cost minus salvage value over its useful life. The straight-line method yields equal annual depreciation charges.",
     "rawSnippet": "In what method of computing depreciation where it assumes that a sinking fund is established in which funds will accumulate for replacement purposes?\nA. Straight line method\nB. Sinking fund method\nC. Sum-of-year digit method\nD. Declining balance method"
   },
   {
@@ -3007,22 +3007,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Functional depreciation"
-      },
-      {
-        "id": "B",
         "text": "Design depreciation"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Physical depreciation"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Demand depreciation"
+      },
+      {
+        "id": "D",
+        "text": "Functional depreciation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Functional depreciation D. Demand depreciation also describes the specific cause stated.",
     "rawSnippet": "What type of depreciation is due to the reduction in the demand for the function that the equipment or asset was designed to render?\nA. Functional depreciation\nB. Design depreciation\nC. Physical depreciation\nD. Demand depreciation"
   },
@@ -3036,22 +3036,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sunk cost"
-      },
-      {
-        "id": "B",
         "text": "Economic life"
       },
       {
+        "id": "B",
+        "text": "Annuity"
+      },
+      {
         "id": "C",
-        "text": "In-place value"
+        "text": "Sunk cost"
       },
       {
         "id": "D",
-        "text": "Annuity"
+        "text": "In-place value"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "The unrecovered depreciation which results due to poor estimates as to the life of the equipment is called Sunk cost.",
     "rawSnippet": "The unrecovered depreciation which results due to poor estimates as to the life of the equipment is called _____.\nA. Sunk cost\nB. Economic life\nC. In-place value\nD. Annuity"
   },
@@ -3065,11 +3065,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The partners are not liable for the liabilities of the partnership."
+        "text": "The partners May sell stock to generate additional capital."
       },
       {
         "id": "B",
-        "text": "The partnership assets (excluding the partners personal assets) only will be used to pay the liabilities."
+        "text": "The partners are not liable for the liabilities of the partnership."
       },
       {
         "id": "C",
@@ -3077,11 +3077,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "The partners May sell stock to generate additional capital."
+        "text": "The partnership assets (excluding the partners personal assets) only will be used to pay the liabilities."
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is The partners personal assets are attached to the debt of the partnership.",
+    "explanation": "In engineering economic analysis, The partners personal assets are attached to the debt of the partnership. is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "In case of bankruptcy of a partnership,\nA. The partners are not liable for the liabilities of the partnership.\nB. The partnership assets (excluding the partners personal assets) only will be used to pay the liabilities.\nC. The partners personal assets are attached to the debt of the partnership.\nD. The partners May sell stock to generate additional capital."
   },
   {
@@ -3094,23 +3094,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sole proprietorship"
-      },
-      {
-        "id": "B",
         "text": "Partnership"
       },
       {
+        "id": "B",
+        "text": "Corporation"
+      },
+      {
         "id": "C",
-        "text": "Enterprise"
+        "text": "Sole proprietorship"
       },
       {
         "id": "D",
-        "text": "Corporation"
+        "text": "Enterprise"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Sole proprietorship.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Sole proprietorship is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What is the simplest form of business organization?\nA. Sole proprietorship\nB. Partnership\nC. Enterprise\nD. Corporation"
   },
   {
@@ -3123,11 +3123,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Worksheet"
+        "text": "Trial balance"
       },
       {
         "id": "B",
-        "text": "Trial balance"
+        "text": "Worksheet"
       },
       {
         "id": "C",
@@ -3139,7 +3139,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Ledger.",
+    "explanation": "In engineering economic analysis, Ledger is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A secondary book of accounts, the information of which is obtained from the journal.\nA. Worksheet\nB. Trial balance\nC. Balance sheet\nD. Ledger"
   },
   {
@@ -3152,7 +3152,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Rational method and irrational method"
+        "text": "Discrete method and depletion allowance method"
       },
       {
         "id": "B",
@@ -3160,15 +3160,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Unit method and percentage method"
+        "text": "Rational method and irrational method"
       },
       {
         "id": "D",
-        "text": "Discrete method and depletion allowance method"
+        "text": "Unit method and percentage method"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Unit method and percentage method.",
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Unit method and percentage method is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What are the common methods of computing depletion charge?\nA. Rational method and irrational method\nB. Conservative method and conventional method\nC. Unit method and percentage method\nD. Discrete method and depletion allowance method"
   },
   {
@@ -3181,11 +3181,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "T-bills"
+        "text": "Bank notes"
       },
       {
         "id": "B",
-        "text": "Bond"
+        "text": "T-bills"
       },
       {
         "id": "C",
@@ -3193,10 +3193,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Bank notes"
+        "text": "Bond"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Bond refers to a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund.",
     "rawSnippet": "Defined as a financial security note issued by business or corporation and by the government as a means of borrowing long-term fund.\nA. T-bills\nB. Bond\nC. Securities\nD. Bank notes"
   },
@@ -3210,23 +3210,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The ratio of sales to total assets"
-      },
-      {
-        "id": "B",
-        "text": "The ratio of total assets to equity"
-      },
-      {
-        "id": "C",
         "text": "Equity"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "The ratio of sales to total assets"
+      },
+      {
+        "id": "C",
         "text": "Any combination of (A), (B) and (C)"
+      },
+      {
+        "id": "D",
+        "text": "The ratio of total assets to equity"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Any combination of (A), (B) and (C).",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Any combination of (A), (B) and (C) is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A company is planning to grow 30% during the next fiscal year. What has to increase if the company is to achieve their goal?\nA. The ratio of sales to total assets\nB. The ratio of total assets to equity\nC. Equity\nD. Any combination of (A), (B) and (C)"
   },
   {
@@ -3239,11 +3239,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Straight line method"
+        "text": "SYD method"
       },
       {
         "id": "B",
-        "text": "Sinking fund method"
+        "text": "Straight line method"
       },
       {
         "id": "C",
@@ -3251,11 +3251,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "SYD method"
+        "text": "Sinking fund method"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Straight line method.",
+    "correctChoiceId": "B",
+    "explanation": "Depreciation methods allocate the asset's initial cost minus salvage value over its useful life. The straight-line method yields equal annual depreciation charges.",
     "rawSnippet": "A method of depreciation whereby the amount to recover is spread uniformly over the estimated life of the asset in terms of the periods or units of output.\nA. Straight line method\nB. Sinking fund method\nC. Declining balance method\nD. SYD method"
   },
   {
@@ -3268,22 +3268,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "sinking fund factor"
+        "text": "capital recovery factor"
       },
       {
         "id": "B",
-        "text": "single payment present worth factor"
+        "text": "sinking fund factor"
       },
       {
         "id": "C",
-        "text": "single payment compound amount factor"
+        "text": "single payment present worth factor"
       },
       {
         "id": "D",
-        "text": "capital recovery factor"
+        "text": "single payment compound amount factor"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "In the formula, P = F(1 + i)⁻ⁿ, the factor (1 + i)⁻ⁿ is called single payment present worth factor.",
     "rawSnippet": "In the formula, P = F(1 + i)⁻ⁿ, the factor (1 + i)⁻ⁿ is called _____.\nA. sinking fund factor\nB. single payment present worth factor\nC. single payment compound amount factor\nD. capital recovery factor"
   },
@@ -3296,22 +3296,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Deflation"
+        "text": "Depreciation"
       },
       {
         "id": "B",
-        "text": "Inflation"
-      },
-      {
-        "id": "C",
         "text": "Devaluation"
       },
       {
+        "id": "C",
+        "text": "Inflation"
+      },
+      {
         "id": "D",
-        "text": "Depreciation"
+        "text": "Deflation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Deflation is characterized by a general decrease in prices and output contraction."
   },
   {
@@ -3323,7 +3323,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Unstable economy"
+        "text": "The initial depreciation is low"
       },
       {
         "id": "B",
@@ -3335,10 +3335,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "The initial depreciation is low"
+        "text": "Unstable economy"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "In the sinking fund method, initial annual depreciation charges are artificially low because interest compounds slowly at first."
   },
   {
@@ -3350,22 +3350,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ordinary simple interest"
+        "text": "Exact simple interest"
       },
       {
         "id": "B",
-        "text": "Compound interest"
+        "text": "Ordinary simple interest"
       },
       {
         "id": "C",
-        "text": "Exact simple interest"
+        "text": "Compound interest"
       },
       {
         "id": "D",
         "text": "Effective interest"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Exact simple interest divides actual elapsed days by 365 (or 366 in leap years)."
   },
   {
@@ -3377,22 +3377,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "$7,472"
-      },
-      {
-        "id": "B",
         "text": "$13,439"
       },
       {
+        "id": "B",
+        "text": "$7,472"
+      },
+      {
         "id": "C",
-        "text": "$7,441"
+        "text": "$13,382"
       },
       {
         "id": "D",
-        "text": "$13,382"
+        "text": "$7,441"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "P = $10,000 / (1 + 0.03)^10 = $10,000 / 1.3439 = $7,440.94 ≈ $7,441."
   },
   {
@@ -3404,15 +3404,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P12,456.20"
-      },
-      {
-        "id": "B",
         "text": "P13,876.50"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "P10,345.80"
+      },
+      {
+        "id": "C",
+        "text": "P12,456.20"
       },
       {
         "id": "D",
@@ -3431,22 +3431,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "11.74%"
-      },
-      {
-        "id": "B",
         "text": "9.14%"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "8.24%"
+      },
+      {
+        "id": "C",
+        "text": "11.74%"
       },
       {
         "id": "D",
         "text": "10.94%"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Effective rate = (1 + 0.08/4)^4 - 1 = (1.02)^4 - 1 = 8.24%."
   },
   {
@@ -3459,7 +3459,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Supply"
+        "text": "Product"
       },
       {
         "id": "B",
@@ -3467,14 +3467,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Product"
+        "text": "Good"
       },
       {
         "id": "D",
-        "text": "Good"
+        "text": "Supply"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Supply refers to the amount of a product made available for sale.",
     "rawSnippet": "What refers to the amount of a product made available for sale?\nA. Supply\nB. Demand\nC. Product\nD. Good"
   },
@@ -3515,7 +3515,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Profit margin ratio"
+        "text": "Average age of receivables"
       },
       {
         "id": "B",
@@ -3523,15 +3523,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Return of investment ratio"
+        "text": "Profit margin ratio"
       },
       {
         "id": "D",
-        "text": "Average age of receivables"
+        "text": "Return of investment ratio"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Receivables turnover.",
+    "explanation": "In engineering economic analysis, Receivables turnover is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "What is a measure of the average speed with which accounts receivable are collected?\nA. Profit margin ratio\nB. Receivables turnover\nC. Return of investment ratio\nD. Average age of receivables"
   },
   {
@@ -3544,11 +3544,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Authorized stock"
+        "text": "Incorporator’s stock"
       },
       {
         "id": "B",
-        "text": "Incorporator’s stock"
+        "text": "Authorized stock"
       },
       {
         "id": "C",
@@ -3560,7 +3560,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Preferred stock.",
+    "explanation": "In engineering economic analysis, Preferred stock is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A type of stock that represents ownership and enjoys certain preferences than ordinary stock.\nA. Authorized stock\nB. Incorporator’s stock\nC. Preferred stock\nD. Presidential stock"
   },
   {
@@ -3576,18 +3576,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "18.5%"
-      },
-      {
-        "id": "C",
         "text": "18%"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "19.56%"
+      },
+      {
+        "id": "D",
+        "text": "18.5%"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "i_eff = (1 + 0.015)^12 - 1 = 19.56%."
   },
   {
@@ -3600,11 +3600,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sum of the years-digit"
+        "text": "Straight-line"
       },
       {
         "id": "B",
-        "text": "Straight-line"
+        "text": "Declining balance"
       },
       {
         "id": "C",
@@ -3612,10 +3612,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Declining balance"
+        "text": "Sum of the years-digit"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Declining balance “Constant rate” here means a constant percentage of the remaining book value.",
     "rawSnippet": "A depreciation method where the value of an asset decreases at a constant rate.\nA. Sum of the years-digit\nB. Straight-line\nC. Sinking fund\nD. Declining balance"
   },
@@ -3657,22 +3657,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Law of diminishing return"
-      },
-      {
-        "id": "B",
         "text": "Law of supply"
       },
       {
+        "id": "B",
+        "text": "Law of diminishing return"
+      },
+      {
         "id": "C",
-        "text": "Law of demand"
+        "text": "Law of supply and demand"
       },
       {
         "id": "D",
-        "text": "Law of supply and demand"
+        "text": "Law of demand"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The Law of Diminishing Returns states that adding more of one factor while others are fixed eventually yields smaller increases in output."
   },
   {
@@ -3684,7 +3684,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Registered bond"
+        "text": "Coupon bond"
       },
       {
         "id": "B",
@@ -3692,14 +3692,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Coupon bond"
+        "text": "Registered bond"
       },
       {
         "id": "D",
         "text": "Collateral trust bond"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Coupon bonds (bearer bonds) have detachable coupons surrendered to receive scheduled interest payments."
   },
   {
@@ -3711,22 +3711,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "12.40%"
+        "text": "12.75%"
       },
       {
         "id": "B",
-        "text": "11.26%"
+        "text": "12.40%"
       },
       {
         "id": "C",
-        "text": "12.75%"
+        "text": "11.26%"
       },
       {
         "id": "D",
         "text": "11.55%"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "i_eff = e^0.12 - 1 = 1.127497 - 1 = 12.75%."
   },
   {
@@ -3739,22 +3739,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "payback period"
-      },
-      {
-        "id": "B",
         "text": "return of investment"
       },
       {
+        "id": "B",
+        "text": "payback period"
+      },
+      {
         "id": "C",
-        "text": "receivable turnover"
+        "text": "redeemed period"
       },
       {
         "id": "D",
-        "text": "redeemed period"
+        "text": "receivable turnover"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called payback period.",
     "rawSnippet": "The length of time usually in years for the cumulative net annual profit to equal the initial investment is called _____.\nA. payback period\nB. return of investment\nC. receivable turnover\nD. redeemed period"
   },
@@ -3767,7 +3767,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Dividend"
+        "text": "Equity"
       },
       {
         "id": "B",
@@ -3775,14 +3775,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Equity"
+        "text": "Dividend"
       },
       {
         "id": "D",
         "text": "Par value"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Owner's equity represents residual assets after subtracting total external liabilities."
   },
   {
@@ -3798,7 +3798,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Arbitrage"
+        "text": "A priori"
       },
       {
         "id": "C",
@@ -3806,10 +3806,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "A priori"
+        "text": "Arbitrage"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Arbitrage exploits price differentials across markets for risk-free profit."
   },
   {
@@ -3825,15 +3825,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "$6,570"
-      },
-      {
-        "id": "C",
         "text": "$6,075"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "$6,057"
+      },
+      {
+        "id": "D",
+        "text": "$6,570"
       }
     ],
     "correctChoiceId": "A",
@@ -3849,11 +3849,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monopoly"
+        "text": "Cartel"
       },
       {
         "id": "B",
-        "text": "Cartel"
+        "text": "Competitors"
       },
       {
         "id": "C",
@@ -3861,10 +3861,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Competitors"
+        "text": "Monopoly"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block new comers form the industry is called Cartel.",
     "rawSnippet": "A formal organization of producers within an industry forming a perfect collusion purposely formed to increase profit and block new comers form the industry is called _____.\nA. Monopoly\nB. Cartel\nC. Corporation\nD. Competitors"
   },
@@ -3904,22 +3904,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monopoly"
-      },
-      {
-        "id": "B",
-        "text": "Cartel"
-      },
-      {
-        "id": "C",
         "text": "Corporation"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Competitors"
+      },
+      {
+        "id": "C",
+        "text": "Monopoly"
+      },
+      {
+        "id": "D",
+        "text": "Cartel"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "A cartel colludes to fix prices and production quotas."
   },
   {
@@ -3931,22 +3931,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Engineering cost analysis"
+        "text": "Design cost analysis"
       },
       {
         "id": "B",
-        "text": "Engineering economy"
+        "text": "Engineering cost analysis"
       },
       {
         "id": "C",
-        "text": "Economic Analysis"
+        "text": "Engineering economy"
       },
       {
         "id": "D",
-        "text": "Design cost analysis"
+        "text": "Economic Analysis"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Engineering Economy applies economic principles to engineer decision-making and project evaluation."
   },
   {
@@ -3959,23 +3959,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monopsony"
-      },
-      {
-        "id": "B",
         "text": "Oligopoly"
       },
       {
+        "id": "B",
+        "text": "Monopsony"
+      },
+      {
         "id": "C",
-        "text": "Monopoly"
+        "text": "Oligopsony"
       },
       {
         "id": "D",
-        "text": "Oligopsony"
+        "text": "Monopoly"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Monopsony.",
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Monopsony is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "A market situation whereby there is only one buyer of an item for which there is no goods substitute.\nA. Monopsony\nB. Oligopoly\nC. Monopoly\nD. Oligopsony"
   },
   {
@@ -3987,22 +3987,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monopsony"
-      },
-      {
-        "id": "B",
-        "text": "Oligopoly"
-      },
-      {
-        "id": "C",
         "text": "Monopoly"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Oligopsony"
+      },
+      {
+        "id": "C",
+        "text": "Monopsony"
+      },
+      {
+        "id": "D",
+        "text": "Oligopoly"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "A monopsony is a market condition where a single buyer controls demand from many sellers."
   },
   {
@@ -4015,7 +4015,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ready-made and made-to-order"
+        "text": "Raw and finished"
       },
       {
         "id": "B",
@@ -4023,7 +4023,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Raw and finished"
+        "text": "Ready-made and made-to-order"
       },
       {
         "id": "D",
@@ -4031,7 +4031,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Consumer and producer.",
+    "explanation": "In engineering economic analysis, Consumer and producer is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Two classifications of goods and services.\nA. Ready-made and made-to-order\nB. Consumer and producer\nC. Raw and finished\nD. Local and imported"
   },
   {
@@ -4044,7 +4044,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Current ratio"
+        "text": "Price-earnings ratio"
       },
       {
         "id": "B",
@@ -4056,11 +4056,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Price-earnings ratio"
+        "text": "Current ratio"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Quick ratio.",
+    "explanation": "In engineering economic analysis, Quick ratio is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Another term for “acid-test ratio”.\nA. Current ratio\nB. Profit margin ratio\nC. Quick ratio\nD. Price-earnings ratio"
   },
   {
@@ -4073,23 +4073,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Escalatory clause"
-      },
-      {
-        "id": "B",
         "text": "Specifications"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "General condition"
+      },
+      {
+        "id": "C",
+        "text": "Escalatory clause"
       },
       {
         "id": "D",
         "text": "Quasi-delects"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Escalatory clause.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Escalatory clause is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "Provisions in contract for construction to allow cost adjustments due to changes in cost of materials and statutory minimum wage.\nA. Escalatory clause\nB. Specifications\nC. General condition\nD. Quasi-delects"
   },
   {
@@ -4101,11 +4101,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Atomistic competition"
+        "text": "No-limit competition"
       },
       {
         "id": "B",
-        "text": "No-limit competition"
+        "text": "Atomistic competition"
       },
       {
         "id": "C",
@@ -4116,7 +4116,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Heterogeneous market"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Perfect competition is also referred to as atomistic competition because each firm is an atom negligible to the market."
   },
   {
@@ -4129,7 +4129,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Bond"
+        "text": "Promissory note"
       },
       {
         "id": "B",
@@ -4137,15 +4137,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "T-bills"
+        "text": "Bond"
       },
       {
         "id": "D",
-        "text": "Promissory note"
+        "text": "T-bills"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Bond.",
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Bond is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments.",
     "rawSnippet": "It is defined as the certificate of indebtedness of corporation usually for a period not less than 10 years and guaranteed by a mortgage on certain assets of a corporation.\nA. Bond\nB. Stock\nC. T-bills\nD. Promissory note"
   },
   {
@@ -4158,22 +4158,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Bond"
-      },
-      {
-        "id": "B",
-        "text": "Coupon"
-      },
-      {
-        "id": "C",
         "text": "Bank note"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Bond"
+      },
+      {
+        "id": "C",
         "text": "Check"
+      },
+      {
+        "id": "D",
+        "text": "Coupon"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Bond — intended answer among the choices. A security certificate is the more general term.",
     "rawSnippet": "A document that shows proof of legal ownership of a financial security.\nA. Bond\nB. Coupon\nC. Bank note\nD. Check"
   },
@@ -4186,22 +4186,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P10,834.38"
+        "text": "P10,200.56"
       },
       {
         "id": "B",
-        "text": "P10,382.90"
-      },
-      {
-        "id": "C",
         "text": "P10,586.99"
       },
       {
+        "id": "C",
+        "text": "P10,382.90"
+      },
+      {
         "id": "D",
-        "text": "P10,200.56"
+        "text": "P10,834.38"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "P = 2,000 * [1 - (1.03)^-6] / 0.03 = P10,834.38."
   },
   {
@@ -4214,11 +4214,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Stock"
+        "text": "Same value"
       },
       {
         "id": "B",
-        "text": "Same value"
+        "text": "Common stock"
       },
       {
         "id": "C",
@@ -4226,11 +4226,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Common stock"
+        "text": "Stock"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Stock.",
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, Stock represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Specifies a definite portion of ownership of the capital of the corporation, all of each being alike in value.\nA. Stock\nB. Same value\nC. Fair value\nD. Common stock"
   },
   {
@@ -4242,22 +4242,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monopsony"
-      },
-      {
-        "id": "B",
-        "text": "Oligopsony"
-      },
-      {
-        "id": "C",
         "text": "Oligopoly"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Monopoly"
+      },
+      {
+        "id": "C",
+        "text": "Monopsony"
+      },
+      {
+        "id": "D",
+        "text": "Oligopsony"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Monopoly is the exact market polar opposite of perfect competition."
   },
   {
@@ -4269,22 +4269,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "4.61%"
-      },
-      {
-        "id": "B",
         "text": "3.81%"
       },
       {
+        "id": "B",
+        "text": "4.61%"
+      },
+      {
         "id": "C",
-        "text": "5.71%"
+        "text": "11.0%"
       },
       {
         "id": "D",
-        "text": "11.0%"
+        "text": "5.71%"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Amount financed = 8,000. P/A = 8,000 / 750 = 10.667 for n=15 years => i = 4.61%."
   },
   {
@@ -4296,11 +4296,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P17,304.78"
+        "text": "P17,404.12"
       },
       {
         "id": "B",
-        "text": "P17,404.12"
+        "text": "P17,304.78"
       },
       {
         "id": "C",
@@ -4323,7 +4323,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P1,101.08"
+        "text": "P1,128.12"
       },
       {
         "id": "B",
@@ -4335,10 +4335,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "P1,128.12"
+        "text": "P1,101.08"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "i = 1%, n = 240 months. A = 100,000 * 0.01 / [1 - (1.01)^-240] = P1,101.08."
   },
   {
@@ -4354,7 +4354,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "P1,185.54"
+        "text": "P1,205.74"
       },
       {
         "id": "C",
@@ -4362,10 +4362,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "P1,205.74"
+        "text": "P1,185.54"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "A = 20,000 * 0.06 / [(1.06)^12 - 1] = P1,185.54."
   },
   {
@@ -4378,7 +4378,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "angle of friction"
+        "text": "angle of repose"
       },
       {
         "id": "B",
@@ -4386,14 +4386,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "angle of normal"
+        "text": "angle of friction"
       },
       {
         "id": "D",
-        "text": "angle of repose"
+        "text": "angle of normal"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "When a block is place on an inclined plane, its steepest inclination to which the block will be in equilibrium is called angle of repose.",
     "rawSnippet": "When a block is place on an inclined plane, its steepest inclination to which the block will be in equilibrium is called _____.\nA. angle of friction\nB. angle of reaction\nC. angle of normal\nD. angle of repose"
   },
@@ -4406,11 +4406,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Parallel force system"
+        "text": "Concurrent force system"
       },
       {
         "id": "B",
-        "text": "Concurrent force system"
+        "text": "Parallel force system"
       },
       {
         "id": "C",
@@ -4421,7 +4421,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Coplanar force system"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Concurrent forces all intersect at a common point of action."
   },
   {
@@ -4438,19 +4438,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "vector quantities"
+        "text": "scalar quantities"
       },
       {
         "id": "C",
-        "text": "system of forces"
+        "text": "vector quantities"
       },
       {
         "id": "D",
-        "text": "scalar quantities"
+        "text": "system of forces"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is scalar quantities.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, scalar quantities applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Quantities which possess magnitude.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4462,22 +4462,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Castigliano's theorem"
-      },
-      {
-        "id": "B",
         "text": "Varignon's theorem"
       },
       {
+        "id": "B",
+        "text": "Castigliano's theorem"
+      },
+      {
         "id": "C",
-        "text": "Bernoulli's theorem"
+        "text": "Lami's theorem"
       },
       {
         "id": "D",
-        "text": "Lami's theorem"
+        "text": "Bernoulli's theorem"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Varignon's theorem (principle of moments) establishes that the moment of a resultant equals the sum of moments of its components."
   },
   {
@@ -4494,19 +4494,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Kinematics"
-      },
-      {
-        "id": "C",
         "text": "Strength of materials"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Dynamics"
+      },
+      {
+        "id": "D",
+        "text": "Kinematics"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Dynamics.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of rigid body in motion under the action of forces?\nA. Statics\nB. Kinematics\nC. Strength of materials\nD. Dynamics"
   },
   {
@@ -4523,19 +4523,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "vector quantities"
+        "text": "scalar quantities"
       },
       {
         "id": "C",
-        "text": "system of forces"
+        "text": "vector quantities"
       },
       {
         "id": "D",
-        "text": "scalar quantities"
+        "text": "system of forces"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is vector quantities.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, vector quantities applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Quantities having both magnitude and direction.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4547,22 +4547,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Resultant force"
+        "text": "Equilibrant"
       },
       {
         "id": "B",
-        "text": "Couple"
+        "text": "Resultant force"
       },
       {
         "id": "C",
-        "text": "Equilibrant"
+        "text": "Couple"
       },
       {
         "id": "D",
         "text": "Torque reaction"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "A couple produces pure rotation with net force equal to zero."
   },
   {
@@ -4575,22 +4575,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "angle of thread"
+        "text": "angle of friction"
       },
       {
         "id": "B",
-        "text": "angle of lead"
+        "text": "angle of thread"
       },
       {
         "id": "C",
-        "text": "angle of friction"
+        "text": "angle of lead"
       },
       {
         "id": "D",
         "text": "angle of pitch"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "The angle of inclined plane of a jack screw is also known as angle of lead.",
     "rawSnippet": "The angle of inclined plane of a jack screw is also known as _____.\nA. angle of thread\nB. angle of lead\nC. angle of friction\nD. angle of pitch"
   },
@@ -4611,11 +4611,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Shear modulus"
+        "text": "Poisson ratio"
       },
       {
         "id": "D",
-        "text": "Poisson ratio"
+        "text": "Shear modulus"
       }
     ],
     "correctChoiceId": "B",
@@ -4639,15 +4639,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "kinematics"
+        "text": "kinetics"
       },
       {
         "id": "D",
-        "text": "kinetics"
+        "text": "kinematics"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is kinetics.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "Deals with the forces required to produced motion.\nA. statics\nB. dynamics\nC. kinematics\nD. kinetics"
   },
   {
@@ -4660,23 +4660,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "tensors"
-      },
-      {
-        "id": "B",
-        "text": "vector quantities"
-      },
-      {
-        "id": "C",
         "text": "system of forces"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "scalar quantities"
+      },
+      {
+        "id": "C",
+        "text": "vector quantities"
+      },
+      {
+        "id": "D",
+        "text": "tensors"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is system of forces.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, system of forces applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "When several forces act in a given situation.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -4688,7 +4688,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Secondary member"
+        "text": "Redundant member"
       },
       {
         "id": "B",
@@ -4696,7 +4696,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Redundant member"
+        "text": "Secondary member"
       },
       {
         "id": "D",
@@ -4745,23 +4745,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Axle"
-      },
-      {
-        "id": "B",
-        "text": "Incline plane"
-      },
-      {
-        "id": "C",
         "text": "Wedge"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Axle"
+      },
+      {
+        "id": "C",
         "text": "Belt"
+      },
+      {
+        "id": "D",
+        "text": "Incline plane"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Incline plane.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, Incline plane applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is usually used to move heavy loads by applying a relatively small force that the weight of the load?\nA. Axle\nB. Incline plane\nC. Wedge\nD. Belt"
   },
   {
@@ -4773,11 +4773,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Center of percussion"
+        "text": "Centroid"
       },
       {
         "id": "B",
-        "text": "Centroid"
+        "text": "Metacenter"
       },
       {
         "id": "C",
@@ -4785,10 +4785,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Metacenter"
+        "text": "Center of percussion"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The centroid is the geometric center of a plane area."
   },
   {
@@ -4805,19 +4805,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Dot vector"
+        "text": "Unit vector"
       },
       {
         "id": "C",
-        "text": "Unit vector"
+        "text": "Dot vector"
       },
       {
         "id": "D",
         "text": "Scalar vector"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Unit vector.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, Unit vector applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is a vector with a magnitude of one and with no unit?\nA. Single vector\nB. Dot vector\nC. Unit vector\nD. Scalar vector"
   },
   {
@@ -4830,22 +4830,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pappus Propositions"
+        "text": "Varignon's Theorem"
       },
       {
         "id": "B",
-        "text": "Principle of Transmissibility"
-      },
-      {
-        "id": "C",
         "text": "Parallelogram Law"
       },
       {
+        "id": "C",
+        "text": "Pappus Propositions"
+      },
+      {
         "id": "D",
-        "text": "Varignon's Theorem"
+        "text": "Principle of Transmissibility"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Two forces acting on a particle may be replaced by a single force called resultant which can be obtained by drawing diagonal of parallelogram which has the sides equal to the given forces. This statement is known as Parallelogram Law.",
     "rawSnippet": "Two forces acting on a particle may be replaced by a single force called resultant which can be obtained by drawing diagonal of parallelogram which has the sides equal to the given forces. This statement is known as _____.\nA. Pappus Propositions\nB. Principle of Transmissibility\nC. Parallelogram Law\nD. Varignon's Theorem"
   },
@@ -4858,22 +4858,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Perpendicular axis theorem"
-      },
-      {
-        "id": "B",
         "text": "Parallel axis theorem"
       },
       {
+        "id": "B",
+        "text": "Maxwell's theorem"
+      },
+      {
         "id": "C",
-        "text": "Mohr's theorem"
+        "text": "Perpendicular axis theorem"
       },
       {
         "id": "D",
-        "text": "Maxwell's theorem"
+        "text": "Mohr's theorem"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Parallel axis theorem: I = I_centroid + A * d^2."
   },
   {
@@ -4886,23 +4886,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "To describe the direction in space"
-      },
-      {
-        "id": "B",
-        "text": "To indicate a magnitude without reference to direction"
-      },
-      {
-        "id": "C",
         "text": "To serve as a comparison with other vectors"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "To set a standard among vectors"
+      },
+      {
+        "id": "C",
+        "text": "To indicate a magnitude without reference to direction"
+      },
+      {
+        "id": "D",
+        "text": "To describe the direction in space"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is To describe the direction in space.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, To describe the direction in space applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is the purpose of a unit vector?\nA. To describe the direction in space\nB. To indicate a magnitude without reference to direction\nC. To serve as a comparison with other vectors\nD. To set a standard among vectors"
   },
   {
@@ -4919,19 +4919,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "direction"
-      },
-      {
-        "id": "C",
         "text": "mass"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "force"
+      },
+      {
+        "id": "D",
+        "text": "direction"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is magnitude.",
+    "explanation": "In classical mechanics, magnitude applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is the intensity of the force.\nA. magnitude\nB. direction\nC. mass\nD. force"
   },
   {
@@ -4943,11 +4943,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Method of joints"
+        "text": "Method of sections"
       },
       {
         "id": "B",
-        "text": "Method of sections"
+        "text": "Method of joints"
       },
       {
         "id": "C",
@@ -4958,7 +4958,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Moment distribution method"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The method of sections isolates a portion of a truss by cutting through members and applying equilibrium equations."
   },
   {
@@ -4971,23 +4971,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Cross product"
+        "text": "Plus product"
       },
       {
         "id": "B",
-        "text": "Dot product"
-      },
-      {
-        "id": "C",
         "text": "Vector product"
       },
       {
+        "id": "C",
+        "text": "Cross product"
+      },
+      {
         "id": "D",
-        "text": "Plus product"
+        "text": "Dot product"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Cross product.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, Cross product applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is another term for vector product of two vectors?\nA. Cross product\nB. Dot product\nC. Vector product\nD. Plus product"
   },
   {
@@ -5004,11 +5004,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Cable is inextensible."
+        "text": "The weight of the cable is very small when compared to the loads supported by the cable."
       },
       {
         "id": "C",
-        "text": "The weight of the cable is very small when compared to the loads supported by the cable."
+        "text": "Cable is inextensible."
       },
       {
         "id": "D",
@@ -5016,7 +5016,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is All of the above.",
+    "explanation": "In classical mechanics, All of the above applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What assumption is used in the analysis of uniform flexible cables?\nA. Cable is flexible.\nB. Cable is inextensible.\nC. The weight of the cable is very small when compared to the loads supported by the cable.\nD. All of the above"
   },
   {
@@ -5029,7 +5029,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "equal 1"
+        "text": "equal to 0"
       },
       {
         "id": "B",
@@ -5037,14 +5037,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "greater than 1"
+        "text": "equal 1"
       },
       {
         "id": "D",
-        "text": "equal to 0"
+        "text": "greater than 1"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "The vector product of two parallel or antiparallel vectors is always equal to 0.",
     "rawSnippet": "The vector product of two parallel or antiparallel vectors is always _____.\nA. equal 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
@@ -5074,7 +5074,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is force.",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "The action of one body on another body which changes or tends to change the motion of the body acted on.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -5091,18 +5091,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "less than 1"
-      },
-      {
-        "id": "C",
         "text": "greater than 1"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "equal to 0"
+      },
+      {
+        "id": "D",
+        "text": "less than 1"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "The vector product of any vector with itself is equal to 0.",
     "rawSnippet": "The vector product of any vector with itself is _____.\nA. equal to 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
@@ -5116,23 +5116,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "collinear, non-coplanar"
-      },
-      {
-        "id": "B",
         "text": "collinear forces system"
       },
       {
+        "id": "B",
+        "text": "nonconcurrent, non-coplanar"
+      },
+      {
         "id": "C",
-        "text": "parallel, non-coplanar"
+        "text": "collinear, non-coplanar"
       },
       {
         "id": "D",
-        "text": "nonconcurrent, non-coplanar"
+        "text": "parallel, non-coplanar"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is parallel, non-coplanar.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, parallel, non-coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and not all lie in the same plane.\nA. collinear, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. nonconcurrent, non-coplanar"
   },
   {
@@ -5149,11 +5149,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Acceleration"
+        "text": "Velocity"
       },
       {
         "id": "C",
-        "text": "Velocity"
+        "text": "Acceleration"
       },
       {
         "id": "D",
@@ -5161,7 +5161,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Time.",
+    "explanation": "In classical mechanics, Time applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which is NOT a vector quantity?\nA. Displacement\nB. Acceleration\nC. Velocity\nD. Time"
   },
   {
@@ -5178,19 +5178,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Kinematics"
+        "text": "Kinetics"
       },
       {
         "id": "C",
-        "text": "dynamics"
+        "text": "Kinematics"
       },
       {
         "id": "D",
-        "text": "Kinetics"
+        "text": "dynamics"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Kinematics.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "Deals with the geometry of motion.\nA. statics\nB. Kinematics\nC. dynamics\nD. Kinetics"
   },
   {
@@ -5207,11 +5207,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Dot product"
+        "text": "Vector product"
       },
       {
         "id": "C",
-        "text": "Vector product"
+        "text": "Dot product"
       },
       {
         "id": "D",
@@ -5232,11 +5232,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "equilibrium condition in component form"
+        "text": "free body diagram"
       },
       {
         "id": "B",
-        "text": "free body diagram"
+        "text": "equilibrium condition in component form"
       },
       {
         "id": "C",
@@ -5248,7 +5248,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is linear spring.",
+    "explanation": "In classical mechanics, linear spring applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A mechanical device that can which exerts a force along its line of action and proportional to its extension.\nA. equilibrium condition in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -5261,11 +5261,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Speed"
+        "text": "Displacement"
       },
       {
         "id": "B",
-        "text": "Displacement"
+        "text": "Speed"
       },
       {
         "id": "C",
@@ -5276,8 +5276,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Acceleration"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Speed.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, Speed applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which of the following is a scalar quantity?\nA. Speed\nB. Displacement\nC. Velocity\nD. Acceleration"
   },
   {
@@ -5290,23 +5290,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "None"
+        "text": "3"
       },
       {
         "id": "B",
-        "text": "1"
-      },
-      {
-        "id": "C",
         "text": "2"
       },
       {
+        "id": "C",
+        "text": "1"
+      },
+      {
         "id": "D",
-        "text": "3"
+        "text": "None"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 1.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, 1 applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A link or cable support has how many reactions?\nA. None\nB. 1\nC. 2\nD. 3"
   },
   {
@@ -5327,15 +5327,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Vector product"
+        "text": "Plus product"
       },
       {
         "id": "D",
-        "text": "Plus product"
+        "text": "Vector product"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Dot product.",
+    "explanation": "In classical mechanics, Dot product applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is another term for a scalar product of two vectors?\nA. Cross product\nB. Dot product\nC. Vector product\nD. Plus product"
   },
   {
@@ -5348,22 +5348,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "2n − 3"
-      },
-      {
-        "id": "B",
-        "text": "n − 1"
-      },
-      {
-        "id": "C",
         "text": "2n − 1"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "2n − 3"
+      },
+      {
+        "id": "C",
         "text": "n − 2"
+      },
+      {
+        "id": "D",
+        "text": "n − 1"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "A framed structure is perfect if it contains member equal to 2n − 3.",
     "rawSnippet": "A framed structure is perfect if it contains member equal to _____.\nA. 2n − 3\nB. n − 1\nC. 2n − 1\nD. n − 2"
   },
@@ -5377,22 +5377,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "equal to 1"
+        "text": "equal to 0"
       },
       {
         "id": "B",
-        "text": "less than 1"
-      },
-      {
-        "id": "C",
         "text": "greater than 1"
       },
       {
+        "id": "C",
+        "text": "equal to 1"
+      },
+      {
         "id": "D",
-        "text": "equal to 0"
+        "text": "less than 1"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "The scalar product of two perpendicular vectors is always equal to 0.",
     "rawSnippet": "The scalar product of two perpendicular vectors is always _____.\nA. equal to 1\nB. less than 1\nC. greater than 1\nD. equal to 0"
   },
@@ -5406,23 +5406,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, non-coplanar"
-      },
-      {
-        "id": "B",
         "text": "collinear forces system"
       },
       {
+        "id": "B",
+        "text": "nonconcurrent, non-coplanar"
+      },
+      {
         "id": "C",
-        "text": "parallel, non-coplanar"
+        "text": "concurrent, non-coplanar"
       },
       {
         "id": "D",
-        "text": "nonconcurrent, non-coplanar"
+        "text": "parallel, non-coplanar"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is nonconcurrent, non-coplanar.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, nonconcurrent, non-coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces of the system are all not in the same plane, but they are all not parallel and do not all intersect at a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. nonconcurrent, non-coplanar"
   },
   {
@@ -5435,23 +5435,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "mass"
-      },
-      {
-        "id": "B",
         "text": "rigid body"
       },
       {
+        "id": "B",
+        "text": "mass"
+      },
+      {
         "id": "C",
-        "text": "force"
+        "text": "static body"
       },
       {
         "id": "D",
-        "text": "static body"
+        "text": "force"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is force.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is the action exerted by one body upon another.\nA. mass\nB. rigid body\nC. force\nD. static body"
   },
   {
@@ -5464,7 +5464,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pappus Propositions"
+        "text": "Parallelogram Law"
       },
       {
         "id": "B",
@@ -5472,11 +5472,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Parallelogram Law"
+        "text": "Varignon's Theorem"
       },
       {
         "id": "D",
-        "text": "Varignon's Theorem"
+        "text": "Pappus Propositions"
       }
     ],
     "correctChoiceId": "B",
@@ -5493,22 +5493,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Impulse"
+        "text": "Work"
       },
       {
         "id": "B",
-        "text": "Energy"
-      },
-      {
-        "id": "C",
         "text": "Force"
       },
       {
+        "id": "C",
+        "text": "Impulse"
+      },
+      {
         "id": "D",
-        "text": "Work"
+        "text": "Energy"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Force refers to any influence that can change the velocity of an object.",
     "rawSnippet": "What is defined as any influence that can change the velocity of an object?\nA. Impulse\nB. Energy\nC. Force\nD. Work"
   },
@@ -5526,7 +5526,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "μs = tan θ"
+        "text": "μs ≥ tan θ"
       },
       {
         "id": "C",
@@ -5534,10 +5534,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "μs ≥ tan θ"
+        "text": "μs = tan θ"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "A block of mass rests on a plane inclined at an angle θ with the horizontal. It follows that the coefficient of static friction between the block and plane is μs ≥ tan θ.",
     "rawSnippet": "A block of mass rests on a plane inclined at an angle θ with the horizontal. It follows that the coefficient of static friction between the block and plane is _____.\nA. μs ≤ θ\nB. μs = tan θ\nC. μs ≤ tan θ\nD. μs ≥ tan θ"
   },
@@ -5555,18 +5555,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "pounds"
-      },
-      {
-        "id": "C",
         "text": "pascal"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "newton"
+      },
+      {
+        "id": "D",
+        "text": "pounds"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "newton B. pounds is also a unit of force when referring to pound-force.",
     "rawSnippet": "A unit of force.\nA. meter squared\nB. pounds\nC. pascal\nD. newton"
   },
@@ -5596,7 +5596,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is non concurrent, coplanar.",
+    "explanation": "In classical mechanics, non concurrent, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces of the system are in the same plane, but they are not parallel and don't intersect in a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -5609,11 +5609,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parallelogram law"
+        "text": "triangle law"
       },
       {
         "id": "B",
-        "text": "resolution"
+        "text": "parallelogram law"
       },
       {
         "id": "C",
@@ -5621,11 +5621,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "triangle law"
+        "text": "resolution"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is parallelogram law.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, parallelogram law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is used to obtain the magnitude and direction of the resultant of any two concurrent forces.\nA. parallelogram law\nB. resolution\nC. composition\nD. triangle law"
   },
   {
@@ -5642,7 +5642,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Pin connection"
+        "text": "Roller"
       },
       {
         "id": "C",
@@ -5650,11 +5650,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Roller"
+        "text": "Pin connection"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Fixed support.",
+    "explanation": "In classical mechanics, Fixed support applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which support has one moment?\nA. Frictionless guide\nB. Pin connection\nC. Fixed support\nD. Roller"
   },
   {
@@ -5671,11 +5671,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "virtual"
+        "text": "conservative"
       },
       {
         "id": "C",
-        "text": "conservative"
+        "text": "virtual"
       },
       {
         "id": "D",
@@ -5700,15 +5700,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "resolution"
-      },
-      {
-        "id": "C",
         "text": "components"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "graphical"
+      },
+      {
+        "id": "D",
+        "text": "resolution"
       }
     ],
     "correctChoiceId": "A",
@@ -5725,23 +5725,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Vector diagram"
+        "text": "Resultant"
       },
       {
         "id": "B",
-        "text": "Component"
+        "text": "Vector diagram"
       },
       {
         "id": "C",
-        "text": "Vector"
+        "text": "Component"
       },
       {
         "id": "D",
-        "text": "Resultant"
+        "text": "Vector"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Vector.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, Vector applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is an arrowed line whose length is proportional to the magnitude of some vector quantity and whose direction is that of the quantity?\nA. Vector diagram\nB. Component\nC. Vector\nD. Resultant"
   },
   {
@@ -5754,23 +5754,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, coplanar"
-      },
-      {
-        "id": "B",
         "text": "collinear forces system"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "parallel, coplanar"
+      },
+      {
+        "id": "C",
+        "text": "concurrent, coplanar"
       },
       {
         "id": "D",
         "text": "non concurrent, coplanar"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is parallel, coplanar.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, parallel, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and all lie in the same plane.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -5783,23 +5783,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Vector diagram"
-      },
-      {
-        "id": "B",
-        "text": "Component"
-      },
-      {
-        "id": "C",
         "text": "Vector"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Resultant"
+      },
+      {
+        "id": "C",
+        "text": "Component"
+      },
+      {
+        "id": "D",
+        "text": "Vector diagram"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Vector diagram.",
+    "correctChoiceId": "D",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "What is scaled drawing of the various forces, velocities or other vector quantities involved in the motion of a body?\nA. Vector diagram\nB. Component\nC. Vector\nD. Resultant"
   },
   {
@@ -5812,11 +5812,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Unit analysis"
+        "text": "Dimensional analysis"
       },
       {
         "id": "B",
-        "text": "Dimensional analysis"
+        "text": "Unit analysis"
       },
       {
         "id": "C",
@@ -5827,7 +5827,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Homogeneity analysis"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Dimensional analysis refers to the branch of mathematics which deals with the dimensions of quantities.",
     "rawSnippet": "What refers to the branch of mathematics which deals with the dimensions of quantities?\nA. Unit analysis\nB. Dimensional analysis\nC. System analysis\nD. Homogeneity analysis"
   },
@@ -5841,7 +5841,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "couple"
+        "text": "resultant"
       },
       {
         "id": "B",
@@ -5849,15 +5849,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "resultant"
+        "text": "graphical"
       },
       {
         "id": "D",
-        "text": "graphical"
+        "text": "couple"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is resultant.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, resultant applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The simplest force system that can replace the original system without changing its external effect.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -5870,23 +5870,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parallelogram law"
-      },
-      {
-        "id": "B",
         "text": "equilibrium law"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "composition law"
+      },
+      {
+        "id": "C",
+        "text": "parallelogram law"
       },
       {
         "id": "D",
         "text": "action and reaction"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is parallelogram law.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, parallelogram law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The resultant of two forces which is the diagonal formed on a parallelogram of these forces.\nA. parallelogram law\nB. equilibrium law\nC. composition law\nD. action and reaction"
   },
   {
@@ -5899,11 +5899,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "couple"
+        "text": "graphical"
       },
       {
         "id": "B",
-        "text": "composition"
+        "text": "couple"
       },
       {
         "id": "C",
@@ -5911,11 +5911,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "graphical"
+        "text": "composition"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is composition.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, composition applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The process of replacing a force system by its resultant.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -5928,23 +5928,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parallelogram law"
-      },
-      {
-        "id": "B",
         "text": "equilibrium law"
       },
       {
+        "id": "B",
+        "text": "parallelogram law"
+      },
+      {
         "id": "C",
-        "text": "composition law"
+        "text": "action and reaction"
       },
       {
         "id": "D",
-        "text": "action and reaction"
+        "text": "composition law"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is action and reaction.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, action and reaction applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Any pressure from the support causes an equal and opposite pressure from the support.\nA. parallelogram law\nB. equilibrium law\nC. composition law\nD. action and reaction"
   },
   {
@@ -5957,7 +5957,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "couple"
+        "text": "graphical"
       },
       {
         "id": "B",
@@ -5965,15 +5965,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "resultant"
+        "text": "couple"
       },
       {
         "id": "D",
-        "text": "graphical"
+        "text": "resultant"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is graphical.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, graphical applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A pictorial representation in solving a system.\nA. couple\nB. composition\nC. resultant\nD. graphical"
   },
   {
@@ -5990,7 +5990,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Kinetics"
+        "text": "Dynamics"
       },
       {
         "id": "C",
@@ -5998,11 +5998,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Dynamics"
+        "text": "Kinetics"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Statics.",
+    "explanation": "In classical mechanics, Statics applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of stationary rigid body?\nA. Statics\nB. Kinetics\nC. Kinematics\nD. Dynamics"
   },
   {
@@ -6015,23 +6015,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parallelogram law"
-      },
-      {
-        "id": "B",
         "text": "cosine law"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "resolution"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "triangle law"
+      },
+      {
+        "id": "D",
+        "text": "parallelogram law"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is parallelogram law.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, parallelogram law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is used to obtain the magnitude and direction of the resultant of any two concurrent forces.\nA. parallelogram law\nB. cosine law\nC. resolution\nD. triangle law"
   },
   {
@@ -6048,15 +6048,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "coefficient of friction"
+        "text": "rolling friction constant"
       },
       {
         "id": "C",
-        "text": "coefficient of resistance"
+        "text": "coefficient of friction"
       },
       {
         "id": "D",
-        "text": "rolling friction constant"
+        "text": "coefficient of resistance"
       }
     ],
     "correctChoiceId": "A",
@@ -6077,18 +6077,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "weight"
-      },
-      {
-        "id": "C",
         "text": "mass and weight"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "volume"
+      },
+      {
+        "id": "D",
+        "text": "weight"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Center of gravity for a two dimensional body is the point at which the entire weight acts regardless of the orientation of the body.",
     "rawSnippet": "Center of gravity for a two dimensional body is the point at which the entire _____ acts regardless of the orientation of the body.\nA. mass\nB. weight\nC. mass and weight\nD. volume"
   },
@@ -6102,11 +6102,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "type of material"
+        "text": "dimensions"
       },
       {
         "id": "B",
-        "text": "dimensions"
+        "text": "none of the above"
       },
       {
         "id": "C",
@@ -6114,11 +6114,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "none of the above"
+        "text": "type of material"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is both A and B.",
+    "explanation": "In classical mechanics, both A and B applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which of the following affects the magnitude of rolling resistance an object generates?\nA. type of material\nB. dimensions\nC. both A and B\nD. none of the above"
   },
   {
@@ -6131,7 +6131,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "In static equilibrium"
+        "text": "Statically equilibrium"
       },
       {
         "id": "B",
@@ -6139,7 +6139,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Statically equilibrium"
+        "text": "In static equilibrium"
       },
       {
         "id": "D",
@@ -6160,23 +6160,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "factor of safety"
+        "text": "mechanical advantage"
       },
       {
         "id": "B",
-        "text": "mechanical factor"
+        "text": "factor of safety"
       },
       {
         "id": "C",
-        "text": "mechanical advantage"
+        "text": "mechanical factor"
       },
       {
         "id": "D",
         "text": "mechanical coefficient"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is mechanical advantage.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, mechanical advantage applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is the factor by which a mechanism multiplies the force put into it.\nA. factor of safety\nB. mechanical factor\nC. mechanical advantage\nD. mechanical coefficient"
   },
   {
@@ -6189,11 +6189,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, coplanar"
+        "text": "collinear forces system"
       },
       {
         "id": "B",
-        "text": "collinear forces system"
+        "text": "concurrent, coplanar"
       },
       {
         "id": "C",
@@ -6204,8 +6204,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "non concurrent, coplanar"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is concurrent, coplanar.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, concurrent, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces are in the same plane and intersect a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -6218,23 +6218,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Method of Joints"
-      },
-      {
-        "id": "B",
         "text": "Method of Section"
       },
       {
+        "id": "B",
+        "text": "Method of superposition"
+      },
+      {
         "id": "C",
-        "text": "Maxwell's diagram"
+        "text": "Method of Joints"
       },
       {
         "id": "D",
-        "text": "Method of superposition"
+        "text": "Maxwell's diagram"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Method of Section.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, Method of Section applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What method of determining the bar force of a truss if only few members are required to be studied?\nA. Method of Joints\nB. Method of Section\nC. Maxwell's diagram\nD. Method of superposition"
   },
   {
@@ -6247,7 +6247,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, coplanar"
+        "text": "non concurrent, coplanar"
       },
       {
         "id": "B",
@@ -6255,15 +6255,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "parallel, coplanar"
+        "text": "concurrent, coplanar"
       },
       {
         "id": "D",
-        "text": "non concurrent, coplanar"
+        "text": "parallel, coplanar"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is parallel, coplanar.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, parallel, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces of the system are parallel and lie in the same plane.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -6276,7 +6276,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "the center of the beam subjected to the distributed load"
+        "text": "the 2/3 point from the higher intensity side of the loading curve"
       },
       {
         "id": "B",
@@ -6284,15 +6284,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "the 1/3 point from the higher intensity side of the loading curve"
+        "text": "the center of the beam subjected to the distributed load"
       },
       {
         "id": "D",
-        "text": "the 2/3 point from the higher intensity side of the loading curve"
+        "text": "the 1/3 point from the higher intensity side of the loading curve"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is the centroid of the area of the loading curve.",
+    "explanation": "In classical mechanics, the centroid of the area of the loading curve applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The resulting force of a distributed load is always acting at:\nA. the center of the beam subjected to the distributed load\nB. the centroid of the area of the loading curve\nC. the 1/3 point from the higher intensity side of the loading curve\nD. the 2/3 point from the higher intensity side of the loading curve"
   },
   {
@@ -6305,23 +6305,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, non-coplanar"
+        "text": "non-concurrent, non-coplanar, non-parallel"
       },
       {
         "id": "B",
-        "text": "collinear forces system"
+        "text": "concurrent, non-coplanar"
       },
       {
         "id": "C",
-        "text": "parallel, non-coplanar"
+        "text": "collinear forces system"
       },
       {
         "id": "D",
-        "text": "non-concurrent, non-coplanar, non-parallel"
+        "text": "parallel, non-coplanar"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is concurrent, non-coplanar.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, concurrent, non-coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces are not in the same plane and intersect a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. non-concurrent, non-coplanar, non-parallel"
   },
   {
@@ -6334,23 +6334,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "component"
-      },
-      {
-        "id": "B",
-        "text": "polygon method"
-      },
-      {
-        "id": "C",
         "text": "moment of force"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "couple"
+      },
+      {
+        "id": "C",
+        "text": "polygon method"
+      },
+      {
+        "id": "D",
+        "text": "component"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is moment of force.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, moment of force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is used to check the results obtained from the resolution and composition method.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6363,23 +6363,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Chemical Equilibrium"
+        "text": "Gravitation"
       },
       {
         "id": "B",
-        "text": "invariant mass"
-      },
-      {
-        "id": "C",
         "text": "Equilibrium"
       },
       {
+        "id": "C",
+        "text": "Chemical Equilibrium"
+      },
+      {
         "id": "D",
-        "text": "Gravitation"
+        "text": "invariant mass"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Equilibrium.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, Equilibrium applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A condition in which all acting influences are canceled by others, resulting in a stable, balanced, or unchanging system.\nA. Chemical Equilibrium\nB. invariant mass\nC. Equilibrium\nD. Gravitation"
   },
   {
@@ -6392,11 +6392,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "twice the area under the loading curve"
+        "text": "half the area under the loading curve"
       },
       {
         "id": "B",
-        "text": "half the area under the loading curve"
+        "text": "twice the area under the loading curve"
       },
       {
         "id": "C",
@@ -6408,7 +6408,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is the area under the loading curve.",
+    "explanation": "In classical mechanics, the area under the loading curve applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The resultant force of a distributed load is always equal to:\nA. twice the area under the loading curve\nB. half the area under the loading curve\nC. the area under the loading curve\nD. one-fourth the area under the loading curve"
   },
   {
@@ -6421,22 +6421,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "unstable equilibrium"
-      },
-      {
-        "id": "B",
         "text": "stable equilibrium"
       },
       {
+        "id": "B",
+        "text": "translational equilibrium"
+      },
+      {
         "id": "C",
-        "text": "rotational equilibrium"
+        "text": "unstable equilibrium"
       },
       {
         "id": "D",
-        "text": "translational equilibrium"
+        "text": "rotational equilibrium"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "When the forces that act on an object have a vector sum of zero, the object is said to be in translational equilibrium.",
     "rawSnippet": "When the forces that act on an object have a vector sum of zero, the object is said to be in _____.\nA. unstable equilibrium\nB. stable equilibrium\nC. rotational equilibrium\nD. translational equilibrium"
   },
@@ -6450,23 +6450,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "component"
-      },
-      {
-        "id": "B",
         "text": "polygon method"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "moment of force"
+      },
+      {
+        "id": "C",
+        "text": "component"
       },
       {
         "id": "D",
         "text": "couple"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is moment of force.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, moment of force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is a vector quantity that is represented as a vector along the moment axis.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6479,23 +6479,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pappus proposition"
-      },
-      {
-        "id": "B",
         "text": "Varignon’s theorem"
       },
       {
+        "id": "B",
+        "text": "Pappus proposition"
+      },
+      {
         "id": "C",
-        "text": "D’ Alembert’s principle"
+        "text": "Newton’s method"
       },
       {
         "id": "D",
-        "text": "Newton’s method"
+        "text": "D’ Alembert’s principle"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Varignon’s theorem.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, Varignon’s theorem applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "“The sum of individual moments about a point caused by multiple concurrent forces is equal to the moment of the resultant force about the same point”. This statement is known as:\nA. Pappus proposition\nB. Varignon’s theorem\nC. D’ Alembert’s principle\nD. Newton’s method"
   },
   {
@@ -6512,19 +6512,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "addition of the vector"
-      },
-      {
-        "id": "C",
         "text": "equilibrium equation for a particle"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "particle"
+      },
+      {
+        "id": "D",
+        "text": "addition of the vector"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is equilibrium equation for a particle.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, equilibrium equation for a particle applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A particle is in equilibrium if the resultant of all forces acting on the particle is equal to zero.\nA. resolution of the vector\nB. addition of the vector\nC. equilibrium equation for a particle\nD. particle"
   },
   {
@@ -6537,23 +6537,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pappus Propositions"
+        "text": "Varignon’s Theorem"
       },
       {
         "id": "B",
-        "text": "Principle of Transmissibility"
-      },
-      {
-        "id": "C",
         "text": "Parallelogram Law"
       },
       {
+        "id": "C",
+        "text": "Principle of Transmissibility"
+      },
+      {
         "id": "D",
-        "text": "Varignon’s Theorem"
+        "text": "Pappus Propositions"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Principle of Transmissibility.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "“The condition of equilibrium or motion of a rigid body remains unchanged if a force acting at a given point of the rigid body is replaced by a force of same magnitude and direction, but acting at a different point provided that the two forces have the same line of action”. This statement is known as:\nA. Pappus Propositions\nB. Principle of Transmissibility\nC. Parallelogram Law\nD. Varignon’s Theorem"
   },
   {
@@ -6566,22 +6566,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parabolic cable"
-      },
-      {
-        "id": "B",
         "text": "catenary"
       },
       {
+        "id": "B",
+        "text": "parabolic cable"
+      },
+      {
         "id": "C",
-        "text": "projectile"
+        "text": "rotation"
       },
       {
         "id": "D",
-        "text": "rotation"
+        "text": "projectile"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "When the loading is distributed along the cable the cable is analyzed as a parabolic cable.",
     "rawSnippet": "When the loading is distributed along the cable the cable is analyzed as a _____.\nA. parabolic cable\nB. catenary\nC. projectile\nD. rotation"
   },
@@ -6595,22 +6595,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "When the sum of the two forces is equal to the third force."
+        "text": "All of the above"
       },
       {
         "id": "B",
-        "text": "When they are concurrent or parallel."
+        "text": "When the sum of the two forces is equal to the third force."
       },
       {
         "id": "C",
-        "text": "When they are coplanar."
+        "text": "When they are concurrent or parallel."
       },
       {
         "id": "D",
-        "text": "All of the above"
+        "text": "When they are coplanar."
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "All of the above In A, the vector sum of two forces must be equal and opposite to the third force.",
     "rawSnippet": "When will a three-force member be considered in equilibrium?\nA. When the sum of the two forces is equal to the third force.\nB. When they are concurrent or parallel.\nC. When they are coplanar.\nD. All of the above"
   },
@@ -6624,7 +6624,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "component"
+        "text": "moment of force"
       },
       {
         "id": "B",
@@ -6632,15 +6632,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "moment of force"
+        "text": "component"
       },
       {
         "id": "D",
         "text": "couple"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is component.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, component applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Means that three or more of two coplanar forces having the given force as the resultant.\nA. component\nB. polygon method\nC. moment of force\nD. couple"
   },
   {
@@ -6661,14 +6661,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Polygon Law"
+        "text": "Triangle Law of Forces"
       },
       {
         "id": "D",
-        "text": "Triangle Law of Forces"
+        "text": "Polygon Law"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "“If a number of concurrent forces acting simultaneously on a particle, are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of this system of forces is represented by the closing side of the polygon in the opposite in the opposite order”. This statement is known as Polygon Law.",
     "rawSnippet": "“If a number of concurrent forces acting simultaneously on a particle, are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of this system of forces is represented by the closing side of the polygon in the opposite in the opposite order”. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Polygon Law\nD. Triangle Law of Forces"
   },
@@ -6690,11 +6690,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "projectile"
+        "text": "rotation"
       },
       {
         "id": "D",
-        "text": "rotation"
+        "text": "projectile"
       }
     ],
     "correctChoiceId": "A",
@@ -6711,15 +6711,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "rolling resistance"
-      },
-      {
-        "id": "B",
         "text": "rolling friction"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "rolling torque"
+      },
+      {
+        "id": "C",
+        "text": "rolling resistance"
       },
       {
         "id": "D",
@@ -6727,7 +6727,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is either of the above.",
+    "explanation": "In classical mechanics, either of the above applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is the resistance that occurs when a round object such as a ball or tire rolls on a flat surface.\nA. rolling resistance\nB. rolling friction\nC. rolling torque\nD. either of the above"
   },
   {
@@ -6740,22 +6740,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "cantilever beam"
-      },
-      {
-        "id": "B",
         "text": "complex beam"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "simple beam"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "continuous beam"
+      },
+      {
+        "id": "D",
+        "text": "cantilever beam"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "continuous beam — intended answer. A continuous beam has more than two supports; the printed question is imprecise.",
     "rawSnippet": "A beam with more than one supports is called _____.\nA. cantilever beam\nB. complex beam\nC. simple beam\nD. continuous beam"
   },
@@ -6769,22 +6769,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "plane truss"
-      },
-      {
-        "id": "B",
-        "text": "ideal truss"
-      },
-      {
-        "id": "C",
         "text": "space truss"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "rigid truss"
+      },
+      {
+        "id": "C",
+        "text": "plane truss"
+      },
+      {
+        "id": "D",
+        "text": "ideal truss"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "A truss consisting of coplanar members is called plane truss.",
     "rawSnippet": "A truss consisting of coplanar members is called _____.\nA. plane truss\nB. ideal truss\nC. space truss\nD. rigid truss"
   },
@@ -6798,7 +6798,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0.002 – 0.0010"
+        "text": "0.3"
       },
       {
         "id": "B",
@@ -6810,10 +6810,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "0.3"
+        "text": "0.002 – 0.0010"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "The rolling resistance coefficient of rail road steel wheel on steel rail is 0.002 – 0.0010.",
     "rawSnippet": "The rolling resistance coefficient of rail road steel wheel on steel rail is _____.\nA. 0.002 – 0.0010\nB. 0.005\nC. 0.02\nD. 0.3"
   },
@@ -6827,23 +6827,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "None"
-      },
-      {
-        "id": "B",
-        "text": "2"
-      },
-      {
-        "id": "C",
         "text": "1"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "3"
+      },
+      {
+        "id": "C",
+        "text": "None"
+      },
+      {
+        "id": "D",
+        "text": "2"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 1.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, 1 applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A roller support has how many reactions?\nA. None\nB. 2\nC. 1\nD. 3"
   },
   {
@@ -6856,22 +6856,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "may be greater than or less than"
+        "text": "is equal to"
       },
       {
         "id": "B",
-        "text": "is greater than"
-      },
-      {
-        "id": "C",
         "text": "is less than"
       },
       {
+        "id": "C",
+        "text": "may be greater than or less than"
+      },
+      {
         "id": "D",
-        "text": "is equal to"
+        "text": "is greater than"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "may be greater than or less than The question does not specify the friction condition. For static equilibrium, the angle is less than or equal to the angle of friction.",
     "rawSnippet": "In the analysis of friction, the angle between the normal force and the resultant force _____ the angle of friction.\nA. may be greater than or less than\nB. is greater than\nC. is less than\nD. is equal to"
   },
@@ -6885,22 +6885,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "plane truss"
-      },
-      {
-        "id": "B",
         "text": "space truss"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "ideal truss"
+      },
+      {
+        "id": "C",
+        "text": "plane truss"
       },
       {
         "id": "D",
         "text": "rigid truss"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "A truss consisting of non-coplanar members is called space truss.",
     "rawSnippet": "A truss consisting of non-coplanar members is called _____.\nA. plane truss\nB. space truss\nC. ideal truss\nD. rigid truss"
   },
@@ -6918,7 +6918,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "2 reactions and 1 moment"
+        "text": "2 reactions and no moment"
       },
       {
         "id": "C",
@@ -6926,11 +6926,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "2 reactions and no moment"
+        "text": "2 reactions and 1 moment"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 2 reactions and 1 moment.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, 2 reactions and 1 moment applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A build-in, fixed support has how many reactions and moment?\nA. 1 reaction and 1 moment\nB. 2 reactions and 1 moment\nC. 1 reaction and 2 moments\nD. 2 reactions and no moment"
   },
   {
@@ -6943,11 +6943,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "cantilever beam"
+        "text": "simple beam"
       },
       {
         "id": "B",
-        "text": "simple beam"
+        "text": "continuous beam"
       },
       {
         "id": "C",
@@ -6955,10 +6955,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "continuous beam"
+        "text": "cantilever beam"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "mbiguous as printed. B. simple beam has two supports; D. continuous beam has more than two supports.",
     "rawSnippet": "A beam with more than one support is called _____.\nA. cantilever beam\nB. simple beam\nC. complex beam\nD. continuous beam"
   },
@@ -6988,7 +6988,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is resolution.",
+    "explanation": "In classical mechanics, resolution applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "An analytical method of finding the resultant of concurrent forces.\nA. parallelogram law\nB. resolution\nC. cosine law\nD. triangle law"
   },
   {
@@ -7001,11 +7001,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "shear force"
+        "text": "moment"
       },
       {
         "id": "B",
-        "text": "resultant force"
+        "text": "shear force"
       },
       {
         "id": "C",
@@ -7013,11 +7013,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "moment"
+        "text": "resultant force"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is moment.",
+    "correctChoiceId": "A",
+    "explanation": "In Philippine electrical law practice, moment represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The tendency of a force to cause rotation about a specific point or axis is called the:\nA. shear force\nB. resultant force\nC. tension\nD. moment"
   },
   {
@@ -7034,19 +7034,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Kinematics"
+        "text": "Kinetics"
       },
       {
         "id": "C",
-        "text": "Kinetics"
+        "text": "Kinematics"
       },
       {
         "id": "D",
         "text": "Dynamics"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Kinematics.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "What is the branch of engineering mechanics which refers to the study of rigid body in motion without reference to the force that causes the motion?\nA. Statics\nB. Kinematics\nC. Kinetics\nD. Dynamics"
   },
   {
@@ -7059,7 +7059,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A beam supported only at its ends."
+        "text": "A beam with more than two supports."
       },
       {
         "id": "B",
@@ -7067,15 +7067,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "A beam with more than two supports."
+        "text": "A beam supported only at its ends."
       },
       {
         "id": "D",
         "text": "A beam with only one support at the midspan."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is A beam supported only at its ends.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, A beam supported only at its ends. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is a simple beam?\nA. A beam supported only at its ends.\nB. A beam supported with a fixed support at one end and movable support at the other.\nC. A beam with more than two supports.\nD. A beam with only one support at the midspan."
   },
   {
@@ -7088,23 +7088,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "resistance"
+        "text": "motion"
       },
       {
         "id": "B",
-        "text": "friction"
-      },
-      {
-        "id": "C",
         "text": "pressure"
       },
       {
+        "id": "C",
+        "text": "friction"
+      },
+      {
         "id": "D",
-        "text": "motion"
+        "text": "resistance"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is friction.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, friction applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It may be defined as the contact resistance exerted by one body upon a second body when the second body moves or tends to move past the first body.\nA. resistance\nB. friction\nC. pressure\nD. motion"
   },
   {
@@ -7117,7 +7117,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "resultant of concurrent, coplanar"
+        "text": "non concurrent, coplanar"
       },
       {
         "id": "B",
@@ -7125,15 +7125,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "non concurrent, coplanar"
+        "text": "collinear, coplanar"
       },
       {
         "id": "D",
-        "text": "collinear, coplanar"
+        "text": "resultant of concurrent, coplanar"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is resultant of concurrent, coplanar.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, resultant of concurrent, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The determination of the resultant of 3 or more concurrent forces that are not collinear.\nA. resultant of concurrent, coplanar\nB. resolution of concurrent, coplanar\nC. non concurrent, coplanar\nD. collinear, coplanar"
   },
   {
@@ -7146,23 +7146,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Impending motion"
-      },
-      {
-        "id": "B",
-        "text": "Limiting load"
-      },
-      {
-        "id": "C",
         "text": "Dynamic Equilibrium"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Sliding Regime"
+      },
+      {
+        "id": "C",
+        "text": "Impending motion"
+      },
+      {
+        "id": "D",
+        "text": "Limiting load"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Impending motion.",
+    "correctChoiceId": "C",
+    "explanation": "For an object of mass m sliding on an inclined slope θ, normal force is N = mg cos θ. Thus, kinetic friction force equals f = μN = μ mg cos θ acting opposite to the movement.",
     "rawSnippet": "What term describes the condition when the applied external force reaches the maximum possible static friction force, and the body is on the verge of moving?\nA. Impending motion\nB. Limiting load\nC. Dynamic Equilibrium\nD. Sliding Regime"
   },
   {
@@ -7175,7 +7175,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "addition by the triangle and by the parallelogram law described by the figure."
+        "text": "addition of the vector"
       },
       {
         "id": "B",
@@ -7183,15 +7183,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "addition of the vector"
+        "text": "equilibrium equation for a particle"
       },
       {
         "id": "D",
-        "text": "equilibrium equation for a particle"
+        "text": "addition by the triangle and by the parallelogram law described by the figure."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is addition by the triangle and by the parallelogram law described by the figure.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, addition by the triangle and by the parallelogram law described by the figure. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Addition of non-concurrent, coplanar.\nA. addition by the triangle and by the parallelogram law described by the figure.\nB. resolution of the vector\nC. addition of the vector\nD. equilibrium equation for a particle"
   },
   {
@@ -7212,15 +7212,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Acts perpendicular to the surface."
+        "text": "Adjusts to equal the applied force, up to a limit."
       },
       {
         "id": "D",
-        "text": "Adjusts to equal the applied force, up to a limit."
+        "text": "Acts perpendicular to the surface."
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Adjusts to equal the applied force, up to a limit.",
+    "correctChoiceId": "C",
+    "explanation": "For an object of mass m sliding on an inclined slope θ, normal force is N = mg cos θ. Thus, kinetic friction force equals f = μN = μ mg cos θ acting opposite to the movement.",
     "rawSnippet": "The static friction is classified as a reactive force because it:\nA. Is always constant.\nB. Is independent of the applied force.\nC. Acts perpendicular to the surface.\nD. Adjusts to equal the applied force, up to a limit."
   },
   {
@@ -7233,23 +7233,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "slack side"
-      },
-      {
-        "id": "B",
         "text": "resistance side"
       },
       {
+        "id": "B",
+        "text": "drive side"
+      },
+      {
         "id": "C",
-        "text": "tight side"
+        "text": "slack side"
       },
       {
         "id": "D",
-        "text": "drive side"
+        "text": "tight side"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is slack side.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, slack side applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The term used to describe the side of the belt that requires the least amount of holding force to prevent it from slipping.\nA. slack side\nB. resistance side\nC. tight side\nD. drive side"
   },
   {
@@ -7266,19 +7266,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Remain unchanged"
-      },
-      {
-        "id": "C",
         "text": "Quadruple"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Halved"
+      },
+      {
+        "id": "D",
+        "text": "Remain unchanged"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Double.",
+    "explanation": "In classical mechanics, Double applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "If the normal load W acting on a rolling wheel is doubled, the rolling resistance force F will generally:\nA. Double\nB. Remain unchanged\nC. Quadruple\nD. Halved"
   },
   {
@@ -7291,23 +7291,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "principle of transmissibility of a force"
-      },
-      {
-        "id": "B",
-        "text": "axioms of mechanics"
-      },
-      {
-        "id": "C",
         "text": "characteristics of force"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Scalar and vector quantities"
+      },
+      {
+        "id": "C",
+        "text": "principle of transmissibility of a force"
+      },
+      {
+        "id": "D",
+        "text": "axioms of mechanics"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is principle of transmissibility of a force.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, principle of transmissibility of a force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The external effect of a force on a rigid body is the same for all points of application along its line of action.\nA. principle of transmissibility of a force\nB. axioms of mechanics\nC. characteristics of force\nD. Scalar and vector quantities"
   },
   {
@@ -7336,7 +7336,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is parallelogram law.",
+    "explanation": "In classical mechanics, parallelogram law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The resultant of two forces is the diagonal formed on two vectors of those forces.\nA. parallelogram law\nB. resolution\nC. cosine law\nD. triangle law"
   },
   {
@@ -7349,23 +7349,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "mass"
-      },
-      {
-        "id": "B",
         "text": "static body"
       },
       {
+        "id": "B",
+        "text": "mass"
+      },
+      {
         "id": "C",
-        "text": "rigid body"
+        "text": "force"
       },
       {
         "id": "D",
-        "text": "force"
+        "text": "rigid body"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is force.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is the action exerted by one body on another body.\nA. mass\nB. static body\nC. rigid body\nD. force"
   },
   {
@@ -7378,23 +7378,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "principle of transmissibility of a force"
-      },
-      {
-        "id": "B",
-        "text": "axioms of mechanics"
-      },
-      {
-        "id": "C",
         "text": "characteristics of force"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Scalar and vector quantities"
+      },
+      {
+        "id": "C",
+        "text": "axioms of mechanics"
+      },
+      {
+        "id": "D",
+        "text": "principle of transmissibility of a force"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is axioms of mechanics.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, axioms of mechanics applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The forces are in equilibrium only when equal in magnitude, opposite in direction and collinear in action.\nA. principle of transmissibility of a force\nB. axioms of mechanics\nC. characteristics of force\nD. Scalar and vector quantities"
   },
   {
@@ -7407,24 +7407,24 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "appears to act on the object from which the force of gravity comes."
+        "text": "centroid"
       },
       {
         "id": "B",
-        "text": "center of gravity"
+        "text": "appears to act on the object from which the force of gravity comes."
       },
       {
         "id": "C",
-        "text": "centroid"
+        "text": "center of gravity"
       },
       {
         "id": "D",
         "text": "center of mass Answer: No correct choice as printed. The choices do not identify a scalar quantity."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "rawSnippet": "It is a scalar quantity.\nA. appears to act on the object from which the force of gravity comes.\nB. center of gravity\nC. centroid\nD. center of mass Answer: No correct choice as printed. The choices do not identify a scalar quantity.",
-    "explanation": "The correct answer is appears to act on the object from which the force of gravity comes."
+    "explanation": "In classical mechanics, appears to act on the object from which the force of gravity comes. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces."
   },
   {
     "id": "pasted-1791624472555-63-1791624472559-7y27x",
@@ -7436,22 +7436,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It is the study that describes the motion of macroscopic objects."
-      },
-      {
-        "id": "B",
         "text": "quantum mechanics"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "classical mechanics"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "discrete mechanics"
+      },
+      {
+        "id": "D",
+        "text": "It is the study that describes the motion of macroscopic objects."
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "annot be determined as printed. The question and choices appear mismatched.",
     "rawSnippet": "All of the above are correct.\nA. It is the study that describes the motion of macroscopic objects.\nB. quantum mechanics\nC. classical mechanics\nD. discrete mechanics"
   },
@@ -7465,22 +7465,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "resolution of the vector"
-      },
-      {
-        "id": "B",
         "text": "addition of the vector"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "equilibrium equation for a particle"
+      },
+      {
+        "id": "C",
+        "text": "resolution of the vector"
       },
       {
         "id": "D",
         "text": "particle"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "annot be determined. The printed question is incomplete.",
     "rawSnippet": "No amount of mathematically tricks.\nA. resolution of the vector\nB. addition of the vector\nC. equilibrium equation for a particle\nD. particle"
   },
@@ -7498,7 +7498,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "The total frictional force is dependent on the area of contact between the two surfaces."
+        "text": "Frictional force is always less than the force required to prevent motion."
       },
       {
         "id": "C",
@@ -7506,10 +7506,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Frictional force is always less than the force required to prevent motion."
+        "text": "The total frictional force is dependent on the area of contact between the two surfaces."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "The total frictional force is dependent on the area of contact between the two surfaces. D is also incorrect as written; static friction can equal the force it balances.",
     "rawSnippet": "Which of the following statements about friction is FALSE?\nA. The frictional force acting on a surface is such as to oppose the tendency of one surface to slide relative to the other.\nB. The total frictional force is dependent on the area of contact between the two surfaces.\nC. The magnitude of the frictional force is equal to the force tending to move the body till the limiting value is reached.\nD. Frictional force is always less than the force required to prevent motion."
   },
@@ -7523,11 +7523,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "sliding vector"
+        "text": "free vector"
       },
       {
         "id": "B",
-        "text": "free vector"
+        "text": "sliding vector"
       },
       {
         "id": "C",
@@ -7538,8 +7538,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of the above"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is free vector.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, free vector applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is one whose space is not confined to be associated with a unique line in space.\nA. sliding vector\nB. free vector\nC. fixed vector\nD. none of the above"
   },
   {
@@ -7552,11 +7552,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "All forces act at the same point."
+        "text": "All forces have the same line of action."
       },
       {
         "id": "B",
-        "text": "All forces have the same line of action."
+        "text": "All forces act at the same point."
       },
       {
         "id": "C",
@@ -7567,8 +7567,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "All forces are in the same plane."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is All forces act at the same point.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, All forces act at the same point. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "What is a concurrent force system?\nA. All forces act at the same point.\nB. All forces have the same line of action.\nC. All forces are parallel with one another.\nD. All forces are in the same plane."
   },
   {
@@ -7585,19 +7585,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "collinear forces system"
-      },
-      {
-        "id": "C",
         "text": "parallel, coplanar"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "non concurrent, coplanar"
+      },
+      {
+        "id": "D",
+        "text": "collinear forces system"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is concurrent, coplanar.",
+    "explanation": "In classical mechanics, concurrent, coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces are in the same plane and intersect at a common point.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non concurrent, coplanar"
   },
   {
@@ -7610,22 +7610,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Couple"
-      },
-      {
-        "id": "B",
         "text": "Moment"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Torque"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "All of the above"
+      },
+      {
+        "id": "D",
+        "text": "Couple"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Couple refers to a pair of equal, opposite and parallel forces.",
     "rawSnippet": "What refers to a pair of equal, opposite and parallel forces?\nA. Couple\nB. Moment\nC. Torque\nD. All of the above"
   },
@@ -7643,7 +7643,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "vector quantities"
+        "text": "scalar quantities"
       },
       {
         "id": "C",
@@ -7651,11 +7651,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "scalar quantities"
+        "text": "vector quantities"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is tensors.",
+    "explanation": "In Philippine electrical law practice, tensors represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Quantities which possess magnitude but require two or more directional aspects.\nA. tensors\nB. vector quantities\nC. system of forces\nD. scalar quantities"
   },
   {
@@ -7672,7 +7672,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "collinear forces system"
+        "text": "non-concurrent, non-coplanar"
       },
       {
         "id": "C",
@@ -7680,11 +7680,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "non-concurrent, non-coplanar"
+        "text": "collinear forces system"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is concurrent, non-coplanar.",
+    "explanation": "In classical mechanics, concurrent, non-coplanar applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The action lines of all the forces are not in the same plane and intersect at a common point.\nA. concurrent, non-coplanar\nB. collinear forces system\nC. parallel, non-coplanar\nD. non-concurrent, non-coplanar"
   },
   {
@@ -7697,23 +7697,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "equilibrium equation in component form"
-      },
-      {
-        "id": "B",
         "text": "free body diagram"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "string or cable"
+      },
+      {
+        "id": "C",
+        "text": "equilibrium equation in component form"
       },
       {
         "id": "D",
         "text": "linear spring"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is string or cable.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, string or cable applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A mechanical device that can only transmit a tensile force along itself.\nA. equilibrium equation in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -7726,7 +7726,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1 reaction and 1 moment"
+        "text": "1 reaction and 2 moments"
       },
       {
         "id": "B",
@@ -7734,7 +7734,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "1 reaction and 2 moments"
+        "text": "1 reaction and 1 moment"
       },
       {
         "id": "D",
@@ -7742,7 +7742,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is 2 reactions and 1 moment.",
+    "explanation": "In classical mechanics, 2 reactions and 1 moment applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A built-in, fixed support has how many reactions and moment?\nA. 1 reaction and 1 moment\nB. 2 reactions and 1 moment\nC. 1 reaction and 2 moments\nD. 2 reactions and no moments"
   },
   {
@@ -7759,19 +7759,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "force"
+        "text": "mass"
       },
       {
         "id": "C",
-        "text": "mass"
+        "text": "force"
       },
       {
         "id": "D",
         "text": "static body"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is mass.",
+    "correctChoiceId": "B",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "A fixed body is the property of a body which determines its resistance to change in motion.\nA. rigid body\nB. force\nC. mass\nD. static body"
   },
   {
@@ -7784,7 +7784,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "mass"
+        "text": "rigid body"
       },
       {
         "id": "B",
@@ -7792,15 +7792,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "rigid body"
+        "text": "mass"
       },
       {
         "id": "D",
         "text": "static body"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is rigid body.",
+    "correctChoiceId": "A",
+    "explanation": "In Philippine electrical law practice, rigid body represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "A specific amount of matter all particles of which remain at fixed distance to each other.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -7813,11 +7813,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "statics"
+        "text": "kinetics"
       },
       {
         "id": "B",
-        "text": "Kinematics"
+        "text": "statics"
       },
       {
         "id": "C",
@@ -7825,11 +7825,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "kinetics"
+        "text": "Kinematics"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is kinetics.",
+    "correctChoiceId": "A",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "Deals with the forces required to produce motion.\nA. statics\nB. Kinematics\nC. dynamics\nD. kinetics"
   },
   {
@@ -7846,19 +7846,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "force"
+        "text": "rigid body"
       },
       {
         "id": "C",
-        "text": "rigid body"
+        "text": "force"
       },
       {
         "id": "D",
         "text": "static body"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is rigid body.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, rigid body applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is a definite amount of matter the parts of which are fixed in position relative to one another.\nA. mass\nB. force\nC. rigid body\nD. static body"
   },
   {
@@ -7871,7 +7871,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Natural force"
+        "text": "Non-conservative force"
       },
       {
         "id": "B",
@@ -7883,11 +7883,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Non-conservative force"
+        "text": "Natural force"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Conservative force.",
+    "explanation": "In classical mechanics, Conservative force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which property by which work done on a particle as it moves around any closed path is zero?\nA. Natural force\nB. Virtual force\nC. Conservative force\nD. Non-conservative force"
   },
   {
@@ -7904,18 +7904,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Parallelogram Law"
+        "text": "Triangle Law of Forces"
       },
       {
         "id": "C",
-        "text": "Varignon's Theorem"
+        "text": "Parallelogram Law"
       },
       {
         "id": "D",
-        "text": "Triangle Law of Forces"
+        "text": "Varignon's Theorem"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "If two forces acting simultaneously on a particle can be represented by the two sides of a triangle taken in order that the third side represents the resultant in the opposite order. This statement is known as Triangle Law of Forces.",
     "rawSnippet": "If two forces acting simultaneously on a particle can be represented by the two sides of a triangle taken in order that the third side represents the resultant in the opposite order. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Varignon's Theorem\nD. Triangle Law of Forces"
   },
@@ -7929,23 +7929,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "concurrent, coplanar"
+        "text": "non-concurrent, coplanar"
       },
       {
         "id": "B",
-        "text": "collinear forces system"
-      },
-      {
-        "id": "C",
         "text": "parallel, coplanar"
       },
       {
+        "id": "C",
+        "text": "collinear forces system"
+      },
+      {
         "id": "D",
-        "text": "non-concurrent, coplanar"
+        "text": "concurrent, coplanar"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is collinear forces system.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, collinear forces system applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "All forces of the system are in a common line action.\nA. concurrent, coplanar\nB. collinear forces system\nC. parallel, coplanar\nD. non-concurrent, coplanar"
   },
   {
@@ -7958,23 +7958,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "equilibrium equation in component form"
-      },
-      {
-        "id": "B",
         "text": "free body diagram"
       },
       {
+        "id": "B",
+        "text": "equilibrium equation in component form"
+      },
+      {
         "id": "C",
-        "text": "string or cable"
+        "text": "linear spring"
       },
       {
         "id": "D",
-        "text": "linear spring"
+        "text": "string or cable"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is equilibrium equation in component form.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, equilibrium equation in component form applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "In a rectangular coordinate system the equilibrium equations can be represented by three scalar equations.\nA. equilibrium equation in component form\nB. free body diagram\nC. string or cable\nD. linear spring"
   },
   {
@@ -7987,23 +7987,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "bending"
-      },
-      {
-        "id": "B",
-        "text": "deformation"
-      },
-      {
-        "id": "C",
         "text": "scattering"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "bending"
+      },
+      {
+        "id": "C",
         "text": "compression"
+      },
+      {
+        "id": "D",
+        "text": "deformation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is deformation.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, deformation applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Results when a body is acted upon by the force.\nA. bending\nB. deformation\nC. scattering\nD. compression"
   },
   {
@@ -8024,15 +8024,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "coplanar"
+        "text": "parallelogram law"
       },
       {
         "id": "D",
-        "text": "parallelogram law"
+        "text": "coplanar"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is equilibrium.",
+    "explanation": "In classical mechanics, equilibrium applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A system of forces acting on a body which has no resultant.\nA. free body\nB. equilibrium\nC. coplanar\nD. parallelogram law"
   },
   {
@@ -8049,11 +8049,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Resolution"
+        "text": "Cosine law"
       },
       {
         "id": "C",
-        "text": "Cosine law"
+        "text": "Resolution"
       },
       {
         "id": "D",
@@ -8061,7 +8061,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Triangle law.",
+    "explanation": "In classical mechanics, Triangle law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is a convenient corollary of the parallelogram law.\nA. Parallelogram Law\nB. Resolution\nC. Cosine law\nD. Triangle law"
   },
   {
@@ -8074,22 +8074,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Principle of Transmissibility"
+        "text": "Polygon Law"
       },
       {
         "id": "B",
-        "text": "Parallelogram Law"
+        "text": "Principle of Transmissibility"
       },
       {
         "id": "C",
-        "text": "Polygon Law"
+        "text": "Parallelogram Law"
       },
       {
         "id": "D",
         "text": "Triangle Law of Forces"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "If two or more concurrent forces acting simultaneously on a particle are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of the system of forces is represented by the closing side of the polygon but opposite in the opposite order. This statement is known as Polygon Law.",
     "rawSnippet": "If two or more concurrent forces acting simultaneously on a particle are represented in magnitude and direction by the sides of polygon taken in order, then the resultant of the system of forces is represented by the closing side of the polygon but opposite in the opposite order. This statement is known as _____.\nA. Principle of Transmissibility\nB. Parallelogram Law\nC. Polygon Law\nD. Triangle Law of Forces"
   },
@@ -8119,7 +8119,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is mechanics.",
+    "explanation": "In Philippine electrical law practice, mechanics represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "It is the science which deals with bodies in motion or at rest with specific attention being directed primarily to the external effects of a force or a system.\nA. statics\nB. dynamics\nC. kinetics\nD. mechanics"
   },
   {
@@ -8132,23 +8132,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "power of a couple"
-      },
-      {
-        "id": "B",
-        "text": "work of a force"
-      },
-      {
-        "id": "C",
         "text": "work of a couple"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "power of a couple"
+      },
+      {
+        "id": "C",
         "text": "work-energy relation"
+      },
+      {
+        "id": "D",
+        "text": "work of a force"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is work of a force.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, work of a force applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "One calculates the work of a force on a rigid body exactly the same as one would calculate the work for a particle.\nA. power of a couple\nB. work of a force\nC. work of a couple\nD. work-energy relation"
   },
   {
@@ -8161,23 +8161,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "couple"
-      },
-      {
-        "id": "B",
         "text": "statical"
       },
       {
+        "id": "B",
+        "text": "couple"
+      },
+      {
         "id": "C",
-        "text": "composition"
+        "text": "graphical"
       },
       {
         "id": "D",
-        "text": "graphical"
+        "text": "composition"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is couple.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, couple applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A pair of parallel forces having same magnitude but opposite senses.\nA. couple\nB. statical\nC. composition\nD. graphical"
   },
   {
@@ -8206,7 +8206,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is free body diagram.",
+    "explanation": "In classical mechanics, free body diagram applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Is a sketch of a body completely isolated or free from all other bodies.\nA. free body diagram\nB. equilibrium\nC. coplanar\nD. force"
   },
   {
@@ -8219,7 +8219,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "reactant"
+        "text": "buoyant"
       },
       {
         "id": "B",
@@ -8227,7 +8227,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "buoyant"
+        "text": "reactant"
       },
       {
         "id": "D",
@@ -8235,7 +8235,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is equilibrant.",
+    "explanation": "In classical mechanics, equilibrant applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is an additional force that exactly balances a resultant force.\nA. reactant\nB. equilibrant\nC. buoyant\nD. reverse effective force"
   },
   {
@@ -8248,22 +8248,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Nuclear force"
-      },
-      {
-        "id": "B",
-        "text": "External force"
-      },
-      {
-        "id": "C",
         "text": "Internal force"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Concentrated force"
+      },
+      {
+        "id": "C",
+        "text": "External force"
+      },
+      {
+        "id": "D",
+        "text": "Nuclear force"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Internal force refers to the force that holds part of the rigid body together.",
     "rawSnippet": "What refers to the force that holds part of the rigid body together?\nA. Nuclear force\nB. External force\nC. Internal force\nD. Concentrated force"
   },
@@ -8277,23 +8277,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "couple"
-      },
-      {
-        "id": "B",
         "text": "resultant"
       },
       {
+        "id": "B",
+        "text": "graphical"
+      },
+      {
         "id": "C",
-        "text": "composition"
+        "text": "couple"
       },
       {
         "id": "D",
-        "text": "graphical"
+        "text": "composition"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is graphical.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, graphical applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A pictorial presentation in solving a system.\nA. couple\nB. resultant\nC. composition\nD. graphical"
   },
   {
@@ -8306,11 +8306,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "statically determinate"
+        "text": "statically indeterminate"
       },
       {
         "id": "B",
-        "text": "statically indeterminate"
+        "text": "statically determinate"
       },
       {
         "id": "C",
@@ -8321,7 +8321,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "dynamically indeterminate"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "A structure is statically indeterminate when the static equilibrium equations are not sufficient for determining the internal forces and the reactions on that structure.",
     "rawSnippet": "A structure is _____ when the static equilibrium equations are not sufficient for determining the internal forces and the reactions on that structure.\nA. statically determinate\nB. statically indeterminate\nC. dynamically determinate\nD. dynamically indeterminate"
   },
@@ -8335,23 +8335,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parallelogram law"
+        "text": "equilibrium law"
       },
       {
         "id": "B",
-        "text": "action and reaction"
+        "text": "parallelogram law"
       },
       {
         "id": "C",
-        "text": "superposition law"
+        "text": "action and reaction"
       },
       {
         "id": "D",
-        "text": "equilibrium law"
+        "text": "superposition law"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is superposition law.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, superposition law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Two forces on a rigid body will in no way to be changed if one added or subtract from them another system of forces in equilibrium.\nA. parallelogram law\nB. action and reaction\nC. superposition law\nD. equilibrium law"
   },
   {
@@ -8364,23 +8364,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "statics"
-      },
-      {
-        "id": "B",
-        "text": "thermodynamics"
-      },
-      {
-        "id": "C",
         "text": "kinetics"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "mechanics"
+      },
+      {
+        "id": "C",
+        "text": "statics"
+      },
+      {
+        "id": "D",
+        "text": "thermodynamics"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is statics.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, statics applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Deals with the conditions of equilibrium of rigid bodies acted upon by a balanced system of forces.\nA. statics\nB. thermodynamics\nC. kinetics\nD. mechanics"
   },
   {
@@ -8397,19 +8397,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "the sense of the plane of the couple"
+        "text": "the moment of the couple"
       },
       {
         "id": "C",
-        "text": "the sense of rotation of the couple"
+        "text": "the sense of the plane of the couple"
       },
       {
         "id": "D",
-        "text": "the moment of the couple"
+        "text": "the sense of rotation of the couple"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is the moment of the couple.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, the moment of the couple applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The algebraic sum of the moment of its forces about any axis perpendicular to the plane of the couple.\nA. the magnitude of the couple\nB. the sense of the plane of the couple\nC. the sense of rotation of the couple\nD. the moment of the couple"
   },
   {
@@ -8422,23 +8422,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "mass"
+        "text": "direction"
       },
       {
         "id": "B",
-        "text": "density"
+        "text": "mass"
       },
       {
         "id": "C",
-        "text": "weight"
+        "text": "density"
       },
       {
         "id": "D",
-        "text": "direction"
+        "text": "weight"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is weight.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, weight applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The force of attraction of the earth on a body.\nA. mass\nB. density\nC. weight\nD. direction"
   },
   {
@@ -8451,7 +8451,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Engineering Mechanics"
+        "text": "Mechanics of Materials"
       },
       {
         "id": "B",
@@ -8459,15 +8459,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Mechanics of Materials"
+        "text": "Engineering Mechanics"
       },
       {
         "id": "D",
         "text": "Strength of Materials"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Engineering Mechanics.",
+    "correctChoiceId": "C",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "What is the science that describes and predicts the effect on bodies at rest or in motion by forces acting on it?\nA. Engineering Mechanics\nB. Theory of Structures\nC. Mechanics of Materials\nD. Strength of Materials"
   },
   {
@@ -8479,22 +8479,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Kinetics"
+        "text": "Statics"
       },
       {
         "id": "B",
-        "text": "Kinematics"
+        "text": "Kinetics"
       },
       {
         "id": "C",
-        "text": "Statics"
+        "text": "Kinematics"
       },
       {
         "id": "D",
         "text": "Dynamics"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Kinematics is the study of geometry of motion regardless of forces."
   },
   {
@@ -8506,22 +8506,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Linear momentum"
+        "text": "Power"
       },
       {
         "id": "B",
-        "text": "Impulse"
+        "text": "Linear momentum"
       },
       {
         "id": "C",
-        "text": "Work"
+        "text": "Impulse"
       },
       {
         "id": "D",
-        "text": "Power"
+        "text": "Work"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Impulse equals the change in linear momentum."
   },
   {
@@ -8550,7 +8550,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Distance traveled.",
+    "explanation": "In Philippine electrical law practice, Distance traveled represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The total length of the path traveled by a particle, irrespective of the direction of travel, is called:\nA. Position vector\nB. Average velocity\nC. Distance traveled\nD. Displacement"
   },
   {
@@ -8562,11 +8562,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Tangential acceleration"
+        "text": "Angular acceleration"
       },
       {
         "id": "B",
-        "text": "Normal acceleration"
+        "text": "Tangential acceleration"
       },
       {
         "id": "C",
@@ -8574,10 +8574,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Angular acceleration"
+        "text": "Normal acceleration"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Normal (centripetal) acceleration acts perpendicular to the tangent towards the center of curvature."
   },
   {
@@ -8594,7 +8594,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "displacement"
+        "text": "acceleration"
       },
       {
         "id": "C",
@@ -8602,11 +8602,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "acceleration"
+        "text": "displacement"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is velocity.",
+    "explanation": "In Philippine electrical law practice, velocity represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Which term describes the rate of change of an object’s position with respect to time, including both magnitude and direction?\nA. speed\nB. displacement\nC. velocity\nD. acceleration"
   },
   {
@@ -8618,7 +8618,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Hamilton's principle"
+        "text": "Bernoulli's principle"
       },
       {
         "id": "B",
@@ -8626,7 +8626,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Bernoulli's principle"
+        "text": "Hamilton's principle"
       },
       {
         "id": "D",
@@ -8646,11 +8646,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "displacement"
+        "text": "acceleration"
       },
       {
         "id": "B",
-        "text": "acceleration"
+        "text": "displacement"
       },
       {
         "id": "C",
@@ -8661,8 +8661,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of the above"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is acceleration.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, acceleration applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "It is defined as the time rate of change of velocity.\nA. displacement\nB. acceleration\nC. speed\nD. none of the above"
   },
   {
@@ -8674,22 +8674,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Coefficient of restitution"
+        "text": "Efficiency ratio"
       },
       {
         "id": "B",
-        "text": "Coefficient of friction"
+        "text": "Coefficient of restitution"
       },
       {
         "id": "C",
-        "text": "Mechanical advantage"
+        "text": "Coefficient of friction"
       },
       {
         "id": "D",
-        "text": "Efficiency ratio"
+        "text": "Mechanical advantage"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The coefficient of restitution (e) measures impact elasticity."
   },
   {
@@ -8706,11 +8706,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "curve linear translation"
+        "text": "parallel axis"
       },
       {
         "id": "C",
-        "text": "parallel axis"
+        "text": "curve linear translation"
       },
       {
         "id": "D",
@@ -8730,7 +8730,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Kinetic energy"
+        "text": "Momentum"
       },
       {
         "id": "B",
@@ -8742,7 +8742,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Momentum"
+        "text": "Kinetic energy"
       }
     ],
     "correctChoiceId": "B",
@@ -8758,22 +8758,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "rectilinear translation"
-      },
-      {
-        "id": "B",
-        "text": "parallel axes"
-      },
-      {
-        "id": "C",
         "text": "curve linear translation"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "none of the above"
+      },
+      {
+        "id": "C",
+        "text": "rectilinear translation"
+      },
+      {
+        "id": "D",
+        "text": "parallel axes"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "The path of the translating body is curved, the motion becomes curve linear translation.",
     "rawSnippet": "The path of the translating body is curved, the motion becomes _____.\nA. rectilinear translation\nB. parallel axes\nC. curve linear translation\nD. none of the above"
   },
@@ -8786,7 +8786,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "30 degrees"
+        "text": "60 degrees"
       },
       {
         "id": "B",
@@ -8794,7 +8794,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "60 degrees"
+        "text": "30 degrees"
       },
       {
         "id": "D",
@@ -8814,22 +8814,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "displacement"
-      },
-      {
-        "id": "B",
         "text": "mass"
       },
       {
+        "id": "B",
+        "text": "acceleration"
+      },
+      {
         "id": "C",
-        "text": "velocity"
+        "text": "displacement"
       },
       {
         "id": "D",
-        "text": "acceleration"
+        "text": "velocity"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "The area under a v-t curve represents the change in displacement.",
     "rawSnippet": "The area under a v-t curve represents the change in _____.\nA. displacement\nB. mass\nC. velocity\nD. acceleration"
   },
@@ -8872,23 +8872,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Uniform rectilinear motion."
-      },
-      {
-        "id": "B",
         "text": "Deceleration."
       },
       {
+        "id": "B",
+        "text": "Uniform rectilinear motion."
+      },
+      {
         "id": "C",
-        "text": "Non-uniform velocity, uniform acceleration."
+        "text": "Uniform velocity, non-zero acceleration."
       },
       {
         "id": "D",
-        "text": "Uniform velocity, non-zero acceleration."
+        "text": "Non-uniform velocity, uniform acceleration."
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Non-uniform velocity, uniform acceleration.",
+    "correctChoiceId": "D",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "If a particle’s acceleration is constant and in the same direction as its velocity, the particle is undergoing:\nA. Uniform rectilinear motion.\nB. Deceleration.\nC. Non-uniform velocity, uniform acceleration.\nD. Uniform velocity, non-zero acceleration."
   },
   {
@@ -8901,23 +8901,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Zero, and its acceleration must be a maximum."
-      },
-      {
-        "id": "B",
         "text": "Zero, but its acceleration is not necessarily zero."
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Maximum and its acceleration is zero."
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Minimum, but its acceleration must be zero."
+      },
+      {
+        "id": "D",
+        "text": "Zero, and its acceleration must be a maximum."
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Zero, but its acceleration is not necessarily zero.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, Zero, but its acceleration is not necessarily zero. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "When a particle is moving along a straight line and momentarily stops, at that exact instant, its velocity is:\nA. Zero, and its acceleration must be a maximum.\nB. Zero, but its acceleration is not necessarily zero.\nC. Maximum and its acceleration is zero.\nD. Minimum, but its acceleration must be zero."
   },
   {
@@ -8930,23 +8930,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The normal force."
-      },
-      {
-        "id": "B",
-        "text": "The resultant of all external forces."
-      },
-      {
-        "id": "C",
         "text": "The force of air resistance."
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "The force of gravity (weight)."
+      },
+      {
+        "id": "C",
+        "text": "The resultant of all external forces."
+      },
+      {
+        "id": "D",
+        "text": "The normal force."
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is The force of gravity (weight).",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, The force of gravity (weight). applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "A body is defined as being in free fall if the only force acting upon it is:\nA. The normal force.\nB. The resultant of all external forces.\nC. The force of air resistance.\nD. The force of gravity (weight)."
   },
   {
@@ -8963,11 +8963,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "gravitational force"
+        "text": "inertia"
       },
       {
         "id": "C",
-        "text": "inertia"
+        "text": "gravitational force"
       },
       {
         "id": "D",
@@ -8988,23 +8988,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Zero"
-      },
-      {
-        "id": "B",
-        "text": "Non-zero and directed downward"
-      },
-      {
-        "id": "C",
         "text": "Equal to the initial velocity"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Zero"
+      },
+      {
+        "id": "C",
         "text": "Maximum and directed upward"
+      },
+      {
+        "id": "D",
+        "text": "Non-zero and directed downward"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Zero.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, Zero applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "When a ball is thrown vertically upward, its velocity at the exact instant it reaches its maximum height is:\nA. Zero\nB. Non-zero and directed downward\nC. Equal to the initial velocity\nD. Maximum and directed upward"
   },
   {
@@ -9017,23 +9017,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "zero"
+        "text": "g, down"
       },
       {
         "id": "B",
-        "text": "g, up"
+        "text": "zero"
       },
       {
         "id": "C",
-        "text": "g, down"
+        "text": "g, up"
       },
       {
         "id": "D",
         "text": "2g, down"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is g, down.",
+    "correctChoiceId": "A",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "A baseball is thrown vertically into the air. The acceleration of the ball at its highest point is:\nA. zero\nB. g, up\nC. g, down\nD. 2g, down"
   },
   {
@@ -9046,23 +9046,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The heavier object has a greater initial velocity."
+        "text": "The ratio of weight to mass is constant for all objects."
       },
       {
         "id": "B",
-        "text": "The force of gravity is the same on both objects."
-      },
-      {
-        "id": "C",
         "text": "The kinetic energy of the heavier object is greater."
       },
       {
+        "id": "C",
+        "text": "The force of gravity is the same on both objects."
+      },
+      {
         "id": "D",
-        "text": "The ratio of weight to mass is constant for all objects."
+        "text": "The heavier object has a greater initial velocity."
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is The ratio of weight to mass is constant for all objects.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, The ratio of weight to mass is constant for all objects. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "If two objects of different masses are dropped from the same height, they will hit the ground simultaneously, assuming no air resistance. This is because:\nA. The heavier object has a greater initial velocity.\nB. The force of gravity is the same on both objects.\nC. The kinetic energy of the heavier object is greater.\nD. The ratio of weight to mass is constant for all objects."
   },
   {
@@ -9075,23 +9075,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Constant, directed horizontally"
-      },
-      {
-        "id": "B",
         "text": "Variable, dependent on the angle of elevation"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Constant, directed vertically downward"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Zero"
+      },
+      {
+        "id": "D",
+        "text": "Constant, directed horizontally"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Constant, directed vertically downward.",
+    "correctChoiceId": "B",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "The total acceleration vector of a projectile during its flight (neglecting air resistance) is always:\nA. Constant, directed horizontally\nB. Variable, dependent on the angle of elevation\nC. Constant, directed vertically downward\nD. Zero"
   },
   {
@@ -9104,7 +9104,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Variable, decreasing uniformly"
+        "text": "Variable, decreasing to zero at the maximum height"
       },
       {
         "id": "B",
@@ -9112,15 +9112,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Zero"
+        "text": "Variable, decreasing uniformly"
       },
       {
         "id": "D",
-        "text": "Variable, decreasing to zero at the maximum height"
+        "text": "Zero"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Constant throughout the flight.",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "In the study of projectile motion, the horizontal component of a projectile’s velocity, Vx, is considered:\nA. Variable, decreasing uniformly\nB. Constant throughout the flight\nC. Zero\nD. Variable, decreasing to zero at the maximum height"
   },
   {
@@ -9133,23 +9133,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Both Vx and Vy are zero"
-      },
-      {
-        "id": "B",
         "text": "Vx is non-zero (constant) and Vy is zero"
       },
       {
+        "id": "B",
+        "text": "Both Vx and Vy are zero"
+      },
+      {
         "id": "C",
-        "text": "Both Vx and Vy are maximum"
+        "text": "Vx is zero and Vy is non-zero"
       },
       {
         "id": "D",
-        "text": "Vx is zero and Vy is non-zero"
+        "text": "Both Vx and Vy are maximum"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Vx is non-zero (constant) and Vy is zero.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, Vx is non-zero (constant) and Vy is zero applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "At the maximum height of a projectile’s trajectory, which statement is true about its velocity components?\nA. Both Vx and Vy are zero\nB. Vx is non-zero (constant) and Vy is zero\nC. Both Vx and Vy are maximum\nD. Vx is zero and Vy is non-zero"
   },
   {
@@ -9162,7 +9162,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "each point on its rim moves with constant velocity"
+        "text": "the angle through which the wheel turns in each second increases as time goes on"
       },
       {
         "id": "B",
@@ -9170,15 +9170,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "the wheel turns through equal angles in equal times"
+        "text": "each point on its rim moves with constant velocity"
       },
       {
         "id": "D",
-        "text": "the angle through which the wheel turns in each second increases as time goes on"
+        "text": "the wheel turns through equal angles in equal times"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is the wheel turns through equal angles in equal times.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, the wheel turns through equal angles in equal times applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "If a wheel turns with constant angular speed then:\nA. each point on its rim moves with constant velocity\nB. each point on its rim moves with constant acceleration\nC. the wheel turns through equal angles in equal times\nD. the angle through which the wheel turns in each second increases as time goes on"
   },
   {
@@ -9191,23 +9191,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "translation"
-      },
-      {
-        "id": "B",
         "text": "acceleration"
       },
       {
+        "id": "B",
+        "text": "none of the above"
+      },
+      {
         "id": "C",
-        "text": "rotation"
+        "text": "translation"
       },
       {
         "id": "D",
-        "text": "none of the above"
+        "text": "rotation"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is rotation.",
+    "correctChoiceId": "D",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "It is defined as that motion of rigid body in which the particles move in a circular path with their centers on a fixed straight line.\nA. translation\nB. acceleration\nC. rotation\nD. none of the above"
   },
   {
@@ -9220,22 +9220,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "angular displacement"
+        "text": "none of the above"
       },
       {
         "id": "B",
-        "text": "angular velocity"
-      },
-      {
-        "id": "C",
         "text": "angular acceleration"
       },
       {
+        "id": "C",
+        "text": "angular displacement"
+      },
+      {
         "id": "D",
-        "text": "none of the above"
+        "text": "angular velocity"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "angular displacement is measured in radians by the angular distance swept through by any radians of or line in the rotating body.",
     "rawSnippet": "_____ is measured in radians by the angular distance swept through by any radians of or line in the rotating body.\nA. angular displacement\nB. angular velocity\nC. angular acceleration\nD. none of the above"
   },
@@ -9249,23 +9249,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "angular velocity"
-      },
-      {
-        "id": "B",
-        "text": "rotation"
-      },
-      {
-        "id": "C",
         "text": "plane motion"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "translation"
+      },
+      {
+        "id": "C",
+        "text": "angular velocity"
+      },
+      {
+        "id": "D",
+        "text": "rotation"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is plane motion.",
+    "correctChoiceId": "A",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "It is defined as the motion of rigid body in which all particles in the body remain at a constant distance from a fixed reference plane.\nA. angular velocity\nB. rotation\nC. plane motion\nD. translation"
   },
   {
@@ -9278,22 +9278,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Newton’s 2nd law of motion"
+        "text": "Newton’s 3rd law of motion"
       },
       {
         "id": "B",
-        "text": "Newton’s 1st law of motion"
+        "text": "Newton’s 2nd law of motion"
       },
       {
         "id": "C",
-        "text": "Newton’s 3rd law of motion"
+        "text": "Newton’s 1st law of motion"
       },
       {
         "id": "D",
         "text": "Law of momentum"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "When a net force acts on a body, it produces acceleration in the body in the direction of the net force which is directly proportional to the net force acting on the body and inversely proportional to its mass. This statement is called Newton’s 2nd law of motion.",
     "rawSnippet": "When a net force acts on a body, it produces acceleration in the body in the direction of the net force which is directly proportional to the net force acting on the body and inversely proportional to its mass. This statement is called _____.\nA. Newton’s 2nd law of motion\nB. Newton’s 1st law of motion\nC. Newton’s 3rd law of motion\nD. Law of momentum"
   },
@@ -9307,23 +9307,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Newton’s first law"
-      },
-      {
-        "id": "B",
-        "text": "Newton’s second law"
-      },
-      {
-        "id": "C",
         "text": "Newton’s third law"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Newton’s first law"
+      },
+      {
+        "id": "C",
         "text": "d’Alembert’s principle"
+      },
+      {
+        "id": "D",
+        "text": "Newton’s second law"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Newton’s second law.",
+    "correctChoiceId": "D",
+    "explanation": "In classical mechanics, Newton’s second law applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The principles of kinetics of particles are derived from which law?\nA. Newton’s first law\nB. Newton’s second law\nC. Newton’s third law\nD. d’Alembert’s principle"
   },
   {
@@ -9336,23 +9336,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It is directed toward the center of the circular path."
+        "text": "It is inversely proportional to the square of the tangential velocity."
       },
       {
         "id": "B",
-        "text": "It appears to act outward the body."
+        "text": "It is directed toward the center of the circular path."
       },
       {
         "id": "C",
-        "text": "It is directly proportional to the radius of the circular path."
+        "text": "It appears to act outward the body."
       },
       {
         "id": "D",
-        "text": "It is inversely proportional to the square of the tangential velocity."
+        "text": "It is directly proportional to the radius of the circular path."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is It is directed toward the center of the circular path.",
+    "correctChoiceId": "B",
+    "explanation": "In classical mechanics, It is directed toward the center of the circular path. applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "Which of the following is true about centripetal force?\nA. It is directed toward the center of the circular path.\nB. It appears to act outward the body.\nC. It is directly proportional to the radius of the circular path.\nD. It is inversely proportional to the square of the tangential velocity."
   },
   {
@@ -9365,22 +9365,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "changes the direction of the velocity."
-      },
-      {
-        "id": "B",
         "text": "changes the magnitude of the velocity."
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "changes the magnitude of angular velocity."
+      },
+      {
+        "id": "C",
+        "text": "changes the direction of the velocity."
       },
       {
         "id": "D",
         "text": "changes nothing about velocity."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Centripetal acceleration changes the direction of the velocity.",
     "rawSnippet": "Centripetal acceleration _____.\nA. changes the direction of the velocity.\nB. changes the magnitude of the velocity.\nC. changes the magnitude of angular velocity.\nD. changes nothing about velocity."
   },
@@ -9398,18 +9398,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "changes the magnitude of the velocity."
+        "text": "changes the magnitude of the centripetal acceleration."
       },
       {
         "id": "C",
-        "text": "changes the magnitude of the centripetal acceleration."
+        "text": "changes the magnitude of the velocity."
       },
       {
         "id": "D",
         "text": "changes nothing about velocity."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Tangential acceleration changes the magnitude of the velocity.",
     "rawSnippet": "Tangential acceleration _____.\nA. changes the direction of the velocity.\nB. changes the magnitude of the velocity.\nC. changes the magnitude of the centripetal acceleration.\nD. changes nothing about velocity."
   },
@@ -9423,22 +9423,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "centrifugal force"
-      },
-      {
-        "id": "B",
         "text": "centripetal force"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "frictional force"
+      },
+      {
+        "id": "C",
+        "text": "centrifugal force"
       },
       {
         "id": "D",
         "text": "inertia"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The force that keeps the objects in a circular path is called centripetal force.",
     "rawSnippet": "The force that keeps the objects in a circular path is called _____.\nA. centrifugal force\nB. centripetal force\nC. frictional force\nD. inertia"
   },
@@ -9456,15 +9456,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "tangent to the circle"
+        "text": "normal to the circle"
       },
       {
         "id": "C",
-        "text": "away from center"
+        "text": "tangent to the circle"
       },
       {
         "id": "D",
-        "text": "normal to the circle"
+        "text": "away from center"
       }
     ],
     "correctChoiceId": "A",
@@ -9485,15 +9485,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "dynamic force"
-      },
-      {
-        "id": "C",
         "text": "gravitational force"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "translatory force"
+      },
+      {
+        "id": "D",
+        "text": "dynamic force"
       }
     ],
     "correctChoiceId": "A",
@@ -9510,7 +9510,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "inertia"
+        "text": "momentum"
       },
       {
         "id": "B",
@@ -9518,14 +9518,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "momentum"
+        "text": "friction"
       },
       {
         "id": "D",
-        "text": "friction"
+        "text": "inertia"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "The quantity of motion that the body possesses due to its mass and velocity is known as momentum.",
     "rawSnippet": "The quantity of motion that the body possesses due to its mass and velocity is known as _____.\nA. inertia\nB. force\nC. momentum\nD. friction"
   },
@@ -9539,7 +9539,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "momentum"
+        "text": "acceleration"
       },
       {
         "id": "B",
@@ -9551,11 +9551,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "acceleration"
+        "text": "momentum"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is impulse.",
+    "explanation": "In Philippine electrical law practice, impulse represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "It is defined as the integral of force with respect to time.\nA. momentum\nB. velocity\nC. impulse\nD. acceleration"
   },
   {
@@ -9568,11 +9568,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "force × time"
+        "text": "none of the above"
       },
       {
         "id": "B",
-        "text": "A or B"
+        "text": "force × time"
       },
       {
         "id": "C",
@@ -9580,7 +9580,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "none of the above"
+        "text": "A or B"
       }
     ],
     "correctChoiceId": "C",
@@ -9597,22 +9597,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "newton second (Ns)"
-      },
-      {
-        "id": "B",
         "text": "μ"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "θ"
+      },
+      {
+        "id": "C",
+        "text": "newton second (Ns)"
       },
       {
         "id": "D",
         "text": "λ"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "SI unit of momentum is newton second (Ns).",
     "rawSnippet": "SI unit of momentum is _____.\nA. newton second (Ns)\nB. μ\nC. θ\nD. λ"
   },
@@ -9626,7 +9626,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Force, mass, velocity, time"
+        "text": "Force, weight, distance, time"
       },
       {
         "id": "B",
@@ -9638,11 +9638,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Force, weight, distance, time"
+        "text": "Force, mass, velocity, time"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Force, mass, velocity, time.",
+    "correctChoiceId": "D",
+    "explanation": "Newton's second law dictates that net external force equals mass times acceleration (F = ma), forming the core governing equation for rectilinear and curvilinear dynamics.",
     "rawSnippet": "Which of the following set of quantities that describe motion and uses the principle of impulse and momentum?\nA. Force, mass, velocity, time\nB. Force, mass, distance, velocity\nC. Force, mass, distance, velocity\nD. Force, weight, distance, time"
   },
   {
@@ -9655,23 +9655,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "inertia"
+        "text": "acceleration"
       },
       {
         "id": "B",
-        "text": "speed"
-      },
-      {
-        "id": "C",
         "text": "mass"
       },
       {
+        "id": "C",
+        "text": "inertia"
+      },
+      {
         "id": "D",
-        "text": "acceleration"
+        "text": "speed"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is acceleration.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, acceleration applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The momentum of an object at a given instant is independent of its:\nA. inertia\nB. speed\nC. mass\nD. acceleration"
   },
   {
@@ -9684,22 +9684,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "variable"
+        "text": "constant"
       },
       {
         "id": "B",
-        "text": "negative"
+        "text": "variable"
       },
       {
         "id": "C",
-        "text": "zero"
+        "text": "negative"
       },
       {
         "id": "D",
-        "text": "constant"
+        "text": "zero"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "The momentum of an isolated system of two or more than two interacting bodies remains constant.",
     "rawSnippet": "The momentum of an isolated system of two or more than two interacting bodies remains _____.\nA. variable\nB. negative\nC. zero\nD. constant"
   },
@@ -9713,7 +9713,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "there is no change in kinetic energy of the system"
+        "text": "the net external impulse is zero"
       },
       {
         "id": "B",
@@ -9725,11 +9725,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "the net external impulse is zero"
+        "text": "there is no change in kinetic energy of the system"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is the net external impulse is zero.",
+    "correctChoiceId": "A",
+    "explanation": "In classical mechanics, the net external impulse is zero applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "The law of conservation of momentum applies to a system of colliding objects only if:\nA. there is no change in kinetic energy of the system\nB. the coefficient of restitution is one\nC. the coefficient of restitution is zero\nD. the net external impulse is zero"
   },
   {
@@ -9742,22 +9742,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "linear momentum"
+        "text": "angular impulse"
       },
       {
         "id": "B",
-        "text": "linear impulse"
+        "text": "linear momentum"
       },
       {
         "id": "C",
-        "text": "angular impulse"
+        "text": "linear impulse"
       },
       {
         "id": "D",
         "text": "angular impulse"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The product of the mass and the velocity of the center of the gravity of the body is called linear momentum.",
     "rawSnippet": "The product of the mass and the velocity of the center of the gravity of the body is called _____.\nA. linear momentum\nB. linear impulse\nC. angular impulse\nD. angular impulse"
   },
@@ -9771,22 +9771,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "elastic collisions"
-      },
-      {
-        "id": "B",
         "text": "static collisions"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "inelastic collisions"
+      },
+      {
+        "id": "C",
+        "text": "elastic collisions"
       },
       {
         "id": "D",
         "text": "plastic collisions"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Collisions in which objects rebound with the same speed as they had prior to the collision are known as elastic collisions.",
     "rawSnippet": "Collisions in which objects rebound with the same speed as they had prior to the collision are known as _____.\nA. elastic collisions\nB. static collisions\nC. inelastic collisions\nD. plastic collisions"
   },
@@ -9808,15 +9808,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "neither kinetic energy nor momentum is conserved"
+        "text": "momentum is conserved but kinetic energy is not conserved"
       },
       {
         "id": "D",
-        "text": "momentum is conserved but kinetic energy is not conserved"
+        "text": "neither kinetic energy nor momentum is conserved"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is momentum is conserved but kinetic energy is not conserved.",
+    "correctChoiceId": "C",
+    "explanation": "In classical mechanics, momentum is conserved but kinetic energy is not conserved applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "An inelastic collision is one in which:\nA. momentum is not conserved but kinetic energy is conserved\nB. total mass is not conserved but momentum is conserved\nC. neither kinetic energy nor momentum is conserved\nD. momentum is conserved but kinetic energy is not conserved"
   },
   {
@@ -9829,11 +9829,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0"
+        "text": "greater than 1"
       },
       {
         "id": "B",
-        "text": "less than 1"
+        "text": "0"
       },
       {
         "id": "C",
@@ -9841,7 +9841,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "greater than 1"
+        "text": "less than 1"
       }
     ],
     "correctChoiceId": "C",
@@ -9858,7 +9858,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0"
+        "text": "greater than 1"
       },
       {
         "id": "B",
@@ -9866,14 +9866,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "1"
+        "text": "0"
       },
       {
         "id": "D",
-        "text": "greater than 1"
+        "text": "1"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "The collision is perfectly inelastic if the coefficient of restitution is 0.",
     "rawSnippet": "The collision is perfectly inelastic if the coefficient of restitution is _____.\nA. 0\nB. less than 1\nC. 1\nD. greater than 1"
   },
@@ -9891,18 +9891,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "equal"
-      },
-      {
-        "id": "C",
         "text": "less than"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "greater than"
+      },
+      {
+        "id": "D",
+        "text": "equal"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Inelastic collision is a collision in which the total kinetic energy after the collision is less than before the collision.",
     "rawSnippet": "Inelastic collision is a collision in which the total kinetic energy after the collision is _____ before the collision.\nA. equal to zero\nB. equal\nC. less than\nD. greater than"
   },
@@ -9916,22 +9916,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Momentum but not KE"
-      },
-      {
-        "id": "B",
         "text": "KE but not momentum"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Both momentum and KE"
+      },
+      {
+        "id": "C",
+        "text": "Momentum but not KE"
       },
       {
         "id": "D",
         "text": "neither momentum nor KE"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "An elastic collision conserves Both momentum and KE.",
     "rawSnippet": "An elastic collision conserves _____.\nA. Momentum but not KE\nB. KE but not momentum\nC. Both momentum and KE\nD. neither momentum nor KE"
   },
@@ -9944,22 +9944,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Philippine Electrical Engineering Act of 1990"
+        "text": "Electrical Professional Regulatory Act"
       },
       {
         "id": "B",
-        "text": "New Electrical Engineering Law"
+        "text": "Philippine Electrical Engineering Act of 1990"
       },
       {
         "id": "C",
-        "text": "Electrical Professional Regulatory Act"
+        "text": "New Electrical Engineering Law"
       },
       {
         "id": "D",
         "text": "Philippine Energy Reform Act"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "RA 7920 is titled \"The New Electrical Engineering Law\"."
   },
   {
@@ -9975,18 +9975,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "President of the Philippines"
+        "text": "President of IIEE"
       },
       {
         "id": "C",
-        "text": "President of IIEE"
+        "text": "President of the Philippines"
       },
       {
         "id": "D",
         "text": "Secretary of the Department of Energy"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "The members of the Board are appointed by the President of the Philippines."
   },
   {
@@ -9998,7 +9998,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "60%"
+        "text": "75%"
       },
       {
         "id": "B",
@@ -10006,14 +10006,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "75%"
+        "text": "60%"
       },
       {
         "id": "D",
         "text": "80%"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Section 19 of RA 7920 requires a general weighted average of at least 70%."
   },
   {
@@ -10025,7 +10025,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Registered Master Electrician (RME)"
+        "text": "Professional Electrical Engineer (PEE)"
       },
       {
         "id": "B",
@@ -10033,14 +10033,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Professional Electrical Engineer (PEE)"
+        "text": "Registered Master Electrician (RME)"
       },
       {
         "id": "D",
         "text": "Certified Electrical Inspector"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Only a Professional Electrical Engineer (PEE) can sign and seal electrical plans."
   },
   {
@@ -10052,7 +10052,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "10 Amperes"
+        "text": "20 Amperes"
       },
       {
         "id": "B",
@@ -10060,7 +10060,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "20 Amperes"
+        "text": "10 Amperes"
       },
       {
         "id": "D",
@@ -10079,22 +10079,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "2 years"
-      },
-      {
-        "id": "B",
         "text": "3 years"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "4 years"
+      },
+      {
+        "id": "C",
+        "text": "2 years"
       },
       {
         "id": "D",
         "text": "5 years"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Members of the BEE hold office for a term of three (3) years."
   },
   {
@@ -10106,11 +10106,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PSME"
+        "text": "IIEE (Institute of Integrated Electrical Engineers)"
       },
       {
         "id": "B",
-        "text": "IIEE (Institute of Integrated Electrical Engineers)"
+        "text": "PSME"
       },
       {
         "id": "C",
@@ -10121,7 +10121,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "PECE"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "IIEE is the national accredited organization."
   },
   {
@@ -10133,11 +10133,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The employer"
+        "text": "The public"
       },
       {
         "id": "B",
-        "text": "The public"
+        "text": "The employer"
       },
       {
         "id": "C",
@@ -10148,7 +10148,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "The client"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The public interest and safety is the foremost ethical obligation."
   },
   {
@@ -10160,11 +10160,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Engr. Rafael F. Florentino"
+        "text": "Engr. Paul Woo"
       },
       {
         "id": "B",
-        "text": "Engr. Paul Woo"
+        "text": "Engr. Rafael F. Florentino"
       },
       {
         "id": "C",
@@ -10175,7 +10175,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Engr. Roy F. Gil"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Engr. Rafael F. Florentino served as the Chairman of the BEE when the Code of Ethics RA 7920 was approved."
   },
   {
@@ -10187,22 +10187,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Rafael F. Florentino"
-      },
-      {
-        "id": "B",
-        "text": "Baylon G. Tolentino"
-      },
-      {
-        "id": "C",
         "text": "Roy F. Gil"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Rafael F. Florentino"
+      },
+      {
+        "id": "C",
         "text": "Genardo V. Gaor"
+      },
+      {
+        "id": "D",
+        "text": "Baylon G. Tolentino"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Rafael F. Florentino served as the chairman of the Board of Electrical Engineering when the Implementing Rules and Regulation of RA 7920 was adopted."
   },
   {
@@ -10214,22 +10214,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "5"
+        "text": "10"
       },
       {
         "id": "B",
-        "text": "3"
-      },
-      {
-        "id": "C",
         "text": "6"
       },
       {
+        "id": "C",
+        "text": "5"
+      },
+      {
         "id": "D",
-        "text": "10"
+        "text": "3"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "PEE, REE, or RME who has been delinquent in the payment of annual registration fees for 5 consecutive years shall not be allowed to practice his or her profession."
   },
   {
@@ -10241,22 +10241,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "10"
-      },
-      {
-        "id": "B",
-        "text": "30"
-      },
-      {
-        "id": "C",
         "text": "15"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "20"
+      },
+      {
+        "id": "C",
+        "text": "10"
+      },
+      {
+        "id": "D",
+        "text": "30"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "To qualified applicants for examination, notice of admission shall be issued not late than 10 days prior to the first day of examination."
   },
   {
@@ -10268,11 +10268,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "rule-making"
+        "text": "law-making"
       },
       {
         "id": "B",
-        "text": "administrative"
+        "text": "rule-making"
       },
       {
         "id": "C",
@@ -10280,11 +10280,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "law-making"
+        "text": "administrative"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is rule-making."
+    "correctChoiceId": "B",
+    "explanation": "Engr. Rafael F. Florentino served as the Chairman of the Professional Regulatory Board of Electrical Engineering (PRBEE) during the promulgation of the Implementing Rules and Regulations (IRR) and Code of Ethics of R.A. 7920 in 1995."
   },
   {
     "id": "eelaws-14",
@@ -10295,23 +10295,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "investigative"
-      },
-      {
-        "id": "B",
-        "text": "control"
-      },
-      {
-        "id": "C",
         "text": "monitoring"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "investigative"
+      },
+      {
+        "id": "C",
         "text": "Censorship"
+      },
+      {
+        "id": "D",
+        "text": "control"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is investigative."
+    "correctChoiceId": "B",
+    "explanation": "Engr. Rafael F. Florentino served as the Chairman of the Professional Regulatory Board of Electrical Engineering (PRBEE) during the promulgation of the Implementing Rules and Regulations (IRR) and Code of Ethics of R.A. 7920 in 1995."
   },
   {
     "id": "eelaws-15",
@@ -10322,22 +10322,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "11063 and 1766"
-      },
-      {
-        "id": "B",
-        "text": "11065 and 1870"
-      },
-      {
-        "id": "C",
         "text": "11075 and 1875"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "11070 and 1871"
+      },
+      {
+        "id": "C",
+        "text": "11063 and 1766"
+      },
+      {
+        "id": "D",
+        "text": "11065 and 1870"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "The new Electrical Engineering law originated from House Bill no. 11063 and 1766 and Senate Bill no. 11063 and 1766."
   },
   {
@@ -10357,15 +10357,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Feb 21, 1995"
+        "text": "Feb 14, 1995"
       },
       {
         "id": "D",
-        "text": "Feb 14, 1995"
+        "text": "Feb 21, 1995"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Feb 24, 1995."
+    "explanation": "Under R.A. 7920 Sec. 33, a Registered Master Electrician (RME) is authorized to handle electrical installations up to 500 kVA capacity and voltage up to 600 Volts."
   },
   {
     "id": "eelaws-17",
@@ -10376,22 +10376,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "President of the Philippines"
-      },
-      {
-        "id": "B",
         "text": "IIEE"
       },
       {
+        "id": "B",
+        "text": "President of the Philippines"
+      },
+      {
         "id": "C",
-        "text": "PRC Commissioner"
+        "text": "Chairman of the Board"
       },
       {
         "id": "D",
-        "text": "Chairman of the Board"
+        "text": "PRC Commissioner"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Vacancies of the Board of Electrical Engineering shall be filled by the President of the Philippines from the list of recommendees selected by the PRC commissioner."
   },
   {
@@ -10407,15 +10407,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Fortunato Leynes"
+        "text": "Rodolfo Penalosa"
       },
       {
         "id": "C",
-        "text": "Jaime Mendoza"
+        "text": "Fortunato Leynes"
       },
       {
         "id": "D",
-        "text": "Rodolfo Penalosa"
+        "text": "Jaime Mendoza"
       }
     ],
     "correctChoiceId": "A",
@@ -10430,7 +10430,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PRBEE board member"
+        "text": "Representative from Association of Professional Organization"
       },
       {
         "id": "B",
@@ -10438,15 +10438,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "PRC Commissioner"
+        "text": "PRBEE board member"
       },
       {
         "id": "D",
-        "text": "Representative from Association of Professional Organization"
+        "text": "PRC Commissioner"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is PRBEE board member."
+    "correctChoiceId": "C",
+    "explanation": "Engr. Rafael F. Florentino served as the Chairman of the Professional Regulatory Board of Electrical Engineering (PRBEE) during the promulgation of the Implementing Rules and Regulations (IRR) and Code of Ethics of R.A. 7920 in 1995."
   },
   {
     "id": "eelaws-20",
@@ -10457,22 +10457,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Electric Power Industry Reform Act of 2001"
+        "text": "Energization Power Reform Act of 2001"
       },
       {
         "id": "B",
-        "text": "Electrification Power Reform Act of 2001"
-      },
-      {
-        "id": "C",
         "text": "Energy Power Reform Act of 2001"
       },
       {
+        "id": "C",
+        "text": "Electric Power Industry Reform Act of 2001"
+      },
+      {
         "id": "D",
-        "text": "Energization Power Reform Act of 2001"
+        "text": "Electrification Power Reform Act of 2001"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "R. A. 9136 stands for Electric Power Industry Reform Act of 2001."
   },
   {
@@ -10484,23 +10484,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Foreign Reciprocity"
-      },
-      {
-        "id": "B",
-        "text": "ASEAN Engr."
-      },
-      {
-        "id": "C",
         "text": "APEC registry"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "ACPE registry"
+      },
+      {
+        "id": "C",
+        "text": "Foreign Reciprocity"
+      },
+      {
+        "id": "D",
+        "text": "ASEAN Engr."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Foreign Reciprocity."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Foreign Reciprocity represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-22",
@@ -10511,11 +10511,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "9136"
+        "text": "7920"
       },
       {
         "id": "B",
-        "text": "7832"
+        "text": "9136"
       },
       {
         "id": "C",
@@ -10523,11 +10523,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "7920"
+        "text": "7832"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 9136."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, 9136 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-23",
@@ -10538,22 +10538,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Supply"
+        "text": "Commercial consumers"
       },
       {
         "id": "B",
-        "text": "Residential consumers"
+        "text": "Supply"
       },
       {
         "id": "C",
-        "text": "Electricity end-users"
+        "text": "Residential consumers"
       },
       {
         "id": "D",
-        "text": "Commercial consumers"
+        "text": "Electricity end-users"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The electric power industry was divided into four sectors by RA 9136 namely: generation, transmission, distribution, and Supply."
   },
   {
@@ -10565,7 +10565,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RA 8981"
+        "text": "RA 8189"
       },
       {
         "id": "B",
@@ -10573,15 +10573,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "RA 184"
+        "text": "RA 8981"
       },
       {
         "id": "D",
-        "text": "RA 8189"
+        "text": "RA 184"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is RA 8981."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, RA 8981 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-25",
@@ -10592,22 +10592,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Professional Regulatory Board of Electrical Engineering"
-      },
-      {
-        "id": "B",
         "text": "Philippine Regulatory Board of Electrical Engineering"
       },
       {
+        "id": "B",
+        "text": "Professional Regulatory Board of Electrical Engineering"
+      },
+      {
         "id": "C",
-        "text": "Professional Regulating Board of Electrical Engineering"
+        "text": "Philippine Regulating Board of Electrical Engineering"
       },
       {
         "id": "D",
-        "text": "Philippine Regulating Board of Electrical Engineering"
+        "text": "Professional Regulating Board of Electrical Engineering"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "PRBEE stands for Professional Regulatory Board of Electrical Engineering."
   },
   {
@@ -10619,23 +10619,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Issue special permits to individual foreign electrical engineers and electricians for specific projects"
-      },
-      {
-        "id": "B",
         "text": "Perform such other functions and duties as may be necessary to implement effectively of this Act"
       },
       {
+        "id": "B",
+        "text": "Issue special permits to individual foreign electrical engineers and electricians for specific projects"
+      },
+      {
         "id": "C",
-        "text": "All of these"
+        "text": "Supervise and regulate the practice of electrical engineering in the Philippines"
       },
       {
         "id": "D",
-        "text": "Supervise and regulate the practice of electrical engineering in the Philippines"
+        "text": "All of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Issue special permits to individual foreign electrical engineers and electricians for specific projects."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, Issue special permits to individual foreign electrical engineers and electricians for specific projects represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-27",
@@ -10650,19 +10650,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Preliminary project planning data (PPPD)"
+        "text": "Philippine Electrical Code"
       },
       {
         "id": "C",
-        "text": "Power developed plan (PDP)"
+        "text": "Preliminary project planning data (PPPD)"
       },
       {
         "id": "D",
-        "text": "Philippine Electrical Code"
+        "text": "Power developed plan (PDP)"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Philippine Energy Plan."
+    "explanation": "In Philippine electrical law practice, Philippine Energy Plan represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-28",
@@ -10673,7 +10673,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Assignment of Duties"
+        "text": "Promulgation of Decisions, Rules, etc."
       },
       {
         "id": "B",
@@ -10681,15 +10681,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Official Business with the Commission"
+        "text": "Assignment of Duties"
       },
       {
         "id": "D",
-        "text": "Promulgation of Decisions, Rules, etc."
+        "text": "Official Business with the Commission"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Assignment of Duties."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Assignment of Duties represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-29",
@@ -10700,22 +10700,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Commission"
-      },
-      {
-        "id": "B",
         "text": "IIEE"
       },
       {
+        "id": "B",
+        "text": "Commission"
+      },
+      {
         "id": "C",
-        "text": "POEA"
+        "text": "BEE"
       },
       {
         "id": "D",
-        "text": "BEE"
+        "text": "POEA"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Sec. 14(a)(iii) of Art. III. Examination and registration, states the prior to commencing of work the foreign professional shall secure special permit from the Commission."
   },
   {
@@ -10727,22 +10727,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "35"
-      },
-      {
-        "id": "B",
-        "text": "40"
-      },
-      {
-        "id": "C",
         "text": "45"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "50"
+      },
+      {
+        "id": "C",
+        "text": "35"
+      },
+      {
+        "id": "D",
+        "text": "40"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Each Board member of the time of his appointment shall be at least 35 years of age."
   },
   {
@@ -10754,23 +10754,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "500, 600"
-      },
-      {
-        "id": "B",
         "text": "500, 440"
       },
       {
+        "id": "B",
+        "text": "500, 600"
+      },
+      {
         "id": "C",
-        "text": "500, 250"
+        "text": "600, 600"
       },
       {
         "id": "D",
-        "text": "600, 600"
+        "text": "500, 250"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 500, 600."
+    "correctChoiceId": "B",
+    "explanation": "Under R.A. 7920 Sec. 33, a Registered Master Electrician (RME) is authorized to handle electrical installations up to 500 kVA capacity and voltage up to 600 Volts."
   },
   {
     "id": "eelaws-32",
@@ -10781,22 +10781,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "25"
+        "text": "4"
       },
       {
         "id": "B",
-        "text": "10"
+        "text": "25"
       },
       {
         "id": "C",
-        "text": "6"
+        "text": "10"
       },
       {
         "id": "D",
-        "text": "4"
+        "text": "6"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Under Rule 19, the Board upon the approval of the commission shall officially release the results of the examination not later than 25 days from the date of the exam."
   },
   {
@@ -10808,7 +10808,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "6 months"
+        "text": "3 years"
       },
       {
         "id": "B",
@@ -10816,15 +10816,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "2 years"
+        "text": "6 months"
       },
       {
         "id": "D",
-        "text": "3 years"
+        "text": "2 years"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 6 months."
+    "correctChoiceId": "C",
+    "explanation": "Foreign reciprocity (Sec. 38, R.A. 7920) allows foreign electrical engineers to practice in the Philippines only if their home country grants equal privileges to Filipino electrical engineers."
   },
   {
     "id": "eelaws-34",
@@ -10835,22 +10835,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "specialty"
-      },
-      {
-        "id": "B",
         "text": "excellence"
       },
       {
+        "id": "B",
+        "text": "specialization"
+      },
+      {
         "id": "C",
-        "text": "recognition"
+        "text": "specialty"
       },
       {
         "id": "D",
-        "text": "specialization"
+        "text": "recognition"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Certificate of specialty shall be issued by the Board, subject to the approval of the Commission, to Professional Electrical Engineers who have been screened and recommended by IIEE."
   },
   {
@@ -10862,22 +10862,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Philippine Electricity Market Committee"
-      },
-      {
-        "id": "B",
         "text": "Philippine Electricity Market Company"
       },
       {
+        "id": "B",
+        "text": "Philippine Electricity Market Committee"
+      },
+      {
         "id": "C",
-        "text": "Philippine Electricity Market Corporation"
+        "text": "Philippine Electricity Market Commission"
       },
       {
         "id": "D",
-        "text": "Philippine Electricity Market Commission"
+        "text": "Philippine Electricity Market Corporation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "PEMC stands for Philippine Electricity Market Committee."
   },
   {
@@ -10893,15 +10893,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "6"
+        "text": "2"
       },
       {
         "id": "C",
-        "text": "1"
+        "text": "6"
       },
       {
         "id": "D",
-        "text": "2"
+        "text": "1"
       }
     ],
     "correctChoiceId": "A",
@@ -10916,22 +10916,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Blue"
-      },
-      {
-        "id": "B",
         "text": "Yellow"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Red"
+      },
+      {
+        "id": "C",
+        "text": "Blue"
       },
       {
         "id": "D",
         "text": "Green"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "NGCP warns Blue alert if tropical disturbance is expected to make a landfall within 24 hours."
   },
   {
@@ -10943,11 +10943,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Yellow Alert"
+        "text": "Red Alert"
       },
       {
         "id": "B",
-        "text": "Red Alert"
+        "text": "Yellow Alert"
       },
       {
         "id": "C",
@@ -10958,8 +10958,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Blue Alert"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Yellow Alert."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, Yellow Alert represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-39",
@@ -10997,23 +10997,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Graduate of BSEE"
-      },
-      {
-        "id": "B",
         "text": "Taken 1-year electrician’s course and 3-years apprenticeship"
       },
       {
+        "id": "B",
+        "text": "Graduate of BSEE"
+      },
+      {
         "id": "C",
-        "text": "Taken 2-years electrician’s course and 2-years apprenticeship"
+        "text": "Taken 3-years of BSEE with apprenticeship"
       },
       {
         "id": "D",
-        "text": "Taken 3-years of BSEE with apprenticeship"
+        "text": "Taken 2-years electrician’s course and 2-years apprenticeship"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Graduate of BSEE."
+    "correctChoiceId": "B",
+    "explanation": "Under R.A. 7920 Sec. 33, a Registered Master Electrician (RME) is authorized to handle electrical installations up to 500 kVA capacity and voltage up to 600 Volts."
   },
   {
     "id": "eelaws-41",
@@ -11028,15 +11028,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "60 percent"
+        "text": "40 percent"
       },
       {
         "id": "C",
-        "text": "65 percent"
+        "text": "60 percent"
       },
       {
         "id": "D",
-        "text": "40 percent"
+        "text": "65 percent"
       }
     ],
     "correctChoiceId": "A",
@@ -11055,19 +11055,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "45"
+        "text": "40"
       },
       {
         "id": "C",
-        "text": "30"
+        "text": "45"
       },
       {
         "id": "D",
-        "text": "40"
+        "text": "30"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is 25."
+    "explanation": "In Philippine electrical law practice, 25 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-43",
@@ -11078,23 +11078,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RA 184"
-      },
-      {
-        "id": "B",
         "text": "RA 9136"
       },
       {
+        "id": "B",
+        "text": "RA 814"
+      },
+      {
         "id": "C",
-        "text": "RA 7920"
+        "text": "RA 184"
       },
       {
         "id": "D",
-        "text": "RA 814"
+        "text": "RA 7920"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is RA 184."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, RA 184 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-44",
@@ -11113,15 +11113,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "EO 223"
+        "text": "EO 59"
       },
       {
         "id": "D",
-        "text": "EO 59"
+        "text": "EO 223"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is PD 223."
+    "explanation": "In Philippine electrical law practice, PD 223 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-45",
@@ -11136,11 +11136,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Rule 28 to 34"
+        "text": "Rule 21 to 27"
       },
       {
         "id": "C",
-        "text": "Rule 21 to 27"
+        "text": "Rule 28 to 34"
       },
       {
         "id": "D",
@@ -11148,7 +11148,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Rule 11 to 20."
+    "explanation": "In Philippine electrical law practice, Rule 11 to 20 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-46",
@@ -11159,23 +11159,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RULE 21 to 27"
-      },
-      {
-        "id": "B",
         "text": "RULE 28 to 34"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "RULE 1 to 10"
+      },
+      {
+        "id": "C",
+        "text": "RULE 21 to 27"
       },
       {
         "id": "D",
         "text": "RULE 11 to 20"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is RULE 21 to 27."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, RULE 21 to 27 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-47",
@@ -11186,22 +11186,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "70 percent, 50 percent"
-      },
-      {
-        "id": "B",
         "text": "75 percent, 60 percent"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "70 percent, 60 percent"
+      },
+      {
+        "id": "C",
+        "text": "70 percent, 50 percent"
       },
       {
         "id": "D",
         "text": "75 percent, 50 percent"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "For REE board examination, the passing general average is 70 percent, 50 percent provided there is no grade below 70 percent, 50 percent in any of the 3 subjects."
   },
   {
@@ -11240,23 +11240,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "SEC 1 to 9"
+        "text": "SEC. 1 to 7"
       },
       {
         "id": "B",
-        "text": "SEC. 1 to 6"
+        "text": "SEC 1 to 9"
       },
       {
         "id": "C",
-        "text": "SEC. 1 to 7"
+        "text": "SEC. 1 to 6"
       },
       {
         "id": "D",
         "text": "SEC. 1 to 8"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is SEC 1 to 9."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, SEC 1 to 9 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-50",
@@ -11275,11 +11275,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "14"
+        "text": "15"
       },
       {
         "id": "D",
-        "text": "15"
+        "text": "14"
       }
     ],
     "correctChoiceId": "A",
@@ -11298,19 +11298,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Philippine Distribution Coordination"
+        "text": "Philippine Distribution Committee"
       },
       {
         "id": "C",
-        "text": "Philippine Distribution Commission"
+        "text": "Philippine Distribution Coordination"
       },
       {
         "id": "D",
-        "text": "Philippine Distribution Committee"
+        "text": "Philippine Distribution Commission"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Philippine Distribution Code."
+    "explanation": "R.A. 9136 (EPIRA of 2001) unbundled the electric power sector into Generation, Transmission, Distribution, and Supply to foster competitive electricity markets and regulatory oversight via the ERC."
   },
   {
     "id": "eelaws-52",
@@ -11321,22 +11321,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Grid Management Committee"
-      },
-      {
-        "id": "B",
         "text": "Generator Management Committee"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Grid Market Commission"
+      },
+      {
+        "id": "C",
+        "text": "Grid Management Committee"
       },
       {
         "id": "D",
         "text": "Generation Management Corporation"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "the GMC stands for Grid Management Committee."
   },
   {
@@ -11379,11 +11379,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Power Section Assets and Liabilities Management"
+        "text": "Private Sector Assets and Liabilities Management"
       },
       {
         "id": "C",
-        "text": "Private Sector Assets and Liabilities Management"
+        "text": "Power Section Assets and Liabilities Management"
       },
       {
         "id": "D",
@@ -11402,22 +11402,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Commission"
+        "text": "BEE"
       },
       {
         "id": "B",
-        "text": "PRC"
+        "text": "Commission"
       },
       {
         "id": "C",
-        "text": "BEE"
+        "text": "PRC"
       },
       {
         "id": "D",
         "text": "CHED"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Article V Code of Ethics states that: This Code shall take effect upon approval by the Commission and after fifteen (15) days following its publication in the Official Gazette."
   },
   {
@@ -11429,7 +11429,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Continuing Professional Education"
+        "text": "Continuous Professional Education"
       },
       {
         "id": "B",
@@ -11437,14 +11437,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Continuous Professional Education"
+        "text": "Continuing Professional Education"
       },
       {
         "id": "D",
         "text": "Continuous Professional Educator"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "CPE stands for Continuing Professional Education."
   },
   {
@@ -11483,23 +11483,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "He is of good reputation with moral values."
+        "text": "He is a citizen of the Philippines."
       },
       {
         "id": "B",
-        "text": "He has not been finally convicted by the court of an offense involving moral turpitude."
+        "text": "He is of good reputation with moral values."
       },
       {
         "id": "C",
-        "text": "He is a citizen of the Philippines."
+        "text": "He has not been finally convicted by the court of an offense involving moral turpitude."
       },
       {
         "id": "D",
         "text": "He is at least twenty-one (21) years of age."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is He is of good reputation with moral values."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, He is of good reputation with moral values. represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-59",
@@ -11510,23 +11510,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "System operation"
-      },
-      {
-        "id": "B",
         "text": "supply"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "distribution"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "generation"
+      },
+      {
+        "id": "D",
+        "text": "System operation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is System operation."
+    "correctChoiceId": "D",
+    "explanation": "R.A. 9136 (EPIRA of 2001) unbundled the electric power sector into Generation, Transmission, Distribution, and Supply to foster competitive electricity markets and regulatory oversight via the ERC."
   },
   {
     "id": "eelaws-60",
@@ -11537,22 +11537,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P 10,000"
+        "text": "P 25,000"
       },
       {
         "id": "B",
-        "text": "P 15,000"
+        "text": "P 10,000"
       },
       {
         "id": "C",
-        "text": "P 25,000"
+        "text": "P 15,000"
       },
       {
         "id": "D",
         "text": "P 30,000"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Section 40 of Article IV of RA 7920 is the Penalty clause, states that any person who shall violate any of the provisions of this Act shall be guilty of misdemeanor and shall, upon conviction, be sentenced to a fine of not less than P 10,000 nor more than P 50,000 or imprisonment for a period not less than 6 months nor more than 5 years or both at the discretion of the court."
   },
   {
@@ -11564,22 +11564,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Proclamation no. 193"
-      },
-      {
-        "id": "B",
         "text": "Proclamation no. 183"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "RA 184"
+      },
+      {
+        "id": "C",
+        "text": "Proclamation no. 193"
       },
       {
         "id": "D",
         "text": "RA 7920"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "May is declared as the electrical safety month in virtue of Proclamation no. 193 signed by Pres. Benigno Aquino III last June 27, 2011 for the reason of informing the public of the real reason of faulty electrical wiring."
   },
   {
@@ -11607,7 +11607,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Successor Generation Company."
+    "explanation": "R.A. 9136 (EPIRA of 2001) unbundled the electric power sector into Generation, Transmission, Distribution, and Supply to foster competitive electricity markets and regulatory oversight via the ERC."
   },
   {
     "id": "eelaws-63",
@@ -11634,7 +11634,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Competitive Retail Electricity Market."
+    "explanation": "R.A. 9136 (EPIRA of 2001) unbundled the electric power sector into Generation, Transmission, Distribution, and Supply to foster competitive electricity markets and regulatory oversight via the ERC."
   },
   {
     "id": "eelaws-64",
@@ -11645,23 +11645,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Relations with Client and Employer"
+        "text": "Relations with Fellow Engineers"
       },
       {
         "id": "B",
-        "text": "Professional Life"
+        "text": "Relations with Client and Employer"
       },
       {
         "id": "C",
-        "text": "Relations with Fellow Engineers"
+        "text": "Professional Life"
       },
       {
         "id": "D",
         "text": "Penal Provisions"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Relations with Client and Employer."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, Relations with Client and Employer represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-65",
@@ -11672,7 +11672,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Effectivity"
+        "text": "Relations with Client and Employer"
       },
       {
         "id": "B",
@@ -11680,15 +11680,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Relations with Client and Employer"
+        "text": "Effectivity"
       },
       {
         "id": "D",
         "text": "Professional Life"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Effectivity."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Effectivity represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-66",
@@ -11699,7 +11699,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Telegram"
+        "text": "Commission"
       },
       {
         "id": "B",
@@ -11711,11 +11711,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Commission"
+        "text": "Telegram"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Telegram."
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, Telegram represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-67",
@@ -11726,23 +11726,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Has been finally convicted by the court of an offense involving moral turpitude"
-      },
-      {
-        "id": "B",
-        "text": "Good reputation with low moral value"
-      },
-      {
-        "id": "C",
         "text": "Citizen of the Philippines"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "At least twenty-one (21) years of age"
+      },
+      {
+        "id": "C",
+        "text": "Good reputation with low moral value"
+      },
+      {
+        "id": "D",
+        "text": "Has been finally convicted by the court of an offense involving moral turpitude"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Has been finally convicted by the court of an offense involving moral turpitude."
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, Has been finally convicted by the court of an offense involving moral turpitude represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "eelaws-68",
@@ -11753,22 +11753,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "One"
+        "text": "Two"
       },
       {
         "id": "B",
-        "text": "Three"
-      },
-      {
-        "id": "C",
         "text": "Five"
       },
       {
+        "id": "C",
+        "text": "Three"
+      },
+      {
         "id": "D",
-        "text": "Two"
+        "text": "One"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "As specified by the Energy Regulatory Commission, a contestable customer is a customer with a demand of least One MW."
   },
   {
@@ -11780,7 +11780,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "u mg cos phi"
+        "text": "u mg"
       },
       {
         "id": "B",
@@ -11788,14 +11788,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "u mg"
+        "text": "mg"
       },
       {
         "id": "D",
-        "text": "mg"
+        "text": "u mg cos phi"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "The normal force on an incline of angle phi is N = m * g * cos(phi). The frictional force is f_k = mu * N = u * m * g * cos(phi)."
   },
   {
@@ -11807,22 +11807,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "30"
-      },
-      {
-        "id": "B",
         "text": "35"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "25"
+      },
+      {
+        "id": "C",
+        "text": "30"
       },
       {
         "id": "D",
         "text": "40"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Under RA 7920 for the REE Board Examination, Engineering Sciences and Allied Subjects is weighted at 30%."
   },
   {
@@ -11834,7 +11834,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "45"
+        "text": "35"
       },
       {
         "id": "B",
@@ -11842,14 +11842,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "35"
+        "text": "45"
       },
       {
         "id": "D",
         "text": "30"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Under RA 7920 for the REE Board Examination, Electrical Engineering Professional Subjects is weighted at 45%."
   },
   {
@@ -11861,11 +11861,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Jaime Mendoza"
+        "text": "Francis Mapile"
       },
       {
         "id": "B",
-        "text": "Francis Mapile"
+        "text": "Jaime Mendoza"
       },
       {
         "id": "C",
@@ -11876,7 +11876,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Jose Y. Cueto Jr."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Engr. Jaime V. Mendoza serves as Member of the Professional Regulatory Board of Electrical Engineering (PRBEE)."
   },
   {
@@ -11888,22 +11888,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Teofilo S. Pilando Jr."
+        "text": "Jose Y. Cueto Jr."
       },
       {
         "id": "B",
-        "text": "Yolanda D. Reyes"
+        "text": "Teofilo S. Pilando Jr."
       },
       {
         "id": "C",
-        "text": "Jose Y. Cueto Jr."
+        "text": "Yolanda D. Reyes"
       },
       {
         "id": "D",
         "text": "Jaime V. Mendoza"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "Atty. Teofilo S. Pilando Jr. served as Chairman of the Professional Regulation Commission (PRC)."
   },
   {
@@ -11915,7 +11915,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Yolanda D. Reyes"
+        "text": "Jaime V. Mendoza"
       },
       {
         "id": "B",
@@ -11923,14 +11923,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Jaime V. Mendoza"
+        "text": "Jose Y. Cueto Jr."
       },
       {
         "id": "D",
-        "text": "Jose Y. Cueto Jr."
+        "text": "Yolanda D. Reyes"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Arch. Yolanda D. Reyes served as Commissioner I of the Professional Regulation Commission (PRC)."
   },
   {
@@ -11942,11 +11942,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Jose Y. Cueto Jr."
+        "text": "Yolanda D. Reyes"
       },
       {
         "id": "B",
-        "text": "Yolanda D. Reyes"
+        "text": "Teofilo S. Pilando Jr."
       },
       {
         "id": "C",
@@ -11954,10 +11954,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Teofilo S. Pilando Jr."
+        "text": "Jose Y. Cueto Jr."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Dr. Jose Y. Cueto Jr. served as Commissioner II of the Professional Regulation Commission (PRC)."
   },
   {
@@ -11969,7 +11969,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reports to many managers"
+        "text": "Reports to the functional manager"
       },
       {
         "id": "B",
@@ -11977,14 +11977,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Reports to the functional manager"
+        "text": "Will not always have a \"home\""
       },
       {
         "id": "D",
-        "text": "Will not always have a \"home\""
+        "text": "Reports to many managers"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "In a project-oriented organization, when a project is completed, team members may not have a permanent functional department to return to."
   },
   {
@@ -11996,11 +11996,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Critical path method"
+        "text": "Flowchart"
       },
       {
         "id": "B",
-        "text": "Flowchart"
+        "text": "Work breakdown structure"
       },
       {
         "id": "C",
@@ -12008,10 +12008,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Work breakdown structure"
+        "text": "Critical path method"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "The critical path represents the sequence of activities with zero (or minimum) float and scheduling flexibility."
   },
   {
@@ -12023,22 +12023,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "$100,000 profit"
-      },
-      {
-        "id": "B",
         "text": "$60,000 loss"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "$20,000 profit"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "$40,000 loss"
+      },
+      {
+        "id": "D",
+        "text": "$100,000 profit"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "EMV = (0.60 * $100,000) + (0.40 * -$100,000) = $60,000 - $40,000 = $20,000 profit."
   },
   {
@@ -12050,7 +12050,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Crash the project"
+        "text": "Level the resources"
       },
       {
         "id": "B",
@@ -12062,11 +12062,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Level the resources"
+        "text": "Crash the project"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Crash the project."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Crash the project serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-2",
@@ -12077,11 +12077,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Functional"
+        "text": "Matrix"
       },
       {
         "id": "B",
-        "text": "Matrix"
+        "text": "Coordinator"
       },
       {
         "id": "C",
@@ -12089,10 +12089,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Coordinator"
+        "text": "Functional"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "In a functional organization, the functional manager holds resource authority and project managers have little to no authority."
   },
   {
@@ -12112,15 +12112,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Define Scope"
+        "text": "Develop Project Charter"
       },
       {
         "id": "D",
-        "text": "Develop Project Charter"
+        "text": "Define Scope"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Develop Schedule."
+    "explanation": "In project management, Develop Schedule serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-2",
@@ -12131,23 +12131,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Perform resource leveling"
-      },
-      {
-        "id": "B",
         "text": "Analyze the life cycle costs"
       },
       {
+        "id": "B",
+        "text": "Perform resource leveling"
+      },
+      {
         "id": "C",
-        "text": "Perform a Monte Carlo analysis"
+        "text": "Fast track the project"
       },
       {
         "id": "D",
-        "text": "Fast track the project"
+        "text": "Perform a Monte Carlo analysis"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Perform resource leveling."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Perform resource leveling is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-m1-3",
@@ -12158,22 +12158,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "This is a hybrid project since the team members need to both adopt a new technology and deliver a new product."
+        "text": "This is a change-driven project since the organization must change their approach to keep up with their competition."
       },
       {
         "id": "B",
-        "text": "This is a change-driven project since the technology and the product scope are emerging as the work is being done."
-      },
-      {
-        "id": "C",
         "text": "This is a hybrid project since the team already knows how to build an online course and only the technology will be new."
       },
       {
+        "id": "C",
+        "text": "This is a hybrid project since the team members need to both adopt a new technology and deliver a new product."
+      },
+      {
         "id": "D",
-        "text": "This is a change-driven project since the organization must change their approach to keep up with their competition."
+        "text": "This is a change-driven project since the technology and the product scope are emerging as the work is being done."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Because both technology and scope are actively emerging as work progresses, it represents a change-driven (adaptive/agile) project."
   },
   {
@@ -12185,11 +12185,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It increases the project risk"
+        "text": "It makes it easier to manage"
       },
       {
         "id": "B",
-        "text": "It makes it easier to manage"
+        "text": "It increases the project risk"
       },
       {
         "id": "C",
@@ -12200,8 +12200,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "It makes it more expensive"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is It increases the project risk."
+    "correctChoiceId": "B",
+    "explanation": "In project management, It increases the project risk serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-3",
@@ -12212,11 +12212,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Mandatory dependency"
+        "text": "Scope dependency"
       },
       {
         "id": "B",
-        "text": "Scope dependency"
+        "text": "Mandatory dependency"
       },
       {
         "id": "C",
@@ -12227,8 +12227,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "External dependency"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Mandatory dependency."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Mandatory dependency serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-4",
@@ -12239,22 +12239,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Simple"
-      },
-      {
-        "id": "B",
         "text": "Open and accurate"
       },
       {
+        "id": "B",
+        "text": "Simple"
+      },
+      {
         "id": "C",
-        "text": "Complex"
+        "text": "Hard to automate"
       },
       {
         "id": "D",
-        "text": "Hard to automate"
+        "text": "Complex"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "Matrix organizations involve multiple reporting channels between project and functional managers, making communication complex."
   },
   {
@@ -12270,7 +12270,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Flowchart"
+        "text": "Work breakdown structure"
       },
       {
         "id": "C",
@@ -12278,11 +12278,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Work breakdown structure"
+        "text": "Flowchart"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Critical path method."
+    "explanation": "In project management, Critical path method serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-4",
@@ -12297,7 +12297,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Control Quality"
+        "text": "Control Costs"
       },
       {
         "id": "C",
@@ -12305,11 +12305,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Control Costs"
+        "text": "Control Quality"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Verify Scope."
+    "explanation": "In project management, Verify Scope serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-5",
@@ -12320,7 +12320,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project manager"
+        "text": "The team"
       },
       {
         "id": "B",
@@ -12328,7 +12328,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The team"
+        "text": "The project manager"
       },
       {
         "id": "D",
@@ -12347,11 +12347,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The amount of time an activity can be delayed without delaying the project finish date"
+        "text": "The amount of time an activity can be delayed without delaying the early start date of its successor"
       },
       {
         "id": "B",
-        "text": "The amount of time an activity can be delayed without delaying the early start date of its successor"
+        "text": "The product of a forward and backward pass"
       },
       {
         "id": "C",
@@ -12359,7 +12359,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "The product of a forward and backward pass"
+        "text": "The amount of time an activity can be delayed without delaying the project finish date"
       }
     ],
     "correctChoiceId": "C",
@@ -12374,7 +12374,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Meeting and exceeding the customer's expectations"
+        "text": "The degree to which the project meets requirements"
       },
       {
         "id": "B",
@@ -12382,14 +12382,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The degree to which the project meets requirements"
+        "text": "Meeting and exceeding the customer's expectations"
       },
       {
         "id": "D",
         "text": "Conformance to management's objectives"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Quality is the degree to which a set of inherent characteristics fulfills specified project requirements."
   },
   {
@@ -12401,23 +12401,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Leveling"
-      },
-      {
-        "id": "B",
         "text": "Crashing"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Floating"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Fast tracking"
+      },
+      {
+        "id": "D",
+        "text": "Leveling"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Leveling."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Leveling serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-5",
@@ -12428,23 +12428,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Confirm that all the stakeholders have had input into the scope"
-      },
-      {
-        "id": "B",
         "text": "Analyze project risk"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Begin work on a project management plan"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Create a project scope statement"
+      },
+      {
+        "id": "D",
+        "text": "Confirm that all the stakeholders have had input into the scope"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Confirm that all the stakeholders have had input into the scope."
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, Confirm that all the stakeholders have had input into the scope represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "pm-m1-6",
@@ -12455,7 +12455,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "You will plan the project with the usual predictive process, then the team will use agile practices to implement the plan."
+        "text": "You will need to design the best balance of agile and plan-driven practices based on the needs of the project and the organization."
       },
       {
         "id": "B",
@@ -12463,14 +12463,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "For each part of the project, you will need to choose either agile practices or plan-driven practices."
+        "text": "You will plan the project with the usual predictive process, then the team will use agile practices to implement the plan."
       },
       {
         "id": "D",
-        "text": "You will need to design the best balance of agile and plan-driven practices based on the needs of the project and the organization."
+        "text": "For each part of the project, you will need to choose either agile practices or plan-driven practices."
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "Hybrid project management requires tailoring and designing the optimal balance between predictive and agile practices for the specific project context."
   },
   {
@@ -12482,22 +12482,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Manage who does each activity."
+        "text": "Manage who does each activity and when it is done."
       },
       {
         "id": "B",
-        "text": "Manage when and in what sequence work is done."
+        "text": "Manage who does each activity."
       },
       {
         "id": "C",
-        "text": "Manage when each activity is done."
+        "text": "Manage when and in what sequence work is done."
       },
       {
         "id": "D",
-        "text": "Manage who does each activity and when it is done."
+        "text": "Manage when each activity is done."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Work authorization systems formally sanction work to start at the proper time and sequence."
   },
   {
@@ -12509,23 +12509,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reporting to management"
-      },
-      {
-        "id": "B",
-        "text": "Project planning"
-      },
-      {
-        "id": "C",
         "text": "Reporting to team members"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Reporting to management"
+      },
+      {
+        "id": "C",
         "text": "Risk analysis"
+      },
+      {
+        "id": "D",
+        "text": "Project planning"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Reporting to management."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Reporting to management serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-6",
@@ -12536,23 +12536,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Until it can be done by one person"
-      },
-      {
-        "id": "B",
-        "text": "Until it can be realistically estimated"
-      },
-      {
-        "id": "C",
         "text": "Until it has a meaningful conclusion"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Until it can be done by one person"
+      },
+      {
+        "id": "C",
         "text": "Until it cannot be logically subdivided further"
+      },
+      {
+        "id": "D",
+        "text": "Until it can be realistically estimated"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Until it can be done by one person."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Until it can be done by one person serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-7",
@@ -12563,22 +12563,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project expediter cannot make decisions."
-      },
-      {
-        "id": "B",
         "text": "The project expediter can make more decisions."
       },
       {
+        "id": "B",
+        "text": "The project expediter cannot make decisions."
+      },
+      {
         "id": "C",
-        "text": "The project expediter reports to a higher-level manager."
+        "text": "The project expediter has some authority."
       },
       {
         "id": "D",
-        "text": "The project expediter has some authority."
+        "text": "The project expediter reports to a higher-level manager."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "A project expediter acts only as a communication coordinator and cannot make decisions, whereas a project coordinator has some limited authority to make decisions."
   },
   {
@@ -12594,19 +12594,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Performing a Monte Carlo analysis"
+        "text": "Determining lag"
       },
       {
         "id": "C",
-        "text": "Determining the waiting time between activities"
+        "text": "Performing a Monte Carlo analysis"
       },
       {
         "id": "D",
-        "text": "Determining lag"
+        "text": "Determining the waiting time between activities"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Determining the amount of time the activity can be delayed before it delays the critical path."
+    "explanation": "In project management, Determining the amount of time the activity can be delayed before it delays the critical path serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-7",
@@ -12621,19 +12621,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Quality analysis"
+        "text": "Change management process"
       },
       {
         "id": "C",
-        "text": "Scope decomposition"
+        "text": "Quality analysis"
       },
       {
         "id": "D",
-        "text": "Change management process"
+        "text": "Scope decomposition"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Scope management."
+    "explanation": "In project management, Scope management serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-8",
@@ -12644,7 +12644,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It is temporary."
+        "text": "It has interrelated activities."
       },
       {
         "id": "B",
@@ -12652,7 +12652,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "It has interrelated activities."
+        "text": "It is temporary."
       },
       {
         "id": "D",
@@ -12671,11 +12671,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project manager"
+        "text": "The project team"
       },
       {
         "id": "B",
-        "text": "The project team"
+        "text": "The project manager"
       },
       {
         "id": "C",
@@ -12698,7 +12698,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Focus on the most critical issues to improve quality."
+        "text": "Analyze the cause of a quality problem."
       },
       {
         "id": "B",
@@ -12706,7 +12706,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Analyze the cause of a quality problem."
+        "text": "Focus on the most critical issues to improve quality."
       },
       {
         "id": "D",
@@ -12725,23 +12725,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Standard deviation tells you how unsure the estimate"
-      },
-      {
-        "id": "B",
         "text": "Nothing"
       },
       {
+        "id": "B",
+        "text": "Standard deviation tells you how unsure the estimate"
+      },
+      {
         "id": "C",
-        "text": "Standard deviation tells you if the estimate is accurate"
+        "text": "Standard deviation tells you if the estimate includes a pad"
       },
       {
         "id": "D",
-        "text": "Standard deviation tells you if the estimate includes a pad"
+        "text": "Standard deviation tells you if the estimate is accurate"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Standard deviation tells you how unsure the estimate."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Standard deviation tells you how unsure the estimate serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-8",
@@ -12752,23 +12752,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "ETC and VAC"
-      },
-      {
-        "id": "B",
         "text": "SPI and CPI"
       },
       {
+        "id": "B",
+        "text": "ETC and VAC"
+      },
+      {
         "id": "C",
-        "text": "EV and AC"
+        "text": "SV and CV"
       },
       {
         "id": "D",
-        "text": "SV and CV"
+        "text": "EV and AC"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is ETC and VAC."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, ETC and VAC is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-m1-9",
@@ -12779,7 +12779,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Organizational project management"
+        "text": "Portfolio management"
       },
       {
         "id": "B",
@@ -12787,14 +12787,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Project governance"
+        "text": "Organizational project management"
       },
       {
         "id": "D",
-        "text": "Portfolio management"
+        "text": "Project governance"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "Organizational Project Management (OPM) aligns project, program, and portfolio practices with organizational strategy."
   },
   {
@@ -12806,22 +12806,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "It is shorter than the duration of the longest activity."
-      },
-      {
-        "id": "B",
         "text": "It is shorter than the activity it represents."
       },
       {
+        "id": "B",
+        "text": "It is shorter than the duration of the longest activity."
+      },
+      {
         "id": "C",
-        "text": "It has no duration."
+        "text": "It is the same length as the activity it represents."
       },
       {
         "id": "D",
-        "text": "It is the same length as the activity it represents."
+        "text": "It has no duration."
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "A milestone represents a significant event or point in time and has zero duration."
   },
   {
@@ -12833,23 +12833,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "There is no duration"
-      },
-      {
-        "id": "B",
         "text": "Shorter than the duration of the longest activity"
       },
       {
+        "id": "B",
+        "text": "Same length as the activity it represents"
+      },
+      {
         "id": "C",
-        "text": "Shorter than the activity it represents"
+        "text": "There is no duration"
       },
       {
         "id": "D",
-        "text": "Same length as the activity it represents"
+        "text": "Shorter than the activity it represents"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is There is no duration."
+    "correctChoiceId": "C",
+    "explanation": "In project management, There is no duration serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-9",
@@ -12860,23 +12860,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Direct costs and variable costs"
-      },
-      {
-        "id": "B",
         "text": "Indirect costs and direct costs"
       },
       {
+        "id": "B",
+        "text": "Direct costs and variable costs"
+      },
+      {
         "id": "C",
-        "text": "Variable costs and fixed costs"
+        "text": "Fixed costs and indirect costs"
       },
       {
         "id": "D",
-        "text": "Fixed costs and indirect costs"
+        "text": "Variable costs and fixed costs"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Direct costs and variable costs."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Direct costs and variable costs is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-m1-10",
@@ -12887,22 +12887,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scope, number of resources, and cost"
-      },
-      {
-        "id": "B",
-        "text": "Scope, cost, and schedule"
-      },
-      {
-        "id": "C",
         "text": "Scope, schedule, cost, quality, risk, resources, and customer satisfaction"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Schedule, cost, and number of changes"
+      },
+      {
+        "id": "C",
+        "text": "Scope, number of resources, and cost"
+      },
+      {
+        "id": "D",
+        "text": "Scope, cost, and schedule"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Comprehensive constraints comprise scope, schedule, cost, quality, risk, resources, and customer satisfaction."
   },
   {
@@ -12930,7 +12930,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is The management reserve."
+    "explanation": "In engineering economic analysis, The management reserve is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-m1-11",
@@ -12941,22 +12941,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ensure that the checklist is filled out accurately and submitted on time."
-      },
-      {
-        "id": "B",
-        "text": "Delegate the task of completing and submitting the checklist to the business analyst for your project."
-      },
-      {
-        "id": "C",
         "text": "Complete the checklist yourself, based on historical records."
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Ask the MO to complete the checklist."
+      },
+      {
+        "id": "C",
+        "text": "Delegate the task of completing and submitting the checklist to the business analyst for your project."
+      },
+      {
+        "id": "D",
+        "text": "Ensure that the checklist is filled out accurately and submitted on time."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Regulatory and corporate compliance requirements are mandatory; the project manager must ensure the checklist is completed accurately and submitted on schedule."
   },
   {
@@ -12968,11 +12968,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Network diagram"
+        "text": "WBS"
       },
       {
         "id": "B",
-        "text": "Bar chart"
+        "text": "Network diagram"
       },
       {
         "id": "C",
@@ -12980,11 +12980,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "WBS"
+        "text": "Bar chart"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Network diagram."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Network diagram serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-11",
@@ -12995,11 +12995,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "complex"
+        "text": "open and accurate"
       },
       {
         "id": "B",
-        "text": "hard to automate"
+        "text": "complex"
       },
       {
         "id": "C",
@@ -13007,11 +13007,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "open and accurate"
+        "text": "hard to automate"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is complex."
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, complex represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "pm-m1-12",
@@ -13022,11 +13022,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Once all the releases are completed, compare pre-project revenue to post-project revenue."
+        "text": "Analyze the customer feedback after each release, comparing the results to predefined targets."
       },
       {
         "id": "B",
-        "text": "Divide the expected improved satisfaction by the number of releases, and monitor whether each release delivers its share."
+        "text": "Once all the releases are completed, compare pre-project revenue to post-project revenue."
       },
       {
         "id": "C",
@@ -13034,10 +13034,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Analyze the customer feedback after each release, comparing the results to predefined targets."
+        "text": "Divide the expected improved satisfaction by the number of releases, and monitor whether each release delivers its share."
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "Incremental development delivers value incrementally; evaluating feedback after each release against predefined targets is the best approach."
   },
   {
@@ -13053,18 +13053,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Transference"
+        "text": "Acceptance"
       },
       {
         "id": "C",
-        "text": "Acceptance"
+        "text": "Transference"
       },
       {
         "id": "D",
         "text": "Avoidance"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Purchasing insurance shifts the financial impact to a third party (Transference)."
   },
   {
@@ -13076,11 +13076,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Rule of thumb"
+        "text": "Planning tool"
       },
       {
         "id": "B",
-        "text": "Control tool"
+        "text": "Rule of thumb"
       },
       {
         "id": "C",
@@ -13088,11 +13088,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Planning tool"
+        "text": "Control tool"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Rule of thumb."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Rule of thumb serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-13",
@@ -13103,11 +13103,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Work breakdown structure (WBS)"
+        "text": "Communications management plan"
       },
       {
         "id": "B",
-        "text": "Communications management plan"
+        "text": "Work breakdown structure (WBS)"
       },
       {
         "id": "C",
@@ -13134,19 +13134,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Logical relationships"
-      },
-      {
-        "id": "C",
         "text": "Critical paths"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Resource trade-offs"
+      },
+      {
+        "id": "D",
+        "text": "Logical relationships"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Progress or status."
+    "explanation": "In project management, Progress or status serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-14",
@@ -13157,22 +13157,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Contact the project manager for the other project, and ask for assistance."
-      },
-      {
-        "id": "B",
-        "text": "Obtain historical records and guidance from the project management office (PMO)."
-      },
-      {
-        "id": "C",
         "text": "Wait to see if the project is impacted by the growth in scope."
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Make sure the scope of the project is agreed to by all the stakeholders."
+      },
+      {
+        "id": "C",
+        "text": "Contact the project manager for the other project, and ask for assistance."
+      },
+      {
+        "id": "D",
+        "text": "Obtain historical records and guidance from the project management office (PMO)."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "The PMO maintains organizational process assets, historical project files, and guidance."
   },
   {
@@ -13184,22 +13184,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The sponsor creates the project management plan based on input from the project manager."
-      },
-      {
-        "id": "B",
-        "text": "The functional manager creates the project management plan based on input from the project manager."
-      },
-      {
-        "id": "C",
         "text": "The project manager creates the project management plan based on input from senior management."
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "The sponsor creates the project management plan based on input from the project manager."
+      },
+      {
+        "id": "C",
         "text": "The project manager creates the project management plan based on input from the team."
+      },
+      {
+        "id": "D",
+        "text": "The functional manager creates the project management plan based on input from the project manager."
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Involving team members who perform the work yields the most realistic estimates and actionable plan."
   },
   {
@@ -13211,7 +13211,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Fast track the project"
+        "text": "Perform Monte Carlo analysis"
       },
       {
         "id": "B",
@@ -13223,7 +13223,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Perform Monte Carlo analysis"
+        "text": "Fast track the project"
       }
     ],
     "correctChoiceId": "C",
@@ -13242,19 +13242,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Project Requirements Documentation"
-      },
-      {
-        "id": "C",
         "text": "WBS Dictionary"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Project Charter"
+      },
+      {
+        "id": "D",
+        "text": "Project Requirements Documentation"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Project Scope Statement."
+    "explanation": "In project management, Project Scope Statement serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-15",
@@ -13269,18 +13269,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Correlates the need for the project to the organization's strategic plan"
-      },
-      {
-        "id": "C",
         "text": "Connects the project to the personal objectives of the sponsor"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Confirms that the management plan includes the management of team members"
+      },
+      {
+        "id": "D",
+        "text": "Correlates the need for the project to the organization's strategic plan"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Linking project goals to company strategic plans builds broad organizational support."
   },
   {
@@ -13292,23 +13292,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Quality assurance"
-      },
-      {
-        "id": "B",
         "text": "Verify scope"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Change request"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Alternatives identification"
+      },
+      {
+        "id": "D",
+        "text": "Quality assurance"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Quality assurance."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Quality assurance serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-15",
@@ -13319,23 +13319,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Project Management Information System (PMIS)"
-      },
-      {
-        "id": "B",
         "text": "Scope Management Plan"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Work Breakdown Structure (WBS)"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Communication Management Plan"
+      },
+      {
+        "id": "D",
+        "text": "Project Management Information System (PMIS)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Project Management Information System (PMIS)."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Project Management Information System (PMIS) serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-16",
@@ -13381,11 +13381,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Scope Statement"
+        "text": "Quality Audits"
       },
       {
         "id": "D",
-        "text": "Quality Audits"
+        "text": "Scope Statement"
       }
     ],
     "correctChoiceId": "A",
@@ -13408,15 +13408,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Make sure the scope of the project is agreed to by all the stakeholders"
+        "text": "Ensures there is communications management plan"
       },
       {
         "id": "D",
-        "text": "Ensures there is communications management plan"
+        "text": "Make sure the scope of the project is agreed to by all the stakeholders"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Correlates the need for the project to the organizations strategic plan."
+    "explanation": "In project management, Correlates the need for the project to the organizations strategic plan serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-17",
@@ -13427,7 +13427,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "They have not identified the project objectives."
+        "text": "The end date has not been set."
       },
       {
         "id": "B",
@@ -13435,11 +13435,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The end date has not been set."
+        "text": "They have not identified the product of the project."
       },
       {
         "id": "D",
-        "text": "They have not identified the product of the project."
+        "text": "They have not identified the project objectives."
       }
     ],
     "correctChoiceId": "B",
@@ -13454,11 +13454,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Team buy-in"
+        "text": "A project budget"
       },
       {
         "id": "B",
-        "text": "A project budget"
+        "text": "A project schedule"
       },
       {
         "id": "C",
@@ -13466,11 +13466,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "A project schedule"
+        "text": "Team buy-in"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Team buy-in."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Team buy-in serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-18",
@@ -13481,22 +13481,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project manager"
+        "text": "The project management office (PMO)"
       },
       {
         "id": "B",
-        "text": "The project management team"
+        "text": "The project manager"
       },
       {
         "id": "C",
-        "text": "The project management office (PMO)"
+        "text": "The project management team"
       },
       {
         "id": "D",
         "text": "The project team"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "The PMO (or portfolio management board) is responsible for setting and communicating organizational priorities among projects."
   },
   {
@@ -13508,23 +13508,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives"
+        "text": "A project is a lengthy endeavor with a beginning and an end, a program combines two or more unrelated projects and a portfolio combines two or more programs."
       },
       {
         "id": "B",
-        "text": "A project is a contracted endeavor with a beginning and an end, a portfolio is a group of projects with more open-ended competion dates and a program combines two or more portfolios"
-      },
-      {
-        "id": "C",
         "text": "A project is a temporary endeavor with beginning and an end, a program may include other non-project work and a portfolio is all the projects in a given department or division"
       },
       {
+        "id": "C",
+        "text": "A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives"
+      },
+      {
         "id": "D",
-        "text": "A project is a lengthy endeavor with a beginning and an end, a program combines two or more unrelated projects and a portfolio combines two or more programs."
+        "text": "A project is a contracted endeavor with a beginning and an end, a portfolio is a group of projects with more open-ended competion dates and a program combines two or more portfolios"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives."
+    "correctChoiceId": "C",
+    "explanation": "In project management, A project is a temporary endeavor with a beginning and an end, a program is a group of related projects and a portfolio is a group of projects and programs related to a specific strategic organization objectives serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-18",
@@ -13535,23 +13535,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Inspection"
+        "text": "Verify the WBS"
       },
       {
         "id": "B",
-        "text": "Performance measurement"
+        "text": "Inspection"
       },
       {
         "id": "C",
-        "text": "Verify product correctness"
+        "text": "Performance measurement"
       },
       {
         "id": "D",
-        "text": "Verify the WBS"
+        "text": "Verify product correctness"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Inspection."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Inspection serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-19",
@@ -13562,7 +13562,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "three"
+        "text": "two"
       },
       {
         "id": "B",
@@ -13570,15 +13570,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "cannot be determined"
+        "text": "three"
       },
       {
         "id": "D",
-        "text": "two"
+        "text": "cannot be determined"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is three."
+    "correctChoiceId": "C",
+    "explanation": "In project management, three serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-20",
@@ -13589,22 +13589,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project manager"
-      },
-      {
-        "id": "B",
-        "text": "The team"
-      },
-      {
-        "id": "C",
         "text": "The sponsor"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "The project manager"
+      },
+      {
+        "id": "C",
         "text": "The stakeholders"
+      },
+      {
+        "id": "D",
+        "text": "The team"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Lessons learned should involve all key project stakeholders to capture a complete perspective of project successes and issues."
   },
   {
@@ -13616,7 +13616,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Create WBS"
+        "text": "Verify Scope"
       },
       {
         "id": "B",
@@ -13624,15 +13624,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Define Scope"
+        "text": "Create WBS"
       },
       {
         "id": "D",
-        "text": "Verify Scope"
+        "text": "Define Scope"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Create WBS."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Create WBS serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-20",
@@ -13651,15 +13651,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Be included as activities to be performed during project closure"
+        "text": "Be a separate phase in the project life cycle because a large portion of life cycle costs is devoted to maintenance and operations"
       },
       {
         "id": "D",
-        "text": "Be a separate phase in the project life cycle because a large portion of life cycle costs is devoted to maintenance and operations"
+        "text": "Be included as activities to be performed during project closure"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Not be viewed as part of a project."
+    "explanation": "In project management, Not be viewed as part of a project serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-21",
@@ -13678,14 +13678,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Project C"
+        "text": "Project D"
       },
       {
         "id": "D",
-        "text": "Project D"
+        "text": "Project C"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "Higher internal rate of return indicates greater expected investment profitability."
   },
   {
@@ -13697,11 +13697,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Accept the risk."
+        "text": "Continue to investigate ways to mitigate the risk."
       },
       {
         "id": "B",
-        "text": "Continue to investigate ways to mitigate the risk."
+        "text": "Look for ways to transfer the risk."
       },
       {
         "id": "C",
@@ -13709,10 +13709,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Look for ways to transfer the risk."
+        "text": "Accept the risk."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "When a risk cannot be eliminated, mitigated, or transferred, passive or active acceptance is appropriate."
   },
   {
@@ -13724,7 +13724,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Alternatives identification"
+        "text": "Create WBS"
       },
       {
         "id": "B",
@@ -13732,15 +13732,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Stakeholder analysis"
+        "text": "Alternatives identification"
       },
       {
         "id": "D",
-        "text": "Create WBS"
+        "text": "Stakeholder analysis"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Alternatives identification."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Alternatives identification serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-22",
@@ -13751,7 +13751,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Be included as activities to be performed during project closure"
+        "text": "Not be viewed as part of a project"
       },
       {
         "id": "B",
@@ -13759,14 +13759,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Not be viewed as part of a project"
+        "text": "Be viewed as a separate project"
       },
       {
         "id": "D",
-        "text": "Be viewed as a separate project"
+        "text": "Be included as activities to be performed during project closure"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Operations and maintenance are continuous functions, not part of the temporary project itself."
   },
   {
@@ -13782,7 +13782,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Project document updates"
+        "text": "Change Requests"
       },
       {
         "id": "C",
@@ -13790,11 +13790,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Change Requests"
+        "text": "Project document updates"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Scope Changes."
+    "explanation": "In project management, Scope Changes serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-23",
@@ -13805,22 +13805,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "An initiative set up by management"
-      },
-      {
-        "id": "B",
         "text": "A means to gain benefits and control of related projects"
       },
       {
+        "id": "B",
+        "text": "A government regulation"
+      },
+      {
         "id": "C",
-        "text": "A group of unrelated projects managed in a coordinated way"
+        "text": "An initiative set up by management"
       },
       {
         "id": "D",
-        "text": "A government regulation"
+        "text": "A group of unrelated projects managed in a coordinated way"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Programs provide centralized management to gain benefits that would not be obtained by managing the projects individually."
   },
   {
@@ -13832,23 +13832,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scope Statement"
+        "text": "Scope Verification"
       },
       {
         "id": "B",
-        "text": "Scope Control"
-      },
-      {
-        "id": "C",
         "text": "WBS"
       },
       {
+        "id": "C",
+        "text": "Scope Statement"
+      },
+      {
         "id": "D",
-        "text": "Scope Verification"
+        "text": "Scope Control"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Scope Statement."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Scope Statement serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-24",
@@ -13863,18 +13863,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Create lessons learned."
-      },
-      {
-        "id": "C",
         "text": "Create network diagrams."
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Create status reports."
+      },
+      {
+        "id": "D",
+        "text": "Create lessons learned."
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Lessons learned capture historical knowledge, successes, and pitfalls for future efforts."
   },
   {
@@ -13886,11 +13886,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Product Scope; Project Scope"
+        "text": "Scope Management Plan, Project Management Plan"
       },
       {
         "id": "B",
-        "text": "Scope Management Plan, Project Management Plan"
+        "text": "Requirements, Deliverables"
       },
       {
         "id": "C",
@@ -13898,10 +13898,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Requirements, Deliverables"
+        "text": "Product Scope; Project Scope"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "The features and functions of a product or service are considered Product Scope; Project Scope; and the work that must be done to deliver a product/service as the output of the project is considered Product Scope; Project Scope."
   },
   {
@@ -13913,22 +13913,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Initiating"
-      },
-      {
-        "id": "B",
-        "text": "Before the project management process"
-      },
-      {
-        "id": "C",
         "text": "Planning"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Executing"
+      },
+      {
+        "id": "C",
+        "text": "Before the project management process"
+      },
+      {
+        "id": "D",
+        "text": "Initiating"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Estimating costs and determining the detailed budget occur during the Planning process group."
   },
   {
@@ -13940,23 +13940,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Accepted Deliverables"
+        "text": "Validated Deliverables"
       },
       {
         "id": "B",
-        "text": "Project Management Plan"
+        "text": "Accepted Deliverables"
       },
       {
         "id": "C",
-        "text": "Validated Deliverables"
+        "text": "Project Management Plan"
       },
       {
         "id": "D",
         "text": "Requirements Traceability Matrix"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Accepted Deliverables."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Accepted Deliverables serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-25",
@@ -13971,11 +13971,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Company Processes"
+        "text": "Company Culture"
       },
       {
         "id": "C",
-        "text": "Company Culture"
+        "text": "Company Processes"
       },
       {
         "id": "D",
@@ -13983,7 +13983,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Project Scope Statement."
+    "explanation": "In project management, Project Scope Statement serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-26",
@@ -13994,11 +13994,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Executing"
+        "text": "Initiating"
       },
       {
         "id": "B",
-        "text": "Planning"
+        "text": "Executing"
       },
       {
         "id": "C",
@@ -14006,10 +14006,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Initiating"
+        "text": "Planning"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "Developing the Project Charter is part of Initiating."
   },
   {
@@ -14021,23 +14021,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Imprecise language"
-      },
-      {
-        "id": "B",
-        "text": "Poor pattern, structure, and chronological order"
-      },
-      {
-        "id": "C",
         "text": "Small variation in size of work packages or detail of work"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Imprecise language"
+      },
+      {
+        "id": "C",
         "text": "Too much detail"
+      },
+      {
+        "id": "D",
+        "text": "Poor pattern, structure, and chronological order"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Imprecise language."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Imprecise language serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-26",
@@ -14048,23 +14048,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Start to create management plans"
+        "text": "Start Integrated Change Control"
       },
       {
         "id": "B",
-        "text": "Begin to complete work package"
-      },
-      {
-        "id": "C",
         "text": "Validate Scope"
       },
       {
+        "id": "C",
+        "text": "Start to create management plans"
+      },
+      {
         "id": "D",
-        "text": "Start Integrated Change Control"
+        "text": "Begin to complete work package"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Start to create management plans."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Start to create management plans serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m1-27",
@@ -14075,22 +14075,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Project budget"
-      },
-      {
-        "id": "B",
         "text": "Work breakdown structure"
       },
       {
+        "id": "B",
+        "text": "Detailed risk assessment"
+      },
+      {
         "id": "C",
-        "text": "Project management plan"
+        "text": "Project budget"
       },
       {
         "id": "D",
-        "text": "Detailed risk assessment"
+        "text": "Project management plan"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Decomposing scope into the WBS produces the work packages from which activities are sequenced and scheduled."
   },
   {
@@ -14102,7 +14102,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Perform Quality Control"
+        "text": "Perform Quality Assurance"
       },
       {
         "id": "B",
@@ -14110,15 +14110,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Perform Quality Assurance"
+        "text": "Perform Quality Control"
       },
       {
         "id": "D",
         "text": "Time Management"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Perform Quality Control."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Perform Quality Control serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-27",
@@ -14129,7 +14129,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Initiating"
+        "text": "Executing"
       },
       {
         "id": "B",
@@ -14137,15 +14137,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Executing"
+        "text": "Initiating"
       },
       {
         "id": "D",
         "text": "Monitoring and Controlling"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Initiating."
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Initiating represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
   },
   {
     "id": "pm-exam2-28",
@@ -14156,23 +14156,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Requirements traceability matrix"
-      },
-      {
-        "id": "B",
         "text": "Project scope statement"
       },
       {
+        "id": "B",
+        "text": "Requirements traceability matrix"
+      },
+      {
         "id": "C",
-        "text": "Work breakdown structure"
+        "text": "Change requests"
       },
       {
         "id": "D",
-        "text": "Change requests"
+        "text": "Work breakdown structure"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Requirements traceability matrix."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Requirements traceability matrix serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-28",
@@ -14183,23 +14183,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Initiating"
-      },
-      {
-        "id": "B",
         "text": "Planning"
       },
       {
+        "id": "B",
+        "text": "Initiating"
+      },
+      {
         "id": "C",
-        "text": "Integration"
+        "text": "Project Selection"
       },
       {
         "id": "D",
-        "text": "Project Selection"
+        "text": "Integration"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Initiating."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Initiating serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-29",
@@ -14210,23 +14210,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The project team"
-      },
-      {
-        "id": "B",
-        "text": "All the stakeholders"
-      },
-      {
-        "id": "C",
         "text": "The project expediter"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "The project team"
+      },
+      {
+        "id": "C",
         "text": "The functional managers"
+      },
+      {
+        "id": "D",
+        "text": "All the stakeholders"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is The project team."
+    "correctChoiceId": "B",
+    "explanation": "In project management, The project team serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-29",
@@ -14237,23 +14237,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Iterative"
+        "text": "Standardized"
       },
       {
         "id": "B",
-        "text": "Unique"
-      },
-      {
-        "id": "C",
         "text": "Unnecessary"
       },
       {
+        "id": "C",
+        "text": "Iterative"
+      },
+      {
         "id": "D",
-        "text": "Standardized"
+        "text": "Unique"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Iterative."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Iterative serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m4-30",
@@ -14264,7 +14264,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Forcing"
+        "text": "Compromise"
       },
       {
         "id": "B",
@@ -14272,14 +14272,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Compromise"
+        "text": "Problem-solving"
       },
       {
         "id": "D",
-        "text": "Problem-solving"
+        "text": "Forcing"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Problem-solving (collaborating/confronting the root cause) achieves the most durable resolution."
   },
   {
@@ -14291,11 +14291,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scope management plan"
+        "text": "Project scope statement"
       },
       {
         "id": "B",
-        "text": "Project scope statement"
+        "text": "Scope management plan"
       },
       {
         "id": "C",
@@ -14306,8 +14306,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "WBS dictionary"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Scope management plan."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Scope management plan serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-30",
@@ -14322,11 +14322,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Planning"
+        "text": "Integration"
       },
       {
         "id": "C",
-        "text": "Integration"
+        "text": "Planning"
       },
       {
         "id": "D",
@@ -14334,7 +14334,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Executing."
+    "explanation": "In project management, Executing serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-31",
@@ -14345,7 +14345,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A WBS dictionary"
+        "text": "The product scope"
       },
       {
         "id": "B",
@@ -14353,15 +14353,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The project scope statement"
+        "text": "A WBS dictionary"
       },
       {
         "id": "D",
-        "text": "The product scope"
+        "text": "The project scope statement"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is A WBS dictionary."
+    "correctChoiceId": "C",
+    "explanation": "In project management, A WBS dictionary serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-31",
@@ -14372,7 +14372,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monitoring and Control"
+        "text": "Executing"
       },
       {
         "id": "B",
@@ -14380,15 +14380,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Initiating"
+        "text": "Monitoring and Control"
       },
       {
         "id": "D",
-        "text": "Executing"
+        "text": "Initiating"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Monitoring and Control."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Monitoring and Control serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-32",
@@ -14403,7 +14403,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "During the planning processes"
+        "text": "At the beginning of the project"
       },
       {
         "id": "C",
@@ -14411,11 +14411,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "At the beginning of the project"
+        "text": "During the planning processes"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is At the end of each phase of the project."
+    "explanation": "In project management, At the end of each phase of the project serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-32",
@@ -14430,7 +14430,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Closing"
+        "text": "Planning"
       },
       {
         "id": "C",
@@ -14438,11 +14438,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Planning"
+        "text": "Closing"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Executing."
+    "explanation": "In project management, Executing serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-33",
@@ -14453,23 +14453,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Planning"
-      },
-      {
-        "id": "B",
-        "text": "Executing"
-      },
-      {
-        "id": "C",
         "text": "Monitoring and controlling"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Planning"
+      },
+      {
+        "id": "C",
         "text": "Initiating"
+      },
+      {
+        "id": "D",
+        "text": "Executing"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Planning."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Planning serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-33",
@@ -14480,23 +14480,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Develop Project Charter"
-      },
-      {
-        "id": "B",
-        "text": "Create WBS"
-      },
-      {
-        "id": "C",
         "text": "Estimate Costs"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Develop Project Charter"
+      },
+      {
+        "id": "C",
         "text": "Sequence Activities"
+      },
+      {
+        "id": "D",
+        "text": "Create WBS"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Develop Project Charter."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Develop Project Charter serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-34",
@@ -14507,23 +14507,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Stakeholder"
-      },
-      {
-        "id": "B",
         "text": "Team"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Project manager"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Customer"
+      },
+      {
+        "id": "D",
+        "text": "Stakeholder"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Stakeholder."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Stakeholder serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-34",
@@ -14534,23 +14534,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Lessons Learned"
-      },
-      {
-        "id": "B",
         "text": "Procedures"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Standards for Reports"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Meetings"
+      },
+      {
+        "id": "D",
+        "text": "Lessons Learned"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Lessons Learned."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Lessons Learned serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-35",
@@ -14561,11 +14561,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "There is a risk that project costs could go higher than planned"
+        "text": "There is a risk that the cost of the project will be lower than planned"
       },
       {
         "id": "B",
-        "text": "There is a risk that the cost of the project will be lower than planned"
+        "text": "There is a risk that project costs could go higher than planned"
       },
       {
         "id": "C",
@@ -14576,8 +14576,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "The project is too risky from a cost aspect"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is There is a risk that project costs could go higher than planned."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, There is a risk that project costs could go higher than planned is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam2-36",
@@ -14588,23 +14588,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Performance reporting"
-      },
-      {
-        "id": "B",
         "text": "Planning control"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Ishikawa diagrams"
+      },
+      {
+        "id": "C",
+        "text": "Performance reporting"
       },
       {
         "id": "D",
         "text": "Integrating the project components into a whole"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Performance reporting."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Performance reporting serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-37",
@@ -14615,23 +14615,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Determine Budget"
+        "text": "Estimate Costs"
       },
       {
         "id": "B",
-        "text": "Control Costs"
-      },
-      {
-        "id": "C",
         "text": "Cost Management"
       },
       {
+        "id": "C",
+        "text": "Control Costs"
+      },
+      {
         "id": "D",
-        "text": "Estimate Costs"
+        "text": "Determine Budget"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Determine Budget."
+    "correctChoiceId": "D",
+    "explanation": "In engineering economic analysis, Determine Budget is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam3-37",
@@ -14642,23 +14642,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Effective communication at key interface points"
-      },
-      {
-        "id": "B",
-        "text": "Product Control"
-      },
-      {
-        "id": "C",
         "text": "The careers of the team members"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Timely updates to the project management plan"
+      },
+      {
+        "id": "C",
+        "text": "Product Control"
+      },
+      {
+        "id": "D",
+        "text": "Effective communication at key interface points"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Effective communication at key interface points."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Effective communication at key interface points serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-38",
@@ -14669,23 +14669,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Earned value (EV)"
-      },
-      {
-        "id": "B",
         "text": "Planned value (PV)"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Actual cost (AC)"
+      },
+      {
+        "id": "C",
+        "text": "Earned value (EV)"
       },
       {
         "id": "D",
         "text": "Cost variance (CV)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Earned value (EV)."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Earned value (EV) serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-38",
@@ -14696,23 +14696,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Direct and Manage Project Work"
-      },
-      {
-        "id": "B",
         "text": "Develop Project Charter"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Develop Schedule"
+      },
+      {
+        "id": "C",
+        "text": "Direct and Manage Project Work"
       },
       {
         "id": "D",
         "text": "Validate Scope"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Direct and Manage Project Work."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Direct and Manage Project Work serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-39",
@@ -14723,23 +14723,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The seller"
-      },
-      {
-        "id": "B",
         "text": "Management"
       },
       {
+        "id": "B",
+        "text": "The seller"
+      },
+      {
         "id": "C",
-        "text": "The team"
+        "text": "The buyer"
       },
       {
         "id": "D",
-        "text": "The buyer"
+        "text": "The team"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is The seller."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, The seller is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam3-39",
@@ -14750,23 +14750,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Scope, Risk, Resource and other management plans"
-      },
-      {
-        "id": "B",
         "text": "The project scope"
       },
       {
+        "id": "B",
+        "text": "Scope, Risk, Resource and other management plans"
+      },
+      {
         "id": "C",
-        "text": "A printout from project management software"
+        "text": "A bar chart"
       },
       {
         "id": "D",
-        "text": "A bar chart"
+        "text": "A printout from project management software"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Scope, Risk, Resource and other management plans."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Scope, Risk, Resource and other management plans serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m5-40",
@@ -14777,22 +14777,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "One party is unable to perform."
+        "text": "It is declared null and void by either party's legal counsel."
       },
       {
         "id": "B",
-        "text": "One party is unable to finance its part of the work."
-      },
-      {
-        "id": "C",
         "text": "It is in violation of applicable law."
       },
       {
+        "id": "C",
+        "text": "One party is unable to perform."
+      },
+      {
         "id": "D",
-        "text": "It is declared null and void by either party's legal counsel."
+        "text": "One party is unable to finance its part of the work."
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "A contract that violates statutory law is illegal and unenforceable."
   },
   {
@@ -14804,7 +14804,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A less costly way of doing the same work"
+        "text": "Management to buy into the project"
       },
       {
         "id": "B",
@@ -14812,15 +14812,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Management to buy into the project"
+        "text": "The team to buy into the project"
       },
       {
         "id": "D",
-        "text": "The team to buy into the project"
+        "text": "A less costly way of doing the same work"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is A less costly way of doing the same work."
+    "correctChoiceId": "D",
+    "explanation": "In project management, A less costly way of doing the same work serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-40",
@@ -14831,7 +14831,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Risk management plan"
+        "text": "Risk Based Spike"
       },
       {
         "id": "B",
@@ -14843,11 +14843,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Risk Based Spike"
+        "text": "Risk management plan"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Risk management plan."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Risk management plan serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-41",
@@ -14862,11 +14862,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Overhead costs"
+        "text": "Opportunity costs"
       },
       {
         "id": "C",
-        "text": "Opportunity costs"
+        "text": "Overhead costs"
       },
       {
         "id": "D",
@@ -14874,7 +14874,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Fixed costs."
+    "explanation": "In engineering economic analysis, Fixed costs is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam3-41",
@@ -14889,11 +14889,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Identify changes"
+        "text": "Using a work breakdown structure"
       },
       {
         "id": "C",
-        "text": "Using a work breakdown structure"
+        "text": "Identify changes"
       },
       {
         "id": "D",
@@ -14901,7 +14901,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Setting up a project control system."
+    "explanation": "In project management, Setting up a project control system serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-42",
@@ -14912,7 +14912,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Direct"
+        "text": "Indirect"
       },
       {
         "id": "B",
@@ -14920,15 +14920,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Indirect"
+        "text": "Direct"
       },
       {
         "id": "D",
         "text": "Fixed"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Direct."
+    "correctChoiceId": "C",
+    "explanation": "In engineering economic analysis, Direct is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam3-42",
@@ -14939,23 +14939,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sunk Costs"
-      },
-      {
-        "id": "B",
         "text": "Direct Cost"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Variable Cost"
+      },
+      {
+        "id": "C",
+        "text": "Sunk Costs"
       },
       {
         "id": "D",
         "text": "Fixed Costs"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Sunk Costs."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Sunk Costs serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-43",
@@ -14966,23 +14966,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Monitoring and controlling"
-      },
-      {
-        "id": "B",
         "text": "Planning"
       },
       {
+        "id": "B",
+        "text": "Monitoring and controlling"
+      },
+      {
         "id": "C",
-        "text": "Initiating"
+        "text": "Executing"
       },
       {
         "id": "D",
-        "text": "Executing"
+        "text": "Initiating"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Monitoring and controlling."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Monitoring and controlling serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-43",
@@ -14993,23 +14993,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Performing Cost Benefit"
-      },
-      {
-        "id": "B",
         "text": "Creating Lessons Learned"
       },
       {
+        "id": "B",
+        "text": "Performing Cost Benefit"
+      },
+      {
         "id": "C",
-        "text": "Formal Acceptance"
+        "text": "Performance Reporting"
       },
       {
         "id": "D",
-        "text": "Performance Reporting"
+        "text": "Formal Acceptance"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Performing Cost Benefit."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Performing Cost Benefit serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-44",
@@ -15020,23 +15020,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Determine Budget"
-      },
-      {
-        "id": "B",
-        "text": "Control Costs"
-      },
-      {
-        "id": "C",
         "text": "Estimate Activity Resources"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Determine Budget"
+      },
+      {
+        "id": "C",
         "text": "Estimate Costs"
+      },
+      {
+        "id": "D",
+        "text": "Control Costs"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Determine Budget."
+    "correctChoiceId": "B",
+    "explanation": "In engineering economic analysis, Determine Budget is utilized to quantify cash flow equivalence, assess capital recovery, and compare alternative project investments."
   },
   {
     "id": "pm-exam3-44",
@@ -15047,22 +15047,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Stakeholder"
-      },
-      {
-        "id": "B",
-        "text": "Team"
-      },
-      {
-        "id": "C",
         "text": "Project Manager"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Stakeholder"
+      },
+      {
+        "id": "C",
         "text": "Customer"
+      },
+      {
+        "id": "D",
+        "text": "Team"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The work breakdown structure can best be thought of as effective aid for Stakeholder communications."
   },
   {
@@ -15074,7 +15074,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Initiating"
+        "text": "Closing"
       },
       {
         "id": "B",
@@ -15082,15 +15082,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Closing"
+        "text": "Executing"
       },
       {
         "id": "D",
-        "text": "Executing"
+        "text": "Initiating"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Initiating."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Initiating serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-45",
@@ -15101,7 +15101,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Planning"
+        "text": "Monitoring and Control"
       },
       {
         "id": "B",
@@ -15109,15 +15109,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Monitoring and Control"
+        "text": "Initiating"
       },
       {
         "id": "D",
-        "text": "Initiating"
+        "text": "Planning"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Planning."
+    "correctChoiceId": "D",
+    "explanation": "In project management, Planning serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-46",
@@ -15144,7 +15144,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Dollars per module."
+    "explanation": "In project management, Dollars per module serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-46",
@@ -15159,11 +15159,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Sequence Activities"
+        "text": "Manage Quality"
       },
       {
         "id": "C",
-        "text": "Manage Quality"
+        "text": "Sequence Activities"
       },
       {
         "id": "D",
@@ -15171,7 +15171,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Control Quality."
+    "explanation": "In project management, Control Quality serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-47",
@@ -15186,19 +15186,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "A WBS"
+        "text": "Risks"
       },
       {
         "id": "C",
-        "text": "A network diagram"
+        "text": "A WBS"
       },
       {
         "id": "D",
-        "text": "Risks"
+        "text": "A network diagram"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is A change control system."
+    "explanation": "In project management, A change control system serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-48",
@@ -15209,23 +15209,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The critical path helps prove how long the project will take."
-      },
-      {
-        "id": "B",
-        "text": "There can be only one critical path"
-      },
-      {
-        "id": "C",
         "text": "The network diagram will change every time the end date changes"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "A project can never have negative float."
+      },
+      {
+        "id": "C",
+        "text": "There can be only one critical path"
+      },
+      {
+        "id": "D",
+        "text": "The critical path helps prove how long the project will take."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is The critical path helps prove how long the project will take."
+    "correctChoiceId": "D",
+    "explanation": "In project management, The critical path helps prove how long the project will take. serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-48",
@@ -15236,23 +15236,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Milestone reports"
-      },
-      {
-        "id": "B",
         "text": "Detailed cost estimates"
       },
       {
+        "id": "B",
+        "text": "Milestone reports"
+      },
+      {
         "id": "C",
-        "text": "Project management plans"
+        "text": "Bar charts"
       },
       {
         "id": "D",
-        "text": "Bar charts"
+        "text": "Project management plans"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Milestone reports."
+    "correctChoiceId": "B",
+    "explanation": "In project management, Milestone reports serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-49",
@@ -15267,19 +15267,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Monte Carlo"
+        "text": "Critical path method"
       },
       {
         "id": "C",
-        "text": "Resource leveling"
+        "text": "Monte Carlo"
       },
       {
         "id": "D",
-        "text": "Critical path method"
+        "text": "Resource leveling"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is PERT."
+    "explanation": "In project management, PERT serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-49",
@@ -15290,7 +15290,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reporting to management"
+        "text": "Report to team members"
       },
       {
         "id": "B",
@@ -15298,15 +15298,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Project Planning"
+        "text": "Reporting to management"
       },
       {
         "id": "D",
-        "text": "Report to team members"
+        "text": "Project Planning"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Reporting to management."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Reporting to management serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam2-50",
@@ -15321,19 +15321,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Change requests"
-      },
-      {
-        "id": "C",
         "text": "Schedule change control system"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Recommended corrective actions"
+      },
+      {
+        "id": "D",
+        "text": "Change requests"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Reserves."
+    "explanation": "In project management, Reserves serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-exam3-50",
@@ -15344,23 +15344,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Determine options for schedule compression and present management with the recommended option."
-      },
-      {
-        "id": "B",
-        "text": "Cut product scope."
-      },
-      {
-        "id": "C",
         "text": "Meet with management, and tell them the required date cannot be met."
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Work overtime."
+      },
+      {
+        "id": "C",
+        "text": "Determine options for schedule compression and present management with the recommended option."
+      },
+      {
+        "id": "D",
+        "text": "Cut product scope."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Determine options for schedule compression and present management with the recommended option."
+    "correctChoiceId": "C",
+    "explanation": "In project management, Determine options for schedule compression and present management with the recommended option. serves as a critical control metric for task dependencies, critical path scheduling, resource leveling, and risk management."
   },
   {
     "id": "pm-m5-55",
@@ -15371,22 +15371,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Cost risk is lower."
+        "text": "Risk is shared by all parties."
       },
       {
         "id": "B",
-        "text": "Cost risk is higher."
-      },
-      {
-        "id": "C",
         "text": "There is little risk."
       },
       {
+        "id": "C",
+        "text": "Cost risk is lower."
+      },
+      {
         "id": "D",
-        "text": "Risk is shared by all parties."
+        "text": "Cost risk is higher."
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "In fixed-price contracts, the seller assumes the cost overrun risk, reducing financial risk for the buyer."
   },
   {
@@ -15398,11 +15398,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A process of systematically gathering and analyzing information"
+        "text": "A project document containing assessment and classification information regarding identified stakeholders"
       },
       {
         "id": "B",
-        "text": "A project document containing assessment and classification information regarding identified stakeholders"
+        "text": "A process of systematically gathering and analyzing information"
       },
       {
         "id": "C",
@@ -15413,7 +15413,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "A table that links requirements to project objectives"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "The stakeholder register records identification, assessment, and classification details for all project stakeholders."
   },
   {
@@ -15425,22 +15425,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Level of engagement"
+        "text": "Level of influence"
       },
       {
         "id": "B",
-        "text": "Level of interest"
-      },
-      {
-        "id": "C",
         "text": "Level of commitment"
       },
       {
+        "id": "C",
+        "text": "Level of engagement"
+      },
+      {
         "id": "D",
-        "text": "Level of influence"
+        "text": "Level of interest"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "A stakeholder's influence (or power) measures their ability to affect the project or its deliverables."
   },
   {
@@ -15452,11 +15452,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Keeping in touch"
+        "text": "Entertainment by Electronics"
       },
       {
         "id": "B",
-        "text": "Broadcasting"
+        "text": "Keeping in touch"
       },
       {
         "id": "C",
@@ -15464,7 +15464,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Entertainment by Electronics"
+        "text": "Broadcasting"
       }
     ],
     "correctChoiceId": "C",
@@ -15479,7 +15479,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Multiplexing"
+        "text": "Linear mixing"
       },
       {
         "id": "B",
@@ -15487,11 +15487,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Duplexing"
+        "text": "Multiplexing"
       },
       {
         "id": "D",
-        "text": "Linear mixing"
+        "text": "Duplexing"
       }
     ],
     "correctChoiceId": "B",
@@ -15506,7 +15506,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Two-wire balanced line"
+        "text": "Coax"
       },
       {
         "id": "B",
@@ -15514,14 +15514,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Three-wire line"
+        "text": "Two-wire balanced line"
       },
       {
         "id": "D",
-        "text": "Coax"
+        "text": "Three-wire line"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "Coaxial cable is widely used for RF transmission lines."
   },
   {
@@ -15533,22 +15533,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Voice"
+        "text": "All of the above"
       },
       {
         "id": "B",
-        "text": "Video"
-      },
-      {
-        "id": "C",
         "text": "Computer data"
       },
       {
+        "id": "C",
+        "text": "Voice"
+      },
+      {
         "id": "D",
-        "text": "All of the above"
+        "text": "Video"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Data communications specifically concerns digital computer data transmission."
   },
   {
@@ -15560,7 +15560,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Distance"
+        "text": "Language"
       },
       {
         "id": "B",
@@ -15572,10 +15572,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Language"
+        "text": "Distance"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "A",
     "explanation": "Language differences represent a major barrier to effective human communication."
   },
   {
@@ -15587,22 +15587,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reverse modulation"
-      },
-      {
-        "id": "B",
         "text": "Downward modulation"
       },
       {
+        "id": "B",
+        "text": "Reverse modulation"
+      },
+      {
         "id": "C",
-        "text": "Unmodulation"
+        "text": "Demodulation"
       },
       {
         "id": "D",
-        "text": "Demodulation"
+        "text": "Unmodulation"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Demodulation reverses modulation to retrieve the original signal."
   },
   {
@@ -15614,22 +15614,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Telemetry"
-      },
-      {
-        "id": "B",
         "text": "Onboard computer"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Command and control system"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Transponder"
+      },
+      {
+        "id": "D",
+        "text": "Telemetry"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Transponders receive, amplify, and retransmit uplink frequencies down to Earth."
   },
   {
@@ -15641,22 +15641,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Elliptical orbit"
-      },
-      {
-        "id": "B",
         "text": "Geostationary orbit"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Polar orbit"
+      },
+      {
+        "id": "C",
+        "text": "Elliptical orbit"
       },
       {
         "id": "D",
         "text": "Transfer orbit"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Geostationary satellites match Earth's rotational period."
   },
   {
@@ -15668,22 +15668,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Satellite weight and speed"
-      },
-      {
-        "id": "B",
         "text": "Gravitational pull and centrifugal inertia"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Centripetal force and speed"
+      },
+      {
+        "id": "C",
+        "text": "Satellite weight and speed"
       },
       {
         "id": "D",
         "text": "Satellite weight and pull of moon/sun"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Gravitational pull toward Earth is balanced by centrifugal inertia from orbital velocity."
   },
   {
@@ -15695,22 +15695,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Voltage ratio"
+        "text": "Mix factor"
       },
       {
         "id": "B",
-        "text": "Decibels"
+        "text": "Voltage ratio"
       },
       {
         "id": "C",
-        "text": "Modulation index"
+        "text": "Decibels"
       },
       {
         "id": "D",
-        "text": "Mix factor"
+        "text": "Modulation index"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "Modulation index: Modulation index m = Vm / Vc."
   },
   {
@@ -15722,22 +15722,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0"
-      },
-      {
-        "id": "B",
-        "text": "1"
-      },
-      {
-        "id": "C",
         "text": "2"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Infinity"
+      },
+      {
+        "id": "C",
+        "text": "1"
+      },
+      {
+        "id": "D",
+        "text": "0"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "An SWR of 1:1 represents perfect impedance matching with zero reflected power."
   },
   {
@@ -15749,22 +15749,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Half Duplex"
-      },
-      {
-        "id": "B",
         "text": "Full Duplex"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Monocomm"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Simplex"
+      },
+      {
+        "id": "D",
+        "text": "Half Duplex"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Simplex communication transmits data in only one direction (e.g. broadcasting)."
   },
   {
@@ -15776,11 +15776,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Morse"
+        "text": "ASCII"
       },
       {
         "id": "B",
-        "text": "ASCII"
+        "text": "Morse"
       },
       {
         "id": "C",
@@ -15791,7 +15791,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "EBCDIC"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "American Standard Code for Information Interchange (ASCII) is the universal character encoding standard."
   },
   {
@@ -15803,7 +15803,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Air"
+        "text": "Quartz"
       },
       {
         "id": "B",
@@ -15815,7 +15815,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Quartz"
+        "text": "Air"
       }
     ],
     "correctChoiceId": "B",
@@ -15834,7 +15834,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Full Duplex"
+        "text": "Simplex"
       },
       {
         "id": "C",
@@ -15842,10 +15842,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Simplex"
+        "text": "Full Duplex"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Full-duplex allows simultaneous bidirectional transmission (e.g. telephone calls)."
   },
   {
@@ -15857,7 +15857,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Trace"
+        "text": "Carrier variation"
       },
       {
         "id": "B",
@@ -15869,7 +15869,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Carrier variation"
+        "text": "Trace"
       }
     ],
     "correctChoiceId": "C",
@@ -15884,22 +15884,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Wire braid shield"
-      },
-      {
-        "id": "B",
-        "text": "Kevlar"
-      },
-      {
-        "id": "C",
         "text": "Cladding"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Wire braid shield"
+      },
+      {
+        "id": "C",
         "text": "Plastic insulation"
+      },
+      {
+        "id": "D",
+        "text": "Kevlar"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Cladding with a lower refractive index surrounds the core to achieve total internal reflection."
   },
   {
@@ -15911,22 +15911,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulating signal"
+        "text": "Source signal"
       },
       {
         "id": "B",
-        "text": "Carrier"
+        "text": "Modulating signal"
       },
       {
         "id": "C",
-        "text": "Baseband signal"
+        "text": "Carrier"
       },
       {
         "id": "D",
-        "text": "Source signal"
+        "text": "Baseband signal"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "The baseband signal is the unmodulated information signal."
   },
   {
@@ -15938,22 +15938,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Multiplexing"
-      },
-      {
-        "id": "B",
         "text": "Telemetry"
       },
       {
+        "id": "B",
+        "text": "Multiplexing"
+      },
+      {
         "id": "C",
-        "text": "Detection"
+        "text": "Modulation"
       },
       {
         "id": "D",
-        "text": "Modulation"
+        "text": "Detection"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "Modulation superimposes information onto a high-frequency carrier signal."
   },
   {
@@ -15973,11 +15973,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Mixing"
+        "text": "Modulation"
       },
       {
         "id": "D",
-        "text": "Modulation"
+        "text": "Mixing"
       }
     ],
     "correctChoiceId": "A",
@@ -15992,22 +15992,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Baseband"
-      },
-      {
-        "id": "B",
-        "text": "Analog"
-      },
-      {
-        "id": "C",
         "text": "Digital"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Continuous waves"
+      },
+      {
+        "id": "C",
+        "text": "Baseband"
+      },
+      {
+        "id": "D",
+        "text": "Analog"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Analog signals are continuous wave representations of voice and video."
   },
   {
@@ -16019,7 +16019,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Analog signals to digital"
+        "text": "None of the above"
       },
       {
         "id": "B",
@@ -16031,7 +16031,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "None of the above"
+        "text": "Analog signals to digital"
       }
     ],
     "correctChoiceId": "C",
@@ -16046,22 +16046,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Demultiplexing"
+        "text": "Carrier recovery"
       },
       {
         "id": "B",
-        "text": "Modulation"
-      },
-      {
-        "id": "C",
         "text": "Detection"
       },
       {
+        "id": "C",
+        "text": "Modulation"
+      },
+      {
         "id": "D",
-        "text": "Carrier recovery"
+        "text": "Demultiplexing"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "Detection (demodulation) extracts the original modulating information at the receiver."
   },
   {
@@ -16073,22 +16073,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Carrier"
-      },
-      {
-        "id": "B",
         "text": "Upper sideband"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Lower sideband"
+      },
+      {
+        "id": "C",
+        "text": "Carrier"
       },
       {
         "id": "D",
         "text": "Modulating signal"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "C",
     "explanation": "In standard AM (DSB-FC), the carrier consumes up to 2/3 of total transmitter power."
   },
   {
@@ -16131,18 +16131,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "End-fire"
+        "text": "Dipole"
       },
       {
         "id": "C",
-        "text": "Collinear"
+        "text": "End-fire"
       },
       {
         "id": "D",
-        "text": "Dipole"
+        "text": "Collinear"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "The half-wave dipole is the classic resonant antenna."
   },
   {
@@ -16158,11 +16158,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Bidirectional"
+        "text": "Unidirectional"
       },
       {
         "id": "C",
-        "text": "Unidirectional"
+        "text": "Bidirectional"
       },
       {
         "id": "D",
@@ -16181,22 +16181,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Single-mode step-index"
-      },
-      {
-        "id": "B",
-        "text": "Multimode step-index"
-      },
-      {
-        "id": "C",
         "text": "Single-mode graded-index"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Multimode graded-index"
+      },
+      {
+        "id": "C",
+        "text": "Multimode step-index"
+      },
+      {
+        "id": "D",
+        "text": "Single-mode step-index"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Single-mode fibers allow only one light path, eliminating intermodal dispersion entirely."
   },
   {
@@ -16212,18 +16212,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "300 to 3000 Hz"
+        "text": "20 Hz to 20 kHz"
       },
       {
         "id": "C",
-        "text": "20 Hz to 20 kHz"
+        "text": "300 to 3000 Hz"
       },
       {
         "id": "D",
         "text": "0 Hz to 15 Hz"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Standard telephone voice frequency range is 300 Hz to 3,000 Hz."
   },
   {
@@ -16235,7 +16235,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "50 ohms"
+        "text": "300 ohms"
       },
       {
         "id": "B",
@@ -16243,11 +16243,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "93 ohms"
+        "text": "50 ohms"
       },
       {
         "id": "D",
-        "text": "300 ohms"
+        "text": "93 ohms"
       }
     ],
     "correctChoiceId": "B",
@@ -16262,22 +16262,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "HF"
-      },
-      {
-        "id": "B",
         "text": "EHF"
       },
       {
+        "id": "B",
+        "text": "HF"
+      },
+      {
         "id": "C",
-        "text": "VHF"
+        "text": "UHF"
       },
       {
         "id": "D",
-        "text": "UHF"
+        "text": "VHF"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "Traditional television broadcasting operates primarily in VHF and UHF bands."
   },
   {
@@ -16289,22 +16289,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Less spectrum space is used"
-      },
-      {
-        "id": "B",
         "text": "Simpler equipment is used"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Less power is consumed"
+      },
+      {
+        "id": "C",
+        "text": "Less spectrum space is used"
       },
       {
         "id": "D",
         "text": "Higher modulation percentage"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "SSB suppresses carrier and one sideband, resulting in high power efficiency and narrower bandwidth."
   },
   {
@@ -16316,7 +16316,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Infrared rays"
+        "text": "Shortwaves"
       },
       {
         "id": "B",
@@ -16324,14 +16324,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Shortwaves"
+        "text": "X-rays"
       },
       {
         "id": "D",
-        "text": "X-rays"
+        "text": "Infrared rays"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Infrared radiation is associated with thermal heat."
   },
   {
@@ -16343,7 +16343,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Business and industry"
+        "text": "FCC"
       },
       {
         "id": "B",
@@ -16351,14 +16351,14 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "FCC"
+        "text": "The United Nations"
       },
       {
         "id": "D",
-        "text": "The United Nations"
+        "text": "Business and industry"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "The Federal Communications Commission (FCC) regulates interstate and international communications in the US."
   },
   {
@@ -16370,22 +16370,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Diffused"
-      },
-      {
-        "id": "B",
         "text": "Absorbed"
       },
       {
+        "id": "B",
+        "text": "Diffused"
+      },
+      {
         "id": "C",
-        "text": "Refracted"
+        "text": "Reflected"
       },
       {
         "id": "D",
-        "text": "Reflected"
+        "text": "Refracted"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "High frequency sky-wave propagation is enabled by refraction in ionospheric layers."
   },
   {
@@ -16397,22 +16397,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ground wave"
-      },
-      {
-        "id": "B",
         "text": "Direct wave"
       },
       {
+        "id": "B",
+        "text": "Sky wave"
+      },
+      {
         "id": "C",
-        "text": "Surface wave"
+        "text": "Ground wave"
       },
       {
         "id": "D",
-        "text": "Sky wave"
+        "text": "Surface wave"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Sky waves bounce between the ionosphere and Earth's surface for long-distance skips."
   },
   {
@@ -16425,7 +16425,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sixteenth"
+        "text": "Twentieth"
       },
       {
         "id": "B",
@@ -16433,15 +16433,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Nineteenth"
+        "text": "Sixteenth"
       },
       {
         "id": "D",
-        "text": "Twentieth"
+        "text": "Nineteenth"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Nineteenth.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Nineteenth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Electronic Communications is discovered on which century?\nA. Sixteenth\nB. Eighteenth\nC. Nineteenth\nD. Twentieth"
   },
   {
@@ -16458,19 +16458,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Water"
-      },
-      {
-        "id": "C",
         "text": "Wires"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Fiber Optic Cable"
+      },
+      {
+        "id": "D",
+        "text": "Water"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Water.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Water is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a major communication medium?\nA. Free Space\nB. Water\nC. Wires\nD. Fiber Optic Cable"
   },
   {
@@ -16483,11 +16483,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Adjacent channel overlap"
+        "text": "Crosstalk"
       },
       {
         "id": "B",
-        "text": "Crosstalk"
+        "text": "Noise"
       },
       {
         "id": "C",
@@ -16495,10 +16495,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Noise"
+        "text": "Adjacent channel overlap"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Random interference to transmitted signal is called Noise.",
     "rawSnippet": "Random interference to transmitted signal is called\nA. Adjacent channel overlap\nB. Crosstalk\nC. Garbage in – Garbage out\nD. Noise"
   },
@@ -16512,11 +16512,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amplified"
+        "text": "Interferred with"
       },
       {
         "id": "B",
-        "text": "Modulated"
+        "text": "Amplified"
       },
       {
         "id": "C",
@@ -16524,11 +16524,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Interferred with"
+        "text": "Modulated"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Attenuated.",
+    "explanation": "In telecommunication systems, Attenuated is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The communications medium causes the signal to be\nA. Amplified\nB. Modulated\nC. Attenuated\nD. Interferred with"
   },
   {
@@ -16541,23 +16541,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Another communication signal"
+        "text": "Thermal agitation in electronic components"
       },
       {
         "id": "B",
-        "text": "Atmospheric effects"
-      },
-      {
-        "id": "C",
         "text": "Manufactured electrical systems"
       },
       {
+        "id": "C",
+        "text": "Another communication signal"
+      },
+      {
         "id": "D",
-        "text": "Thermal agitation in electronic components"
+        "text": "Atmospheric effects"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Another communication signal.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Another communication signal is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a source of noise?\nA. Another communication signal\nB. Atmospheric effects\nC. Manufactured electrical systems\nD. Thermal agitation in electronic components"
   },
   {
@@ -16570,7 +16570,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Television"
+        "text": "Videotext"
       },
       {
         "id": "B",
@@ -16578,15 +16578,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Videotext"
+        "text": "Facsimile"
       },
       {
         "id": "D",
-        "text": "Facsimile"
+        "text": "Television"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Facsimile.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Facsimile is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Transmission of graphical information over the telephone network is accomplished by\nA. Television\nB. CATV\nC. Videotext\nD. Facsimile"
   },
   {
@@ -16599,22 +16599,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Astrology"
-      },
-      {
-        "id": "B",
-        "text": "Optical astronomy"
-      },
-      {
-        "id": "C",
         "text": "Radio Astronomy"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Astrology"
+      },
+      {
+        "id": "C",
         "text": "Space surveillance"
+      },
+      {
+        "id": "D",
+        "text": "Optical astronomy"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Receiving electromagnetic emissions from stars is called Radio Astronomy.",
     "rawSnippet": "Receiving electromagnetic emissions from stars is called\nA. Astrology\nB. Optical astronomy\nC. Radio Astronomy\nD. Space surveillance"
   },
@@ -16632,11 +16632,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Electronic Bulletin Board"
+        "text": "CB radio"
       },
       {
         "id": "C",
-        "text": "CB radio"
+        "text": "Electronic Bulletin Board"
       },
       {
         "id": "D",
@@ -16644,7 +16644,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Ham radio.",
+    "explanation": "In telecommunication systems, Ham radio is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A personal communications hobby for individuals is\nA. Ham radio\nB. Electronic Bulletin Board\nC. CB radio\nD. Cellular radio"
   },
   {
@@ -16657,7 +16657,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Microwaves"
+        "text": "The directional nature of radio signals"
       },
       {
         "id": "B",
@@ -16665,15 +16665,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The directional nature of radio signals"
+        "text": "Reflected radio signals"
       },
       {
         "id": "D",
-        "text": "Reflected radio signals"
+        "text": "Microwaves"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Reflected radio signals.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Reflected radio signals is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Radar is based upon\nA. Microwaves\nB. A water medium\nC. The directional nature of radio signals\nD. Reflected radio signals"
   },
   {
@@ -16686,23 +16686,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Voltages and Currents"
-      },
-      {
-        "id": "B",
-        "text": "Electric and Magnetic Fields"
-      },
-      {
-        "id": "C",
         "text": "Electrons and protons"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Voltages and Currents"
+      },
+      {
+        "id": "C",
         "text": "Noise and data"
+      },
+      {
+        "id": "D",
+        "text": "Electric and Magnetic Fields"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Electric and Magnetic Fields.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Electric and Magnetic Fields is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Radio signals are made of\nA. Voltages and Currents\nB. Electric and Magnetic Fields\nC. Electrons and protons\nD. Noise and data"
   },
   {
@@ -16715,23 +16715,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Microwaves"
-      },
-      {
-        "id": "B",
-        "text": "RF waves"
-      },
-      {
-        "id": "C",
         "text": "Short waves"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Millimeter waves"
+      },
+      {
+        "id": "C",
+        "text": "Microwaves"
+      },
+      {
+        "id": "D",
+        "text": "RF waves"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Short waves.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Another name for signals in the HF range is\nA. Microwaves\nB. RF waves\nC. Short waves\nD. Millimeter waves"
   },
   {
@@ -16748,19 +16748,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "one millionth of a meter"
+        "text": "one ten thousandth of an inch"
       },
       {
         "id": "C",
-        "text": "one thousandth of a meter"
+        "text": "one millionth of a meter"
       },
       {
         "id": "D",
-        "text": "one ten thousandth of an inch"
+        "text": "one thousandth of a meter"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is one millionth of a meter.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, one millionth of a meter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A micron is\nA. one millionth of a foot\nB. one millionth of a meter\nC. one thousandth of a meter\nD. one ten thousandth of an inch"
   },
   {
@@ -16773,7 +16773,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "30 to 300GHZ"
+        "text": "1000 to 10000 A"
       },
       {
         "id": "B",
@@ -16781,15 +16781,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "1000 to 10000 A"
+        "text": "0.7 to 100 µm"
       },
       {
         "id": "D",
-        "text": "0.7 to 100 µm"
+        "text": "30 to 300GHZ"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 0.7 to 100 µm.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 0.7 to 100 µm is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The frequency range of infrared rays is approximately\nA. 30 to 300GHZ\nB. 4000 to 8000 A\nC. 1000 to 10000 A\nD. 0.7 to 100 µm"
   },
   {
@@ -16802,7 +16802,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1000 µm"
+        "text": "3500 A"
       },
       {
         "id": "B",
@@ -16810,15 +16810,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "3500 A"
+        "text": "4000 A"
       },
       {
         "id": "D",
-        "text": "4000 A"
+        "text": "1000 µm"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is 7000 A.",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The approximate wavelength of red light is\nA. 1000 µm\nB. 7000 A\nC. 3500 A\nD. 4000 A"
   },
   {
@@ -16831,23 +16831,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "X-rays"
-      },
-      {
-        "id": "B",
-        "text": "Millimeter waves"
-      },
-      {
-        "id": "C",
         "text": "infrared"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "X-rays"
+      },
+      {
+        "id": "C",
         "text": "microwaves"
+      },
+      {
+        "id": "D",
+        "text": "Millimeter waves"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is X-rays.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, X-rays is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not used for communications?\nA. X-rays\nB. Millimeter waves\nC. infrared\nD. microwaves"
   },
   {
@@ -16860,11 +16860,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "VHF"
+        "text": "UHF"
       },
       {
         "id": "B",
-        "text": "UHF"
+        "text": "EHF"
       },
       {
         "id": "C",
@@ -16872,11 +16872,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "EHF"
+        "text": "VHF"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is EHF.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, EHF is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "For a given bandwidth signal, more channel space is available for signals in the range of\nA. VHF\nB. UHF\nC. SHF\nD. EHF"
   },
   {
@@ -16889,7 +16889,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "the carrier amplitude varies"
+        "text": "the information signal amplitude changes the carrier amplitude"
       },
       {
         "id": "B",
@@ -16901,11 +16901,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "the information signal amplitude changes the carrier amplitude"
+        "text": "the carrier amplitude varies"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is the carrier frequency changes.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Which of the following is not true about AM?\nA. the carrier amplitude varies\nB. the carrier frequency remains constant\nC. the carrier frequency changes\nD. the information signal amplitude changes the carrier amplitude"
   },
   {
@@ -16922,19 +16922,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Demodulator"
+        "text": "Multiplexer"
       },
       {
         "id": "C",
-        "text": "Variable Gain amplifier"
+        "text": "Demodulator"
       },
       {
         "id": "D",
-        "text": "Multiplexer"
+        "text": "Variable Gain amplifier"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Modulator.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The circuit used to produced modulation is called a\nA. Modulator\nB. Demodulator\nC. Variable Gain amplifier\nD. Multiplexer"
   },
   {
@@ -16947,7 +16947,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "addition"
+        "text": "square root"
       },
       {
         "id": "B",
@@ -16959,11 +16959,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "square root"
+        "text": "addition"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is multiplication.",
+    "explanation": "In telecommunication systems, multiplication is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A modulator circuit performs what mathematical operation on its two inputs?\nA. addition\nB. multiplication\nC. division\nD. square root"
   },
   {
@@ -16976,15 +16976,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "normal operation"
-      },
-      {
-        "id": "B",
         "text": "carrier frequency shifts"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "carrier drops to zero"
+      },
+      {
+        "id": "C",
+        "text": "normal operation"
       },
       {
         "id": "D",
@@ -16992,7 +16992,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is information signal is distorted.",
+    "explanation": "In telecommunication systems, information signal is distorted is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "If m is greater than 1, what happens?\nA. normal operation\nB. carrier frequency shifts\nC. carrier drops to zero\nD. information signal is distorted"
   },
   {
@@ -17009,19 +17009,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "m = 1"
+        "text": "m > 1"
       },
       {
         "id": "C",
-        "text": "m < 1"
+        "text": "m = 1"
       },
       {
         "id": "D",
-        "text": "m > 1"
+        "text": "m < 1"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is m = 1.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "For ideal AM, which of the following is true?\nA. m = 0\nB. m = 1\nC. m < 1\nD. m > 1"
   },
   {
@@ -17034,23 +17034,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Vm > Vc"
+        "text": "Vm = Vc"
       },
       {
         "id": "B",
-        "text": "Vm < Vc"
+        "text": "Vm > Vc"
       },
       {
         "id": "C",
-        "text": "Vm = Vc"
+        "text": "Vm < Vc"
       },
       {
         "id": "D",
         "text": "Vm = Vc = 0"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Vm > Vc.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Overmodulation occurs when\nA. Vm > Vc\nB. Vm < Vc\nC. Vm = Vc\nD. Vm = Vc = 0"
   },
   {
@@ -17063,15 +17063,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "spurious emissions."
-      },
-      {
-        "id": "B",
         "text": "harmonics"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "intermodulation products"
+      },
+      {
+        "id": "C",
+        "text": "spurious emissions."
       },
       {
         "id": "D",
@@ -17092,23 +17092,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "time domain"
-      },
-      {
-        "id": "B",
-        "text": "frequency spectrum"
-      },
-      {
-        "id": "C",
         "text": "amplitude spectrum"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "frequency domain"
+      },
+      {
+        "id": "C",
+        "text": "time domain"
+      },
+      {
+        "id": "D",
+        "text": "frequency spectrum"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is frequency domain.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "A display of signal amplitude versus frequency is called the\nA. time domain\nB. frequency spectrum\nC. amplitude spectrum\nD. frequency domain"
   },
   {
@@ -17121,11 +17121,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "carrier"
+        "text": "upper sideband"
       },
       {
         "id": "B",
-        "text": "upper sideband"
+        "text": "modulating signal"
       },
       {
         "id": "C",
@@ -17133,11 +17133,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "modulating signal"
+        "text": "carrier"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is carrier.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Most of the power in an AM signal is the\nA. carrier\nB. upper sideband\nC. lower sideband\nD. modulating signal"
   },
   {
@@ -17150,23 +17150,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "carrier"
-      },
-      {
-        "id": "B",
         "text": "modulating signal"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "sidebands"
+      },
+      {
+        "id": "C",
+        "text": "carrier"
       },
       {
         "id": "D",
         "text": "envelope"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is sidebands.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In an AM signal, the transmitted information is contained within the\nA. carrier\nB. modulating signal\nC. sidebands\nD. envelope"
   },
   {
@@ -17179,23 +17179,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "SSB"
-      },
-      {
-        "id": "B",
-        "text": "vestigial sideband"
-      },
-      {
-        "id": "C",
         "text": "FM signal"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "DSB"
+      },
+      {
+        "id": "C",
+        "text": "SSB"
+      },
+      {
+        "id": "D",
+        "text": "vestigial sideband"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is DSB.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "An AM signal without the carrier is called a(n)\nA. SSB\nB. vestigial sideband\nC. FM signal\nD. DSB"
   },
   {
@@ -17212,19 +17212,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "carrier only"
-      },
-      {
-        "id": "C",
         "text": "one sideband"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "both isdeband"
+      },
+      {
+        "id": "D",
+        "text": "carrier only"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is one sideband.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "What is the minimum AM signal needed to transmit information?\nA. carrier plus sidebands\nB. carrier only\nC. one sideband\nD. both isdeband"
   },
   {
@@ -17241,19 +17241,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "lower"
+        "text": "neither"
       },
       {
         "id": "C",
-        "text": "neither"
+        "text": "lower"
       },
       {
         "id": "D",
         "text": "depends upon use"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is neither.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, neither is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In SSB, which sideband is the best to use?\nA. upper\nB. lower\nC. neither\nD. depends upon use"
   },
   {
@@ -17266,7 +17266,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "50 Hz to 5KHz"
+        "text": "100 Hz to 10kHz"
       },
       {
         "id": "B",
@@ -17274,15 +17274,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "100 Hz to 10kHz"
+        "text": "300hz to 3khz"
       },
       {
         "id": "D",
-        "text": "300hz to 3khz"
+        "text": "50 Hz to 5KHz"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 300hz to 3khz.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 300hz to 3khz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The typical audio modulating frequency range used in radio and telephone communications is\nA. 50 Hz to 5KHz\nB. 50 Hz to 15 Khz\nC. 100 Hz to 10kHz\nD. 300hz to 3khz"
   },
   {
@@ -17295,23 +17295,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "carrier power"
-      },
-      {
-        "id": "B",
         "text": "bandwidth"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "sideband power"
+      },
+      {
+        "id": "C",
+        "text": "carrier power"
       },
       {
         "id": "D",
         "text": "envelope voltage"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is bandwidth.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, bandwidth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Distortion of the modulating signal produces harmonics which cause an increase in the signal\nA. carrier power\nB. bandwidth\nC. sideband power\nD. envelope voltage"
   },
   {
@@ -17324,7 +17324,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "frequency multiplication"
+        "text": "frequency shift"
       },
       {
         "id": "B",
@@ -17332,7 +17332,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "frequency shift"
+        "text": "frequency multiplication"
       },
       {
         "id": "D",
@@ -17357,19 +17357,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "converter"
+        "text": "local oscillator"
       },
       {
         "id": "C",
-        "text": "balanced modulator"
+        "text": "converter"
       },
       {
         "id": "D",
-        "text": "local oscillator"
+        "text": "balanced modulator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is converter.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, converter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Frequency translation is carried out by a circuit called a\nA. translator\nB. converter\nC. balanced modulator\nD. local oscillator"
   },
   {
@@ -17382,11 +17382,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "average power"
+        "text": "RMS power"
       },
       {
         "id": "B",
-        "text": "RMS power"
+        "text": "peak envelope power"
       },
       {
         "id": "C",
@@ -17394,11 +17394,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "peak envelope power"
+        "text": "average power"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is peak envelope power.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, peak envelope power is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output power of an SSB transmitter is usually expressed in terms of\nA. average power\nB. RMS power\nC. peak to peak power\nD. peak envelope power"
   },
   {
@@ -17415,19 +17415,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Analog Multiplication"
+        "text": "Multiplexing"
       },
       {
         "id": "C",
-        "text": "Signal Summation"
+        "text": "Analog Multiplication"
       },
       {
         "id": "D",
-        "text": "Multiplexing"
+        "text": "Signal Summation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Analog Multiplication.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Amplitude modulation is the same as\nA. Linear Mixing\nB. Analog Multiplication\nC. Signal Summation\nD. Multiplexing"
   },
   {
@@ -17440,23 +17440,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Tuned Circuit"
-      },
-      {
-        "id": "B",
         "text": "Transformer"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Capacitor"
+      },
+      {
+        "id": "C",
+        "text": "Tuned Circuit"
       },
       {
         "id": "D",
         "text": "Inductor"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Tuned Circuit.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In a diode modulator, the negative half of the AM wave is supplied by a(n)\nA. Tuned Circuit\nB. Transformer\nC. Capacitor\nD. Inductor"
   },
   {
@@ -17469,23 +17469,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Having the carrier vary a resistance"
-      },
-      {
-        "id": "B",
         "text": "Having the modulating signal vary a capacitance"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Varying the carrier frequency"
+      },
+      {
+        "id": "C",
+        "text": "Having the carrier vary a resistance"
       },
       {
         "id": "D",
         "text": "Varying the gain of an amplifier"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Having the carrier vary a resistance.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Amplitude modulation can be produced by\nA. Having the carrier vary a resistance\nB. Having the modulating signal vary a capacitance\nC. Varying the carrier frequency\nD. Varying the gain of an amplifier"
   },
   {
@@ -17498,7 +17498,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Rectification"
+        "text": "Variable resistance"
       },
       {
         "id": "B",
@@ -17506,15 +17506,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Variable resistance"
+        "text": "Absorption"
       },
       {
         "id": "D",
-        "text": "Absorption"
+        "text": "Rectification"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Variable resistance.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Amplitude modulators that vary the carrier amplitude with the modulating signal by passing it through an attenuator work on the principle of\nA. Rectification\nB. Resonance\nC. Variable resistance\nD. Absorption"
   },
   {
@@ -17527,23 +17527,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Variable resistor"
-      },
-      {
-        "id": "B",
         "text": "Mixer"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Clipper"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Rexctifier"
+      },
+      {
+        "id": "D",
+        "text": "Variable resistor"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Variable resistor.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Variable resistor is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 3-4, D1 is a\nA. Variable resistor\nB. Mixer\nC. Clipper\nD. Rexctifier"
   },
   {
@@ -17560,11 +17560,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Thermistor"
+        "text": "Cavity resonator"
       },
       {
         "id": "C",
-        "text": "Cavity resonator"
+        "text": "Thermistor"
       },
       {
         "id": "D",
@@ -17572,7 +17572,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Varactor.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The component used to produce AM at very high frequencies is a\nA. Varactor\nB. Thermistor\nC. Cavity resonator\nD. PIN diode"
   },
   {
@@ -17585,22 +17585,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "High-level Modulation"
-      },
-      {
-        "id": "B",
         "text": "Low-level Modulation"
       },
       {
+        "id": "B",
+        "text": "Minimum Modulation"
+      },
+      {
         "id": "C",
-        "text": "Collector Modulation"
+        "text": "High-level Modulation"
       },
       {
         "id": "D",
-        "text": "Minimum Modulation"
+        "text": "Collector Modulation"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Amplitude modulation generated at a very low voltage or power amplitude is called Low-level Modulation.",
     "rawSnippet": "Amplitude modulation generated at a very low voltage or power amplitude is known as\nA. High-level Modulation\nB. Low-level Modulation\nC. Collector Modulation\nD. Minimum Modulation"
   },
@@ -17614,23 +17614,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulator"
+        "text": "Crystal set"
       },
       {
         "id": "B",
-        "text": "Demodulator"
-      },
-      {
-        "id": "C",
         "text": "Mixer"
       },
       {
+        "id": "C",
+        "text": "Demodulator"
+      },
+      {
         "id": "D",
-        "text": "Crystal set"
+        "text": "Modulator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Demodulator.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The circuit that recovers the original modulating information from an AM signal is known as a\nA. Modulator\nB. Demodulator\nC. Mixer\nD. Crystal set"
   },
   {
@@ -17647,19 +17647,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Balanced Modulator"
+        "text": "Envelope Detector"
       },
       {
         "id": "C",
-        "text": "Envelope Detector"
+        "text": "Balanced Modulator"
       },
       {
         "id": "D",
         "text": "Crystal Filter"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Envelope Detector.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The most commonly used amplitude demodulator is the\nA. Diode Mixer\nB. Balanced Modulator\nC. Envelope Detector\nD. Crystal Filter"
   },
   {
@@ -17672,23 +17672,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amplitude Modulator"
-      },
-      {
-        "id": "B",
         "text": "Diode Detector"
       },
       {
+        "id": "B",
+        "text": "Amplitude Modulator"
+      },
+      {
         "id": "C",
-        "text": "Class C Amplifier"
+        "text": "Balanced Modulator"
       },
       {
         "id": "D",
-        "text": "Balanced Modulator"
+        "text": "Class C Amplifier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Balanced Modulator.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Balanced Modulator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A circuit that generates the upper and lower sidebands but no carriers is called a(n)\nA. Amplitude Modulator\nB. Diode Detector\nC. Class C Amplifier\nD. Balanced Modulator"
   },
   {
@@ -17701,23 +17701,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Diode Bridge Circuit"
+        "text": "Balanced Bridge Modulator"
       },
       {
         "id": "B",
-        "text": "Full-wave Bridge Rectifier"
-      },
-      {
-        "id": "C",
         "text": "Lattice Modulator"
       },
       {
+        "id": "C",
+        "text": "Full-wave Bridge Rectifier"
+      },
+      {
         "id": "D",
-        "text": "Balanced Bridge Modulator"
+        "text": "Diode Bridge Circuit"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Lattice Modulator.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Lattice Modulator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A widely used balanced modulator is called the\nA. Diode Bridge Circuit\nB. Full-wave Bridge Rectifier\nC. Lattice Modulator\nD. Balanced Bridge Modulator"
   },
   {
@@ -17734,19 +17734,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Switches"
-      },
-      {
-        "id": "C",
         "text": "Rectifiers"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Variable capacitors"
+      },
+      {
+        "id": "D",
+        "text": "Switches"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Switches.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Switches is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In a diode ring modulator, the diodes act like\nA. Variable Resistors\nB. Switches\nC. Rectifiers\nD. Variable capacitors"
   },
   {
@@ -17759,7 +17759,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
+        "text": "DSB"
       },
       {
         "id": "B",
@@ -17771,11 +17771,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "DSB"
+        "text": "AM"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is DSB.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, DSB is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output of a balanced modulator is\nA. AM\nB. FM\nC. SSB\nD. DSB"
   },
   {
@@ -17788,23 +17788,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Differential Amplifier"
-      },
-      {
-        "id": "B",
         "text": "Rectifier"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Bridge"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Constant Current Source"
+      },
+      {
+        "id": "D",
+        "text": "Differential Amplifier"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Differential Amplifier.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Differential Amplifier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The principal circuit in the popular 1496/1596 IC balanced modulator is a\nA. Differential Amplifier\nB. Rectifier\nC. Bridge\nD. Constant Current Source"
   },
   {
@@ -17817,7 +17817,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "LC networks"
+        "text": "Crystals"
       },
       {
         "id": "B",
@@ -17825,15 +17825,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Crystals"
+        "text": "LC networks"
       },
       {
         "id": "D",
         "text": "RC Networks and Op amps"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Crystals.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Crystals is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most commonly used filter in SSB generators uses\nA. LC networks\nB. Mechanical Resonators\nC. Crystals\nD. RC Networks and Op amps"
   },
   {
@@ -17846,23 +17846,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Series Resonant Circuit"
+        "text": "Both a and b"
       },
       {
         "id": "B",
-        "text": "Parallel Resonant Circuit"
-      },
-      {
-        "id": "C",
         "text": "Neither a nor b"
       },
       {
+        "id": "C",
+        "text": "Parallel Resonant Circuit"
+      },
+      {
         "id": "D",
-        "text": "Both a and b"
+        "text": "Series Resonant Circuit"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Both a and b.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Both a and b is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The equivalent circuit of a quartz crystal is a\nA. Series Resonant Circuit\nB. Parallel Resonant Circuit\nC. Neither a nor b\nD. Both a and b"
   },
   {
@@ -17875,23 +17875,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Phase Shift"
-      },
-      {
-        "id": "B",
-        "text": "Sharp Selectivity"
-      },
-      {
-        "id": "C",
         "text": "Carrier Suppression"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Phase Shift"
+      },
+      {
+        "id": "C",
         "text": "Phase Inversion"
+      },
+      {
+        "id": "D",
+        "text": "Sharp Selectivity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Phase Shift.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Phase Shift is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In the phasing method of SSB generation, one sideband is canceled out due to\nA. Phase Shift\nB. Sharp Selectivity\nC. Carrier Suppression\nD. Phase Inversion"
   },
   {
@@ -17904,23 +17904,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Transponder"
-      },
-      {
-        "id": "B",
-        "text": "Product Detector"
-      },
-      {
-        "id": "C",
         "text": "Converter"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Modulator"
+      },
+      {
+        "id": "C",
+        "text": "Transponder"
+      },
+      {
+        "id": "D",
+        "text": "Product Detector"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Product Detector.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Product Detector is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A balanced modulator used to demodulate a SSB signal is called a(n)\nA. Transponder\nB. Product Detector\nC. Converter\nD. Modulator"
   },
   {
@@ -17933,23 +17933,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Summer"
-      },
-      {
-        "id": "B",
         "text": "Multiplier"
       },
       {
+        "id": "B",
+        "text": "Summer"
+      },
+      {
         "id": "C",
-        "text": "Filter"
+        "text": "Mixer"
       },
       {
         "id": "D",
-        "text": "Mixer"
+        "text": "Filter"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Mixer.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Mixer is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Frequency translation is done with circuit called a\nA. Summer\nB. Multiplier\nC. Filter\nD. Mixer"
   },
   {
@@ -17962,7 +17962,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "fo"
+        "text": "fo - fm"
       },
       {
         "id": "B",
@@ -17970,15 +17970,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "fo - fm"
+        "text": "fo"
       },
       {
         "id": "D",
         "text": "fo + fm"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is fo - fm.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The inputs to a mixer are fo and fm. In down conversion, which of the following mixer output signals is selected?\nA. fo\nB. fm\nC. fo - fm\nD. fo + fm"
   },
   {
@@ -17999,15 +17999,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Linear Summing"
+        "text": "Filtering"
       },
       {
         "id": "D",
-        "text": "Filtering"
+        "text": "Linear Summing"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Linear Summing.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Mixing for frequency conversion is the same as\nA. Rectification\nB. AM\nC. Linear Summing\nD. Filtering"
   },
   {
@@ -18020,23 +18020,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Balanced Modulator"
-      },
-      {
-        "id": "B",
         "text": "FET"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Diode Modulator"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "All of the above"
+      },
+      {
+        "id": "D",
+        "text": "Balanced Modulator"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is All of the above.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, All of the above is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following can be used as a mixer\nA. Balanced Modulator\nB. FET\nC. Diode Modulator\nD. All of the above"
   },
   {
@@ -18053,19 +18053,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Crystal Filter"
+        "text": "Resonant Circuit"
       },
       {
         "id": "C",
-        "text": "Resonant Circuit"
+        "text": "Crystal Filter"
       },
       {
         "id": "D",
         "text": "Transformer"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Crystal Filter.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Crystal Filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The desired output from a mixer is usually selected with a\nA. Phase-shift circuit\nB. Crystal Filter\nC. Resonant Circuit\nD. Transformer"
   },
   {
@@ -18078,11 +18078,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulator"
+        "text": "Local Oscillator"
       },
       {
         "id": "B",
-        "text": "Filter"
+        "text": "Modulator"
       },
       {
         "id": "C",
@@ -18090,11 +18090,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Local Oscillator"
+        "text": "Filter"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Local Oscillator.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Local Oscillator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The two inputs to a mixer are the signal to be translated and a signal from a(n)\nA. Modulator\nB. Filter\nC. Antenna\nD. Local Oscillator"
   },
   {
@@ -18115,15 +18115,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Phase"
+        "text": "Shape"
       },
       {
         "id": "D",
-        "text": "Shape"
+        "text": "Phase"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Amplitude.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The amount of frequency deviation from the carrier center frequency in an FM transmitter is proportional to what characteristic of the modulating signal?\nA. Amplitude\nB. Frequency\nC. Phase\nD. Shape"
   },
   {
@@ -18136,11 +18136,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Amplitude"
+        "text": "Duty Cycle"
       },
       {
         "id": "B",
-        "text": "Phase"
+        "text": "Amplitude"
       },
       {
         "id": "C",
@@ -18148,11 +18148,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Duty Cycle"
+        "text": "Phase"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Angle.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Both FM and PM are types of kind of modulation?\nA. Amplitude\nB. Phase\nC. Angle\nD. Duty Cycle"
   },
   {
@@ -18169,19 +18169,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Decreases"
-      },
-      {
-        "id": "C",
         "text": "remains constant"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "goes to zero"
+      },
+      {
+        "id": "D",
+        "text": "Decreases"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Decreases.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "If the amplitude of the modulating signal decreases, the carrier deviation\nA. Increases\nB. Decreases\nC. remains constant\nD. goes to zero"
   },
   {
@@ -18198,19 +18198,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Peak positive peak amplitude"
-      },
-      {
-        "id": "C",
         "text": "Peak negative peak amplitude"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Both b and c"
+      },
+      {
+        "id": "D",
+        "text": "Peak positive peak amplitude"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Peak negative peak amplitude.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "On an FM signal, maximum deviation occurs at what point on the modulating signal?\nA. Zero-signaling points\nB. Peak positive peak amplitude\nC. Peak negative peak amplitude\nD. Both b and c"
   },
   {
@@ -18223,23 +18223,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Shape"
+        "text": "Amplitude"
       },
       {
         "id": "B",
-        "text": "Phase"
-      },
-      {
-        "id": "C",
         "text": "Frequency"
       },
       {
+        "id": "C",
+        "text": "Shape"
+      },
+      {
         "id": "D",
-        "text": "Amplitude"
+        "text": "Phase"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Amplitude.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Amplitude is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In PM, a frequency shift occurs while what characteristic of the modulating signal is changing?\nA. Shape\nB. Phase\nC. Frequency\nD. Amplitude"
   },
   {
@@ -18252,23 +18252,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Zero crossing points"
+        "text": "Peak positive or negative peak amplitude"
       },
       {
         "id": "B",
-        "text": "Peak positive peak amplitude"
-      },
-      {
-        "id": "C",
         "text": "Peak negative peak amplitude"
       },
       {
+        "id": "C",
+        "text": "Zero crossing points"
+      },
+      {
         "id": "D",
-        "text": "Peak positive or negative peak amplitude"
+        "text": "Peak positive peak amplitude"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Zero crossing points.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Zero crossing points is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Maximum frequency deviation of a PM signal occurs at\nA. Zero crossing points\nB. Peak positive peak amplitude\nC. Peak negative peak amplitude\nD. Peak positive or negative peak amplitude"
   },
   {
@@ -18281,7 +18281,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulating signal amplitude"
+        "text": "Modulating signal frequency"
       },
       {
         "id": "B",
@@ -18289,15 +18289,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Modulating signal frequency"
+        "text": "Modulator phase shift"
       },
       {
         "id": "D",
-        "text": "Modulator phase shift"
+        "text": "Modulating signal amplitude"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Carrier amplitude and frequency.",
+    "explanation": "In telecommunication systems, Carrier amplitude and frequency is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In PM, carrier frequency deviation is not proportional to:\nA. Modulating signal amplitude\nB. Carrier amplitude and frequency\nC. Modulating signal frequency\nD. Modulator phase shift"
   },
   {
@@ -18310,23 +18310,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Low-pass filter"
-      },
-      {
-        "id": "B",
         "text": "High-pass filter"
       },
       {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
         "id": "C",
-        "text": "Phase shifter"
+        "text": "Low-pass filter"
       },
       {
         "id": "D",
-        "text": "Bandpass filter"
+        "text": "Phase shifter"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Low-pass filter.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Low-pass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "To compensate for increases in carrier frequency deviation with an increase in modulating signal frequency, what circuit is used between the modulating signal and the phase modulator?\nA. Low-pass filter\nB. High-pass filter\nC. Phase shifter\nD. Bandpass filter"
   },
   {
@@ -18339,22 +18339,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "FM"
-      },
-      {
-        "id": "B",
         "text": "PM"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Indirect FM"
+      },
+      {
+        "id": "C",
+        "text": "FM"
       },
       {
         "id": "D",
         "text": "Indirect PM"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "The FM produced by PM is called Indirect FM.",
     "rawSnippet": "The FM produced by PM is called\nA. FM\nB. PM\nC. Indirect FM\nD. Indirect PM"
   },
@@ -18384,7 +18384,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is The carrier frequency.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "If the amplitude of the modulating signal applied to a phase modulator is constant, the output signal will be\nA. Zero\nB. The carrier frequency\nC. Above the carrier frequency\nD. Below the carrier frequency"
   },
   {
@@ -18401,7 +18401,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Noise Immunity"
+        "text": "Lower complexity and cost"
       },
       {
         "id": "C",
@@ -18409,11 +18409,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Lower complexity and cost"
+        "text": "Noise Immunity"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Lower complexity and cost.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Which of the following is not a major benefit of FM over AM?\nA. Greater efficiency\nB. Noise Immunity\nC. Capture Effect\nD. Lower complexity and cost"
   },
   {
@@ -18426,23 +18426,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Higher cost and complexity"
-      },
-      {
-        "id": "B",
         "text": "Excessive use of spectrum space"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Noise susceptibility"
+      },
+      {
+        "id": "C",
+        "text": "Higher cost and complexity"
       },
       {
         "id": "D",
         "text": "Lower efficiency"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Excessive use of spectrum space.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The primary disadvantage of FM is its\nA. Higher cost and complexity\nB. Excessive use of spectrum space\nC. Noise susceptibility\nD. Lower efficiency"
   },
   {
@@ -18455,7 +18455,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "High frequency spikes"
+        "text": "Random frequency variations"
       },
       {
         "id": "B",
@@ -18467,11 +18467,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Random frequency variations"
+        "text": "High frequency spikes"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is High frequency spikes.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, High frequency spikes is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Noise is primarily\nA. High frequency spikes\nB. Low-frequency variations\nC. Random level shifts\nD. Random frequency variations"
   },
   {
@@ -18492,15 +18492,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Limiter"
+        "text": "Low-pass filter"
       },
       {
         "id": "D",
-        "text": "Low-pass filter"
+        "text": "Limiter"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Limiter.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The receiver circuit that rids FM of noise is the\nA. Modulator\nB. Demodulator\nC. Limiter\nD. Low-pass filter"
   },
   {
@@ -18513,23 +18513,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Capture effect"
-      },
-      {
-        "id": "B",
-        "text": "Blot out"
-      },
-      {
-        "id": "C",
         "text": "Quieting factor"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Capture effect"
+      },
+      {
+        "id": "C",
         "text": "Domination syndrome"
+      },
+      {
+        "id": "D",
+        "text": "Blot out"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Capture effect.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The phenomenon of a strong FM signal dominating a weaker signa on a common frequency is referred to as the\nA. Capture effect\nB. Blot out\nC. Quieting factor\nD. Domination syndrome"
   },
   {
@@ -18546,19 +18546,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Linear"
-      },
-      {
-        "id": "C",
         "text": "Class C"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Push-pull"
+      },
+      {
+        "id": "D",
+        "text": "Linear"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Linear.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The AM signals generated at a low level may only be amplified by what type of amplifier?\nA. Op Amp\nB. Linear\nC. Class C\nD. Push-pull"
   },
   {
@@ -18579,15 +18579,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Class C"
+        "text": "All of the above"
       },
       {
         "id": "D",
-        "text": "All of the above"
+        "text": "Class C"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Class C.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Frequency modulation transmitters are more efficient because their power is increased by what type of amplifier\nA. Class A\nB. Class B\nC. Class C\nD. All of the above"
   },
   {
@@ -18600,23 +18600,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sinusoidal"
-      },
-      {
-        "id": "B",
-        "text": "Nonsinusoidal"
-      },
-      {
-        "id": "C",
         "text": "Low Frequency"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "High frequencies"
+      },
+      {
+        "id": "C",
+        "text": "Sinusoidal"
+      },
+      {
+        "id": "D",
+        "text": "Nonsinusoidal"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is High frequencies.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, High frequencies is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Noise interferes mainly with modulating signals that are\nA. Sinusoidal\nB. Nonsinusoidal\nC. Low Frequency\nD. High frequencies"
   },
   {
@@ -18629,23 +18629,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "High frequencies"
-      },
-      {
-        "id": "B",
         "text": "Mid-range frequencies"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Low frequencies"
+      },
+      {
+        "id": "C",
+        "text": "High frequencies"
       },
       {
         "id": "D",
         "text": "All of the above"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is High frequencies.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Pre-emphasis circuits boost what modulating frequencies before modulation?\nA. High frequencies\nB. Mid-range frequencies\nC. Low frequencies\nD. All of the above"
   },
   {
@@ -18658,23 +18658,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Low-pass filter"
-      },
-      {
-        "id": "B",
         "text": "High-pass filter"
       },
       {
+        "id": "B",
+        "text": "Bandpass filter"
+      },
+      {
         "id": "C",
-        "text": "Phase shifter"
+        "text": "Low-pass filter"
       },
       {
         "id": "D",
-        "text": "Bandpass filter"
+        "text": "Phase shifter"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is High-pass filter.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, High-pass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A pre-emphasis circuit is a\nA. Low-pass filter\nB. High-pass filter\nC. Phase shifter\nD. Bandpass filter"
   },
   {
@@ -18687,7 +18687,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Phase Inverter"
+        "text": "Low-pass filter"
       },
       {
         "id": "B",
@@ -18699,11 +18699,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Low-pass filter"
+        "text": "Phase Inverter"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Low-pass filter.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Low-pass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Pre-emphasis is compensated for at the receiver by\nA. Phase Inverter\nB. Bandpass filter\nC. High-pass filter\nD. Low-pass filter"
   },
   {
@@ -18716,11 +18716,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1 kHz"
+        "text": "2.122 kHz"
       },
       {
         "id": "B",
-        "text": "2.122 kHz"
+        "text": "1 kHz"
       },
       {
         "id": "C",
@@ -18731,8 +18731,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "75 kHz"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 2.122 kHz.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, 2.122 kHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The cut-off frequency of pre-emphasis and de-emphasis circuits is\nA. 1 kHz\nB. 2.122 kHz\nC. 5 kHz\nD. 75 kHz"
   },
   {
@@ -18749,7 +18749,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Varactor diode"
+        "text": "Hot-carrier diode"
       },
       {
         "id": "C",
@@ -18757,11 +18757,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Hot-carrier diode"
+        "text": "Varactor diode"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Varactor diode.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Another name for a VVC is\nA. PIN diode\nB. Varactor diode\nC. Snap diode\nD. Hot-carrier diode"
   },
   {
@@ -18774,23 +18774,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Plates"
-      },
-      {
-        "id": "B",
         "text": "Leads"
       },
       {
+        "id": "B",
+        "text": "Plates"
+      },
+      {
         "id": "C",
-        "text": "Package"
+        "text": "Dielectric"
       },
       {
         "id": "D",
-        "text": "Dielectric"
+        "text": "Package"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Dielectric.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Dielectric is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The depletion region in a junction diode forms what part of a capacitor\nA. Plates\nB. Leads\nC. Package\nD. Dielectric"
   },
   {
@@ -18803,11 +18803,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Decrease"
+        "text": "Increase"
       },
       {
         "id": "B",
-        "text": "Increase"
+        "text": "Drop to zero"
       },
       {
         "id": "C",
@@ -18815,11 +18815,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Drop to zero"
+        "text": "Decrease"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Decrease.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Decrease is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Increasing the reverse bias on a varactor diode will cause its capacitance\nA. Decrease\nB. Increase\nC. Remain the same\nD. Drop to zero"
   },
   {
@@ -18832,7 +18832,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "pF"
+        "text": "F"
       },
       {
         "id": "B",
@@ -18840,15 +18840,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "µF"
+        "text": "pF"
       },
       {
         "id": "D",
-        "text": "F"
+        "text": "µF"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is pF.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, pF is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The capacitance of a varactor diode is in what general range\nA. pF\nB. nF\nC. µF\nD. F"
   },
   {
@@ -18861,23 +18861,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "R1, R2"
+        "text": "RFC, C3"
       },
       {
         "id": "B",
-        "text": "R1, C2"
+        "text": "R1, R2"
       },
       {
         "id": "C",
-        "text": "L1, C1"
+        "text": "R1, C2"
       },
       {
         "id": "D",
-        "text": "RFC, C3"
+        "text": "L1, C1"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is R1, R2.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, R1, R2 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 5-3, the varactor diode is biased by which components?\nA. R1, R2\nB. R1, C2\nC. L1, C1\nD. RFC, C3"
   },
   {
@@ -18894,19 +18894,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Decreases"
-      },
-      {
-        "id": "C",
         "text": "Remains the same"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Cannot be determined"
+      },
+      {
+        "id": "D",
+        "text": "Decreases"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Decreases.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Decreases is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 5-3, if the reverse bias on D1 is reduced, the resonant frequency of C1\nA. Increase\nB. Decreases\nC. Remains the same\nD. Cannot be determined"
   },
   {
@@ -18919,23 +18919,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Zero"
-      },
-      {
-        "id": "B",
-        "text": "Small"
-      },
-      {
-        "id": "C",
         "text": "Medium"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Large"
+      },
+      {
+        "id": "C",
+        "text": "Zero"
+      },
+      {
+        "id": "D",
+        "text": "Small"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Small.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Small is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The frequency change of a crystal oscillator produced by a varactor diode is\nA. Zero\nB. Small\nC. Medium\nD. Large"
   },
   {
@@ -18952,7 +18952,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Modulating Signal"
+        "text": "Neither a nor b"
       },
       {
         "id": "C",
@@ -18960,11 +18960,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Neither a nor b"
+        "text": "Modulating Signal"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Carrier.",
+    "explanation": "In telecommunication systems, Carrier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A phase modulator varies the phase shift of the\nA. Carrier\nB. Modulating Signal\nC. Both a and b\nD. Neither a nor b"
   },
   {
@@ -18977,7 +18977,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RC low-pass filter"
+        "text": "LC resonant circuit"
       },
       {
         "id": "B",
@@ -18985,15 +18985,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "LR low-pass filter"
+        "text": "RC low-pass filter"
       },
       {
         "id": "D",
-        "text": "LC resonant circuit"
+        "text": "LR low-pass filter"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is LC resonant circuit.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, LC resonant circuit is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The widest phase variation is obtained with a(n)\nA. RC low-pass filter\nB. RC high-pass filter\nC. LR low-pass filter\nD. LC resonant circuit"
   },
   {
@@ -19006,23 +19006,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pre-emphasis circuit"
+        "text": "Frequency determining component in the tuned circuit"
       },
       {
         "id": "B",
-        "text": "De-emphasis circuit"
+        "text": "Pre-emphasis circuit"
       },
       {
         "id": "C",
-        "text": "Deviation control"
+        "text": "De-emphasis circuit"
       },
       {
         "id": "D",
-        "text": "Frequency determining component in the tuned circuit"
+        "text": "Deviation control"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Deviation control.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Deviation control is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 5-7, R4 is the\nA. Pre-emphasis circuit\nB. De-emphasis circuit\nC. Deviation control\nD. Frequency determining component in the tuned circuit"
   },
   {
@@ -19039,7 +19039,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Mixer"
+        "text": "Frequency Divider"
       },
       {
         "id": "C",
@@ -19047,11 +19047,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Frequency Divider"
+        "text": "Mixer"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Frequency multiplier.",
+    "explanation": "In telecommunication systems, Frequency multiplier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The small frequency change produced by a phase modulator can be increased by using a(n)\nA. Amplifier\nB. Mixer\nC. Frequency multiplier\nD. Frequency Divider"
   },
   {
@@ -19064,23 +19064,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "VCO"
-      },
-      {
-        "id": "B",
-        "text": "VXO"
-      },
-      {
-        "id": "C",
         "text": "VFO"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "VCO"
+      },
+      {
+        "id": "C",
         "text": "VHF"
+      },
+      {
+        "id": "D",
+        "text": "VXO"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is VCO.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, VCO is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A crystal oscillator whose frequency can be changed by an input voltage is called a(n)\nA. VCO\nB. VXO\nC. VFO\nD. VHF"
   },
   {
@@ -19093,7 +19093,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "LC"
+        "text": "LR"
       },
       {
         "id": "B",
@@ -19101,7 +19101,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "LR"
+        "text": "LC"
       },
       {
         "id": "D",
@@ -19109,7 +19109,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Crystal.",
+    "explanation": "In telecommunication systems, Crystal is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which oscillators are preferred for carrier generators because of their good frequency stability?\nA. LC\nB. RC\nC. LR\nD. Crystal"
   },
   {
@@ -19122,23 +19122,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Foster-Seeley discriminator"
+        "text": "PLL"
       },
       {
         "id": "B",
-        "text": "Pulse-averaging discriminator"
-      },
-      {
-        "id": "C",
         "text": "Quadrature discriminator"
       },
       {
+        "id": "C",
+        "text": "Pulse-averaging discriminator"
+      },
+      {
         "id": "D",
-        "text": "PLL"
+        "text": "Foster-Seeley discriminator"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Foster-Seeley discriminator.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Foster-Seeley discriminator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following frequency demodulators requires an input limiter?\nA. Foster-Seeley discriminator\nB. Pulse-averaging discriminator\nC. Quadrature discriminator\nD. PLL"
   },
   {
@@ -19151,23 +19151,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Radio detector"
+        "text": "Quadrature detector"
       },
       {
         "id": "B",
-        "text": "PLL"
+        "text": "Radio detector"
       },
       {
         "id": "C",
-        "text": "Quadrature detector"
+        "text": "PLL"
       },
       {
         "id": "D",
         "text": "Foster-Seeley discriminator"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Quadrature detector.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Quadrature detector is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which discriminator averages pulses in a low-pass filter?\nA. Radio detector\nB. PLL\nC. Quadrature detector\nD. Foster-Seeley discriminator"
   },
   {
@@ -19188,15 +19188,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Quadrature"
+        "text": "Pulse-averaging discriminator"
       },
       {
         "id": "D",
-        "text": "Pulse-averaging discriminator"
+        "text": "Quadrature"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is PLL.",
+    "explanation": "In telecommunication systems, PLL is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which frequency demodulator is considered the best overall?\nA. Radio Detector\nB. PLL\nC. Quadrature\nD. Pulse-averaging discriminator"
   },
   {
@@ -19213,19 +19213,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Positive"
-      },
-      {
-        "id": "C",
         "text": "Zero"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Indeterminant"
+      },
+      {
+        "id": "D",
+        "text": "Positive"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Positive.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In Fig. 5-8, the voltage at point A when the input frequency is below the FM center frequency is\nA. Negative\nB. Positive\nC. Zero\nD. Indeterminant"
   },
   {
@@ -19242,11 +19242,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Pulse-averaging filter"
+        "text": "Pre-emphasis"
       },
       {
         "id": "C",
-        "text": "Pre-emphasis"
+        "text": "Pulse-averaging filter"
       },
       {
         "id": "D",
@@ -19254,7 +19254,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is De-emphasis.",
+    "explanation": "In telecommunication systems, De-emphasis is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 5-8, R3 and C6 form which kind of circuit?\nA. Carrier Filter\nB. Pulse-averaging filter\nC. Pre-emphasis\nD. De-emphasis"
   },
   {
@@ -19267,23 +19267,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Inversely proportional to signal amplitude"
-      },
-      {
-        "id": "B",
         "text": "Directly proportional to signal amplitude"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Directly proportional to frequency deviation"
+      },
+      {
+        "id": "C",
+        "text": "Inversely proportional to signal amplitude"
       },
       {
         "id": "D",
         "text": "Constant"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Directly proportional to frequency deviation.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Directly proportional to frequency deviation is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In Fig. 5-10, the voltage across C6 is\nA. Inversely proportional to signal amplitude\nB. Directly proportional to signal amplitude\nC. Directly proportional to frequency deviation\nD. Constant"
   },
   {
@@ -19296,11 +19296,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Astable multivibrator"
+        "text": "Zero-crossing detector"
       },
       {
         "id": "B",
-        "text": "Zero-crossing detector"
+        "text": "Astable multivibrator"
       },
       {
         "id": "C",
@@ -19311,8 +19311,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Low-pass filter"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Astable multivibrator.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Astable multivibrator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In a pulse averaging discriminator, the pulses are produced by a(n)\nA. Astable multivibrator\nB. Zero-crossing detector\nC. One shot\nD. Low-pass filter"
   },
   {
@@ -19329,19 +19329,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Its output is sinusoidal"
-      },
-      {
-        "id": "C",
         "text": "It is an FM demodulator"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "It uses LC-tuned circuits"
+      },
+      {
+        "id": "D",
+        "text": "Its output is sinusoidal"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is It is a VCO.",
+    "explanation": "In telecommunication systems, It is a VCO is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is true about the NE566 IC?\nA. It is a VCO\nB. Its output is sinusoidal\nC. It is an FM demodulator\nD. It uses LC-tuned circuits"
   },
   {
@@ -19358,19 +19358,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Foster-Seeley discriminator"
+        "text": "Differential peak detector"
       },
       {
         "id": "C",
-        "text": "Differential peak detector"
+        "text": "Foster-Seeley discriminator"
       },
       {
         "id": "D",
         "text": "Phase-Locked Loop"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Differential peak detector.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "An FM demodulator that uses a differential amplifier and tuned circuits to convert frequency variations into voltage variations is the\nA. Quadrature detector\nB. Foster-Seeley discriminator\nC. Differential peak detector\nD. Phase-Locked Loop"
   },
   {
@@ -19399,7 +19399,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Pulse width.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The output amplitude of the phase detector in a quadrature detector is proportional to\nA. Pulse width\nB. Pulse frequency\nC. Input amplitude\nD. The phase shift value at center frequency"
   },
   {
@@ -19416,19 +19416,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Increase"
-      },
-      {
-        "id": "C",
         "text": "Remain constant"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Jump to the free-running frequency"
+      },
+      {
+        "id": "D",
+        "text": "Increase"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Jump to the free-running frequency.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Jump to the free-running frequency is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Decreasing the input frequency to a locked PLL will cause the VCO output to\nA. Decrease\nB. Increase\nC. Remain constant\nD. Jump to the free-running frequency"
   },
   {
@@ -19441,23 +19441,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Circuit bandwidth"
+        "text": "Lock range"
       },
       {
         "id": "B",
-        "text": "Capture range"
-      },
-      {
-        "id": "C",
         "text": "Band of Acceptance"
       },
       {
+        "id": "C",
+        "text": "Circuit bandwidth"
+      },
+      {
         "id": "D",
-        "text": "Lock range"
+        "text": "Capture range"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Lock range.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Lock range is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The range of frequencies over which a PLL will track input signal variations is known as the\nA. Circuit bandwidth\nB. Capture range\nC. Band of Acceptance\nD. Lock range"
   },
   {
@@ -19470,23 +19470,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Circuit Bandwidth"
+        "text": "Lock range"
       },
       {
         "id": "B",
-        "text": "Capture range"
-      },
-      {
-        "id": "C",
         "text": "Band of acceptance"
       },
       {
+        "id": "C",
+        "text": "Capture range"
+      },
+      {
         "id": "D",
-        "text": "Lock range"
+        "text": "Circuit Bandwidth"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Capture range.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Capture range is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The band of frequencies over which a PLL will acquire or recognize an input signal is called the\nA. Circuit Bandwidth\nB. Capture range\nC. Band of acceptance\nD. Lock range"
   },
   {
@@ -19499,7 +19499,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Low-pass filter"
+        "text": "Frequency modulator"
       },
       {
         "id": "B",
@@ -19511,11 +19511,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Frequency modulator"
+        "text": "Low-pass filter"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Bandpass filter.",
+    "explanation": "In telecommunication systems, Bandpass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Over a narrow range of frequencies, the PLL acts like a\nA. Low-pass filter\nB. Bandpass filter\nC. Tunable oscillator\nD. Frequency modulator"
   },
   {
@@ -19528,7 +19528,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Low-pass filter"
+        "text": "None of the above"
       },
       {
         "id": "B",
@@ -19540,11 +19540,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "None of the above"
+        "text": "Low-pass filter"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Low-pass filter.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Low-pass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output of a PLL frequency demodulator is taken from\nA. Low-pass filter\nB. VCO\nC. Phase detector\nD. None of the above"
   },
   {
@@ -19561,7 +19561,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Carrier Oscillator"
+        "text": "Final Power Amplifier"
       },
       {
         "id": "C",
@@ -19569,11 +19569,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Final Power Amplifier"
+        "text": "Carrier Oscillator"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Mixer.",
+    "explanation": "In telecommunication systems, Mixer is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following circuits is not typically part of every radio transmitter?\nA. Driver Amplifier\nB. Carrier Oscillator\nC. Mixer\nD. Final Power Amplifier"
   },
   {
@@ -19586,23 +19586,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
-      },
-      {
-        "id": "B",
         "text": "SSB"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "CW"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "FM"
+      },
+      {
+        "id": "D",
+        "text": "AM"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is SSB.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Class C amplifiers are not used in which type of transmitter?\nA. AM\nB. SSB\nC. CW\nD. FM"
   },
   {
@@ -19615,11 +19615,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Final Amplifier"
+        "text": "Driver Amplifier"
       },
       {
         "id": "B",
-        "text": "Driver Amplifier"
+        "text": "Buffer Amplifier"
       },
       {
         "id": "C",
@@ -19627,11 +19627,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Buffer Amplifier"
+        "text": "Final Amplifier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Buffer Amplifier.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Buffer Amplifier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A circuit that isolates the carrier oscillator from load changes is called a\nA. Final Amplifier\nB. Driver Amplifier\nC. Linear Amplifier\nD. Buffer Amplifier"
   },
   {
@@ -19648,19 +19648,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "180 o"
+        "text": "180 o - 360 o"
       },
       {
         "id": "C",
-        "text": "180 o - 360 o"
+        "text": "180 o"
       },
       {
         "id": "D",
         "text": "360 o"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 180 o.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "A class B amplifier conducts for how many degrees of an input sine wave?\nA. 90 o - 150 o\nB. 180 o\nC. 180 o - 360 o\nD. 360 o"
   },
   {
@@ -19677,15 +19677,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Self Bias"
-      },
-      {
-        "id": "C",
         "text": "Fixed External Bias"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Threshold Bias"
+      },
+      {
+        "id": "D",
+        "text": "Self Bias"
       }
     ],
     "correctChoiceId": "A",
@@ -19702,23 +19702,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Class B"
+        "text": "Class C"
       },
       {
         "id": "B",
-        "text": "Class A"
-      },
-      {
-        "id": "C",
         "text": "Class AB"
       },
       {
+        "id": "C",
+        "text": "Class B"
+      },
+      {
         "id": "D",
-        "text": "Class C"
+        "text": "Class A"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Class C.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The most efficient RF power amplifier is which class amplifier?\nA. Class B\nB. Class A\nC. Class AB\nD. Class C"
   },
   {
@@ -19731,23 +19731,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Square Wave"
-      },
-      {
-        "id": "B",
         "text": "Sine Wave"
       },
       {
+        "id": "B",
+        "text": "Square Wave"
+      },
+      {
         "id": "C",
-        "text": "Pulse"
+        "text": "Half Sine Wave"
       },
       {
         "id": "D",
-        "text": "Half Sine Wave"
+        "text": "Pulse"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Pulse.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Collector current in a class C amplifier is a\nA. Square Wave\nB. Sine Wave\nC. Pulse\nD. Half Sine Wave"
   },
   {
@@ -19764,19 +19764,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Milliwatts"
+        "text": "Watts"
       },
       {
         "id": "C",
-        "text": "Hundreds of Watts"
+        "text": "Milliwatts"
       },
       {
         "id": "D",
-        "text": "Watts"
+        "text": "Hundreds of Watts"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Hundreds of Watts.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The maximum power of typical transistor RF power amplifiers is in what range?\nA. Kilowatts\nB. Milliwatts\nC. Hundreds of Watts\nD. Watts"
   },
   {
@@ -19789,23 +19789,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Excessive Gain"
-      },
-      {
-        "id": "B",
-        "text": "Stray Inductance"
-      },
-      {
-        "id": "C",
         "text": "Internal Capacitance"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Unmatched Impedances"
+      },
+      {
+        "id": "C",
+        "text": "Excessive Gain"
+      },
+      {
+        "id": "D",
+        "text": "Stray Inductance"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Internal Capacitance.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Self-oscillation in a transistor amplifier is usually caused by\nA. Excessive Gain\nB. Stray Inductance\nC. Internal Capacitance\nD. Unmatched Impedances"
   },
   {
@@ -19834,7 +19834,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Cancelling the effect of internal device capacitance.",
+    "explanation": "In telecommunication systems, Cancelling the effect of internal device capacitance is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Neutralization is the process of\nA. Cancelling the effect of internal device capacitance\nB. Bypassing undesired alternating current\nC. Reducing gain\nD. Eliminating Harmonics"
   },
   {
@@ -19847,23 +19847,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Zi = Zl"
+        "text": "Zi = 0"
       },
       {
         "id": "B",
-        "text": "Zi > Zl"
-      },
-      {
-        "id": "C",
         "text": "Zi < Zl"
       },
       {
+        "id": "C",
+        "text": "Zi > Zl"
+      },
+      {
         "id": "D",
-        "text": "Zi = 0"
+        "text": "Zi = Zl"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Zi = Zl.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Zi = Zl is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Maximum power transfer occurs when what relationship exists between the generator impedance ZI and the load impedance Zl?\nA. Zi = Zl\nB. Zi > Zl\nC. Zi < Zl\nD. Zi = 0"
   },
   {
@@ -19876,7 +19876,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Higher Q"
+        "text": "Self - supporting"
       },
       {
         "id": "B",
@@ -19888,11 +19888,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Self - supporting"
+        "text": "Higher Q"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Self - supporting.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Self - supporting is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a benefit of a toroid RF inductor?\nA. Higher Q\nB. No shielding required\nC. Fewer turns of wire\nD. Self - supporting"
   },
   {
@@ -19905,23 +19905,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Coil Holder"
+        "text": "Transformer"
       },
       {
         "id": "B",
-        "text": "Type of Inductor"
-      },
-      {
-        "id": "C",
         "text": "Magnetic Core"
       },
       {
+        "id": "C",
+        "text": "Type of Inductor"
+      },
+      {
         "id": "D",
-        "text": "Transformer"
+        "text": "Coil Holder"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Magnetic Core.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Magnetic Core is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A toroid is a\nA. Coil Holder\nB. Type of Inductor\nC. Magnetic Core\nD. Transformer"
   },
   {
@@ -19934,23 +19934,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Resistive attenuator"
-      },
-      {
-        "id": "B",
         "text": "Transformer"
       },
       {
+        "id": "B",
+        "text": "Resistive attenuator"
+      },
+      {
         "id": "C",
-        "text": "L Network"
+        "text": "T Network"
       },
       {
         "id": "D",
-        "text": "T Network"
+        "text": "L Network"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Resistive attenuator.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Resistive attenuator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not commonly used for impedance matching in a transmitter?\nA. Resistive attenuator\nB. Transformer\nC. L Network\nD. T Network"
   },
   {
@@ -19963,23 +19963,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pi Network"
+        "text": "Balun"
       },
       {
         "id": "B",
-        "text": "L Network"
-      },
-      {
-        "id": "C",
         "text": "Parallel Tuned Circuit"
       },
       {
+        "id": "C",
+        "text": "L Network"
+      },
+      {
         "id": "D",
-        "text": "Balun"
+        "text": "Pi Network"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Balun.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Impedance matching in a broadband linear RF amplifier is handled with a(n)\nA. Pi Network\nB. L Network\nC. Parallel Tuned Circuit\nD. Balun"
   },
   {
@@ -20000,15 +20000,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Limited bandwidth"
+        "text": "Prevention of overmodulation"
       },
       {
         "id": "D",
-        "text": "Prevention of overmodulation"
+        "text": "Limited bandwidth"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Improved frequency stability.",
+    "explanation": "In telecommunication systems, Improved frequency stability is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a benefit of speech-processing circuits?\nA. Improved frequency stability\nB. Increased average output power\nC. Limited bandwidth\nD. Prevention of overmodulation"
   },
   {
@@ -20021,11 +20021,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Harmonics"
+        "text": "Excessive gain"
       },
       {
         "id": "B",
-        "text": "Splatter"
+        "text": "Harmonics"
       },
       {
         "id": "C",
@@ -20033,11 +20033,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Excessive gain"
+        "text": "Splatter"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Splatter.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In an AM transmitter, a clipper circuit eliminates\nA. Harmonics\nB. Splatter\nC. Overdeviation\nD. Excessive gain"
   },
   {
@@ -20050,23 +20050,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Overdeviation"
+        "text": "Excessive signal bandwidth"
       },
       {
         "id": "B",
-        "text": "Overmodulation"
-      },
-      {
-        "id": "C",
         "text": "High gain"
       },
       {
+        "id": "C",
+        "text": "Overmodulation"
+      },
+      {
         "id": "D",
-        "text": "Excessive signal bandwidth"
+        "text": "Overdeviation"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Excessive signal bandwidth.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Excessive signal bandwidth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In a speech-processing circuit, a low-pass filter prevents\nA. Overdeviation\nB. Overmodulation\nC. High gain\nD. Excessive signal bandwidth"
   },
   {
@@ -20079,11 +20079,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Inversely proportional to collector current"
+        "text": "Inversely proportional to frequency"
       },
       {
         "id": "B",
-        "text": "Directly proportional to frequency"
+        "text": "Inversely proportional to collector current"
       },
       {
         "id": "C",
@@ -20091,11 +20091,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Inversely proportional to frequency"
+        "text": "Directly proportional to frequency"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Directly proportional to collector current.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The gain of a transistor amplifier is\nA. Inversely proportional to collector current\nB. Directly proportional to frequency\nC. Directly proportional to collector current\nD. Inversely proportional to frequency"
   },
   {
@@ -20112,19 +20112,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Demodulator"
+        "text": "Tuned circuit"
       },
       {
         "id": "C",
-        "text": "AF amplifier"
+        "text": "Demodulator"
       },
       {
         "id": "D",
-        "text": "Tuned circuit"
+        "text": "AF amplifier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Tuned circuit.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Tuned circuit is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The simplest receiver is a(n)\nA. RF amplifier\nB. Demodulator\nC. AF amplifier\nD. Tuned circuit"
   },
   {
@@ -20137,23 +20137,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Mixer"
-      },
-      {
-        "id": "B",
         "text": "RF amplifier"
       },
       {
+        "id": "B",
+        "text": "Mixer"
+      },
+      {
         "id": "C",
-        "text": "Demodulator"
+        "text": "AF amplifer"
       },
       {
         "id": "D",
-        "text": "AF amplifer"
+        "text": "Demodulator"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Mixer.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Mixer is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The key conceptual circuit in a superhet receiver is the\nA. Mixer\nB. RF amplifier\nC. Demodulator\nD. AF amplifer"
   },
   {
@@ -20166,23 +20166,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RF amplifier"
-      },
-      {
-        "id": "B",
-        "text": "Mixer"
-      },
-      {
-        "id": "C",
         "text": "IF amplifier"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "RF amplifier"
+      },
+      {
+        "id": "C",
         "text": "AF amplifier"
+      },
+      {
+        "id": "D",
+        "text": "Mixer"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is IF amplifier.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, IF amplifier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most of the gain and selectivity in a superhet is obtained in the\nA. RF amplifier\nB. Mixer\nC. IF amplifier\nD. AF amplifier"
   },
   {
@@ -20195,15 +20195,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Bandwidth"
+        "text": "Noise response"
       },
       {
         "id": "B",
-        "text": "Selectivity"
+        "text": "Bandwidth"
       },
       {
         "id": "C",
-        "text": "Noise response"
+        "text": "Selectivity"
       },
       {
         "id": "D",
@@ -20211,7 +20211,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Gain.",
+    "explanation": "In telecommunication systems, Gain is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The sensitivity of a receiver depends upon the receiver’s overall\nA. Bandwidth\nB. Selectivity\nC. Noise response\nD. Gain"
   },
   {
@@ -20224,23 +20224,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sensitivity"
-      },
-      {
-        "id": "B",
-        "text": "S/N ratio"
-      },
-      {
-        "id": "C",
         "text": "Selectivity"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Sensitivity"
+      },
+      {
+        "id": "C",
         "text": "Gain"
+      },
+      {
+        "id": "D",
+        "text": "S/N ratio"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Selectivity.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Selectivity is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The ability of a receiver to separate one signal from others on closely adjacent frequencies is called the\nA. Sensitivity\nB. S/N ratio\nC. Selectivity\nD. Gain"
   },
   {
@@ -20253,23 +20253,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ghost"
-      },
-      {
-        "id": "B",
         "text": "Image"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Phantom"
+      },
+      {
+        "id": "C",
+        "text": "Ghost"
       },
       {
         "id": "D",
         "text": "Inverted Signal"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Image.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Image is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A signal 2 times the IF away from the desired signal that causes interference is referred to as a(n)\nA. Ghost\nB. Image\nC. Phantom\nD. Inverted Signal"
   },
   {
@@ -20286,19 +20286,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Low gain"
+        "text": "A low S/N ratio"
       },
       {
         "id": "C",
-        "text": "A high IF"
+        "text": "Low gain"
       },
       {
         "id": "D",
-        "text": "A low S/N ratio"
+        "text": "A high IF"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Poor front-end selectivity.",
+    "explanation": "In telecommunication systems, Poor front-end selectivity is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main cause of image interference is\nA. Poor front-end selectivity\nB. Low gain\nC. A high IF\nD. A low S/N ratio"
   },
   {
@@ -20311,23 +20311,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "455 kHz"
-      },
-      {
-        "id": "B",
-        "text": "3.3 MHz"
-      },
-      {
-        "id": "C",
         "text": "9 MHz"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "55 MHz"
+      },
+      {
+        "id": "C",
+        "text": "455 kHz"
+      },
+      {
+        "id": "D",
+        "text": "3.3 MHz"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 55 MHz.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 55 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "For best image rejection, the IF for a 30 MHz signal would be\nA. 455 kHz\nB. 3.3 MHz\nC. 9 MHz\nD. 55 MHz"
   },
   {
@@ -20340,23 +20340,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Shot noise"
-      },
-      {
-        "id": "B",
         "text": "Transit-time noise"
       },
       {
+        "id": "B",
+        "text": "Skin effect"
+      },
+      {
         "id": "C",
-        "text": "Thermal agitation"
+        "text": "Shot noise"
       },
       {
         "id": "D",
-        "text": "Skin effect"
+        "text": "Thermal agitation"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Thermal agitation.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Thermal agitation is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most internal noise comes from\nA. Shot noise\nB. Transit-time noise\nC. Thermal agitation\nD. Skin effect"
   },
   {
@@ -20369,23 +20369,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Thermal agitation"
+        "text": "Fluorescent lights"
       },
       {
         "id": "B",
-        "text": "Auto ignitions"
-      },
-      {
-        "id": "C",
         "text": "The sun"
       },
       {
+        "id": "C",
+        "text": "Auto ignitions"
+      },
+      {
         "id": "D",
-        "text": "Fluorescent lights"
+        "text": "Thermal agitation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Thermal agitation.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Thermal agitation is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a source of external noise\nA. Thermal agitation\nB. Auto ignitions\nC. The sun\nD. Fluorescent lights"
   },
   {
@@ -20402,19 +20402,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Narrowing the bandwidth"
+        "text": "Increasing temperature"
       },
       {
         "id": "C",
-        "text": "Increasing temperature"
+        "text": "Narrowing the bandwidth"
       },
       {
         "id": "D",
         "text": "Increasing transistor current levels"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Narrowing the bandwidth.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Narrowing the bandwidth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Noise can be reduced by\nA. Widening the bandwidth\nB. Narrowing the bandwidth\nC. Increasing temperature\nD. Increasing transistor current levels"
   },
   {
@@ -20427,23 +20427,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Microvolts"
-      },
-      {
-        "id": "B",
-        "text": "Millivolts"
-      },
-      {
-        "id": "C",
         "text": "Volts"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Kilovolts"
+      },
+      {
+        "id": "C",
+        "text": "Microvolts"
+      },
+      {
+        "id": "D",
+        "text": "Millivolts"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Microvolts.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Microvolts is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Noise at the input to a receiver can be as high as several\nA. Microvolts\nB. Millivolts\nC. Volts\nD. Kilovolts"
   },
   {
@@ -20456,7 +20456,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "IF amplifier"
+        "text": "Mixer"
       },
       {
         "id": "B",
@@ -20464,15 +20464,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "AF amplifier"
+        "text": "IF amplifier"
       },
       {
         "id": "D",
-        "text": "Mixer"
+        "text": "AF amplifier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Mixer.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Mixer is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which circuit contributes most to the noise in a receiver?\nA. IF amplifier\nB. Demodulator\nC. AF amplifier\nD. Mixer"
   },
   {
@@ -20485,23 +20485,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1.6 dB"
-      },
-      {
-        "id": "B",
         "text": "2.1 dB"
       },
       {
+        "id": "B",
+        "text": "3.4 dB"
+      },
+      {
         "id": "C",
-        "text": "2.7 dB"
+        "text": "1.6 dB"
       },
       {
         "id": "D",
-        "text": "3.4 dB"
+        "text": "2.7 dB"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 1.6 dB.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 1.6 dB is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which noise figure represents the lowest noise\nA. 1.6 dB\nB. 2.1 dB\nC. 2.7 dB\nD. 3.4 dB"
   },
   {
@@ -20514,7 +20514,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1.6"
+        "text": "5.3"
       },
       {
         "id": "B",
@@ -20522,15 +20522,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "5.3"
+        "text": "1.6"
       },
       {
         "id": "D",
         "text": "8"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 1.6.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 1.6 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which filter shape factor represents the best skirt selectivity?\nA. 1.6\nB. 2.1\nC. 5.3\nD. 8"
   },
   {
@@ -20547,7 +20547,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "1 µV"
+        "text": "2 µV"
       },
       {
         "id": "C",
@@ -20555,11 +20555,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "2 µV"
+        "text": "1 µV"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is 0.5 µV.",
+    "explanation": "In telecommunication systems, 0.5 µV is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which input signal below represents the best receiver sensitivity?\nA. 0.5 µV\nB. 1 µV\nC. 1.8 µV\nD. 2 µV"
   },
   {
@@ -20572,7 +20572,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "MOSFET"
+        "text": "MESFET"
       },
       {
         "id": "B",
@@ -20580,15 +20580,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "JFET"
+        "text": "MOSFET"
       },
       {
         "id": "D",
-        "text": "MESFET"
+        "text": "JFET"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is MESFET.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, MESFET is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Transistor with the lowest noise figure in the microwave region is a(n)\nA. MOSFET\nB. Dual-gate MOSFET\nC. JFET\nD. MESFET"
   },
   {
@@ -20601,11 +20601,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Mixer"
+        "text": "Audio amplifiers"
       },
       {
         "id": "B",
-        "text": "Detector"
+        "text": "Mixer"
       },
       {
         "id": "C",
@@ -20613,11 +20613,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Audio amplifiers"
+        "text": "Detector"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is IF amplifiers.",
+    "explanation": "In telecommunication systems, IF amplifiers is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The AGC circuits usually control the gain of the\nA. Mixer\nB. Detector\nC. IF amplifiers\nD. Audio amplifiers"
   },
   {
@@ -20646,7 +20646,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Double-tuned circuits.",
+    "explanation": "In telecommunication systems, Double-tuned circuits is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Selectivity is obtained in most receivers from\nA. Crystal filters\nB. Mechanical filters\nC. Double-tuned circuits\nD. Audio filters"
   },
   {
@@ -20659,23 +20659,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Undercoupling"
+        "text": "Overcoupling"
       },
       {
         "id": "B",
-        "text": "Critical coupling"
-      },
-      {
-        "id": "C",
         "text": "Optimum coupling"
       },
       {
+        "id": "C",
+        "text": "Undercoupling"
+      },
+      {
         "id": "D",
-        "text": "Overcoupling"
+        "text": "Critical coupling"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Overcoupling.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Overcoupling is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Widest bandwidth in a double-tuned circuit is obtained with\nA. Undercoupling\nB. Critical coupling\nC. Optimum coupling\nD. Overcoupling"
   },
   {
@@ -20688,23 +20688,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RF amplifier"
-      },
-      {
-        "id": "B",
         "text": "IF amplifier"
       },
       {
+        "id": "B",
+        "text": "AF amplifier"
+      },
+      {
         "id": "C",
-        "text": "Mixer"
+        "text": "RF amplifier"
       },
       {
         "id": "D",
-        "text": "AF amplifier"
+        "text": "Mixer"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is IF amplifier.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Automatic gain control permits a wide range of signal amplitudes to be accommodated by controlling the gain of the\nA. RF amplifier\nB. IF amplifier\nC. Mixer\nD. AF amplifier"
   },
   {
@@ -20725,15 +20725,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Remain the same"
+        "text": "Drop to zero"
       },
       {
         "id": "D",
-        "text": "Drop to zero"
+        "text": "Remain the same"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Decrease.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In an IF amplifier with reverse AGC, a strong signal will cause the collector current to\nA. Increase\nB. Decrease\nC. Remain the same\nD. Drop to zero"
   },
   {
@@ -20746,11 +20746,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "RF amplifier"
+        "text": "IF amplifier"
       },
       {
         "id": "B",
-        "text": "IF amplifier"
+        "text": "RF amplifier"
       },
       {
         "id": "C",
@@ -20762,7 +20762,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Demodulator.",
+    "explanation": "In telecommunication systems, Demodulator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Usually AGC voltage is derived by the\nA. RF amplifier\nB. IF amplifier\nC. Demodulator\nD. AF amplifier"
   },
   {
@@ -20775,11 +20775,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Audio distortion"
+        "text": "Frequency drift in the LO"
       },
       {
         "id": "B",
-        "text": "Strong input signals"
+        "text": "Audio distortion"
       },
       {
         "id": "C",
@@ -20787,11 +20787,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Frequency drift in the LO"
+        "text": "Strong input signals"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Frequency drift in the LO.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Frequency drift in the LO is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "An AFC circuit is used to correct for\nA. Audio distortion\nB. Strong input signals\nC. Instability in the IF amplifier\nD. Frequency drift in the LO"
   },
   {
@@ -20804,11 +20804,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A squelch"
+        "text": "AFC"
       },
       {
         "id": "B",
-        "text": "AFC"
+        "text": "A squelch"
       },
       {
         "id": "C",
@@ -20819,7 +20819,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "A noise blanker"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "A circuit keeps the audio cut off until a signal is received is called A squelch.",
     "rawSnippet": "A circuit keeps the audio cut off until a signal is received is known as\nA. A squelch\nB. AFC\nC. AGC\nD. A noise blanker"
   },
@@ -20833,23 +20833,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
-      },
-      {
-        "id": "B",
         "text": "FM"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "SSB or CW"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "QPSK"
+      },
+      {
+        "id": "D",
+        "text": "AM"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is SSB or CW.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "A BFO is used in the demodulation of which types of signals?\nA. AM\nB. FM\nC. SSB or CW\nD. QPSK"
   },
   {
@@ -20862,11 +20862,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Crystal filter"
+        "text": "Mixers"
       },
       {
         "id": "B",
-        "text": "Mixers"
+        "text": "LO"
       },
       {
         "id": "C",
@@ -20874,11 +20874,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "LO"
+        "text": "Crystal filter"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Mixers.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Mixers is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following circuits are not typically shared in an SSB transceiver?\nA. Crystal filter\nB. Mixers\nC. Power supply\nD. LO"
   },
   {
@@ -20891,11 +20891,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Mixer"
+        "text": "PLL"
       },
       {
         "id": "B",
-        "text": "Frequency multiplier"
+        "text": "Mixer"
       },
       {
         "id": "C",
@@ -20903,11 +20903,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "PLL"
+        "text": "Frequency multiplier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is PLL.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, PLL is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The basic frequency synthesizer circuit is a(n)\nA. Mixer\nB. Frequency multiplier\nC. Frequency divider\nD. PLL"
   },
   {
@@ -20924,7 +20924,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Reference input to the phase detector"
+        "text": "Frequency multiplication factor"
       },
       {
         "id": "C",
@@ -20932,11 +20932,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Frequency multiplication factor"
+        "text": "Reference input to the phase detector"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Reference input to the phase detector.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Reference input to the phase detector is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output frequency increment of a frequency synthesizer is determined by the\nA. Frequency division ratio\nB. Reference input to the phase detector\nC. Percentage of output frequency\nD. Frequency multiplication factor"
   },
   {
@@ -20949,23 +20949,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reference frequency input to the phase detector"
+        "text": "Frequency multiplication factor"
       },
       {
         "id": "B",
-        "text": "Frequency division ratio"
+        "text": "Reference frequency input to the phase detector"
       },
       {
         "id": "C",
-        "text": "Frequency multiplication factor"
+        "text": "Frequency division ratio"
       },
       {
         "id": "D",
         "text": "Mixer LO frequency"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Frequency division ratio.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Frequency division ratio is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output of the frequency synthesizer is changed by varying the\nA. Reference frequency input to the phase detector\nB. Frequency division ratio\nC. Frequency multiplication factor\nD. Mixer LO frequency"
   },
   {
@@ -20978,7 +20978,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Increasing XC"
+        "text": "Decreasing coil resistance"
       },
       {
         "id": "B",
@@ -20986,7 +20986,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Decreasing coil resistance"
+        "text": "Increasing XC"
       },
       {
         "id": "D",
@@ -20994,7 +20994,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Decreasing XL.",
+    "explanation": "In telecommunication systems, Decreasing XL is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The bandwidth of a parallel LC circuit can be increased by\nA. Increasing XC\nB. Decreasing XL\nC. Decreasing coil resistance\nD. A resistor connected in parallel"
   },
   {
@@ -21011,7 +21011,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Disabled"
+        "text": "Clipped"
       },
       {
         "id": "C",
@@ -21019,11 +21019,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Clipped"
+        "text": "Disabled"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Enabled.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In a receiver with noise-derived squelch, the presence of an audio signal causes the audio amplifier to be\nA. Enabled\nB. Disabled\nC. Muted\nD. Clipped"
   },
   {
@@ -21036,15 +21036,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Several signal sources transmitting simultaneously to a receiver on a common frequency"
+        "text": "Transmitting multiple signals over multiple channels"
       },
       {
         "id": "B",
-        "text": "Sending the same signal over multiple channels to multiple destinations"
+        "text": "Several signal sources transmitting simultaneously to a receiver on a common frequency"
       },
       {
         "id": "C",
-        "text": "Transmitting multiple signals over multiple channels"
+        "text": "Sending the same signal over multiple channels to multiple destinations"
       },
       {
         "id": "D",
@@ -21052,7 +21052,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Sending multiple signals simultaneously over a single channel.",
+    "explanation": "In telecommunication systems, Sending multiple signals simultaneously over a single channel is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Multiplexing is the process of\nA. Several signal sources transmitting simultaneously to a receiver on a common frequency\nB. Sending the same signal over multiple channels to multiple destinations\nC. Transmitting multiple signals over multiple channels\nD. Sending multiple signals simultaneously over a single channel"
   },
   {
@@ -21065,7 +21065,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Transmit at different times"
+        "text": "Use multiple channels"
       },
       {
         "id": "B",
@@ -21073,7 +21073,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Use multiple channels"
+        "text": "Transmit at different times"
       },
       {
         "id": "D",
@@ -21081,7 +21081,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Share a common bandwidth.",
+    "explanation": "In telecommunication systems, Share a common bandwidth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In FDM, multiple signals\nA. Transmit at different times\nB. Share a common bandwidth\nC. Use multiple channels\nD. Modulate one another"
   },
   {
@@ -21094,23 +21094,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulates a subcarrier"
-      },
-      {
-        "id": "B",
-        "text": "Modulates the final carrier"
-      },
-      {
-        "id": "C",
         "text": "Is mixed with all the others before modulation"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Serves as a subcarrier"
+      },
+      {
+        "id": "C",
+        "text": "Modulates the final carrier"
+      },
+      {
+        "id": "D",
+        "text": "Modulates a subcarrier"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Modulates a subcarrier.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Modulates a subcarrier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Each signal in a an FDM system\nA. Modulates a subcarrier\nB. Modulates the final carrier\nC. Is mixed with all the others before modulation\nD. Serves as a subcarrier"
   },
   {
@@ -21123,7 +21123,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reactance modulator"
+        "text": "VCO"
       },
       {
         "id": "B",
@@ -21131,15 +21131,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "VCO"
+        "text": "PLL"
       },
       {
         "id": "D",
-        "text": "PLL"
+        "text": "Reactance modulator"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is VCO.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Frequency modulation in FDM systems is usually accomplished with a\nA. Reactance modulator\nB. Varactor\nC. VCO\nD. PLL"
   },
   {
@@ -21152,15 +21152,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Telemetry"
-      },
-      {
-        "id": "B",
         "text": "Stereo Broadcasting"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Telephone"
+      },
+      {
+        "id": "C",
+        "text": "Telemetry"
       },
       {
         "id": "D",
@@ -21168,7 +21168,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Secure communications.",
+    "explanation": "In telecommunication systems, Secure communications is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a typical FDM application\nA. Telemetry\nB. Stereo Broadcasting\nC. Telephone\nD. Secure communications"
   },
   {
@@ -21185,19 +21185,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Bandpass filter"
-      },
-      {
-        "id": "C",
         "text": "Discriminator"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Subcarrier oscillator"
+      },
+      {
+        "id": "D",
+        "text": "Bandpass filter"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Bandpass filter.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Bandpass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The circuit the performs demultiplexing in an FDM system is a(n)\nA. Op amp\nB. Bandpass filter\nC. Discriminator\nD. Subcarrier oscillator"
   },
   {
@@ -21226,7 +21226,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is FM.",
+    "explanation": "In telecommunication systems, FM is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most FDM telemetry systems use\nA. AM\nB. FM\nC. SSB\nD. PSK"
   },
   {
@@ -21239,23 +21239,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PLL discriminator"
+        "text": "Ratio detector"
       },
       {
         "id": "B",
-        "text": "Pulse-averaging discriminator"
-      },
-      {
-        "id": "C",
         "text": "Foster-Seeley discriminator"
       },
       {
+        "id": "C",
+        "text": "PLL discriminator"
+      },
+      {
         "id": "D",
-        "text": "Ratio detector"
+        "text": "Pulse-averaging discriminator"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is PLL discriminator.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, PLL discriminator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The best frequency demodulator is the\nA. PLL discriminator\nB. Pulse-averaging discriminator\nC. Foster-Seeley discriminator\nD. Ratio detector"
   },
   {
@@ -21268,7 +21268,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
+        "text": "PSK"
       },
       {
         "id": "B",
@@ -21276,15 +21276,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "SSB"
+        "text": "AM"
       },
       {
         "id": "D",
-        "text": "PSK"
+        "text": "SSB"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is SSB.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The modulation used in FDM telephone systems is\nA. AM\nB. FM\nC. SSB\nD. PSK"
   },
   {
@@ -21305,15 +21305,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Narrowing the bandwidth of each"
+        "text": "Using multiple levels of multiplexing"
       },
       {
         "id": "D",
-        "text": "Using multiple levels of multiplexing"
+        "text": "Narrowing the bandwidth of each"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Using multiple levels of multiplexing.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Using multiple levels of multiplexing is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The FDM telephone systems accommodate many channels by\nA. Increasing the multiplexer size\nB. Using many final carriers\nC. Narrowing the bandwidth of each\nD. Using multiple levels of multiplexing"
   },
   {
@@ -21326,7 +21326,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Double-sideband modulates a subcarrier"
+        "text": "Frequency modulates a subcarrier"
       },
       {
         "id": "B",
@@ -21334,15 +21334,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Frequency modulates a subcarrier"
+        "text": "Is not transmitted"
       },
       {
         "id": "D",
-        "text": "Is not transmitted"
+        "text": "Double-sideband modulates a subcarrier"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Modulates the FM carrier.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In FM stereo broadcasting, the L + R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
   },
   {
@@ -21363,15 +21363,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Frequency modulates a subcarrier"
+        "text": "Is not transmitted"
       },
       {
         "id": "D",
-        "text": "Is not transmitted"
+        "text": "Frequency modulates a subcarrier"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Double-sideband modulates a subcarrier.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In FM stereo broadcasting, the L – R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
   },
   {
@@ -21384,23 +21384,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A 19-kHZ subcarrier"
-      },
-      {
-        "id": "B",
-        "text": "A 38-kHz subcarrier"
-      },
-      {
-        "id": "C",
         "text": "A 67-kHz subcarrier"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "A 19-kHZ subcarrier"
+      },
+      {
+        "id": "C",
         "text": "The main FM carrier"
+      },
+      {
+        "id": "D",
+        "text": "A 38-kHz subcarrier"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is A 67-kHz subcarrier.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The SCA signal if used in FM broadcasting is transmitted via\nA. A 19-kHZ subcarrier\nB. A 38-kHz subcarrier\nC. A 67-kHz subcarrier\nD. The main FM carrier"
   },
   {
@@ -21413,15 +21413,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Share a common bandwidth"
+        "text": "Are sampled at high speeds"
       },
       {
         "id": "B",
-        "text": "Modulate subcarriers"
+        "text": "Share a common bandwidth"
       },
       {
         "id": "C",
-        "text": "Are sampled at high speeds"
+        "text": "Modulate subcarriers"
       },
       {
         "id": "D",
@@ -21429,7 +21429,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Take turns transmitting.",
+    "explanation": "In telecommunication systems, Take turns transmitting is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In TDM, multiple signals\nA. Share a common bandwidth\nB. Modulate subcarriers\nC. Are sampled at high speeds\nD. Take turns transmitting"
   },
   {
@@ -21442,7 +21442,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "True"
+        "text": "Never"
       },
       {
         "id": "B",
@@ -21454,11 +21454,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Never"
+        "text": "True"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is True.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, True is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In TDM, each signal may use he full bandwidth of the channel\nA. True\nB. False\nC. Sometimes\nD. Never"
   },
   {
@@ -21471,7 +21471,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PAM"
+        "text": "PCM"
       },
       {
         "id": "B",
@@ -21479,15 +21479,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "FM"
+        "text": "PAM"
       },
       {
         "id": "D",
-        "text": "PCM"
+        "text": "FM"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is PAM.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Sampling an analog signal produces\nA. PAM\nB. AM\nC. FM\nD. PCM"
   },
   {
@@ -21500,23 +21500,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Subcarriers"
+        "text": "FET switches"
       },
       {
         "id": "B",
-        "text": "Bandpass filters"
-      },
-      {
-        "id": "C",
         "text": "A/D converters"
       },
       {
+        "id": "C",
+        "text": "Bandpass filters"
+      },
+      {
         "id": "D",
-        "text": "FET switches"
+        "text": "Subcarriers"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is FET switches.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Pulse-amplitude modulation signals are multiplexed by using\nA. Subcarriers\nB. Bandpass filters\nC. A/D converters\nD. FET switches"
   },
   {
@@ -21529,23 +21529,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Standard radio station WWV"
-      },
-      {
-        "id": "B",
-        "text": "A highly accurate internal oscillator"
-      },
-      {
-        "id": "C",
         "text": "The PAM signal itself"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "The 60-Hz power line"
+      },
+      {
+        "id": "C",
+        "text": "Standard radio station WWV"
+      },
+      {
+        "id": "D",
+        "text": "A highly accurate internal oscillator"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is The PAM signal itself.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In PAM demultiplexing, the receiver clock is derived from\nA. Standard radio station WWV\nB. A highly accurate internal oscillator\nC. The PAM signal itself\nD. The 60-Hz power line"
   },
   {
@@ -21558,23 +21558,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Clock recovery circuit"
-      },
-      {
-        "id": "B",
         "text": "Sync pulse"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Sampling"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Sequencer"
+      },
+      {
+        "id": "D",
+        "text": "Clock recovery circuit"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Sync pulse.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In PAM/TDM system, keeping the multiplexer and DEMUX channels step with one another is done by a\nA. Clock recovery circuit\nB. Sync pulse\nC. Sampling\nD. Sequencer"
   },
   {
@@ -21587,11 +21587,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Digital communications"
+        "text": "Quantizing"
       },
       {
         "id": "B",
-        "text": "Quantizing"
+        "text": "PCM"
       },
       {
         "id": "C",
@@ -21599,10 +21599,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "PCM"
+        "text": "Digital communications"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Transmitting data as serial binary words is called PCM.",
     "rawSnippet": "Transmitting data as serial binary words is called\nA. Digital communications\nB. Quantizing\nC. PAM\nD. PCM"
   },
@@ -21616,7 +21616,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Quantizing"
+        "text": "Pre-emphasis"
       },
       {
         "id": "B",
@@ -21624,15 +21624,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Pre-emphasis"
+        "text": "Mixing"
       },
       {
         "id": "D",
-        "text": "Mixing"
+        "text": "Quantizing"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Quantizing.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Converting analog signals to digital is done by sampling and\nA. Quantizing\nB. Companding\nC. Pre-emphasis\nD. Mixing"
   },
   {
@@ -21649,7 +21649,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Demultiplexer"
+        "text": "D/A converter"
       },
       {
         "id": "C",
@@ -21657,11 +21657,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "D/A converter"
+        "text": "Demultiplexer"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is A/D converter.",
+    "explanation": "In telecommunication systems, A/D converter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A quantizer is a(n)\nA. Multiplexer\nB. Demultiplexer\nC. A/D converter\nD. D/A converter"
   },
   {
@@ -21674,7 +21674,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Quantizing"
+        "text": "Pre-emphasis"
       },
       {
         "id": "B",
@@ -21682,7 +21682,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Pre-emphasis"
+        "text": "Quantizing"
       },
       {
         "id": "D",
@@ -21703,7 +21703,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Minimizes noise"
+        "text": "Minimizes quantizing error"
       },
       {
         "id": "B",
@@ -21711,15 +21711,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Minimizes quantizing error"
+        "text": "Minimizes signal bandwidth"
       },
       {
         "id": "D",
-        "text": "Minimizes signal bandwidth"
+        "text": "Minimizes noise"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Minimizes signal bandwidth.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Minimizes signal bandwidth is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a benefit of companding?\nA. Minimizes noise\nB. Minimizes number of bits\nC. Minimizes quantizing error\nD. Minimizes signal bandwidth"
   },
   {
@@ -21732,22 +21732,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PBX"
-      },
-      {
-        "id": "B",
         "text": "RS-232"
       },
       {
+        "id": "B",
+        "text": "PBX"
+      },
+      {
         "id": "C",
-        "text": "T-1"
+        "text": "Bell 212"
       },
       {
         "id": "D",
-        "text": "Bell 212"
+        "text": "T-1"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "D",
     "explanation": "A telephone system using TDM and PCM is called T-1.",
     "rawSnippet": "A telephone system using TDM and PCM is called\nA. PBX\nB. RS-232\nC. T-1\nD. Bell 212"
   },
@@ -21765,7 +21765,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Data converter"
+        "text": "Modem"
       },
       {
         "id": "C",
@@ -21773,7 +21773,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Modem"
+        "text": "Data converter"
       }
     ],
     "correctChoiceId": "A",
@@ -21790,11 +21790,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Resistance to quantizing error"
+        "text": "Superior noise immunity"
       },
       {
         "id": "B",
-        "text": "Simplicity"
+        "text": "Resistance to quantizing error"
       },
       {
         "id": "C",
@@ -21802,11 +21802,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Superior noise immunity"
+        "text": "Simplicity"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Superior noise immunity.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Pulse-code modulation is preferred to PAM because of its\nA. Resistance to quantizing error\nB. Simplicity\nC. Lower cost\nD. Superior noise immunity"
   },
   {
@@ -21827,15 +21827,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "conductor spacing"
+        "text": "none of the above"
       },
       {
         "id": "D",
-        "text": "none of the above"
+        "text": "conductor spacing"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is none of the above.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, none of the above is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The characteristic impedance of a transmission line does not depend upon its\nA. length\nB. conductor diameter\nC. conductor spacing\nD. none of the above"
   },
   {
@@ -21848,23 +21848,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "50 Ω"
+        "text": "300 Ω"
       },
       {
         "id": "B",
-        "text": "75 Ω"
-      },
-      {
-        "id": "C",
         "text": "120 Ω"
       },
       {
+        "id": "C",
+        "text": "50 Ω"
+      },
+      {
         "id": "D",
-        "text": "300 Ω"
+        "text": "75 Ω"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 120 Ω.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 120 Ω is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a common transmission line impedance?\nA. 50 Ω\nB. 75 Ω\nC. 120 Ω\nD. 300 Ω"
   },
   {
@@ -21877,23 +21877,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "ZO = Zl"
+        "text": "ZO < Zl"
       },
       {
         "id": "B",
-        "text": "ZO > Zl"
+        "text": "ZO = Zl"
       },
       {
         "id": "C",
-        "text": "ZO < Zl"
+        "text": "ZO > Zl"
       },
       {
         "id": "D",
         "text": "ZO = 0"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is ZO = Zl.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, ZO = Zl is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "For maximum absorption of power at the antenna, the relationship between the characteristic impedance of the line ZO and the load impedance Zl should be\nA. ZO = Zl\nB. ZO > Zl\nC. ZO < Zl\nD. ZO = 0"
   },
   {
@@ -21910,11 +21910,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "adjusting antenna length"
+        "text": "using a balun"
       },
       {
         "id": "C",
-        "text": "using a balun"
+        "text": "adjusting antenna length"
       },
       {
         "id": "D",
@@ -21922,7 +21922,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is adjusting the length of transmission line.",
+    "explanation": "In telecommunication systems, adjusting the length of transmission line is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The mismatch between antenna and transmission line impedances cannot be corrected for by\nA. using an LC matching network\nB. adjusting antenna length\nC. using a balun\nD. adjusting the length of transmission line"
   },
   {
@@ -21935,22 +21935,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "an electric field"
-      },
-      {
-        "id": "B",
         "text": "radio waves"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "standing waves"
+      },
+      {
+        "id": "C",
+        "text": "an electric field"
       },
       {
         "id": "D",
         "text": "a magnetic field"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "B",
     "explanation": "A pattern of voltage and current variations along a transmission line not terminated in its characteristic impedance is called standing waves.",
     "rawSnippet": "A pattern of voltage and current variations along a transmission line not terminated in its characteristic impedance is called\nA. an electric field\nB. radio waves\nC. standing waves\nD. a magnetic field"
   },
@@ -21964,23 +21964,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0"
-      },
-      {
-        "id": "B",
-        "text": "1"
-      },
-      {
-        "id": "C",
         "text": "2"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "infinity"
+      },
+      {
+        "id": "C",
+        "text": "0"
+      },
+      {
+        "id": "D",
+        "text": "1"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 1.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, 1 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The desirable SWR on a transmission line is\nA. 0\nB. 1\nC. 2\nD. infinity"
   },
   {
@@ -21993,7 +21993,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "0"
+        "text": "infinity"
       },
       {
         "id": "B",
@@ -22001,15 +22001,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "1"
+        "text": "0"
       },
       {
         "id": "D",
-        "text": "infinity"
+        "text": "1"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 0.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 0 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most desirable reflection coefficient is\nA. 0\nB. 0.5\nC. 1\nD. infinity"
   },
   {
@@ -22022,23 +22022,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "velocity factor"
+        "text": "reflection coefficient"
       },
       {
         "id": "B",
-        "text": "standing wave ratio"
+        "text": "velocity factor"
       },
       {
         "id": "C",
-        "text": "reflection coefficient"
+        "text": "standing wave ratio"
       },
       {
         "id": "D",
         "text": "line efficiency"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is reflection coefficient.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, reflection coefficient is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A ratio expressing the percentage of incident voltage reflected on a transmission line is know as the\nA. velocity factor\nB. standing wave ratio\nC. reflection coefficient\nD. line efficiency"
   },
   {
@@ -22051,7 +22051,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "tuned circuits"
+        "text": "resistors"
       },
       {
         "id": "B",
@@ -22059,15 +22059,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "insulators"
+        "text": "tuned circuits"
       },
       {
         "id": "D",
-        "text": "resistors"
+        "text": "insulators"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is tuned circuits.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, tuned circuits is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "At very high frequencies, transmission lines are used as\nA. tuned circuits\nB. antennas\nC. insulators\nD. resistors"
   },
   {
@@ -22084,19 +22084,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "parallel resonant circuit"
+        "text": "capacitor"
       },
       {
         "id": "C",
-        "text": "capacitor"
+        "text": "parallel resonant circuit"
       },
       {
         "id": "D",
         "text": "inductor"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is parallel resonant circuit.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, parallel resonant circuit is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A shorted quarter-wave line at the operating frequency acts like a(n)\nA. series resonant circuit\nB. parallel resonant circuit\nC. capacitor\nD. inductor"
   },
   {
@@ -22113,19 +22113,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "inductor"
+        "text": "series resonant circuit"
       },
       {
         "id": "C",
-        "text": "series resonant circuit"
+        "text": "inductor"
       },
       {
         "id": "D",
         "text": "parallel resonant circuit"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is series resonant circuit.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, series resonant circuit is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A shorted half-wave line at the operating frequency acts like a(n)\nA. capacitor\nB. inductor\nC. series resonant circuit\nD. parallel resonant circuit"
   },
   {
@@ -22138,23 +22138,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "collinear"
+        "text": "broadside"
       },
       {
         "id": "B",
-        "text": "dipole"
-      },
-      {
-        "id": "C",
         "text": "ground plane"
       },
       {
+        "id": "C",
+        "text": "collinear"
+      },
+      {
         "id": "D",
-        "text": "broadside"
+        "text": "dipole"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is ground plane.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, ground plane is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A popular vertical antenna is the\nA. collinear\nB. dipole\nC. ground plane\nD. broadside"
   },
   {
@@ -22167,23 +22167,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "is vertical"
-      },
-      {
-        "id": "B",
-        "text": "is horizontal"
-      },
-      {
-        "id": "C",
         "text": "is circular"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "is vertical"
+      },
+      {
+        "id": "C",
         "text": "cannot be determined from the information given"
+      },
+      {
+        "id": "D",
+        "text": "is horizontal"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is is horizontal.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, is horizontal is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The magnetic field of an antenna is perpendicular to the earth. The antenna’s polarization\nA. is vertical\nB. is horizontal\nC. is circular\nD. cannot be determined from the information given"
   },
   {
@@ -22196,23 +22196,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "omnidirectional"
-      },
-      {
-        "id": "B",
         "text": "bidirectional"
       },
       {
+        "id": "B",
+        "text": "quasidirectional"
+      },
+      {
         "id": "C",
-        "text": "unidirectional"
+        "text": "omnidirectional"
       },
       {
         "id": "D",
-        "text": "quasidirectional"
+        "text": "unidirectional"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is omnidirectional.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, omnidirectional is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "An antenna that transmits or receives equally well in all directions is said to be\nA. omnidirectional\nB. bidirectional\nC. unidirectional\nD. quasidirectional"
   },
   {
@@ -22225,7 +22225,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "circle"
+        "text": "narrow beam"
       },
       {
         "id": "B",
@@ -22233,15 +22233,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "clover leaf"
+        "text": "circle"
       },
       {
         "id": "D",
-        "text": "narrow beam"
+        "text": "clover leaf"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is figure eight.",
+    "explanation": "In telecommunication systems, figure eight is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The horizontal radiation pattern of a dipole is a\nA. circle\nB. figure eight\nC. clover leaf\nD. narrow beam"
   },
   {
@@ -22258,19 +22258,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "73 Ω"
+        "text": "93 Ω"
       },
       {
         "id": "C",
-        "text": "93 Ω"
+        "text": "73 Ω"
       },
       {
         "id": "D",
         "text": "300 Ω"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 73 Ω.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 73 Ω is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The impedance of a dipole is about\nA. 50 Ω\nB. 73 Ω\nC. 93 Ω\nD. 300 Ω"
   },
   {
@@ -22283,23 +22283,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "folded dipole"
+        "text": "array"
       },
       {
         "id": "B",
-        "text": "ground plane"
-      },
-      {
-        "id": "C",
         "text": "loop"
       },
       {
+        "id": "C",
+        "text": "folded dipole"
+      },
+      {
         "id": "D",
-        "text": "array"
+        "text": "ground plane"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is array.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, array is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A direction antenna with two or more elements is known as a(n)\nA. folded dipole\nB. ground plane\nC. loop\nD. array"
   },
   {
@@ -22316,7 +22316,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "circle"
+        "text": "clover leaf"
       },
       {
         "id": "C",
@@ -22324,11 +22324,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "clover leaf"
+        "text": "circle"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is circle.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, circle is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The horizontal radiation pattern o a vertical dipole is\nA. figure eight\nB. circle\nC. narrow beam\nD. clover leaf"
   },
   {
@@ -22341,7 +22341,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "director"
+        "text": "reflector"
       },
       {
         "id": "B",
@@ -22349,15 +22349,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "reflector"
+        "text": "sky"
       },
       {
         "id": "D",
-        "text": "sky"
+        "text": "director"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is director.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, director is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In a Yagi antenna, maximum direction of radiation is toward the\nA. director\nB. driven element\nC. reflector\nD. sky"
   },
   {
@@ -22370,11 +22370,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "parasitic elements"
+        "text": "driven elements"
       },
       {
         "id": "B",
-        "text": "driven elements"
+        "text": "receptors"
       },
       {
         "id": "C",
@@ -22382,10 +22382,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "receptors"
+        "text": "parasitic elements"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "D",
     "explanation": "Conductors in multielement antennas that do not receive energy directly from the transmission line is called parasitic elements.",
     "rawSnippet": "Conductors in multielement antennas that do not receive energy directly from the transmission line are known as\nA. parasitic elements\nB. driven elements\nC. the boom\nD. receptors"
   },
@@ -22399,11 +22399,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "7°"
+        "text": "12°"
       },
       {
         "id": "B",
-        "text": "12°"
+        "text": "7°"
       },
       {
         "id": "C",
@@ -22414,8 +22414,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "28°"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 7°.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Which beamwidth represents the best antenna directivity\nA. 7°\nB. 12°\nC. 19°\nD. 28°"
   },
   {
@@ -22428,23 +22428,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "omnidirectional"
-      },
-      {
-        "id": "B",
         "text": "bidirectional"
       },
       {
+        "id": "B",
+        "text": "clover-leaf shaped"
+      },
+      {
         "id": "C",
-        "text": "unidirectional"
+        "text": "omnidirectional"
       },
       {
         "id": "D",
-        "text": "clover-leaf shaped"
+        "text": "unidirectional"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is bidirectional.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, bidirectional is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The radiation pattern of collinear and broadside antennas\nA. omnidirectional\nB. bidirectional\nC. unidirectional\nD. clover-leaf shaped"
   },
   {
@@ -22457,23 +22457,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "dipole"
-      },
-      {
-        "id": "B",
-        "text": "ground plane"
-      },
-      {
-        "id": "C",
         "text": "yagi"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "collinear"
+      },
+      {
+        "id": "C",
+        "text": "ground plane"
+      },
+      {
+        "id": "D",
+        "text": "dipole"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is yagi.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, yagi is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which antenna has a unidirectional radiation pattern and gain\nA. dipole\nB. ground plane\nC. yagi\nD. collinear"
   },
   {
@@ -22486,11 +22486,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "end-fire"
+        "text": "log-periodic"
       },
       {
         "id": "B",
-        "text": "log-periodic"
+        "text": "end-fire"
       },
       {
         "id": "C",
@@ -22501,8 +22501,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "collinear"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is log-periodic.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, log-periodic is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A wide-bandwidth multielement driven array is the\nA. end-fire\nB. log-periodic\nC. yagi\nD. collinear"
   },
   {
@@ -22515,23 +22515,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "300 kHz to 3 MHz"
-      },
-      {
-        "id": "B",
         "text": "3 to 30 MHz"
       },
       {
+        "id": "B",
+        "text": "300 kHz to 3 MHz"
+      },
+      {
         "id": "C",
-        "text": "30 to 300 MHz"
+        "text": "above 300 MHz"
       },
       {
         "id": "D",
-        "text": "above 300 MHz"
+        "text": "30 to 300 MHz"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 300 kHz to 3 MHz.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 300 kHz to 3 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Ground-wave communications is most effective in what frequency range?\nA. 300 kHz to 3 MHz\nB. 3 to 30 MHz\nC. 30 to 300 MHz\nD. above 300 MHz"
   },
   {
@@ -22544,23 +22544,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "300 kHz to 3 MHz"
-      },
-      {
-        "id": "B",
         "text": "3 to 30 MHz"
       },
       {
+        "id": "B",
+        "text": "above 300 MHz"
+      },
+      {
         "id": "C",
-        "text": "30 to 300 MHz"
+        "text": "300 kHz to 3 MHz"
       },
       {
         "id": "D",
-        "text": "above 300 MHz"
+        "text": "30 to 300 MHz"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 3 to 30 MHz.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, 3 to 30 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The ionosphere has its greatest effect on signals in what frequency range?\nA. 300 kHz to 3 MHz\nB. 3 to 30 MHz\nC. 30 to 300 MHz\nD. above 300 MHz"
   },
   {
@@ -22581,15 +22581,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "surface wave"
+        "text": "standing wave"
       },
       {
         "id": "D",
-        "text": "standing wave"
+        "text": "surface wave"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is direct wave.",
+    "explanation": "In telecommunication systems, direct wave is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Microwave signals propagate by way of the\nA. direct wave\nB. sky wave\nC. surface wave\nD. standing wave"
   },
   {
@@ -22602,11 +22602,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "VHF"
+        "text": "UHF"
       },
       {
         "id": "B",
-        "text": "UHF"
+        "text": "microwave"
       },
       {
         "id": "C",
@@ -22614,11 +22614,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "microwave"
+        "text": "VHF"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is HF.",
+    "explanation": "In telecommunication systems, HF is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The line-of-sight communications is not a factor in which frequency range?\nA. VHF\nB. UHF\nC. HF\nD. microwave"
   },
   {
@@ -22635,19 +22635,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "increase antenna height"
-      },
-      {
-        "id": "C",
         "text": "increase transmitter power"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "increase receiver sensitivity"
+      },
+      {
+        "id": "D",
+        "text": "increase antenna height"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is increase antenna height.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, increase antenna height is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "To increase the transmission distance of a UHF signal, which of the following should be done?\nA. increase antenna gain\nB. increase antenna height\nC. increase transmitter power\nD. increase receiver sensitivity"
   },
   {
@@ -22676,7 +22676,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is twin lead.",
+    "explanation": "In telecommunication systems, twin lead is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which transmission line has the lowest attenuation?\nA. twin lead\nB. RG-11/U\nC. RG-59/U\nD. RG-214/U"
   },
   {
@@ -22693,19 +22693,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "38°"
+        "text": "60°"
       },
       {
         "id": "C",
-        "text": "45°"
+        "text": "38°"
       },
       {
         "id": "D",
-        "text": "60°"
+        "text": "45°"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 60°.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Refer to Fig. 9-39. The beam width of this antenna pattern is approximately\nA. 30°\nB. 38°\nC. 45°\nD. 60°"
   },
   {
@@ -22718,23 +22718,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "transceiver"
-      },
-      {
-        "id": "B",
-        "text": "remitter"
-      },
-      {
-        "id": "C",
         "text": "repeater"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "amplifier"
+      },
+      {
+        "id": "C",
+        "text": "remitter"
+      },
+      {
+        "id": "D",
+        "text": "transceiver"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is repeater.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, repeater is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A receiver-transmitter station used to increase the communications range of VHF, UHF, and microwave signals is called a(n)\nA. transceiver\nB. remitter\nC. repeater\nD. amplifier"
   },
   {
@@ -22763,7 +22763,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is more spectrum space.",
+    "explanation": "In telecommunication systems, more spectrum space is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main benefit of using microwaves is\nA. lower-cost equipment\nB. simpler equipment\nC. greater transmission distances\nD. more spectrum space"
   },
   {
@@ -22776,11 +22776,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Federal Trade Commission"
+        "text": "Military"
       },
       {
         "id": "B",
-        "text": "Congress"
+        "text": "Federal Trade Commission"
       },
       {
         "id": "C",
@@ -22788,11 +22788,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Military"
+        "text": "Congress"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Federal Communications Commission.",
+    "explanation": "In telecommunication systems, Federal Communications Commission is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Radio communications are regulated in the United States by the\nA. Federal Trade Commission\nB. Congress\nC. Federal Communications Commission\nD. Military"
   },
   {
@@ -22809,11 +22809,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "line-of-sight transmission"
+        "text": "conventional components are not usable"
       },
       {
         "id": "C",
-        "text": "conventional components are not usable"
+        "text": "line-of-sight transmission"
       },
       {
         "id": "D",
@@ -22821,7 +22821,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is higher-cost equipment.",
+    "explanation": "In telecommunication systems, higher-cost equipment is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a disadvantage of microwaves?\nA. higher-cost equipment\nB. line-of-sight transmission\nC. conventional components are not usable\nD. circuits are more difficult to analyze"
   },
   {
@@ -22834,23 +22834,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1.7 MHz"
-      },
-      {
-        "id": "B",
         "text": "750 MHz"
       },
       {
+        "id": "B",
+        "text": "1.7 MHz"
+      },
+      {
         "id": "C",
-        "text": "0.98 GHz"
+        "text": "22 GHz"
       },
       {
         "id": "D",
-        "text": "22 GHz"
+        "text": "0.98 GHz"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 22 GHz.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 22 GHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is a microwave frequency\nA. 1.7 MHz\nB. 750 MHz\nC. 0.98 GHz\nD. 22 GHz"
   },
   {
@@ -22863,23 +22863,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "radar"
+        "text": "spacecraft communications"
       },
       {
         "id": "B",
-        "text": "mobile radio"
-      },
-      {
-        "id": "C",
         "text": "telephone"
       },
       {
+        "id": "C",
+        "text": "mobile radio"
+      },
+      {
         "id": "D",
-        "text": "spacecraft communications"
+        "text": "radar"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is mobile radio.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, mobile radio is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a common microwave application?\nA. radar\nB. mobile radio\nC. telephone\nD. spacecraft communications"
   },
   {
@@ -22892,23 +22892,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "high loss"
-      },
-      {
-        "id": "B",
         "text": "high cost"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "large size"
+      },
+      {
+        "id": "C",
+        "text": "high loss"
       },
       {
         "id": "D",
         "text": "excessive radiation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is high loss.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, high loss is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Coaxial cable is not widely used for long microwave transmission lines because of its\nA. high loss\nB. high cost\nC. large size\nD. excessive radiation"
   },
   {
@@ -22921,23 +22921,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "coax"
+        "text": "PCBs"
       },
       {
         "id": "B",
-        "text": "parallel wires"
+        "text": "coax"
       },
       {
         "id": "C",
-        "text": "twisted pair"
+        "text": "parallel wires"
       },
       {
         "id": "D",
-        "text": "PCBs"
+        "text": "twisted pair"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is PCBs.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, PCBs is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Stripline and microstrip transmission lines are usually made with\nA. coax\nB. parallel wires\nC. twisted pair\nD. PCBs"
   },
   {
@@ -22950,15 +22950,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "square"
+        "text": "triangle"
       },
       {
         "id": "B",
-        "text": "circle"
+        "text": "square"
       },
       {
         "id": "C",
-        "text": "triangle"
+        "text": "circle"
       },
       {
         "id": "D",
@@ -22966,7 +22966,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is rectangle.",
+    "explanation": "In telecommunication systems, rectangle is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most common cross section of a wave guide is a\nA. square\nB. circle\nC. triangle\nD. rectangle"
   },
   {
@@ -22979,23 +22979,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "electrons"
-      },
-      {
-        "id": "B",
-        "text": "electric and magnetic fields"
-      },
-      {
-        "id": "C",
         "text": "holes"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "electrons"
+      },
+      {
+        "id": "C",
         "text": "air pressure"
+      },
+      {
+        "id": "D",
+        "text": "electric and magnetic fields"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is electric and magnetic fields.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, electric and magnetic fields is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Signal propagation in a waveguide is by\nA. electrons\nB. electric and magnetic fields\nC. holes\nD. air pressure"
   },
   {
@@ -23008,23 +23008,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "vertical polarization"
-      },
-      {
-        "id": "B",
-        "text": "horizontal polarization"
-      },
-      {
-        "id": "C",
         "text": "transverse electric"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "transverse magnetic"
+      },
+      {
+        "id": "C",
+        "text": "vertical polarization"
+      },
+      {
+        "id": "D",
+        "text": "horizontal polarization"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is transverse electric.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, transverse electric is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "When the electric field in a waveguide is perpendicular to the direction of wave propagation, the mode is said to be\nA. vertical polarization\nB. horizontal polarization\nC. transverse electric\nD. transverse magnetic"
   },
   {
@@ -23037,11 +23037,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "TE0,1"
+        "text": "TE1,2"
       },
       {
         "id": "B",
-        "text": "TE1,2"
+        "text": "TM1,1"
       },
       {
         "id": "C",
@@ -23049,11 +23049,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "TM1,1"
+        "text": "TE0,1"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is TE0,1.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, TE0,1 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The dominant mode in most waveguides is\nA. TE0,1\nB. TE1,2\nC. TM0,1\nD. TM1,1"
   },
   {
@@ -23066,23 +23066,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "probe"
-      },
-      {
-        "id": "B",
-        "text": "dipole"
-      },
-      {
-        "id": "C",
         "text": "stripline"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "capacitor"
+      },
+      {
+        "id": "C",
+        "text": "probe"
+      },
+      {
+        "id": "D",
+        "text": "dipole"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is probe.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, probe is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A magnetic field is introduced into a waveguide by a\nA. probe\nB. dipole\nC. stripline\nD. capacitor"
   },
   {
@@ -23099,7 +23099,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "cavity resonator"
+        "text": "directional coupler"
       },
       {
         "id": "C",
@@ -23107,11 +23107,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "directional coupler"
+        "text": "cavity resonator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is cavity resonator.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, cavity resonator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A half-wavelength, closed section of a waveguide that acts as a parallel resonant circuit is known as a(n)\nA. half-wave section\nB. cavity resonator\nC. LCR circuit\nD. directional coupler"
   },
   {
@@ -23140,7 +23140,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is increase.",
+    "explanation": "In telecommunication systems, increase is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Decreasing the volume of a cavity causes its resonant frequency to\nA. increase\nB. decrease\nC. remain the same\nD. drop to zero"
   },
   {
@@ -23153,23 +23153,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Gunn"
+        "text": "IMPATT"
       },
       {
         "id": "B",
-        "text": "Varactor"
+        "text": "Gunn"
       },
       {
         "id": "C",
-        "text": "Hot carrier"
+        "text": "Varactor"
       },
       {
         "id": "D",
-        "text": "IMPATT"
+        "text": "Hot carrier"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Gunn.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Gunn is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A popular microwave mixer diode is the\nA. Gunn\nB. Varactor\nC. Hot carrier\nD. IMPATT"
   },
   {
@@ -23182,11 +23182,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "amplifier"
+        "text": "oscillator"
       },
       {
         "id": "B",
-        "text": "oscillator"
+        "text": "mixer"
       },
       {
         "id": "C",
@@ -23194,11 +23194,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "mixer"
+        "text": "amplifier"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is frequency multiplier.",
+    "explanation": "In telecommunication systems, frequency multiplier is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Varactor and step-recovery diodes are widely used in what type of circuit\nA. amplifier\nB. oscillator\nC. frequency multiplier\nD. mixer"
   },
   {
@@ -23211,23 +23211,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "IMPATT"
+        "text": "Mixer"
       },
       {
         "id": "B",
-        "text": "Gunn"
+        "text": "IMPATT"
       },
       {
         "id": "C",
-        "text": "Varactor"
+        "text": "Gunn"
       },
       {
         "id": "D",
-        "text": "Mixer"
+        "text": "Varactor"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Gunn.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Gunn is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which diode is a popular microwave oscillator\nA. IMPATT\nB. Gunn\nC. Varactor\nD. Mixer"
   },
   {
@@ -23240,7 +23240,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Varactor"
+        "text": "Tunnel"
       },
       {
         "id": "B",
@@ -23248,15 +23248,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Snap-off"
+        "text": "Varactor"
       },
       {
         "id": "D",
-        "text": "Tunnel"
+        "text": "Snap-off"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Tunnel.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Tunnel is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which type of diode does not ordinarily operate with reverse bias\nA. Varactor\nB. IMPATT\nC. Snap-off\nD. Tunnel"
   },
   {
@@ -23269,23 +23269,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reflex klystrons"
+        "text": "Varactor diodes"
       },
       {
         "id": "B",
-        "text": "TWTs"
+        "text": "Reflex klystrons"
       },
       {
         "id": "C",
-        "text": "Magnetrons"
+        "text": "TWTs"
       },
       {
         "id": "D",
-        "text": "Varactor diodes"
+        "text": "Magnetrons"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Reflex klystrons.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Reflex klystrons is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Low-power Gunn diodes are replacing\nA. Reflex klystrons\nB. TWTs\nC. Magnetrons\nD. Varactor diodes"
   },
   {
@@ -23298,7 +23298,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "travelling-wave tube"
+        "text": "klystron"
       },
       {
         "id": "B",
@@ -23306,15 +23306,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "klystron"
+        "text": "magnetron"
       },
       {
         "id": "D",
-        "text": "magnetron"
+        "text": "travelling-wave tube"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is cathode-ray tube.",
+    "explanation": "In telecommunication systems, cathode-ray tube is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a microwave tube?\nA. travelling-wave tube\nB. cathode-ray tube\nC. klystron\nD. magnetron"
   },
   {
@@ -23327,15 +23327,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "collector"
-      },
-      {
-        "id": "B",
         "text": "catcher cavity"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "cathode"
+      },
+      {
+        "id": "C",
+        "text": "collector"
       },
       {
         "id": "D",
@@ -23343,7 +23343,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is buncher cavity.",
+    "explanation": "In classical mechanics, buncher cavity applies Newtonian vector principles (statical equilibrium ∑F=0 or dynamic acceleration F=ma) to analyze structural and physical forces.",
     "rawSnippet": "In a klystron amplifier, velocity modulation of the electron beam is produced by the\nA. collector\nB. catcher cavity\nC. cathode\nD. buncher cavity"
   },
   {
@@ -23356,23 +23356,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "amplifier"
+        "text": "frequency multiplier"
       },
       {
         "id": "B",
-        "text": "oscillator"
-      },
-      {
-        "id": "C",
         "text": "mixer"
       },
       {
+        "id": "C",
+        "text": "oscillator"
+      },
+      {
         "id": "D",
-        "text": "frequency multiplier"
+        "text": "amplifier"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is oscillator.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, oscillator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A reflex klystron is used as a(n)\nA. amplifier\nB. oscillator\nC. mixer\nD. frequency multiplier"
   },
   {
@@ -23389,19 +23389,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "strong electric field"
+        "text": "permanent magnet"
       },
       {
         "id": "C",
-        "text": "permanent magnet"
+        "text": "strong electric field"
       },
       {
         "id": "D",
         "text": "high dc voltage"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is permanent magnet.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, permanent magnet is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "For proper operation, a magnetron must be accompanied by a\nA. cavity resonator\nB. strong electric field\nC. permanent magnet\nD. high dc voltage"
   },
   {
@@ -23414,23 +23414,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "cavity resonators"
+        "text": "number of cavities"
       },
       {
         "id": "B",
-        "text": "DC supply voltage"
-      },
-      {
-        "id": "C",
         "text": "input signal frequency"
       },
       {
+        "id": "C",
+        "text": "cavity resonators"
+      },
+      {
         "id": "D",
-        "text": "number of cavities"
+        "text": "DC supply voltage"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is cavity resonators.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, cavity resonators is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The operating frequency of klystrons and magnetrons is set by the\nA. cavity resonators\nB. DC supply voltage\nC. input signal frequency\nD. number of cavities"
   },
   {
@@ -23443,7 +23443,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "amplifier"
+        "text": "frequency multiplier"
       },
       {
         "id": "B",
@@ -23451,15 +23451,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "mixer"
+        "text": "amplifier"
       },
       {
         "id": "D",
-        "text": "frequency multiplier"
+        "text": "mixer"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is oscillator.",
+    "explanation": "In telecommunication systems, oscillator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A magnetron is used only as a(n)\nA. amplifier\nB. oscillator\nC. mixer\nD. frequency multiplier"
   },
   {
@@ -23488,7 +23488,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is radar.",
+    "explanation": "In telecommunication systems, radar is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A common application for magnetrons is in\nA. radar\nB. satellites\nC. two-way radio\nD. TV sets"
   },
   {
@@ -23501,23 +23501,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "permanent magnet"
-      },
-      {
-        "id": "B",
         "text": "modulation transformer"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "helix"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "cavity resonator"
+      },
+      {
+        "id": "D",
+        "text": "permanent magnet"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is helix.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In a TWT, the electron beam is density- modulated by a\nA. permanent magnet\nB. modulation transformer\nC. helix\nD. cavity resonator"
   },
   {
@@ -23530,23 +23530,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "lower cost"
-      },
-      {
-        "id": "B",
-        "text": "smaller size"
-      },
-      {
-        "id": "C",
         "text": "higher power"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "wider bandwidth"
+      },
+      {
+        "id": "C",
+        "text": "smaller size"
+      },
+      {
+        "id": "D",
+        "text": "lower cost"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is wider bandwidth.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The main advantage of a TWT over a klystron for microwave amplification is\nA. lower cost\nB. smaller size\nC. higher power\nD. wider bandwidth"
   },
   {
@@ -23559,7 +23559,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "MESFETs"
+        "text": "Klystrons"
       },
       {
         "id": "B",
@@ -23567,15 +23567,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Klystrons"
+        "text": "MESFETs"
       },
       {
         "id": "D",
         "text": "IMPATT diodes"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Klystrons.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "High-power TWTs are replacing what in microwave amplifiers?\nA. MESFETs\nB. Magnetrons\nC. Klystrons\nD. IMPATT diodes"
   },
   {
@@ -23592,19 +23592,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "quarter-wave probe"
+        "text": "horn"
       },
       {
         "id": "C",
-        "text": "single loop"
+        "text": "quarter-wave probe"
       },
       {
         "id": "D",
-        "text": "horn"
+        "text": "single loop"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is horn.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, horn is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most widely used microwave antenna is a\nA. half-wave dipole\nB. quarter-wave probe\nC. single loop\nD. horn"
   },
   {
@@ -23633,7 +23633,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is gain increases.",
+    "explanation": "In telecommunication systems, gain increases is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What happens when a horn antenna is made longer?\nA. gain increases\nB. beam width increases\nC. both a and b\nD. neither a nor b"
   },
   {
@@ -23646,7 +23646,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1"
+        "text": "10"
       },
       {
         "id": "B",
@@ -23654,15 +23654,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "5"
+        "text": "1"
       },
       {
         "id": "D",
-        "text": "10"
+        "text": "5"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 10.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The diameter of a parabolic reflector should be at least how many wavelengths at the operating frequency?\nA. 1\nB. 2\nC. 5\nD. 10"
   },
   {
@@ -23675,11 +23675,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "focal point"
+        "text": "center"
       },
       {
         "id": "B",
-        "text": "center"
+        "text": "focal point"
       },
       {
         "id": "C",
@@ -23690,7 +23690,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "tangent"
       }
     ],
-    "correctChoiceId": "A",
+    "correctChoiceId": "B",
     "explanation": "The point where the antenna is mounted with respect to the parabolic reflector is called focal point.",
     "rawSnippet": "The point where the antenna is mounted with respect to the parabolic reflector is called\nA. focal point\nB. center\nC. locus\nD. tangent"
   },
@@ -23704,22 +23704,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "focal feed"
-      },
-      {
-        "id": "B",
-        "text": "horn feed"
-      },
-      {
-        "id": "C",
         "text": "cassegrain feed"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "coax feed"
+      },
+      {
+        "id": "C",
+        "text": "horn feed"
+      },
+      {
+        "id": "D",
+        "text": "focal feed"
       }
     ],
-    "correctChoiceId": "C",
+    "correctChoiceId": "A",
     "explanation": "Using a small reflector to beam waves to the larger parabolic reflector is called cassegrain feed.",
     "rawSnippet": "Using a small reflector to beam waves to the larger parabolic reflector is known as\nA. focal feed\nB. horn feed\nC. cassegrain feed\nD. coax feed"
   },
@@ -23733,15 +23733,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "decrease beamwidth"
-      },
-      {
-        "id": "B",
         "text": "increase gain"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "increase beam width"
+      },
+      {
+        "id": "C",
+        "text": "decrease beamwidth"
       },
       {
         "id": "D",
@@ -23749,7 +23749,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is a and b.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Increasing the diameter of a parabolic reflector causes which of the following\nA. decrease beamwidth\nB. increase gain\nC. increase beam width\nD. a and b"
   },
   {
@@ -23762,7 +23762,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "director"
+        "text": "dipole"
       },
       {
         "id": "B",
@@ -23770,15 +23770,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "dipole"
+        "text": "horn"
       },
       {
         "id": "D",
-        "text": "horn"
+        "text": "director"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is reflector.",
+    "explanation": "In telecommunication systems, reflector is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A helical antenna is made up of a coil and a\nA. director\nB. reflector\nC. dipole\nD. horn"
   },
   {
@@ -23791,23 +23791,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "vertically polarized"
+        "text": "both a and b"
       },
       {
         "id": "B",
-        "text": "horizontally polarized"
-      },
-      {
-        "id": "C",
         "text": "circularly polarized"
       },
       {
+        "id": "C",
+        "text": "horizontally polarized"
+      },
+      {
         "id": "D",
-        "text": "both a and b"
+        "text": "vertically polarized"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is circularly polarized.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, circularly polarized is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output of a helical antenna is\nA. vertically polarized\nB. horizontally polarized\nC. circularly polarized\nD. both a and b"
   },
   {
@@ -23820,23 +23820,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "horn"
-      },
-      {
-        "id": "B",
         "text": "parabolic reflector"
       },
       {
+        "id": "B",
+        "text": "horn"
+      },
+      {
         "id": "C",
-        "text": "helical"
+        "text": "bicone"
       },
       {
         "id": "D",
-        "text": "bicone"
+        "text": "helical"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is bicone.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, bicone is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A common omnidirectional microwave antenna is the\nA. horn\nB. parabolic reflector\nC. helical\nD. bicone"
   },
   {
@@ -23849,23 +23849,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Increases"
-      },
-      {
-        "id": "B",
         "text": "Decreases"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Remains the same"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "None of the above"
+      },
+      {
+        "id": "D",
+        "text": "Increases"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Increases.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Increases is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "As the height of a satellite orbit gets lower, the speed of the satellite\nA. Increases\nB. Decreases\nC. Remains the same\nD. None of the above"
   },
   {
@@ -23878,11 +23878,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Repeater"
+        "text": "Reflector"
       },
       {
         "id": "B",
-        "text": "Reflector"
+        "text": "Repeater"
       },
       {
         "id": "C",
@@ -23893,8 +23893,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Observation platform"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Repeater.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Repeater is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main functions of a communications satellite is a a(a)\nA. Repeater\nB. Reflector\nC. Beacon\nD. Observation platform"
   },
   {
@@ -23907,7 +23907,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Elliptical orbit"
+        "text": "Transfer orbit"
       },
       {
         "id": "B",
@@ -23919,11 +23919,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Transfer orbit"
+        "text": "Elliptical orbit"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Geostationary orbit.",
+    "explanation": "In telecommunication systems, Geostationary orbit is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A circular orbit around the equator with a 24 h period is called a(n)\nA. Elliptical orbit\nB. Geostationary orbit\nC. Polar orbit\nD. Transfer orbit"
   },
   {
@@ -23936,23 +23936,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Satellite weight and speed"
-      },
-      {
-        "id": "B",
         "text": "Gravitational pull and inertia"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Centripetal force and speed"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Satellite weight and the pull of the moon and sun"
+      },
+      {
+        "id": "D",
+        "text": "Satellite weight and speed"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Gravitational pull and inertia.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Gravitational pull and inertia is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A satellite stays in orbit because the following 2 factor are balanced\nA. Satellite weight and speed\nB. Gravitational pull and inertia\nC. Centripetal force and speed\nD. Satellite weight and the pull of the moon and sun"
   },
   {
@@ -23973,15 +23973,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "22,300 mi"
+        "text": "35,860 mi"
       },
       {
         "id": "D",
-        "text": "35,860 mi"
+        "text": "22,300 mi"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 22,300 mi.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, 22,300 mi is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The height of a satellite in a synchronous equatorial orbit is\nA. 100 mi\nB. 6800 mi\nC. 22,300 mi\nD. 35,860 mi"
   },
   {
@@ -23998,19 +23998,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "300 MHz to 3GHz"
+        "text": "3 GHz to 30 GHz"
       },
       {
         "id": "C",
-        "text": "3 GHz to 30 GHz"
+        "text": "300 MHz to 3GHz"
       },
       {
         "id": "D",
         "text": "above 300 GHz"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 3 GHz to 30 GHz.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 3 GHz to 30 GHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most satellites operate in which frequency band?\nA. 30 to 300 MHz\nB. 300 MHz to 3GHz\nC. 3 GHz to 30 GHz\nD. above 300 GHz"
   },
   {
@@ -24023,11 +24023,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Batteries"
+        "text": "Solar cells"
       },
       {
         "id": "B",
-        "text": "Solar cells"
+        "text": "Batteries"
       },
       {
         "id": "C",
@@ -24038,8 +24038,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Thermoelectric generators"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Solar cells.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Solar cells is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main power sources for a satellite are\nA. Batteries\nB. Solar cells\nC. Fuel cells\nD. Thermoelectric generators"
   },
   {
@@ -24056,18 +24056,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Apex"
-      },
-      {
-        "id": "C",
         "text": "Zenith"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Apogee"
+      },
+      {
+        "id": "D",
+        "text": "Apex"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "C",
     "explanation": "The maximum height of an elliptical orbit is called Apogee.",
     "rawSnippet": "The maximum height of an elliptical orbit is called\nA. Perigee\nB. Apex\nC. Zenith\nD. Apogee"
   },
@@ -24081,23 +24081,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "At all times"
-      },
-      {
-        "id": "B",
-        "text": "Only during emergencies"
-      },
-      {
-        "id": "C",
         "text": "During ellipse periods"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "To give the solar arrays a rest"
+      },
+      {
+        "id": "C",
+        "text": "At all times"
+      },
+      {
+        "id": "D",
+        "text": "Only during emergencies"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is During ellipse periods.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, During ellipse periods is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Batteries are used to power all satellite subsystems\nA. At all times\nB. Only during emergencies\nC. During ellipse periods\nD. To give the solar arrays a rest"
   },
   {
@@ -24126,7 +24126,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Telemetry, tracking and command system.",
+    "explanation": "In telecommunication systems, Telemetry, tracking and command system is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The satellite subsystem that monitors and controls the satellite is the\nA. Propulsion subsystem\nB. Power subsystem\nC. Communications subsystems\nD. Telemetry, tracking and command system"
   },
   {
@@ -24139,11 +24139,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Gravity-forward motion balance"
+        "text": "Solar panel orientation"
       },
       {
         "id": "B",
-        "text": "Spin"
+        "text": "Gravity-forward motion balance"
       },
       {
         "id": "C",
@@ -24151,11 +24151,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Solar panel orientation"
+        "text": "Spin"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Spin.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Spin is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The basic technique used to stabilize a satellite is\nA. Gravity-forward motion balance\nB. Spin\nC. Thruster control\nD. Solar panel orientation"
   },
   {
@@ -24168,23 +24168,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Maintain altitude"
-      },
-      {
-        "id": "B",
         "text": "Put the satellite into the transfer orbit"
       },
       {
+        "id": "B",
+        "text": "Bring the satellite back to the earth"
+      },
+      {
         "id": "C",
-        "text": "Inject the satellite into the geosynchronous orbit"
+        "text": "Maintain altitude"
       },
       {
         "id": "D",
-        "text": "Bring the satellite back to the earth"
+        "text": "Inject the satellite into the geosynchronous orbit"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Maintain altitude.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Maintain altitude is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The jet thrusters are usually fired to\nA. Maintain altitude\nB. Put the satellite into the transfer orbit\nC. Inject the satellite into the geosynchronous orbit\nD. Bring the satellite back to the earth"
   },
   {
@@ -24197,7 +24197,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "L"
+        "text": "X"
       },
       {
         "id": "B",
@@ -24205,7 +24205,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "X"
+        "text": "L"
       },
       {
         "id": "D",
@@ -24213,7 +24213,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is C and Ku.",
+    "explanation": "In telecommunication systems, C and Ku is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most commercial satellite activity occurs in which bands?\nA. L\nB. C and Ku\nC. X\nD. S and P"
   },
   {
@@ -24230,19 +24230,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Multiplexing"
+        "text": "They can’t"
       },
       {
         "id": "C",
-        "text": "Mixing"
+        "text": "Multiplexing"
       },
       {
         "id": "D",
-        "text": "They can’t"
+        "text": "Mixing"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Frequency reuse.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "How can multiple earth stations share a satellite on the same frequency\nA. Frequency reuse\nB. Multiplexing\nC. Mixing\nD. They can’t"
   },
   {
@@ -24259,7 +24259,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "40 MHz"
+        "text": "500 MHz"
       },
       {
         "id": "C",
@@ -24267,11 +24267,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "500 MHz"
+        "text": "40 MHz"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 500 MHz.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 500 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The typical bandwidth of a satellite band is\nA. 36 MHz\nB. 40 MHz\nC. 70 MHz\nD. 500 MHz"
   },
   {
@@ -24284,11 +24284,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "LNA"
+        "text": "Mixer"
       },
       {
         "id": "B",
-        "text": "Mixer"
+        "text": "LNA"
       },
       {
         "id": "C",
@@ -24300,7 +24300,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Modulator.",
+    "explanation": "In telecommunication systems, Modulator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not usually a part of a transponder\nA. LNA\nB. Mixer\nC. Modulator\nD. HPA"
   },
   {
@@ -24313,7 +24313,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "LNA"
+        "text": "Mixer"
       },
       {
         "id": "B",
@@ -24321,15 +24321,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Mixer"
+        "text": "Input signals"
       },
       {
         "id": "D",
-        "text": "Input signals"
+        "text": "LNA"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Bandpass filter.",
+    "explanation": "In telecommunication systems, Bandpass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The satellite communications channels in a transponder are defined by the\nA. LNA\nB. Bandpass filter\nC. Mixer\nD. Input signals"
   },
   {
@@ -24342,23 +24342,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "TSTs"
-      },
-      {
-        "id": "B",
         "text": "Klystrons"
       },
       {
+        "id": "B",
+        "text": "Magnetrons"
+      },
+      {
         "id": "C",
-        "text": "Vacuum tubes"
+        "text": "TSTs"
       },
       {
         "id": "D",
-        "text": "Magnetrons"
+        "text": "Vacuum tubes"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Klystrons.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Klystrons is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The HPAs in most satellites are\nA. TSTs\nB. Klystrons\nC. Vacuum tubes\nD. Magnetrons"
   },
   {
@@ -24371,23 +24371,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Distance from the earth"
-      },
-      {
-        "id": "B",
-        "text": "Latitude and longitude"
-      },
-      {
-        "id": "C",
         "text": "Reference to the stars"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Position relative to the sun"
+      },
+      {
+        "id": "C",
+        "text": "Latitude and longitude"
+      },
+      {
+        "id": "D",
+        "text": "Distance from the earth"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Latitude and longitude.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Latitude and longitude is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The physical location of a satellite is determined by its\nA. Distance from the earth\nB. Latitude and longitude\nC. Reference to the stars\nD. Position relative to the sun"
   },
   {
@@ -24400,23 +24400,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Modulation and multiplexing"
-      },
-      {
-        "id": "B",
         "text": "Up conversion"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Demodulation and demultiplexing"
+      },
+      {
+        "id": "C",
+        "text": "Modulation and multiplexing"
       },
       {
         "id": "D",
         "text": "Down conversion"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Demodulation and demultiplexing.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Demodulation and demultiplexing is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The receive GCE system in an earth station performs what function(s)\nA. Modulation and multiplexing\nB. Up conversion\nC. Demodulation and demultiplexing\nD. Down conversion"
   },
   {
@@ -24429,11 +24429,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "TWT"
+        "text": "Magnetron"
       },
       {
         "id": "B",
-        "text": "Transistor"
+        "text": "TWT"
       },
       {
         "id": "C",
@@ -24441,11 +24441,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Magnetron"
+        "text": "Transistor"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Magnetron.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Magnetron is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following types of HPA is not used in earth stations\nA. TWT\nB. Transistor\nC. Klystron\nD. Magnetron"
   },
   {
@@ -24462,19 +24462,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "40 MHz"
+        "text": "70 MHz"
       },
       {
         "id": "C",
-        "text": "70 MHz"
+        "text": "40 MHz"
       },
       {
         "id": "D",
         "text": "500 MHz"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 70 MHz.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 70 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A common up-converter and down- converter IF is\nA. 36 MHz\nB. 40 MHz\nC. 70 MHz\nD. 500 MHz"
   },
   {
@@ -24487,23 +24487,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
+        "text": "QPSK"
       },
       {
         "id": "B",
-        "text": "FM"
-      },
-      {
-        "id": "C",
         "text": "SSB"
       },
       {
+        "id": "C",
+        "text": "FM"
+      },
+      {
         "id": "D",
-        "text": "QPSK"
+        "text": "AM"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is FM.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The type of modulation used on voice and video signals is\nA. AM\nB. FM\nC. SSB\nD. QPSK"
   },
   {
@@ -24516,23 +24516,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM"
+        "text": "QPSK"
       },
       {
         "id": "B",
-        "text": "FM"
-      },
-      {
-        "id": "C",
         "text": "SSB"
       },
       {
+        "id": "C",
+        "text": "AM"
+      },
+      {
         "id": "D",
-        "text": "QPSK"
+        "text": "FM"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is QPSK.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The modulation normally used with digital data is\nA. AM\nB. FM\nC. SSB\nD. QPSK"
   },
   {
@@ -24549,7 +24549,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Speed"
+        "text": "Longitude"
       },
       {
         "id": "C",
@@ -24557,11 +24557,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Longitude"
+        "text": "Speed"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Speed.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Speed is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a typical output from a GPS receiver?\nA. Latitude\nB. Speed\nC. Altitude\nD. Longitude"
   },
   {
@@ -24574,7 +24574,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Analog methods"
+        "text": "Either of the above"
       },
       {
         "id": "B",
@@ -24582,15 +24582,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Either of the above"
+        "text": "Neither of the above"
       },
       {
         "id": "D",
-        "text": "Neither of the above"
+        "text": "Analog methods"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Either of the above.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Either of the above is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Data communications uses\nA. Analog methods\nB. Digital methods\nC. Either of the above\nD. Neither of the above"
   },
   {
@@ -24603,23 +24603,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Telephone"
-      },
-      {
-        "id": "B",
-        "text": "Teletype"
-      },
-      {
-        "id": "C",
         "text": "Telegraph"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "CW"
+      },
+      {
+        "id": "C",
+        "text": "Teletype"
+      },
+      {
+        "id": "D",
+        "text": "Telephone"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Telephone.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Telephone is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not primarily a type of data communications\nA. Telephone\nB. Teletype\nC. Telegraph\nD. CW"
   },
   {
@@ -24632,23 +24632,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Serial is faster"
-      },
-      {
-        "id": "B",
         "text": "Serial requires only a single channel"
       },
       {
+        "id": "B",
+        "text": "Parallel is too expensive"
+      },
+      {
         "id": "C",
-        "text": "Serial requires multiple channels"
+        "text": "Serial is faster"
       },
       {
         "id": "D",
-        "text": "Parallel is too expensive"
+        "text": "Serial requires multiple channels"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Serial requires only a single channel.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Serial requires only a single channel is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main reason that serial transmission is preferred to parallel transmission is that\nA. Serial is faster\nB. Serial requires only a single channel\nC. Serial requires multiple channels\nD. Parallel is too expensive"
   },
   {
@@ -24661,11 +24661,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Dot and dash"
+        "text": "Messege and interval"
       },
       {
         "id": "B",
-        "text": "Messege and interval"
+        "text": "Dot and dash"
       },
       {
         "id": "C",
@@ -24677,7 +24677,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Binary 1 and binary 0.",
+    "explanation": "In Philippine electrical law practice, Binary 1 and binary 0 represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Mark and space refer respectively to\nA. Dot and dash\nB. Messege and interval\nC. Binary 1 and binary 0\nD. On and off"
   },
   {
@@ -24690,23 +24690,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Data rate in bits per second"
+        "text": "Baud rate"
       },
       {
         "id": "B",
-        "text": "Frequency of operation"
-      },
-      {
-        "id": "C",
         "text": "Speed limit"
       },
       {
+        "id": "C",
+        "text": "Data rate in bits per second"
+      },
+      {
         "id": "D",
-        "text": "Baud rate"
+        "text": "Frequency of operation"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Baud rate.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The number of amplitude, frequency, or phase changes that take place per second is known as the\nA. Data rate in bits per second\nB. Frequency of operation\nC. Speed limit\nD. Baud rate"
   },
   {
@@ -24719,23 +24719,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Asynchronous"
-      },
-      {
-        "id": "B",
-        "text": "Serial"
-      },
-      {
-        "id": "C",
         "text": "Synchronous"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Asynchronous"
+      },
+      {
+        "id": "C",
         "text": "Parallel"
+      },
+      {
+        "id": "D",
+        "text": "Serial"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Asynchronous.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Asynchronous is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Data transmission of one character at a time with start and stop bits is known as what type of transmission?\nA. Asynchronous\nB. Serial\nC. Synchronous\nD. Parallel"
   },
   {
@@ -24748,23 +24748,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "4 bits"
+        "text": "8 bits"
       },
       {
         "id": "B",
-        "text": "5 bits"
-      },
-      {
-        "id": "C",
         "text": "7 bits"
       },
       {
+        "id": "C",
+        "text": "4 bits"
+      },
+      {
         "id": "D",
-        "text": "8 bits"
+        "text": "5 bits"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 7 bits.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 7 bits is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The ASCII code has\nA. 4 bits\nB. 5 bits\nC. 7 bits\nD. 8 bits"
   },
   {
@@ -24777,7 +24777,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Their speed is low enough"
+        "text": "They are digital only"
       },
       {
         "id": "B",
@@ -24789,11 +24789,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "They are digital only"
+        "text": "Their speed is low enough"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is They are converted to analog first.",
+    "explanation": "In telecommunication systems, They are converted to analog first is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Digital signals may be transmitted over the telephone network if\nA. Their speed is low enough\nB. They are converted to analog first\nC. They are ac instead of dc\nD. They are digital only"
   },
   {
@@ -24814,15 +24814,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Space, space"
+        "text": "Mark, mark"
       },
       {
         "id": "D",
-        "text": "Mark, mark"
+        "text": "Space, space"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Space, mark.",
+    "explanation": "In Philippine electrical law practice, Space, mark represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Start and stop bits, respectively, are\nA. Mark, space\nB. Space, mark\nC. Space, space\nD. Mark, mark"
   },
   {
@@ -24839,19 +24839,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "BPSK"
-      },
-      {
-        "id": "C",
         "text": "QPSK"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "QAM"
+      },
+      {
+        "id": "D",
+        "text": "BPSK"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is FSK.",
+    "explanation": "In telecommunication systems, FSK is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Slow-speed modems use\nA. FSK\nB. BPSK\nC. QPSK\nD. QAM"
   },
   {
@@ -24864,23 +24864,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "BPSK"
-      },
-      {
-        "id": "B",
-        "text": "QPSK"
-      },
-      {
-        "id": "C",
         "text": "DPSK"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "QAM"
+      },
+      {
+        "id": "C",
+        "text": "BPSK"
+      },
+      {
+        "id": "D",
+        "text": "QPSK"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is DPSK.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, DPSK is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A carrier recovery circuit is not needed with\nA. BPSK\nB. QPSK\nC. DPSK\nD. QAM"
   },
   {
@@ -24893,23 +24893,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PLLs"
-      },
-      {
-        "id": "B",
         "text": "Balanced modulators"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Shift registers"
+      },
+      {
+        "id": "C",
+        "text": "PLLs"
       },
       {
         "id": "D",
         "text": "Linear summers"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Balanced modulators.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Balanced modulators is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The basic modulator and demodulator circuits in PSK are\nA. PLLs\nB. Balanced modulators\nC. Shift registers\nD. Linear summers"
   },
   {
@@ -24926,7 +24926,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "The BPSK signal itself"
+        "text": "Recovered from the BPSK signal"
       },
       {
         "id": "C",
@@ -24934,11 +24934,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Recovered from the BPSK signal"
+        "text": "The BPSK signal itself"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is The BPSK signal itself.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, The BPSK signal itself is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The carrier used with a BPSK demodulator is\nA. Generated by oscillator\nB. The BPSK signal itself\nC. Twice the frequency of the transmitted carrier\nD. Recovered from the BPSK signal"
   },
   {
@@ -24951,23 +24951,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM only"
+        "text": "AM plus FSK"
       },
       {
         "id": "B",
-        "text": "QPSK only"
+        "text": "AM only"
       },
       {
         "id": "C",
-        "text": "AM plus QPSK"
+        "text": "QPSK only"
       },
       {
         "id": "D",
-        "text": "AM plus FSK"
+        "text": "AM plus QPSK"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is AM plus QPSK.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Quadrature amplitude modulation is\nA. AM only\nB. QPSK only\nC. AM plus QPSK\nD. AM plus FSK"
   },
   {
@@ -24984,19 +24984,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Bit splitter"
-      },
-      {
-        "id": "C",
         "text": "Balanced modulator"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "2-to-4 level converter"
+      },
+      {
+        "id": "D",
+        "text": "Bit splitter"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is XNOR.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "A QAM modulator does not use a(n)\nA. XNOR\nB. Bit splitter\nC. Balanced modulator\nD. 2-to-4 level converter"
   },
   {
@@ -25009,23 +25009,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Handshake"
-      },
-      {
-        "id": "B",
         "text": "Error-detection scheme"
       },
       {
+        "id": "B",
+        "text": "Handshake"
+      },
+      {
         "id": "C",
-        "text": "Data specification"
+        "text": "Protocol"
       },
       {
         "id": "D",
-        "text": "Protocol"
+        "text": "Data specification"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Protocol.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Protocol is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A rule or procedure that defines how data is to be transmitted is called a(n)\nA. Handshake\nB. Error-detection scheme\nC. Data specification\nD. Protocol"
   },
   {
@@ -25054,7 +25054,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is X modem.",
+    "explanation": "In telecommunication systems, X modem is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A popular PC protocol is\nA. Parity\nB. X modem\nC. CRC\nD. LRC"
   },
   {
@@ -25083,7 +25083,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is SYN.",
+    "explanation": "In telecommunication systems, SYN is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A synchronous transmission usually begins with which character?\nA. SYN\nB. STX\nC. SOH\nD. ETB"
   },
   {
@@ -25096,7 +25096,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Set"
+        "text": "Collection"
       },
       {
         "id": "B",
@@ -25104,15 +25104,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Block"
+        "text": "Set"
       },
       {
         "id": "D",
-        "text": "Collection"
+        "text": "Block"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Block.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Block is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The characters making up the message in a synchronous transmission are collectively referred to as a data\nA. Set\nB. Sequence\nC. Block\nD. Collection"
   },
   {
@@ -25125,7 +25125,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Equipment failures"
+        "text": "Noise"
       },
       {
         "id": "B",
@@ -25133,15 +25133,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Noise"
+        "text": "Poor S/N ratio at the receiver"
       },
       {
         "id": "D",
-        "text": "Poor S/N ratio at the receiver"
+        "text": "Equipment failures"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Noise.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Noise is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Bit errors in data transmission are usually cause by\nA. Equipment failures\nB. Typing mistake\nC. Noise\nD. Poor S/N ratio at the receiver"
   },
   {
@@ -25158,19 +25158,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "BCC"
+        "text": "Redundancy"
       },
       {
         "id": "C",
-        "text": "CRC"
+        "text": "BCC"
       },
       {
         "id": "D",
-        "text": "Redundancy"
+        "text": "CRC"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Redundancy.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Redundancy is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a commonly used method of error detection?\nA. Parity\nB. BCC\nC. CRC\nD. Redundancy"
   },
   {
@@ -25183,11 +25183,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Vertical redundancy check"
+        "text": "Cyclical redundancy check"
       },
       {
         "id": "B",
-        "text": "Block check character"
+        "text": "Vertical redundancy check"
       },
       {
         "id": "C",
@@ -25195,11 +25195,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Cyclical redundancy check"
+        "text": "Block check character"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Vertical redundancy check.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Another name for parity is\nA. Vertical redundancy check\nB. Block check character\nC. Longitudinal redundancy check\nD. Cyclical redundancy check"
   },
   {
@@ -25212,7 +25212,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Shift register"
+        "text": "UART"
       },
       {
         "id": "B",
@@ -25220,15 +25220,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "2 to 4 level converter"
+        "text": "Shift register"
       },
       {
         "id": "D",
-        "text": "UART"
+        "text": "2 to 4 level converter"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is XOR.",
+    "explanation": "In telecommunication systems, XOR is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The building block of a parity or BCC generator is a(n)\nA. Shift register\nB. XOR\nC. 2 to 4 level converter\nD. UART"
   },
   {
@@ -25241,11 +25241,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Block check character"
+        "text": "Parity bit"
       },
       {
         "id": "B",
-        "text": "Parity bit"
+        "text": "Block check character"
       },
       {
         "id": "C",
@@ -25256,8 +25256,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Error correction"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Block check character.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Block check character is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A longitudinal redundancy check produces a(n)\nA. Block check character\nB. Parity bit\nC. CRC\nD. Error correction"
   },
   {
@@ -25274,19 +25274,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Horizontal redundancy check"
-      },
-      {
-        "id": "C",
         "text": "Block check character"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Cyclical redundancy check"
+      },
+      {
+        "id": "D",
+        "text": "Horizontal redundancy check"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Cyclical redundancy check.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Cyclical redundancy check is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Dividing the data block by a constant produces a remainder that is used for error detection. It is called the\nA. Vertical redundancy check\nB. Horizontal redundancy check\nC. Block check character\nD. Cyclical redundancy check"
   },
   {
@@ -25299,7 +25299,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Balanced modulator"
+        "text": "Multiplexer"
       },
       {
         "id": "B",
@@ -25311,11 +25311,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Multiplexer"
+        "text": "Balanced modulator"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Shift register.",
+    "explanation": "In telecommunication systems, Shift register is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A CRC generator uses which components?\nA. Balanced modulator\nB. Shift register\nC. Binary adder\nD. Multiplexer"
   },
   {
@@ -25328,11 +25328,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PBX system"
+        "text": "Hospital system"
       },
       {
         "id": "B",
-        "text": "Hospital system"
+        "text": "Cable TV system"
       },
       {
         "id": "C",
@@ -25340,11 +25340,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Cable TV system"
+        "text": "PBX system"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Cable TV system.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Cable TV system is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a LAN?\nA. PBX system\nB. Hospital system\nC. Office building system\nD. Cable TV system"
   },
   {
@@ -25357,23 +25357,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ring"
-      },
-      {
-        "id": "B",
         "text": "Bus"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Star"
+      },
+      {
+        "id": "C",
+        "text": "Ring"
       },
       {
         "id": "D",
         "text": "Square"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Bus.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Bus is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The fastest LAN topology is the\nA. Ring\nB. Bus\nC. Star\nD. Square"
   },
   {
@@ -25402,7 +25402,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Twin lead.",
+    "explanation": "In telecommunication systems, Twin lead is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which is not a common LAN medium?\nA. Twin lead\nB. Twisted pair\nC. Fiber-optic cable\nD. Coax"
   },
   {
@@ -25415,23 +25415,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Bus"
-      },
-      {
-        "id": "B",
-        "text": "Ring"
-      },
-      {
-        "id": "C",
         "text": "Star"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Bus"
+      },
+      {
+        "id": "C",
         "text": "Tree"
+      },
+      {
+        "id": "D",
+        "text": "Ring"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Star.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "A mainframe computer connected to multiple terminals and PCs usually uses which configuration?\nA. Bus\nB. Ring\nC. Star\nD. Tree"
   },
   {
@@ -25444,23 +25444,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Ring"
-      },
-      {
-        "id": "B",
         "text": "WAN"
       },
       {
+        "id": "B",
+        "text": "Ring"
+      },
+      {
         "id": "C",
-        "text": "UART"
+        "text": "PBX"
       },
       {
         "id": "D",
-        "text": "PBX"
+        "text": "UART"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is PBX.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, PBX is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A small telephone switching system that can be used as a LAN is called a\nA. Ring\nB. WAN\nC. UART\nD. PBX"
   },
   {
@@ -25477,19 +25477,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Twisted pair"
+        "text": "Fiber optic cable"
       },
       {
         "id": "C",
-        "text": "Fiber optic cable"
+        "text": "Twisted pair"
       },
       {
         "id": "D",
         "text": "Coax"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Fiber optic cable.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Fiber optic cable is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which medium is the least susceptible to noise?\nA. Twin Lead\nB. Twisted pair\nC. Fiber optic cable\nD. Coax"
   },
   {
@@ -25502,11 +25502,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Twin Lead"
+        "text": "Twisted pair"
       },
       {
         "id": "B",
-        "text": "Twisted pair"
+        "text": "Coax"
       },
       {
         "id": "C",
@@ -25514,11 +25514,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Coax"
+        "text": "Twin Lead"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Twisted pair.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Twisted pair is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which medium is the most widely used in LANs?\nA. Twin Lead\nB. Twisted pair\nC. Fiber optic cable\nD. Coax"
   },
   {
@@ -25531,23 +25531,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Baseband"
-      },
-      {
-        "id": "B",
         "text": "Broadband"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Ring"
+      },
+      {
+        "id": "C",
+        "text": "Baseband"
       },
       {
         "id": "D",
         "text": "Bus"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Baseband.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Baseband is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Transmitting the data signal directly over the medium is referred to as\nA. Baseband\nB. Broadband\nC. Ring\nD. Bus"
   },
   {
@@ -25564,18 +25564,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Broadband"
-      },
-      {
-        "id": "C",
         "text": "Ring"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Bus"
+      },
+      {
+        "id": "D",
+        "text": "Broadband"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "The techniques of using modulation and FDM to transmit multiple data channels of a common medium is called Broadband.",
     "rawSnippet": "The techniques of using modulation and FDM to transmit multiple data channels of a common medium is known as\nA. Baseband\nB. Broadband\nC. Ring\nD. Bus"
   },
@@ -25589,11 +25589,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Correlator"
+        "text": "PSN code generator"
       },
       {
         "id": "B",
-        "text": "PSN code generator"
+        "text": "Correlator"
       },
       {
         "id": "C",
@@ -25604,8 +25604,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Sweep generator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is PSN code generator.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, PSN code generator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which circuit is common to bot frequency- hopping and direct-sequence SS transmitters?\nA. Correlator\nB. PSN code generator\nC. Frequency synthesizer\nD. Sweep generator"
   },
   {
@@ -25618,7 +25618,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PSN code"
+        "text": "Modulation type"
       },
       {
         "id": "B",
@@ -25626,15 +25626,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Clock rate"
+        "text": "PSN code"
       },
       {
         "id": "D",
-        "text": "Modulation type"
+        "text": "Clock rate"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is PSN code.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, PSN code represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Spread spectrum stations sharing a band are identified by and distinguished from one another by\nA. PSN code\nB. Frequency of operation\nC. Clock rate\nD. Modulation type"
   },
   {
@@ -25647,11 +25647,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "QAM"
+        "text": "SSB"
       },
       {
         "id": "B",
-        "text": "SSB"
+        "text": "QAM"
       },
       {
         "id": "C",
@@ -25663,7 +25663,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is PSK.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The type of modulation most often used with direct-sequence SS is\nA. QAM\nB. SSB\nC. FSK\nD. PSK"
   },
   {
@@ -25676,7 +25676,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "XOR"
+        "text": "Shift register"
       },
       {
         "id": "B",
@@ -25684,15 +25684,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Shift register"
+        "text": "XOR"
       },
       {
         "id": "D",
         "text": "Mixer"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is XOR.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, XOR is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The main circuit in a PSN generator is a(n)\nA. XOR\nB. Multiplexer\nC. Shift register\nD. Mixer"
   },
   {
@@ -25705,23 +25705,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Noise"
+        "text": "An intermittent connection"
       },
       {
         "id": "B",
-        "text": "Fading"
+        "text": "Noise"
       },
       {
         "id": "C",
-        "text": "A jamming signal"
+        "text": "Fading"
       },
       {
         "id": "D",
-        "text": "An intermittent connection"
+        "text": "A jamming signal"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Noise.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Noise is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "To a conventional narrowband receiver, an SS signal appears to be like\nA. Noise\nB. Fading\nC. A jamming signal\nD. An intermittent connection"
   },
   {
@@ -25734,23 +25734,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Jam-proof"
-      },
-      {
-        "id": "B",
-        "text": "Security"
-      },
-      {
-        "id": "C",
         "text": "Immunity to fading"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Jam-proof"
+      },
+      {
+        "id": "C",
         "text": "Noise proof"
+      },
+      {
+        "id": "D",
+        "text": "Security"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Noise proof.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Noise proof is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a benefit of SS?\nA. Jam-proof\nB. Security\nC. Immunity to fading\nD. Noise proof"
   },
   {
@@ -25763,23 +25763,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "True"
+        "text": "Never"
       },
       {
         "id": "B",
-        "text": "False"
-      },
-      {
-        "id": "C",
         "text": "Sometimes"
       },
       {
+        "id": "C",
+        "text": "False"
+      },
+      {
         "id": "D",
-        "text": "Never"
+        "text": "True"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is True.",
+    "correctChoiceId": "D",
+    "explanation": "In Philippine electrical law practice, True represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Spread spectrum is a form of multiplexing\nA. True\nB. False\nC. Sometimes\nD. Never"
   },
   {
@@ -25792,23 +25792,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Frequency synthesis"
-      },
-      {
-        "id": "B",
         "text": "Synchronism"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "PSN code generation"
+      },
+      {
+        "id": "C",
+        "text": "Frequency synthesis"
       },
       {
         "id": "D",
         "text": "Carrier recovery"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Synchronism.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Synchronism is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most critical and difficult part of receiving a direct-sequence SS signal is\nA. Frequency synthesis\nB. Synchronism\nC. PSN code generation\nD. Carrier recovery"
   },
   {
@@ -25821,7 +25821,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Closed circuit TV"
+        "text": "Consumer TV"
       },
       {
         "id": "B",
@@ -25833,11 +25833,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Consumer TV"
+        "text": "Closed circuit TV"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Consumer TV.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which of the following is not a common application of fiber-optic cable?\nA. Closed circuit TV\nB. Consumer network\nC. Long - distance telephone systems\nD. Consumer TV"
   },
   {
@@ -25850,23 +25850,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Less than"
+        "text": "Zero"
       },
       {
         "id": "B",
-        "text": "Greater than"
-      },
-      {
-        "id": "C",
         "text": "Equal to"
       },
       {
+        "id": "C",
+        "text": "Less than"
+      },
+      {
         "id": "D",
-        "text": "Zero"
+        "text": "Greater than"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Greater than.",
+    "correctChoiceId": "D",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Total internal reflection takes place if the light ray strikes the interface at an angle with what relationship to the critical angle?\nA. Less than\nB. Greater than\nC. Equal to\nD. Zero"
   },
   {
@@ -25879,23 +25879,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Refraction"
-      },
-      {
-        "id": "B",
-        "text": "Reflection"
-      },
-      {
-        "id": "C",
         "text": "Dispersion"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Absorption"
+      },
+      {
+        "id": "C",
+        "text": "Refraction"
+      },
+      {
+        "id": "D",
+        "text": "Reflection"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Reflection.",
+    "correctChoiceId": "D",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The operation of a fiber-optic cable is based on the principle of\nA. Refraction\nB. Reflection\nC. Dispersion\nD. Absorption"
   },
   {
@@ -25912,19 +25912,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Multimode graded - index"
+        "text": "Multimode step - index"
       },
       {
         "id": "C",
-        "text": "Single - mode grade - index"
+        "text": "Multimode graded - index"
       },
       {
         "id": "D",
-        "text": "Multimode step - index"
+        "text": "Single - mode grade - index"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Single - mode grade - index.",
+    "correctChoiceId": "D",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which of the following is not a common type of fiber-optic cable?\nA. Single - mode step - index\nB. Multimode graded - index\nC. Single - mode grade - index\nD. Multimode step - index"
   },
   {
@@ -25937,7 +25937,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Loss per foot"
+        "text": "Voltage drop per inch"
       },
       {
         "id": "B",
@@ -25949,11 +25949,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Voltage drop per inch"
+        "text": "Loss per foot"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is dB/km.",
+    "explanation": "In telecommunication systems, dB/km is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Cable attenuation is usually expressed in terms of\nA. Loss per foot\nB. dB/km\nC. Intensity per mile\nD. Voltage drop per inch"
   },
   {
@@ -25982,7 +25982,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is 2 km.",
+    "explanation": "In telecommunication systems, 2 km is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which cable length has the highest attenuation?\nA. 1 km\nB. 2 km\nC. 95 ft\nD. 500 ft"
   },
   {
@@ -25995,7 +25995,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pulse shortening"
+        "text": "Light leakage"
       },
       {
         "id": "B",
@@ -26003,15 +26003,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Light leakage"
+        "text": "Modal dispersion"
       },
       {
         "id": "D",
-        "text": "Modal dispersion"
+        "text": "Pulse shortening"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Attenuation.",
+    "explanation": "In telecommunication systems, Attenuation is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The upper pulse rate and information- carrying capacity of a cable is limited by\nA. Pulse shortening\nB. Attenuation\nC. Light leakage\nD. Modal dispersion"
   },
   {
@@ -26032,15 +26032,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "The same"
+        "text": "Zero"
       },
       {
         "id": "D",
-        "text": "Zero"
+        "text": "The same"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Less.",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The speed of light in plastic compared to the speed of light in air is\nA. Less\nB. More\nC. The same\nD. Zero"
   },
   {
@@ -26053,15 +26053,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Immunity from interference"
+        "text": "No electrical safety problems"
       },
       {
         "id": "B",
-        "text": "Excellent data security"
+        "text": "Immunity from interference"
       },
       {
         "id": "C",
-        "text": "No electrical safety problems"
+        "text": "Excellent data security"
       },
       {
         "id": "D",
@@ -26069,7 +26069,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Lower cost.",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which of the following is not a major benefit of fiber-optic cable?\nA. Immunity from interference\nB. Excellent data security\nC. No electrical safety problems\nD. Lower cost"
   },
   {
@@ -26082,7 +26082,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Lower cost"
+        "text": "Wider bandwidth"
       },
       {
         "id": "B",
@@ -26090,15 +26090,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Wider bandwidth"
+        "text": "Lower cost"
       },
       {
         "id": "D",
         "text": "Freedom from interference"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Wider bandwidth.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The main benefit of light-wave communications over microwaves or any other communications media are\nA. Lower cost\nB. Better security\nC. Wider bandwidth\nD. Freedom from interference"
   },
   {
@@ -26111,11 +26111,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Infrared"
+        "text": "Ultraviolet"
       },
       {
         "id": "B",
-        "text": "Ultraviolet"
+        "text": "X-rays"
       },
       {
         "id": "C",
@@ -26123,11 +26123,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "X-rays"
+        "text": "Infrared"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is X-rays.",
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, X-rays represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Which of the following is not part of the optical spectrum\nA. Infrared\nB. Ultraviolet\nC. Visible color\nD. X-rays"
   },
   {
@@ -26144,19 +26144,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "400 to 750 nm"
+        "text": "700 to 1200 nm"
       },
       {
         "id": "C",
-        "text": "200 to 600 nm"
+        "text": "400 to 750 nm"
       },
       {
         "id": "D",
-        "text": "700 to 1200 nm"
+        "text": "200 to 600 nm"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 400 to 750 nm.",
+    "correctChoiceId": "C",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The wavelength of visible light extends from\nA. 0.8 to 1.6 µm\nB. 400 to 750 nm\nC. 200 to 600 nm\nD. 700 to 1200 nm"
   },
   {
@@ -26169,23 +26169,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "180,000 mi/h"
+        "text": "300,000,000 m/s"
       },
       {
         "id": "B",
-        "text": "300,000 mi/h"
-      },
-      {
-        "id": "C",
         "text": "300,000 m/s"
       },
       {
+        "id": "C",
+        "text": "300,000 mi/h"
+      },
+      {
         "id": "D",
-        "text": "300,000,000 m/s"
+        "text": "180,000 mi/h"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 300,000,000 m/s.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The speed of light is\nA. 180,000 mi/h\nB. 300,000 mi/h\nC. 300,000 m/s\nD. 300,000,000 m/s"
   },
   {
@@ -26198,23 +26198,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Bending of light waves"
+        "text": "Diffusion of light waves"
       },
       {
         "id": "B",
-        "text": "Reflection of light waves"
+        "text": "Bending of light waves"
       },
       {
         "id": "C",
-        "text": "Distortion of light waves"
+        "text": "Reflection of light waves"
       },
       {
         "id": "D",
-        "text": "Diffusion of light waves"
+        "text": "Distortion of light waves"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Bending of light waves.",
+    "correctChoiceId": "B",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Refraction is the\nA. Bending of light waves\nB. Reflection of light waves\nC. Distortion of light waves\nD. Diffusion of light waves"
   },
   {
@@ -26227,23 +26227,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Speed factor"
-      },
-      {
-        "id": "B",
-        "text": "Index of reflection"
-      },
-      {
-        "id": "C",
         "text": "Index of refraction"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "Speed factor"
+      },
+      {
+        "id": "C",
         "text": "Speed gain"
+      },
+      {
+        "id": "D",
+        "text": "Index of reflection"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Index of refraction.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "The ratio of the speed of light in air to the speed of light in another substance is called the\nA. Speed factor\nB. Index of reflection\nC. Index of refraction\nD. Speed gain"
   },
   {
@@ -26264,15 +26264,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "1.5 µm"
+        "text": "1.8 µm"
       },
       {
         "id": "D",
-        "text": "1.8 µm"
+        "text": "1.5 µm"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is 1.3 µm.",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "A popular light wavelength in fiber-optic cable is\nA. 0.7 µm\nB. 1.3 µm\nC. 1.5 µm\nD. 1.8 µm"
   },
   {
@@ -26285,23 +26285,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Single - mode step - index"
-      },
-      {
-        "id": "B",
         "text": "Multimode step-index"
       },
       {
+        "id": "B",
+        "text": "Single - mode step - index"
+      },
+      {
         "id": "C",
-        "text": "Single - mode graded - index"
+        "text": "Multimode graded - index"
       },
       {
         "id": "D",
-        "text": "Multimode graded - index"
+        "text": "Single - mode graded - index"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Multimode step-index.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which type of fiber-optic cable is the most widely used?\nA. Single - mode step - index\nB. Multimode step-index\nC. Single - mode graded - index\nD. Multimode graded - index"
   },
   {
@@ -26314,23 +26314,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Single - mode step - index"
-      },
-      {
-        "id": "B",
         "text": "Multimode step-index"
       },
       {
+        "id": "B",
+        "text": "Single - mode step - index"
+      },
+      {
         "id": "C",
-        "text": "Single - mode graded - index"
+        "text": "Multimode graded - index"
       },
       {
         "id": "D",
-        "text": "Multimode graded - index"
+        "text": "Single - mode graded - index"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Single - mode step - index.",
+    "correctChoiceId": "B",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which type of fiber-optic cable is best for very high speed data?\nA. Single - mode step - index\nB. Multimode step-index\nC. Single - mode graded - index\nD. Multimode graded - index"
   },
   {
@@ -26343,23 +26343,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Reflection"
+        "text": "Dispersion"
       },
       {
         "id": "B",
-        "text": "Absorption"
-      },
-      {
-        "id": "C",
         "text": "Scattering"
       },
       {
+        "id": "C",
+        "text": "Reflection"
+      },
+      {
         "id": "D",
-        "text": "Dispersion"
+        "text": "Absorption"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Reflection.",
+    "correctChoiceId": "C",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which of the following is not a factor in cable light loss?\nA. Reflection\nB. Absorption\nC. Scattering\nD. Dispersion"
   },
   {
@@ -26372,7 +26372,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Incandescent"
+        "text": "Neon"
       },
       {
         "id": "B",
@@ -26380,7 +26380,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Neon"
+        "text": "Incandescent"
       },
       {
         "id": "D",
@@ -26388,7 +26388,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Laser.",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which light emitter is preferred for high- speed data in a fiber-optic system?\nA. Incandescent\nB. LED\nC. Neon\nD. Laser"
   },
   {
@@ -26401,7 +26401,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Visible"
+        "text": "Ultraviolet"
       },
       {
         "id": "B",
@@ -26409,15 +26409,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Ultraviolet"
+        "text": "Visible"
       },
       {
         "id": "D",
         "text": "X- ray"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Visible.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, Visible represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "Most fiber-optic light sources emit light in which spectrum?\nA. Visible\nB. Infrared\nC. Ultraviolet\nD. X- ray"
   },
   {
@@ -26430,23 +26430,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Forward bias"
-      },
-      {
-        "id": "B",
-        "text": "Reverse bias"
-      },
-      {
-        "id": "C",
         "text": "Neither a or b"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Either a or b"
+      },
+      {
+        "id": "C",
+        "text": "Reverse bias"
+      },
+      {
+        "id": "D",
+        "text": "Forward bias"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Forward bias.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Forward bias is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Both LEDs and ILDs operate correctly with\nA. Forward bias\nB. Reverse bias\nC. Neither a or b\nD. Either a or b"
   },
   {
@@ -26459,22 +26459,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pure"
-      },
-      {
-        "id": "B",
-        "text": "Intense"
-      },
-      {
-        "id": "C",
         "text": "Coherent"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Monochromatic"
+      },
+      {
+        "id": "C",
+        "text": "Pure"
+      },
+      {
+        "id": "D",
+        "text": "Intense"
       }
     ],
-    "correctChoiceId": "D",
+    "correctChoiceId": "B",
     "explanation": "Single-frequency light is called Monochromatic.",
     "rawSnippet": "Single-frequency light is called\nA. Pure\nB. Intense\nC. Coherent\nD. Monochromatic"
   },
@@ -26488,23 +26488,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pure"
-      },
-      {
-        "id": "B",
         "text": "White"
       },
       {
+        "id": "B",
+        "text": "Monochromatic"
+      },
+      {
         "id": "C",
-        "text": "Coherent"
+        "text": "Pure"
       },
       {
         "id": "D",
-        "text": "Monochromatic"
+        "text": "Coherent"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Coherent.",
+    "correctChoiceId": "D",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Laser light is very bright because it is\nA. Pure\nB. White\nC. Coherent\nD. Monochromatic"
   },
   {
@@ -26517,23 +26517,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PIN diode"
-      },
-      {
-        "id": "B",
-        "text": "Photovoltaic diode"
-      },
-      {
-        "id": "C",
         "text": "Photodiode"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Avalanche photodiode"
+      },
+      {
+        "id": "C",
+        "text": "Photovoltaic diode"
+      },
+      {
+        "id": "D",
+        "text": "PIN diode"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Photovoltaic diode.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Photovoltaic diode is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a common detector?\nA. PIN diode\nB. Photovoltaic diode\nC. Photodiode\nD. Avalanche photodiode"
   },
   {
@@ -26546,23 +26546,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "PIN diode"
+        "text": "Avalanche photodiode"
       },
       {
         "id": "B",
-        "text": "Photovoltaic diode"
-      },
-      {
-        "id": "C",
         "text": "Phototransistor"
       },
       {
+        "id": "C",
+        "text": "Photovoltaic diode"
+      },
+      {
         "id": "D",
-        "text": "Avalanche photodiode"
+        "text": "PIN diode"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Avalanche photodiode.",
+    "correctChoiceId": "A",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which of the following is the fastest light sensor?\nA. PIN diode\nB. Photovoltaic diode\nC. Phototransistor\nD. Avalanche photodiode"
   },
   {
@@ -26575,23 +26575,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Forward bias"
-      },
-      {
-        "id": "B",
         "text": "Reverse bias"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "Neither a or b"
+      },
+      {
+        "id": "C",
+        "text": "Forward bias"
       },
       {
         "id": "D",
         "text": "Either a or b"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Reverse bias.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Reverse bias is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Photodiodes operate properly with\nA. Forward bias\nB. Reverse bias\nC. Neither a or b\nD. Either a or b"
   },
   {
@@ -26604,23 +26604,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "3 repeaters"
+        "text": "20 repeaters"
       },
       {
         "id": "B",
-        "text": "8 repeaters"
-      },
-      {
-        "id": "C",
         "text": "11 repeaters"
       },
       {
+        "id": "C",
+        "text": "8 repeaters"
+      },
+      {
         "id": "D",
-        "text": "20 repeaters"
+        "text": "3 repeaters"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 3 repeaters.",
+    "correctChoiceId": "D",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "Which fiber-optic system is better?\nA. 3 repeaters\nB. 8 repeaters\nC. 11 repeaters\nD. 20 repeaters"
   },
   {
@@ -26633,23 +26633,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Relfelction"
-      },
-      {
-        "id": "B",
         "text": "Scanning"
       },
       {
+        "id": "B",
+        "text": "Relfelction"
+      },
+      {
         "id": "C",
-        "text": "Modulation"
+        "text": "Light Variation"
       },
       {
         "id": "D",
-        "text": "Light Variation"
+        "text": "Modulation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Scanning.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Scanning is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Printed documents to be transmitted by fax are converted into a baseband electrical signal by the process of\nA. Relfelction\nB. Scanning\nC. Modulation\nD. Light Variation"
   },
   {
@@ -26662,23 +26662,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Phototube"
-      },
-      {
-        "id": "B",
-        "text": "Phototransistor"
-      },
-      {
-        "id": "C",
         "text": "Liquid - crystal display"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Charge coupled device"
+      },
+      {
+        "id": "C",
+        "text": "Phototransistor"
+      },
+      {
+        "id": "D",
+        "text": "Phototube"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Charge coupled device.",
+    "correctChoiceId": "B",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "most commonly used light sensor in a modern fax machine is a\nA. Phototube\nB. Phototransistor\nC. Liquid - crystal display\nD. Charge coupled device"
   },
   {
@@ -26691,23 +26691,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "1500 and 2300 Hz"
-      },
-      {
-        "id": "B",
         "text": "2300 and 1500 Hz"
       },
       {
+        "id": "B",
+        "text": "1500 and 2300 Hz"
+      },
+      {
         "id": "C",
-        "text": "1300 and 2400 Hz"
+        "text": "1070 and 1270 Hz"
       },
       {
         "id": "D",
-        "text": "1070 and 1270 Hz"
+        "text": "1300 and 2400 Hz"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is 1500 and 2300 Hz.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "In FM fax, the frequencies for black and white are\nA. 1500 and 2300 Hz\nB. 2300 and 1500 Hz\nC. 1300 and 2400 Hz\nD. 1070 and 1270 Hz"
   },
   {
@@ -26720,7 +26720,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "96 lines per inch"
+        "text": "400 lines per inch"
       },
       {
         "id": "B",
@@ -26728,15 +26728,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "200 lines per inch"
+        "text": "96 lines per inch"
       },
       {
         "id": "D",
-        "text": "400 lines per inch"
+        "text": "200 lines per inch"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 400 lines per inch.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, 400 lines per inch is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which resolution produces the best quality fax?\nA. 96 lines per inch\nB. 150 lines per inch\nC. 200 lines per inch\nD. 400 lines per inch"
   },
   {
@@ -26749,23 +26749,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "SSB"
-      },
-      {
-        "id": "B",
-        "text": "FSK"
-      },
-      {
-        "id": "C",
         "text": "Vestigial sideband AM"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "SSB"
+      },
+      {
+        "id": "C",
         "text": "PSK"
+      },
+      {
+        "id": "D",
+        "text": "FSK"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Vestigial sideband AM.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Group 2 fax uses which modulation?\nA. SSB\nB. FSK\nC. Vestigial sideband AM\nD. PSK"
   },
   {
@@ -26778,11 +26778,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Group 1"
+        "text": "Group 4"
       },
       {
         "id": "B",
-        "text": "Group 2"
+        "text": "Group 1"
       },
       {
         "id": "C",
@@ -26790,11 +26790,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Group 4"
+        "text": "Group 2"
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Group 3.",
+    "explanation": "In telecommunication systems, Group 3 is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most widely used fax standard is\nA. Group 1\nB. Group 2\nC. Group 3\nD. Group 4"
   },
   {
@@ -26815,15 +26815,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Vestigial sideband AM"
+        "text": "FM"
       },
       {
         "id": "D",
-        "text": "FM"
+        "text": "Vestigial sideband AM"
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is QAM.",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Group 3 fax uses which modulation?\nA. QAM\nB. FSK\nC. Vestigial sideband AM\nD. FM"
   },
   {
@@ -26836,7 +26836,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Impact"
+        "text": "Laser xerographic"
       },
       {
         "id": "B",
@@ -26848,11 +26848,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Laser xerographic"
+        "text": "Impact"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Thermal.",
+    "explanation": "In telecommunication systems, Thermal is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most fax printers are of which type?\nA. Impact\nB. Thermal\nC. Electrosensitive\nD. Laser xerographic"
   },
   {
@@ -26865,23 +26865,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "FCC"
-      },
-      {
-        "id": "B",
-        "text": "DOD"
-      },
-      {
-        "id": "C",
         "text": "CCITT"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "IEEE"
+      },
+      {
+        "id": "C",
+        "text": "FCC"
+      },
+      {
+        "id": "D",
+        "text": "DOD"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is CCITT.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, CCITT is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Facsimile standards are set by the\nA. FCC\nB. DOD\nC. CCITT\nD. IEEE"
   },
   {
@@ -26894,7 +26894,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Newspaper text"
+        "text": "Cable movies"
       },
       {
         "id": "B",
@@ -26902,7 +26902,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Cable movies"
+        "text": "Newspaper text"
       },
       {
         "id": "D",
@@ -26910,7 +26910,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Satellite weather photos.",
+    "explanation": "In telecommunication systems, Satellite weather photos is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What type of graphics is commonly transmitted by radio fax?\nA. Newspaper text\nB. Architectural drawings\nC. Cable movies\nD. Satellite weather photos"
   },
   {
@@ -26923,23 +26923,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "4800 baud"
-      },
-      {
-        "id": "B",
         "text": "9600 baud"
       },
       {
-        "id": "C",
+        "id": "B",
         "text": "56 kbits/s"
+      },
+      {
+        "id": "C",
+        "text": "4800 baud"
       },
       {
         "id": "D",
         "text": "192 kbits/s"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 56 kbits/s.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, 56 kbits/s is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The transmission speed of group 4 fax is\nA. 4800 baud\nB. 9600 baud\nC. 56 kbits/s\nD. 192 kbits/s"
   },
   {
@@ -26956,19 +26956,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Mobile telephone switching office"
+        "text": "Center office"
       },
       {
         "id": "C",
-        "text": "Center office"
+        "text": "Mobile telephone switching office"
       },
       {
         "id": "D",
         "text": "Branch office"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Mobile telephone switching office.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Mobile telephone switching office is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The master control center for a cellular telephone system is the\nA. Cell site\nB. Mobile telephone switching office\nC. Center office\nD. Branch office"
   },
   {
@@ -26985,11 +26985,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Control computer"
+        "text": "Direct link to a branch exchange"
       },
       {
         "id": "C",
-        "text": "Direct link to a branch exchange"
+        "text": "Control computer"
       },
       {
         "id": "D",
@@ -26997,7 +26997,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is Repeater.",
+    "explanation": "In telecommunication systems, Repeater is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Each cell site contains a\nA. Repeater\nB. Control computer\nC. Direct link to a branch exchange\nD. Touch - tone processor"
   },
   {
@@ -27010,15 +27010,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "True"
+        "text": "False"
       },
       {
         "id": "B",
-        "text": "False"
+        "text": "True"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is True.",
+    "correctChoiceId": "B",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "Multiple cells within an area may use the same channel frequencies\nA. True\nB. False"
   },
   {
@@ -27047,7 +27047,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Full-duplex.",
+    "explanation": "In telecommunication systems, Full-duplex is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Cellular telephones use which type of operation?\nA. Simplex\nB. Half - duplex\nC. Full-duplex\nD. Triplex"
   },
   {
@@ -27060,11 +27060,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "6 kHz"
+        "text": "12 kHz"
       },
       {
         "id": "B",
-        "text": "12 kHz"
+        "text": "45 kHz"
       },
       {
         "id": "C",
@@ -27072,11 +27072,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "45 kHz"
+        "text": "6 kHz"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 12 kHz.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The maximum frequency deviation of an FM cellular transmitter is\nA. 6 kHz\nB. 12 kHz\nC. 30 kHz\nD. 45 kHz"
   },
   {
@@ -27089,23 +27089,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "4.75 W"
-      },
-      {
-        "id": "B",
         "text": "1.5 W"
       },
       {
+        "id": "B",
+        "text": "4.75 W"
+      },
+      {
         "id": "C",
-        "text": "3 W"
+        "text": "5 W"
       },
       {
         "id": "D",
-        "text": "5 W"
+        "text": "3 W"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 3 W.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, 3 W is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The maximum output power of a cellular transmitter is\nA. 4.75 W\nB. 1.5 W\nC. 3 W\nD. 5 W"
   },
   {
@@ -27122,11 +27122,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Cell site"
+        "text": "Caller party"
       },
       {
         "id": "C",
-        "text": "Caller party"
+        "text": "Cell site"
       },
       {
         "id": "D",
@@ -27134,7 +27134,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is MTSO.",
+    "explanation": "In telecommunication systems, MTSO is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The output power of a cellular radio is controlled by the\nA. User or Caller\nB. Cell site\nC. Caller party\nD. MTSO"
   },
   {
@@ -27151,11 +27151,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "The call is terminated."
+        "text": "The MTSO increases power level."
       },
       {
         "id": "C",
-        "text": "The MTSO increases power level."
+        "text": "The call is terminated."
       },
       {
         "id": "D",
@@ -27163,7 +27163,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "The correct answer is The unit is “handed off” to a closer cell.",
+    "explanation": "In telecommunication systems, The unit is “handed off” to a closer cell. is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "When the signal from a mobile cellular unit drops below a certain level, what action occurs?\nA. The unit is “handed off” to a closer cell.\nB. The call is terminated.\nC. The MTSO increases power level.\nD. The cell site switches antennas."
   },
   {
@@ -27180,19 +27180,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Wavegiude assembly"
-      },
-      {
-        "id": "C",
         "text": "Pair of TR/ ATR tubes"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Pair of sharp bandpass filter"
+      },
+      {
+        "id": "D",
+        "text": "Wavegiude assembly"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Pair of sharp bandpass filter.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Pair of sharp bandpass filter is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "In a cellular radio, the duplexer is a\nA. Ferrite isolator\nB. Wavegiude assembly\nC. Pair of TR/ ATR tubes\nD. Pair of sharp bandpass filter"
   },
   {
@@ -27205,23 +27205,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Antenna directivity"
+        "text": "Frequency of the signal"
       },
       {
         "id": "B",
-        "text": "Speed of light"
-      },
-      {
-        "id": "C",
         "text": "Speed of the target"
       },
       {
+        "id": "C",
+        "text": "Antenna directivity"
+      },
+      {
         "id": "D",
-        "text": "Frequency of the signal"
+        "text": "Speed of light"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Antenna directivity.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Antenna directivity is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The ability of a radar to determine the bearing to a target depends upon the\nA. Antenna directivity\nB. Speed of light\nC. Speed of the target\nD. Frequency of the signal"
   },
   {
@@ -27234,15 +27234,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Pulse"
+        "text": "CW"
       },
       {
         "id": "B",
-        "text": "CW"
+        "text": "Pulse"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is CW.",
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The Doppler effect is used to produce modulation of which type of radar signal?\nA. Pulse\nB. CW"
   },
   {
@@ -27255,23 +27255,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Distance"
-      },
-      {
-        "id": "B",
-        "text": "Azimuth"
-      },
-      {
-        "id": "C",
         "text": "Altitude"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Speed"
+      },
+      {
+        "id": "C",
+        "text": "Distance"
+      },
+      {
+        "id": "D",
+        "text": "Azimuth"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Speed.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Speed is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The Doppler Effect allows which characteristics of a target to be measured?\nA. Distance\nB. Azimuth\nC. Altitude\nD. Speed"
   },
   {
@@ -27300,7 +27300,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is Frequency.",
+    "explanation": "In telecommunication systems, Frequency is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The Doppler Effect is a change in what signal characteristic produced by relative motion between the radar set and a target?\nA. Amplitude\nB. Phase\nC. Frequency\nD. Duty cycle"
   },
   {
@@ -27313,7 +27313,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Klystron"
+        "text": "Power transistor"
       },
       {
         "id": "B",
@@ -27321,15 +27321,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "TWT"
+        "text": "Klystron"
       },
       {
         "id": "D",
-        "text": "Power transistor"
+        "text": "TWT"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Magnetron.",
+    "explanation": "In telecommunication systems, Magnetron is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most widely used radar transmitter component is a\nA. Klystron\nB. Magnetron\nC. TWT\nD. Power transistor"
   },
   {
@@ -27346,19 +27346,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Magnetron"
+        "text": "Gunn diode"
       },
       {
         "id": "C",
-        "text": "Gunn diode"
+        "text": "Magnetron"
       },
       {
         "id": "D",
         "text": "Klystron"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Gunn diode.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Gunn diode is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Low-power radar transmitters and receiver LOs use which component?\nA. GaAs FET\nB. Magnetron\nC. Gunn diode\nD. Klystron"
   },
   {
@@ -27375,11 +27375,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Bandpass filter"
+        "text": "Notch filter"
       },
       {
         "id": "C",
-        "text": "Notch filter"
+        "text": "Bandpass filter"
       },
       {
         "id": "D",
@@ -27387,7 +27387,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is Spark gap.",
+    "explanation": "In telecommunication systems, Spark gap is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What component in a duplexer protects the receiver from the high-power transmitter output?\nA. Waivegiude\nB. Bandpass filter\nC. Notch filter\nD. Spark gap"
   },
   {
@@ -27404,19 +27404,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Broadside array"
+        "text": "Collinear array"
       },
       {
         "id": "C",
-        "text": "Horn and parabolic reflector"
+        "text": "Broadside array"
       },
       {
         "id": "D",
-        "text": "Collinear array"
+        "text": "Horn and parabolic reflector"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Horn and parabolic reflector.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Horn and parabolic reflector is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Most radar antennas usa a\nA. Dipole\nB. Broadside array\nC. Horn and parabolic reflector\nD. Collinear array"
   },
   {
@@ -27433,19 +27433,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Color CRT"
-      },
-      {
-        "id": "C",
         "text": "Liquid - crystal display"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Plan position indicator"
+      },
+      {
+        "id": "D",
+        "text": "Color CRT"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Plan position indicator.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Plan position indicator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The most common radar display is the\nA. A scan.\nB. Color CRT\nC. Liquid - crystal display\nD. Plan position indicator"
   },
   {
@@ -27458,23 +27458,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "A scan"
-      },
-      {
-        "id": "B",
-        "text": "Phased array"
-      },
-      {
-        "id": "C",
         "text": "Broadside"
       },
       {
-        "id": "D",
+        "id": "B",
         "text": "Circular polarized array"
+      },
+      {
+        "id": "C",
+        "text": "A scan"
+      },
+      {
+        "id": "D",
+        "text": "Phased array"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is Phased array.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, Phased array is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "A radar antenna using multiple dipoles or slot antennas in a matrix with variable phase shifters is called a(n)\nA. A scan\nB. Phased array\nC. Broadside\nD. Circular polarized array"
   },
   {
@@ -27495,7 +27495,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is CW.",
+    "explanation": "In telecommunication systems, CW is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Police radars use which technique?\nA. Pulse\nB. CW"
   },
   {
@@ -27508,23 +27508,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "60 MHz"
-      },
-      {
-        "id": "B",
-        "text": "450 MHz"
-      },
-      {
-        "id": "C",
         "text": "900 MHz"
       },
       {
-        "id": "D",
+        "id": "B",
+        "text": "60 MHz"
+      },
+      {
+        "id": "C",
         "text": "10 GHz"
+      },
+      {
+        "id": "D",
+        "text": "450 MHz"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is 10 GHz.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, 10 GHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is a typical radar operating frequency?\nA. 60 MHz\nB. 450 MHz\nC. 900 MHz\nD. 10 GHz"
   },
   {
@@ -27537,11 +27537,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "AM, FM"
+        "text": "AM, DSB"
       },
       {
         "id": "B",
-        "text": "DSB , FM"
+        "text": "AM, FM"
       },
       {
         "id": "C",
@@ -27549,11 +27549,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "AM, DSB"
+        "text": "DSB , FM"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is AM, FM.",
+    "correctChoiceId": "B",
+    "explanation": "In Philippine electrical law practice, AM, FM represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The TV signal uses which types of modulation for picture and sound respectively?\nA. AM, FM\nB. DSB , FM\nC. FM, AM\nD. AM, DSB"
   },
   {
@@ -27566,7 +27566,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "3.58 MHz"
+        "text": "6 MHz"
       },
       {
         "id": "B",
@@ -27574,15 +27574,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "6 MHz"
+        "text": "10.7 MHz"
       },
       {
         "id": "D",
-        "text": "10.7 MHz"
+        "text": "3.58 MHz"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 6 MHz.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, 6 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The total bandwidth of an NTSC TV signal is\nA. 3.58 MHz\nB. 4.5 MHz\nC. 6 MHz\nD. 10.7 MHz"
   },
   {
@@ -27599,19 +27599,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "525"
-      },
-      {
-        "id": "C",
         "text": "480"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "625"
+      },
+      {
+        "id": "D",
+        "text": "525"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 525.",
+    "correctChoiceId": "D",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "What is the total number of interlaced scan lines in one complete frame of a NTSC U.S. TV signal?\nA. 262 ½\nB. 525\nC. 480\nD. 625"
   },
   {
@@ -27624,7 +27624,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Nothing"
+        "text": "Sync pulses"
       },
       {
         "id": "B",
@@ -27632,15 +27632,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Sync pulses"
+        "text": "Deflection oscillators"
       },
       {
         "id": "D",
-        "text": "Deflection oscillators"
+        "text": "Nothing"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Sync pulses.",
+    "correctChoiceId": "A",
+    "explanation": "In telecommunication systems, Sync pulses is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What keeps the scanning process at the receiver in step with the scanning in the picture tube at receiver?\nA. Nothing\nB. Color burst\nC. Sync pulses\nD. Deflection oscillators"
   },
   {
@@ -27657,19 +27657,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Color subcarrier"
-      },
-      {
-        "id": "C",
         "text": "Q and I"
       },
       {
-        "id": "D",
+        "id": "C",
         "text": "Luminance Y"
+      },
+      {
+        "id": "D",
+        "text": "Color subcarrier"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Luminance Y.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Luminance Y is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What is the black-and-white or monochrome brightness signal in TV called\nA. RGB\nB. Color subcarrier\nC. Q and I\nD. Luminance Y"
   },
   {
@@ -27682,23 +27682,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "CCD"
-      },
-      {
-        "id": "B",
         "text": "Photodiode matrix"
       },
       {
+        "id": "B",
+        "text": "MOSFET array"
+      },
+      {
         "id": "C",
-        "text": "Vidicon"
+        "text": "CCD"
       },
       {
         "id": "D",
-        "text": "MOSFET array"
+        "text": "Vidicon"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is CCD.",
+    "correctChoiceId": "C",
+    "explanation": "Optical communication transmits light signals through core glass cladding via total internal reflection, achieving high bandwidth with minimal attenuation over long distances.",
     "rawSnippet": "What is the name of the solid-state imaging device used int TV cameras that converts the light in a scene into an electrical signal?\nA. CCD\nB. Photodiode matrix\nC. Vidicon\nD. MOSFET array"
   },
   {
@@ -27711,11 +27711,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "FM"
+        "text": "PM"
       },
       {
         "id": "B",
-        "text": "PM"
+        "text": "FM"
       },
       {
         "id": "C",
@@ -27727,7 +27727,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "C",
-    "explanation": "The correct answer is DSB AM.",
+    "explanation": "In telecommunication systems, DSB AM is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The I and Q composite color signals are multiplexed onto the picture carrier by modulating a 3.58 MHz subcarrier using\nA. FM\nB. PM\nC. DSB AM\nD. Vestigial sideband AM"
   },
   {
@@ -27740,7 +27740,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Shadow mask"
+        "text": "Electron gun"
       },
       {
         "id": "B",
@@ -27748,15 +27748,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Electron gun"
+        "text": "Yoke"
       },
       {
         "id": "D",
-        "text": "Yoke"
+        "text": "Shadow mask"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Yoke.",
+    "correctChoiceId": "C",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
     "rawSnippet": "The assembly around the neck of a picture tube that produces the magnetic fields that deflect and scan the electron beams is called the\nA. Shadow mask\nB. Phosphor\nC. Electron gun\nD. Yoke"
   },
   {
@@ -27769,23 +27769,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "41.25 and 45.75 MHz"
+        "text": "45.25 and 41.75 MHz"
       },
       {
         "id": "B",
-        "text": "45.75 and 41.25 MHz"
+        "text": "41.25 and 45.75 MHz"
       },
       {
         "id": "C",
-        "text": "41.75 and 45.25 MHz"
+        "text": "45.75 and 41.25 MHz"
       },
       {
         "id": "D",
-        "text": "45.25 and 41.75 MHz"
+        "text": "41.75 and 45.25 MHz"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "The correct answer is 45.75 and 41.25 MHz.",
+    "correctChoiceId": "C",
+    "explanation": "In Philippine electrical law practice, 45.75 and 41.25 MHz represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards.",
     "rawSnippet": "The picture and sound carrier frequencies in a TV receiver IF are respectively\nA. 41.25 and 45.75 MHz\nB. 45.75 and 41.25 MHz\nC. 41.75 and 45.25 MHz\nD. 45.25 and 41.75 MHz"
   },
   {
@@ -27802,19 +27802,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "10.7 MHz"
+        "text": "45.75 MHz"
       },
       {
         "id": "C",
-        "text": "41.25 MHz"
+        "text": "10.7 MHz"
       },
       {
         "id": "D",
-        "text": "45.75 MHz"
+        "text": "41.25 MHz"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is 41.25 MHz.",
+    "correctChoiceId": "D",
+    "explanation": "In telecommunication systems, 41.25 MHz is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "The sound IF in a TV receiver is\nA. 4.5 MHz\nB. 10.7 MHz\nC. 41.25 MHz\nD. 45.75 MHz"
   },
   {
@@ -27827,7 +27827,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Phased - locked loop"
+        "text": "Quadrature detector"
       },
       {
         "id": "B",
@@ -27835,15 +27835,15 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Quadrature detector"
+        "text": "Balanced demodulator"
       },
       {
         "id": "D",
-        "text": "Balanced demodulator"
+        "text": "Phased - locked loop"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "The correct answer is Balanced demodulator.",
+    "correctChoiceId": "C",
+    "explanation": "In telecommunication systems, Balanced demodulator is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What type of circuit is used to modulate and demodulate the color signals?\nA. Phased - locked loop\nB. Differential peak detector\nC. Quadrature detector\nD. Balanced demodulator"
   },
   {
@@ -27872,7 +27872,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "The correct answer is Horizontal output.",
+    "explanation": "In telecommunication systems, Horizontal output is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What circuit in the TV receiver is used to develop the high voltage needed to operate the picture tube?\nA. Low - voltage power supply\nB. Horizontal output\nC. Vertical sweep\nD. Sync separator"
   },
   {
@@ -27885,11 +27885,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Sync pulses"
+        "text": "Quadrature modulation"
       },
       {
         "id": "B",
-        "text": "Quadrature modulation"
+        "text": "Sync pulses"
       },
       {
         "id": "C",
@@ -27901,7 +27901,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "The correct answer is 3.58 MHz color burst.",
+    "explanation": "In telecommunication systems, 3.58 MHz color burst is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What ensures proper color synchronization at the receiver?\nA. Sync pulses\nB. Quadrature modulation\nC. 4.5 MHz carrier spacing\nD. 3.58 MHz color burst"
   },
   {
@@ -27914,23 +27914,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Lower-cost reception"
+        "text": "Less noise, stronger signals"
       },
       {
         "id": "B",
-        "text": "Greater reliability"
+        "text": "Lower-cost reception"
       },
       {
         "id": "C",
-        "text": "Less noise, stronger signals"
+        "text": "Greater reliability"
       },
       {
         "id": "D",
         "text": "Premium cable channels"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "The correct answer is Lower-cost reception.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Lower-cost reception is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "Which of the following is not a benefit of cable TV?\nA. Lower-cost reception\nB. Greater reliability\nC. Less noise, stronger signals\nD. Premium cable channels"
   },
   {
@@ -27943,23 +27943,23 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Frequency modulation"
+        "text": "Time division multiplexing"
       },
       {
         "id": "B",
-        "text": "Mixing"
-      },
-      {
-        "id": "C",
         "text": "Frequency division multiplexing"
       },
       {
+        "id": "C",
+        "text": "Frequency modulation"
+      },
+      {
         "id": "D",
-        "text": "Time division multiplexing"
+        "text": "Mixing"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "The correct answer is Frequency division multiplexing.",
+    "correctChoiceId": "B",
+    "explanation": "In telecommunication systems, Frequency division multiplexing is fundamental to maintaining signal integrity, optimizing channel bandwidth, and reducing electromagnetic noise transmission.",
     "rawSnippet": "What technique is used to permit hundreds of TV signals to share a common cable?\nA. Frequency modulation\nB. Mixing\nC. Frequency division multiplexing\nD. Time division multiplexing"
   }
 ];
