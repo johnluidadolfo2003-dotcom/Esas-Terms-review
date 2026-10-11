@@ -20,6 +20,10 @@ interface StudyHeaderProps {
   onDisableShuffle?: () => void;
   onOpenPasteModal?: () => void;
   customQuestionsCount?: number;
+  isQuizActive?: boolean;
+  onStartQuiz?: () => void;
+  onFinishQuiz?: () => void;
+  onExitQuiz?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -49,13 +53,17 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   onDisableShuffle,
   onOpenPasteModal,
   customQuestionsCount,
+  isQuizActive = false,
+  onStartQuiz,
+  onFinishQuiz,
+  onExitQuiz,
 }) => {
   const totalAttempted = correctCount + incorrectCount;
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
 
   return (
     <header className="w-full bg-slate-900 border-b border-slate-800 shadow-sm shrink-0 sticky top-0 z-20">
-      {/* Top Bar: Title + Metrics + Add button */}
+      {/* Top Bar: Title + Metrics + Quiz Button + Add button */}
       <div className="max-w-4xl mx-auto px-3 sm:px-4 py-2 flex items-center justify-between gap-2 border-b border-slate-800/60">
         <div className="flex items-center gap-2 min-w-0">
           <span className="w-6 h-6 rounded bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
@@ -66,9 +74,50 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           </h1>
         </div>
 
-        {/* Compact Metrics & Add Questions */}
-        <div className="flex items-center gap-2 text-xs font-mono shrink-0">
-          <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/90 border border-slate-700/80 text-[11px] sm:text-xs text-slate-300">
+        {/* Compact Metrics, 70-Item Quiz Button & Add Questions */}
+        <div className="flex items-center gap-2 text-xs shrink-0">
+          {/* 70-Item Quiz Trigger / Status */}
+          {isQuizActive ? (
+            <div className="flex items-center gap-1.5">
+              <span className="px-2 py-1 rounded bg-amber-500/20 border border-amber-500/50 text-amber-300 font-bold text-xs flex items-center gap-1 animate-pulse">
+                <span>📝</span> 70-Item Quiz Mode
+              </span>
+              {onFinishQuiz && (
+                <button
+                  type="button"
+                  onClick={onFinishQuiz}
+                  className="px-2 py-1 rounded text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                >
+                  Submit & Finish
+                </button>
+              )}
+              {onExitQuiz && (
+                <button
+                  type="button"
+                  onClick={onExitQuiz}
+                  className="px-2 py-1 rounded text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
+                  title="Exit quiz mode"
+                >
+                  ✕ Exit
+                </button>
+              )}
+            </div>
+          ) : (
+            onStartQuiz && (
+              <button
+                type="button"
+                onClick={onStartQuiz}
+                className="px-2.5 py-1 rounded text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xs transition-all cursor-pointer flex items-center gap-1 shrink-0"
+                title="Start a 70-item board exam quiz covering all subjects"
+              >
+                <span>📝</span>
+                <span className="hidden sm:inline">70-Item Board Exam</span>
+                <span className="sm:hidden">70-Item Quiz</span>
+              </button>
+            )
+          )}
+
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/90 border border-slate-700/80 text-[11px] sm:text-xs text-slate-300 font-mono">
             <span className="text-slate-400 hidden xs:inline">Score:</span>
             <span className="text-emerald-400 font-bold">{accuracy}%</span>
             <span className="text-slate-600">·</span>
@@ -76,7 +125,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             <span className="text-rose-300 font-medium">{incorrectCount}✗</span>
           </div>
 
-          {onOpenPasteModal && (
+          {onOpenPasteModal && !isQuizActive && (
             <button
               type="button"
               onClick={onOpenPasteModal}

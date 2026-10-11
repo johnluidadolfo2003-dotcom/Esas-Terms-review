@@ -34,6 +34,8 @@ import {
 } from './services/storageService';
 import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
+import { generate70ItemQuiz, TOTAL_QUIZ_ITEMS } from './services/quizService';
+import { QuizCongratulationsModal } from './components/QuizCongratulationsModal';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -188,6 +190,99 @@ export default function App() {
   const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionIncorrectCount, setSessionIncorrectCount] = useState(0);
   const prevQuestionIdRef = React.useRef<string | null>(null);
+
+  // 70-Item Board Exam Quiz State
+  const [isQuizActive, setIsQuizActive] = useState(false);
+  const [quizQuestions, setQuizQuestions] = useState<FlashcardQuestion[]>([]);
+  const [quizCurrentIndex, setQuizCurrentIndex] = useState(0);
+  const [quizAnswers, setQuizAnswers] = useState<Record<string, string>>({});
+  const [isQuizSubmitted, setIsQuizSubmitted] = useState(false);
+  const [isQuizCongratsModalOpen, setIsQuizCongratsModalOpen] = useState(false);
+
+  const handleStartQuiz = useCallback(() => {
+    const { quizQuestions: newQuestions } = generate70ItemQuiz(allQuestions);
+    setQuizQuestions(newQuestions);
+    setQuizCurrentIndex(0);
+    setQuizAnswers({});
+    setIsQuizSubmitted(false);
+    setIsQuizCongratsModalOpen(false);
+    setIsQuizActive(true);
+  }, [allQuestions]);
+
+  const handleFinishQuiz = useCallback(() => {
+    setIsQuizSubmitted(true);
+    setIsQuizCongratsModalOpen(true);
+  }, []);
+
+  const handleExitQuiz = useCallback(() => {
+    setIsQuizActive(false);
+    setIsQuizSubmitted(false);
+    setIsQuizCongratsModalOpen(false);
+  }, []);
+
+  const handleQuizSelectChoice = (choiceId: string) => {
+    const currentQ = quizQuestions[quizCurrentIndex];
+    if (!currentQ) return;
+
+    setQuizAnswers((prev) => ({
+      ...prev,
+      [currentQ.id]: choiceId,
+    }));
+
+    const isWrong = choiceId.toUpperCase() !== currentQ.correctChoiceId.toUpperCase();
+    if (isWrong) {
+      setSessionIncorrectCount((prev) => prev + 1);
+      setMissedQuestionIds((prev) => new Set(prev).add(currentQ.id));
+    } else {
+      setSessionCorrectCount((prev) => prev + 1);
+      setMissedQuestionIds((prev) => {
+        const next = new Set(prev);
+        next.delete(currentQ.id);
+        return next;
+      });
+    }
+
+    if (quizCurrentIndex === quizQuestions.length - 1) {
+      setTimeout(() => {
+        handleFinishQuiz();
+      }, 350);
+    }
+  };
+
+  const quizSubjectScores = useMemo(() => {
+    const scores: Record<string, { correct: number; total: number }> = {
+      'Economics': { correct: 0, total: 0 },
+      'Mechanics 1': { correct: 0, total: 0 },
+      'Mechanics 2': { correct: 0, total: 0 },
+      'EE Laws': { correct: 0, total: 0 },
+      'Project Management': { correct: 0, total: 0 },
+      'Communication': { correct: 0, total: 0 },
+    };
+
+    quizQuestions.forEach((q) => {
+      if (!scores[q.subject]) {
+        scores[q.subject] = { correct: 0, total: 0 };
+      }
+      scores[q.subject].total += 1;
+      const choice = quizAnswers[q.id];
+      if (choice && choice.toUpperCase() === q.correctChoiceId.toUpperCase()) {
+        scores[q.subject].correct += 1;
+      }
+    });
+
+    return scores;
+  }, [quizQuestions, quizAnswers]);
+
+  const quizTotalCorrect = useMemo(() => {
+    let count = 0;
+    quizQuestions.forEach((q) => {
+      const choice = quizAnswers[q.id];
+      if (choice && choice.toUpperCase() === q.correctChoiceId.toUpperCase()) {
+        count++;
+      }
+    });
+    return count;
+  }, [quizQuestions, quizAnswers]);
 
   // 1. Initialize Firebase Auth (non-blocking)
   useEffect(() => {
@@ -700,9 +795,13 @@ export default function App() {
         onDisableShuffle={handleDisableShuffle}
         onOpenPasteModal={() => setIsPasteModalOpen(true)}
         customQuestionsCount={customQuestions.length}
+        isQuizActive={isQuizActive}
+        onStartQuiz={handleStartQuiz}
+        onFinishQuiz={handleFinishQuiz}
+        onExitQuiz={handleExitQuiz}
       />
 
-      {/* Main Flashcard Study Viewport */}
+      {/* Main Flashcard / Quiz Viewport */}
       <main className="flex-1 flex flex-col items-center justify-start sm:justify-center p-2 sm:p-6 pt-1 sm:pt-4 max-w-4xl mx-auto w-full">
         {loadingFileContent ? (
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-10 text-center max-w-md w-full">
@@ -713,6 +812,118 @@ export default function App() {
             <p className="text-xs text-zinc-400 mt-2">
               Loading reviewer terms and multiple-choice questions...
             </p>
+          </div>
+        ) : isQuizActive ? (
+          /* QUIZ MODE VIEWPORT */
+          <div className="w-full max-w-4xl flex flex-col gap-3 sm:gap-4">
+            {/* Quiz Banner & Quick Navigator */}
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-4 shadow-sm flex flex-col gap-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold text-base flex items-center justify-center shrink-0 shadow-inner">
+                    📝
+                  </span>
+                  <div>
+                    <h2 className="text-xs sm:text-base font-bold text-slate-100 leading-tight">
+                      70-Item Comprehensive Board Exam Quiz
+                    </h2>
+                    <p className="text-[10px] sm:text-xs text-slate-400 font-mono">
+                      Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 shrink-0 font-mono text-xs ml-auto">
+                  <span className="text-slate-400 text-[11px] sm:text-xs">
+                    Progress:{' '}
+                    <strong className="text-emerald-400 font-bold">
+                      {Object.keys(quizAnswers).length}
+                    </strong>{' '}
+                    / {quizQuestions.length}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleFinishQuiz}
+                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                  >
+                    Finish Quiz
+                  </button>
+                </div>
+              </div>
+
+              {/* Progress bar */}
+              <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800/80">
+                <div
+                  className="bg-emerald-500 h-full transition-all duration-300 rounded-full"
+                  style={{
+                    width: `${Math.round(
+                      (Object.keys(quizAnswers).length / (quizQuestions.length || 1)) * 100
+                    )}%`,
+                  }}
+                />
+              </div>
+
+              {/* Scrollable Question Number Grid Navigator (1..70) */}
+              <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 text-[11px] font-mono">
+                {quizQuestions.map((q, idx) => {
+                  const isCurrent = idx === quizCurrentIndex;
+                  const isAnswered = Boolean(quizAnswers[q.id]);
+                  return (
+                    <button
+                      key={q.id || idx}
+                      type="button"
+                      onClick={() => setQuizCurrentIndex(idx)}
+                      className={`w-7 h-7 rounded-md font-bold transition-all cursor-pointer flex items-center justify-center shrink-0 text-[11px] ${
+                        isCurrent
+                          ? 'ring-2 ring-emerald-400 bg-emerald-600 text-white shadow-md'
+                          : isAnswered
+                          ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-600/40'
+                          : 'bg-slate-950 text-slate-500 border border-slate-800 hover:text-slate-300'
+                      }`}
+                      title={`Item ${idx + 1}: ${q.subject}${isAnswered ? ' (Answered)' : ''}`}
+                    >
+                      {idx + 1}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Current Quiz Flashcard Question */}
+            {quizQuestions[quizCurrentIndex] && (
+              <SingleFlashcard
+                question={quizQuestions[quizCurrentIndex]}
+                currentIndex={quizCurrentIndex}
+                totalQuestions={quizQuestions.length}
+                selectedChoice={quizAnswers[quizQuestions[quizCurrentIndex].id] || null}
+                onSelectChoice={handleQuizSelectChoice}
+                onNext={() => {
+                  if (quizCurrentIndex < quizQuestions.length - 1) {
+                    setQuizCurrentIndex((prev) => prev + 1);
+                  }
+                }}
+                onPrevious={() => {
+                  if (quizCurrentIndex > 0) {
+                    setQuizCurrentIndex((prev) => prev - 1);
+                  }
+                }}
+                hasPrevious={quizCurrentIndex > 0}
+                hasNext={quizCurrentIndex < quizQuestions.length - 1}
+                isFlagged={flaggedQuestionIds.has(quizQuestions[quizCurrentIndex].id)}
+                onToggleFlag={() => {
+                  const currentQ = quizQuestions[quizCurrentIndex];
+                  if (!currentQ) return;
+                  setFlaggedQuestionIds((prev) => {
+                    const next = new Set(prev);
+                    if (next.has(currentQ.id)) next.delete(currentQ.id);
+                    else next.add(currentQ.id);
+                    return next;
+                  });
+                }}
+                aiVoiceMode={aiVoiceMode}
+                onSetAiVoiceMode={setAiVoiceMode}
+              />
+            )}
           </div>
         ) : filteredQuestions.length === 0 ? (
           /* Empty State */
@@ -743,16 +954,16 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setStudyMode('all')}
-                className="px-4 py-2 bg-zinc-100 text-zinc-950 font-medium text-xs rounded hover:bg-white"
+                className="px-4 py-2 bg-zinc-100 text-zinc-950 font-medium text-xs rounded hover:bg-white cursor-pointer"
               >
                 View All Cards
               </button>
               <button
                 type="button"
-                onClick={() => setIsPasteModalOpen(true)}
-                className="px-4 py-2 bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs rounded hover:bg-zinc-700"
+                onClick={handleStartQuiz}
+                className="px-4 py-2 bg-emerald-600 text-white font-medium text-xs rounded hover:bg-emerald-500 cursor-pointer"
               >
-                + Paste More Questions
+                📝 Start 70-Item Quiz
               </button>
             </div>
 
@@ -831,6 +1042,19 @@ export default function App() {
         currentSubject={selectedSubject}
         customQuestions={customQuestions}
         allQuestions={allQuestions}
+      />
+
+      {/* Quiz Congratulations Modal */}
+      <QuizCongratulationsModal
+        isOpen={isQuizCongratsModalOpen}
+        onClose={() => setIsQuizCongratsModalOpen(false)}
+        score={quizTotalCorrect}
+        totalQuestions={quizQuestions.length}
+        subjectScores={quizSubjectScores}
+        onRetakeQuiz={handleStartQuiz}
+        onReviewAnswers={() => {
+          setIsQuizCongratsModalOpen(false);
+        }}
       />
     </div>
   );
