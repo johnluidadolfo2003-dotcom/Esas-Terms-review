@@ -1,3 +1,4 @@
+import { useCloudSync } from './services/useCloudSync';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { User } from 'firebase/auth';
 import {
@@ -76,6 +77,8 @@ export default function App() {
     loadSavedCustomQuestions()
   );
 
+  const cloudStatus = useCloudSync(user, customQuestions, setCustomQuestions);
+
   // 2. Dynamically extracted questions from scanned Google Drive files
   const [driveExtractedQuestions, setDriveExtractedQuestions] = useState<FlashcardQuestion[]>([]);
 
@@ -152,6 +155,7 @@ export default function App() {
   const [missedQuestionIds, setMissedQuestionIds] = useState<Set<string>>(new Set());
   const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionIncorrectCount, setSessionIncorrectCount] = useState(0);
+
   const prevQuestionIdRef = React.useRef<string | null>(null);
 
   // 70-Item Board Exam Quiz State
@@ -164,13 +168,13 @@ export default function App() {
 
   const handleStartQuiz = useCallback(() => {
     const { quizQuestions: newQuestions } = generate70ItemQuiz(allQuestions);
-    setQuizQuestions(newQuestions);
+    setQuizQuestions(newQuestions.map((q) => shuffleQuestionChoices(q, isShuffled, shuffleSeed)));
     setQuizCurrentIndex(0);
     setQuizAnswers({});
     setIsQuizSubmitted(false);
     setIsQuizCongratsModalOpen(false);
     setIsQuizActive(true);
-  }, [allQuestions]);
+  }, [allQuestions, isShuffled, shuffleSeed]);
 
   const handleFinishQuiz = useCallback(() => {
     setIsQuizSubmitted(true);
@@ -185,11 +189,11 @@ export default function App() {
 
   const currentQuizQuestion = useMemo(() => {
     if (!isQuizActive || !quizQuestions[quizCurrentIndex]) return null;
-    return shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed);
-  }, [isQuizActive, quizQuestions, quizCurrentIndex, isShuffled, shuffleSeed]);
+    return quizQuestions[quizCurrentIndex];
+  }, [isQuizActive, quizQuestions, quizCurrentIndex]);
 
   const handleQuizSelectChoice = (choiceId: string) => {
-    if (!currentQuizQuestion) return;
+    if (!currentQuizQuestion || isQuizSubmitted || quizAnswers[currentQuizQuestion.id]) return;
 
     setQuizAnswers((prev) => ({
       ...prev,
@@ -211,10 +215,8 @@ export default function App() {
       });
     }
 
-    if (quizCurrentIndex === quizQuestions.length - 1) {
-      setTimeout(() => {
-        handleFinishQuiz();
-      }, 350);
+    if (Object.keys({ ...quizAnswers, [currentQuizQuestion.id]: choiceId }).length === quizQuestions.length) {
+      handleFinishQuiz();
     }
   };
 
@@ -301,7 +303,7 @@ export default function App() {
           const merged = [...toAdd, ...prev];
           saveCustomQuestions(merged);
           setSharedImportNotice(
-            `Imported ${toAdd.length} shared questions from link. They have been permanently saved to your web app.`
+            `Imported ${toAdd.length} shared questions from link. They have been saved in this browser.`
           );
           return merged;
         });
@@ -368,7 +370,7 @@ export default function App() {
       setScanMessage('Failed to scan Google Drive. Please check permissions.');
     } finally {
       setIsScanning(false);
-      setScanMessage('');
+      setLoadingFileContent(false);
     }
   }, []);
 
@@ -425,11 +427,14 @@ export default function App() {
     await logout();
     setUser(null);
     setToken(null);
+    setDriveExtractedQuestions([]);
+    setDriveFiles([]);
+    setSelectedFileIds(new Set());
   };
 
   // Re-load questions when selected files change
   const reloadQuestionsFromFiles = async (fileIds: Set<string>) => {
-    const authToken = token || (await getAccessToken());
+    const authToken = await getAccessToken();
     if (!authToken) return;
 
     setLoadingFileContent(true);
@@ -483,7 +488,7 @@ export default function App() {
   };
 
   const handleCustomSearch = async (query: string) => {
-    const authToken = token || (await getAccessToken());
+    const authToken = await getAccessToken();
     if (!authToken) {
       handleSignIn();
       return;
@@ -788,6 +793,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0b1326] text-slate-100 flex flex-col md:flex-row font-sans">
+      <div role="status" className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 px-3 py-1 text-center text-xs text-slate-300">{cloudStatus}</div>
       {/* Sidebar Navigation (Desktop sidebar on left / Mobile header & drawer) */}
       <StudyHeader
         selectedSubject={selectedSubject}
