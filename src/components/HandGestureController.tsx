@@ -14,6 +14,7 @@ interface HandGestureControllerProps {
   isActive: boolean;
   onClose: () => void;
   onSelectChoice: (choiceId: string) => void;
+  onResetAnswer?: () => void;
   onNext: () => void;
   isAnswered: boolean;
   currentQuestionId: string;
@@ -50,6 +51,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   isActive,
   onClose,
   onSelectChoice,
+  onResetAnswer,
   onNext,
   isAnswered,
   currentQuestionId,
@@ -324,7 +326,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           if (holdCandidateRef.current === mappedChoice) {
             missedFramesRef.current = 0;
             holdStreakRef.current += 1;
-            const targetFrames = 8;
+            const targetFrames = 15; // ~0.55s stable hold to prevent false triggers during hand raising
             const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
             setHoldProgress(progress);
             setHoldingChoice(choiceLabel);
@@ -340,7 +342,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             holdStreakRef.current = 1;
             missedFramesRef.current = 0;
             setHoldingChoice(choiceLabel);
-            setHoldProgress(15);
+            setHoldProgress(10);
           }
         }
         // Case 2: Show 5 fingers (Open Palm 👋) to advance to Next Question immediately
@@ -348,7 +350,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           if (holdCandidateRef.current === 'NEXT') {
             missedFramesRef.current = 0;
             holdStreakRef.current += 1;
-            const targetFrames = 10; // ~0.4s
+            const targetFrames = 15; // ~0.55s
             const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
             setHoldProgress(progress);
             setHoldingChoice('NEXT Question 👋');
@@ -503,13 +505,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
     [triggerChoiceSelection, triggerNextQuestion]
   );
 
-  // Keyboard shortcut listener (1, 2, 3, 4, 5)
+  // Keyboard shortcut listener (1, 2, 3, 4, 5, or A, B, C, D)
   useEffect(() => {
     if (!isActive) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Don't intercept if user is typing in an input or textarea
+      if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
+
+      const keyUpper = e.key.toUpperCase();
       if (['1', '2', '3', '4', '5'].includes(e.key)) {
         simulateFingers(parseInt(e.key, 10));
+      } else if (['A', 'B', 'C', 'D'].includes(keyUpper) && !isAnsweredRef.current) {
+        triggerChoiceSelection(keyUpper);
       }
     };
 
@@ -517,7 +525,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isActive, simulateFingers]);
+  }, [isActive, simulateFingers, triggerChoiceSelection]);
 
   // Clean up media streams and scripts on unmount / deactivate
   useEffect(() => {
@@ -771,6 +779,20 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             </div>
 
             <div className="flex items-center gap-1.5 w-full">
+              {evaluatedResult && !evaluatedResult.isCorrect && onResetAnswer && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    pauseAutoNextTimer();
+                    onResetAnswer();
+                    setEvaluatedResult(null);
+                  }}
+                  className="py-1.5 px-2.5 rounded-lg bg-rose-700 hover:bg-rose-600 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                  title="Clear wrong answer and try gesturing again"
+                >
+                  ↺ Try Again
+                </button>
+              )}
               <button
                 type="button"
                 onClick={pauseAutoNextTimer}
@@ -819,13 +841,28 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                   : `Option ${evaluatedResult?.choiceId} wrong (Correct: ${evaluatedResult?.correctChoiceId})`}
               </span>
             </div>
-            <button
-              type="button"
-              onClick={triggerNextQuestion}
-              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] cursor-pointer shrink-0"
-            >
-              Next →
-            </button>
+            <div className="flex items-center gap-1 shrink-0">
+              {onResetAnswer && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onResetAnswer();
+                    setEvaluatedResult(null);
+                  }}
+                  className="px-2 py-0.5 rounded bg-rose-700 hover:bg-rose-600 text-white font-bold text-[11px] cursor-pointer"
+                  title="Try this card again"
+                >
+                  ↺ Retry
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={triggerNextQuestion}
+                className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] cursor-pointer shrink-0"
+              >
+                Next →
+              </button>
+            </div>
           </div>
         )}
       </div>

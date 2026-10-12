@@ -258,6 +258,16 @@ export default function App() {
     }
   };
 
+  const handleQuizResetAnswer = () => {
+    const rawQ = quizQuestions[quizCurrentIndex];
+    if (!rawQ) return;
+    setQuizAnswers((prev) => {
+      const copy = { ...prev };
+      delete copy[rawQ.id];
+      return copy;
+    });
+  };
+
   const quizSubjectScores = useMemo(() => {
     const scores: Record<string, { correct: number; total: number }> = {
       'Economics': { correct: 0, total: 0 },
@@ -685,7 +695,19 @@ export default function App() {
   // Handle choice selection with Red/Green feedback
   const handleSelectChoice = (choiceId: string) => {
     if (!currentQuestion) return;
-    if (userAnswers[currentQuestion.id]) return; // Prevent double-scoring if already answered
+    const prevAnswer = userAnswers[currentQuestion.id];
+    if (prevAnswer === choiceId) return; // Same choice already selected
+
+    // If changing an existing answer on this card, adjust previous counts
+    if (prevAnswer) {
+      const prevClean = prevAnswer.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const prevCorrectClean = currentQuestion.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      if (prevClean === prevCorrectClean) {
+        setSessionCorrectCount((prev) => Math.max(0, prev - 1));
+      } else {
+        setSessionIncorrectCount((prev) => Math.max(0, prev - 1));
+      }
+    }
 
     setUserAnswers((prev) => ({
       ...prev,
@@ -1082,6 +1104,7 @@ export default function App() {
         isActive={isCameraGestureActive}
         onClose={() => setIsCameraGestureActive(false)}
         onSelectChoice={isQuizActive ? handleQuizSelectChoice : handleSelectChoice}
+        onResetAnswer={isQuizActive ? handleQuizResetAnswer : handleResetCurrentAnswer}
         onNext={
           isQuizActive
             ? () => {

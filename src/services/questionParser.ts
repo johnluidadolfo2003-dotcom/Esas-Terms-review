@@ -485,12 +485,13 @@ export function shuffleQuestionChoices(
 ): FlashcardQuestion {
   if (!isShuffled || !question || !question.choices || question.choices.length < 2) return question;
 
+  const cleanExp = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
   const correctChoiceObj = question.choices.find(
-    (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
+    (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanExp
   );
   if (!correctChoiceObj) return question;
 
-  const correctText = correctChoiceObj.text;
+  const correctText = correctChoiceObj.text.trim();
   const choiceTexts = question.choices.map((c) => c.text);
 
   let seed = shuffleSeed;
@@ -516,7 +517,9 @@ export function shuffleQuestionChoices(
     text,
   }));
 
-  const newCorrectChoice = newChoices.find((c) => c.text === correctText);
+  const newCorrectChoice = newChoices.find(
+    (c) => c.text.trim().toLowerCase() === correctText.toLowerCase()
+  );
   const newCorrectChoiceId = newCorrectChoice ? newCorrectChoice.id : question.correctChoiceId;
 
   return {

@@ -141,44 +141,73 @@ export function extractFingerMetrics(landmarks: Array<{ x: number; y: number; z?
   const mcpMiddle = landmarks[9];
   const palmScale = Math.max(0.001, dist(wrist, mcpMiddle));
 
-  // Robust finger extension test:
-  // A finger is extended if tip is higher than PIP (for vertical hand) AND tip is further from wrist than PIP joint
-  // OR if the distance from tip to its own MCP knuckle indicates an outstretched finger
-  const checkExtension = (tipIdx: number, pipIdx: number, mcpIdx: number): boolean => {
+  // Anatomically robust finger extension test:
+  // For Index, Middle, Ring, Pinky:
+  // A finger is extended if tip is higher than PIP & DIP (camera Y increases downwards)
+  // AND the distance from MCP to TIP is significantly longer than MCP to PIP.
+  // When a finger curls into the palm, the tip curls back towards MCP, making dist(tip, mcp) < dist(pip, mcp).
+  const checkFingerExtended = (tipIdx: number, dipIdx: number, pipIdx: number, mcpIdx: number): boolean => {
     const tip = landmarks[tipIdx];
+    const dip = landmarks[dipIdx];
     const pip = landmarks[pipIdx];
     const mcp = landmarks[mcpIdx];
-    if (!tip || !pip || !mcp) return false;
+    if (!tip || !dip || !pip || !mcp) return false;
 
     const dTipWrist = dist(tip, wrist);
     const dPipWrist = dist(pip, wrist);
     const dTipMcp = dist(tip, mcp);
+    const dPipMcp = dist(pip, mcp);
 
-    // Tip is visibly above PIP knuckle (camera Y increases downwards)
-    const isHigherThanPip = tip.y < pip.y;
+    // Upright hand (most common when gesturing to camera):
+    // Tip is above both PIP and DIP joints in camera Y
+    const isHigherUpright = tip.y < pip.y && tip.y < dip.y;
+
+    // Geometric extension length: extended fingers are straight (dTipMcp > dPipMcp * 1.25)
+    // Curled fingers curl back toward MCP (dTipMcp < dPipMcp)
+    const isStraight = dTipMcp > dPipMcp * 1.25;
+
     // Tip is farther from wrist than PIP joint
-    const isFartherFromWrist = dTipWrist > dPipWrist * 1.08;
-    // Tip has clear extension length from its MCP base
-    const hasExtensionSpan = dTipMcp > palmScale * 0.65;
+    const isFurtherFromWrist = dTipWrist > dPipWrist * 1.05;
 
-    return (isHigherThanPip && isFartherFromWrist) || (isFartherFromWrist && hasExtensionSpan);
+    // Both criteria must agree for upright hand; or strong straightness if tilted
+    return (isHigherUpright && isFurtherFromWrist) || (isStraight && isFurtherFromWrist && dTipMcp > palmScale * 0.75);
   };
 
-  const isIndexExtended = checkExtension(8, 6, 5);
-  const isMiddleExtended = checkExtension(12, 10, 9);
-  const isRingExtended = checkExtension(16, 14, 13);
-  const isPinkyExtended = checkExtension(20, 18, 17);
+  const isIndexExtended = checkFingerExtended(8, 7, 6, 5);
+  const isMiddleExtended = checkFingerExtended(12, 11, 10, 9);
+  const isRingExtended = checkFingerExtended(16, 15, 14, 13);
+  const isPinkyExtended = checkFingerExtended(20, 19, 18, 17);
 
-  // Thumb extension:
-  // When thumb is extended (thumbs up, open palm, or counting 3 with thumb),
-  // thumb tip (4) is positioned away from index knuckle (5) and middle knuckle (9)
-  const thumbTipDistToMcpIndex = dist(landmarks[4], landmarks[5]);
-  const thumbTipDistToMcpMiddle = dist(landmarks[4], landmarks[9]);
-  const thumbTipDistToWrist = dist(landmarks[4], wrist);
+  // Robust Thumb Extension Test:
+  // Landmark 4: Thumb Tip
+  // Landmark 3: Thumb IP
+  // Landmark 2: Thumb MCP
+  // Landmark 5: Index MCP
+  // Landmark 9: Middle MCP
+  // Landmark 17: Pinky MCP
+  const thumbTip = landmarks[4];
+  const thumbIp = landmarks[3];
+  const thumbMcp = landmarks[2];
+  const indexMcp = landmarks[5];
+  const middleMcp = landmarks[9];
+  const pinkyMcp = landmarks[17];
+
+  const thumbTipDistToIndexMcp = dist(thumbTip, indexMcp);
+  const thumbTipDistToMiddleMcp = dist(thumbTip, middleMcp);
+  const thumbTipDistToPinkyMcp = dist(thumbTip, pinkyMcp);
+  const thumbTipDistToWrist = dist(thumbTip, wrist);
+  const thumbMcpDistToWrist = dist(thumbMcp, wrist);
+  const thumbTipDistToThumbMcp = dist(thumbTip, thumbMcp);
+  const thumbIpDistToThumbMcp = dist(thumbIp, thumbMcp);
+
+  // Thumb is only extended if it is stretched wide away from the palm:
+  // Not tucked over index/middle MCP and not folded into palm
   const isThumbExtended =
-    thumbTipDistToMcpIndex > palmScale * 0.52 &&
-    thumbTipDistToMcpMiddle > palmScale * 0.55 &&
-    thumbTipDistToWrist > dist(landmarks[2], wrist) * 1.25;
+    thumbTipDistToIndexMcp > palmScale * 0.70 &&
+    thumbTipDistToMiddleMcp > palmScale * 0.80 &&
+    thumbTipDistToPinkyMcp > palmScale * 0.85 &&
+    thumbTipDistToWrist > thumbMcpDistToWrist * 1.25 &&
+    thumbTipDistToThumbMcp > thumbIpDistToThumbMcp * 1.15;
 
   let count = 0;
   if (isIndexExtended) count++;
@@ -207,82 +236,120 @@ export function extractFingerMetrics(landmarks: Array<{ x: number; y: number; z?
   return { fingerState, relativeDistances };
 }
 
-// Match detected frame against calibrated profile or standard fallback
+// Match detected frame against standard direct gestures or custom profile
 export function matchGesture(
   fingerState: FingerState,
   relativeDistances: number[],
-  profile: GestureCalibrationProfile
+  profile?: GestureCalibrationProfile | null
 ): {
   matchedChoice: 'A' | 'B' | 'C' | 'D' | 'NEXT' | null;
   confidence: number;
   matchReason: string;
 } {
-  const gestures = profile.gestures || DEFAULT_GESTURES;
-  const count = fingerState.count;
+  const { thumb, index, middle, ring, pinky, count } = fingerState;
 
-  // If no fingers extended (fist or resting), return null
-  if (count <= 0) {
-    return { matchedChoice: null, confidence: 0, matchReason: 'No fingers detected' };
-  }
+  // 1. If user has a custom calibrated profile, check for a direct match
+  if (profile && profile.updatedAt > 0 && profile.gestures) {
+    let bestChoice: 'A' | 'B' | 'C' | 'D' | 'NEXT' | null = null;
+    let bestScore = 0;
 
-  // If custom calibration is active (updatedAt > 0), check calibrated gestures that match this EXACT count
-  if (profile.updatedAt > 0) {
-    const keys: Array<'A' | 'B' | 'C' | 'D' | 'NEXT'> = ['A', 'B', 'C', 'D', 'NEXT'];
-    let bestMatch: 'A' | 'B' | 'C' | 'D' | 'NEXT' | null = null;
-    let highestScore = 0;
+    const choices: Array<'A' | 'B' | 'C' | 'D' | 'NEXT'> = ['A', 'B', 'C', 'D', 'NEXT'];
+    for (const c of choices) {
+      const cal = profile.gestures[c];
+      if (!cal) continue;
 
-    for (const key of keys) {
-      const calibrated = gestures[key];
-      // STRICT RULE: Calibrated gesture MUST match current finger count
-      if (!calibrated || calibrated.fingerCount !== count) continue;
+      let score = 0;
+      // Match finger count
+      if (cal.fingerCount === count) score += 40;
+      else if (Math.abs(cal.fingerCount - count) === 1) score += 10;
 
-      let score = 50; // Base score for matching exact finger count
+      // Match individual finger booleans
+      if (cal.fingers.thumb === thumb) score += 12;
+      if (cal.fingers.index === index) score += 12;
+      if (cal.fingers.middle === middle) score += 12;
+      if (cal.fingers.ring === ring) score += 12;
+      if (cal.fingers.pinky === pinky) score += 12;
 
-      // Check matching individual fingers (up to 40 pts)
-      let fingerMatches = 0;
-      if (fingerState.thumb === calibrated.fingers.thumb) fingerMatches++;
-      if (fingerState.index === calibrated.fingers.index) fingerMatches++;
-      if (fingerState.middle === calibrated.fingers.middle) fingerMatches++;
-      if (fingerState.ring === calibrated.fingers.ring) fingerMatches++;
-      if (fingerState.pinky === calibrated.fingers.pinky) fingerMatches++;
-      score += fingerMatches * 8;
-
-      // Distance similarity (up to 10 pts)
-      if (calibrated.relativeDistances && calibrated.relativeDistances.length === 5) {
-        let diff = 0;
+      // Euclidean distance of normalized distances
+      if (cal.relativeDistances && cal.relativeDistances.length === 5) {
+        let distDiff = 0;
         for (let i = 0; i < 5; i++) {
-          diff += Math.abs((relativeDistances[i] || 0) - (calibrated.relativeDistances[i] || 0));
+          distDiff += Math.abs((cal.relativeDistances[i] || 0) - (relativeDistances[i] || 0));
         }
-        if (diff / 5 < 0.4) score += 10;
-        else if (diff / 5 < 0.7) score += 5;
+        if (distDiff < 1.0) score += 20;
+        else if (distDiff < 2.0) score += 10;
       }
 
-      if (score > highestScore) {
-        highestScore = score;
-        bestMatch = key;
+      if (score > bestScore && score >= 75) {
+        bestScore = score;
+        bestChoice = c;
       }
     }
 
-    if (bestMatch && highestScore >= 70) {
+    if (bestChoice && bestScore >= 75) {
       return {
-        matchedChoice: bestMatch,
-        confidence: Math.min(100, highestScore),
-        matchReason: `Custom profile matched (${count} fingers)`,
+        matchedChoice: bestChoice,
+        confidence: Math.min(99, bestScore),
+        matchReason: `Custom Calibrated Gesture (${bestChoice})`,
       };
     }
   }
 
-  // Standard direct counting mapping:
-  // 1 Finger = Option A
-  // 2 Fingers = Option B
-  // 3 Fingers = Option C
-  // 4 Fingers = Option D
-  // 5 Fingers = NEXT (Open Palm)
-  if (count === 1) return { matchedChoice: 'A', confidence: 95, matchReason: '1 finger detected (Option A)' };
-  if (count === 2) return { matchedChoice: 'B', confidence: 95, matchReason: '2 fingers detected (Option B)' };
-  if (count === 3) return { matchedChoice: 'C', confidence: 95, matchReason: '3 fingers detected (Option C)' };
-  if (count === 4) return { matchedChoice: 'D', confidence: 95, matchReason: '4 fingers detected (Option D)' };
-  if (count >= 5) return { matchedChoice: 'NEXT', confidence: 95, matchReason: '5 fingers / Open palm (Next)' };
+  // Non-thumb extended count (Index, Middle, Ring, Pinky)
+  const nonThumbCount = (index ? 1 : 0) + (middle ? 1 : 0) + (ring ? 1 : 0) + (pinky ? 1 : 0);
+
+  // If no fingers extended (fist or resting), return null
+  if (count <= 0 && nonThumbCount <= 0) {
+    return { matchedChoice: null, confidence: 0, matchReason: 'No fingers detected' };
+  }
+
+  // 1. OPTION A: Exactly 1 non-thumb finger extended (Index finger pointing up)
+  // or count is 1 with index extended
+  if (index && !middle && !ring && !pinky) {
+    return { matchedChoice: 'A', confidence: 98, matchReason: '1 finger (Index) → Option A' };
+  }
+
+  // 2. OPTION B: Exactly 2 fingers extended (Index + Middle pointing up, peace sign / victory)
+  // Ring and Pinky must be curled. Thumb can be tucked or relaxed.
+  if (index && middle && !ring && !pinky) {
+    return { matchedChoice: 'B', confidence: 98, matchReason: '2 fingers (Index + Middle) → Option B' };
+  }
+
+  // 3. OPTION C: Exactly 3 fingers extended
+  // Either Index + Middle + Ring (Pinky curled) OR European 3 (Thumb + Index + Middle, with Ring & Pinky curled)
+  if (index && middle && ring && !pinky) {
+    return { matchedChoice: 'C', confidence: 98, matchReason: '3 fingers (Index + Middle + Ring) → Option C' };
+  }
+  if (thumb && index && middle && !ring && !pinky) {
+    return { matchedChoice: 'C', confidence: 95, matchReason: '3 fingers (Thumb + Index + Middle) → Option C' };
+  }
+
+  // 4. OPTION D: Exactly 4 fingers extended (Index + Middle + Ring + Pinky up, Thumb tucked)
+  if (index && middle && ring && pinky && !thumb) {
+    return { matchedChoice: 'D', confidence: 98, matchReason: '4 fingers (All 4 Up, Thumb Tucked) → Option D' };
+  }
+
+  // 5. NEXT CARD: All 5 fingers extended (Open palm)
+  if (index && middle && ring && pinky && thumb) {
+    return { matchedChoice: 'NEXT', confidence: 98, matchReason: '5 fingers (Open Palm) → Next Card' };
+  }
+
+  // Fallback purely on extended non-thumb count or total count
+  if (nonThumbCount === 1 || count === 1) {
+    return { matchedChoice: 'A', confidence: 92, matchReason: '1 finger detected → Option A' };
+  }
+  if (nonThumbCount === 2 || count === 2) {
+    return { matchedChoice: 'B', confidence: 92, matchReason: '2 fingers detected → Option B' };
+  }
+  if (nonThumbCount === 3 || count === 3) {
+    return { matchedChoice: 'C', confidence: 92, matchReason: '3 fingers detected → Option C' };
+  }
+  if (nonThumbCount === 4 && !thumb) {
+    return { matchedChoice: 'D', confidence: 92, matchReason: '4 fingers detected → Option D' };
+  }
+  if (count >= 5 || (nonThumbCount === 4 && thumb)) {
+    return { matchedChoice: 'NEXT', confidence: 92, matchReason: '5 fingers detected → Next' };
+  }
 
   return { matchedChoice: null, confidence: 0, matchReason: 'Unknown gesture' };
 }
