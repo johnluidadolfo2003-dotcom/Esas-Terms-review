@@ -103,6 +103,21 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const handsInstanceRef = useRef<any>(null);
   const animFrameIdRef = useRef<number | null>(null);
 
+  // Synchronized state refs to avoid stale closures in MediaPipe onResults callback
+  const currentQuestionRef = useRef(currentQuestion);
+  currentQuestionRef.current = currentQuestion;
+
+  const correctChoiceIdRef = useRef(correctChoiceId);
+  correctChoiceIdRef.current = correctChoiceId;
+
+  const onSelectChoiceRef = useRef(onSelectChoice);
+  onSelectChoiceRef.current = onSelectChoice;
+
+  const onNextRef = useRef(onNext);
+  onNextRef.current = onNext;
+
+  const processHandResultsRef = useRef<(results: any) => void>(() => {});
+
   isAnsweredRef.current = isAnswered;
 
   // Clear hold timer and frame trackers
@@ -146,8 +161,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   // Trigger manual immediate next question
   const triggerNextQuestion = useCallback(() => {
     cancelAutoNextTimer();
-    onNext();
-  }, [cancelAutoNextTimer, onNext]);
+    onNextRef.current();
+  }, [cancelAutoNextTimer]);
 
   // Reset timers on new question
   useEffect(() => {
@@ -176,33 +191,73 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
     }
   }, [selectedChoice, correctChoiceId, currentQuestion, isAnswered]);
 
+  // Resolves the choice from the flashcard based on the gesture ('A'|'B'|'C'|'D' or 1-4).
+  // Strictly follows the placement/position of choices on the flashcard!
+  // Position 0 on flashcard = 1 finger / 'A'
+  // Position 1 on flashcard = 2 fingers / 'B'
+  // Position 2 on flashcard = 3 fingers / 'C'
+  // Position 3 on flashcard = 4 fingers / 'D'
+  const resolveFlashcardChoice = useCallback((letterOrKey: string) => {
+    const q = currentQuestionRef.current;
+    if (!q || !q.choices || q.choices.length === 0) return null;
+
+    const cleanInput = letterOrKey.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const idxMap: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+    const placementIdx = idxMap[cleanInput];
+
+    // Priority 1: Match by letter ID on the flashcard (case-insensitive)
+    const foundById = q.choices.find(
+      (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanInput
+    );
+    if (foundById) return foundById;
+
+    // Priority 2: Match by exact physical placement order on the flashcard (index 0, 1, 2, 3)
+    if (placementIdx !== undefined && q.choices[placementIdx]) {
+      return q.choices[placementIdx];
+    }
+
+    return null;
+  }, []);
+
+  // Identifies the correct answer using the placement in the flashcard
+  const getFlashcardCorrectAnswer = useCallback(() => {
+    const q = currentQuestionRef.current;
+    const rawExpected = correctChoiceIdRef.current || q?.correctChoiceId || '';
+    if (!q || !rawExpected) return { expectedId: rawExpected, correctChoiceObj: null, placementIndex: -1 };
+
+    const cleanExpected = rawExpected.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+    // The placement of the correct answer is directly in the flashcard choices list
+    const correctChoiceObj = q.choices.find(
+      (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanExpected
+    );
+    const placementIndex = q.choices.findIndex(
+      (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanExpected
+    );
+
+    return {
+      expectedId: correctChoiceObj ? correctChoiceObj.id : rawExpected,
+      correctChoiceObj: correctChoiceObj || null,
+      placementIndex,
+    };
+  }, []);
+
   // Trigger choice selection & evaluate answer (sound, green/red HUD, and flashcard select)
   const triggerChoiceSelection = useCallback(
     (choiceId: string) => {
       clearHoldTimer();
       cancelAutoNextTimer();
 
-      // Find matching choice object from question: by ID (case-insensitive) or by 1st/2nd/3rd/4th index
-      let targetChoiceId = choiceId;
-      if (currentQuestion?.choices && currentQuestion.choices.length > 0) {
-        const found = currentQuestion.choices.find(
-          (c) => c.id.trim().toUpperCase() === choiceId.trim().toUpperCase()
-        );
-        if (found) {
-          targetChoiceId = found.id;
-        } else {
-          const idxMap: Record<string, number> = { A: 0, B: 1, C: 2, D: 3 };
-          const idx = idxMap[choiceId.toUpperCase()];
-          if (idx !== undefined && currentQuestion.choices[idx]) {
-            targetChoiceId = currentQuestion.choices[idx].id;
-          }
-        }
-      }
+      // Look up target choice using the placement on the flashcard
+      const targetChoice = resolveFlashcardChoice(choiceId);
+      const chosenId = targetChoice ? targetChoice.id : choiceId;
 
-      const rawExpected = correctChoiceId || currentQuestion?.correctChoiceId || '';
-      const cleanChoice = targetChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-      const cleanExpected = rawExpected.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-      const isCorrect = cleanExpected ? cleanChoice === cleanExpected : null;
+      // Identify the correct answer using the placement in the flashcard
+      const { expectedId } = getFlashcardCorrectAnswer();
+
+      const cleanChosen = chosenId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const cleanExpected = expectedId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const isCorrect = cleanExpected ? cleanChosen === cleanExpected : null;
 
       // Play audio feedback
       if (isCorrect !== null) {
@@ -210,21 +265,21 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       }
 
       setEvaluatedResult({
-        choiceId: targetChoiceId,
+        choiceId: chosenId,
         isCorrect: Boolean(isCorrect),
-        correctChoiceId: rawExpected,
+        correctChoiceId: expectedId,
       });
 
       if (isCorrect === true) {
-        setStatusMessage(`Correct! Option ${targetChoiceId}`);
+        setStatusMessage(`Correct! Option ${chosenId}`);
       } else if (isCorrect === false) {
-        setStatusMessage(`Option ${targetChoiceId} is wrong. Correct: ${rawExpected}`);
+        setStatusMessage(`Option ${chosenId} is wrong. Correct: Option ${expectedId}`);
       } else {
-        setStatusMessage(`Selected Option ${targetChoiceId}`);
+        setStatusMessage(`Selected Option ${chosenId}`);
       }
 
-      // Lock in choice on flashcard immediately
-      onSelectChoice(targetChoiceId);
+      // Lock in choice on flashcard immediately: this selects the button on the flashcard!
+      onSelectChoiceRef.current(chosenId);
 
       if (autoNextDelay > 0) {
         let secondsLeft = Math.round(autoNextDelay);
@@ -236,7 +291,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           if (secondsLeft <= 0) {
             clearAutoNextTimer();
             setAutoNextCountdown(null);
-            onNext();
+            onNextRef.current();
           } else {
             setAutoNextCountdown(secondsLeft);
           }
@@ -244,14 +299,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       } else {
         setStatusMessage(
           isCorrect === true
-            ? `Correct! Option ${targetChoiceId}`
+            ? `Correct! Option ${chosenId}`
             : isCorrect === false
-            ? `Option ${targetChoiceId} is wrong. Correct: ${rawExpected}`
-            : `Selected Option ${targetChoiceId}`
+            ? `Option ${chosenId} is wrong. Correct: Option ${expectedId}`
+            : `Selected Option ${chosenId}`
         );
       }
     },
-    [clearHoldTimer, cancelAutoNextTimer, clearAutoNextTimer, autoNextDelay, onSelectChoice, onNext, correctChoiceId, currentQuestion]
+    [clearHoldTimer, cancelAutoNextTimer, clearAutoNextTimer, autoNextDelay, resolveFlashcardChoice, getFlashcardCorrectAnswer]
   );
 
   // Process MediaPipe Hand Results
@@ -315,12 +370,11 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         // --- SMOOTH & RESPONSIVE GESTURE HOLD PROCESSING ---
         // Case 1: Question not answered yet, hold 1-4 fingers to select A, B, C, D
         if (!isAnsweredRef.current && mappedChoice && ['A', 'B', 'C', 'D'].includes(mappedChoice)) {
-          const idxMap: Record<string, number> = { A: 0, B: 1, C: 2, D: 3 };
-          const choiceItem =
-            currentQuestion?.choices.find((c) => c.id.trim().toUpperCase() === mappedChoice) ||
-            (currentQuestion?.choices && currentQuestion.choices[idxMap[mappedChoice]]);
-          const choiceText = choiceItem ? choiceItem.text : '';
-          const choiceLabel = choiceText ? `Option ${mappedChoice}: ${choiceText}` : `Option ${mappedChoice}`;
+          const targetChoice = resolveFlashcardChoice(mappedChoice);
+          const choiceText = targetChoice ? targetChoice.text : '';
+          const choiceLabel = targetChoice
+            ? `Option ${targetChoice.id}: ${choiceText}`
+            : `Option ${mappedChoice}`;
 
           // If continuing the same gesture
           if (holdCandidateRef.current === mappedChoice) {
@@ -390,10 +444,12 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
       ctx.restore();
     },
-    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion, isScannerOpen, currentQuestion]
+    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion, isScannerOpen]
   );
 
-// Request camera permission & start processing
+  processHandResultsRef.current = processHandResults;
+
+  // Request camera permission & start processing
   const handleRequestPermission = useCallback(async () => {
     setPermissionState('requesting');
     setCameraError(null);
@@ -454,7 +510,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             minTrackingConfidence: 0.65,
           });
 
-          handsInstance.onResults(processHandResults);
+          handsInstance.onResults((results: any) => {
+            processHandResultsRef.current(results);
+          });
 
           // Frame detection loop
           const processFrame = async () => {

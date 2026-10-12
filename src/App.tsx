@@ -225,28 +225,30 @@ export default function App() {
     setIsQuizCongratsModalOpen(false);
   }, []);
 
-  const handleQuizSelectChoice = (choiceId: string) => {
-    const rawQ = quizQuestions[quizCurrentIndex];
-    if (!rawQ) return;
+  const currentQuizQuestion = useMemo(() => {
+    if (!isQuizActive || !quizQuestions[quizCurrentIndex]) return null;
+    return shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed);
+  }, [isQuizActive, quizQuestions, quizCurrentIndex, isShuffled, shuffleSeed]);
 
-    const currentQ = shuffleQuestionChoices(rawQ, isShuffled, shuffleSeed);
+  const handleQuizSelectChoice = (choiceId: string) => {
+    if (!currentQuizQuestion) return;
 
     setQuizAnswers((prev) => ({
       ...prev,
-      [currentQ.id]: choiceId,
+      [currentQuizQuestion.id]: choiceId,
     }));
 
     const cleanChoice = choiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
-    const cleanCorrect = currentQ.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const cleanCorrect = currentQuizQuestion.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
     const isWrong = cleanChoice !== cleanCorrect;
     if (isWrong) {
       setSessionIncorrectCount((prev) => prev + 1);
-      setMissedQuestionIds((prev) => new Set(prev).add(currentQ.id));
+      setMissedQuestionIds((prev) => new Set(prev).add(currentQuizQuestion.id));
     } else {
       setSessionCorrectCount((prev) => prev + 1);
       setMissedQuestionIds((prev) => {
         const next = new Set(prev);
-        next.delete(currentQ.id);
+        next.delete(currentQuizQuestion.id);
         return next;
       });
     }
@@ -259,11 +261,10 @@ export default function App() {
   };
 
   const handleQuizResetAnswer = () => {
-    const rawQ = quizQuestions[quizCurrentIndex];
-    if (!rawQ) return;
+    if (!currentQuizQuestion) return;
     setQuizAnswers((prev) => {
       const copy = { ...prev };
-      delete copy[rawQ.id];
+      delete copy[currentQuizQuestion.id];
       return copy;
     });
   };
@@ -935,13 +936,14 @@ export default function App() {
             </div>
 
             {/* Current Quiz Flashcard Question */}
-            {quizQuestions[quizCurrentIndex] && (
+            {currentQuizQuestion && (
               <SingleFlashcard
-                question={shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed)}
+                question={currentQuizQuestion}
                 currentIndex={quizCurrentIndex}
                 totalQuestions={quizQuestions.length}
-                selectedChoice={quizAnswers[quizQuestions[quizCurrentIndex].id] || null}
+                selectedChoice={quizAnswers[currentQuizQuestion.id] || null}
                 onSelectChoice={handleQuizSelectChoice}
+                onResetAnswer={handleQuizResetAnswer}
                 onNext={() => {
                   if (quizCurrentIndex < quizQuestions.length - 1) {
                     setQuizCurrentIndex((prev) => prev + 1);
@@ -1116,27 +1118,27 @@ export default function App() {
         }
         isAnswered={
           isQuizActive
-            ? Boolean(quizAnswers[quizQuestions[quizCurrentIndex]?.id])
+            ? Boolean(currentQuizQuestion && quizAnswers[currentQuizQuestion.id])
             : Boolean(currentSelectedChoice)
         }
         currentQuestionId={
           isQuizActive
-            ? quizQuestions[quizCurrentIndex]?.id || ''
+            ? currentQuizQuestion?.id || ''
             : currentQuestion?.id || ''
         }
         currentQuestion={
           isQuizActive
-            ? (quizQuestions[quizCurrentIndex] ? shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed) : null)
+            ? currentQuizQuestion
             : currentQuestion || null
         }
         selectedChoice={
           isQuizActive
-            ? quizAnswers[quizQuestions[quizCurrentIndex]?.id] || null
+            ? (currentQuizQuestion ? quizAnswers[currentQuizQuestion.id] || null : null)
             : currentSelectedChoice
         }
         correctChoiceId={
           isQuizActive
-            ? (quizQuestions[quizCurrentIndex] ? shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed).correctChoiceId : undefined)
+            ? currentQuizQuestion?.correctChoiceId
             : currentQuestion?.correctChoiceId
         }
       />
