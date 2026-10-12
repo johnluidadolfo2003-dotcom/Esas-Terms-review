@@ -236,7 +236,9 @@ export default function App() {
       [currentQ.id]: choiceId,
     }));
 
-    const isWrong = choiceId.toUpperCase() !== currentQ.correctChoiceId.toUpperCase();
+    const cleanChoice = choiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const cleanCorrect = currentQ.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const isWrong = cleanChoice !== cleanCorrect;
     if (isWrong) {
       setSessionIncorrectCount((prev) => prev + 1);
       setMissedQuestionIds((prev) => new Set(prev).add(currentQ.id));
@@ -690,7 +692,9 @@ export default function App() {
       [currentQuestion.id]: choiceId,
     }));
 
-    const isWrong = choiceId.toUpperCase() !== currentQuestion.correctChoiceId.toUpperCase();
+    const cleanChoice = choiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const cleanCorrect = currentQuestion.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+    const isWrong = cleanChoice !== cleanCorrect;
     if (isWrong) {
       setSessionIncorrectCount((prev) => prev + 1);
       setMissedQuestionIds((prev) => new Set(prev).add(currentQuestion.id));
@@ -1099,7 +1103,7 @@ export default function App() {
         }
         currentQuestion={
           isQuizActive
-            ? quizQuestions[quizCurrentIndex] || null
+            ? (quizQuestions[quizCurrentIndex] ? shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed) : null)
             : currentQuestion || null
         }
         selectedChoice={
@@ -1109,7 +1113,7 @@ export default function App() {
         }
         correctChoiceId={
           isQuizActive
-            ? quizQuestions[quizCurrentIndex]?.correctChoiceId
+            ? (quizQuestions[quizCurrentIndex] ? shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed).correctChoiceId : undefined)
             : currentQuestion?.correctChoiceId
         }
       />

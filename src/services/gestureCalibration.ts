@@ -141,21 +141,44 @@ export function extractFingerMetrics(landmarks: Array<{ x: number; y: number; z?
   const mcpMiddle = landmarks[9];
   const palmScale = Math.max(0.001, dist(wrist, mcpMiddle));
 
-  // Y-axis based extension check (in camera coordinate system, tip y < pip y means extended upwards)
-  // Plus distance check from wrist for robust tilted hands
-  const isIndexExtended =
-    landmarks[8].y < landmarks[6].y || dist(landmarks[8], wrist) > dist(landmarks[5], wrist) * 1.35;
-  const isMiddleExtended =
-    landmarks[12].y < landmarks[10].y || dist(landmarks[12], wrist) > dist(landmarks[9], wrist) * 1.35;
-  const isRingExtended =
-    landmarks[16].y < landmarks[14].y || dist(landmarks[16], wrist) > dist(landmarks[13], wrist) * 1.35;
-  const isPinkyExtended =
-    landmarks[20].y < landmarks[18].y || dist(landmarks[20], wrist) > dist(landmarks[17], wrist) * 1.35;
+  // Robust finger extension test:
+  // A finger is extended if tip is higher than PIP (for vertical hand) AND tip is further from wrist than PIP joint
+  // OR if the distance from tip to its own MCP knuckle indicates an outstretched finger
+  const checkExtension = (tipIdx: number, pipIdx: number, mcpIdx: number): boolean => {
+    const tip = landmarks[tipIdx];
+    const pip = landmarks[pipIdx];
+    const mcp = landmarks[mcpIdx];
+    if (!tip || !pip || !mcp) return false;
 
-  // Thumb extension: distance of tip(4) to wrist(0) vs IP(3) to wrist(0) and distance to MCP(5)
-  const thumbTipDist = dist(landmarks[4], wrist);
-  const thumbIpDist = dist(landmarks[3], wrist);
-  const isThumbExtended = thumbTipDist > thumbIpDist * 1.15 && dist(landmarks[4], landmarks[2]) > palmScale * 0.45;
+    const dTipWrist = dist(tip, wrist);
+    const dPipWrist = dist(pip, wrist);
+    const dTipMcp = dist(tip, mcp);
+
+    // Tip is visibly above PIP knuckle (camera Y increases downwards)
+    const isHigherThanPip = tip.y < pip.y;
+    // Tip is farther from wrist than PIP joint
+    const isFartherFromWrist = dTipWrist > dPipWrist * 1.08;
+    // Tip has clear extension length from its MCP base
+    const hasExtensionSpan = dTipMcp > palmScale * 0.65;
+
+    return (isHigherThanPip && isFartherFromWrist) || (isFartherFromWrist && hasExtensionSpan);
+  };
+
+  const isIndexExtended = checkExtension(8, 6, 5);
+  const isMiddleExtended = checkExtension(12, 10, 9);
+  const isRingExtended = checkExtension(16, 14, 13);
+  const isPinkyExtended = checkExtension(20, 18, 17);
+
+  // Thumb extension:
+  // When thumb is extended (thumbs up, open palm, or counting 3 with thumb),
+  // thumb tip (4) is positioned away from index knuckle (5) and middle knuckle (9)
+  const thumbTipDistToMcpIndex = dist(landmarks[4], landmarks[5]);
+  const thumbTipDistToMcpMiddle = dist(landmarks[4], landmarks[9]);
+  const thumbTipDistToWrist = dist(landmarks[4], wrist);
+  const isThumbExtended =
+    thumbTipDistToMcpIndex > palmScale * 0.52 &&
+    thumbTipDistToMcpMiddle > palmScale * 0.55 &&
+    thumbTipDistToWrist > dist(landmarks[2], wrist) * 1.25;
 
   let count = 0;
   if (isIndexExtended) count++;
@@ -195,68 +218,73 @@ export function matchGesture(
   matchReason: string;
 } {
   const gestures = profile.gestures || DEFAULT_GESTURES;
-  const candidates: Array<{ choiceId: 'A' | 'B' | 'C' | 'D' | 'NEXT'; score: number; reason: string }> = [];
+  const count = fingerState.count;
 
-  const keys: Array<'A' | 'B' | 'C' | 'D' | 'NEXT'> = ['A', 'B', 'C', 'D', 'NEXT'];
+  // If no fingers extended (fist or resting), return null
+  if (count <= 0) {
+    return { matchedChoice: null, confidence: 0, matchReason: 'No fingers detected' };
+  }
 
-  for (const key of keys) {
-    const calibrated = gestures[key];
-    if (!calibrated) continue;
+  // If custom calibration is active (updatedAt > 0), check calibrated gestures that match this EXACT count
+  if (profile.updatedAt > 0) {
+    const keys: Array<'A' | 'B' | 'C' | 'D' | 'NEXT'> = ['A', 'B', 'C', 'D', 'NEXT'];
+    let bestMatch: 'A' | 'B' | 'C' | 'D' | 'NEXT' | null = null;
+    let highestScore = 0;
 
-    let score = 0;
+    for (const key of keys) {
+      const calibrated = gestures[key];
+      // STRICT RULE: Calibrated gesture MUST match current finger count
+      if (!calibrated || calibrated.fingerCount !== count) continue;
 
-    // 1. Finger count match (up to 40 pts)
-    const countDiff = Math.abs(fingerState.count - calibrated.fingerCount);
-    if (countDiff === 0) score += 40;
-    else if (countDiff === 1) score += 15;
+      let score = 50; // Base score for matching exact finger count
 
-    // 2. Individual finger matching (10 pts each, up to 50 pts)
-    let fingerMatches = 0;
-    if (fingerState.thumb === calibrated.fingers.thumb) fingerMatches++;
-    if (fingerState.index === calibrated.fingers.index) fingerMatches++;
-    if (fingerState.middle === calibrated.fingers.middle) fingerMatches++;
-    if (fingerState.ring === calibrated.fingers.ring) fingerMatches++;
-    if (fingerState.pinky === calibrated.fingers.pinky) fingerMatches++;
-    score += fingerMatches * 10;
+      // Check matching individual fingers (up to 40 pts)
+      let fingerMatches = 0;
+      if (fingerState.thumb === calibrated.fingers.thumb) fingerMatches++;
+      if (fingerState.index === calibrated.fingers.index) fingerMatches++;
+      if (fingerState.middle === calibrated.fingers.middle) fingerMatches++;
+      if (fingerState.ring === calibrated.fingers.ring) fingerMatches++;
+      if (fingerState.pinky === calibrated.fingers.pinky) fingerMatches++;
+      score += fingerMatches * 8;
 
-    // 3. Distance vector similarity (up to 10 pts)
-    if (calibrated.relativeDistances && calibrated.relativeDistances.length === 5) {
-      let distDiffTotal = 0;
-      for (let i = 0; i < 5; i++) {
-        distDiffTotal += Math.abs((relativeDistances[i] || 0) - (calibrated.relativeDistances[i] || 0));
+      // Distance similarity (up to 10 pts)
+      if (calibrated.relativeDistances && calibrated.relativeDistances.length === 5) {
+        let diff = 0;
+        for (let i = 0; i < 5; i++) {
+          diff += Math.abs((relativeDistances[i] || 0) - (calibrated.relativeDistances[i] || 0));
+        }
+        if (diff / 5 < 0.4) score += 10;
+        else if (diff / 5 < 0.7) score += 5;
       }
-      const avgDiff = distDiffTotal / 5;
-      if (avgDiff < 0.4) score += 10;
-      else if (avgDiff < 0.8) score += 5;
+
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = key;
+      }
     }
 
-    candidates.push({
-      choiceId: key,
-      score,
-      reason: `${fingerMatches}/5 fingers match, count ${fingerState.count}/${calibrated.fingerCount}`,
-    });
+    if (bestMatch && highestScore >= 70) {
+      return {
+        matchedChoice: bestMatch,
+        confidence: Math.min(100, highestScore),
+        matchReason: `Custom profile matched (${count} fingers)`,
+      };
+    }
   }
 
-  // Sort descending by score
-  candidates.sort((a, b) => b.score - a.score);
+  // Standard direct counting mapping:
+  // 1 Finger = Option A
+  // 2 Fingers = Option B
+  // 3 Fingers = Option C
+  // 4 Fingers = Option D
+  // 5 Fingers = NEXT (Open Palm)
+  if (count === 1) return { matchedChoice: 'A', confidence: 95, matchReason: '1 finger detected (Option A)' };
+  if (count === 2) return { matchedChoice: 'B', confidence: 95, matchReason: '2 fingers detected (Option B)' };
+  if (count === 3) return { matchedChoice: 'C', confidence: 95, matchReason: '3 fingers detected (Option C)' };
+  if (count === 4) return { matchedChoice: 'D', confidence: 95, matchReason: '4 fingers detected (Option D)' };
+  if (count >= 5) return { matchedChoice: 'NEXT', confidence: 95, matchReason: '5 fingers / Open palm (Next)' };
 
-  const best = candidates[0];
-  if (best && best.score >= 65) {
-    return {
-      matchedChoice: best.choiceId,
-      confidence: Math.min(100, Math.round(best.score)),
-      matchReason: best.reason,
-    };
-  }
-
-  // Fallback to simple finger count if within valid range
-  if (fingerState.count === 1) return { matchedChoice: 'A', confidence: 75, matchReason: '1 finger detected' };
-  if (fingerState.count === 2) return { matchedChoice: 'B', confidence: 75, matchReason: '2 fingers detected' };
-  if (fingerState.count === 3) return { matchedChoice: 'C', confidence: 75, matchReason: '3 fingers detected' };
-  if (fingerState.count === 4) return { matchedChoice: 'D', confidence: 75, matchReason: '4 fingers detected' };
-  if (fingerState.count === 5) return { matchedChoice: 'NEXT', confidence: 85, matchReason: '5 fingers / palm detected' };
-
-  return { matchedChoice: null, confidence: 0, matchReason: 'No clear gesture match' };
+  return { matchedChoice: null, confidence: 0, matchReason: 'Unknown gesture' };
 }
 
 // Simple audio tone generator using Web Audio API for scan confirmation

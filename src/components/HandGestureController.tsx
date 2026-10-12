@@ -160,12 +160,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
   // Keep evaluatedResult in sync with props
   useEffect(() => {
-    const expected = correctChoiceId || currentQuestion?.correctChoiceId;
-    if (selectedChoice && expected) {
+    const rawExpected = correctChoiceId || currentQuestion?.correctChoiceId;
+    if (selectedChoice && rawExpected) {
+      const cleanSel = selectedChoice.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const cleanExp = rawExpected.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
       setEvaluatedResult({
         choiceId: selectedChoice,
-        isCorrect: selectedChoice.toUpperCase() === expected.toUpperCase(),
-        correctChoiceId: expected,
+        isCorrect: cleanSel === cleanExp,
+        correctChoiceId: rawExpected,
       });
     } else if (!isAnswered) {
       setEvaluatedResult(null);
@@ -178,34 +180,49 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       clearHoldTimer();
       cancelAutoNextTimer();
 
-      const expectedAnswer = correctChoiceId || currentQuestion?.correctChoiceId;
-      const isCorrect = expectedAnswer
-        ? choiceId.toUpperCase() === expectedAnswer.toUpperCase()
-        : null;
+      // Find matching choice object from question: by ID (case-insensitive) or by 1st/2nd/3rd/4th index
+      let targetChoiceId = choiceId;
+      if (currentQuestion?.choices && currentQuestion.choices.length > 0) {
+        const found = currentQuestion.choices.find(
+          (c) => c.id.trim().toUpperCase() === choiceId.trim().toUpperCase()
+        );
+        if (found) {
+          targetChoiceId = found.id;
+        } else {
+          const idxMap: Record<string, number> = { A: 0, B: 1, C: 2, D: 3 };
+          const idx = idxMap[choiceId.toUpperCase()];
+          if (idx !== undefined && currentQuestion.choices[idx]) {
+            targetChoiceId = currentQuestion.choices[idx].id;
+          }
+        }
+      }
+
+      const rawExpected = correctChoiceId || currentQuestion?.correctChoiceId || '';
+      const cleanChoice = targetChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const cleanExpected = rawExpected.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const isCorrect = cleanExpected ? cleanChoice === cleanExpected : null;
 
       // Play audio feedback
       if (isCorrect !== null) {
         playAnswerSound(isCorrect);
       }
 
-      if (expectedAnswer !== undefined) {
-        setEvaluatedResult({
-          choiceId,
-          isCorrect: Boolean(isCorrect),
-          correctChoiceId: expectedAnswer || '',
-        });
-      }
+      setEvaluatedResult({
+        choiceId: targetChoiceId,
+        isCorrect: Boolean(isCorrect),
+        correctChoiceId: rawExpected,
+      });
 
       if (isCorrect === true) {
-        setStatusMessage(`Correct! Option ${choiceId}`);
+        setStatusMessage(`Correct! Option ${targetChoiceId}`);
       } else if (isCorrect === false) {
-        setStatusMessage(`Option ${choiceId} was wrong. Correct: ${expectedAnswer}`);
+        setStatusMessage(`Option ${targetChoiceId} is wrong. Correct: ${rawExpected}`);
       } else {
-        setStatusMessage(`Selected Option ${choiceId}`);
+        setStatusMessage(`Selected Option ${targetChoiceId}`);
       }
 
-      // Lock in choice on flashcard
-      onSelectChoice(choiceId);
+      // Lock in choice on flashcard immediately
+      onSelectChoice(targetChoiceId);
 
       if (autoNextDelay > 0) {
         let secondsLeft = Math.round(autoNextDelay);
@@ -225,10 +242,10 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       } else {
         setStatusMessage(
           isCorrect === true
-            ? `Correct! Option ${choiceId}`
+            ? `Correct! Option ${targetChoiceId}`
             : isCorrect === false
-            ? `Option ${choiceId} was wrong. Correct: ${expectedAnswer}`
-            : `Selected Option ${choiceId}`
+            ? `Option ${targetChoiceId} is wrong. Correct: ${rawExpected}`
+            : `Selected Option ${targetChoiceId}`
         );
       }
     },
@@ -296,16 +313,20 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         // --- SMOOTH & RESPONSIVE GESTURE HOLD PROCESSING ---
         // Case 1: Question not answered yet, hold 1-4 fingers to select A, B, C, D
         if (!isAnsweredRef.current && mappedChoice && ['A', 'B', 'C', 'D'].includes(mappedChoice)) {
+          const idxMap: Record<string, number> = { A: 0, B: 1, C: 2, D: 3 };
+          const choiceItem =
+            currentQuestion?.choices.find((c) => c.id.trim().toUpperCase() === mappedChoice) ||
+            (currentQuestion?.choices && currentQuestion.choices[idxMap[mappedChoice]]);
+          const choiceText = choiceItem ? choiceItem.text : '';
+          const choiceLabel = choiceText ? `Option ${mappedChoice}: ${choiceText}` : `Option ${mappedChoice}`;
+
           // If continuing the same gesture
           if (holdCandidateRef.current === mappedChoice) {
             missedFramesRef.current = 0;
             holdStreakRef.current += 1;
-            const targetFrames = 10; // ~0.4s
+            const targetFrames = 8;
             const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
             setHoldProgress(progress);
-
-            const choiceItem = currentQuestion?.choices.find((c) => c.id.toUpperCase() === mappedChoice.toUpperCase());
-            const choiceLabel = choiceItem ? `Choice ${mappedChoice}: ${choiceItem.text}` : `Choice ${mappedChoice}`;
             setHoldingChoice(choiceLabel);
 
             if (holdStreakRef.current >= targetFrames) {
@@ -318,10 +339,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             holdCandidateRef.current = mappedChoice;
             holdStreakRef.current = 1;
             missedFramesRef.current = 0;
-            const choiceItem = currentQuestion?.choices.find((c) => c.id.toUpperCase() === mappedChoice.toUpperCase());
-            const choiceLabel = choiceItem ? `Choice ${mappedChoice}: ${choiceItem.text}` : `Choice ${mappedChoice}`;
             setHoldingChoice(choiceLabel);
-            setHoldProgress(10);
+            setHoldProgress(15);
           }
         }
         // Case 2: Show 5 fingers (Open Palm 👋) to advance to Next Question immediately
@@ -541,7 +560,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             }`}
           ></span>
           <span className="text-xs font-bold text-slate-100 uppercase tracking-wider">
-            Hands-Free Camera Controller
+            Camera Gestures
           </span>
         </div>
 
@@ -550,11 +569,11 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             type="button"
             onClick={() => setIsScannerOpen(true)}
             className="text-xs px-2 py-0.5 rounded border border-teal-600/70 bg-teal-950/70 hover:bg-teal-900 text-teal-300 font-bold transition-colors cursor-pointer flex items-center gap-1"
-            title="Scan & calibrate your proper hand gestures for 100% accurate recognition"
+            title="Calibrate hand gestures"
           >
-            <span>🎯 Scan</span>
+            <span>🎯 Calibrate</span>
             {customProfile.updatedAt > 0 && (
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom calibrated profile active"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom profile active"></span>
             )}
           </button>
 
@@ -566,9 +585,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 ? 'bg-teal-600 border-teal-500 text-white'
                 : 'bg-slate-800 border-slate-700 text-teal-300 hover:bg-slate-700'
             }`}
-            title="Toggle Step-by-step Hand Gesture Guide"
           >
-            {showGuide ? 'Close Guide' : '❓ Guide'}
+            {showGuide ? 'Close' : 'Guide'}
           </button>
 
           <button
@@ -576,21 +594,21 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             onClick={onClose}
             className="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer"
           >
-            Close ✕
+            ✕
           </button>
         </div>
       </div>
 
       {/* Video / Canvas viewport */}
       <div className="relative w-full h-44 bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex items-center justify-center">
-        {/* Live Camera Video Stream */}
+        {/* Live Camera Video Stream - Never covered when loading */}
         <video
           ref={videoRef}
           autoPlay
           playsInline
           muted
           className={`w-full h-full object-cover transform -scale-x-100 ${
-            permissionState === 'granted' ? 'block' : 'hidden'
+            permissionState === 'denied' ? 'hidden' : 'block'
           }`}
         />
 
@@ -600,16 +618,24 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           width={320}
           height={240}
           className={`absolute inset-0 w-full h-full object-cover transform -scale-x-100 pointer-events-none ${
-            permissionState === 'granted' ? 'block' : 'hidden'
+            permissionState === 'denied' ? 'hidden' : 'block'
           }`}
         />
 
-        {/* Interactive Step-by-Step Hand Gesture Guide Overlay */}
+        {/* Non-blocking loading indicator - does not cover the camera feed */}
+        {permissionState === 'requesting' && (
+          <div className="absolute top-2 right-2 px-2.5 py-1 rounded-md bg-slate-900/85 border border-slate-700/80 text-teal-300 text-xs flex items-center gap-1.5 z-20 pointer-events-none shadow-md">
+            <span className="w-2.5 h-2.5 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></span>
+            <span>Starting camera...</span>
+          </div>
+        )}
+
+        {/* Guide Modal Overlay */}
         {showGuide && (
           <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-xs p-3 flex flex-col justify-between text-left text-xs z-30 overflow-y-auto font-sans">
             <div className="flex items-center justify-between border-b border-slate-800 pb-1 mb-1">
               <span className="font-bold text-teal-300 text-xs">
-                Hand Gestures Guide
+                Hand Gestures
               </span>
               <button
                 type="button"
@@ -620,117 +646,67 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               </button>
             </div>
             
-            <div className="space-y-1.5 text-[11px] text-slate-300 leading-snug">
-              <p><strong>1. Answer Options:</strong> Hold fingers up to camera:</p>
-              <ul className="pl-3 list-disc text-teal-300 font-mono text-[10px] space-y-0.5">
+            <div className="space-y-1 text-xs text-slate-300 leading-snug">
+              <p>Hold fingers up to answer:</p>
+              <ul className="pl-3 list-disc text-teal-300 font-mono text-[11px] space-y-0.5">
                 <li>1 Finger = Option A</li>
                 <li>2 Fingers = Option B</li>
                 <li>3 Fingers = Option C</li>
                 <li>4 Fingers = Option D</li>
+                <li>5 Fingers = Next Card</li>
               </ul>
-              <p><strong>2. Lock In:</strong> Hold steady for a moment. Correct shows Green, wrong shows Red.</p>
-              <p><strong>3. Analyze:</strong> You have time to review the explanation.</p>
-              <p><strong>4. Next Card:</strong> Show 5 fingers (Open Palm) or click Next.</p>
+              <p>Hold steady for a moment to select.</p>
             </div>
 
             <button
               type="button"
               onClick={() => setShowGuide(false)}
-              className="mt-1 w-full py-1 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] text-center cursor-pointer"
+              className="mt-1 w-full py-1 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs text-center cursor-pointer"
             >
-              Close
+              Close Guide
             </button>
           </div>
         )}
 
-        {/* Permission Request Dialog / Overlay */}
-        {(permissionState === 'prompt' || permissionState === 'requesting') && (
-          <div className="absolute inset-0 bg-slate-950 p-3.5 flex flex-col items-center justify-center text-center gap-2 z-10 overflow-y-auto">
+        {/* Initial Camera Permission Request */}
+        {permissionState === 'prompt' && (
+          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-xs p-3 flex flex-col items-center justify-center text-center gap-2 z-10">
             <div className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-teal-400 shrink-0">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
             </div>
-            <div className="flex flex-col gap-0.5">
-              <span className="text-slate-100 text-xs font-bold">Hand Gestures</span>
-              <span className="text-slate-400 text-[11px] leading-snug">
-                Answer cards using hand gestures (1=A, 2=B, 3=C, 4=D)
-              </span>
-            </div>
-
-            <div className="flex flex-col gap-1.5 w-full">
-              <button
-                type="button"
-                onClick={handleRequestPermission}
-                disabled={permissionState === 'requesting'}
-                className="w-full px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 disabled:opacity-50 text-white font-bold text-xs transition-colors cursor-pointer shadow-md flex items-center justify-center gap-1.5"
-              >
-                {permissionState === 'requesting' ? (
-                  <>
-                    <span className="w-3 h-3 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
-                    Starting Camera...
-                  </>
-                ) : (
-                  'Turn On Camera'
-                )}
-              </button>
-
-              <button
-                type="button"
-                onClick={async () => {
-                  await handleRequestPermission();
-                  setIsScannerOpen(true);
-                }}
-                className="w-full px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-teal-700/60 text-teal-300 font-semibold text-[11px] transition-colors flex items-center justify-center gap-1 cursor-pointer"
-                title="Scan and calibrate your hand gestures first"
-              >
-                🎯 Scan My Gestures First
-              </button>
-
-              {typeof window !== 'undefined' && window.self !== window.top && (
-                <a
-                  href={window.location.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-teal-300 font-semibold text-[11px] transition-colors flex items-center justify-center gap-1 text-center"
-                  title="Open app in a full browser tab where camera permission is directly allowed"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                  </svg>
-                  Open Direct Tab for Camera
-                </a>
-              )}
-            </div>
+            <span className="text-slate-100 text-xs font-bold">Answer with Hand Gestures</span>
+            <button
+              type="button"
+              onClick={handleRequestPermission}
+              className="w-full px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
+            >
+              Turn On Camera
+            </button>
           </div>
         )}
 
         {/* Permission Denied Error State */}
         {permissionState === 'denied' && (
-          <div className="absolute inset-0 bg-slate-950 p-2.5 flex flex-col items-center justify-center text-center gap-1.5 z-10 overflow-y-auto">
-            <span className="text-rose-400 text-[11px] font-semibold leading-snug">{cameraError}</span>
-            <div className="text-slate-300 text-[10px] bg-slate-900 border border-slate-800 rounded p-1.5 leading-tight text-left w-full">
-              <strong>If camera is blocked by iframe or browser:</strong><br />
-              • Click <strong>Open Direct Tab</strong> below (recommended).<br />
-              • Or click 🔒/📷 icon in browser address bar → set Camera to <em>Allow</em>.<br />
-              • Or use 1-5 gesture buttons below.
-            </div>
+          <div className="absolute inset-0 bg-slate-950 p-2.5 flex flex-col items-center justify-center text-center gap-2 z-10 overflow-y-auto">
+            <span className="text-rose-400 text-xs font-semibold">{cameraError || 'Camera blocked'}</span>
             <div className="flex items-center gap-1.5 w-full">
               <button
                 type="button"
                 onClick={handleRequestPermission}
-                className="flex-1 px-2.5 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] transition-colors cursor-pointer shadow-xs text-center"
+                className="flex-1 px-2.5 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition-colors cursor-pointer shadow-xs text-center"
               >
-                Retry Camera
+                Retry
               </button>
               <a
                 href={window.location.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-teal-300 font-bold text-[11px] transition-colors text-center"
+                className="flex-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-teal-300 font-bold text-xs transition-colors text-center"
               >
-                Open Direct Tab ↗
+                Direct Tab ↗
               </a>
             </div>
           </div>
@@ -738,7 +714,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Active Detected Fingers Badge */}
         {detectedFingers > 0 && (
-          <div className="absolute top-2 left-2 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1.5">
+          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1">
             <span>
               {liveMatchedChoice === 'NEXT'
                 ? '5F → Next'
@@ -746,20 +722,15 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 ? `${detectedFingers}F → Option ${liveMatchedChoice}`
                 : `${detectedFingers} Finger${detectedFingers > 1 ? 's' : ''}`}
             </span>
-            {customProfile.updatedAt > 0 && liveConfidence > 0 && (
-              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-950 text-emerald-300 border border-emerald-700 font-normal">
-                {liveConfidence}%
-              </span>
-            )}
           </div>
         )}
 
         {/* Hold Gesture Meter */}
         {holdingChoice && holdProgress > 0 && (
           <div className="absolute bottom-2 left-2 right-2 bg-slate-900/90 border border-slate-700 rounded-lg p-1.5 flex flex-col gap-1 shadow-lg z-20 font-sans">
-            <div className="flex items-center justify-between text-[11px] font-mono">
-              <span className="text-teal-300 font-bold">
-                {holdingChoice.includes('NEXT') ? 'Holding for Next...' : `Selecting ${holdingChoice}...`}
+            <div className="flex items-center justify-between text-xs font-mono">
+              <span className="text-teal-300 font-bold truncate pr-1">
+                {holdingChoice.includes('NEXT') ? 'Holding for Next...' : `${holdingChoice}...`}
               </span>
               <span className="text-slate-300">{holdProgress}%</span>
             </div>
@@ -787,15 +758,15 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 <span className="text-base">{evaluatedResult.isCorrect ? '✅' : '❌'}</span>
                 <span className="leading-tight text-center">
                   {evaluatedResult.isCorrect
-                    ? `CORRECT! Option ${evaluatedResult.choiceId} is correct!`
-                    : `WRONG! You chose ${evaluatedResult.choiceId}. Correct is ${evaluatedResult.correctChoiceId}.`}
+                    ? `Correct! Option ${evaluatedResult.choiceId} is correct.`
+                    : `Option ${evaluatedResult.choiceId} is wrong. Correct: Option ${evaluatedResult.correctChoiceId}.`}
                 </span>
               </div>
             )}
 
             <div className="flex flex-col items-center gap-0.5">
-              <span className="text-teal-300 font-mono text-sm sm:text-base font-extrabold">
-                Next question in {autoNextCountdown}s
+              <span className="text-teal-300 font-mono text-sm font-extrabold">
+                Next card in {autoNextCountdown}s
               </span>
             </div>
 
@@ -804,15 +775,13 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 type="button"
                 onClick={pauseAutoNextTimer}
                 className="flex-1 py-1.5 px-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
-                title="Pause auto-advance timer so you can read and analyze the question as long as you want"
               >
-                ⏸️ Pause Timer
+                Pause
               </button>
               <button
                 type="button"
                 onClick={triggerNextQuestion}
                 className="flex-1 py-1.5 px-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
-                title="Go directly to next question"
               >
                 Next Now →
               </button>
@@ -841,7 +810,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* If Paused Banner */}
         {isTimerPaused && isAnswered && autoNextCountdown === null && (
-          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-amber-600/80 rounded-lg p-1.5 text-[11px] font-medium flex items-center justify-between z-20 shadow-md font-sans">
+          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-amber-600/80 rounded-lg p-1.5 text-xs font-medium flex items-center justify-between z-20 shadow-md font-sans">
             <div className="flex items-center gap-1.5 truncate pr-1">
               <span>⏸️</span>
               <span className={evaluatedResult?.isCorrect ? 'text-emerald-300 font-bold' : 'text-rose-300 font-bold'}>
@@ -853,7 +822,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             <button
               type="button"
               onClick={triggerNextQuestion}
-              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[10px] cursor-pointer shrink-0"
+              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] cursor-pointer shrink-0"
             >
               Next →
             </button>
@@ -862,77 +831,67 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       </div>
 
       {/* Status banner */}
-      <div className="text-[10px] text-slate-400 font-mono text-center truncate">
+      <div className="text-xs text-slate-300 font-mono text-center truncate">
         {statusMessage}
       </div>
 
-      {/* Legend / Virtual Gesture Simulation Buttons */}
-      <div className="flex flex-col gap-1">
-        <span className="text-[10px] text-slate-400 text-center font-mono">
-          Fingers or keys (1-5):
-        </span>
-        <div className="grid grid-cols-5 gap-0.5 text-[9px] font-mono text-center">
-          <button
-            type="button"
-            onClick={() => simulateFingers(1)}
-            className={`p-1 rounded border cursor-pointer transition-colors ${
-              detectedFingers === 1
-                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-                : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
-            }`}
-            title="1 Finger (Option A)"
-          >
-            1=A
-          </button>
-          <button
-            type="button"
-            onClick={() => simulateFingers(2)}
-            className={`p-1 rounded border cursor-pointer transition-colors ${
-              detectedFingers === 2
-                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-                : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
-            }`}
-            title="2 Fingers (Option B)"
-          >
-            2=B
-          </button>
-          <button
-            type="button"
-            onClick={() => simulateFingers(3)}
-            className={`p-1 rounded border cursor-pointer transition-colors ${
-              detectedFingers === 3
-                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-                : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
-            }`}
-            title="3 Fingers (Option C)"
-          >
-            3=C
-          </button>
-          <button
-            type="button"
-            onClick={() => simulateFingers(4)}
-            className={`p-1 rounded border cursor-pointer transition-colors ${
-              detectedFingers === 4
-                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-                : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
-            }`}
-            title="4 Fingers (Option D)"
-          >
-            4=D
-          </button>
-          <button
-            type="button"
-            onClick={() => simulateFingers(5)}
-            className={`p-1 rounded border cursor-pointer transition-colors ${
-              detectedFingers === 5
-                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-                : 'bg-slate-950 border-slate-800 text-teal-400 hover:bg-slate-800 font-bold'
-            }`}
-            title="5 Fingers (Next)"
-          >
-            5=Next
-          </button>
-        </div>
+      {/* Shortcut Buttons */}
+      <div className="grid grid-cols-5 gap-1 text-[10px] font-mono text-center">
+        <button
+          type="button"
+          onClick={() => simulateFingers(1)}
+          className={`py-1 rounded border cursor-pointer transition-colors ${
+            detectedFingers === 1
+              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+          }`}
+        >
+          1=A
+        </button>
+        <button
+          type="button"
+          onClick={() => simulateFingers(2)}
+          className={`py-1 rounded border cursor-pointer transition-colors ${
+            detectedFingers === 2
+              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+          }`}
+        >
+          2=B
+        </button>
+        <button
+          type="button"
+          onClick={() => simulateFingers(3)}
+          className={`py-1 rounded border cursor-pointer transition-colors ${
+            detectedFingers === 3
+              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+          }`}
+        >
+          3=C
+        </button>
+        <button
+          type="button"
+          onClick={() => simulateFingers(4)}
+          className={`py-1 rounded border cursor-pointer transition-colors ${
+            detectedFingers === 4
+              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+          }`}
+        >
+          4=D
+        </button>
+        <button
+          type="button"
+          onClick={() => simulateFingers(5)}
+          className={`py-1 rounded border cursor-pointer transition-colors ${
+            detectedFingers === 5
+              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+              : 'bg-slate-950 border-slate-800 text-teal-400 hover:bg-slate-800 font-bold'
+          }`}
+        >
+          5=Next
+        </button>
       </div>
 
       {/* Gesture Calibration Scanner Modal */}

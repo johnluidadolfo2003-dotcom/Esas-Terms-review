@@ -36,14 +36,18 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   aiVoiceMode,
   onSetAiVoiceMode,
 }) => {
-  const isAnswered = selectedChoice !== null;
-  const isCorrect = isAnswered && selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+  const cleanSelected = selectedChoice ? selectedChoice.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') : null;
+  const cleanCorrect = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const isAnswered = cleanSelected !== null;
+  const isCorrect = isAnswered && cleanSelected === cleanCorrect;
 
   // Play audio sound on answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
     if (selectedChoice && selectedChoice !== prevSelectedChoiceRef.current) {
-      const isAnsCorrect = selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+      const curSelected = selectedChoice.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const curCorrect = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+      const isAnsCorrect = curSelected === curCorrect;
       playAnswerSound(isAnsCorrect);
     }
     prevSelectedChoiceRef.current = selectedChoice;
@@ -391,10 +395,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         {/* Choices Options List */}
         <div className="flex flex-col gap-2 sm:gap-3">
           {question.choices.map((choice, idx) => {
-            const isUserSelected =
-              selectedChoice?.toUpperCase() === choice.id.toUpperCase();
-            const isCorrectOption =
-              choice.id.toUpperCase() === question.correctChoiceId.toUpperCase();
+            const cleanChoiceId = choice.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+            const isUserSelected = cleanSelected === cleanChoiceId;
+            const isCorrectOption = cleanChoiceId === cleanCorrect;
 
             let buttonClasses =
               'relative flex items-center justify-between p-2.5 sm:p-3.5 rounded-lg sm:rounded-xl border text-left transition-all min-h-[44px] ';
@@ -444,14 +447,19 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 {/* Status indicator badge */}
                 {isAnswered && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
+                    {isUserSelected && isCorrectOption && (
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                        ✓ Your Choice (Correct!)
+                      </span>
+                    )}
+                    {!isUserSelected && isCorrectOption && (
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                        ✓ Correct Answer
+                      </span>
+                    )}
                     {isUserSelected && !isCorrectOption && (
                       <span className="px-2 py-0.5 rounded bg-rose-950 border border-rose-300 text-rose-100 font-bold">
                         ✕ Your Choice (Wrong)
-                      </span>
-                    )}
-                    {isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
-                        ✓ Correct Answer
                       </span>
                     )}
                   </div>
