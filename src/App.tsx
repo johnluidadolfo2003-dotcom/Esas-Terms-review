@@ -33,7 +33,6 @@ import {
   saveCustomQuestions,
   deleteCustomQuestion,
   saveQuestionsToProjectApi,
-  downloadDriveQuestionsTs,
 } from './services/storageService';
 import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
@@ -121,48 +120,6 @@ export default function App() {
 
     return combined;
   }, [customQuestions, driveExtractedQuestions]);
-
-  const [isSyncingProject, setIsSyncingProject] = useState(false);
-  const [syncNotice, setSyncNotice] = useState<string | null>(null);
-
-  const handleSyncQuestionsToProject = async () => {
-    if (allQuestions.length === 0) return;
-    setIsSyncingProject(true);
-    try {
-      const res = await saveQuestionsToProjectApi(allQuestions);
-      if (res.success) {
-        setSyncNotice(
-          `Saved all ${allQuestions.length} questions into src/data/driveQuestions.ts! You can commit & push to GitHub for Render.`
-        );
-        setTimeout(() => setSyncNotice(null), 8000);
-      } else {
-        setSyncNotice(res.error || 'Failed to save questions to project.');
-        setTimeout(() => setSyncNotice(null), 8000);
-      }
-    } catch {
-      setSyncNotice('Failed to connect to dev server.');
-      setTimeout(() => setSyncNotice(null), 8000);
-    } finally {
-      setIsSyncingProject(false);
-    }
-  };
-
-  const handleDownloadDriveTs = () => {
-    if (allQuestions.length === 0) return;
-    downloadDriveQuestionsTs(allQuestions);
-  };
-
-  // Automatically synchronize loaded questions into driveQuestions.ts whenever the user has additional questions
-  useEffect(() => {
-    if (allQuestions.length > DRIVE_COPIED_QUESTIONS.length) {
-      saveQuestionsToProjectApi(allQuestions).then((res) => {
-        if (res.success) {
-          setSyncNotice(`Auto-saved all ${allQuestions.length} questions to driveQuestions.ts for Render!`);
-          setTimeout(() => setSyncNotice(null), 6000);
-        }
-      });
-    }
-  }, [allQuestions]);
 
   const [loadingFileContent, setLoadingFileContent] = useState(false);
   const [scanMessage, setScanMessage] = useState<string>('');
@@ -806,18 +763,18 @@ export default function App() {
   const incorrectCount = sessionIncorrectCount;
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
-      {/* Top Header & Navigation */}
+    <div className="min-h-screen bg-[#0b1326] text-slate-100 flex flex-col md:flex-row font-sans">
+      {/* Sidebar Navigation (Desktop sidebar on left / Mobile header & drawer) */}
       <StudyHeader
         selectedSubject={selectedSubject}
-        onSelectSubject={(subj) => {
+        onSelectSubject={(subj: SubjectCategory | 'All') => {
           setSelectedSubject(subj);
           setCurrentCardIndex(0);
         }}
         subjectCounts={subjectCounts}
         totalQuestions={filteredQuestions.length}
         studyMode={studyMode}
-        onSetStudyMode={(m) => {
+        onSetStudyMode={(m: 'all' | 'missed' | 'flagged') => {
           setStudyMode(m);
           setCurrentCardIndex(0);
         }}
@@ -841,177 +798,229 @@ export default function App() {
         onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
       />
 
-      {/* Main Flashcard / Quiz Viewport */}
-      <main className="flex-1 flex flex-col items-center justify-start sm:justify-center p-2 sm:p-6 pt-1 sm:pt-4 max-w-4xl mx-auto w-full">
-        {loadingFileContent ? (
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-10 text-center max-w-md w-full">
-            <div className="w-8 h-8 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin mx-auto mb-4"></div>
-            <h3 className="text-base font-semibold text-zinc-200">
-              Processing Questions
-            </h3>
-            <p className="text-xs text-zinc-400 mt-2">
-              Loading reviewer terms and multiple-choice questions...
-            </p>
+      {/* Main Viewport Container */}
+      <div className="flex-1 flex flex-col min-w-0">
+        {/* Desktop Top Utility Bar */}
+        <header className="hidden md:flex items-center justify-between px-6 py-2.5 border-b border-slate-800/80 bg-[#080e1c]/40 backdrop-blur-xs">
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-semibold text-slate-300">
+              {selectedSubject === 'All' ? 'All Subjects Reviewer' : `${selectedSubject} Reviewer`}
+            </span>
           </div>
-        ) : isQuizActive ? (
-          /* QUIZ MODE VIEWPORT */
-          <div className="w-full max-w-4xl flex flex-col gap-3 sm:gap-4">
-            {/* Quiz Banner & Quick Navigator */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-4 shadow-sm flex flex-col gap-3">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center gap-2 min-w-0">
-                  <div>
-                    <h2 className="text-xs sm:text-base font-bold text-slate-100 leading-tight">
-                      70 Items Quiz
-                    </h2>
-                    <p className="text-[10px] sm:text-xs text-slate-400 font-mono">
-                      Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
-                    </p>
+
+          <div className="flex items-center gap-2">
+            {isQuizActive && (
+              <span className="text-[11px] font-semibold text-amber-300 bg-amber-950/60 border border-amber-800/80 px-2 py-0.5 rounded-md">
+                Quiz Mode
+              </span>
+            )}
+
+            {/* Check and Wrong answer numbers beside camera icon - compact & clean */}
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono shadow-xs">
+              <span className="flex items-center gap-1 text-emerald-400 font-semibold" title="Correct answers">
+                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{correctCount}</span>
+              </span>
+              <span className="text-slate-700">·</span>
+              <span className="flex items-center gap-1 text-rose-400 font-semibold" title="Wrong answers">
+                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{incorrectCount}</span>
+              </span>
+            </div>
+
+            {/* Camera gesture button */}
+            <button
+              type="button"
+              onClick={() => setIsCameraGestureActive(!isCameraGestureActive)}
+              className={`p-1.5 rounded-md border transition-colors cursor-pointer ${
+                isCameraGestureActive
+                  ? 'bg-slate-800 border-slate-600 text-slate-100'
+                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+              }`}
+              title="Camera Gesture"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <main className="flex-1 flex flex-col items-center justify-start md:justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
+          {loadingFileContent ? (
+            <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-10 text-center max-w-md w-full shadow-lg">
+              <div className="w-8 h-8 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin mx-auto mb-4"></div>
+              <h3 className="text-base font-semibold text-slate-100">
+                Processing Questions
+              </h3>
+              <p className="text-xs text-slate-400 mt-2">
+                Loading reviewer terms and multiple-choice questions...
+              </p>
+            </div>
+          ) : isQuizActive ? (
+            /* QUIZ MODE VIEWPORT */
+            <div className="w-full max-w-4xl flex flex-col gap-3 sm:gap-4">
+              {/* Quiz Banner & Quick Navigator */}
+              <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3 sm:p-4 shadow-md flex flex-col gap-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2 min-w-0">
+                    <div>
+                      <h2 className="text-xs sm:text-base font-bold text-slate-100 leading-tight">
+                        70 Items Quiz
+                      </h2>
+                      <p className="text-[10px] sm:text-xs text-slate-400 font-mono">
+                        Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 shrink-0 text-xs ml-auto">
+                    <span className="text-slate-400 text-[11px] sm:text-xs font-mono">
+                      Progress:{' '}
+                      <strong className="text-slate-100 font-bold">
+                        {Object.keys(quizAnswers).length}
+                      </strong>{' '}
+                      / {quizQuestions.length}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={handleFinishQuiz}
+                      className="px-3 py-1.5 bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                    >
+                      Finish Quiz
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleExitQuiz}
+                      className="px-3 py-1.5 bg-rose-600 hover:bg-rose-500 text-white font-medium text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                      title="Exit quiz and return to per-subject review"
+                    >
+                      Exit Quiz
+                    </button>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0 text-xs ml-auto">
-                  <span className="text-slate-400 text-[11px] sm:text-xs font-mono">
-                    Progress:{' '}
-                    <strong className="text-teal-400 font-bold">
-                      {Object.keys(quizAnswers).length}
-                    </strong>{' '}
-                    / {quizQuestions.length}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleFinishQuiz}
-                    className="px-3 py-1.5 bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
-                  >
-                    Finish Quiz
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleExitQuiz}
-                    className="px-3 py-1.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
-                    title="Exit quiz and return to per-subject review"
-                  >
-                    Exit Quiz
-                  </button>
+                {/* Progress bar */}
+                <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700/80">
+                  <div
+                    className="bg-slate-200 h-full transition-all duration-300 rounded-full"
+                    style={{
+                      width: `${Math.round(
+                        (Object.keys(quizAnswers).length / (quizQuestions.length || 1)) * 100
+                      )}%`,
+                    }}
+                  />
+                </div>
+
+                {/* Scrollable Question Number Grid Navigator (1..70) */}
+                <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 text-[11px] font-mono">
+                  {quizQuestions.map((q, idx) => {
+                    const isCurrent = idx === quizCurrentIndex;
+                    const isAnswered = Boolean(quizAnswers[q.id]);
+                    return (
+                      <button
+                        key={q.id || idx}
+                        type="button"
+                        onClick={() => setQuizCurrentIndex(idx)}
+                        className={`w-7 h-7 rounded-md font-bold transition-all cursor-pointer flex items-center justify-center shrink-0 text-[11px] ${
+                          isCurrent
+                            ? 'ring-2 ring-slate-300 bg-white text-slate-950 shadow-md font-extrabold'
+                            : isAnswered
+                            ? 'bg-slate-700/90 text-slate-200 border border-slate-600'
+                            : 'bg-slate-900/80 text-slate-400 border border-slate-700/80 hover:text-slate-200 hover:bg-slate-800'
+                        }`}
+                        title={`Item ${idx + 1}: ${q.subject}${isAnswered ? ' (Answered)' : ''}`}
+                      >
+                        {idx + 1}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
-              {/* Progress bar */}
-              <div className="w-full bg-slate-950 rounded-full h-2 overflow-hidden border border-slate-800/80">
-                <div
-                  className="bg-emerald-500 h-full transition-all duration-300 rounded-full"
-                  style={{
-                    width: `${Math.round(
-                      (Object.keys(quizAnswers).length / (quizQuestions.length || 1)) * 100
-                    )}%`,
+              {/* Current Quiz Flashcard Question */}
+              {currentQuizQuestion && (
+                <SingleFlashcard
+                  question={currentQuizQuestion}
+                  currentIndex={quizCurrentIndex}
+                  totalQuestions={quizQuestions.length}
+                  selectedChoice={quizAnswers[currentQuizQuestion.id] || null}
+                  onSelectChoice={handleQuizSelectChoice}
+                  onResetAnswer={handleQuizResetAnswer}
+                  onNext={() => {
+                    if (quizCurrentIndex < quizQuestions.length - 1) {
+                      setQuizCurrentIndex((prev) => prev + 1);
+                    }
                   }}
+                  onPrevious={() => {
+                    if (quizCurrentIndex > 0) {
+                      setQuizCurrentIndex((prev) => prev - 1);
+                    }
+                  }}
+                  hasPrevious={quizCurrentIndex > 0}
+                  hasNext={quizCurrentIndex < quizQuestions.length - 1}
+                  isFlagged={flaggedQuestionIds.has(quizQuestions[quizCurrentIndex].id)}
+                  onToggleFlag={() => {
+                    const currentQ = quizQuestions[quizCurrentIndex];
+                    if (!currentQ) return;
+                    setFlaggedQuestionIds((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(currentQ.id)) next.delete(currentQ.id);
+                      else next.add(currentQ.id);
+                      return next;
+                    });
+                  }}
+                  aiVoiceMode={aiVoiceMode}
+                  onSetAiVoiceMode={setAiVoiceMode}
                 />
+              )}
+            </div>
+          ) : filteredQuestions.length === 0 ? (
+            /* Empty State */
+            <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-8 sm:p-12 text-center max-w-xl w-full flex flex-col items-center shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mb-4 text-slate-300 font-mono text-sm">
+                0 Q
+              </div>
+              <h3 className="text-lg font-semibold text-slate-100">
+                {selectedSubject !== 'All'
+                  ? `No Questions Found for ${selectedSubject}`
+                  : 'No Reviewer Questions Found'}
+              </h3>
+              <p className="text-sm text-slate-400 mt-2 max-w-md leading-relaxed">
+                {selectedSubject !== 'All'
+                  ? `Switch to another subject or select All Subjects.`
+                  : 'Questions from the board exam reviewers are ready.'}
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setSelectedSubject('All')}
+                  className="px-4 py-2 bg-slate-700 text-slate-200 border border-slate-600 font-medium text-xs rounded-lg hover:bg-slate-600 cursor-pointer transition-colors"
+                >
+                  View All Subjects
+                </button>
+                <button
+                  type="button"
+                  onClick={handleStartQuiz}
+                  className="px-4 py-2 bg-slate-100 text-slate-950 font-semibold text-xs rounded-lg hover:bg-white cursor-pointer transition-colors shadow-xs"
+                >
+                  Start 70-Item Quiz
+                </button>
               </div>
 
-              {/* Scrollable Question Number Grid Navigator (1..70) */}
-              <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-1 text-[11px] font-mono">
-                {quizQuestions.map((q, idx) => {
-                  const isCurrent = idx === quizCurrentIndex;
-                  const isAnswered = Boolean(quizAnswers[q.id]);
-                  return (
-                    <button
-                      key={q.id || idx}
-                      type="button"
-                      onClick={() => setQuizCurrentIndex(idx)}
-                      className={`w-7 h-7 rounded-md font-bold transition-all cursor-pointer flex items-center justify-center shrink-0 text-[11px] ${
-                        isCurrent
-                          ? 'ring-2 ring-emerald-400 bg-emerald-600 text-white shadow-md'
-                          : isAnswered
-                          ? 'bg-emerald-950/80 text-emerald-300 border border-emerald-600/40'
-                          : 'bg-slate-950 text-slate-500 border border-slate-800 hover:text-slate-300'
-                      }`}
-                      title={`Item ${idx + 1}: ${q.subject}${isAnswered ? ' (Answered)' : ''}`}
-                    >
-                      {idx + 1}
-                    </button>
-                  );
-                })}
-              </div>
+              {scanMessage && (
+                <div className="mt-4 text-xs font-mono text-zinc-400">
+                  {scanMessage}
+                </div>
+              )}
             </div>
-
-            {/* Current Quiz Flashcard Question */}
-            {currentQuizQuestion && (
-              <SingleFlashcard
-                question={currentQuizQuestion}
-                currentIndex={quizCurrentIndex}
-                totalQuestions={quizQuestions.length}
-                selectedChoice={quizAnswers[currentQuizQuestion.id] || null}
-                onSelectChoice={handleQuizSelectChoice}
-                onResetAnswer={handleQuizResetAnswer}
-                onNext={() => {
-                  if (quizCurrentIndex < quizQuestions.length - 1) {
-                    setQuizCurrentIndex((prev) => prev + 1);
-                  }
-                }}
-                onPrevious={() => {
-                  if (quizCurrentIndex > 0) {
-                    setQuizCurrentIndex((prev) => prev - 1);
-                  }
-                }}
-                hasPrevious={quizCurrentIndex > 0}
-                hasNext={quizCurrentIndex < quizQuestions.length - 1}
-                isFlagged={flaggedQuestionIds.has(quizQuestions[quizCurrentIndex].id)}
-                onToggleFlag={() => {
-                  const currentQ = quizQuestions[quizCurrentIndex];
-                  if (!currentQ) return;
-                  setFlaggedQuestionIds((prev) => {
-                    const next = new Set(prev);
-                    if (next.has(currentQ.id)) next.delete(currentQ.id);
-                    else next.add(currentQ.id);
-                    return next;
-                  });
-                }}
-                aiVoiceMode={aiVoiceMode}
-                onSetAiVoiceMode={setAiVoiceMode}
-              />
-            )}
-          </div>
-        ) : filteredQuestions.length === 0 ? (
-          /* Empty State */
-          <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-8 sm:p-12 text-center max-w-xl w-full flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-4 text-zinc-300 font-mono text-sm">
-              0 Q
-            </div>
-            <h3 className="text-lg font-semibold text-slate-100">
-              {selectedSubject !== 'All'
-                ? `No Questions Found for ${selectedSubject}`
-                : 'No Reviewer Questions Found'}
-            </h3>
-            <p className="text-sm text-slate-400 mt-2 max-w-md leading-relaxed">
-              {selectedSubject !== 'All'
-                ? `Switch to another subject tab or select All Subjects.`
-                : 'Questions from the board exam reviewers are ready.'}
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3 justify-center">
-              <button
-                type="button"
-                onClick={() => setSelectedSubject('All')}
-                className="px-4 py-2 bg-teal-600 text-white font-medium text-xs rounded hover:bg-teal-500 cursor-pointer"
-              >
-                View All Subjects
-              </button>
-              <button
-                type="button"
-                onClick={handleStartQuiz}
-                className="px-4 py-2 bg-emerald-600 text-white font-medium text-xs rounded hover:bg-emerald-500 cursor-pointer"
-              >
-                📝 Start 70-Item Quiz
-              </button>
-            </div>
-
-            {scanMessage && (
-              <div className="mt-4 text-xs font-mono text-zinc-400">
-                {scanMessage}
-              </div>
-            )}
-          </div>
-        ) : (
+          ) : (
           /* STRICTLY ONLY 1 QUESTION VISIBLE ON SCREEN */
           currentQuestion && (
             <SingleFlashcard
@@ -1033,6 +1042,7 @@ export default function App() {
           )
         )}
       </main>
+      </div>
 
       {/* Drive Explorer Modal */}
       <DriveExplorerModal
@@ -1064,13 +1074,9 @@ export default function App() {
       <PasteQuestionsModal
         isOpen={isPasteModalOpen}
         onClose={() => setIsPasteModalOpen(false)}
-        onAddQuestions={handleAddPastedQuestions}
         savedCustomQuestions={customQuestions}
         allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
-        onImportBackup={handleImportBackup}
-        onSyncToProject={handleSyncQuestionsToProject}
-        isSyncingProject={isSyncingProject}
       />
 
       {/* Share Reviewer Modal */}

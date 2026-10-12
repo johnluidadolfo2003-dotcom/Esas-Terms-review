@@ -12,12 +12,8 @@ import {
   getSavedRenderUrl,
   saveRenderUrl,
 } from '../services/shareService';
-import {
-  formatQuestionsAsTypeScriptCode,
-  downloadDriveQuestionsTs,
-  saveQuestionsToProjectApi,
-} from '../services/storageService';
 import { exportStandaloneReviewerHtml } from '../services/exportHtmlService';
+import { formatQuestionsAsTypeScriptCode } from '../services/storageService';
 
 interface ShareModalProps {
   isOpen: boolean;
@@ -52,26 +48,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const [copiedSubject, setCopiedSubject] = useState<string | null>(null);
   const [qrDataUrl, setQrDataUrl] = useState<string>('');
   const [showTroubleshoot, setShowTroubleshoot] = useState(false);
-  const [isSavingToProject, setIsSavingToProject] = useState(false);
-  const [projectSaveSuccess, setProjectSaveSuccess] = useState(false);
-
   const exportQuestionsList = allQuestions.length > 0 ? allQuestions : customQuestions;
-
-  const handleSaveToProject = async () => {
-    if (exportQuestionsList.length === 0) return;
-    setIsSavingToProject(true);
-    const res = await saveQuestionsToProjectApi(exportQuestionsList);
-    setIsSavingToProject(false);
-    if (res.success) {
-      setProjectSaveSuccess(true);
-      setTimeout(() => setProjectSaveSuccess(false), 5000);
-    }
-  };
-
-  const handleDownloadDriveTs = () => {
-    if (exportQuestionsList.length === 0) return;
-    downloadDriveQuestionsTs(exportQuestionsList);
-  };
 
   // Keep selected subject in sync when opening
   useEffect(() => {
@@ -337,47 +314,15 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               <div className="flex items-center justify-between">
                 <span className="text-xs font-semibold text-emerald-300 flex items-center gap-1.5">
                   <span>✓</span>
-                  <span>{customQuestions.length} Manually Added Question{customQuestions.length !== 1 ? 's' : ''} Included in Link</span>
+                  <span>{customQuestions.length} Custom Question{customQuestions.length !== 1 ? 's' : ''} Included in Link</span>
                 </span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-700">
-                  Auto-Sync Enabled
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                  Included in Share
                 </span>
               </div>
-              <p className="text-[11px] text-zinc-300 leading-relaxed">
-                When anyone opens this Render share link, your newly added manual questions will load automatically and save into their browser session.
+              <p className="text-[11px] text-slate-300 leading-relaxed">
+                When anyone opens this share link, your custom reviewer questions will load automatically in their study session.
               </p>
-              <div className="pt-1 flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleSaveToProject}
-                  disabled={isSavingToProject || exportQuestionsList.length === 0}
-                  className="px-2.5 py-1 rounded bg-indigo-900 hover:bg-indigo-800 text-indigo-100 border border-indigo-700 text-[11px] font-medium transition-colors flex items-center gap-1"
-                >
-                  <span>⚡</span>
-                  <span>
-                    {isSavingToProject
-                      ? 'Saving...'
-                      : projectSaveSuccess
-                      ? 'Saved to driveQuestions.ts!'
-                      : `Save All ${exportQuestionsList.length} for Render`}
-                  </span>
-                </button>
-                <button
-                  type="button"
-                  onClick={handleDownloadDriveTs}
-                  disabled={exportQuestionsList.length === 0}
-                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-medium transition-colors"
-                >
-                  Download driveQuestions.ts
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCopyCodeSnippet}
-                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-medium transition-colors"
-                >
-                  {copiedCodeSnippet ? 'Copied Code!' : 'Copy Code'}
-                </button>
-              </div>
             </div>
           )}
 

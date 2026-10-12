@@ -655,9 +655,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       <div className="flex items-center justify-between border-b border-slate-800 pb-1.5">
         <div className="flex items-center gap-1.5">
           <span
-            className={`w-2.5 h-2.5 rounded-full ${
+            className={`w-2 h-2 rounded-full ${
               permissionState === 'granted'
-                ? 'bg-teal-400 animate-pulse'
+                ? 'bg-emerald-400'
                 : permissionState === 'requesting'
                 ? 'bg-amber-400 animate-ping'
                 : 'bg-rose-500'
@@ -668,14 +668,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           </span>
         </div>
 
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1.5">
           <button
             type="button"
             onClick={() => setIsScannerOpen(true)}
-            className="text-xs px-2 py-0.5 rounded border border-teal-600/70 bg-teal-950/70 hover:bg-teal-900 text-teal-300 font-bold transition-colors cursor-pointer flex items-center gap-1"
+            className="text-xs px-2.5 py-0.5 rounded-md border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium transition-colors cursor-pointer flex items-center gap-1"
             title="Calibrate hand gestures"
           >
-            <span>🎯 Calibrate</span>
+            <span>Calibrate</span>
             {(customProfile.updatedAt > 0 ||
               Object.values(customProfile.gestures || {}).some((g) => g.calibratedAt > 0)) && (
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom calibrated profile active"></span>
@@ -685,10 +685,10 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           <button
             type="button"
             onClick={() => setShowGuide((prev) => !prev)}
-            className={`text-xs px-2 py-0.5 rounded border cursor-pointer font-bold transition-colors ${
+            className={`text-xs px-2 py-0.5 rounded-md border cursor-pointer font-medium transition-colors ${
               showGuide
-                ? 'bg-teal-600 border-teal-500 text-white'
-                : 'bg-slate-800 border-slate-700 text-teal-300 hover:bg-slate-700'
+                ? 'bg-slate-700 border-slate-600 text-white'
+                : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'
             }`}
           >
             {showGuide ? 'Close' : 'Guide'}
@@ -697,7 +697,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer"
+            className="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 cursor-pointer"
           >
             ✕
           </button>
@@ -729,8 +729,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Non-blocking loading indicator - does not cover the camera feed */}
         {permissionState === 'requesting' && (
-          <div className="absolute top-2 right-2 px-2.5 py-1 rounded-md bg-slate-900/85 border border-slate-700/80 text-teal-300 text-xs flex items-center gap-1.5 z-20 pointer-events-none shadow-md">
-            <span className="w-2.5 h-2.5 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></span>
+          <div className="absolute top-2 right-2 px-2.5 py-1 rounded-md bg-slate-900/90 border border-slate-700 text-slate-200 text-xs flex items-center gap-1.5 z-20 pointer-events-none shadow-md">
+            <span className="w-2.5 h-2.5 rounded-full border-2 border-slate-400 border-t-transparent animate-spin"></span>
             <span>Starting camera...</span>
           </div>
         )}
@@ -739,7 +739,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         {showGuide && (
           <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-xs p-3 flex flex-col justify-between text-left text-xs z-30 overflow-y-auto font-sans">
             <div className="flex items-center justify-between border-b border-slate-800 pb-1 mb-1">
-              <span className="font-bold text-teal-300 text-xs">
+              <span className="font-bold text-slate-100 text-xs">
                 Hand Gestures
               </span>
               <button
@@ -753,7 +753,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             
             <div className="space-y-1 text-xs text-slate-300 leading-snug">
               <p>Hold fingers up to answer:</p>
-              <ul className="pl-3 list-disc text-teal-300 font-mono text-[11px] space-y-0.5">
+              <ul className="pl-3 list-disc text-slate-200 font-mono text-[11px] space-y-0.5">
                 <li>1 Finger = Option A</li>
                 <li>2 Fingers = Option B</li>
                 <li>3 Fingers = Option C</li>
@@ -766,7 +766,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             <button
               type="button"
               onClick={() => setShowGuide(false)}
-              className="mt-1 w-full py-1 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs text-center cursor-pointer"
+              className="mt-1 w-full py-1.5 rounded-lg bg-slate-100 hover:bg-white text-slate-950 font-bold text-xs text-center cursor-pointer transition-colors"
             >
               Close Guide
             </button>
@@ -775,18 +775,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Initial Camera Permission Request */}
         {permissionState === 'prompt' && (
-          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-xs p-3 flex flex-col items-center justify-center text-center gap-2 z-10">
-            <div className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-teal-400 shrink-0">
+          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-xs p-3 flex flex-col items-center justify-center text-center gap-2 z-10">
+            <div className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 shrink-0">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
             </div>
-            <span className="text-slate-100 text-xs font-bold">Answer with Hand Gestures</span>
+            <span className="text-slate-100 text-xs font-semibold">Answer with Hand Gestures</span>
             <button
               type="button"
               onClick={handleRequestPermission}
-              className="w-full px-3.5 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition-colors cursor-pointer shadow-md"
+              className="w-full px-3.5 py-1.5 rounded-lg bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs transition-colors cursor-pointer shadow-sm"
             >
               Turn On Camera
             </button>
@@ -801,7 +801,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={handleRequestPermission}
-                className="flex-1 px-2.5 py-1 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs transition-colors cursor-pointer shadow-xs text-center"
+                className="flex-1 px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs transition-colors cursor-pointer shadow-xs text-center"
               >
                 Retry
               </button>
@@ -809,7 +809,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 href={window.location.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-teal-300 font-bold text-xs transition-colors text-center"
+                className="flex-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-xs transition-colors text-center"
               >
                 Direct Tab ↗
               </a>
@@ -819,7 +819,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Active Detected Fingers Badge */}
         {detectedFingers > 0 && (
-          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1.5">
+          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-slate-900/90 border border-slate-700 text-slate-200 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1.5">
             <span>
               {liveMatchedChoice === 'NEXT'
                 ? '5F → Next'
@@ -828,7 +828,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 : `${detectedFingers} Finger${detectedFingers > 1 ? 's' : ''}`}
             </span>
             {liveMatchedChoice && customProfile.gestures[liveMatchedChoice]?.calibratedAt > 0 && (
-              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-950 border border-emerald-600/70 text-emerald-300 font-sans font-semibold">
+              <span className="text-[9px] px-1 py-0.2 rounded bg-slate-800 border border-slate-600 text-slate-200 font-sans font-medium">
                 Calibrated
               </span>
             )}
@@ -839,14 +839,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         {holdingChoice && holdProgress > 0 && (
           <div className="absolute bottom-2 left-2 right-2 bg-slate-900/90 border border-slate-700 rounded-lg p-1.5 flex flex-col gap-1 shadow-lg z-20 font-sans">
             <div className="flex items-center justify-between text-xs font-mono">
-              <span className="text-teal-300 font-bold truncate pr-1">
+              <span className="text-slate-200 font-medium truncate pr-1">
                 {holdingChoice.includes('NEXT') ? 'Holding for Next...' : `${holdingChoice}...`}
               </span>
               <span className="text-slate-300">{holdProgress}%</span>
             </div>
             <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
               <div
-                className="bg-teal-400 h-full transition-all duration-75 rounded-full"
+                className="bg-slate-200 h-full transition-all duration-75 rounded-full"
                 style={{ width: `${holdProgress}%` }}
               ></div>
             </div>
@@ -865,17 +865,15 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                     : 'bg-rose-950/95 border-rose-500 text-rose-200 ring-1 ring-rose-400/50'
                 }`}
               >
-                <span className="text-base">{evaluatedResult.isCorrect ? '✅' : '❌'}</span>
+                <span className="text-base">{evaluatedResult.isCorrect ? '✓' : '✕'}</span>
                 <span className="leading-tight text-center">
-                  {evaluatedResult.isCorrect
-                    ? `Correct! Option ${evaluatedResult.choiceId} is correct.`
-                    : `Option ${evaluatedResult.choiceId} is wrong. Correct: Option ${evaluatedResult.correctChoiceId}.`}
+                  {evaluatedResult.isCorrect ? 'Correct Answer' : 'Incorrect Choice'}
                 </span>
               </div>
             )}
 
             <div className="flex flex-col items-center gap-0.5">
-              <span className="text-teal-300 font-mono text-sm font-extrabold">
+              <span className="text-slate-200 font-mono text-xs font-semibold">
                 Next card in {autoNextCountdown}s
               </span>
             </div>
@@ -898,14 +896,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={pauseAutoNextTimer}
-                className="flex-1 py-1.5 px-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                className="flex-1 py-1.5 px-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1 border border-slate-700"
               >
                 Pause
               </button>
               <button
                 type="button"
                 onClick={triggerNextQuestion}
-                className="flex-1 py-1.5 px-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                className="flex-1 py-1.5 px-2 rounded-lg bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
               >
                 Next Now →
               </button>
@@ -921,8 +919,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                   onClick={() => setAutoNextDelay(delayVal)}
                   className={`px-1.5 py-0.5 rounded cursor-pointer ${
                     autoNextDelay === delayVal
-                      ? 'bg-teal-500 text-slate-950 font-bold'
-                      : 'bg-slate-800 text-slate-400 hover:text-white'
+                      ? 'bg-zinc-100 text-zinc-950 font-bold'
+                      : 'bg-zinc-800 text-zinc-400 hover:text-white'
                   }`}
                 >
                   {delayVal === 0 ? 'Off' : `${delayVal}s`}
@@ -934,9 +932,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* If Paused Banner */}
         {isTimerPaused && isAnswered && autoNextCountdown === null && (
-          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-amber-600/80 rounded-lg p-1.5 text-xs font-medium flex items-center justify-between z-20 shadow-md font-sans">
+          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-zinc-700 rounded-lg p-1.5 text-xs font-medium flex items-center justify-between z-20 shadow-md font-sans">
             <div className="flex items-center gap-1.5 truncate pr-1">
-              <span>⏸️</span>
               <span className={evaluatedResult?.isCorrect ? 'text-emerald-300 font-bold' : 'text-rose-300 font-bold'}>
                 {evaluatedResult?.isCorrect
                   ? `Correct (Option ${evaluatedResult.choiceId})`
@@ -960,7 +957,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={triggerNextQuestion}
-                className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] cursor-pointer shrink-0"
+                className="px-2 py-0.5 rounded bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-[11px] cursor-pointer shrink-0"
               >
                 Next →
               </button>
@@ -970,7 +967,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       </div>
 
       {/* Status banner */}
-      <div className="text-xs text-slate-300 font-mono text-center truncate">
+      <div className="text-xs text-zinc-400 font-mono text-center truncate">
         {statusMessage}
       </div>
 
@@ -981,8 +978,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(1)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 1
-              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
           }`}
         >
           1=A
@@ -992,8 +989,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(2)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 2
-              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
           }`}
         >
           2=B
@@ -1003,8 +1000,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(3)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 3
-              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
           }`}
         >
           3=C
@@ -1014,8 +1011,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(4)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 4
-              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-              : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
+              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
           }`}
         >
           4=D
@@ -1025,8 +1022,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(5)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 5
-              ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
-              : 'bg-slate-950 border-slate-800 text-teal-400 hover:bg-slate-800 font-bold'
+              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
+              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800 font-bold'
           }`}
         >
           5=Next

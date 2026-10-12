@@ -103,19 +103,17 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
           <button
             type="button"
             onClick={onRetakeQuiz}
-            className="w-full sm:flex-1 py-2.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition-colors shadow-md flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full sm:flex-1 py-2.5 px-4 bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer text-center shadow-xs"
           >
-            <span>🔄</span>
-            <span>Take New 70-Item Quiz</span>
+            Take New 70-Item Quiz
           </button>
 
           <button
             type="button"
             onClick={onReviewAnswers}
-            className="w-full sm:flex-1 py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full sm:flex-1 py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-xs rounded-lg transition-colors cursor-pointer text-center"
           >
-            <span>🔍</span>
-            <span>Review Answers</span>
+            Review Answers
           </button>
 
           <button

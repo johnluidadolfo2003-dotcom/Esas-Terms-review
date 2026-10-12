@@ -71,43 +71,43 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-none">
-      <div className="w-full max-w-4xl bg-zinc-900 border border-zinc-800 rounded-lg flex flex-col max-h-[90vh] shadow-xl">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs font-sans">
+      <div className="w-full max-w-4xl bg-slate-900 border border-slate-800 rounded-2xl flex flex-col max-h-[90vh] shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-zinc-800">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#080e1c]">
           <div>
-            <h2 className="text-lg font-semibold text-zinc-100">
+            <h2 className="text-base sm:text-lg font-semibold text-slate-100">
               Google Drive Files & Folders
             </h2>
-            <p className="text-xs text-zinc-400 mt-0.5">
+            <p className="text-xs text-slate-400 mt-0.5">
               Files scanned from your Google Drive for Economics, Mechanics 1 & 2, EE Laws, PM, and Communication.
             </p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="px-3 py-1.5 text-xs font-medium rounded border border-zinc-700 bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700"
+            className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer"
           >
             Close
           </button>
         </div>
 
         {/* Account & Access Status Banner */}
-        <div className="px-6 py-2.5 bg-zinc-950/90 border-b border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
+        <div className="px-6 py-2.5 bg-[#080e1c]/90 border-b border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2">
             <span
               className={`w-2 h-2 rounded-full shrink-0 ${
-                hasDriveToken ? 'bg-emerald-400' : userEmail ? 'bg-amber-400' : 'bg-zinc-500'
+                hasDriveToken ? 'bg-emerald-400' : userEmail ? 'bg-amber-400' : 'bg-slate-500'
               }`}
             ></span>
-            <span className="text-zinc-300">
+            <span className="text-slate-300">
               {hasDriveToken ? (
                 <>
-                  Google Drive connected (<span className="text-zinc-100 font-mono">{userEmail}</span>).
+                  Google Drive connected (<span className="text-slate-100 font-mono">{userEmail}</span>).
                 </>
               ) : userEmail ? (
                 <>
-                  Signed in as <span className="text-zinc-100 font-mono">{userEmail}</span>. All Google accounts can access board questions.
+                  Signed in as <span className="text-slate-100 font-mono">{userEmail}</span>. All Google accounts can access board questions.
                 </>
               ) : (
                 <>
@@ -121,7 +121,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
               <button
                 type="button"
                 onClick={onSignIn}
-                className="px-2.5 py-1 text-xs font-semibold rounded bg-white text-zinc-900 hover:bg-zinc-200 transition-colors"
+                className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-white text-slate-900 hover:bg-slate-100 transition-colors"
               >
                 Sign In with Google
               </button>
@@ -130,7 +130,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
               <button
                 type="button"
                 onClick={onConnectDrive}
-                className="px-2.5 py-1 text-xs font-semibold rounded bg-emerald-600 text-white hover:bg-emerald-500 transition-colors"
+                className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-emerald-600 text-white hover:bg-emerald-500 transition-colors"
               >
                 Connect Google Drive Files
               </button>
@@ -139,18 +139,18 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
         </div>
 
         {/* Toolbar & Search */}
-        <div className="p-4 border-b border-zinc-800 bg-zinc-950 flex flex-col sm:flex-row gap-3 items-center justify-between">
+        <div className="p-4 border-b border-slate-800 bg-[#080e1c] flex flex-col sm:flex-row gap-3 items-center justify-between">
           <form onSubmit={handleSearchSubmit} className="flex-1 w-full flex gap-2">
             <input
               type="text"
               placeholder="Filter or search Drive files (e.g. 'Economics', 'Mechanics', 'RA 7920')..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 bg-zinc-900 border border-zinc-800 rounded px-3 py-1.5 text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-600"
+              className="flex-1 bg-slate-900 border border-slate-800 rounded-lg px-3 py-1.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-slate-600"
             />
             <button
               type="submit"
-              className="px-3 py-1.5 bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs font-medium rounded hover:bg-zinc-700"
+              className="px-3 py-1.5 bg-slate-800 border border-slate-700 text-slate-200 text-xs font-medium rounded-lg hover:bg-slate-700 transition-colors cursor-pointer"
             >
               Search Drive
             </button>
@@ -158,7 +158,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
             {onImportFile && (
-              <label className="px-3 py-1.5 text-xs font-medium rounded border border-zinc-700 bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 cursor-pointer">
+              <label className="px-3 py-1.5 text-xs font-medium rounded-lg border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 cursor-pointer transition-colors">
                 <span>Upload File</span>
                 <input
                   type="file"
@@ -172,10 +172,10 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
               type="button"
               disabled={isScanning}
               onClick={onRescanDrive}
-              className={`px-3 py-1.5 text-xs font-medium rounded border ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors cursor-pointer ${
                 isScanning
-                  ? 'bg-zinc-800 border-zinc-700 text-zinc-500 cursor-wait'
-                  : 'bg-zinc-100 text-zinc-900 border-zinc-200 hover:bg-white'
+                  ? 'bg-slate-800 border-slate-700 text-slate-500 cursor-wait'
+                  : 'bg-slate-100 text-slate-950 border-slate-200 hover:bg-white shadow-xs'
               }`}
             >
               {isScanning ? 'Scanning Drive...' : 'Rescan Entire Drive'}
@@ -184,15 +184,15 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
         </div>
 
         {/* Filters and Selection info */}
-        <div className="px-6 py-2 border-b border-zinc-800 flex items-center justify-between text-xs text-zinc-400 bg-zinc-900/60">
+        <div className="px-6 py-2 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 bg-slate-900/60">
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => setActiveTab('matched')}
-              className={`pb-1 border-b-2 font-medium ${
+              className={`pb-1 border-b-2 font-medium transition-colors cursor-pointer ${
                 activeTab === 'matched'
-                  ? 'border-zinc-200 text-zinc-100'
-                  : 'border-transparent text-zinc-400 hover:text-zinc-200'
+                  ? 'border-slate-200 text-slate-100'
+                  : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               Subject Matched ({files.filter((f) => f.matchedSubject).length})
@@ -200,10 +200,10 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
             <button
               type="button"
               onClick={() => setActiveTab('all')}
-              className={`pb-1 border-b-2 font-medium ${
+              className={`pb-1 border-b-2 font-medium transition-colors cursor-pointer ${
                 activeTab === 'all'
-                  ? 'border-zinc-200 text-zinc-100'
-                  : 'border-transparent text-zinc-400 hover:text-zinc-200'
+                  ? 'border-slate-200 text-slate-100'
+                  : 'border-transparent text-slate-400 hover:text-slate-200'
               }`}
             >
               All Scanned Files ({files.length})
@@ -214,7 +214,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
             <button
               type="button"
               onClick={onSelectAll}
-              className="text-zinc-300 hover:underline"
+              className="text-slate-300 hover:underline cursor-pointer"
             >
               Select All
             </button>
@@ -222,7 +222,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
             <button
               type="button"
               onClick={onDeselectAll}
-              className="text-zinc-400 hover:text-zinc-200"
+              className="text-slate-400 hover:text-slate-200 cursor-pointer"
             >
               Deselect All
             </button>
@@ -230,12 +230,12 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
         </div>
 
         {/* File List */}
-        <div className="flex-1 overflow-y-auto p-4 divide-y divide-zinc-800">
+        <div className="flex-1 overflow-y-auto p-4 divide-y divide-slate-800">
           {filteredFiles.length === 0 ? (
-            <div className="py-12 text-center text-sm text-zinc-400">
+            <div className="py-12 text-center text-sm text-slate-400">
               {isScanning ? (
                 <div className="flex flex-col items-center gap-2">
-                  <div className="w-6 h-6 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin"></div>
+                  <div className="w-6 h-6 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin"></div>
                   <span>Searching your Google Drive files and folders...</span>
                 </div>
               ) : (
@@ -252,28 +252,28 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
               return (
                 <div
                   key={`${file.id}-${fileIdx}`}
-                  className="py-3 px-2 flex items-center justify-between hover:bg-zinc-800/40 rounded transition-colors"
+                  className="py-3 px-2 flex items-center justify-between hover:bg-slate-800/40 rounded-xl transition-colors"
                 >
                   <div className="flex items-center gap-3 min-w-0 pr-4">
                     <input
                       type="checkbox"
                       checked={isSelected}
                       onChange={() => onToggleFile(file.id)}
-                      className="w-4 h-4 rounded border-zinc-700 bg-zinc-800 text-zinc-100 accent-zinc-200 cursor-pointer"
+                      className="w-4 h-4 rounded border-slate-700 bg-slate-800 text-slate-100 accent-slate-200 cursor-pointer"
                     />
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-zinc-200 truncate">
+                        <span className="text-sm font-medium text-slate-200 truncate">
                           {file.name}
                         </span>
                         {file.matchedSubject && (
-                          <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-zinc-800 border border-zinc-700 text-zinc-300 shrink-0">
+                          <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-800 border border-slate-700 text-slate-300 shrink-0">
                             {file.matchedSubject}
                           </span>
                         )}
                       </div>
-                      <div className="text-xs text-zinc-400 font-mono mt-0.5 flex items-center gap-3">
+                      <div className="text-xs text-slate-400 font-mono mt-0.5 flex items-center gap-3">
                         <span>
                           {file.mimeType.includes('document')
                             ? 'Google Doc'
@@ -294,7 +294,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
 
                   <div className="flex items-center gap-3 shrink-0">
                     {qCount !== undefined && (
-                      <span className="font-mono text-xs px-2 py-1 rounded bg-zinc-800 border border-zinc-700 text-zinc-300">
+                      <span className="font-mono text-xs px-2 py-1 rounded bg-slate-800 border border-slate-700 text-slate-300">
                         {qCount} {qCount === 1 ? 'question' : 'questions'}
                       </span>
                     )}
@@ -304,7 +304,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
                         href={file.webViewLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs text-zinc-400 hover:text-zinc-200 border border-zinc-800 px-2.5 py-1 rounded hover:bg-zinc-800"
+                        className="text-xs text-slate-400 hover:text-slate-200 border border-slate-800 px-2.5 py-1 rounded-lg hover:bg-slate-800 transition-colors"
                       >
                         Open in Drive
                       </a>
@@ -317,14 +317,14 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
         </div>
 
         {/* Modal Footer */}
-        <div className="p-4 border-t border-zinc-800 bg-zinc-950 flex items-center justify-between text-xs text-zinc-400">
+        <div className="p-4 border-t border-slate-800 bg-[#080e1c] flex items-center justify-between text-xs text-slate-400">
           <span>
             {selectedFileIds.size} of {files.length} files selected for flashcard study
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 bg-zinc-100 text-zinc-900 font-medium rounded hover:bg-white text-xs"
+            className="px-4 py-2 bg-slate-100 text-slate-950 font-medium rounded-lg hover:bg-white text-xs transition-colors cursor-pointer shadow-xs"
           >
             Done & Load Questions
           </button>

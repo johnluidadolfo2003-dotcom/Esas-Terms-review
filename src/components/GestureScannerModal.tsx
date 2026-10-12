@@ -474,20 +474,22 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
     <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 font-sans">
       <div className="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-2xl max-h-[92vh] overflow-hidden flex flex-col shadow-2xl animate-in fade-in zoom-in duration-150">
         {/* Header */}
-        <div className="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-teal-950/80 border border-teal-600/50 flex items-center justify-center text-teal-300 text-base">
-              🎯
+        <div className="px-4 py-3 bg-[#080e1c] border-b border-slate-800 flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5" />
+              </svg>
             </div>
             <div>
-              <h2 className="text-sm sm:text-base font-bold text-slate-100 flex items-center gap-2">
+              <h2 className="text-sm sm:text-base font-semibold text-slate-100 flex items-center gap-2">
                 Scan & Calibrate Hand Gestures
-                <span className="text-[11px] font-normal px-2 py-0.5 rounded-full bg-teal-950 border border-teal-700/60 text-teal-300">
+                <span className="text-[10px] font-mono text-slate-400">
                   Profile Scanner
                 </span>
               </h2>
               <p className="text-[11px] text-slate-400">
-                Teach the system your exact natural hand gestures for 100% accurate answering
+                Calibrate custom hand gestures for hands-free answering
               </p>
             </div>
           </div>
@@ -503,7 +505,7 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
         </div>
 
         {/* Step Navigation Bar */}
-        <div className="px-4 py-2 bg-slate-950/70 border-b border-slate-800/80 flex items-center justify-between text-xs overflow-x-auto no-scrollbar gap-1">
+        <div className="px-4 py-2 bg-[#080e1c] border-b border-slate-800 flex items-center justify-between text-xs overflow-x-auto no-scrollbar gap-1">
           <div className="flex items-center gap-1">
             {STEPS.map((step, idx) => {
               const isDone = Boolean(calibratedGestures[step.id]?.calibratedAt);
@@ -518,14 +520,14 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
                   }}
                   className={`px-2.5 py-1 rounded-md font-mono text-[11px] transition-all cursor-pointer flex items-center gap-1 ${
                     isCurrent
-                      ? 'bg-teal-600 text-white font-bold shadow-sm'
+                      ? 'bg-slate-100 text-slate-950 font-bold shadow-sm'
                       : isDone
-                      ? 'bg-slate-800 text-teal-300 border border-teal-800/60'
+                      ? 'bg-slate-800 text-slate-200 border border-slate-700'
                       : 'bg-slate-900 text-slate-400 hover:text-slate-200'
                   }`}
                 >
                   <span>{step.id}</span>
-                  {isDone && <span className="text-teal-300">✓</span>}
+                  {isDone && <span className="text-emerald-400">✓</span>}
                 </button>
               );
             })}
@@ -534,13 +536,13 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
           <button
             type="button"
             onClick={() => setIsTestMode(true)}
-            className={`px-3 py-1 rounded-md text-[11px] font-semibold transition-all cursor-pointer flex items-center gap-1 ${
+            className={`px-3 py-1 rounded-md text-[11px] font-medium transition-all cursor-pointer flex items-center gap-1 ${
               isTestMode
-                ? 'bg-emerald-600 text-white font-bold shadow-sm'
-                : 'bg-slate-800 text-emerald-300 border border-emerald-800/50 hover:bg-slate-700'
+                ? 'bg-slate-700 text-white font-semibold'
+                : 'bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700'
             }`}
           >
-            🧪 Test Playground
+            Test Playground
           </button>
         </div>
 
@@ -548,51 +550,51 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
         <div className="p-4 overflow-y-auto flex-1 flex flex-col gap-4">
           {/* Top Instruction Box */}
           {!isTestMode && currentStep ? (
-            <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 flex items-start justify-between gap-3">
+            <div className="bg-[#080e1c] border border-slate-800 rounded-xl p-3 flex items-start justify-between gap-3">
               <div className="flex items-start gap-2.5">
                 <span className="text-2xl">{currentStep.handIcon}</span>
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-bold text-slate-100 text-sm">{currentStep.title}</span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800/50">
+                    <span className="font-semibold text-slate-100 text-sm">{currentStep.title}</span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">
                       Step {currentStepIdx + 1} of {STEPS.length}
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 mt-0.5 leading-snug">{currentStep.description}</p>
-                  <p className="text-[11px] text-teal-400/90 mt-1 italic">💡 {currentStep.tip}</p>
+                  <p className="text-[11px] text-slate-400 mt-1 italic">{currentStep.tip}</p>
                 </div>
               </div>
 
-              {/* Status pill */}
+              {/* Status indicator */}
               <div className="shrink-0 text-right">
                 {isCapturedJustNow ? (
-                  <span className="px-2.5 py-1 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-bold animate-bounce inline-block">
-                    ✅ Scanned!
+                  <span className="px-2.5 py-1 rounded-md bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-semibold inline-block">
+                    Scanned
                   </span>
                 ) : isScanning ? (
-                  <span className="px-2.5 py-1 rounded-full bg-teal-950 border border-teal-500 text-teal-300 text-xs font-bold animate-pulse inline-block">
-                    Scanning {scanProgress}%...
+                  <span className="px-2.5 py-1 rounded-md bg-slate-800 border border-slate-600 text-slate-200 text-xs font-medium animate-pulse inline-block">
+                    Scanning {scanProgress}%
                   </span>
                 ) : (
-                  <span className="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 text-[11px] inline-block">
-                    Waiting for hand...
+                  <span className="px-2 py-0.5 rounded-md bg-slate-900 text-slate-400 text-[11px] inline-block">
+                    Waiting for hand
                   </span>
                 )}
               </div>
             </div>
           ) : (
             /* Test Mode Header */
-            <div className="bg-emerald-950/30 border border-emerald-800/50 rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-[#080e1c] border border-slate-800 rounded-xl p-3 flex items-center justify-between">
               <div>
-                <span className="font-bold text-emerald-300 text-sm flex items-center gap-1.5">
-                  🧪 Live Gesture Test Playground
+                <span className="font-semibold text-slate-100 text-sm flex items-center gap-1.5">
+                  Live Gesture Test Playground
                 </span>
-                <p className="text-xs text-slate-300 mt-0.5">
-                  Show any gesture to the camera right now to verify how your calibrated profile recognizes it!
+                <p className="text-xs text-slate-400 mt-0.5">
+                  Show any gesture to the camera to verify how your calibrated profile recognizes it.
                 </p>
               </div>
-              <span className="text-xs px-2 py-1 rounded bg-emerald-900/60 text-emerald-200 font-mono">
-                Active & Calibrated
+              <span className="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono">
+                Calibrated
               </span>
             </div>
           )}
@@ -740,27 +742,27 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
                 return (
                   <div
                     key={step.id}
-                    className={`p-2 rounded-lg border flex flex-col justify-between ${
+                    className={`p-2.5 rounded-xl border flex flex-col justify-between ${
                       step.id === currentStep?.id && !isTestMode
-                        ? 'border-teal-500 bg-teal-950/40'
+                        ? 'border-slate-500 bg-slate-800/90'
                         : isCustom
-                        ? 'border-emerald-700/60 bg-emerald-950/20'
-                        : 'border-slate-800 bg-slate-900/60'
+                        ? 'border-slate-700 bg-slate-900/90'
+                        : 'border-slate-800 bg-[#080e1c]'
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-slate-200 font-mono">
+                      <span className="font-bold text-slate-100 font-mono">
                         {step.id}
                       </span>
                       <span className="text-[10px]">{step.handIcon}</span>
                     </div>
 
                     <div className="mt-1">
-                      <div className="text-[11px] text-slate-300 font-medium">
+                      <div className="text-[11px] text-slate-200 font-medium">
                         {data ? `${data.fingerCount} Finger${data.fingerCount > 1 ? 's' : ''}` : 'Default'}
                       </div>
                       <div className="text-[10px] text-slate-400">
-                        {isCustom ? 'Custom Scanned' : 'Standard'}
+                        {isCustom ? 'Custom Calibrated' : 'Standard'}
                       </div>
                     </div>
 
@@ -771,9 +773,9 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
                         const idx = STEPS.findIndex((s) => s.id === step.id);
                         if (idx !== -1) setCurrentStepIdx(idx);
                       }}
-                      className="mt-1.5 text-[10px] text-teal-400 hover:text-teal-300 text-left font-mono cursor-pointer"
+                      className="mt-1.5 text-[10px] text-slate-300 hover:text-white text-left font-mono cursor-pointer"
                     >
-                      {isCustom ? 'Re-scan ↺' : 'Scan +'}
+                      {isCustom ? 'Re-scan' : 'Scan'}
                     </button>
                   </div>
                 );
@@ -783,17 +785,17 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
         </div>
 
         {/* Modal Footer Controls */}
-        <div className="px-4 py-3 bg-slate-900 border-t border-slate-800 flex items-center justify-between gap-2">
+        <div className="px-4 py-3 bg-[#080e1c] border-t border-slate-800 flex items-center justify-between gap-2">
           {!isTestMode ? (
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={handleManualCapture}
                 disabled={liveFingerState.count === 0}
-                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-200 font-semibold text-xs border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5"
+                className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 text-slate-200 font-medium text-xs border border-slate-700 transition-colors cursor-pointer flex items-center gap-1.5"
                 title="Manually capture current hand pose right now without waiting for steady hold timer"
               >
-                📸 Capture Now
+                Capture Now
               </button>
 
               <button
@@ -817,7 +819,7 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
                 setIsTestMode(false);
                 setCurrentStepIdx(0);
               }}
-              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-colors cursor-pointer"
+              className="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-colors cursor-pointer"
             >
               ← Back to Scanning Steps
             </button>
@@ -835,9 +837,9 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
             <button
               type="button"
               onClick={handleSaveAndClose}
-              className="px-4 py-1.5 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs shadow-md transition-colors cursor-pointer flex items-center gap-1.5"
+              className="px-4 py-1.5 rounded-lg bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs"
             >
-              ✓ Save & Use Gestures
+              Save & Use Gestures
             </button>
           </div>
         </div>

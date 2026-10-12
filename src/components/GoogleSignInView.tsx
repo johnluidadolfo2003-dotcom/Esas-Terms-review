@@ -12,46 +12,43 @@ export const GoogleSignInView: React.FC<GoogleSignInViewProps> = ({
   error,
 }) => {
   return (
-    <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center px-4 py-12">
-      <div className="w-full max-w-lg bg-slate-900 border border-slate-700 rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
-        {/* Top decorative gradient line */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600"></div>
-
+    <div className="min-h-screen bg-[#0b1326] flex flex-col justify-center items-center px-4 py-12 font-sans">
+      <div className="w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
           ESAS TERMS
         </h1>
-        <p className="text-sm text-slate-300 mt-2.5 leading-relaxed">
+        <p className="text-sm text-slate-400 mt-2.5 leading-relaxed">
           Master authentic board exam terms and questions across Economics, Mechanics 1 & 2, EE Laws, Project Management, and Communication.
         </p>
 
         {/* Subjects list info */}
-        <div className="w-full my-6 p-4.5 rounded-xl bg-slate-950/80 border border-slate-800 text-left shadow-inner">
-          <div className="text-xs font-mono text-emerald-400 font-semibold uppercase tracking-wider mb-2.5">
+        <div className="w-full my-6 p-4.5 rounded-xl bg-[#080e1c] border border-slate-800 text-left">
+          <div className="text-xs font-mono text-slate-400 font-semibold uppercase tracking-wider mb-2.5">
             Target Engineering Subjects
           </div>
-          <div className="grid grid-cols-2 gap-2.5 text-xs text-slate-200">
+          <div className="grid grid-cols-2 gap-2.5 text-xs text-slate-300">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>Economics</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
               <span>Mechanics 1 (Statics)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
               <span>Mechanics 2 (Dynamics)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
               <span>EE Laws & Ethics</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
               <span>Project Management</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
               <span>Communication</span>
             </div>
           </div>
