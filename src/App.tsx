@@ -24,6 +24,7 @@ import { DRIVE_COPIED_QUESTIONS } from './data/driveQuestions';
 import { StudyHeader } from './components/StudyHeader';
 import { SingleFlashcard } from './components/SingleFlashcard';
 import { HandGestureController } from './components/HandGestureController';
+import { GestureScannerModal } from './components/GestureScannerModal';
 import { DriveExplorerModal } from './components/DriveExplorerModal';
 import { PasteQuestionsModal } from './components/PasteQuestionsModal';
 import { ShareModal } from './components/ShareModal';
@@ -171,6 +172,7 @@ export default function App() {
   const [studyMode, setStudyMode] = useState<'all' | 'missed' | 'flagged'>('all');
   const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
   const [isCameraGestureActive, setIsCameraGestureActive] = useState(false);
+  const [isGestureScannerOpen, setIsGestureScannerOpen] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -810,6 +812,7 @@ export default function App() {
         onExitQuiz={handleExitQuiz}
         isCameraGestureActive={isCameraGestureActive}
         onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
+        onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
       />
 
       {/* Main Flashcard / Quiz Viewport */}
@@ -1064,6 +1067,12 @@ export default function App() {
           setIsQuizCongratsModalOpen(false);
         }}
       />
+      {/* Standalone Gesture Calibration Scanner Modal */}
+      <GestureScannerModal
+        isOpen={isGestureScannerOpen}
+        onClose={() => setIsGestureScannerOpen(false)}
+      />
+
       {/* Hands-Free Camera Gesture Controller */}
       <HandGestureController
         isActive={isCameraGestureActive}

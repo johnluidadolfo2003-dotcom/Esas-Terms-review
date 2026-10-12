@@ -1,4 +1,12 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { GestureScannerModal } from './GestureScannerModal';
+import {
+  GestureCalibrationProfile,
+  loadGestureProfile,
+  matchGesture,
+  extractFingerMetrics,
+  hasCustomCalibration,
+} from '../services/gestureCalibration';
 
 interface HandGestureControllerProps {
   isActive: boolean;
@@ -54,6 +62,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const [autoNextCountdown, setAutoNextCountdown] = useState<number | null>(null);
   const [isTimerPaused, setIsTimerPaused] = useState<boolean>(false);
   const [showGuide, setShowGuide] = useState<boolean>(false);
+
+  // Gesture calibration scanner state
+  const [isScannerOpen, setIsScannerOpen] = useState<boolean>(false);
+  const [customProfile, setCustomProfile] = useState<GestureCalibrationProfile>(() => loadGestureProfile());
+  const customProfileRef = useRef<GestureCalibrationProfile>(customProfile);
+  customProfileRef.current = customProfile;
+  const [liveMatchedChoice, setLiveMatchedChoice] = useState<string | null>(null);
+  const [liveConfidence, setLiveConfidence] = useState<number>(0);
 
   const holdingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const autoNextTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -189,34 +205,22 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           ctx.fill();
         }
 
-        // --- FINGER EXTENSION DETECTION ---
-        const isIndexExtended = landmarks[8].y < landmarks[6].y;
-        const isMiddleExtended = landmarks[12].y < landmarks[10].y;
-        const isRingExtended = landmarks[16].y < landmarks[14].y;
-        const isPinkyExtended = landmarks[20].y < landmarks[18].y;
+        // --- EXTRACT FINGER METRICS & MATCH GESTURE ---
+        const { fingerState, relativeDistances } = extractFingerMetrics(landmarks);
+        setDetectedFingers(fingerState.count);
 
-        // Thumb extension check: compare thumb tip to wrist distance
-        const isThumbExtended =
-          landmarks[4] && landmarks[3] && landmarks[0]
-            ? Math.hypot(landmarks[4].x - landmarks[0].x, landmarks[4].y - landmarks[0].y) >
-              Math.hypot(landmarks[3].x - landmarks[0].x, landmarks[3].y - landmarks[0].y) * 1.05
-            : false;
+        // Match against user's custom calibrated profile (falls back to standard count)
+        const matchResult = matchGesture(fingerState, relativeDistances, customProfileRef.current);
+        const mappedChoice: string | null = matchResult.matchedChoice;
+        setLiveMatchedChoice(matchResult.matchedChoice);
+        setLiveConfidence(matchResult.confidence);
 
-        let extendedCount = 0;
-        if (isIndexExtended) extendedCount++;
-        if (isMiddleExtended) extendedCount++;
-        if (isRingExtended) extendedCount++;
-        if (isPinkyExtended) extendedCount++;
-        if (isThumbExtended) extendedCount++;
-
-        setDetectedFingers(extendedCount);
-
-        let mappedChoice: string | null = null;
-        if (extendedCount === 1) mappedChoice = 'A';
-        else if (extendedCount === 2) mappedChoice = 'B';
-        else if (extendedCount === 3) mappedChoice = 'C';
-        else if (extendedCount === 4) mappedChoice = 'D';
-        else if (extendedCount === 5) mappedChoice = 'NEXT';
+        // If calibration scanner modal is currently open, do not trigger background quiz actions
+        if (isScannerOpen) {
+          clearHoldTimer();
+          ctx.restore();
+          return;
+        }
 
         // Process hold gesture:
         // Case 1: Question not answered yet, hold 1-4 fingers to select A, B, C, D
@@ -270,7 +274,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
       ctx.restore();
     },
-    [clearHoldTimer, triggerChoiceSelection]
+    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion, isScannerOpen]
   );
 
 // Request camera permission & start processing
@@ -466,6 +470,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         <div className="flex items-center gap-1">
           <button
             type="button"
+            onClick={() => setIsScannerOpen(true)}
+            className="text-xs px-2 py-0.5 rounded border border-teal-600/70 bg-teal-950/70 hover:bg-teal-900 text-teal-300 font-bold transition-colors cursor-pointer flex items-center gap-1"
+            title="Scan & calibrate your proper hand gestures for 100% accurate recognition"
+          >
+            <span>🎯 Scan</span>
+            {customProfile.updatedAt > 0 && (
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom calibrated profile active"></span>
+            )}
+          </button>
+
+          <button
+            type="button"
             onClick={() => setShowGuide((prev) => !prev)}
             className={`text-xs px-2 py-0.5 rounded border cursor-pointer font-bold transition-colors ${
               showGuide
@@ -527,6 +543,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             </div>
             
             <div className="space-y-1.5 text-[11px] text-slate-300 leading-snug">
+              <p><strong>0. 🎯 Scan Gestures First:</strong> Tap <strong>🎯 Scan</strong> anytime to let the AI calibrate to your hands!</p>
               <p><strong>1. Select Answer:</strong> Point fingers at the camera:</p>
               <ul className="pl-3 list-disc text-teal-300 font-mono text-[10px] space-y-0.5">
                 <li>☝️ <strong>1 Finger</strong> = Option <strong>A</strong></li>
@@ -582,6 +599,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 )}
               </button>
 
+              <button
+                type="button"
+                onClick={async () => {
+                  await handleRequestPermission();
+                  setIsScannerOpen(true);
+                }}
+                className="w-full px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-teal-700/60 text-teal-300 font-semibold text-[11px] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                title="Scan and calibrate your hand gestures first"
+              >
+                🎯 Scan My Gestures First (Recommended)
+              </button>
+
               {typeof window !== 'undefined' && window.self !== window.top && (
                 <a
                   href={window.location.href}
@@ -632,19 +661,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Active Detected Fingers Badge */}
         {detectedFingers > 0 && (
-          <div className="absolute top-2 left-2 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20">
-            {detectedFingers} Finger{detectedFingers > 1 ? 's' : ''} →{' '}
-            {detectedFingers === 1
-              ? 'Choice A'
-              : detectedFingers === 2
-              ? 'Choice B'
-              : detectedFingers === 3
-              ? 'Choice C'
-              : detectedFingers === 4
-              ? 'Choice D'
-              : detectedFingers === 5
-              ? 'Next 👋'
-              : '?'}
+          <div className="absolute top-2 left-2 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1.5">
+            <span>
+              {liveMatchedChoice === 'NEXT'
+                ? 'Open Palm → Next 👋'
+                : liveMatchedChoice
+                ? `${detectedFingers}F → Choice ${liveMatchedChoice}`
+                : `${detectedFingers} Finger${detectedFingers > 1 ? 's' : ''}`}
+            </span>
+            {customProfile.updatedAt > 0 && liveConfidence > 0 && (
+              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-950 text-emerald-300 border border-emerald-700 font-normal">
+                {liveConfidence}%
+              </span>
+            )}
           </div>
         )}
 
@@ -806,6 +835,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           </button>
         </div>
       </div>
+
+      {/* Gesture Calibration Scanner Modal */}
+      <GestureScannerModal
+        isOpen={isScannerOpen}
+        onClose={() => setIsScannerOpen(false)}
+        existingStream={activeStreamRef.current}
+        onCalibrationSaved={(newProfile) => {
+          setCustomProfile(newProfile);
+          customProfileRef.current = newProfile;
+          setStatusMessage('Your custom hand gestures have been calibrated!');
+        }}
+      />
     </div>
   );
 };

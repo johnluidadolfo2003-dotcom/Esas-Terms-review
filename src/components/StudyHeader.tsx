@@ -26,6 +26,7 @@ interface StudyHeaderProps {
   onExitQuiz?: () => void;
   isCameraGestureActive?: boolean;
   onToggleCameraGesture?: () => void;
+  onOpenGestureScanner?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -56,6 +57,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   onExitQuiz,
   isCameraGestureActive,
   onToggleCameraGesture,
+  onOpenGestureScanner,
 }) => {
   const totalAttempted = correctCount + incorrectCount;
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
@@ -147,6 +149,18 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
               <span className="hidden sm:inline">Camera</span>
+            </button>
+          )}
+
+          {/* Calibrate / Scan Hand Gestures Button */}
+          {onOpenGestureScanner && (
+            <button
+              type="button"
+              onClick={onOpenGestureScanner}
+              className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold bg-slate-800 border border-teal-800/70 text-teal-300 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer flex items-center gap-1 shrink-0"
+              title="Scan and calibrate your personal hand gestures first"
+            >
+              <span>🎯 Scan</span>
             </button>
           )}
 
