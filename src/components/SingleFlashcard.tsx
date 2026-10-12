@@ -13,11 +13,10 @@ interface SingleFlashcardProps {
   onPrevious: () => void;
   hasPrevious: boolean;
   hasNext: boolean;
-  isFlagged: boolean;
-  onToggleFlag: () => void;
+  isFlagged?: boolean;
+  onToggleFlag?: () => void;
   aiVoiceMode: AiVoiceMode;
   onSetAiVoiceMode: (mode: AiVoiceMode) => void;
-  onEditQuestion?: (questionId: string) => void;
 }
 
 export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
@@ -35,7 +34,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   onToggleFlag,
   aiVoiceMode,
   onSetAiVoiceMode,
-  onEditQuestion,
 }) => {
   const isAnswered = selectedChoice !== null;
   const isCorrect = isAnswered && selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
@@ -236,66 +234,40 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
       {/* Flashcard Header Bar - Super Slim */}
       <div className="flex items-center justify-between px-0.5 text-xs sm:text-sm">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-slate-300 font-semibold bg-slate-800/90 px-2 py-0.5 rounded text-xs border border-slate-700/80">
+          <span className="font-mono text-slate-300 font-semibold bg-slate-800 px-2 py-0.5 rounded text-xs border border-slate-700">
             {currentIndex + 1} / {totalQuestions}
           </span>
-          <span className="px-2 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800 text-[11px] font-semibold">
+          <span className="px-2.5 py-0.5 rounded bg-teal-950 text-teal-300 border border-teal-800 text-[11px] font-semibold">
             {question.subject}
           </span>
-        </div>
-
-        <div className="flex items-center gap-1.5">
-          {onEditQuestion && (
-            <button
-              type="button"
-              onClick={() => onEditQuestion(question.id)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-md transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shrink-0"
-              title="Edit Question, Choices (Wording & Letters) and Final Correct Answer"
-            >
-              <span>✏️</span>
-              <span>Edit Question & Choices</span>
-            </button>
-          )}
-
-          <button
-            type="button"
-            onClick={onToggleFlag}
-            className={`px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer ${
-              isFlagged
-                ? 'bg-amber-600 text-white border-amber-500'
-                : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
-            }`}
-          >
-            {isFlagged ? '★ Flagged' : '☆ Flag'}
-          </button>
         </div>
       </div>
 
       {/* Main Single Flashcard Surface - Optimized for Phone Height */}
-      <div className="bg-slate-900 border border-slate-700/80 rounded-xl p-3.5 sm:p-7 flex flex-col gap-3 sm:gap-5 shadow-lg relative overflow-hidden">
+      <div className="bg-slate-900 border border-slate-800 rounded-xl p-3.5 sm:p-7 flex flex-col gap-3 sm:gap-5 shadow-lg relative overflow-hidden">
         {/* Source info (compact) */}
-        <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400/90 border-b border-slate-800/80 pb-1.5 sm:pb-2.5 font-mono">
+        <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400 border-b border-slate-800 pb-1.5 sm:pb-2.5 font-mono">
           <div className="truncate max-w-[220px] sm:max-w-md">
             <span className="text-slate-500">Source: </span>
-            <span className="text-emerald-300 font-medium">{question.sourceFileName}</span>
+            <span className="text-teal-300 font-medium">{question.sourceFileName}</span>
           </div>
           {question.questionNumber && (
             <span className="text-slate-500 shrink-0">#{question.questionNumber}</span>
           )}
         </div>
 
-        {/* AI Voice Status Banner when active */}
+        {/* Voice Status Banner when active */}
         {aiVoiceMode !== 'off' && (
           <div className="bg-slate-950 border border-slate-800 rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-2">
               <span
                 className={`px-2 py-0.5 rounded text-[11px] font-bold ${
                   aiVoiceMode === 'ai_reads_you_answer'
-                    ? 'bg-emerald-950 text-emerald-300 border border-emerald-800'
-                    : 'bg-cyan-950 text-cyan-300 border border-cyan-800'
+                    ? 'bg-teal-950 text-teal-300 border border-teal-800'
+                    : 'bg-sky-950 text-sky-300 border border-sky-800'
                 }`}
               >
-                {aiVoiceMode === 'ai_reads_you_answer' ? '🗣️ AI Reads, You Answer' : '🧠 AI Reads & Answers'}
+                {aiVoiceMode === 'ai_reads_you_answer' ? 'Read Questions Mode' : 'Auto Read & Answer Mode'}
               </span>
 
               {/* Status Indicator */}
@@ -399,20 +371,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         )}
 
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
-        <div className="py-0.5 sm:py-1 flex items-start justify-between gap-2">
+        <div className="py-0.5 sm:py-1">
           <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
             {question.question}
           </h2>
-          {onEditQuestion && (
-            <button
-              type="button"
-              onClick={() => onEditQuestion(question.id)}
-              className="shrink-0 px-2 py-1 rounded bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/60 text-xs font-bold transition-all cursor-pointer flex items-center gap-1 shadow-xs"
-              title="Edit wording, choice letters/text, or set correct answer"
-            >
-              <span>✏️ Edit</span>
-            </button>
-          )}
         </div>
 
         {/* Choices Options List */}
@@ -502,16 +464,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 {isCorrect ? '✓ Correct answer!' : `✗ Incorrect. Correct is: ${question.correctChoiceId}`}
               </span>
               <div className="flex items-center gap-1.5 shrink-0">
-                {onEditQuestion && (
-                  <button
-                    type="button"
-                    onClick={() => onEditQuestion(question.id)}
-                    className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-xs transition-colors cursor-pointer"
-                    title="Edit wording or fix incorrect choices/answer"
-                  >
-                    ✏️ Edit Choices
-                  </button>
-                )}
                 {onResetAnswer && (
                   <button
                     type="button"
@@ -522,6 +474,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                     ↺ Try Again
                   </button>
                 )}
+                <span className="text-[10px] sm:text-xs font-mono opacity-80 bg-black/20 px-2 py-0.5 rounded hidden xs:inline">
+                  Tap Next →
+                </span>
               </div>
             </div>
             {(() => {

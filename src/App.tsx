@@ -18,6 +18,7 @@ import {
   FlashcardQuestion,
   SubjectCategory,
   parseQuestionsFromText,
+  shuffleQuestionChoices,
 } from './services/questionParser';
 import { DRIVE_COPIED_QUESTIONS } from './data/driveQuestions';
 import { StudyHeader } from './components/StudyHeader';
@@ -58,7 +59,6 @@ export default function App() {
   // Modals
   const [isDriveModalOpen, setIsDriveModalOpen] = useState(false);
   const [isPasteModalOpen, setIsPasteModalOpen] = useState(false);
-  const [editingQuestionIdForModal, setEditingQuestionIdForModal] = useState<string | null>(null);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sharedImportNotice, setSharedImportNotice] = useState<string | null>(null);
 
@@ -551,21 +551,6 @@ export default function App() {
     setCustomQuestions((prev) => deleteCustomQuestion(questionId, prev));
   };
 
-  const handleUpdateCustomQuestion = (updatedQuestion: FlashcardQuestion) => {
-    setCustomQuestions((prev) => {
-      const existingIndex = prev.findIndex((q) => q.id === updatedQuestion.id);
-      let updatedList: FlashcardQuestion[];
-      if (existingIndex >= 0) {
-        updatedList = [...prev];
-        updatedList[existingIndex] = updatedQuestion;
-      } else {
-        updatedList = [updatedQuestion, ...prev];
-      }
-      saveCustomQuestions(updatedList);
-      return updatedList;
-    });
-  };
-
   const handleImportBackup = (imported: FlashcardQuestion[]) => {
     setCustomQuestions((prev) => {
       const existingIds = new Set(prev.map((q) => q.id));
@@ -716,7 +701,12 @@ export default function App() {
     });
   };
 
-  const currentQuestion = filteredQuestions[currentCardIndex];
+  const rawCurrentQuestion = filteredQuestions[currentCardIndex];
+  const currentQuestion = useMemo(() => {
+    if (!rawCurrentQuestion) return rawCurrentQuestion;
+    return shuffleQuestionChoices(rawCurrentQuestion, isShuffled, shuffleSeed);
+  }, [rawCurrentQuestion, isShuffled, shuffleSeed]);
+
   const currentSelectedChoice = currentQuestion ? userAnswers[currentQuestion.id] || null : null;
 
   // Automatically reset the question answer whenever the user leaves the question
@@ -836,12 +826,9 @@ export default function App() {
             <div className="bg-slate-900 border border-slate-800 rounded-xl p-3 sm:p-4 shadow-sm flex flex-col gap-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2 min-w-0">
-                  <span className="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/40 text-emerald-300 font-bold text-base flex items-center justify-center shrink-0 shadow-inner">
-                    📝
-                  </span>
                   <div>
                     <h2 className="text-xs sm:text-base font-bold text-slate-100 leading-tight">
-                      70-Item Comprehensive Board Exam Quiz
+                      70 Items Quiz
                     </h2>
                     <p className="text-[10px] sm:text-xs text-slate-400 font-mono">
                       Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
@@ -849,10 +836,10 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0 font-mono text-xs ml-auto">
-                  <span className="text-slate-400 text-[11px] sm:text-xs">
+                <div className="flex items-center gap-2 shrink-0 text-xs ml-auto">
+                  <span className="text-slate-400 text-[11px] sm:text-xs font-mono">
                     Progress:{' '}
-                    <strong className="text-emerald-400 font-bold">
+                    <strong className="text-teal-400 font-bold">
                       {Object.keys(quizAnswers).length}
                     </strong>{' '}
                     / {quizQuestions.length}
@@ -860,9 +847,17 @@ export default function App() {
                   <button
                     type="button"
                     onClick={handleFinishQuiz}
-                    className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                    className="px-3 py-1.5 bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
                   >
                     Finish Quiz
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleExitQuiz}
+                    className="px-3 py-1.5 bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                    title="Exit quiz and return to per-subject review"
+                  >
+                    Exit Quiz
                   </button>
                 </div>
               </div>
@@ -908,7 +903,7 @@ export default function App() {
             {/* Current Quiz Flashcard Question */}
             {quizQuestions[quizCurrentIndex] && (
               <SingleFlashcard
-                question={quizQuestions[quizCurrentIndex]}
+                question={shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed)}
                 currentIndex={quizCurrentIndex}
                 totalQuestions={quizQuestions.length}
                 selectedChoice={quizAnswers[quizQuestions[quizCurrentIndex].id] || null}
@@ -938,10 +933,6 @@ export default function App() {
                 }}
                 aiVoiceMode={aiVoiceMode}
                 onSetAiVoiceMode={setAiVoiceMode}
-                onEditQuestion={(qId) => {
-                  setEditingQuestionIdForModal(qId);
-                  setIsPasteModalOpen(true);
-                }}
               />
             )}
           </div>
@@ -951,32 +942,24 @@ export default function App() {
             <div className="w-12 h-12 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center mb-4 text-zinc-300 font-mono text-sm">
               0 Q
             </div>
-            <h3 className="text-lg font-semibold text-zinc-100">
-              {studyMode === 'missed'
-                ? 'No Missed Questions'
-                : studyMode === 'flagged'
-                ? 'No Flagged Questions'
-                : selectedSubject !== 'All'
+            <h3 className="text-lg font-semibold text-slate-100">
+              {selectedSubject !== 'All'
                 ? `No Questions Found for ${selectedSubject}`
                 : 'No Reviewer Questions Found'}
             </h3>
-            <p className="text-sm text-zinc-400 mt-2 max-w-md leading-relaxed">
-              {studyMode === 'missed'
-                ? 'You have answered all attempted questions correctly.'
-                : studyMode === 'flagged'
-                ? 'You have not flagged any questions for review yet.'
-                : selectedSubject !== 'All'
-                ? `Switch to another subject tab or view All Cards.`
-                : 'All questions from the Drive reviewers are ready.'}
+            <p className="text-sm text-slate-400 mt-2 max-w-md leading-relaxed">
+              {selectedSubject !== 'All'
+                ? `Switch to another subject tab or select All Subjects.`
+                : 'Questions from the board exam reviewers are ready.'}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 justify-center">
               <button
                 type="button"
-                onClick={() => setStudyMode('all')}
-                className="px-4 py-2 bg-zinc-100 text-zinc-950 font-medium text-xs rounded hover:bg-white cursor-pointer"
+                onClick={() => setSelectedSubject('All')}
+                className="px-4 py-2 bg-teal-600 text-white font-medium text-xs rounded hover:bg-teal-500 cursor-pointer"
               >
-                View All Cards
+                View All Subjects
               </button>
               <button
                 type="button"
@@ -1011,10 +994,6 @@ export default function App() {
               onToggleFlag={handleToggleFlag}
               aiVoiceMode={aiVoiceMode}
               onSetAiVoiceMode={setAiVoiceMode}
-              onEditQuestion={(qId) => {
-                setEditingQuestionIdForModal(qId);
-                setIsPasteModalOpen(true);
-              }}
             />
           )
         )}
@@ -1049,19 +1028,14 @@ export default function App() {
       {/* Paste Questions Modal */}
       <PasteQuestionsModal
         isOpen={isPasteModalOpen}
-        onClose={() => {
-          setIsPasteModalOpen(false);
-          setEditingQuestionIdForModal(null);
-        }}
+        onClose={() => setIsPasteModalOpen(false)}
         onAddQuestions={handleAddPastedQuestions}
         savedCustomQuestions={customQuestions}
         allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
-        onUpdateQuestion={handleUpdateCustomQuestion}
         onImportBackup={handleImportBackup}
         onSyncToProject={handleSyncQuestionsToProject}
         isSyncingProject={isSyncingProject}
-        initialEditQuestionId={editingQuestionIdForModal}
       />
 
       {/* Share Reviewer Modal */}

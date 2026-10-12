@@ -16,7 +16,7 @@ export const QUIZ_SUBJECT_QUOTAS: SubjectQuota[] = [
 
 export const TOTAL_QUIZ_ITEMS = QUIZ_SUBJECT_QUOTAS.reduce((acc, item) => acc + item.count, 0);
 
-const LOCAL_STORAGE_USED_IDS_KEY = 'bayot_quiz_used_ids_v1';
+const LOCAL_STORAGE_USED_IDS_KEY = 'esas_terms_quiz_used_ids_v1';
 
 export function getUsedQuizQuestionIds(): Record<string, string[]> {
   try {

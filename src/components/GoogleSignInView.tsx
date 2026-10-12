@@ -17,12 +17,8 @@ export const GoogleSignInView: React.FC<GoogleSignInViewProps> = ({
         {/* Top decorative gradient line */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600"></div>
 
-        <div className="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center font-bold text-white text-xl shadow-lg mb-4">
-          EF
-        </div>
-
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
-          BAYOT AG MAG TUON
+          ESAS TERMS
         </h1>
         <p className="text-sm text-slate-300 mt-2.5 leading-relaxed">
           Master authentic board exam terms and questions across Economics, Mechanics 1 & 2, EE Laws, Project Management, and Communication.

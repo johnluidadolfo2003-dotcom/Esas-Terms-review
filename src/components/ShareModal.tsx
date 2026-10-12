@@ -169,7 +169,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   const handleNativeShare = async () => {
-    const title = 'BAYOT AG MAG TUON';
+    const title = 'ESAS TERMS';
     const text =
       selectedSubjectFilter === 'All'
         ? 'Engineering Board Exam Flashcard Reviewer with questions from Google Drive.'

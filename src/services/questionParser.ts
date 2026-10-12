@@ -478,8 +478,12 @@ export function parseQuestionsFromText(
 /**
  * Shuffles choices for a question so that the correct answer is distributed across A, B, C, D
  */
-export function shuffleQuestionChoices(question: FlashcardQuestion): FlashcardQuestion {
-  if (!question.choices || question.choices.length < 2) return question;
+export function shuffleQuestionChoices(
+  question: FlashcardQuestion,
+  isShuffled: boolean = true,
+  shuffleSeed: number = 0
+): FlashcardQuestion {
+  if (!isShuffled || !question || !question.choices || question.choices.length < 2) return question;
 
   const correctChoiceObj = question.choices.find(
     (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
@@ -489,14 +493,14 @@ export function shuffleQuestionChoices(question: FlashcardQuestion): FlashcardQu
   const correctText = correctChoiceObj.text;
   const choiceTexts = question.choices.map((c) => c.text);
 
-  let seed = 0;
+  let seed = shuffleSeed;
   for (let i = 0; i < question.id.length; i++) {
     seed += question.id.charCodeAt(i) * (i + 1);
   }
 
   const shuffledTexts = [...choiceTexts];
   let m = shuffledTexts.length;
-  let s = seed;
+  let s = seed || 12345;
   while (m) {
     s = (s * 9301 + 49297) % 233280;
     const rnd = s / 233280;
@@ -616,3 +620,5 @@ function parseCsvContent(
 
   return questions;
 }
+
+

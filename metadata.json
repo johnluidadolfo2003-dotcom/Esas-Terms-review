@@ -1,6 +1,6 @@
 {
-  "name": "BAYOT AG MAG TUON",
-  "description": "Single-question flashcard study app scanning Google Drive for Economics, Mechanics 1 and 2, EE Laws, Project Management, and Communication questions.",
+  "name": "ESAS TERMS",
+  "description": "Engineering Board Exam Reviewer for Economics, Mechanics, EE Laws, Project Management, and Communication.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

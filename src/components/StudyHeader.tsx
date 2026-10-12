@@ -40,19 +40,14 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   selectedSubject,
   onSelectSubject,
   subjectCounts,
-  studyMode,
-  onSetStudyMode,
   aiVoiceMode,
   onSetAiVoiceMode,
-  missedCount,
-  flaggedCount,
   correctCount,
   incorrectCount,
   isShuffled,
   onToggleShuffle,
   onDisableShuffle,
   onOpenPasteModal,
-  customQuestionsCount,
   isQuizActive = false,
   onStartQuiz,
   onFinishQuiz,
@@ -62,43 +57,41 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
 
   return (
-    <header className="w-full bg-slate-900 border-b border-slate-800 shadow-sm shrink-0 sticky top-0 z-20">
-      {/* Top Bar: Title + Metrics + Quiz Button + Add button */}
-      <div className="max-w-4xl mx-auto px-3 sm:px-4 py-2 flex items-center justify-between gap-2 border-b border-slate-800/60">
-        <div className="flex items-center gap-2 min-w-0">
-          <span className="w-6 h-6 rounded bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0 shadow-sm">
-            EF
-          </span>
-          <h1 className="text-xs sm:text-base font-bold text-slate-100 tracking-tight truncate">
-            BAYOT AG MAG TUON
+    <header className="w-full bg-slate-900 border-b border-slate-800 shadow-sm shrink-0 sticky top-0 z-30 font-sans">
+      {/* Primary Top Bar */}
+      <div className="max-w-4xl mx-auto px-2.5 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between gap-1.5 border-b border-slate-800/80">
+        {/* Brand / App Title */}
+        <div className="flex items-center gap-1.5 min-w-0">
+          <h1 className="text-xs sm:text-base font-extrabold text-slate-100 tracking-wider truncate uppercase">
+            ESAS TERMS
           </h1>
         </div>
 
-        {/* Compact Metrics, 70-Item Quiz Button & Add Questions */}
-        <div className="flex items-center gap-2 text-xs shrink-0">
-          {/* 70-Item Quiz Trigger / Status */}
+        {/* Action Controls & Metrics */}
+        <div className="flex items-center gap-1.5 text-xs shrink-0">
+          {/* Quiz Control or Quiz Trigger */}
           {isQuizActive ? (
-            <div className="flex items-center gap-1.5">
-              <span className="px-2 py-1 rounded bg-amber-500/20 border border-amber-500/50 text-amber-300 font-bold text-xs flex items-center gap-1 animate-pulse">
-                <span>📝</span> 70-Item Quiz Mode
+            <div className="flex items-center gap-1">
+              <span className="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/50 text-amber-300 font-bold text-[11px] sm:text-xs">
+                70 Items Quiz Mode
               </span>
               {onFinishQuiz && (
                 <button
                   type="button"
                   onClick={onFinishQuiz}
-                  className="px-2 py-1 rounded text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[11px] sm:text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white transition-colors cursor-pointer"
                 >
-                  Submit & Finish
+                  Finish
                 </button>
               )}
               {onExitQuiz && (
                 <button
                   type="button"
                   onClick={onExitQuiz}
-                  className="px-2 py-1 rounded text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer"
-                  title="Exit quiz mode"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[11px] sm:text-xs font-bold bg-rose-600 hover:bg-rose-500 text-white transition-colors cursor-pointer shadow-xs"
+                  title="Exit quiz mode and return to per-subject review"
                 >
-                  ✕ Exit
+                  Exit Quiz
                 </button>
               )}
             </div>
@@ -107,60 +100,63 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               <button
                 type="button"
                 onClick={onStartQuiz}
-                className="px-2.5 py-1 rounded text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-xs transition-all cursor-pointer flex items-center gap-1 shrink-0"
-                title="Start a 70-item board exam quiz covering all subjects"
+                className="px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white transition-all cursor-pointer flex items-center gap-1 shrink-0 shadow-xs"
+                title="Start 70 items quiz covering all subjects"
               >
-                <span>📝</span>
-                <span className="hidden sm:inline">70-Item Board Exam</span>
-                <span className="sm:hidden">70-Item Quiz</span>
+                <span>70 Items Quiz</span>
               </button>
             )
           )}
 
-          <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800/90 border border-slate-700/80 text-[11px] sm:text-xs text-slate-300 font-mono">
-            <span className="text-slate-400 hidden xs:inline">Score:</span>
-            <span className="text-emerald-400 font-bold">{accuracy}%</span>
+          {/* Score Counter: Checkmark and Cross Icons */}
+          <div className="flex items-center gap-1 px-2 py-0.5 sm:py-1 rounded bg-slate-950 border border-slate-800 text-[11px] sm:text-xs text-slate-300 font-mono">
+            <span className="text-teal-400 font-bold">{accuracy}%</span>
             <span className="text-slate-600">·</span>
-            <span className="text-emerald-300 font-medium">{correctCount}✓</span>
-            <span className="text-rose-300 font-medium">{incorrectCount}✗</span>
+            <span className="text-emerald-400 font-semibold flex items-center gap-0.5">
+              {correctCount}
+              <svg className="w-3 h-3 text-emerald-400 inline" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </span>
+            <span className="text-rose-400 font-semibold flex items-center gap-0.5">
+              {incorrectCount}
+              <svg className="w-3 h-3 text-rose-400 inline" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
           </div>
 
+          {/* Question Bank Modal Button */}
           {onOpenPasteModal && !isQuizActive && (
             <button
               type="button"
               onClick={onOpenPasteModal}
-              className="px-2.5 py-1 rounded-md text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-sm transition-all cursor-pointer flex items-center gap-1 shrink-0 active:scale-95"
-              title="Open Question Bank to edit wording, choices (A, B, C, D), and final correct answers"
+              className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold bg-slate-800 border border-slate-700 text-slate-200 hover:bg-slate-700 transition-colors cursor-pointer flex items-center gap-1 shrink-0"
+              title="Open Question Bank and PDF downloads"
             >
-              <span>✏️</span>
-              <span className="hidden sm:inline">Edit Question Bank</span>
-              <span className="sm:hidden">Edit Bank</span>
-              {typeof customQuestionsCount === 'number' && customQuestionsCount > 0 && (
-                <span className="text-[10px] bg-amber-800 text-amber-100 px-1.5 py-0.2 rounded font-mono">({customQuestionsCount})</span>
-              )}
+              <svg className="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
+              </svg>
+              <span className="hidden sm:inline">Bank</span>
             </button>
           )}
         </div>
       </div>
 
-      {/* Structured Controls Container */}
-      <div className="bg-slate-950/80 px-3 sm:px-4 py-2">
-        <div className="max-w-4xl mx-auto flex flex-col gap-2">
-          {/* Top Control Row: Subject Selector + Mode Filters + Shuffle */}
-          <div className="flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
+      {/* Secondary Controls Bar - Ultra Slim for Mobile */}
+      <div className="bg-slate-950 px-2.5 sm:px-4 py-1 sm:py-1.5">
+        <div className="max-w-4xl mx-auto flex flex-col gap-1">
+          {/* Controls Row: Subject Selector & Shuffle */}
+          <div className="flex items-center justify-between gap-1.5">
             {/* Subject Selector */}
-            <div className="flex items-center gap-2 min-w-0 flex-1 sm:flex-initial">
-              <span className="text-slate-400 text-[11px] font-semibold uppercase tracking-wider shrink-0 sm:hidden">
-                Subject:
-              </span>
-
+            <div className="flex items-center gap-1.5 min-w-0 flex-1 sm:flex-initial">
               {/* Mobile Native Select */}
-              <div className="sm:hidden flex-1 min-w-[120px]">
+              <div className="sm:hidden flex-1">
                 <select
                   aria-label="Select Subject"
                   value={selectedSubject}
                   onChange={(e) => onSelectSubject(e.target.value as any)}
-                  className="w-full bg-slate-800 border border-slate-700 text-slate-100 text-xs rounded-md px-2.5 py-1.5 font-medium focus:outline-none focus:border-emerald-500 cursor-pointer shadow-xs"
+                  className="w-full bg-slate-900 border border-slate-800 text-slate-100 text-[11px] rounded px-2 py-1 font-medium focus:outline-none focus:border-teal-500 cursor-pointer"
                 >
                   {SUBJECT_LIST.map((subj) => {
                     const count = subj === 'All' ? subjectCounts['All'] || 0 : subjectCounts[subj] || 0;
@@ -173,8 +169,8 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
                 </select>
               </div>
 
-              {/* Tablet/Desktop Horizontal Chips */}
-              <div className="hidden sm:flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+              {/* Desktop Horizontal Chips */}
+              <div className="hidden sm:flex items-center gap-1 overflow-x-auto no-scrollbar">
                 <span className="text-slate-400 text-xs font-semibold uppercase tracking-wider mr-1 shrink-0">
                   Subject:
                 </span>
@@ -186,9 +182,9 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
                       key={subj}
                       type="button"
                       onClick={() => onSelectSubject(subj)}
-                      className={`px-2.5 py-1 rounded-md text-xs font-medium transition-colors whitespace-nowrap cursor-pointer ${
+                      className={`px-2.5 py-0.5 rounded text-xs font-medium transition-colors whitespace-nowrap cursor-pointer ${
                         isSelected
-                          ? 'bg-emerald-600 text-white font-semibold shadow-xs'
+                          ? 'bg-teal-600 text-white font-semibold'
                           : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
                       }`}
                     >
@@ -199,119 +195,83 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               </div>
             </div>
 
-            {/* Study Mode Filter Tabs & Shuffle Button */}
-            <div className="flex items-center gap-1.5 shrink-0 ml-auto">
-              <div className="flex items-center rounded-md border border-slate-800 bg-slate-900 p-0.5 text-xs shadow-xs">
-                <button
-                  type="button"
-                  onClick={() => onSetStudyMode('all')}
-                  className={`px-2 py-1 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    studyMode === 'all' ? 'bg-emerald-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  All
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onSetStudyMode('missed')}
-                  className={`px-2 py-1 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    studyMode === 'missed' ? 'bg-rose-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  Missed{missedCount > 0 ? ` (${missedCount})` : ''}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onSetStudyMode('flagged')}
-                  className={`px-2 py-1 rounded text-[11px] font-semibold transition-colors cursor-pointer ${
-                    studyMode === 'flagged' ? 'bg-amber-600 text-white shadow-xs' : 'text-slate-400 hover:text-white'
-                  }`}
-                >
-                  Flagged{flaggedCount > 0 ? ` (${flaggedCount})` : ''}
-                </button>
-              </div>
+            {/* Shuffle Control */}
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                type="button"
+                onClick={onToggleShuffle}
+                className={`px-2 py-1 rounded text-[11px] font-semibold border transition-colors cursor-pointer flex items-center gap-1 ${
+                  isShuffled
+                    ? 'bg-amber-500/20 border-amber-500/80 text-amber-300'
+                    : 'bg-slate-900 border-slate-800 text-slate-300 hover:text-white'
+                }`}
+                title="Shuffle question and choice order"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.017.22-.032.441-.046.662M4.5 12c0 1.232.046 2.453.138 3.662a4.006 4.006 0 003.7 3.7 48.656 48.656 0 007.324 0 4.006 4.006 0 003.7-3.7c.017-.22.032-.441.046-.662" />
+                </svg>
+                <span>{isShuffled ? 'Shuffled' : 'Shuffle'}</span>
+              </button>
 
-              {isShuffled ? (
-                <div className="flex items-center gap-1 shrink-0">
-                  <button
-                    type="button"
-                    onClick={onToggleShuffle}
-                    className="px-2 py-1 rounded-md text-[11px] font-semibold border bg-amber-500/20 border-amber-500/80 text-amber-300 hover:bg-amber-500/30 transition-colors cursor-pointer flex items-center gap-1 shadow-xs"
-                    title="Reshuffle question order for this subject"
-                  >
-                    <span>🔀 Reshuffle</span>
-                  </button>
-                  {onDisableShuffle && (
-                    <button
-                      type="button"
-                      onClick={onDisableShuffle}
-                      className="px-1.5 py-1 rounded-md text-[11px] font-semibold border bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer"
-                      title="Reset to original linear order"
-                    >
-                      ✕
-                    </button>
-                  )}
-                </div>
-              ) : (
+              {isShuffled && onDisableShuffle && (
                 <button
                   type="button"
-                  onClick={onToggleShuffle}
-                  className="px-2 py-1 rounded-md text-[11px] font-semibold border bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors cursor-pointer flex items-center gap-1"
-                  title="Shuffle question order for this subject"
+                  onClick={onDisableShuffle}
+                  className="px-1.5 py-1 rounded text-[10px] font-semibold border bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200"
+                  title="Reset to linear order"
                 >
-                  <span>🔀 Shuffle</span>
+                  Linear
                 </button>
               )}
             </div>
           </div>
 
-          {/* Bottom Control Row: AI Voice Mode Segmented Control Bar */}
-          <div className="flex flex-col xs:flex-row items-start xs:items-center justify-between gap-1.5 pt-1.5 border-t border-slate-800/60">
-            <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-semibold uppercase tracking-wider shrink-0">
-              <span className="text-emerald-400 text-xs">🎙️</span>
-              <span>AI Voice Mode:</span>
-            </div>
+          {/* Voice Control Strip - Compact Portion on Mobile */}
+          <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-800/60 text-[10px] sm:text-xs">
+            <span className="text-slate-400 font-semibold uppercase tracking-wider shrink-0 text-[10px]">
+              Voice:
+            </span>
 
-            <div className="flex items-center gap-1 rounded-md border border-slate-800 bg-slate-900 p-0.5 w-full xs:w-auto">
+            <div className="flex items-center gap-0.5 rounded border border-slate-800 bg-slate-900 p-0.5">
               <button
                 type="button"
                 onClick={() => onSetAiVoiceMode('off')}
-                className={`flex-1 sm:flex-none px-2.5 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer text-center ${
+                className={`px-2 py-0.5 rounded font-semibold transition-all cursor-pointer ${
                   aiVoiceMode === 'off'
-                    ? 'bg-slate-700 text-slate-100 shadow-xs'
+                    ? 'bg-slate-700 text-slate-100'
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
-                title="Manual study mode (Voice OFF)"
+                title="Voice Readout OFF"
               >
                 Off
               </button>
+
               <button
                 type="button"
                 onClick={() => onSetAiVoiceMode('ai_reads_you_answer')}
-                className={`flex-1 sm:flex-none px-2.5 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                className={`px-2 py-0.5 rounded font-semibold transition-all cursor-pointer ${
                   aiVoiceMode === 'ai_reads_you_answer'
-                    ? 'bg-emerald-600 text-white shadow-xs'
-                    : 'text-slate-400 hover:text-emerald-300'
+                    ? 'bg-teal-600 text-white'
+                    : 'text-slate-400 hover:text-teal-300'
                 }`}
-                title="AI reads question & options, then waits for your answer"
+                title="Voice reads question and options"
               >
-                <span>🗣️</span>
-                <span className="hidden sm:inline">AI Reads, You Answer</span>
-                <span className="sm:hidden">AI Reads</span>
+                <span className="sm:hidden">Read</span>
+                <span className="hidden sm:inline">Read Questions</span>
               </button>
+
               <button
                 type="button"
                 onClick={() => onSetAiVoiceMode('ai_reads_and_answers')}
-                className={`flex-1 sm:flex-none px-2.5 py-1 rounded text-[11px] font-semibold transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                className={`px-2 py-0.5 rounded font-semibold transition-all cursor-pointer ${
                   aiVoiceMode === 'ai_reads_and_answers'
-                    ? 'bg-cyan-600 text-white shadow-xs'
-                    : 'text-slate-400 hover:text-cyan-300'
+                    ? 'bg-sky-600 text-white'
+                    : 'text-slate-400 hover:text-sky-300'
                 }`}
-                title="AI reads question & options, then picks answer & explains"
+                title="Voice reads question, choices, and answers automatically"
               >
-                <span>🧠</span>
-                <span className="hidden sm:inline">AI Reads & Answers</span>
-                <span className="sm:hidden">AI Answers</span>
+                <span className="sm:hidden">Auto</span>
+                <span className="hidden sm:inline">Auto Read & Answer</span>
               </button>
             </div>
           </div>
@@ -320,4 +280,3 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
     </header>
   );
 };
-
