@@ -10403,7 +10403,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Francis Mapile"
+        "text": "Engr. Adelino V. Garcia Jr."
       },
       {
         "id": "B",
@@ -10419,7 +10419,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "A",
-    "explanation": "Francis Mapile served as the present chairman of the Board of Electrical Engineering."
+    "explanation": "Engr. Adelino V. Garcia Jr. is the current Chairman of the Board of Electrical Engineering (BEE)."
   },
   {
     "id": "eelaws-19",
@@ -11606,8 +11606,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Special Generating Company"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "R.A. 9136 (EPIRA of 2001) unbundled the electric power sector into Generation, Transmission, Distribution, and Supply to foster competitive electricity markets and regulatory oversight via the ERC."
+    "correctChoiceId": "C",
+    "explanation": "In R.A. 9136 (EPIRA), SGC stands for Successor Generating Company."
   },
   {
     "id": "eelaws-63",
@@ -11714,8 +11714,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Telegram"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In Philippine electrical law practice, Telegram represents the binding statutory provision under R.A. 7920, R.A. 9136, and PRBEE board resolutions designed to enforce safety and professional standards."
+    "correctChoiceId": "B",
+    "explanation": "Under Rule 2(f) of the IRR of RA 7920, 'RA 184' refers to the old Electrical Engineering Law."
   },
   {
     "id": "eelaws-67",
@@ -11769,7 +11769,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "As specified by the Energy Regulatory Commission, a contestable customer is a customer with a demand of least One MW."
+    "explanation": "Choice D (One MW) refers to the original EPIRA Phase 1 statutory threshold. Note: Under current ERC RCOA regulations (Resolution No. 12, S. 2020), the contestability threshold has been lowered to 100 kW (0.1 MW)."
   },
   {
     "id": "eelaws-69",
@@ -11888,7 +11888,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Jose Y. Cueto Jr."
+        "text": "Charito A. Zamora"
       },
       {
         "id": "B",
@@ -11903,8 +11903,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Jaime V. Mendoza"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Atty. Teofilo S. Pilando Jr. served as Chairman of the Professional Regulation Commission (PRC)."
+    "correctChoiceId": "A",
+    "explanation": "Hon. Charito A. Zamora is the current Chairperson of the Professional Regulation Commission (PRC)."
   },
   {
     "id": "eelaws-74",
@@ -11915,7 +11915,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Jaime V. Mendoza"
+        "text": "Erwin M. Enad"
       },
       {
         "id": "B",
@@ -11930,8 +11930,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Yolanda D. Reyes"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Arch. Yolanda D. Reyes served as Commissioner I of the Professional Regulation Commission (PRC)."
+    "correctChoiceId": "A",
+    "explanation": "Hon. Erwin M. Enad is the current Commissioner I of the Professional Regulation Commission (PRC)."
   },
   {
     "id": "eelaws-75",
@@ -11954,11 +11954,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Jose Y. Cueto Jr."
+        "text": "Conrado T. Onglao"
       }
     ],
     "correctChoiceId": "D",
-    "explanation": "Dr. Jose Y. Cueto Jr. served as Commissioner II of the Professional Regulation Commission (PRC)."
+    "explanation": "Hon. Conrado T. Onglao is the current Commissioner II of the Professional Regulation Commission (PRC)."
   },
   {
     "id": "pm-m1-1",
