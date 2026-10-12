@@ -222,8 +222,10 @@ export default function App() {
   }, []);
 
   const handleQuizSelectChoice = (choiceId: string) => {
-    const currentQ = quizQuestions[quizCurrentIndex];
-    if (!currentQ) return;
+    const rawQ = quizQuestions[quizCurrentIndex];
+    if (!rawQ) return;
+
+    const currentQ = shuffleQuestionChoices(rawQ, isShuffled, shuffleSeed);
 
     setQuizAnswers((prev) => ({
       ...prev,
@@ -666,41 +668,6 @@ export default function App() {
     }
   }, [filteredQuestions.length, currentCardIndex]);
 
-  // Handle choice selection with Red/Green feedback
-  const handleSelectChoice = (choiceId: string) => {
-    const currentQ = filteredQuestions[currentCardIndex];
-    if (!currentQ) return;
-
-    setUserAnswers((prev) => ({
-      ...prev,
-      [currentQ.id]: choiceId,
-    }));
-
-    const isWrong = choiceId.toUpperCase() !== currentQ.correctChoiceId.toUpperCase();
-    if (isWrong) {
-      setSessionIncorrectCount((prev) => prev + 1);
-      setMissedQuestionIds((prev) => new Set(prev).add(currentQ.id));
-    } else {
-      setSessionCorrectCount((prev) => prev + 1);
-      setMissedQuestionIds((prev) => {
-        const next = new Set(prev);
-        next.delete(currentQ.id);
-        return next;
-      });
-    }
-  };
-
-  // Explicitly reset current question answer
-  const handleResetCurrentAnswer = () => {
-    const currentQ = filteredQuestions[currentCardIndex];
-    if (!currentQ) return;
-    setUserAnswers((prev) => {
-      const copy = { ...prev };
-      delete copy[currentQ.id];
-      return copy;
-    });
-  };
-
   const rawCurrentQuestion = filteredQuestions[currentCardIndex];
   const currentQuestion = useMemo(() => {
     if (!rawCurrentQuestion) return rawCurrentQuestion;
@@ -708,6 +675,39 @@ export default function App() {
   }, [rawCurrentQuestion, isShuffled, shuffleSeed]);
 
   const currentSelectedChoice = currentQuestion ? userAnswers[currentQuestion.id] || null : null;
+
+  // Handle choice selection with Red/Green feedback
+  const handleSelectChoice = (choiceId: string) => {
+    if (!currentQuestion) return;
+
+    setUserAnswers((prev) => ({
+      ...prev,
+      [currentQuestion.id]: choiceId,
+    }));
+
+    const isWrong = choiceId.toUpperCase() !== currentQuestion.correctChoiceId.toUpperCase();
+    if (isWrong) {
+      setSessionIncorrectCount((prev) => prev + 1);
+      setMissedQuestionIds((prev) => new Set(prev).add(currentQuestion.id));
+    } else {
+      setSessionCorrectCount((prev) => prev + 1);
+      setMissedQuestionIds((prev) => {
+        const next = new Set(prev);
+        next.delete(currentQuestion.id);
+        return next;
+      });
+    }
+  };
+
+  // Explicitly reset current question answer
+  const handleResetCurrentAnswer = () => {
+    if (!currentQuestion) return;
+    setUserAnswers((prev) => {
+      const copy = { ...prev };
+      delete copy[currentQuestion.id];
+      return copy;
+    });
+  };
 
   // Automatically reset the question answer whenever the user leaves the question
   useEffect(() => {
