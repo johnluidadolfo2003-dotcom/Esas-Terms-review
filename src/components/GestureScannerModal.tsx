@@ -5,6 +5,7 @@ import {
   DEFAULT_GESTURES,
   loadGestureProfile,
   saveGestureProfile,
+  resetGestureProfile,
   extractFingerMetrics,
   matchGesture,
   playScanSound,
@@ -163,7 +164,19 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
     setIsScanning(false);
   }, []);
 
-  // Save gesture for current step
+  // Reload persisted profile whenever modal is opened
+  useEffect(() => {
+    if (isOpen) {
+      const loaded = loadGestureProfile();
+      setCalibratedGestures(loaded.gestures);
+      setCurrentStepIdx(0);
+      setIsTestMode(false);
+      setScanProgress(0);
+      setIsScanning(false);
+    }
+  }, [isOpen]);
+
+  // Save gesture for current step immediately to state & localStorage
   const recordGestureCapture = useCallback(
     (metrics: { fingerState: FingerState; relativeDistances: number[] }) => {
       if (!currentStep) return;
@@ -186,10 +199,23 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
         calibratedAt: Date.now(),
       };
 
-      setCalibratedGestures((prev) => ({
-        ...prev,
-        [currentStep.id]: updatedGesture,
-      }));
+      setCalibratedGestures((prev) => {
+        const nextGestures = {
+          ...prev,
+          [currentStep.id]: updatedGesture,
+        };
+        const updatedProfile: GestureCalibrationProfile = {
+          version: 1,
+          updatedAt: Date.now(),
+          gestures: nextGestures,
+        };
+        // Persist immediately so a page refresh never loses the calibrated gesture
+        saveGestureProfile(updatedProfile);
+        if (onCalibrationSaved) {
+          onCalibrationSaved(updatedProfile);
+        }
+        return nextGestures;
+      });
 
       stopScanTimer();
 
@@ -204,7 +230,7 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
         }
       }, 900);
     },
-    [currentStep, currentStepIdx, stopScanTimer]
+    [currentStep, currentStepIdx, onCalibrationSaved, stopScanTimer]
   );
 
   // Process MediaPipe results
@@ -425,10 +451,14 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
 
   // Handle Reset to Default Gestures
   const handleResetDefaults = () => {
-    setCalibratedGestures({ ...DEFAULT_GESTURES });
+    const cleanProfile = resetGestureProfile();
+    setCalibratedGestures({ ...cleanProfile.gestures });
     setCurrentStepIdx(0);
     setIsTestMode(false);
     playScanSound('beep');
+    if (onCalibrationSaved) {
+      onCalibrationSaved(cleanProfile);
+    }
   };
 
   // Manual snapshot button

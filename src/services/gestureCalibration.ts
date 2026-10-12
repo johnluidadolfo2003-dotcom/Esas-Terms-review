@@ -30,7 +30,8 @@ export interface GestureCalibrationProfile {
   gestures: Record<string, CalibratedGestureData>;
 }
 
-const STORAGE_KEY = 'pnle_custom_gesture_profile_v1';
+const STORAGE_KEY = 'drive_flashcards_gesture_profile_v2';
+const LEGACY_STORAGE_KEYS = ['pnle_custom_gesture_profile_v1', 'drive_custom_gesture_profile_v1'];
 
 // Default standard profile (1 finger = A, 2 = B, 3 = C, 4 = D, 5 = NEXT)
 export const DEFAULT_GESTURES: Record<string, CalibratedGestureData> = {
@@ -78,11 +79,27 @@ export const DEFAULT_GESTURES: Record<string, CalibratedGestureData> = {
 
 export function loadGestureProfile(): GestureCalibrationProfile {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    let raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      for (const legacyKey of LEGACY_STORAGE_KEYS) {
+        const legacyVal = localStorage.getItem(legacyKey);
+        if (legacyVal) {
+          raw = legacyVal;
+          localStorage.setItem(STORAGE_KEY, legacyVal);
+          break;
+        }
+      }
+    }
+
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed && parsed.gestures) {
-        return parsed;
+        const mergedGestures = { ...DEFAULT_GESTURES, ...parsed.gestures };
+        return {
+          version: parsed.version || 1,
+          updatedAt: parsed.updatedAt || 0,
+          gestures: mergedGestures,
+        };
       }
     }
   } catch (err) {
@@ -98,7 +115,11 @@ export function loadGestureProfile(): GestureCalibrationProfile {
 
 export function saveGestureProfile(profile: GestureCalibrationProfile): void {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+    const serialized = JSON.stringify(profile);
+    localStorage.setItem(STORAGE_KEY, serialized);
+    for (const legacyKey of LEGACY_STORAGE_KEYS) {
+      localStorage.setItem(legacyKey, serialized);
+    }
   } catch (err) {
     console.warn('Failed to save gesture profile to localStorage', err);
   }
@@ -106,12 +127,18 @@ export function saveGestureProfile(profile: GestureCalibrationProfile): void {
 
 export function hasCustomCalibration(): boolean {
   const profile = loadGestureProfile();
-  return profile.updatedAt > 0;
+  return (
+    profile.updatedAt > 0 ||
+    Object.values(profile.gestures || {}).some((g) => g.calibratedAt && g.calibratedAt > 0)
+  );
 }
 
 export function resetGestureProfile(): GestureCalibrationProfile {
   try {
     localStorage.removeItem(STORAGE_KEY);
+    for (const legacyKey of LEGACY_STORAGE_KEYS) {
+      localStorage.removeItem(legacyKey);
+    }
   } catch {}
   return {
     version: 1,
@@ -248,10 +275,24 @@ export function matchGesture(
 } {
   const { thumb, index, middle, ring, pinky, count } = fingerState;
 
-  // 1. If user has a custom calibrated profile, check for a direct match
-  if (profile && profile.updatedAt > 0 && profile.gestures) {
+  // Non-thumb extended count (Index, Middle, Ring, Pinky)
+  const nonThumbCount = (index ? 1 : 0) + (middle ? 1 : 0) + (ring ? 1 : 0) + (pinky ? 1 : 0);
+
+  // If no fingers extended (fist or resting palm), return null
+  if (count <= 0 && nonThumbCount <= 0) {
+    return { matchedChoice: null, confidence: 0, matchReason: 'No fingers detected' };
+  }
+
+  // 1. If user has calibrated gestures, check them first with high sensitivity and priority
+  const hasCalibratedData =
+    profile &&
+    (profile.updatedAt > 0 ||
+      Object.values(profile.gestures || {}).some((g) => g.calibratedAt && g.calibratedAt > 0));
+
+  if (hasCalibratedData && profile?.gestures) {
     let bestChoice: 'A' | 'B' | 'C' | 'D' | 'NEXT' | null = null;
     let bestScore = 0;
+    let isUserCalibrated = false;
 
     const choices: Array<'A' | 'B' | 'C' | 'D' | 'NEXT'> = ['A', 'B', 'C', 'D', 'NEXT'];
     for (const c of choices) {
@@ -259,48 +300,70 @@ export function matchGesture(
       if (!cal) continue;
 
       let score = 0;
-      // Match finger count
-      if (cal.fingerCount === count) score += 40;
-      else if (Math.abs(cal.fingerCount - count) === 1) score += 10;
 
-      // Match individual finger booleans
-      if (cal.fingers.thumb === thumb) score += 12;
-      if (cal.fingers.index === index) score += 12;
-      if (cal.fingers.middle === middle) score += 12;
-      if (cal.fingers.ring === ring) score += 12;
-      if (cal.fingers.pinky === pinky) score += 12;
+      // Finger count match
+      if (cal.fingerCount === count) {
+        score += 35;
+      } else if (Math.abs(cal.fingerCount - count) === 1) {
+        score += 15;
+      }
 
-      // Euclidean distance of normalized distances
-      if (cal.relativeDistances && cal.relativeDistances.length === 5) {
+      // Individual finger booleans (10 points each = 50 max)
+      let fingerMatches = 0;
+      if (cal.fingers.thumb === thumb) fingerMatches++;
+      if (cal.fingers.index === index) fingerMatches++;
+      if (cal.fingers.middle === middle) fingerMatches++;
+      if (cal.fingers.ring === ring) fingerMatches++;
+      if (cal.fingers.pinky === pinky) fingerMatches++;
+      score += fingerMatches * 10;
+
+      // Check if the specific extended fingers of this gesture are active
+      let activeTargetCount = 0;
+      let activeTargetMatch = 0;
+      for (const f of ['thumb', 'index', 'middle', 'ring', 'pinky'] as const) {
+        if (cal.fingers[f]) {
+          activeTargetCount++;
+          if (fingerState[f]) activeTargetMatch++;
+        }
+      }
+      if (activeTargetCount > 0 && activeTargetMatch === activeTargetCount) {
+        score += 15; // All active fingers are up as trained
+      }
+
+      // Euclidean distance of normalized tip distances
+      if (cal.relativeDistances && cal.relativeDistances.length === 5 && relativeDistances.length === 5) {
         let distDiff = 0;
         for (let i = 0; i < 5; i++) {
           distDiff += Math.abs((cal.relativeDistances[i] || 0) - (relativeDistances[i] || 0));
         }
-        if (distDiff < 1.0) score += 20;
-        else if (distDiff < 2.0) score += 10;
+        if (distDiff < 1.2) score += 15;
+        else if (distDiff < 2.2) score += 8;
+        else if (distDiff < 3.2) score += 4;
       }
 
-      if (score > bestScore && score >= 75) {
+      // Explicit user-calibrated bonus
+      const userCal = Boolean(cal.calibratedAt && cal.calibratedAt > 0);
+      if (userCal) {
+        score += 15;
+      }
+
+      const threshold = userCal ? 58 : 72;
+      if (score > bestScore && score >= threshold) {
         bestScore = score;
         bestChoice = c;
+        isUserCalibrated = userCal;
       }
     }
 
-    if (bestChoice && bestScore >= 75) {
+    if (bestChoice && bestScore >= 58) {
       return {
         matchedChoice: bestChoice,
-        confidence: Math.min(99, bestScore),
-        matchReason: `Custom Calibrated Gesture (${bestChoice})`,
+        confidence: Math.min(99, Math.round((bestScore / 130) * 100)),
+        matchReason: isUserCalibrated
+          ? `Calibrated Gesture (${bestChoice})`
+          : `Gesture Profile (${bestChoice})`,
       };
     }
-  }
-
-  // Non-thumb extended count (Index, Middle, Ring, Pinky)
-  const nonThumbCount = (index ? 1 : 0) + (middle ? 1 : 0) + (ring ? 1 : 0) + (pinky ? 1 : 0);
-
-  // If no fingers extended (fist or resting), return null
-  if (count <= 0 && nonThumbCount <= 0) {
-    return { matchedChoice: null, confidence: 0, matchReason: 'No fingers detected' };
   }
 
   // 1. OPTION A: Exactly 1 non-thumb finger extended (Index finger pointing up)

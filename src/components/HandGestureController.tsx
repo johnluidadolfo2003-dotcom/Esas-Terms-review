@@ -81,6 +81,23 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const [liveMatchedChoice, setLiveMatchedChoice] = useState<string | null>(null);
   const [liveConfidence, setLiveConfidence] = useState<number>(0);
 
+  // Sync calibrated profile on mount or window storage changes so website refresh never loses calibration
+  useEffect(() => {
+    const loaded = loadGestureProfile();
+    setCustomProfile(loaded);
+    customProfileRef.current = loaded;
+
+    const handleStorageUpdate = (e: StorageEvent) => {
+      if (e.key && e.key.includes('gesture_profile')) {
+        const fresh = loadGestureProfile();
+        setCustomProfile(fresh);
+        customProfileRef.current = fresh;
+      }
+    };
+    window.addEventListener('storage', handleStorageUpdate);
+    return () => window.removeEventListener('storage', handleStorageUpdate);
+  }, []);
+
   // Evaluated result state (correct vs wrong for HUD and audio feedback)
   const [evaluatedResult, setEvaluatedResult] = useState<{
     choiceId: string;
@@ -359,6 +376,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         const mappedChoice: string | null = matchResult.matchedChoice;
         setLiveMatchedChoice(matchResult.matchedChoice);
         setLiveConfidence(matchResult.confidence);
+        const isCalibratedMatch = matchResult.matchReason.includes('Calibrated');
 
         // If calibration scanner modal is currently open, do not trigger background quiz actions
         if (isScannerOpen) {
@@ -373,8 +391,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           const targetChoice = resolveFlashcardChoice(mappedChoice);
           const choiceText = targetChoice ? targetChoice.text : '';
           const choiceLabel = targetChoice
-            ? `Option ${targetChoice.id}: ${choiceText}`
-            : `Option ${mappedChoice}`;
+            ? `Option ${targetChoice.id}${isCalibratedMatch ? ' (Calibrated)' : ''}: ${choiceText}`
+            : `Option ${mappedChoice}${isCalibratedMatch ? ' (Calibrated)' : ''}`;
 
           // If continuing the same gesture
           if (holdCandidateRef.current === mappedChoice) {
@@ -554,8 +572,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         triggerNextQuestion();
         return;
       }
-      const choiceMap: Record<number, string> = { 1: 'A', 2: 'B', 3: 'C', 4: 'D' };
-      const mappedChoice = choiceMap[count];
+      let mappedChoice: string | null = null;
+      if (customProfileRef.current?.gestures) {
+        for (const [key, val] of Object.entries(customProfileRef.current.gestures)) {
+          if (val.fingerCount === count && ['A', 'B', 'C', 'D'].includes(key) && val.calibratedAt > 0) {
+            mappedChoice = key;
+            break;
+          }
+        }
+      }
+      if (!mappedChoice) {
+        const choiceMap: Record<number, string> = { 1: 'A', 2: 'B', 3: 'C', 4: 'D' };
+        mappedChoice = choiceMap[count] || null;
+      }
       if (!isAnsweredRef.current && mappedChoice) {
         triggerChoiceSelection(mappedChoice);
       }
@@ -638,8 +667,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             title="Calibrate hand gestures"
           >
             <span>🎯 Calibrate</span>
-            {customProfile.updatedAt > 0 && (
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom profile active"></span>
+            {(customProfile.updatedAt > 0 ||
+              Object.values(customProfile.gestures || {}).some((g) => g.calibratedAt > 0)) && (
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" title="Custom calibrated profile active"></span>
             )}
           </button>
 
@@ -780,7 +810,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* Active Detected Fingers Badge */}
         {detectedFingers > 0 && (
-          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1">
+          <div className="absolute top-2 left-2 px-2 py-0.5 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20 flex items-center gap-1.5">
             <span>
               {liveMatchedChoice === 'NEXT'
                 ? '5F → Next'
@@ -788,6 +818,11 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                 ? `${detectedFingers}F → Option ${liveMatchedChoice}`
                 : `${detectedFingers} Finger${detectedFingers > 1 ? 's' : ''}`}
             </span>
+            {liveMatchedChoice && customProfile.gestures[liveMatchedChoice]?.calibratedAt > 0 && (
+              <span className="text-[9px] px-1 py-0.2 rounded bg-emerald-950 border border-emerald-600/70 text-emerald-300 font-sans font-semibold">
+                Calibrated
+              </span>
+            )}
           </div>
         )}
 
@@ -992,7 +1027,12 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       {/* Gesture Calibration Scanner Modal */}
       <GestureScannerModal
         isOpen={isScannerOpen}
-        onClose={() => setIsScannerOpen(false)}
+        onClose={() => {
+          setIsScannerOpen(false);
+          const fresh = loadGestureProfile();
+          setCustomProfile(fresh);
+          customProfileRef.current = fresh;
+        }}
         existingStream={activeStreamRef.current}
         onCalibrationSaved={(newProfile) => {
           setCustomProfile(newProfile);
