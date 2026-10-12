@@ -40,7 +40,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   const [linkType, setLinkType] = useState<'render' | 'public' | 'dev'>('render');
   const [renderCustomUrl, setRenderCustomUrl] = useState<string>(() => {
     const saved = getSavedRenderUrl();
-    return saved || window.location.origin;
+    return saved || 'https://drive-terms-reviewer.onrender.com';
   });
   const [copied, setCopied] = useState(false);
   const [copiedDev, setCopiedDev] = useState(false);

@@ -1,4 +1,3 @@
-import { useCloudSync } from './services/useCloudSync';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { User } from 'firebase/auth';
 import {
@@ -22,7 +21,7 @@ import {
   shuffleQuestionChoices,
 } from './services/questionParser';
 import { DRIVE_COPIED_QUESTIONS } from './data/driveQuestions';
-import { StudyHeader } from './components/StudyHeader';
+import { StudySidebar } from './components/StudySidebar';
 import { SingleFlashcard } from './components/SingleFlashcard';
 import { HandGestureController } from './components/HandGestureController';
 import { GestureScannerModal } from './components/GestureScannerModal';
@@ -61,8 +60,8 @@ export default function App() {
   // Modals
   const [isDriveModalOpen, setIsDriveModalOpen] = useState(false);
   const [isPasteModalOpen, setIsPasteModalOpen] = useState(false);
-  const [pasteModalTab, setPasteModalTab] = useState<'upload' | 'pdf' | 'bank'>('upload');
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
   const [sharedImportNotice, setSharedImportNotice] = useState<string | null>(null);
 
   // Drive state
@@ -76,8 +75,6 @@ export default function App() {
   const [customQuestions, setCustomQuestions] = useState<FlashcardQuestion[]>(() =>
     loadSavedCustomQuestions()
   );
-
-  const cloudStatus = useCloudSync(user, customQuestions, setCustomQuestions);
 
   // 2. Dynamically extracted questions from scanned Google Drive files
   const [driveExtractedQuestions, setDriveExtractedQuestions] = useState<FlashcardQuestion[]>([]);
@@ -155,7 +152,6 @@ export default function App() {
   const [missedQuestionIds, setMissedQuestionIds] = useState<Set<string>>(new Set());
   const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionIncorrectCount, setSessionIncorrectCount] = useState(0);
-
   const prevQuestionIdRef = React.useRef<string | null>(null);
 
   // 70-Item Board Exam Quiz State
@@ -168,13 +164,13 @@ export default function App() {
 
   const handleStartQuiz = useCallback(() => {
     const { quizQuestions: newQuestions } = generate70ItemQuiz(allQuestions);
-    setQuizQuestions(newQuestions.map((q) => shuffleQuestionChoices(q, isShuffled, shuffleSeed)));
+    setQuizQuestions(newQuestions);
     setQuizCurrentIndex(0);
     setQuizAnswers({});
     setIsQuizSubmitted(false);
     setIsQuizCongratsModalOpen(false);
     setIsQuizActive(true);
-  }, [allQuestions, isShuffled, shuffleSeed]);
+  }, [allQuestions]);
 
   const handleFinishQuiz = useCallback(() => {
     setIsQuizSubmitted(true);
@@ -189,11 +185,11 @@ export default function App() {
 
   const currentQuizQuestion = useMemo(() => {
     if (!isQuizActive || !quizQuestions[quizCurrentIndex]) return null;
-    return quizQuestions[quizCurrentIndex];
-  }, [isQuizActive, quizQuestions, quizCurrentIndex]);
+    return shuffleQuestionChoices(quizQuestions[quizCurrentIndex], isShuffled, shuffleSeed);
+  }, [isQuizActive, quizQuestions, quizCurrentIndex, isShuffled, shuffleSeed]);
 
   const handleQuizSelectChoice = (choiceId: string) => {
-    if (!currentQuizQuestion || isQuizSubmitted || quizAnswers[currentQuizQuestion.id]) return;
+    if (!currentQuizQuestion) return;
 
     setQuizAnswers((prev) => ({
       ...prev,
@@ -215,8 +211,10 @@ export default function App() {
       });
     }
 
-    if (Object.keys({ ...quizAnswers, [currentQuizQuestion.id]: choiceId }).length === quizQuestions.length) {
-      handleFinishQuiz();
+    if (quizCurrentIndex === quizQuestions.length - 1) {
+      setTimeout(() => {
+        handleFinishQuiz();
+      }, 350);
     }
   };
 
@@ -303,7 +301,7 @@ export default function App() {
           const merged = [...toAdd, ...prev];
           saveCustomQuestions(merged);
           setSharedImportNotice(
-            `Imported ${toAdd.length} shared questions from link. They have been saved in this browser.`
+            `Imported ${toAdd.length} shared questions from link. They have been permanently saved to your web app.`
           );
           return merged;
         });
@@ -370,7 +368,7 @@ export default function App() {
       setScanMessage('Failed to scan Google Drive. Please check permissions.');
     } finally {
       setIsScanning(false);
-      setLoadingFileContent(false);
+      setScanMessage('');
     }
   }, []);
 
@@ -427,14 +425,11 @@ export default function App() {
     await logout();
     setUser(null);
     setToken(null);
-    setDriveExtractedQuestions([]);
-    setDriveFiles([]);
-    setSelectedFileIds(new Set());
   };
 
   // Re-load questions when selected files change
   const reloadQuestionsFromFiles = async (fileIds: Set<string>) => {
-    const authToken = await getAccessToken();
+    const authToken = token || (await getAccessToken());
     if (!authToken) return;
 
     setLoadingFileContent(true);
@@ -488,7 +483,7 @@ export default function App() {
   };
 
   const handleCustomSearch = async (query: string) => {
-    const authToken = await getAccessToken();
+    const authToken = token || (await getAccessToken());
     if (!authToken) {
       handleSignIn();
       return;
@@ -577,43 +572,20 @@ export default function App() {
       const fileId = `local-${Date.now()}`;
       const questions = parseQuestionsFromText(content, file.name, fileId);
 
-      if (questions.length === 0) {
-        throw new Error(
-          'No recognized question items found in the file. Ensure each question has numbered text and choices A, B, C, D.'
-        );
-      }
-
-      const detectedSubj = questions[0]?.subject || 'Economics';
       const localDriveItem: DriveItem = {
         id: fileId,
         name: file.name,
         mimeType: file.type || 'text/plain',
-        matchedSubject: detectedSubj,
+        matchedSubject: questions[0]?.subject || 'Economics',
       };
 
       setDriveFiles((prev) => [localDriveItem, ...prev]);
       setSelectedFileIds((prev) => new Set(prev).add(fileId));
       setFileQuestionCounts((prev) => ({ ...prev, [fileId]: questions.length }));
       setDriveExtractedQuestions((prev) => [...questions, ...prev]);
-
-      // PERSIST PERMANENTLY TO LOCALSTORAGE FOR 100% PARITY ON RENDER
-      setCustomQuestions((prev) => {
-        const updated = [...questions, ...prev];
-        saveCustomQuestions(updated);
-        return updated;
-      });
-
-      setSelectedSubject('All');
       setCurrentCardIndex(0);
-
-      return {
-        success: true,
-        count: questions.length,
-        subject: detectedSubj,
-      };
     } catch (err) {
       console.error('Error importing local file:', err);
-      throw err;
     } finally {
       setLoadingFileContent(false);
     }
@@ -792,10 +764,9 @@ export default function App() {
   const incorrectCount = sessionIncorrectCount;
 
   return (
-    <div className="min-h-screen bg-[#0b1326] text-slate-100 flex flex-col md:flex-row font-sans">
-      <div role="status" className="fixed bottom-0 left-0 right-0 z-50 bg-slate-900 px-3 py-1 text-center text-xs text-slate-300">{cloudStatus}</div>
-      {/* Sidebar Navigation (Desktop sidebar on left / Mobile header & drawer) */}
-      <StudyHeader
+    <div className="min-h-screen bg-[#111317] text-zinc-100 flex flex-col md:flex-row font-sans">
+      {/* Sidebar Navigation (Slim Desktop sidebar on left / Mobile header & drawer) */}
+      <StudySidebar
         selectedSubject={selectedSubject}
         onSelectSubject={(subj: SubjectCategory | 'All') => {
           setSelectedSubject(subj);
@@ -816,14 +787,8 @@ export default function App() {
         incorrectCount={incorrectCount}
         isShuffled={isShuffled}
         onToggleShuffle={handleToggleShuffle}
-        onOpenPasteModal={() => {
-          setPasteModalTab('pdf');
-          setIsPasteModalOpen(true);
-        }}
-        onOpenUploadModal={() => {
-          setPasteModalTab('upload');
-          setIsPasteModalOpen(true);
-        }}
+        onDisableShuffle={handleDisableShuffle}
+        onOpenPasteModal={() => setIsPasteModalOpen(true)}
         customQuestionsCount={customQuestions.length}
         isQuizActive={isQuizActive}
         onStartQuiz={handleStartQuiz}
@@ -832,69 +797,68 @@ export default function App() {
         isCameraGestureActive={isCameraGestureActive}
         onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
         onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
+        isMobileDrawerOpen={isMobileDrawerOpen}
+        onToggleMobileDrawer={() => setIsMobileDrawerOpen(!isMobileDrawerOpen)}
+        onCloseMobileDrawer={() => setIsMobileDrawerOpen(false)}
       />
 
       {/* Main Viewport Container */}
       <div className="flex-1 flex flex-col min-w-0">
-        {/* Desktop Top Utility Bar */}
-        <header className="hidden md:flex items-center justify-between px-6 py-2.5 border-b border-slate-800/80 bg-[#080e1c]/40 backdrop-blur-xs">
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-semibold text-slate-300">
-              {selectedSubject === 'All' ? 'All Subjects Reviewer' : `${selectedSubject} Reviewer`}
+        {/* Desktop Top Bar (Clean & Minimal) */}
+        <header className="hidden md:flex items-center justify-between px-6 py-2.5 border-b border-[#22242d] bg-[#131418]/60 shrink-0">
+          <div className="flex items-center gap-2 text-xs font-mono">
+            <span className="text-zinc-400 uppercase font-medium">Subject:</span>
+            <span className="text-zinc-200 font-semibold bg-[#181a21] border border-[#272935] px-2.5 py-0.5 rounded-md">
+              {selectedSubject}
             </span>
           </div>
 
+          {/* Right Controls: Camera Icon + Beside it Check & Wrong Counters (not too big) */}
           <div className="flex items-center gap-2">
-            {isQuizActive && (
-              <span className="text-[11px] font-semibold text-amber-300 bg-amber-950/60 border border-amber-800/80 px-2 py-0.5 rounded-md">
-                Quiz Mode
-              </span>
-            )}
-
-            {/* Check and Wrong answer numbers beside camera icon - compact & clean */}
-            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-slate-900 border border-slate-800 text-[11px] font-mono shadow-xs">
-              <span className="flex items-center gap-1 text-emerald-400 font-semibold" title="Correct answers">
-                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                <span>{correctCount}</span>
-              </span>
-              <span className="text-slate-700">·</span>
-              <span className="flex items-center gap-1 text-rose-400 font-semibold" title="Wrong answers">
-                <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                <span>{incorrectCount}</span>
-              </span>
-            </div>
-
-            {/* Camera gesture button */}
             <button
               type="button"
               onClick={() => setIsCameraGestureActive(!isCameraGestureActive)}
-              className={`p-1.5 rounded-md border transition-colors cursor-pointer ${
+              className={`px-2.5 py-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
                 isCameraGestureActive
-                  ? 'bg-slate-800 border-slate-600 text-slate-100'
-                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                  ? 'bg-zinc-200 text-zinc-950 border-zinc-100 shadow-xs'
+                  : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
               }`}
-              title="Camera Gesture"
+              title="Wireless Hands-Free Camera Gesture Control"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
+              <span>Camera</span>
             </button>
+
+            {/* Score Counters: Check and Wrong with numbers, compact */}
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-[#181a21] border border-[#272935] text-xs font-mono">
+              <span className="flex items-center gap-1 text-emerald-400 font-semibold" title="Correct">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>{correctCount}</span>
+              </span>
+              <span className="text-zinc-600">·</span>
+              <span className="flex items-center gap-1 text-rose-400 font-semibold" title="Wrong">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span>{incorrectCount}</span>
+              </span>
+            </div>
           </div>
         </header>
 
         <main className="flex-1 flex flex-col items-center justify-start md:justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
           {loadingFileContent ? (
-            <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-10 text-center max-w-md w-full shadow-lg">
-              <div className="w-8 h-8 border-2 border-slate-500 border-t-slate-200 rounded-full animate-spin mx-auto mb-4"></div>
-              <h3 className="text-base font-semibold text-slate-100">
+            <div className="bg-[#181a21] border border-[#272935] rounded-xl p-10 text-center max-w-md w-full">
+              <div className="w-8 h-8 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin mx-auto mb-4"></div>
+              <h3 className="text-base font-semibold text-zinc-200">
                 Processing Questions
               </h3>
-              <p className="text-xs text-slate-400 mt-2">
+              <p className="text-xs text-zinc-400 mt-2">
                 Loading reviewer terms and multiple-choice questions...
               </p>
             </div>
@@ -902,23 +866,23 @@ export default function App() {
             /* QUIZ MODE VIEWPORT */
             <div className="w-full max-w-4xl flex flex-col gap-3 sm:gap-4">
               {/* Quiz Banner & Quick Navigator */}
-              <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3 sm:p-4 shadow-md flex flex-col gap-3">
+              <div className="bg-[#181a21] border border-[#272935] rounded-xl p-3 sm:p-4 shadow-sm flex flex-col gap-3">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <div>
-                      <h2 className="text-xs sm:text-base font-bold text-slate-100 leading-tight">
+                      <h2 className="text-xs sm:text-base font-bold text-zinc-100 leading-tight">
                         70 Items Quiz
                       </h2>
-                      <p className="text-[10px] sm:text-xs text-slate-400 font-mono">
+                      <p className="text-[10px] sm:text-xs text-zinc-400 font-mono">
                         Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0 text-xs ml-auto">
-                    <span className="text-slate-400 text-[11px] sm:text-xs font-mono">
+                    <span className="text-zinc-400 text-[11px] sm:text-xs font-mono">
                       Progress:{' '}
-                      <strong className="text-slate-100 font-bold">
+                      <strong className="text-zinc-100 font-bold">
                         {Object.keys(quizAnswers).length}
                       </strong>{' '}
                       / {quizQuestions.length}
@@ -926,7 +890,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={handleFinishQuiz}
-                      className="px-3 py-1.5 bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                      className="px-3 py-1.5 bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
                     >
                       Finish Quiz
                     </button>
@@ -942,9 +906,9 @@ export default function App() {
                 </div>
 
                 {/* Progress bar */}
-                <div className="w-full bg-slate-900 rounded-full h-1.5 overflow-hidden border border-slate-700/80">
+                <div className="w-full bg-zinc-950 rounded-full h-1.5 overflow-hidden border border-zinc-800">
                   <div
-                    className="bg-slate-200 h-full transition-all duration-300 rounded-full"
+                    className="bg-zinc-200 h-full transition-all duration-300 rounded-full"
                     style={{
                       width: `${Math.round(
                         (Object.keys(quizAnswers).length / (quizQuestions.length || 1)) * 100
@@ -965,10 +929,10 @@ export default function App() {
                         onClick={() => setQuizCurrentIndex(idx)}
                         className={`w-7 h-7 rounded-md font-bold transition-all cursor-pointer flex items-center justify-center shrink-0 text-[11px] ${
                           isCurrent
-                            ? 'ring-2 ring-slate-300 bg-white text-slate-950 shadow-md font-extrabold'
+                            ? 'ring-2 ring-zinc-400 bg-zinc-100 text-zinc-950 shadow-md'
                             : isAnswered
-                            ? 'bg-slate-700/90 text-slate-200 border border-slate-600'
-                            : 'bg-slate-900/80 text-slate-400 border border-slate-700/80 hover:text-slate-200 hover:bg-slate-800'
+                            ? 'bg-zinc-800 text-zinc-200 border border-zinc-700'
+                            : 'bg-zinc-950 text-zinc-500 border border-zinc-800 hover:text-zinc-300'
                         }`}
                         title={`Item ${idx + 1}: ${q.subject}${isAnswered ? ' (Answered)' : ''}`}
                       >
@@ -1018,40 +982,40 @@ export default function App() {
             </div>
           ) : filteredQuestions.length === 0 ? (
             /* Empty State */
-            <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-8 sm:p-12 text-center max-w-xl w-full flex flex-col items-center shadow-lg">
-              <div className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center mb-4 text-slate-300 font-mono text-sm">
+            <div className="bg-[#181a21] border border-[#272935] rounded-xl p-8 sm:p-12 text-center max-w-xl w-full flex flex-col items-center shadow-lg">
+              <div className="w-12 h-12 rounded-full bg-[#14151b] border border-[#272935] flex items-center justify-center mb-4 text-zinc-300 font-mono text-sm">
                 0 Q
               </div>
-              <h3 className="text-lg font-semibold text-slate-100">
+              <h3 className="text-base sm:text-lg font-semibold text-zinc-100">
                 {selectedSubject !== 'All'
                   ? `No Questions Found for ${selectedSubject}`
                   : 'No Reviewer Questions Found'}
               </h3>
-              <p className="text-sm text-slate-400 mt-2 max-w-md leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-400 mt-2 max-w-md leading-relaxed">
                 {selectedSubject !== 'All'
                   ? `Switch to another subject or select All Subjects.`
                   : 'Questions from the board exam reviewers are ready.'}
               </p>
 
-              <div className="mt-6 flex flex-wrap gap-3 justify-center">
+              <div className="mt-6 flex flex-wrap gap-2.5 justify-center">
                 <button
                   type="button"
                   onClick={() => setSelectedSubject('All')}
-                  className="px-4 py-2 bg-slate-700 text-slate-200 border border-slate-600 font-medium text-xs rounded-lg hover:bg-slate-600 cursor-pointer transition-colors"
+                  className="px-3.5 py-2 bg-[#20222a] text-zinc-200 border border-[#2c2f3c] font-medium text-xs rounded-lg hover:bg-[#282b35] cursor-pointer transition-colors"
                 >
                   View All Subjects
                 </button>
                 <button
                   type="button"
                   onClick={handleStartQuiz}
-                  className="px-4 py-2 bg-slate-100 text-slate-950 font-semibold text-xs rounded-lg hover:bg-white cursor-pointer transition-colors shadow-xs"
+                  className="px-3.5 py-2 bg-zinc-100 text-zinc-950 font-semibold text-xs rounded-lg hover:bg-white cursor-pointer transition-colors shadow-xs"
                 >
                   Start 70-Item Quiz
                 </button>
               </div>
 
               {scanMessage && (
-                <div className="mt-4 text-xs font-mono text-slate-400">
+                <div className="mt-4 text-xs font-mono text-zinc-400">
                   {scanMessage}
                 </div>
               )}
@@ -1106,16 +1070,13 @@ export default function App() {
         onConnectDrive={handleConnectDrive}
       />
 
-      {/* Reviewer Files & Question Bank Modal */}
+      {/* Paste Questions Modal */}
       <PasteQuestionsModal
         isOpen={isPasteModalOpen}
         onClose={() => setIsPasteModalOpen(false)}
         savedCustomQuestions={customQuestions}
         allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
-        onImportFile={handleImportLocalFile}
-        isLoadingFile={loadingFileContent}
-        initialTab={pasteModalTab}
       />
 
       {/* Share Reviewer Modal */}

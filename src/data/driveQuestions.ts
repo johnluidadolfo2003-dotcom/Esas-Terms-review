@@ -21346,6 +21346,35 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "rawSnippet": "In FM stereo broadcasting, the L + R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
   },
   {
+    "id": "comm-batch-1-12-1791677488168-4oo7t",
+    "subject": "Communication",
+    "sourceFileName": "Communication Reviewer.txt",
+    "sourceFileId": "comm-batch-1",
+    "questionNumber": 207,
+    "question": "In FM stereo broadcasting, the L – R signal",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Double-sideband modulates a subcarrier"
+      },
+      {
+        "id": "B",
+        "text": "Modulates the FM carrier"
+      },
+      {
+        "id": "C",
+        "text": "Is not transmitted"
+      },
+      {
+        "id": "D",
+        "text": "Frequency modulates a subcarrier"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Modulation encodes information onto a high-frequency carrier wave (varying amplitude, frequency, or phase) to enable efficient transmission over physical channels.",
+    "rawSnippet": "In FM stereo broadcasting, the L – R signal\nA. Double-sideband modulates a subcarrier\nB. Modulates the FM carrier\nC. Frequency modulates a subcarrier\nD. Is not transmitted"
+  },
+  {
     "id": "comm-batch-1-13-1791677488168-gcscb",
     "subject": "Communication",
     "sourceFileName": "Communication Reviewer.txt",

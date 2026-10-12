@@ -18,7 +18,6 @@ interface StudyHeaderProps {
   isShuffled: boolean;
   onToggleShuffle: () => void;
   onDisableShuffle?: () => void;
-  onOpenUploadModal?: () => void;
   onOpenPasteModal?: () => void;
   customQuestionsCount?: number;
   isQuizActive?: boolean;
@@ -52,7 +51,6 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   onToggleShuffle,
   onDisableShuffle,
   onOpenPasteModal,
-  onOpenUploadModal,
   isQuizActive = false,
   onStartQuiz,
   onFinishQuiz,
@@ -167,7 +165,6 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           )}
 
           {/* Question Bank Modal Button */}
-          {onOpenUploadModal && !isQuizActive && <button type="button" onClick={onOpenUploadModal} className="px-2 py-1 rounded-md text-xs bg-slate-800 border border-slate-700">Import</button>}
           {onOpenPasteModal && !isQuizActive && (
             <button
               type="button"

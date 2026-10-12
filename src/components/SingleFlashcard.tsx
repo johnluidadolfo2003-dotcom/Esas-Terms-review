@@ -179,8 +179,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
 
       const resultIntro = isUserCorrect
-        ? `Correct!`
-        : `Incorrect. The correct answer is Option ${question.correctChoiceId}.`;
+        ? `Correct! Option ${selectedChoice} is correct.`
+        : `Incorrect. You chose Option ${selectedChoice}. The correct answer is Option ${question.correctChoiceId}.`;
 
       const expl = generateContextualExplanation(
         question.question,
@@ -246,37 +246,37 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
   return (
     <div className="w-full max-w-3xl mx-auto flex flex-col gap-2.5 sm:gap-4">
-      {/* Flashcard Header Bar - Slim */}
+      {/* Flashcard Header Bar */}
       <div className="flex items-center justify-between px-0.5 text-xs sm:text-sm">
         <div className="flex items-center gap-2">
-          <span className="font-mono text-slate-200 font-semibold bg-slate-800/90 px-2 py-0.5 rounded text-xs border border-slate-700">
+          <span className="font-mono text-zinc-300 font-semibold bg-[#181a21] px-2.5 py-0.5 rounded-md text-xs border border-[#272935]">
             {currentIndex + 1} / {totalQuestions}
           </span>
-          <span className="px-2.5 py-0.5 rounded bg-slate-800/90 text-slate-300 border border-slate-700 text-[11px] font-medium">
+          <span className="px-2.5 py-0.5 rounded-md bg-[#181a21] text-zinc-300 border border-[#272935] text-[11px] font-medium">
             {question.subject}
           </span>
         </div>
       </div>
 
-      {/* Main Single Flashcard Surface - Elevated Slate Card */}
-      <div className="bg-slate-800/95 border border-slate-700/80 rounded-2xl p-4 sm:p-7 flex flex-col gap-3.5 sm:gap-5 shadow-xl shadow-slate-950/40 relative overflow-hidden backdrop-blur-xs">
-        {/* Source info (compact) */}
-        <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400 border-b border-slate-700/60 pb-2 sm:pb-3 font-mono">
+      {/* Main Single Flashcard Surface */}
+      <div className="bg-[#181a21] border border-[#272935] rounded-2xl p-4 sm:p-7 flex flex-col gap-3 sm:gap-5 shadow-xl relative overflow-hidden">
+        {/* Source info */}
+        <div className="flex items-center justify-between text-[11px] sm:text-xs text-zinc-400 border-b border-[#272935] pb-2 font-mono">
           <div className="truncate max-w-[220px] sm:max-w-md">
-            <span className="text-slate-500">Source: </span>
-            <span className="text-slate-300 font-medium">{question.sourceFileName}</span>
+            <span className="text-zinc-500">Source: </span>
+            <span className="text-zinc-300 font-medium">{question.sourceFileName}</span>
           </div>
           {question.questionNumber && (
-            <span className="text-slate-400 shrink-0">#{question.questionNumber}</span>
+            <span className="text-zinc-500 shrink-0">#{question.questionNumber}</span>
           )}
         </div>
 
         {/* Voice Status Banner when active */}
         {aiVoiceMode !== 'off' && (
-          <div className="bg-slate-900/90 border border-slate-700/70 rounded-xl p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="bg-slate-950 border border-slate-800 rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-2">
               <span
-                className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-800 text-slate-200 border border-slate-700"
+                className="px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-800 text-zinc-200 border border-zinc-700"
               >
                 {aiVoiceMode === 'ai_reads_you_answer' ? 'Read Questions Mode' : 'Auto Read & Answer Mode'}
               </span>
@@ -328,7 +328,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 <button
                   type="button"
                   onClick={handleReplaySpeech}
-                  className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-[11px] cursor-pointer flex items-center gap-1 transition-colors"
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
                   title="Play / Re-read aloud"
                 >
                   Play
@@ -337,7 +337,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 <button
                   type="button"
                   onClick={handlePauseSpeech}
-                  className="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-[11px] cursor-pointer flex items-center gap-1 transition-colors"
+                  className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
                   title="Pause speech"
                 >
                   Pause
@@ -345,16 +345,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               )}
 
               {/* Speed Toggles */}
-              <div className="flex items-center rounded border border-slate-700 bg-slate-900/90 p-0.5">
+              <div className="flex items-center rounded border border-zinc-800 bg-zinc-900 p-0.5">
                 {[0.8, 1.0, 1.25, 1.5].map((rate) => (
                   <button
                     key={rate}
                     type="button"
                     onClick={() => setSpeechRate(rate)}
-                    className={`px-1.5 py-0.5 rounded text-[10px] font-mono cursor-pointer transition-colors ${
+                    className={`px-1.5 py-0.5 rounded text-[10px] font-mono cursor-pointer ${
                       speechRate === rate
-                        ? 'bg-slate-700 text-white font-semibold'
-                        : 'text-slate-400 hover:text-slate-200'
+                        ? 'bg-zinc-700 text-white font-semibold'
+                        : 'text-zinc-400 hover:text-zinc-200'
                     }`}
                   >
                     {rate}x
@@ -367,10 +367,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 <button
                   type="button"
                   onClick={() => setAutoAdvance(!autoAdvance)}
-                  className={`px-2 py-1 rounded text-[10px] font-medium border cursor-pointer transition-colors ${
+                  className={`px-2 py-1 rounded text-[10px] font-medium border cursor-pointer ${
                     autoAdvance
-                      ? 'bg-slate-800 border-slate-700 text-slate-200'
-                      : 'bg-slate-900 border-slate-800 text-slate-400'
+                      ? 'bg-zinc-800 border-zinc-700 text-zinc-200'
+                      : 'bg-zinc-900 border-zinc-800 text-zinc-400'
                   }`}
                   title="Automatically advance to next question after explanation"
                 >
@@ -383,7 +383,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
         <div className="py-0.5 sm:py-1">
-          <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-50 leading-snug">
+          <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
             {question.question}
           </h2>
         </div>
@@ -396,23 +396,23 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             const isCorrectOption = cleanChoiceId === cleanCorrect;
 
             let buttonClasses =
-              'relative flex items-center justify-between p-2.5 sm:p-3.5 rounded-xl border text-left transition-all min-h-[46px] ';
+              'relative flex items-center justify-between p-2.5 sm:p-3.5 rounded-lg sm:rounded-xl border text-left transition-all min-h-[44px] ';
 
             if (!isAnswered) {
               buttonClasses +=
-                'bg-slate-900/90 border-slate-700 text-slate-100 hover:border-slate-400 hover:bg-slate-900 cursor-pointer active:scale-[0.99] shadow-xs';
+                'bg-[#20222a] border-[#2c2f3c] text-zinc-100 hover:border-zinc-500 hover:bg-[#252833] cursor-pointer active:scale-[0.99]';
             } else if (isUserSelected && !isCorrectOption) {
-              // WRONG SELECTED: Vibrant Red Solid
+              // WRONG SELECTED: Red
               buttonClasses +=
                 'bg-rose-600 border-rose-500 text-white font-semibold shadow-md ring-2 ring-rose-400/50';
             } else if (isCorrectOption) {
-              // CORRECT ANSWER: Vibrant Emerald Green Solid (kept green!)
+              // CORRECT ANSWER: Emerald Green
               buttonClasses +=
                 'bg-emerald-600 border-emerald-500 text-white font-semibold shadow-md ring-2 ring-emerald-400/50';
             } else {
               // Other unselected options: muted
               buttonClasses +=
-                'bg-slate-900/40 border-slate-800/80 text-slate-500 opacity-45 pointer-events-none';
+                'bg-[#16171e]/50 border-[#22242d] text-zinc-400 opacity-50 pointer-events-none';
             }
 
             return (
@@ -427,12 +427,12 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   <span
                     className={`font-mono text-xs sm:text-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border shrink-0 font-bold ${
                       !isAnswered
-                        ? 'bg-slate-800 border-slate-600 text-slate-200'
+                        ? 'bg-[#15171e] border-[#2d303d] text-zinc-200'
                         : isUserSelected && !isCorrectOption
                         ? 'bg-rose-700 border-rose-400 text-white'
                         : isCorrectOption
                         ? 'bg-emerald-700 border-emerald-400 text-white'
-                        : 'bg-slate-800/60 border-slate-700 text-slate-400'
+                        : 'bg-[#181a21] border-[#272935] text-zinc-400'
                     }`}
                   >
                     {choice.id}
@@ -440,22 +440,22 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
                 </div>
 
-                {/* Status indicator badge - super clean & concise */}
+                {/* Status indicator badge */}
                 {isAnswered && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
                     {isUserSelected && isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-400 text-emerald-200 font-bold">
-                        ✓ Correct
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                        Correct
                       </span>
                     )}
                     {!isUserSelected && isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-400 text-emerald-200 font-bold">
-                        ✓ Correct Answer
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                        Correct Answer
                       </span>
                     )}
                     {isUserSelected && !isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-rose-950/90 border border-rose-400 text-rose-200 font-bold">
-                        ✕ Wrong
+                      <span className="px-2 py-0.5 rounded bg-rose-950 border border-rose-300 text-rose-100 font-bold">
+                        Your Choice
                       </span>
                     )}
                   </div>
@@ -470,18 +470,13 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           <div
             className={`p-3 sm:p-4 rounded-xl border flex flex-col gap-2 shadow-md text-xs sm:text-sm ${
               isCorrect
-                ? 'bg-emerald-950/95 border-emerald-500 text-emerald-100 ring-1 ring-emerald-500/40'
-                : 'bg-rose-950/95 border-rose-500 text-rose-100 ring-1 ring-rose-500/40'
+                ? 'bg-emerald-950/80 border-emerald-500/80 text-emerald-100 ring-1 ring-emerald-500/30'
+                : 'bg-rose-950/80 border-rose-500/80 text-rose-100 ring-1 ring-rose-500/30'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 font-bold text-sm sm:text-base">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-black shrink-0 border border-current">
-                    {isCorrect ? '✓' : '✕'}
-                  </span>
-                  <span>{isCorrect ? 'Correct Answer' : 'Incorrect Choice'}</span>
-                </span>
+                <span>{isCorrect ? 'Correct Answer' : 'Incorrect Choice'}</span>
               </div>
               <div className="flex items-center gap-1.5 shrink-0">
                 {onResetAnswer && (
@@ -491,7 +486,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                     className="px-2.5 py-1 rounded text-[11px] font-semibold bg-black/30 hover:bg-black/50 text-white border border-white/20 transition-colors cursor-pointer"
                     title="Clear answer and try again"
                   >
-                    ↺ Try Again
+                    Try Again
                   </button>
                 )}
                 <span className="text-[10px] sm:text-xs font-mono opacity-80 bg-black/20 px-2 py-0.5 rounded hidden xs:inline">
@@ -509,11 +504,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               );
               return displayExplanation ? (
                 <div className="border-t border-white/15 pt-2 mt-0.5 flex flex-col gap-1">
-                  <span className="text-[11px] sm:text-xs font-semibold tracking-wide uppercase text-slate-300 flex items-center gap-1.5">
+                  <span className="text-[11px] sm:text-xs font-semibold tracking-wide uppercase text-zinc-300 flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
                     Explanation
                   </span>
-                  <p className="text-xs sm:text-sm text-slate-100 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-zinc-100 leading-relaxed font-normal">
                     {displayExplanation}
                   </p>
                 </div>
@@ -523,15 +518,15 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         )}
 
         {/* Card Controls & Footer */}
-        <div className="flex items-center justify-between pt-2.5 sm:pt-4 border-t border-slate-700/60 text-xs sm:text-sm gap-2">
+        <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-[#272935] text-xs sm:text-sm gap-2">
           <button
             type="button"
             onClick={onPrevious}
             disabled={!hasPrevious}
             className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg border font-semibold transition-colors min-h-[40px] flex items-center justify-center ${
               hasPrevious
-                ? 'bg-slate-800 hover:bg-slate-700 border-slate-600 text-slate-200 hover:text-white cursor-pointer active:scale-98'
-                : 'bg-slate-900/60 border-slate-800 text-slate-600 opacity-40 cursor-not-allowed'
+                ? 'bg-[#20222a] border-[#2f323e] text-zinc-200 hover:bg-[#272935] hover:text-white cursor-pointer active:scale-98'
+                : 'bg-[#181a21] border-[#22242c] text-zinc-600 opacity-40 cursor-not-allowed'
             }`}
           >
             ← Previous
@@ -541,13 +536,13 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             <button
               type="button"
               onClick={onResetAnswer}
-              className="px-3 py-2 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-medium cursor-pointer transition-colors"
+              className="px-3 py-2 rounded-lg border border-[#2f323e] bg-[#20222a] hover:bg-[#272935] text-zinc-200 hover:text-white text-xs font-medium cursor-pointer transition-colors"
             >
-              ↺ Reset Answer
+              Reset Answer
             </button>
           ) : (
-            <div className="text-[11px] text-slate-400 font-mono hidden md:block">
-              Keyboard: [A-D] answer • [←][→] navigate
+            <div className="text-[11px] text-zinc-500 font-mono hidden md:block">
+              [A-D] answer • [←][→] navigate
             </div>
           )}
 
@@ -558,9 +553,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg border font-semibold transition-all shadow-sm min-h-[40px] flex items-center justify-center ${
               hasNext
                 ? isAnswered
-                  ? 'bg-white text-slate-950 border-white hover:bg-slate-100 cursor-pointer active:scale-98 shadow-md'
-                  : 'bg-slate-800 hover:bg-slate-700 border-slate-600 text-slate-200 hover:text-white cursor-pointer active:scale-98'
-                : 'bg-slate-900/60 border-slate-800 text-slate-600 opacity-40 cursor-not-allowed'
+                  ? 'bg-zinc-100 text-zinc-950 border-zinc-200 hover:bg-white cursor-pointer active:scale-98'
+                  : 'bg-[#20222a] border-[#2f323e] text-zinc-200 hover:bg-[#272935] hover:text-white cursor-pointer active:scale-98'
+                : 'bg-[#181a21] border-[#22242c] text-zinc-600 opacity-40 cursor-not-allowed'
             }`}
           >
             {currentIndex + 1 === totalQuestions ? 'Finish Review' : 'Next Question →'}

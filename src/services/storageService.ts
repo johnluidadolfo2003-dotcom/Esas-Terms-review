@@ -1,11 +1,5 @@
-import { auth } from './firebaseAuth';
-import { cloudRequest } from './cloudStorage';
-import { isQuestionBank } from './questionValidation';
 import { FlashcardQuestion } from './questionParser';
 import jsPDF from 'jspdf';
-
-let storageScope = '';
-export function setQuestionStorageScope(uid: string | null): void { storageScope = uid ? `_${uid}` : ''; }
 
 export const STORAGE_KEY_CUSTOM_QUESTIONS = 'drive_flashcards_custom_questions_v2';
 export const STORAGE_KEY_BACKUP = 'drive_flashcards_custom_questions_backup';
@@ -16,30 +10,48 @@ export const STORAGE_KEY_LEGACY = 'drive_flashcards_custom_questions';
  * Checks versioned key, legacy key, and backup key.
  */
 export function loadSavedCustomQuestions(): FlashcardQuestion[] {
-  for (const key of [STORAGE_KEY_CUSTOM_QUESTIONS, STORAGE_KEY_LEGACY, STORAGE_KEY_BACKUP]) {
-    try {
-      const raw = localStorage.getItem(key + storageScope);
-      if (!raw) continue;
-      const parsed = JSON.parse(raw);
-      if (!Array.isArray(parsed)) continue;
-      return parsed.filter((q): q is FlashcardQuestion => isQuestionBank([q]));
-    } catch { /* Try the next backup if the primary copy is corrupt. */ }
+  try {
+    let raw = localStorage.getItem(STORAGE_KEY_CUSTOM_QUESTIONS);
+    if (!raw) {
+      raw = localStorage.getItem(STORAGE_KEY_LEGACY);
+    }
+    if (!raw) {
+      raw = localStorage.getItem(STORAGE_KEY_BACKUP);
+    }
+
+    if (!raw) return [];
+
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    // Sanitize and validate loaded questions
+    return parsed.filter((q): q is FlashcardQuestion => {
+      return (
+        typeof q === 'object' &&
+        q !== null &&
+        typeof q.id === 'string' &&
+        typeof q.question === 'string' &&
+        Array.isArray(q.choices) &&
+        q.choices.length >= 2 &&
+        typeof q.correctChoiceId === 'string'
+      );
+    });
+  } catch (err) {
+    console.warn('Failed to load custom questions from localStorage:', err);
+    return [];
   }
-  return [];
 }
 
 /**
- * Saves custom questions to browser localStorage with multiple redundant keys.
+ * Saves custom questions permanently to localStorage with multiple redundant keys.
  */
 export function saveCustomQuestions(questions: FlashcardQuestion[]): boolean {
   try {
     const serialized = JSON.stringify(questions);
-    localStorage.setItem(STORAGE_KEY_CUSTOM_QUESTIONS + storageScope, serialized);
-    try {
-    localStorage.setItem(STORAGE_KEY_BACKUP + storageScope, serialized);
+    localStorage.setItem(STORAGE_KEY_CUSTOM_QUESTIONS, serialized);
+    localStorage.setItem(STORAGE_KEY_BACKUP, serialized);
     // Keep legacy key populated for backward compatibility
-    localStorage.setItem(STORAGE_KEY_LEGACY + storageScope, serialized);
-    } catch { /* Primary copy was saved successfully. */ }
+    localStorage.setItem(STORAGE_KEY_LEGACY, serialized);
 
     // Notify other components or tabs
     if (typeof window !== 'undefined') {
@@ -70,9 +82,9 @@ export function deleteCustomQuestion(questionId: string, currentQuestions: Flash
  */
 export function clearAllCustomQuestions(): void {
   try {
-    localStorage.removeItem(STORAGE_KEY_CUSTOM_QUESTIONS + storageScope);
-    localStorage.removeItem(STORAGE_KEY_BACKUP + storageScope);
-    localStorage.removeItem(STORAGE_KEY_LEGACY + storageScope);
+    localStorage.removeItem(STORAGE_KEY_CUSTOM_QUESTIONS);
+    localStorage.removeItem(STORAGE_KEY_BACKUP);
+    localStorage.removeItem(STORAGE_KEY_LEGACY);
     if (typeof window !== 'undefined') {
       window.dispatchEvent(
         new CustomEvent('flashcards_custom_questions_updated', {
@@ -123,7 +135,6 @@ export async function importCustomQuestionsJson(file: File): Promise<FlashcardQu
     );
   });
 
-  if (!isQuestionBank(valid)) throw new Error('Invalid bank: check unique question IDs, subjects, choices, and answer letters.');
   return valid;
 }
 
@@ -490,13 +501,36 @@ export function downloadQuestionsPdf(
 /**
  * Saves all questions directly to the project's `src/data/driveQuestions.ts` via the dev server API
  */
-export async function saveQuestionsToProjectApi(questions: FlashcardQuestion[]): Promise<{ success: boolean; count?: number; error?: string }> {
+export async function saveQuestionsToProjectApi(
+  questions: FlashcardQuestion[]
+): Promise<{ success: boolean; count?: number; error?: string }> {
   try {
-    if (!auth.currentUser) throw new Error('Sign in to save questions to your account.');
-    const existing = await cloudRequest('GET');
-    const result = await cloudRequest('PUT', questions, existing.version);
-    return { success: true, count: result.count };
-  } catch (error) {
-    return { success: false, error: error instanceof Error ? error.message : 'Saving failed.' };
+    const res = await fetch('/api/save-drive-questions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ questions }),
+    });
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      return {
+        success: false,
+        error: data.error || `Server responded with status ${res.status}`,
+      };
+    }
+
+    const data = await res.json();
+    return {
+      success: true,
+      count: data.count || questions.length,
+    };
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Network request failed';
+    return {
+      success: false,
+      error: message,
+    };
   }
 }

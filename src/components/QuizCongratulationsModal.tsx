@@ -31,19 +31,19 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
   const isPassed = percentage >= 70;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-xs animate-fadeIn">
-      <div className="bg-slate-900 border border-slate-800 rounded-xl max-w-lg w-full p-5 sm:p-6 shadow-2xl flex flex-col gap-5 text-slate-100 relative overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-xs">
+      <div className="bg-[#181a21] border border-[#272935] rounded-xl max-w-lg w-full p-5 sm:p-6 shadow-2xl flex flex-col gap-5 text-zinc-100 relative overflow-hidden">
         {/* Background Subtle Accent */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-emerald-500" />
 
         {/* Header Icon + Celebration Message */}
         <div className="text-center pt-2 flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-3xl mb-3 shadow-inner">
-            🎉
+          <div className="w-14 h-14 rounded-full bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-2xl mb-2.5">
+            🏆
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white leading-snug px-2">
-            Congratulations Ambobo mo parin may lubot ka sakin,  hugasing lubot
+          <h2 className="text-lg sm:text-xl font-bold tracking-tight text-white leading-snug px-2">
+            Quiz Completed
           </h2>
 
           <p className="text-xs text-slate-400 mt-2 font-mono">
@@ -99,11 +99,11 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
         </div>
 
         {/* Modal Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 pt-2 border-t border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center gap-2 pt-2 border-t border-zinc-800">
           <button
             type="button"
             onClick={onRetakeQuiz}
-            className="w-full sm:flex-1 py-2.5 px-4 bg-slate-100 hover:bg-white text-slate-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer text-center shadow-xs"
+            className="w-full sm:flex-1 py-2.5 px-4 bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer text-center"
           >
             Take New 70-Item Quiz
           </button>
@@ -111,7 +111,7 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
           <button
             type="button"
             onClick={onReviewAnswers}
-            className="w-full sm:flex-1 py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium text-xs rounded-lg transition-colors cursor-pointer text-center"
+            className="w-full sm:flex-1 py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-xs rounded-lg transition-colors cursor-pointer text-center"
           >
             Review Answers
           </button>
@@ -119,7 +119,7 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
           <button
             type="button"
             onClick={onClose}
-            className="w-full sm:w-auto py-2.5 px-3 bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-slate-200 border border-slate-800 text-xs font-medium rounded-lg transition-colors cursor-pointer"
+            className="w-full sm:w-auto py-2.5 px-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 border border-zinc-800 text-xs font-medium rounded-lg transition-colors cursor-pointer"
           >
             Close
           </button>

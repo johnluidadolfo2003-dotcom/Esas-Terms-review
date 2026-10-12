@@ -73,12 +73,7 @@ export function generate70ItemQuiz(allQuestions: FlashcardQuestion[]): {
     // 3. If remaining candidates are fewer than quota, reset subject history to cycle through again
     if (candidates.length < count) {
       nextUsed[subject] = [];
-      const remaining = shuffleArray(candidates);
-      const refill = shuffleArray(subjectPool.filter((q) => usedForSubj.has(q.id)));
-      const picked = [...remaining, ...refill].slice(0, Math.min(count, subjectPool.length));
-      selectedQuestions.push(...picked);
-      nextUsed[subject] = picked.slice(remaining.length).map((q) => q.id);
-      continue;
+      candidates = [...subjectPool];
     }
 
     // 4. Shuffle candidates and select required count
