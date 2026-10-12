@@ -163,18 +163,18 @@ export const ShareModal: React.FC<ShareModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-xs">
-      <div className="w-full max-w-xl bg-zinc-900 border border-zinc-800 rounded-xl flex flex-col max-h-[92vh] shadow-2xl overflow-hidden">
+      <div className="w-full max-w-xl bg-slate-900 border border-slate-800 rounded-xl flex flex-col max-h-[92vh] shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800 bg-zinc-900">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800 bg-slate-900">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-lg bg-emerald-600/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center font-bold text-xs">
               ↗
             </div>
             <div>
-              <h2 className="text-base font-bold text-zinc-100">
+              <h2 className="text-base font-bold text-slate-100">
                 Share Flashcard Reviewer
               </h2>
-              <p className="text-xs text-zinc-400 mt-0.5">
+              <p className="text-xs text-slate-400 mt-0.5">
                 Share with classmates, reviewees, or friends to study on any device.
               </p>
             </div>
@@ -183,7 +183,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-3 py-1.5 text-xs font-medium rounded-md border border-zinc-700 bg-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-700 transition-colors"
+            className="px-3 py-1.5 text-xs font-medium rounded-md border border-slate-700 bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors"
           >
             Close
           </button>
@@ -192,14 +192,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         {/* Content Body */}
         <div className="flex-1 overflow-y-auto p-5 flex flex-col gap-4">
           {/* Link Type Selector */}
-          <div className="flex rounded-lg border border-zinc-800 p-1 bg-zinc-950">
+          <div className="flex rounded-lg border border-slate-800 p-1 bg-slate-950">
             <button
               type="button"
               onClick={() => setLinkType('render')}
               className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
                 linkType === 'render'
                   ? 'bg-emerald-600 text-white shadow'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               Render Live Link
@@ -210,7 +210,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
                 linkType === 'public'
                   ? 'bg-emerald-600 text-white shadow'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               AI Studio Public (ais-pre)
@@ -221,7 +221,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               className={`flex-1 py-1.5 px-2.5 rounded-md text-xs font-medium transition-colors ${
                 linkType === 'dev'
                   ? 'bg-emerald-600 text-white shadow'
-                  : 'text-zinc-400 hover:text-zinc-200'
+                  : 'text-slate-400 hover:text-slate-200'
               }`}
             >
               Direct Dev Session
@@ -230,12 +230,12 @@ export const ShareModal: React.FC<ShareModalProps> = ({
 
           {/* Render Domain Input when Render Link is selected */}
           {linkType === 'render' && (
-            <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800 flex flex-col gap-2">
+            <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex flex-col gap-2">
               <div className="flex items-center justify-between">
-                <label className="text-xs font-mono text-zinc-300">
+                <label className="text-xs font-mono text-slate-300">
                   Your Render Web Service URL
                 </label>
-                <span className="text-[10px] text-zinc-400">
+                <span className="text-[10px] text-slate-400">
                   From your dashboard.render.com Static Site
                 </span>
               </div>
@@ -249,16 +249,16 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                     saveRenderUrl(val);
                   }}
                   placeholder="https://your-app-name.onrender.com"
-                  className="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-3 py-1.5 text-xs font-mono text-zinc-200 focus:outline-none focus:border-emerald-600"
+                  className="flex-1 bg-slate-900 border border-slate-800 rounded-md px-3 py-1.5 text-xs font-mono text-slate-200 focus:outline-none focus:border-emerald-600"
                 />
               </div>
             </div>
           )}
 
           {/* Main Share Link Box */}
-          <div className="p-3.5 rounded-lg bg-zinc-950 border border-zinc-800 flex flex-col gap-2.5">
+          <div className="p-3.5 rounded-lg bg-slate-950 border border-slate-800 flex flex-col gap-2.5">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono text-zinc-300">
+              <span className="text-xs font-mono text-slate-300">
                 {linkType === 'render'
                   ? 'Render Sharable Link (Live for All Users)'
                   : linkType === 'public'
@@ -286,7 +286,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 readOnly
                 value={shareUrl}
                 onClick={(e) => (e.target as HTMLInputElement).select()}
-                className="flex-1 bg-zinc-900 border border-zinc-800 rounded-md px-3 py-2 text-xs font-mono text-zinc-200 select-all focus:outline-none focus:border-emerald-600"
+                className="flex-1 bg-slate-900 border border-slate-800 rounded-md px-3 py-2 text-xs font-mono text-slate-200 select-all focus:outline-none focus:border-emerald-600"
               />
               <button
                 type="button"
@@ -350,7 +350,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 <p>
                   In Google AI Studio, the Public URL (<span className="font-mono text-[11px] text-amber-200">ais-pre-...</span>) is published when you click the <strong>Share</strong> button in the editor:
                 </p>
-                <ol className="list-decimal pl-4 space-y-1 text-zinc-300 text-[11px]">
+                <ol className="list-decimal pl-4 space-y-1 text-slate-300 text-[11px]">
                   <li>
                     Look at the <strong>top-right corner</strong> of your Google AI Studio screen.
                   </li>
@@ -361,7 +361,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                     Choose <strong>Anyone with the link</strong>.
                   </li>
                 </ol>
-                <p className="text-[11px] text-zinc-400">
+                <p className="text-[11px] text-slate-400">
                   Google Cloud immediately deploys the live reviewer and the 404 disappears for everyone!
                 </p>
                 <div className="pt-2 flex flex-wrap items-center gap-2">
@@ -380,11 +380,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                   <button
                     type="button"
                     onClick={handleCopyDevLink}
-                    className="px-3 py-1.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 text-[11px] font-mono transition-colors"
+                    className="px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px] font-mono transition-colors"
                   >
                     {copiedDev ? 'Copied Direct Dev Link!' : 'Copy Direct Dev Link'}
                   </button>
-                  <span className="text-[10px] text-zinc-500">
+                  <span className="text-[10px] text-slate-500">
                     Works offline or during active session
                   </span>
                 </div>
@@ -395,7 +395,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           {/* Options: Subject and Custom Questions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-mono text-zinc-300 mb-1">
+              <label className="block text-xs font-mono text-slate-300 mb-1">
                 Share Specific Subject
               </label>
               <select
@@ -403,7 +403,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 onChange={(e) =>
                   setSelectedSubjectFilter(e.target.value as SubjectCategory | 'All')
                 }
-                className="w-full bg-zinc-950 border border-zinc-800 rounded-md px-3 py-2 text-xs text-zinc-200 focus:outline-none focus:border-emerald-600"
+                className="w-full bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-600"
               >
                 <option value="All">All Subjects (All 177+ Questions)</option>
                 <option value="Economics">Economics</option>
@@ -416,16 +416,16 @@ export const ShareModal: React.FC<ShareModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-zinc-300 mb-1">
+              <label className="block text-xs font-mono text-slate-300 mb-1">
                 Custom Questions Bundle
               </label>
               <label
                 className={`flex items-center gap-2.5 p-2 rounded-md border text-xs cursor-pointer select-none transition-colors ${
                   customQuestions.length === 0
-                    ? 'border-zinc-800 bg-zinc-950 text-zinc-500 cursor-not-allowed'
+                    ? 'border-slate-800 bg-slate-950 text-slate-500 cursor-not-allowed'
                     : includeCustomQuestions
                     ? 'border-emerald-700 bg-emerald-950/40 text-emerald-200'
-                    : 'border-zinc-800 bg-zinc-950 text-zinc-300 hover:border-zinc-700'
+                    : 'border-slate-800 bg-slate-950 text-slate-300 hover:border-slate-700'
                 }`}
               >
                 <input
@@ -433,7 +433,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                   disabled={customQuestions.length === 0}
                   checked={includeCustomQuestions}
                   onChange={(e) => setIncludeCustomQuestions(e.target.checked)}
-                  className="rounded border-zinc-700 text-emerald-600 focus:ring-0"
+                  className="rounded border-slate-700 text-emerald-600 focus:ring-0"
                 />
                 <span className="truncate">
                   {customQuestions.length > 0
@@ -445,15 +445,15 @@ export const ShareModal: React.FC<ShareModalProps> = ({
           </div>
 
           {/* Universal Google Account Access Note */}
-          <div className="p-3 rounded-lg bg-zinc-950 border border-zinc-800 flex items-start gap-3">
+          <div className="p-3 rounded-lg bg-slate-950 border border-slate-800 flex items-start gap-3">
             <div className="w-5 h-5 rounded-full bg-emerald-950 border border-emerald-700 text-emerald-300 flex items-center justify-center text-xs shrink-0 mt-0.5 font-bold">
               ✓
             </div>
             <div className="flex-1 text-xs">
-              <span className="font-semibold text-zinc-200 block mb-0.5">
+              <span className="font-semibold text-slate-200 block mb-0.5">
                 Universal Google Account Access
               </span>
-              <p className="text-zinc-400 leading-relaxed">
+              <p className="text-slate-400 leading-relaxed">
                 All Google accounts (personal @gmail.com, Google Workspace, and school @edu accounts) as well as guests can open this link and access all flashcard subjects immediately.
               </p>
             </div>
@@ -464,14 +464,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({
             <button
               type="button"
               onClick={handleNativeShare}
-              className="w-full py-2.5 px-4 rounded-md border border-zinc-700 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
+              className="w-full py-2.5 px-4 rounded-md border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white text-xs font-semibold flex items-center justify-center gap-2 transition-colors"
             >
               <span>Share to Messenger, WhatsApp, or Contacts...</span>
             </button>
           )}
 
           {/* QR Code and Quick Scan Section */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg bg-zinc-950 border border-zinc-800">
+          <div className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg bg-slate-950 border border-slate-800">
             {qrDataUrl ? (
               <div className="p-2 bg-white rounded-lg shrink-0 shadow">
                 <img
@@ -481,25 +481,25 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 />
               </div>
             ) : (
-              <div className="w-28 h-28 bg-zinc-900 rounded-lg animate-pulse shrink-0" />
+              <div className="w-28 h-28 bg-slate-900 rounded-lg animate-pulse shrink-0" />
             )}
 
             <div className="flex-1 text-center sm:text-left">
-              <h3 className="text-xs font-bold text-zinc-200 mb-1">
+              <h3 className="text-xs font-bold text-slate-200 mb-1">
                 Scan with Phone Camera
               </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mb-2">
+              <p className="text-xs text-slate-400 leading-relaxed mb-2">
                 Anyone can scan this code to open the full reviewer on their mobile phone, tablet, or laptop immediately. No account or installation required.
               </p>
-              <div className="text-[11px] font-mono text-zinc-400">
-                Base URL: <span className="text-zinc-300">{getBaseShareUrl(linkType === 'public')}</span>
+              <div className="text-[11px] font-mono text-slate-400">
+                Base URL: <span className="text-slate-300">{getBaseShareUrl(linkType === 'public')}</span>
               </div>
             </div>
           </div>
 
           {/* Quick Subject Direct Links */}
           <div>
-            <h3 className="text-xs font-mono text-zinc-400 mb-2">
+            <h3 className="text-xs font-mono text-slate-400 mb-2">
               Quick Subject Links
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -520,11 +520,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                   className={`px-2.5 py-1.5 rounded border text-left text-xs transition-colors flex items-center justify-between ${
                     copiedSubject === subj
                       ? 'border-emerald-600 bg-emerald-950 text-emerald-300'
-                      : 'border-zinc-800 bg-zinc-950 hover:border-zinc-700 text-zinc-300 hover:text-zinc-100'
+                      : 'border-slate-800 bg-slate-950 hover:border-slate-700 text-slate-300 hover:text-slate-100'
                   }`}
                 >
                   <span className="truncate">{subj}</span>
-                  <span className="text-[10px] font-mono text-zinc-400 ml-1">
+                  <span className="text-[10px] font-mono text-slate-400 ml-1">
                     {copiedSubject === subj ? 'Copied' : 'Copy'}
                   </span>
                 </button>
@@ -534,14 +534,14 @@ export const ShareModal: React.FC<ShareModalProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="px-5 py-3 border-t border-zinc-800 bg-zinc-900 flex items-center justify-between">
-          <span className="text-[11px] text-zinc-400">
+        <div className="px-5 py-3 border-t border-slate-800 bg-slate-900 flex items-center justify-between">
+          <span className="text-[11px] text-slate-400">
             Works in all modern mobile and desktop browsers.
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-1.5 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-medium rounded-md transition-colors"
+            className="px-4 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-md transition-colors"
           >
             Done
           </button>

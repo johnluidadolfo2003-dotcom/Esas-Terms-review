@@ -440,22 +440,22 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
                 </div>
 
-                {/* Status indicator badge */}
+                {/* Status indicator badge - super clean & concise */}
                 {isAnswered && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
                     {isUserSelected && isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
-                        ✓ Your Choice (Correct!)
+                      <span className="px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-400 text-emerald-200 font-bold">
+                        ✓ Correct
                       </span>
                     )}
                     {!isUserSelected && isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                      <span className="px-2 py-0.5 rounded bg-emerald-950/90 border border-emerald-400 text-emerald-200 font-bold">
                         ✓ Correct Answer
                       </span>
                     )}
                     {isUserSelected && !isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-rose-950 border border-rose-300 text-rose-100 font-bold">
-                        ✕ Your Choice (Wrong)
+                      <span className="px-2 py-0.5 rounded bg-rose-950/90 border border-rose-400 text-rose-200 font-bold">
+                        ✕ Wrong
                       </span>
                     )}
                   </div>

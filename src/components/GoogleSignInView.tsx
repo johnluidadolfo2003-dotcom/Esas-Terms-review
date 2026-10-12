@@ -32,23 +32,23 @@ export const GoogleSignInView: React.FC<GoogleSignInViewProps> = ({
               <span>Economics</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>Mechanics 1 (Statics)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>Mechanics 2 (Dynamics)</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>EE Laws & Ethics</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>Project Management</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+              <span className="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
               <span>Communication</span>
             </div>
           </div>

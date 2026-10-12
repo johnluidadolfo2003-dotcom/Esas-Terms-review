@@ -919,8 +919,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
                   onClick={() => setAutoNextDelay(delayVal)}
                   className={`px-1.5 py-0.5 rounded cursor-pointer ${
                     autoNextDelay === delayVal
-                      ? 'bg-zinc-100 text-zinc-950 font-bold'
-                      : 'bg-zinc-800 text-zinc-400 hover:text-white'
+                      ? 'bg-slate-100 text-slate-950 font-bold'
+                      : 'bg-slate-800 text-slate-400 hover:text-white'
                   }`}
                 >
                   {delayVal === 0 ? 'Off' : `${delayVal}s`}
@@ -932,7 +932,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* If Paused Banner */}
         {isTimerPaused && isAnswered && autoNextCountdown === null && (
-          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-zinc-700 rounded-lg p-1.5 text-xs font-medium flex items-center justify-between z-20 shadow-md font-sans">
+          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-slate-700 rounded-lg p-1.5 text-xs font-medium flex items-center justify-between z-20 shadow-md font-sans">
             <div className="flex items-center gap-1.5 truncate pr-1">
               <span className={evaluatedResult?.isCorrect ? 'text-emerald-300 font-bold' : 'text-rose-300 font-bold'}>
                 {evaluatedResult?.isCorrect
@@ -957,7 +957,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={triggerNextQuestion}
-                className="px-2 py-0.5 rounded bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-[11px] cursor-pointer shrink-0"
+                className="px-2 py-0.5 rounded bg-slate-100 hover:bg-white text-slate-950 font-semibold text-[11px] cursor-pointer shrink-0"
               >
                 Next →
               </button>
@@ -967,7 +967,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       </div>
 
       {/* Status banner */}
-      <div className="text-xs text-zinc-400 font-mono text-center truncate">
+      <div className="text-xs text-slate-400 font-mono text-center truncate">
         {statusMessage}
       </div>
 
@@ -978,8 +978,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(1)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 1
-              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
-              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
+              ? 'bg-slate-100 text-slate-950 font-bold border-slate-200'
+              : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
           }`}
         >
           1=A
@@ -989,8 +989,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(2)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 2
-              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
-              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
+              ? 'bg-slate-100 text-slate-950 font-bold border-slate-200'
+              : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
           }`}
         >
           2=B
@@ -1000,8 +1000,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(3)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 3
-              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
-              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
+              ? 'bg-slate-100 text-slate-950 font-bold border-slate-200'
+              : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
           }`}
         >
           3=C
@@ -1011,8 +1011,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(4)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 4
-              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
-              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800'
+              ? 'bg-slate-100 text-slate-950 font-bold border-slate-200'
+              : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800'
           }`}
         >
           4=D
@@ -1022,8 +1022,8 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           onClick={() => simulateFingers(5)}
           className={`py-1 rounded border cursor-pointer transition-colors ${
             detectedFingers === 5
-              ? 'bg-zinc-100 text-zinc-950 font-bold border-zinc-200'
-              : 'bg-zinc-900 border-zinc-800 text-zinc-300 hover:bg-zinc-800 font-bold'
+              ? 'bg-slate-100 text-slate-950 font-bold border-slate-200'
+              : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800 font-bold'
           }`}
         >
           5=Next

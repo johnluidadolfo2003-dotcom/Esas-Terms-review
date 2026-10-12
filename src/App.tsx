@@ -60,6 +60,7 @@ export default function App() {
   // Modals
   const [isDriveModalOpen, setIsDriveModalOpen] = useState(false);
   const [isPasteModalOpen, setIsPasteModalOpen] = useState(false);
+  const [pasteModalTab, setPasteModalTab] = useState<'upload' | 'pdf' | 'bank'>('upload');
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sharedImportNotice, setSharedImportNotice] = useState<string | null>(null);
 
@@ -571,20 +572,43 @@ export default function App() {
       const fileId = `local-${Date.now()}`;
       const questions = parseQuestionsFromText(content, file.name, fileId);
 
+      if (questions.length === 0) {
+        throw new Error(
+          'No recognized question items found in the file. Ensure each question has numbered text and choices A, B, C, D.'
+        );
+      }
+
+      const detectedSubj = questions[0]?.subject || 'Economics';
       const localDriveItem: DriveItem = {
         id: fileId,
         name: file.name,
         mimeType: file.type || 'text/plain',
-        matchedSubject: questions[0]?.subject || 'Economics',
+        matchedSubject: detectedSubj,
       };
 
       setDriveFiles((prev) => [localDriveItem, ...prev]);
       setSelectedFileIds((prev) => new Set(prev).add(fileId));
       setFileQuestionCounts((prev) => ({ ...prev, [fileId]: questions.length }));
       setDriveExtractedQuestions((prev) => [...questions, ...prev]);
+
+      // PERSIST PERMANENTLY TO LOCALSTORAGE FOR 100% PARITY ON RENDER
+      setCustomQuestions((prev) => {
+        const updated = [...questions, ...prev];
+        saveCustomQuestions(updated);
+        return updated;
+      });
+
+      setSelectedSubject('All');
       setCurrentCardIndex(0);
+
+      return {
+        success: true,
+        count: questions.length,
+        subject: detectedSubj,
+      };
     } catch (err) {
       console.error('Error importing local file:', err);
+      throw err;
     } finally {
       setLoadingFileContent(false);
     }
@@ -786,8 +810,14 @@ export default function App() {
         incorrectCount={incorrectCount}
         isShuffled={isShuffled}
         onToggleShuffle={handleToggleShuffle}
-        onDisableShuffle={handleDisableShuffle}
-        onOpenPasteModal={() => setIsPasteModalOpen(true)}
+        onOpenPasteModal={() => {
+          setPasteModalTab('pdf');
+          setIsPasteModalOpen(true);
+        }}
+        onOpenUploadModal={() => {
+          setPasteModalTab('upload');
+          setIsPasteModalOpen(true);
+        }}
         customQuestionsCount={customQuestions.length}
         isQuizActive={isQuizActive}
         onStartQuiz={handleStartQuiz}
@@ -1015,7 +1045,7 @@ export default function App() {
               </div>
 
               {scanMessage && (
-                <div className="mt-4 text-xs font-mono text-zinc-400">
+                <div className="mt-4 text-xs font-mono text-slate-400">
                   {scanMessage}
                 </div>
               )}
@@ -1070,13 +1100,16 @@ export default function App() {
         onConnectDrive={handleConnectDrive}
       />
 
-      {/* Paste Questions Modal */}
+      {/* Reviewer Files & Question Bank Modal */}
       <PasteQuestionsModal
         isOpen={isPasteModalOpen}
         onClose={() => setIsPasteModalOpen(false)}
         savedCustomQuestions={customQuestions}
         allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
+        onImportFile={handleImportLocalFile}
+        isLoadingFile={loadingFileContent}
+        initialTab={pasteModalTab}
       />
 
       {/* Share Reviewer Modal */}
