@@ -58,6 +58,7 @@ export default function App() {
   // Modals
   const [isDriveModalOpen, setIsDriveModalOpen] = useState(false);
   const [isPasteModalOpen, setIsPasteModalOpen] = useState(false);
+  const [editingQuestionIdForModal, setEditingQuestionIdForModal] = useState<string | null>(null);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [sharedImportNotice, setSharedImportNotice] = useState<string | null>(null);
 
@@ -550,6 +551,21 @@ export default function App() {
     setCustomQuestions((prev) => deleteCustomQuestion(questionId, prev));
   };
 
+  const handleUpdateCustomQuestion = (updatedQuestion: FlashcardQuestion) => {
+    setCustomQuestions((prev) => {
+      const existingIndex = prev.findIndex((q) => q.id === updatedQuestion.id);
+      let updatedList: FlashcardQuestion[];
+      if (existingIndex >= 0) {
+        updatedList = [...prev];
+        updatedList[existingIndex] = updatedQuestion;
+      } else {
+        updatedList = [updatedQuestion, ...prev];
+      }
+      saveCustomQuestions(updatedList);
+      return updatedList;
+    });
+  };
+
   const handleImportBackup = (imported: FlashcardQuestion[]) => {
     setCustomQuestions((prev) => {
       const existingIds = new Set(prev.map((q) => q.id));
@@ -922,6 +938,10 @@ export default function App() {
                 }}
                 aiVoiceMode={aiVoiceMode}
                 onSetAiVoiceMode={setAiVoiceMode}
+                onEditQuestion={(qId) => {
+                  setEditingQuestionIdForModal(qId);
+                  setIsPasteModalOpen(true);
+                }}
               />
             )}
           </div>
@@ -991,6 +1011,10 @@ export default function App() {
               onToggleFlag={handleToggleFlag}
               aiVoiceMode={aiVoiceMode}
               onSetAiVoiceMode={setAiVoiceMode}
+              onEditQuestion={(qId) => {
+                setEditingQuestionIdForModal(qId);
+                setIsPasteModalOpen(true);
+              }}
             />
           )
         )}
@@ -1025,14 +1049,19 @@ export default function App() {
       {/* Paste Questions Modal */}
       <PasteQuestionsModal
         isOpen={isPasteModalOpen}
-        onClose={() => setIsPasteModalOpen(false)}
+        onClose={() => {
+          setIsPasteModalOpen(false);
+          setEditingQuestionIdForModal(null);
+        }}
         onAddQuestions={handleAddPastedQuestions}
         savedCustomQuestions={customQuestions}
         allQuestions={allQuestions}
         onDeleteQuestion={handleDeleteCustomQuestion}
+        onUpdateQuestion={handleUpdateCustomQuestion}
         onImportBackup={handleImportBackup}
         onSyncToProject={handleSyncQuestionsToProject}
         isSyncingProject={isSyncingProject}
+        initialEditQuestionId={editingQuestionIdForModal}
       />
 
       {/* Share Reviewer Modal */}

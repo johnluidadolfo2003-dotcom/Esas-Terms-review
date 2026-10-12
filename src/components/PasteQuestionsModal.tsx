@@ -7,6 +7,7 @@ import {
   downloadDriveQuestionsTs,
   downloadQuestionsCsv,
   downloadQuestionsTxt,
+  downloadQuestionsPdf,
 } from '../services/storageService';
 import { copyToClipboard } from '../services/shareService';
 
@@ -522,6 +523,17 @@ Explanation: Annuity occurs at uniform time periods.
               <div className="flex flex-wrap items-center gap-2 w-full lg:w-auto">
                 <button
                   type="button"
+                  onClick={() => downloadQuestionsPdf(exportQuestionsList, 'All')}
+                  disabled={exportQuestionsList.length === 0}
+                  className="px-3 py-1.5 text-xs font-bold rounded-lg border border-red-600 bg-red-950 text-red-200 hover:bg-red-900 disabled:opacity-40 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
+                  title="Download PDF document containing all questions, choices, and answers"
+                >
+                  <span>📕</span>
+                  <span>Download All PDF</span>
+                </button>
+
+                <button
+                  type="button"
                   onClick={() => downloadQuestionsCsv(exportQuestionsList, 'All')}
                   disabled={exportQuestionsList.length === 0}
                   className="px-3 py-1.5 text-xs font-bold rounded-lg border border-emerald-600 bg-emerald-950 text-emerald-300 hover:bg-emerald-900 disabled:opacity-40 transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer"
@@ -591,7 +603,7 @@ Explanation: Annuity occurs at uniform time periods.
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-                  Download per Subject (Questions + Choices + Final Correct Answer)
+                  Download per Subject (PDF, CSV, TXT)
                 </h4>
                 <span className="text-[11px] text-zinc-500 font-mono">
                   {Object.keys(subjectBreakdown).length} Subjects Available
@@ -616,11 +628,20 @@ Explanation: Annuity occurs at uniform time periods.
                     </div>
 
                     {/* Individual Download Buttons per Subject */}
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono">
+                    <div className="flex items-center gap-1 text-[11px] font-mono">
+                      <button
+                        type="button"
+                        onClick={() => downloadQuestionsPdf(exportQuestionsList, subj)}
+                        className="flex-1 py-1 px-1.5 bg-red-900/70 hover:bg-red-800 text-red-100 border border-red-700/70 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1 text-[11px]"
+                        title={`Download PDF reviewer for ${subj}`}
+                      >
+                        <span>📕</span> PDF
+                      </button>
+
                       <button
                         type="button"
                         onClick={() => downloadQuestionsCsv(exportQuestionsList, subj)}
-                        className="flex-1 py-1 px-2 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1"
+                        className="flex-1 py-1 px-1.5 bg-emerald-900/60 hover:bg-emerald-800 text-emerald-200 border border-emerald-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1 text-[11px]"
                         title={`Download CSV spreadsheet for ${subj}`}
                       >
                         <span>📥</span> CSV
@@ -629,7 +650,7 @@ Explanation: Annuity occurs at uniform time periods.
                       <button
                         type="button"
                         onClick={() => downloadQuestionsTxt(exportQuestionsList, subj)}
-                        className="flex-1 py-1 px-2 bg-sky-900/60 hover:bg-sky-800 text-sky-200 border border-sky-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1"
+                        className="flex-1 py-1 px-1.5 bg-sky-900/60 hover:bg-sky-800 text-sky-200 border border-sky-700/60 rounded-md font-semibold transition-colors text-center cursor-pointer flex items-center justify-center gap-1 text-[11px]"
                         title={`Download text reviewer for ${subj}`}
                       >
                         <span>📄</span> TXT
@@ -640,7 +661,7 @@ Explanation: Annuity occurs at uniform time periods.
                         onClick={() =>
                           setManageSubjectFilter((prev) => (prev === subj ? 'All' : subj))
                         }
-                        className={`px-2 py-1 rounded-md border font-semibold transition-colors cursor-pointer ${
+                        className={`px-2 py-1 rounded-md border font-semibold transition-colors cursor-pointer text-[11px] ${
                           manageSubjectFilter === subj
                             ? 'bg-emerald-600 text-white border-emerald-500'
                             : 'bg-zinc-800 text-zinc-300 border-zinc-700 hover:text-white'

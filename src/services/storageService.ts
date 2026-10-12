@@ -1,4 +1,5 @@
 import { FlashcardQuestion } from './questionParser';
+import jsPDF from 'jspdf';
 
 export const STORAGE_KEY_CUSTOM_QUESTIONS = 'drive_flashcards_custom_questions_v2';
 export const STORAGE_KEY_BACKUP = 'drive_flashcards_custom_questions_backup';
@@ -273,8 +274,14 @@ export function downloadQuestionsCsv(
 }
 
 /**
- * Downloads questions as a nicely formatted text document containing Questions, Choices A-D, and Final Correct Answer.
- * Grouped per subject.
+ * Downloads questions as a nicely formatted text document.
+ * Format:
+ * 1. Question
+ * A. Choice A
+ * B. Choice B
+ * C. Choice C
+ * D. Choice D
+ * Answer: A Choice wordings
  */
 export function downloadQuestionsTxt(
   questions: FlashcardQuestion[],
@@ -296,36 +303,27 @@ export function downloadQuestionsTxt(
   });
 
   const lines: string[] = [];
-  lines.push(`=================================================================`);
-  lines.push(`               BOARD EXAM QUESTION BANK REVIEWER                 `);
-  lines.push(`=================================================================`);
-  lines.push(`Generated on: ${new Date().toLocaleString()}`);
-  lines.push(`Total Questions: ${filtered.length}`);
-  lines.push(`Subject Filter: ${subjectFilter || 'All Subjects'}`);
-  lines.push(`=================================================================\n\n`);
 
   Object.entries(grouped).forEach(([subj, qList]) => {
-    lines.push(`SUBJECT: ${subj.toUpperCase()} (${qList.length} Questions)`);
-    lines.push(`-----------------------------------------------------------------\n`);
+    lines.push(`SUBJECT: ${subj.toUpperCase()} (${qList.length} Items)`);
+    lines.push(`=================================================================\n`);
 
     qList.forEach((q, idx) => {
       lines.push(`${idx + 1}. ${q.question}`);
       q.choices.forEach((c) => {
-        lines.push(`   ${c.id.toUpperCase()}. ${c.text}`);
+        lines.push(`${c.id.toUpperCase()}. ${c.text}`);
       });
       const correctChoice = q.choices.find(
         (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
       );
-      const correctText = correctChoice ? correctChoice.text : '';
-      lines.push(
-        `   >> FINAL CORRECT ANSWER: ${q.correctChoiceId.toUpperCase()}${
-          correctText ? ` (${correctText})` : ''
-        }`
-      );
+      const answerWording = correctChoice
+        ? `${q.correctChoiceId.toUpperCase()} ${correctChoice.text}`
+        : q.correctChoiceId.toUpperCase();
+      lines.push(`Answer: ${answerWording}`);
       if (q.explanation) {
-        lines.push(`   Explanation: ${q.explanation}`);
+        lines.push(`Explanation: ${q.explanation}`);
       }
-      lines.push(''); // blank line
+      lines.push(''); // blank line between items
     });
 
     lines.push('\n');
@@ -345,6 +343,159 @@ export function downloadQuestionsTxt(
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+/**
+ * Downloads questions formatted as a clean PDF document per subject or for all subjects.
+ * Format:
+ * 1. Question
+ * A. Choice A
+ * B. Choice B
+ * C. Choice C
+ * D. Choice D
+ * Answer: A Choice wordings
+ */
+export function downloadQuestionsPdf(
+  questions: FlashcardQuestion[],
+  subjectFilter?: string
+): void {
+  const filtered =
+    subjectFilter && subjectFilter !== 'All'
+      ? questions.filter((q) => q.subject === subjectFilter)
+      : questions;
+
+  if (filtered.length === 0) return;
+
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'pt',
+    format: 'a4',
+  });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 40;
+  const contentWidth = pageWidth - margin * 2;
+
+  let y = margin;
+
+  const checkPageBreak = (neededHeight: number) => {
+    if (y + neededHeight > pageHeight - margin - 20) {
+      doc.addPage();
+      y = margin;
+    }
+  };
+
+  // Header
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(14);
+  const subjTitle =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.toUpperCase()
+      : 'ALL SUBJECTS';
+  doc.text(`REVIEWER - ${subjTitle}`, margin, y);
+  y += 20;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(100, 100, 100);
+  doc.text(
+    `Total Questions: ${filtered.length} | Date: ${new Date().toLocaleDateString()}`,
+    margin,
+    y
+  );
+  y += 14;
+
+  doc.setDrawColor(210, 210, 210);
+  doc.line(margin, y, pageWidth - margin, y);
+  y += 18;
+
+  doc.setTextColor(0, 0, 0);
+
+  filtered.forEach((q, idx) => {
+    const correctChoice = q.choices.find(
+      (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+    );
+    const answerWordings = correctChoice
+      ? `${q.correctChoiceId.toUpperCase()} ${correctChoice.text}`
+      : q.correctChoiceId.toUpperCase();
+
+    // Prepare Question text
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    const qHeader = `${idx + 1}. ${q.question}`;
+    const qLines = doc.splitTextToSize(qHeader, contentWidth);
+
+    // Prepare Choice lines
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9.5);
+    const choiceLines = q.choices.map((c) => ({
+      lines: doc.splitTextToSize(`${c.id.toUpperCase()}. ${c.text}`, contentWidth - 10),
+    }));
+
+    // Prepare Answer line
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    const answerText = `Answer: ${answerWordings}`;
+    const answerLines = doc.splitTextToSize(answerText, contentWidth - 10);
+
+    // Calculate height
+    let totalHeight = qLines.length * 13 + 4;
+    choiceLines.forEach((cl) => {
+      totalHeight += cl.lines.length * 12 + 2;
+    });
+    totalHeight += answerLines.length * 12 + 10;
+
+    checkPageBreak(totalHeight);
+
+    // Render Question
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(20, 20, 20);
+    doc.text(qLines, margin, y);
+    y += qLines.length * 13 + 2;
+
+    // Render Choices
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(40, 40, 40);
+    choiceLines.forEach((cl) => {
+      doc.text(cl.lines, margin + 10, y);
+      y += cl.lines.length * 12 + 2;
+    });
+
+    // Render Answer
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(16, 122, 70); // Emerald Green
+    doc.text(answerLines, margin + 10, y);
+    y += answerLines.length * 12 + 12;
+
+    // Item separator line
+    doc.setDrawColor(235, 235, 235);
+    doc.line(margin, y - 6, pageWidth - margin, y - 6);
+  });
+
+  // Footer page numbers
+  const totalPages = doc.internal.pages.length - 1;
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8.5);
+    doc.setTextColor(150, 150, 150);
+    doc.text(
+      `Page ${i} of ${totalPages}`,
+      pageWidth / 2,
+      pageHeight - 15,
+      { align: 'center' }
+    );
+  }
+
+  const filenameSubject =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.replace(/\s+/g, '_')
+      : 'All_Subjects';
+  doc.save(`Reviewer_${filenameSubject}_${new Date().toISOString().slice(0, 10)}.pdf`);
 }
 
 /**

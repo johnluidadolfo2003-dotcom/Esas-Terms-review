@@ -17,6 +17,7 @@ interface SingleFlashcardProps {
   onToggleFlag: () => void;
   aiVoiceMode: AiVoiceMode;
   onSetAiVoiceMode: (mode: AiVoiceMode) => void;
+  onEditQuestion?: (questionId: string) => void;
 }
 
 export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
@@ -34,6 +35,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   onToggleFlag,
   aiVoiceMode,
   onSetAiVoiceMode,
+  onEditQuestion,
 }) => {
   const isAnswered = selectedChoice !== null;
   const isCorrect = isAnswered && selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
@@ -242,17 +244,31 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           </span>
         </div>
 
-        <button
-          type="button"
-          onClick={onToggleFlag}
-          className={`px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer ${
-            isFlagged
-              ? 'bg-amber-600 text-white border-amber-500'
-              : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
-          }`}
-        >
-          {isFlagged ? '★ Flagged' : '☆ Flag'}
-        </button>
+        <div className="flex items-center gap-1.5">
+          {onEditQuestion && (
+            <button
+              type="button"
+              onClick={() => onEditQuestion(question.id)}
+              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-md transition-all cursor-pointer flex items-center gap-1.5 active:scale-95 shrink-0"
+              title="Edit Question, Choices (Wording & Letters) and Final Correct Answer"
+            >
+              <span>✏️</span>
+              <span>Edit Question & Choices</span>
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={onToggleFlag}
+            className={`px-2.5 py-1 rounded text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer ${
+              isFlagged
+                ? 'bg-amber-600 text-white border-amber-500'
+                : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'
+            }`}
+          >
+            {isFlagged ? '★ Flagged' : '☆ Flag'}
+          </button>
+        </div>
       </div>
 
       {/* Main Single Flashcard Surface - Optimized for Phone Height */}
@@ -383,10 +399,20 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         )}
 
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
-        <div className="py-0.5 sm:py-1">
+        <div className="py-0.5 sm:py-1 flex items-start justify-between gap-2">
           <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
             {question.question}
           </h2>
+          {onEditQuestion && (
+            <button
+              type="button"
+              onClick={() => onEditQuestion(question.id)}
+              className="shrink-0 px-2 py-1 rounded bg-amber-600/30 hover:bg-amber-600/50 text-amber-300 border border-amber-500/60 text-xs font-bold transition-all cursor-pointer flex items-center gap-1 shadow-xs"
+              title="Edit wording, choice letters/text, or set correct answer"
+            >
+              <span>✏️ Edit</span>
+            </button>
+          )}
         </div>
 
         {/* Choices Options List */}
@@ -476,6 +502,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 {isCorrect ? '✓ Correct answer!' : `✗ Incorrect. Correct is: ${question.correctChoiceId}`}
               </span>
               <div className="flex items-center gap-1.5 shrink-0">
+                {onEditQuestion && (
+                  <button
+                    type="button"
+                    onClick={() => onEditQuestion(question.id)}
+                    className="px-2 py-0.5 rounded text-[11px] font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-xs transition-colors cursor-pointer"
+                    title="Edit wording or fix incorrect choices/answer"
+                  >
+                    ✏️ Edit Choices
+                  </button>
+                )}
                 {onResetAnswer && (
                   <button
                     type="button"
@@ -486,9 +522,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                     ↺ Try Again
                   </button>
                 )}
-                <span className="text-[10px] sm:text-xs font-mono opacity-80 bg-black/20 px-2 py-0.5 rounded hidden xs:inline">
-                  Tap Next →
-                </span>
               </div>
             </div>
             {(() => {

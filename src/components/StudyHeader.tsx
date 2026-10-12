@@ -129,12 +129,14 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             <button
               type="button"
               onClick={onOpenPasteModal}
-              className="px-2.5 py-1 rounded text-xs font-medium bg-emerald-600/20 border border-emerald-500/40 text-emerald-300 hover:bg-emerald-600/30 hover:text-emerald-200 transition-colors cursor-pointer flex items-center gap-1 shrink-0"
-              title="Add questions"
+              className="px-2.5 py-1 rounded-md text-xs font-bold bg-amber-600 hover:bg-amber-500 text-white border border-amber-400 shadow-sm transition-all cursor-pointer flex items-center gap-1 shrink-0 active:scale-95"
+              title="Open Question Bank to edit wording, choices (A, B, C, D), and final correct answers"
             >
-              <span>+ Add</span>
+              <span>✏️</span>
+              <span className="hidden sm:inline">Edit Question Bank</span>
+              <span className="sm:hidden">Edit Bank</span>
               {typeof customQuestionsCount === 'number' && customQuestionsCount > 0 && (
-                <span className="text-[10px] text-emerald-400 font-mono">({customQuestionsCount})</span>
+                <span className="text-[10px] bg-amber-800 text-amber-100 px-1.5 py-0.2 rounded font-mono">({customQuestionsCount})</span>
               )}
             </button>
           )}

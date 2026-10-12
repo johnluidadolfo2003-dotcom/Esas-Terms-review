@@ -10877,8 +10877,8 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
         "text": "Philippine Electricity Market Corporation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "PEMC stands for Philippine Electricity Market Committee."
+    "correctChoiceId": "D",
+    "explanation": "PEMC stands for Philippine Electricity Market Corporation."
   },
   {
     "id": "eelaws-36",
