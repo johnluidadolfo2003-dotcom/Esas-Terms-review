@@ -50,9 +50,13 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const [holdingChoice, setHoldingChoice] = useState<string | null>(null);
   const [holdProgress, setHoldProgress] = useState<number>(0);
   const [statusMessage, setStatusMessage] = useState<string>('Ready for Camera Permission');
+  const [autoNextDelay, setAutoNextDelay] = useState<number>(5.0); // 5.0s default for reading & analyzing
   const [autoNextCountdown, setAutoNextCountdown] = useState<number | null>(null);
+  const [isTimerPaused, setIsTimerPaused] = useState<boolean>(false);
+  const [showGuide, setShowGuide] = useState<boolean>(false);
 
   const holdingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const autoNextTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const currentHoldChoiceRef = useRef<string | null>(null);
   const holdCountRef = useRef<number>(0);
   const lastSelectedQuestionIdRef = useRef<string | null>(null);
@@ -75,37 +79,73 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
     setHoldProgress(0);
   }, []);
 
-  // Reset timer on new question
+  // Clear auto-next countdown interval
+  const clearAutoNextTimer = useCallback(() => {
+    if (autoNextTimerRef.current) {
+      clearInterval(autoNextTimerRef.current);
+      autoNextTimerRef.current = null;
+    }
+  }, []);
+
+  // Pause auto-next timer so user can read/analyze indefinitely
+  const pauseAutoNextTimer = useCallback(() => {
+    clearAutoNextTimer();
+    setAutoNextCountdown(null);
+    setIsTimerPaused(true);
+    setStatusMessage('Auto-advance paused ⏸️. Read & analyze at your own pace!');
+  }, [clearAutoNextTimer]);
+
+  // Cancel timer completely
+  const cancelAutoNextTimer = useCallback(() => {
+    clearAutoNextTimer();
+    setAutoNextCountdown(null);
+    setIsTimerPaused(false);
+  }, [clearAutoNextTimer]);
+
+  // Trigger manual immediate next question
+  const triggerNextQuestion = useCallback(() => {
+    cancelAutoNextTimer();
+    onNext();
+  }, [cancelAutoNextTimer, onNext]);
+
+  // Reset timers on new question
   useEffect(() => {
     if (lastSelectedQuestionIdRef.current !== currentQuestionId) {
       clearHoldTimer();
-      setAutoNextCountdown(null);
+      cancelAutoNextTimer();
       lastSelectedQuestionIdRef.current = currentQuestionId;
-      setStatusMessage('Show 1, 2, 3, or 4 fingers to select A, B, C, or D');
+      setStatusMessage('Show 1, 2, 3, 4 fingers for A, B, C, D (or 5 fingers 👋 for Next)');
     }
-  }, [currentQuestionId, clearHoldTimer]);
+  }, [currentQuestionId, clearHoldTimer, cancelAutoNextTimer]);
 
-  // Trigger choice selection & start auto next countdown
+  // Trigger choice selection & start auto next countdown (default 5.0 seconds)
   const triggerChoiceSelection = useCallback(
     (choiceId: string) => {
       clearHoldTimer();
-      setStatusMessage(`Selected Choice ${choiceId}!`);
+      cancelAutoNextTimer();
+      setStatusMessage(`Selected Choice ${choiceId}! Evaluated answer.`);
       onSelectChoice(choiceId);
 
-      let timeLeft = 1.5;
-      setAutoNextCountdown(1.5);
-      const timer = setInterval(() => {
-        timeLeft -= 0.1;
-        if (timeLeft <= 0) {
-          clearInterval(timer);
-          setAutoNextCountdown(null);
-          onNext();
-        } else {
-          setAutoNextCountdown(Number(timeLeft.toFixed(1)));
-        }
-      }, 100);
+      if (autoNextDelay > 0) {
+        let timeLeft = autoNextDelay;
+        setAutoNextCountdown(timeLeft);
+        setIsTimerPaused(false);
+
+        autoNextTimerRef.current = setInterval(() => {
+          timeLeft -= 0.1;
+          if (timeLeft <= 0) {
+            clearAutoNextTimer();
+            setAutoNextCountdown(null);
+            onNext();
+          } else {
+            setAutoNextCountdown(Number(timeLeft.toFixed(1)));
+          }
+        }, 100);
+      } else {
+        setStatusMessage(`Selected Choice ${choiceId}! (Auto-next is OFF. Show 5 fingers 👋 or click Next when ready)`);
+      }
     },
-    [clearHoldTimer, onSelectChoice, onNext]
+    [clearHoldTimer, cancelAutoNextTimer, clearAutoNextTimer, autoNextDelay, onSelectChoice, onNext]
   );
 
   // Process MediaPipe Hand Results
@@ -155,11 +195,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         const isRingExtended = landmarks[16].y < landmarks[14].y;
         const isPinkyExtended = landmarks[20].y < landmarks[18].y;
 
+        // Thumb extension check: compare thumb tip to wrist distance
+        const isThumbExtended =
+          landmarks[4] && landmarks[3] && landmarks[0]
+            ? Math.hypot(landmarks[4].x - landmarks[0].x, landmarks[4].y - landmarks[0].y) >
+              Math.hypot(landmarks[3].x - landmarks[0].x, landmarks[3].y - landmarks[0].y) * 1.05
+            : false;
+
         let extendedCount = 0;
         if (isIndexExtended) extendedCount++;
         if (isMiddleExtended) extendedCount++;
         if (isRingExtended) extendedCount++;
         if (isPinkyExtended) extendedCount++;
+        if (isThumbExtended) extendedCount++;
 
         setDetectedFingers(extendedCount);
 
@@ -168,9 +216,11 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         else if (extendedCount === 2) mappedChoice = 'B';
         else if (extendedCount === 3) mappedChoice = 'C';
         else if (extendedCount === 4) mappedChoice = 'D';
+        else if (extendedCount === 5) mappedChoice = 'NEXT';
 
-        // Process hold gesture
-        if (!isAnsweredRef.current && mappedChoice) {
+        // Process hold gesture:
+        // Case 1: Question not answered yet, hold 1-4 fingers to select A, B, C, D
+        if (!isAnsweredRef.current && mappedChoice && mappedChoice !== 'NEXT') {
           if (currentHoldChoiceRef.current !== mappedChoice) {
             clearHoldTimer();
             currentHoldChoiceRef.current = mappedChoice;
@@ -183,9 +233,27 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
               if (holdCountRef.current >= 100) {
                 const choiceToTrigger = currentHoldChoiceRef.current;
-                if (choiceToTrigger) {
+                if (choiceToTrigger && choiceToTrigger !== 'NEXT') {
                   triggerChoiceSelection(choiceToTrigger);
                 }
+              }
+            }, 50);
+          }
+        }
+        // Case 2: Show 5 fingers (Open Palm 👋) to advance to Next Question immediately
+        else if (mappedChoice === 'NEXT') {
+          if (currentHoldChoiceRef.current !== 'NEXT') {
+            clearHoldTimer();
+            currentHoldChoiceRef.current = 'NEXT';
+            setHoldingChoice('NEXT Question 👋');
+            holdCountRef.current = 0;
+
+            holdingTimerRef.current = setInterval(() => {
+              holdCountRef.current += 20; // 0.5s hold for Next
+              setHoldProgress(Math.min(holdCountRef.current, 100));
+
+              if (holdCountRef.current >= 100) {
+                triggerNextQuestion();
               }
             }, 50);
           }
@@ -300,10 +368,14 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
     }
   }, [processHandResults]);
 
-  // Simulate finger gesture for keyboard hotkeys (1,2,3,4) or simulation buttons
+  // Simulate finger gesture for keyboard hotkeys (1,2,3,4,5) or simulation buttons
   const simulateFingers = useCallback(
     (count: number) => {
       setDetectedFingers(count);
+      if (count === 5) {
+        triggerNextQuestion();
+        return;
+      }
       const choiceMap: Record<number, string> = { 1: 'A', 2: 'B', 3: 'C', 4: 'D' };
       const mappedChoice = choiceMap[count];
       if (!isAnsweredRef.current && mappedChoice) {
@@ -327,15 +399,15 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         }
       }
     },
-    [clearHoldTimer, triggerChoiceSelection]
+    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion]
   );
 
-  // Keyboard shortcut listener (1, 2, 3, 4)
+  // Keyboard shortcut listener (1, 2, 3, 4, 5)
   useEffect(() => {
     if (!isActive) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (['1', '2', '3', '4'].includes(e.key)) {
+      if (['1', '2', '3', '4', '5'].includes(e.key)) {
         simulateFingers(parseInt(e.key, 10));
       }
     };
@@ -366,8 +438,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         handsInstanceRef.current = null;
       }
       clearHoldTimer();
+      clearAutoNextTimer();
     };
-  }, [isActive, clearHoldTimer]);
+  }, [isActive, clearHoldTimer, clearAutoNextTimer]);
 
   if (!isActive) return null;
 
@@ -390,13 +463,28 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           </span>
         </div>
 
-        <button
-          type="button"
-          onClick={onClose}
-          className="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer"
-        >
-          Close ✕
-        </button>
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            onClick={() => setShowGuide((prev) => !prev)}
+            className={`text-xs px-2 py-0.5 rounded border cursor-pointer font-bold transition-colors ${
+              showGuide
+                ? 'bg-teal-600 border-teal-500 text-white'
+                : 'bg-slate-800 border-slate-700 text-teal-300 hover:bg-slate-700'
+            }`}
+            title="Toggle Step-by-step Hand Gesture Guide"
+          >
+            {showGuide ? 'Close Guide' : '❓ Guide'}
+          </button>
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="text-slate-400 hover:text-white text-xs px-2 py-0.5 rounded bg-slate-800 border border-slate-700 cursor-pointer"
+          >
+            Close ✕
+          </button>
+        </div>
       </div>
 
       {/* Video / Canvas viewport */}
@@ -422,6 +510,45 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           }`}
         />
 
+        {/* Interactive Step-by-Step Hand Gesture Guide Overlay */}
+        {showGuide && (
+          <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-xs p-3 flex flex-col justify-between text-left text-xs z-30 overflow-y-auto font-sans">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-1 mb-1">
+              <span className="font-bold text-teal-300 text-xs flex items-center gap-1">
+                ✋ Wireless Hand Gestures Guide
+              </span>
+              <button
+                type="button"
+                onClick={() => setShowGuide(false)}
+                className="text-slate-400 hover:text-white text-[11px] px-1.5 py-0.5 rounded bg-slate-800 cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+            
+            <div className="space-y-1.5 text-[11px] text-slate-300 leading-snug">
+              <p><strong>1. Select Answer:</strong> Point fingers at the camera:</p>
+              <ul className="pl-3 list-disc text-teal-300 font-mono text-[10px] space-y-0.5">
+                <li>☝️ <strong>1 Finger</strong> = Option <strong>A</strong></li>
+                <li>✌️ <strong>2 Fingers</strong> = Option <strong>B</strong></li>
+                <li>🤟 <strong>3 Fingers</strong> = Option <strong>C</strong></li>
+                <li>🖐️ <strong>4 Fingers</strong> = Option <strong>D</strong></li>
+              </ul>
+              <p><strong>2. Answer Evaluation:</strong> Hold 1 second to lock in. Correct answer lights up <strong>Green</strong>, wrong choice turns <strong>Red</strong> with full explanation.</p>
+              <p><strong>3. Review & Analyze Pace:</strong> You have <strong>5 seconds</strong> to analyze. Tap <strong>⏸️ Pause Timer</strong> to stop the clock!</p>
+              <p><strong>4. Next Question:</strong> Show <strong>5 Fingers 👋 (Open Palm)</strong> or click Next anytime when ready.</p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowGuide(false)}
+              className="mt-1 w-full py-1 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[11px] text-center cursor-pointer"
+            >
+              Got it, start studying!
+            </button>
+          </div>
+        )}
+
         {/* Permission Request Dialog / Overlay */}
         {(permissionState === 'prompt' || permissionState === 'requesting') && (
           <div className="absolute inset-0 bg-slate-950 p-3.5 flex flex-col items-center justify-center text-center gap-2 z-10 overflow-y-auto">
@@ -434,7 +561,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             <div className="flex flex-col gap-0.5">
               <span className="text-slate-100 text-xs font-bold">Wireless Camera Gestures</span>
               <span className="text-slate-400 text-[11px] leading-snug">
-                Select answer choices wirelessly (1 finger = A, 2 = B, 3 = C, 4 = D).
+                Select answer choices wirelessly (1 finger = A, 2 = B, 3 = C, 4 = D, 5 = Next 👋).
               </span>
             </div>
 
@@ -481,7 +608,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <strong>If camera is blocked by iframe or browser:</strong><br />
               • Click <strong>Open Direct Tab</strong> below (recommended).<br />
               • Or click 🔒/📷 icon in browser address bar → set Camera to <em>Allow</em>.<br />
-              • Or use 1-4 gesture buttons below.
+              • Or use 1-5 gesture buttons below.
             </div>
             <div className="flex items-center gap-1.5 w-full">
               <button
@@ -504,26 +631,30 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
         )}
 
         {/* Active Detected Fingers Badge */}
-        {detectedFingers > 0 && !isAnswered && (
+        {detectedFingers > 0 && (
           <div className="absolute top-2 left-2 px-2.5 py-1 rounded-lg bg-slate-900/90 border border-slate-700 text-teal-300 font-mono text-xs font-bold shadow-md z-20">
-            {detectedFingers} Finger{detectedFingers > 1 ? 's' : ''} → Choice{' '}
+            {detectedFingers} Finger{detectedFingers > 1 ? 's' : ''} →{' '}
             {detectedFingers === 1
-              ? 'A'
+              ? 'Choice A'
               : detectedFingers === 2
-              ? 'B'
+              ? 'Choice B'
               : detectedFingers === 3
-              ? 'C'
+              ? 'Choice C'
               : detectedFingers === 4
-              ? 'D'
+              ? 'Choice D'
+              : detectedFingers === 5
+              ? 'Next 👋'
               : '?'}
           </div>
         )}
 
         {/* Hold Gesture Meter */}
-        {holdingChoice && holdProgress > 0 && !isAnswered && (
-          <div className="absolute bottom-2 left-2 right-2 bg-slate-900/90 border border-slate-700 rounded-lg p-1.5 flex flex-col gap-1 shadow-lg z-20">
+        {holdingChoice && holdProgress > 0 && (
+          <div className="absolute bottom-2 left-2 right-2 bg-slate-900/90 border border-slate-700 rounded-lg p-1.5 flex flex-col gap-1 shadow-lg z-20 font-sans">
             <div className="flex items-center justify-between text-[11px] font-mono">
-              <span className="text-teal-300 font-bold">Holding Choice {holdingChoice}...</span>
+              <span className="text-teal-300 font-bold">
+                {holdingChoice === 'NEXT Question 👋' ? 'Advancing Next...' : `Holding Choice ${holdingChoice}...`}
+              </span>
               <span className="text-slate-300">{holdProgress}%</span>
             </div>
             <div className="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
@@ -535,13 +666,69 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           </div>
         )}
 
-        {/* Auto-Next Countdown */}
+        {/* Auto-Next Countdown & Pause Overlay */}
         {autoNextCountdown !== null && (
-          <div className="absolute inset-0 bg-slate-950/85 backdrop-blur-xs flex flex-col items-center justify-center p-3 text-center z-30">
-            <span className="text-teal-400 font-mono text-base font-extrabold animate-pulse">
-              Advancing in {autoNextCountdown}s...
-            </span>
-            <span className="text-slate-300 text-[11px] mt-0.5">Auto-navigating to next item</span>
+          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-xs flex flex-col items-center justify-center p-3 text-center z-30 font-sans gap-2">
+            <div className="flex flex-col items-center gap-0.5">
+              <span className="text-teal-300 font-mono text-base font-extrabold animate-pulse">
+                Advancing in {autoNextCountdown}s...
+              </span>
+              <span className="text-slate-300 text-[11px]">
+                Answer evaluated! Take time to analyze.
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1.5 w-full">
+              <button
+                type="button"
+                onClick={pauseAutoNextTimer}
+                className="flex-1 py-1 px-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                title="Pause auto-advance timer so you can read and analyze the question as long as you want"
+              >
+                ⏸️ Pause Timer
+              </button>
+              <button
+                type="button"
+                onClick={triggerNextQuestion}
+                className="flex-1 py-1 px-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                title="Go directly to next question"
+              >
+                Next Now →
+              </button>
+            </div>
+
+            {/* Delay Settings Pills */}
+            <div className="flex items-center gap-1 text-[10px] font-mono mt-0.5">
+              <span className="text-slate-400">Timer Speed:</span>
+              {[3, 5, 8, 10, 0].map((delayVal) => (
+                <button
+                  key={delayVal}
+                  type="button"
+                  onClick={() => setAutoNextDelay(delayVal)}
+                  className={`px-1.5 py-0.5 rounded cursor-pointer ${
+                    autoNextDelay === delayVal
+                      ? 'bg-teal-500 text-slate-950 font-bold'
+                      : 'bg-slate-800 text-slate-400 hover:text-white'
+                  }`}
+                >
+                  {delayVal === 0 ? 'Off' : `${delayVal}s`}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* If Paused Banner */}
+        {isTimerPaused && isAnswered && autoNextCountdown === null && (
+          <div className="absolute top-2 left-2 right-2 bg-amber-950/90 border border-amber-600/80 text-amber-200 rounded-lg p-1.5 text-[11px] font-medium flex items-center justify-between z-20 shadow-md font-sans">
+            <span>⏸️ Paused (Read at your pace)</span>
+            <button
+              type="button"
+              onClick={triggerNextQuestion}
+              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[10px] cursor-pointer"
+            >
+              Next →
+            </button>
           </div>
         )}
       </div>
@@ -554,9 +741,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       {/* Legend / Virtual Gesture Simulation Buttons */}
       <div className="flex flex-col gap-1">
         <span className="text-[10px] text-slate-400 text-center font-mono">
-          Show fingers to camera, or click/press 1-4:
+          Show fingers, or click/press 1-5:
         </span>
-        <div className="grid grid-cols-4 gap-1 text-[10px] font-mono text-center">
+        <div className="grid grid-cols-5 gap-0.5 text-[9px] font-mono text-center">
           <button
             type="button"
             onClick={() => simulateFingers(1)}
@@ -567,7 +754,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             }`}
             title="Simulate 1 Finger (Choice A)"
           >
-            1 Finger = A
+            1=A
           </button>
           <button
             type="button"
@@ -579,7 +766,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             }`}
             title="Simulate 2 Fingers (Choice B)"
           >
-            2 Fingers = B
+            2=B
           </button>
           <button
             type="button"
@@ -591,7 +778,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             }`}
             title="Simulate 3 Fingers (Choice C)"
           >
-            3 Fingers = C
+            3=C
           </button>
           <button
             type="button"
@@ -603,7 +790,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             }`}
             title="Simulate 4 Fingers (Choice D)"
           >
-            4 Fingers = D
+            4=D
+          </button>
+          <button
+            type="button"
+            onClick={() => simulateFingers(5)}
+            className={`p-1 rounded border cursor-pointer transition-colors ${
+              detectedFingers === 5
+                ? 'bg-teal-950 border-teal-500 text-teal-300 font-bold'
+                : 'bg-slate-950 border-slate-800 text-teal-400 hover:bg-slate-800 font-bold'
+            }`}
+            title="Simulate 5 Fingers (Next 👋)"
+          >
+            5=Next👋
           </button>
         </div>
       </div>

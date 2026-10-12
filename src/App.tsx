@@ -681,6 +681,7 @@ export default function App() {
   // Handle choice selection with Red/Green feedback
   const handleSelectChoice = (choiceId: string) => {
     if (!currentQuestion) return;
+    if (userAnswers[currentQuestion.id]) return; // Prevent double-scoring if already answered
 
     setUserAnswers((prev) => ({
       ...prev,
