@@ -569,10 +569,11 @@ export const GestureScannerModal: React.FC<GestureScannerModalProps> = ({
 
           {/* Camera Viewfinder & Real-Time Tracking Canvas */}
           <div className="relative w-full h-64 sm:h-72 bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex items-center justify-center">
+            {/* Non-blocking loading indicator in corner that doesn't cover camera */}
             {cameraStatus === 'loading' && (
-              <div className="flex flex-col items-center gap-2 text-slate-400 text-xs z-10">
-                <span className="w-5 h-5 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></span>
-                <span>Connecting webcam feed & AI model...</span>
+              <div className="absolute top-2 right-2 px-2 py-1 rounded bg-slate-900/80 border border-slate-700/60 text-slate-300 text-[11px] flex items-center gap-1.5 z-20 pointer-events-none">
+                <span className="w-2.5 h-2.5 rounded-full border-2 border-teal-400 border-t-transparent animate-spin"></span>
+                <span>Connecting camera...</span>
               </div>
             )}
 
