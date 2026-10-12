@@ -1,161 +1,44 @@
 import { initializeApp } from 'firebase/app';
-import {
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-  User,
-  signOut,
-} from 'firebase/auth';
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User, signOut } from 'firebase/auth';
 import firebaseConfig from '../../firebase-applet-config.json';
-
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
-// 1. Standard provider for universal access - works for ALL Google accounts
-// (Personal @gmail.com, Google Workspace, School/University @edu accounts)
-const standardProvider = new GoogleAuthProvider();
-standardProvider.setCustomParameters({
-  prompt: 'select_account',
-});
-
-// 2. Provider with Google Drive scope for file access
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
 const driveProvider = new GoogleAuthProvider();
 driveProvider.addScope('https://www.googleapis.com/auth/drive.readonly');
-driveProvider.setCustomParameters({
-  prompt: 'select_account',
-});
-
-const DRIVE_TOKEN_STORAGE_KEY = 'drive_reviewer_access_token_v1';
-
-let isSigningIn = false;
-let cachedAccessToken: string | null = (typeof window !== 'undefined'
-  ? sessionStorage.getItem(DRIVE_TOKEN_STORAGE_KEY)
-  : null);
-
-/**
- * Initializes auth listener. Always preserves authenticated state across page refreshes.
- * Any Google account remains logged in even if Google Drive token is expired or absent.
- */
-export const initAuth = (
-  onAuthSuccess?: (user: User, token: string | null) => void,
-  onAuthFailure?: () => void
-) => {
-  return onAuthStateChanged(auth, async (user: User | null) => {
-    if (user) {
-      if (!cachedAccessToken && typeof window !== 'undefined') {
-        cachedAccessToken = sessionStorage.getItem(DRIVE_TOKEN_STORAGE_KEY);
-      }
-      if (onAuthSuccess) {
-        onAuthSuccess(user, cachedAccessToken);
-      }
-    } else {
-      cachedAccessToken = null;
-      if (typeof window !== 'undefined') {
-        sessionStorage.removeItem(DRIVE_TOKEN_STORAGE_KEY);
-      }
-      if (onAuthFailure) {
-        onAuthFailure();
-      }
-    }
-  });
-};
-
-/**
- * Signs in with ANY Google Account.
- * First attempts to obtain Drive token if available, but gracefully falls back to
- * standard Google Sign-In so NO Google account is ever blocked by sensitive scope checks.
- */
-export const googleSignIn = async (
-  requestDriveAccess = false
-): Promise<{ user: User; accessToken: string | null }> => {
+driveProvider.setCustomParameters({ prompt: 'select_account' });
+const KEY = 'drive_reviewer_access_token_v2';
+let token: string | null = null;
+let expiresAt = 0;
+let tokenUid: string | null = null;
+try {
+  const stored = JSON.parse(sessionStorage.getItem(KEY) || 'null');
+  if (stored?.expiresAt > Date.now()) ({ token, expiresAt, uid: tokenUid } = stored);
+} catch { /* Browser storage can be unavailable. */ }
+export const setAccessToken = (next: string | null) => {
+  if (next !== token) expiresAt = next ? Date.now() + 50 * 60 * 1000 : 0;
+  token = next;
+  tokenUid = next ? auth.currentUser?.uid || null : null;
   try {
-    isSigningIn = true;
-
-    if (requestDriveAccess) {
-      try {
-        const result = await signInWithPopup(auth, driveProvider);
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken || null;
-        if (token) {
-          cachedAccessToken = token;
-          if (typeof window !== 'undefined') {
-            sessionStorage.setItem(DRIVE_TOKEN_STORAGE_KEY, token);
-          }
-        }
-        return { user: result.user, accessToken: token };
-      } catch (driveErr: unknown) {
-        console.warn('Drive scope request not granted, falling back to standard sign-in:', driveErr);
-        // Fall back to standard sign in so user is not blocked
-      }
-    }
-
-    // Standard Google Sign-In: 100% accessible to all Google accounts worldwide
-    const result = await signInWithPopup(auth, standardProvider);
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential?.accessToken || cachedAccessToken || null;
-    if (token) {
-      cachedAccessToken = token;
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem(DRIVE_TOKEN_STORAGE_KEY, token);
-      }
-    }
-    return { user: result.user, accessToken: token };
-  } catch (error: unknown) {
-    console.error('Google Sign In error:', error);
-    throw error;
-  } finally {
-    isSigningIn = false;
-  }
+    if (next) sessionStorage.setItem(KEY, JSON.stringify({ token, expiresAt, uid: tokenUid }));
+    else sessionStorage.removeItem(KEY);
+  } catch { /* In-memory token remains usable. */ }
 };
-
-/**
- * Requests Google Drive permissions for an already signed-in user or new user.
- */
-export const connectGoogleDrive = async (): Promise<string | null> => {
-  try {
-    isSigningIn = true;
-    const result = await signInWithPopup(auth, driveProvider);
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential?.accessToken || null;
-    if (token) {
-      cachedAccessToken = token;
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem(DRIVE_TOKEN_STORAGE_KEY, token);
-      }
-      return token;
-    }
-    return null;
-  } catch (err) {
-    console.warn('Could not connect Google Drive scope:', err);
-    throw err;
-  } finally {
-    isSigningIn = false;
-  }
-};
-
 export const getAccessToken = async (): Promise<string | null> => {
-  if (!cachedAccessToken && typeof window !== 'undefined') {
-    cachedAccessToken = sessionStorage.getItem(DRIVE_TOKEN_STORAGE_KEY);
-  }
-  return cachedAccessToken;
+  if (expiresAt <= Date.now() || tokenUid !== auth.currentUser?.uid) setAccessToken(null);
+  return token;
 };
-
-export const setAccessToken = (token: string | null) => {
-  cachedAccessToken = token;
-  if (typeof window !== 'undefined') {
-    if (token) {
-      sessionStorage.setItem(DRIVE_TOKEN_STORAGE_KEY, token);
-    } else {
-      sessionStorage.removeItem(DRIVE_TOKEN_STORAGE_KEY);
-    }
-  }
+export const initAuth = (success?: (user: User, token: string | null) => void, failure?: () => void) =>
+  onAuthStateChanged(auth, async (user) => {
+    if (user) success?.(user, await getAccessToken());
+    else { setAccessToken(null); failure?.(); }
+  });
+export const googleSignIn = async (requestDriveAccess = false): Promise<{ user: User; accessToken: string | null }> => {
+  const result = await signInWithPopup(auth, requestDriveAccess ? driveProvider : provider);
+  // Basic Google OAuth tokens do not have Drive permission.
+  if (requestDriveAccess) setAccessToken(GoogleAuthProvider.credentialFromResult(result)?.accessToken || null);
+  return { user: result.user, accessToken: await getAccessToken() };
 };
-
-export const logout = async () => {
-  await signOut(auth);
-  cachedAccessToken = null;
-  if (typeof window !== 'undefined') {
-    sessionStorage.removeItem(DRIVE_TOKEN_STORAGE_KEY);
-  }
-};
+export const connectGoogleDrive = async (): Promise<string | null> => (await googleSignIn(true)).accessToken;
+export const logout = async () => { await signOut(auth); setAccessToken(null); };

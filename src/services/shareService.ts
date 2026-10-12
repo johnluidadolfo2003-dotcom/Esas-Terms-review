@@ -1,7 +1,7 @@
 import { SubjectCategory, FlashcardQuestion } from './questionParser';
 
 export const SHARED_PUBLIC_URL =
-  'https://ais-pre-relbnodaefb3jvetyyx4ce-141032669349.asia-southeast1.run.app';
+  typeof window !== 'undefined' ? window.location.origin : '';
 
 export const DEV_APP_URL =
   'https://ais-dev-relbnodaefb3jvetyyx4ce-141032669349.asia-southeast1.run.app';

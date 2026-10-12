@@ -417,7 +417,7 @@ export function parseQuestionsFromText(
 
     // If still no correct answer found, we default to the first choice if indicated, or 'A'
     if (!correctId) {
-      correctId = b.choiceLines[0].letter;
+      return; // No answer key: do not invent a graded answer.
     }
 
     // Build choices ensuring unique letters/IDs across choices in the same question
@@ -437,6 +437,8 @@ export function parseQuestionsFromText(
         text: c.text,
       });
     });
+
+    if (!choices.some((c) => c.id === correctId)) return;
 
     const subject = explicitSubject || b.currentSubject || detectSubject(questionText, fileName);
 
@@ -491,15 +493,14 @@ export function shuffleQuestionChoices(
   );
   if (!correctChoiceObj) return question;
 
-  const correctText = correctChoiceObj.text.trim();
-  const choiceTexts = question.choices.map((c) => c.text);
+  const originalCorrectId = correctChoiceObj.id;
 
   let seed = shuffleSeed;
   for (let i = 0; i < question.id.length; i++) {
     seed += question.id.charCodeAt(i) * (i + 1);
   }
 
-  const shuffledTexts = [...choiceTexts];
+  const shuffledTexts = [...question.choices];
   let m = shuffledTexts.length;
   let s = seed || 12345;
   while (m) {
@@ -512,14 +513,12 @@ export function shuffleQuestionChoices(
   }
 
   const standardLetters = ['A', 'B', 'C', 'D', 'E', 'F'];
-  const newChoices = shuffledTexts.map((text, i) => ({
+  const newChoices = shuffledTexts.map((choice, i) => ({
     id: standardLetters[i] || `O${i + 1}`,
-    text,
+    text: choice.text,
   }));
 
-  const newCorrectChoice = newChoices.find(
-    (c) => c.text.trim().toLowerCase() === correctText.toLowerCase()
-  );
+  const newCorrectChoice = newChoices[shuffledTexts.findIndex((c) => c.id === originalCorrectId)];
   const newCorrectChoiceId = newCorrectChoice ? newCorrectChoice.id : question.correctChoiceId;
 
   return {
@@ -539,7 +538,23 @@ function parseCsvContent(
   defaultSubject: SubjectCategory
 ): FlashcardQuestion[] {
   const questions: FlashcardQuestion[] = [];
-  const lines = csv.split(/\r?\n/).filter((l) => l.trim().length > 0);
+  // Preserve newlines inside quoted cells (as emitted by our CSV exporter).
+  const records: string[] = [];
+  let record = '', quoted = false;
+  for (let i = 0; i < csv.length; i++) {
+    const ch = csv[i];
+    if (ch === '"') {
+      record += ch;
+      if (quoted && csv[i + 1] === '"') { record += csv[++i]; continue; }
+      quoted = !quoted;
+    } else if ((ch === '\n' || ch === '\r') && !quoted) {
+      if (record.trim()) records.push(record);
+      record = '';
+      if (ch === '\r' && csv[i + 1] === '\n') i++;
+    } else record += ch;
+  }
+  if (record.trim()) records.push(record);
+  const lines = records;
   if (lines.length < 2) return questions;
 
   // Simple CSV line splitter that respects quoted strings
@@ -568,7 +583,7 @@ function parseCsvContent(
   };
 
   const header = splitCsvLine(lines[0]).map((h) => h.toLowerCase());
-  const qIdx = header.findIndex((h) => h.includes('question') || h.includes('item'));
+  const qIdx = header.findIndex((h) => h.includes('question'));
   const aIdx = header.findIndex((h) => h === 'a' || h.includes('option a') || h.includes('choice a'));
   const bIdx = header.findIndex((h) => h === 'b' || h.includes('option b') || h.includes('choice b'));
   const cIdx = header.findIndex((h) => h === 'c' || h.includes('option c') || h.includes('choice c'));
@@ -593,13 +608,15 @@ function parseCsvContent(
 
     if (choices.length < 2) continue;
 
-    let ans = 'A';
+    let ans = '';
     if (ansIdx !== -1 && cols[ansIdx]) {
       const parsedAns = cols[ansIdx].trim().toUpperCase().charAt(0);
       if (['A', 'B', 'C', 'D'].includes(parsedAns)) {
         ans = parsedAns;
       }
     }
+
+    if (!ans || !choices.some((c) => c.id === ans)) continue;
 
     let subj = defaultSubject;
     if (subjIdx !== -1 && cols[subjIdx]) {
