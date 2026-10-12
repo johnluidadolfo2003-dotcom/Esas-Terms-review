@@ -23,6 +23,7 @@ import {
 import { DRIVE_COPIED_QUESTIONS } from './data/driveQuestions';
 import { StudyHeader } from './components/StudyHeader';
 import { SingleFlashcard } from './components/SingleFlashcard';
+import { HandGestureController } from './components/HandGestureController';
 import { DriveExplorerModal } from './components/DriveExplorerModal';
 import { PasteQuestionsModal } from './components/PasteQuestionsModal';
 import { ShareModal } from './components/ShareModal';
@@ -169,6 +170,7 @@ export default function App() {
   const [selectedSubject, setSelectedSubject] = useState<SubjectCategory | 'All'>('All');
   const [studyMode, setStudyMode] = useState<'all' | 'missed' | 'flagged'>('all');
   const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
+  const [isCameraGestureActive, setIsCameraGestureActive] = useState(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -805,6 +807,8 @@ export default function App() {
         onStartQuiz={handleStartQuiz}
         onFinishQuiz={handleFinishQuiz}
         onExitQuiz={handleExitQuiz}
+        isCameraGestureActive={isCameraGestureActive}
+        onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
       />
 
       {/* Main Flashcard / Quiz Viewport */}
@@ -1058,6 +1062,31 @@ export default function App() {
         onReviewAnswers={() => {
           setIsQuizCongratsModalOpen(false);
         }}
+      />
+      {/* Hands-Free Camera Gesture Controller */}
+      <HandGestureController
+        isActive={isCameraGestureActive}
+        onClose={() => setIsCameraGestureActive(false)}
+        onSelectChoice={isQuizActive ? handleQuizSelectChoice : handleSelectChoice}
+        onNext={
+          isQuizActive
+            ? () => {
+                if (quizCurrentIndex < quizQuestions.length - 1) {
+                  setQuizCurrentIndex((prev) => prev + 1);
+                }
+              }
+            : handleNextCard
+        }
+        isAnswered={
+          isQuizActive
+            ? Boolean(quizAnswers[quizQuestions[quizCurrentIndex]?.id])
+            : Boolean(currentSelectedChoice)
+        }
+        currentQuestionId={
+          isQuizActive
+            ? quizQuestions[quizCurrentIndex]?.id || ''
+            : currentQuestion?.id || ''
+        }
       />
     </div>
   );
