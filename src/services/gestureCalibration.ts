@@ -303,3 +303,55 @@ export function playScanSound(type: 'beep' | 'success' | 'countdown'): void {
     }
   } catch {}
 }
+
+// Crisp, pleasant audio feedback for evaluating user answer
+export function playAnswerSound(isCorrect: boolean): void {
+  try {
+    const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const ctx = new AudioContextClass();
+
+    if (isCorrect) {
+      // Pleasant two-tone ascending chime (523Hz -> 784Hz)
+      const osc1 = ctx.createOscillator();
+      const osc2 = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc1.type = 'triangle';
+      osc1.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+      osc1.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1); // E5
+
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(783.99, ctx.currentTime + 0.1); // G5
+
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+
+      osc1.connect(gain);
+      osc2.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc1.start(ctx.currentTime);
+      osc1.stop(ctx.currentTime + 0.35);
+      osc2.start(ctx.currentTime + 0.1);
+      osc2.stop(ctx.currentTime + 0.35);
+    } else {
+      // Gentle distinct descending buzzer (349Hz -> 261Hz)
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(349.23, ctx.currentTime); // F4
+      osc.frequency.exponentialRampToValueAtTime(261.63, ctx.currentTime + 0.22); // C4
+
+      gain.gain.setValueAtTime(0.1, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(ctx.currentTime);
+      osc.stop(ctx.currentTime + 0.25);
+    }
+  } catch {}
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { FlashcardQuestion, generateContextualExplanation } from '../services/questionParser';
 import { AiVoiceMode, stopSpeech, speakPhrase } from '../services/speechService';
+import { playAnswerSound } from '../services/gestureCalibration';
 
 interface SingleFlashcardProps {
   question: FlashcardQuestion;
@@ -37,6 +38,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 }) => {
   const isAnswered = selectedChoice !== null;
   const isCorrect = isAnswered && selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+
+  // Play audio sound on answer selection
+  const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
+  useEffect(() => {
+    if (selectedChoice && selectedChoice !== prevSelectedChoiceRef.current) {
+      const isAnsCorrect = selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
+      playAnswerSound(isAnsCorrect);
+    }
+    prevSelectedChoiceRef.current = selectedChoice;
+  }, [selectedChoice, question.correctChoiceId]);
 
   // Voice Engine State
   const [speechStatus, setSpeechStatus] = useState<
@@ -434,13 +445,13 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 {isAnswered && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
                     {isUserSelected && !isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-rose-900 border border-rose-400 text-rose-100 font-bold">
-                        Wrong
+                      <span className="px-2 py-0.5 rounded bg-rose-950 border border-rose-300 text-rose-100 font-bold">
+                        ✕ Your Choice (Wrong)
                       </span>
                     )}
                     {isCorrectOption && (
-                      <span className="px-2 py-0.5 rounded bg-emerald-900 border border-emerald-400 text-emerald-100 font-bold">
-                        Correct
+                      <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
+                        ✓ Correct Answer
                       </span>
                     )}
                   </div>
@@ -453,22 +464,27 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         {/* Answer Feedback Banner */}
         {isAnswered && (
           <div
-            className={`p-2.5 sm:p-3.5 rounded-lg border flex flex-col gap-1.5 shadow-sm text-xs sm:text-sm ${
+            className={`p-3 sm:p-4 rounded-xl border flex flex-col gap-2 shadow-md text-xs sm:text-sm ${
               isCorrect
-                ? 'bg-emerald-950/90 border-emerald-600 text-emerald-100'
-                : 'bg-rose-950/90 border-rose-600 text-rose-100'
+                ? 'bg-emerald-950/95 border-emerald-500 text-emerald-100 ring-1 ring-emerald-500/40'
+                : 'bg-rose-950/95 border-rose-500 text-rose-100 ring-1 ring-rose-500/40'
             }`}
           >
             <div className="flex items-center justify-between gap-2">
-              <span className="font-bold">
-                {isCorrect ? '✓ Correct answer!' : `✗ Incorrect. Correct is: ${question.correctChoiceId}`}
-              </span>
+              <div className="flex items-center gap-2 font-bold text-sm sm:text-base flex-wrap">
+                <span>{isCorrect ? '✅ Correct Answer!' : '❌ Incorrect Choice'}</span>
+                {!isCorrect && (
+                  <span className="text-xs font-normal text-rose-200">
+                    You chose Option <strong className="font-bold underline">{selectedChoice}</strong>. The correct answer is Option <strong className="font-bold underline text-emerald-300">{question.correctChoiceId}</strong>.
+                  </span>
+                )}
+              </div>
               <div className="flex items-center gap-1.5 shrink-0">
                 {onResetAnswer && (
                   <button
                     type="button"
                     onClick={onResetAnswer}
-                    className="px-2 py-0.5 rounded text-[11px] font-semibold bg-black/30 hover:bg-black/50 text-white border border-white/20 transition-colors cursor-pointer"
+                    className="px-2.5 py-1 rounded text-[11px] font-semibold bg-black/30 hover:bg-black/50 text-white border border-white/20 transition-colors cursor-pointer"
                     title="Clear answer and try again"
                   >
                     ↺ Try Again

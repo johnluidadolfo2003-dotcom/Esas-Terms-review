@@ -6,7 +6,9 @@ import {
   matchGesture,
   extractFingerMetrics,
   hasCustomCalibration,
+  playAnswerSound,
 } from '../services/gestureCalibration';
+import { FlashcardQuestion } from '../services/questionParser';
 
 interface HandGestureControllerProps {
   isActive: boolean;
@@ -15,6 +17,9 @@ interface HandGestureControllerProps {
   onNext: () => void;
   isAnswered: boolean;
   currentQuestionId: string;
+  currentQuestion?: FlashcardQuestion | null;
+  selectedChoice?: string | null;
+  correctChoiceId?: string;
 }
 
 const HAND_CONNECTIONS = [
@@ -48,6 +53,9 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   onNext,
   isAnswered,
   currentQuestionId,
+  currentQuestion,
+  selectedChoice,
+  correctChoiceId,
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -71,6 +79,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const [liveMatchedChoice, setLiveMatchedChoice] = useState<string | null>(null);
   const [liveConfidence, setLiveConfidence] = useState<number>(0);
 
+  // Evaluated result state (correct vs wrong for HUD and audio feedback)
+  const [evaluatedResult, setEvaluatedResult] = useState<{
+    choiceId: string;
+    isCorrect: boolean;
+    correctChoiceId: string;
+  } | null>(null);
+
+  // Smooth hold frame tracking refs
+  const holdCandidateRef = useRef<string | null>(null);
+  const holdStreakRef = useRef<number>(0);
+  const missedFramesRef = useRef<number>(0);
+
   const holdingTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const autoNextTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const currentHoldChoiceRef = useRef<string | null>(null);
@@ -83,12 +103,15 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
   isAnsweredRef.current = isAnswered;
 
-  // Clear hold timer
+  // Clear hold timer and frame trackers
   const clearHoldTimer = useCallback(() => {
     if (holdingTimerRef.current) {
       clearInterval(holdingTimerRef.current);
       holdingTimerRef.current = null;
     }
+    holdCandidateRef.current = null;
+    holdStreakRef.current = 0;
+    missedFramesRef.current = 0;
     currentHoldChoiceRef.current = null;
     holdCountRef.current = 0;
     setHoldingChoice(null);
@@ -130,16 +153,58 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       clearHoldTimer();
       cancelAutoNextTimer();
       lastSelectedQuestionIdRef.current = currentQuestionId;
+      setEvaluatedResult(null);
       setStatusMessage('Show 1, 2, 3, 4 fingers for A, B, C, D (or 5 fingers 👋 for Next)');
     }
   }, [currentQuestionId, clearHoldTimer, cancelAutoNextTimer]);
 
-  // Trigger choice selection & start auto next countdown (default 5.0 seconds)
+  // Keep evaluatedResult in sync with props
+  useEffect(() => {
+    const expected = correctChoiceId || currentQuestion?.correctChoiceId;
+    if (selectedChoice && expected) {
+      setEvaluatedResult({
+        choiceId: selectedChoice,
+        isCorrect: selectedChoice.toUpperCase() === expected.toUpperCase(),
+        correctChoiceId: expected,
+      });
+    } else if (!isAnswered) {
+      setEvaluatedResult(null);
+    }
+  }, [selectedChoice, correctChoiceId, currentQuestion, isAnswered]);
+
+  // Trigger choice selection & evaluate answer (sound, green/red HUD, and flashcard select)
   const triggerChoiceSelection = useCallback(
     (choiceId: string) => {
       clearHoldTimer();
       cancelAutoNextTimer();
-      setStatusMessage(`Selected Choice ${choiceId}! Evaluated answer.`);
+
+      const expectedAnswer = correctChoiceId || currentQuestion?.correctChoiceId;
+      const isCorrect = expectedAnswer
+        ? choiceId.toUpperCase() === expectedAnswer.toUpperCase()
+        : null;
+
+      // Play audio feedback
+      if (isCorrect !== null) {
+        playAnswerSound(isCorrect);
+      }
+
+      if (expectedAnswer !== undefined) {
+        setEvaluatedResult({
+          choiceId,
+          isCorrect: Boolean(isCorrect),
+          correctChoiceId: expectedAnswer || '',
+        });
+      }
+
+      if (isCorrect === true) {
+        setStatusMessage(`✅ CORRECT! You chose Option ${choiceId}.`);
+      } else if (isCorrect === false) {
+        setStatusMessage(`❌ WRONG! You chose Option ${choiceId}. Correct is Option ${expectedAnswer}.`);
+      } else {
+        setStatusMessage(`Selected Choice ${choiceId}! Evaluated answer.`);
+      }
+
+      // Lock in choice on flashcard
       onSelectChoice(choiceId);
 
       if (autoNextDelay > 0) {
@@ -158,10 +223,16 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           }
         }, 100);
       } else {
-        setStatusMessage(`Selected Choice ${choiceId}! (Auto-next is OFF. Show 5 fingers 👋 or click Next when ready)`);
+        setStatusMessage(
+          isCorrect === true
+            ? `✅ Option ${choiceId} is Correct! (Auto-next is OFF. Show 5 fingers 👋 or click Next)`
+            : isCorrect === false
+            ? `❌ Option ${choiceId} was Wrong! (Correct: Option ${expectedAnswer}). Show 5 fingers 👋 or click Next`
+            : `Selected Choice ${choiceId}! Show 5 fingers 👋 or click Next.`
+        );
       }
     },
-    [clearHoldTimer, cancelAutoNextTimer, clearAutoNextTimer, autoNextDelay, onSelectChoice, onNext]
+    [clearHoldTimer, cancelAutoNextTimer, clearAutoNextTimer, autoNextDelay, onSelectChoice, onNext, correctChoiceId, currentQuestion]
   );
 
   // Process MediaPipe Hand Results
@@ -222,59 +293,83 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           return;
         }
 
-        // Process hold gesture:
+        // --- SMOOTH & RESPONSIVE GESTURE HOLD PROCESSING ---
         // Case 1: Question not answered yet, hold 1-4 fingers to select A, B, C, D
-        if (!isAnsweredRef.current && mappedChoice && mappedChoice !== 'NEXT') {
-          if (currentHoldChoiceRef.current !== mappedChoice) {
-            clearHoldTimer();
-            currentHoldChoiceRef.current = mappedChoice;
-            setHoldingChoice(mappedChoice);
-            holdCountRef.current = 0;
+        if (!isAnsweredRef.current && mappedChoice && ['A', 'B', 'C', 'D'].includes(mappedChoice)) {
+          // If continuing the same gesture
+          if (holdCandidateRef.current === mappedChoice) {
+            missedFramesRef.current = 0;
+            holdStreakRef.current += 1;
+            const targetFrames = 10; // ~0.4s
+            const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
+            setHoldProgress(progress);
 
-            holdingTimerRef.current = setInterval(() => {
-              holdCountRef.current += 10;
-              setHoldProgress(Math.min(holdCountRef.current, 100));
+            const choiceItem = currentQuestion?.choices.find((c) => c.id.toUpperCase() === mappedChoice.toUpperCase());
+            const choiceLabel = choiceItem ? `Choice ${mappedChoice}: ${choiceItem.text}` : `Choice ${mappedChoice}`;
+            setHoldingChoice(choiceLabel);
 
-              if (holdCountRef.current >= 100) {
-                const choiceToTrigger = currentHoldChoiceRef.current;
-                if (choiceToTrigger && choiceToTrigger !== 'NEXT') {
-                  triggerChoiceSelection(choiceToTrigger);
-                }
-              }
-            }, 50);
+            if (holdStreakRef.current >= targetFrames) {
+              const selected = mappedChoice;
+              clearHoldTimer();
+              triggerChoiceSelection(selected);
+            }
+          } else {
+            // New gesture candidate started
+            holdCandidateRef.current = mappedChoice;
+            holdStreakRef.current = 1;
+            missedFramesRef.current = 0;
+            const choiceItem = currentQuestion?.choices.find((c) => c.id.toUpperCase() === mappedChoice.toUpperCase());
+            const choiceLabel = choiceItem ? `Choice ${mappedChoice}: ${choiceItem.text}` : `Choice ${mappedChoice}`;
+            setHoldingChoice(choiceLabel);
+            setHoldProgress(10);
           }
         }
         // Case 2: Show 5 fingers (Open Palm 👋) to advance to Next Question immediately
         else if (mappedChoice === 'NEXT') {
-          if (currentHoldChoiceRef.current !== 'NEXT') {
-            clearHoldTimer();
-            currentHoldChoiceRef.current = 'NEXT';
+          if (holdCandidateRef.current === 'NEXT') {
+            missedFramesRef.current = 0;
+            holdStreakRef.current += 1;
+            const targetFrames = 10; // ~0.4s
+            const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
+            setHoldProgress(progress);
             setHoldingChoice('NEXT Question 👋');
-            holdCountRef.current = 0;
 
-            holdingTimerRef.current = setInterval(() => {
-              holdCountRef.current += 20; // 0.5s hold for Next
-              setHoldProgress(Math.min(holdCountRef.current, 100));
-
-              if (holdCountRef.current >= 100) {
-                triggerNextQuestion();
-              }
-            }, 50);
+            if (holdStreakRef.current >= targetFrames) {
+              clearHoldTimer();
+              triggerNextQuestion();
+            }
+          } else {
+            holdCandidateRef.current = 'NEXT';
+            holdStreakRef.current = 1;
+            missedFramesRef.current = 0;
+            setHoldingChoice('NEXT Question 👋');
+            setHoldProgress(10);
           }
-        } else if (!mappedChoice) {
-          clearHoldTimer();
+        } else {
+          // No valid choice on this frame - allow up to 6 dropped frames before resetting
+          if (holdCandidateRef.current) {
+            missedFramesRef.current += 1;
+            if (missedFramesRef.current > 6) {
+              clearHoldTimer();
+            }
+          }
         }
       } else {
         if (results.image) {
           ctx.drawImage(results.image, 0, 0, canvas.width, canvas.height);
         }
         setDetectedFingers(0);
-        clearHoldTimer();
+        if (holdCandidateRef.current) {
+          missedFramesRef.current += 1;
+          if (missedFramesRef.current > 6) {
+            clearHoldTimer();
+          }
+        }
       }
 
       ctx.restore();
     },
-    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion, isScannerOpen]
+    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion, isScannerOpen, currentQuestion]
   );
 
 // Request camera permission & start processing
@@ -383,27 +478,10 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
       const choiceMap: Record<number, string> = { 1: 'A', 2: 'B', 3: 'C', 4: 'D' };
       const mappedChoice = choiceMap[count];
       if (!isAnsweredRef.current && mappedChoice) {
-        if (currentHoldChoiceRef.current !== mappedChoice) {
-          clearHoldTimer();
-          currentHoldChoiceRef.current = mappedChoice;
-          setHoldingChoice(mappedChoice);
-          holdCountRef.current = 0;
-
-          holdingTimerRef.current = setInterval(() => {
-            holdCountRef.current += 10;
-            setHoldProgress(Math.min(holdCountRef.current, 100));
-
-            if (holdCountRef.current >= 100) {
-              const choiceToTrigger = currentHoldChoiceRef.current;
-              if (choiceToTrigger) {
-                triggerChoiceSelection(choiceToTrigger);
-              }
-            }
-          }, 50);
-        }
+        triggerChoiceSelection(mappedChoice);
       }
     },
-    [clearHoldTimer, triggerChoiceSelection, triggerNextQuestion]
+    [triggerChoiceSelection, triggerNextQuestion]
   );
 
   // Keyboard shortcut listener (1, 2, 3, 4, 5)
@@ -695,15 +773,33 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           </div>
         )}
 
-        {/* Auto-Next Countdown & Pause Overlay */}
+        {/* Auto-Next Countdown & Answer Evaluation Result Overlay */}
         {autoNextCountdown !== null && (
-          <div className="absolute inset-0 bg-slate-950/90 backdrop-blur-xs flex flex-col items-center justify-center p-3 text-center z-30 font-sans gap-2">
+          <div className="absolute inset-0 bg-slate-950/95 backdrop-blur-xs flex flex-col items-center justify-center p-3 text-center z-30 font-sans gap-2">
+            {/* Prominent Correct / Wrong Answer Banner */}
+            {evaluatedResult && (
+              <div
+                className={`w-full p-2 rounded-xl border flex items-center justify-center gap-1.5 text-xs font-bold shadow-lg ${
+                  evaluatedResult.isCorrect
+                    ? 'bg-emerald-950/95 border-emerald-500 text-emerald-200 ring-1 ring-emerald-400/50'
+                    : 'bg-rose-950/95 border-rose-500 text-rose-200 ring-1 ring-rose-400/50'
+                }`}
+              >
+                <span className="text-base">{evaluatedResult.isCorrect ? '✅' : '❌'}</span>
+                <span className="leading-tight text-center">
+                  {evaluatedResult.isCorrect
+                    ? `CORRECT! Option ${evaluatedResult.choiceId} is correct!`
+                    : `WRONG! You chose ${evaluatedResult.choiceId}. Correct is ${evaluatedResult.correctChoiceId}.`}
+                </span>
+              </div>
+            )}
+
             <div className="flex flex-col items-center gap-0.5">
-              <span className="text-teal-300 font-mono text-base font-extrabold animate-pulse">
+              <span className="text-teal-300 font-mono text-sm sm:text-base font-extrabold animate-pulse">
                 Advancing in {autoNextCountdown}s...
               </span>
               <span className="text-slate-300 text-[11px]">
-                Answer evaluated! Take time to analyze.
+                Review the flashcard explanation below!
               </span>
             </div>
 
@@ -711,7 +807,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={pauseAutoNextTimer}
-                className="flex-1 py-1 px-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                className="flex-1 py-1.5 px-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
                 title="Pause auto-advance timer so you can read and analyze the question as long as you want"
               >
                 ⏸️ Pause Timer
@@ -719,7 +815,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
               <button
                 type="button"
                 onClick={triggerNextQuestion}
-                className="flex-1 py-1 px-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
+                className="flex-1 py-1.5 px-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-bold text-xs cursor-pointer shadow-sm transition-colors flex items-center justify-center gap-1"
                 title="Go directly to next question"
               >
                 Next Now →
@@ -749,12 +845,19 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
 
         {/* If Paused Banner */}
         {isTimerPaused && isAnswered && autoNextCountdown === null && (
-          <div className="absolute top-2 left-2 right-2 bg-amber-950/90 border border-amber-600/80 text-amber-200 rounded-lg p-1.5 text-[11px] font-medium flex items-center justify-between z-20 shadow-md font-sans">
-            <span>⏸️ Paused (Read at your pace)</span>
+          <div className="absolute top-2 left-2 right-2 bg-slate-900/95 border border-amber-600/80 rounded-lg p-1.5 text-[11px] font-medium flex items-center justify-between z-20 shadow-md font-sans">
+            <div className="flex items-center gap-1.5 truncate pr-1">
+              <span>⏸️</span>
+              <span className={evaluatedResult?.isCorrect ? 'text-emerald-300 font-bold' : 'text-rose-300 font-bold'}>
+                {evaluatedResult?.isCorrect
+                  ? `Correct (Option ${evaluatedResult.choiceId})`
+                  : `Wrong (Option ${evaluatedResult?.choiceId} → Correct: ${evaluatedResult?.correctChoiceId})`}
+              </span>
+            </div>
             <button
               type="button"
               onClick={triggerNextQuestion}
-              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[10px] cursor-pointer"
+              className="px-2 py-0.5 rounded bg-teal-600 hover:bg-teal-500 text-white font-bold text-[10px] cursor-pointer shrink-0"
             >
               Next →
             </button>

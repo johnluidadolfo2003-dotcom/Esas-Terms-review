@@ -1097,6 +1097,21 @@ export default function App() {
             ? quizQuestions[quizCurrentIndex]?.id || ''
             : currentQuestion?.id || ''
         }
+        currentQuestion={
+          isQuizActive
+            ? quizQuestions[quizCurrentIndex] || null
+            : currentQuestion || null
+        }
+        selectedChoice={
+          isQuizActive
+            ? quizAnswers[quizQuestions[quizCurrentIndex]?.id] || null
+            : currentSelectedChoice
+        }
+        correctChoiceId={
+          isQuizActive
+            ? quizQuestions[quizCurrentIndex]?.correctChoiceId
+            : currentQuestion?.correctChoiceId
+        }
       />
     </div>
   );
