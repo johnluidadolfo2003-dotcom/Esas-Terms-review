@@ -115,6 +115,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   const currentHoldChoiceRef = useRef<string | null>(null);
   const holdCountRef = useRef<number>(0);
   const lastSelectedQuestionIdRef = useRef<string | null>(null);
+  const nextCooldownRef = useRef<number>(0);
   const isAnsweredRef = useRef<boolean>(isAnswered);
   const activeStreamRef = useRef<MediaStream | null>(null);
   const handsInstanceRef = useRef<any>(null);
@@ -178,6 +179,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
   // Trigger manual immediate next question
   const triggerNextQuestion = useCallback(() => {
     cancelAutoNextTimer();
+    nextCooldownRef.current = Date.now() + 800; // 800ms cooldown
     onNextRef.current();
   }, [cancelAutoNextTimer]);
 
@@ -418,11 +420,18 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
           }
         }
         // Case 2: Show 5 fingers (Open Palm 👋) to advance to Next Question immediately
-        else if (mappedChoice === 'NEXT') {
+        else if (mappedChoice === 'NEXT' || fingerState.count >= 5) {
+          // If in cooldown from previous next card action, wait
+          if (Date.now() < nextCooldownRef.current) {
+            clearHoldTimer();
+            ctx.restore();
+            return;
+          }
+
           if (holdCandidateRef.current === 'NEXT') {
             missedFramesRef.current = 0;
             holdStreakRef.current += 1;
-            const targetFrames = 15; // ~0.55s
+            const targetFrames = 7; // Fast & crisp response (~0.23s) so 5 fingers triggers reliably
             const progress = Math.min(100, Math.round((holdStreakRef.current / targetFrames) * 100));
             setHoldProgress(progress);
             setHoldingChoice('NEXT Question 👋');
@@ -436,7 +445,7 @@ export const HandGestureController: React.FC<HandGestureControllerProps> = ({
             holdStreakRef.current = 1;
             missedFramesRef.current = 0;
             setHoldingChoice('NEXT Question 👋');
-            setHoldProgress(10);
+            setHoldProgress(20);
           }
         } else {
           // No valid choice on this frame - allow up to 6 dropped frames before resetting

@@ -760,17 +760,16 @@ export default function App() {
   }, [currentQuestion?.id]);
 
   const handleNextCard = () => {
-    if (currentCardIndex < filteredQuestions.length - 1) {
-      const leavingQ = filteredQuestions[currentCardIndex];
-      if (leavingQ) {
-        setUserAnswers((prev) => {
-          const copy = { ...prev };
-          delete copy[leavingQ.id];
-          return copy;
-        });
-      }
-      setCurrentCardIndex((prev) => prev + 1);
+    if (filteredQuestions.length === 0) return;
+    const leavingQ = filteredQuestions[currentCardIndex];
+    if (leavingQ) {
+      setUserAnswers((prev) => {
+        const copy = { ...prev };
+        delete copy[leavingQ.id];
+        return copy;
+      });
     }
+    setCurrentCardIndex((prev) => (prev + 1) % filteredQuestions.length);
   };
 
   const handlePreviousCard = () => {
@@ -1112,6 +1111,8 @@ export default function App() {
             ? () => {
                 if (quizCurrentIndex < quizQuestions.length - 1) {
                   setQuizCurrentIndex((prev) => prev + 1);
+                } else {
+                  handleFinishQuiz();
                 }
               }
             : handleNextCard

@@ -7,6 +7,7 @@ export interface FingerState {
   ring: boolean;
   pinky: boolean;
   count: number;
+  thumbTucked?: boolean;
 }
 
 export interface CalibratedGestureData {
@@ -227,14 +228,21 @@ export function extractFingerMetrics(landmarks: Array<{ x: number; y: number; z?
   const thumbTipDistToThumbMcp = dist(thumbTip, thumbMcp);
   const thumbIpDistToThumbMcp = dist(thumbIp, thumbMcp);
 
-  // Thumb is only extended if it is stretched wide away from the palm:
-  // Not tucked over index/middle MCP and not folded into palm
+  // Anatomical Thumb Extension & Tuck Analysis:
+  // When thumb is tucked into palm (e.g. Option D with 4 fingers up):
+  // The thumb tip is curled inward toward the index or middle MCP, and closer to wrist/MCP.
+  const isThumbTucked =
+    thumbTipDistToIndexMcp < palmScale * 0.45 ||
+    thumbTipDistToMiddleMcp < palmScale * 0.52 ||
+    thumbTipDistToThumbMcp < thumbIpDistToThumbMcp * 0.95;
+
+  // When thumb is extended (e.g. Open Palm 🖐️ or Thumbs Up or 'L' sign):
+  // The thumb tip is not tucked into the palm AND extends outward
   const isThumbExtended =
-    thumbTipDistToIndexMcp > palmScale * 0.70 &&
-    thumbTipDistToMiddleMcp > palmScale * 0.80 &&
-    thumbTipDistToPinkyMcp > palmScale * 0.85 &&
-    thumbTipDistToWrist > thumbMcpDistToWrist * 1.25 &&
-    thumbTipDistToThumbMcp > thumbIpDistToThumbMcp * 1.15;
+    !isThumbTucked &&
+    (thumbTipDistToIndexMcp > palmScale * 0.48 ||
+      thumbTipDistToWrist > thumbMcpDistToWrist * 1.10 ||
+      thumbTipDistToThumbMcp > thumbIpDistToThumbMcp * 1.05);
 
   let count = 0;
   if (isIndexExtended) count++;
@@ -250,6 +258,7 @@ export function extractFingerMetrics(landmarks: Array<{ x: number; y: number; z?
     ring: isRingExtended,
     pinky: isPinkyExtended,
     count,
+    thumbTucked: isThumbTucked,
   };
 
   const relativeDistances = [
@@ -387,17 +396,26 @@ export function matchGesture(
     return { matchedChoice: 'C', confidence: 95, matchReason: '3 fingers (Thumb + Index + Middle) → Option C' };
   }
 
-  // 4. OPTION D: Exactly 4 fingers extended (Index + Middle + Ring + Pinky up, Thumb tucked)
-  if (index && middle && ring && pinky && !thumb) {
-    return { matchedChoice: 'D', confidence: 98, matchReason: '4 fingers (All 4 Up, Thumb Tucked) → Option D' };
-  }
+  const isTucked = fingerState.thumbTucked ?? (!thumb);
 
-  // 5. NEXT CARD: All 5 fingers extended (Open palm)
-  if (index && middle && ring && pinky && thumb) {
+  // 5. NEXT CARD (Open Palm 👋 / 5 fingers):
+  // Either 5 fingers extended, or all 4 fingers extended with thumb out (not tucked into palm)
+  if (count >= 5 || (index && middle && ring && pinky && !isTucked) || (nonThumbCount === 4 && thumb)) {
     return { matchedChoice: 'NEXT', confidence: 98, matchReason: '5 fingers (Open Palm) → Next Card' };
   }
 
+  // 4. OPTION D: Exactly 4 fingers extended (All 4 Up, Thumb tucked into palm)
+  if (index && middle && ring && pinky && isTucked) {
+    return { matchedChoice: 'D', confidence: 98, matchReason: '4 fingers (Thumb Tucked) → Option D' };
+  }
+
   // Fallback purely on extended non-thumb count or total count
+  if (count >= 5 || (nonThumbCount === 4 && !isTucked)) {
+    return { matchedChoice: 'NEXT', confidence: 95, matchReason: '5 fingers detected → Next' };
+  }
+  if (nonThumbCount === 4 && isTucked) {
+    return { matchedChoice: 'D', confidence: 92, matchReason: '4 fingers detected → Option D' };
+  }
   if (nonThumbCount === 1 || count === 1) {
     return { matchedChoice: 'A', confidence: 92, matchReason: '1 finger detected → Option A' };
   }
