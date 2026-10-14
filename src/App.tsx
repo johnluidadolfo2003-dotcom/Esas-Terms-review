@@ -39,6 +39,9 @@ import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
 import { generate70ItemQuiz, TOTAL_QUIZ_ITEMS } from './services/quizService';
 import { QuizCongratulationsModal } from './components/QuizCongratulationsModal';
+import { eyeTrackingEngine, EyeTrackingState } from './services/eyeTrackingService';
+import { EyeGazeCalibrationModal } from './components/EyeGazeCalibrationModal';
+import { EyeGazeReticle } from './components/EyeGazeReticle';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -132,6 +135,19 @@ export default function App() {
   const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
   const [isCameraGestureActive, setIsCameraGestureActive] = useState(false);
   const [isGestureScannerOpen, setIsGestureScannerOpen] = useState(false);
+  const [isEyeTrackingActive, setIsEyeTrackingActive] = useState<boolean>(false);
+  const [eyeTrackingState, setEyeTrackingState] = useState<EyeTrackingState>({
+    isActive: false,
+    isCalibrated: eyeTrackingEngine.isCalibrated(),
+    isTracking: false,
+    faceDetected: false,
+    gazeX: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
+    gazeY: typeof window !== 'undefined' ? window.innerHeight / 2 : 400,
+    hoveredChoiceId: null,
+    dwellProgress: 0,
+    isBlinking: false,
+  });
+  const [isEyeCalibrationOpen, setIsEyeCalibrationOpen] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -803,6 +819,61 @@ export default function App() {
     });
   };
 
+  // Eye Tracking Controller Integration
+  const handleToggleEyeTracking = useCallback(async () => {
+    if (isEyeTrackingActive) {
+      eyeTrackingEngine.stop();
+      setIsEyeTrackingActive(false);
+    } else {
+      if (!eyeTrackingEngine.isCalibrated()) {
+        setIsEyeCalibrationOpen(true);
+      } else {
+        const started = await eyeTrackingEngine.start();
+        if (started) {
+          setIsEyeTrackingActive(true);
+        } else {
+          setIsEyeCalibrationOpen(true);
+        }
+      }
+    }
+  }, [isEyeTrackingActive]);
+
+  useEffect(() => {
+    const unsubscribe = eyeTrackingEngine.subscribe((state) => {
+      setEyeTrackingState(state);
+      setIsEyeTrackingActive(state.isActive);
+    });
+
+    return () => {
+      unsubscribe();
+      eyeTrackingEngine.stop();
+    };
+  }, []);
+
+  useEffect(() => {
+    eyeTrackingEngine.setActionCallback((action) => {
+      if (action.type === 'choice' && action.id) {
+        if (isQuizActive) {
+          handleQuizSelectChoice(action.id);
+        } else {
+          handleSelectChoice(action.id);
+        }
+      } else if (action.type === 'next') {
+        if (isQuizActive) {
+          setQuizCurrentIndex((prev) => (prev < quizQuestions.length - 1 ? prev + 1 : prev));
+        } else {
+          handleNextCard();
+        }
+      }
+    });
+  }, [
+    isQuizActive,
+    handleQuizSelectChoice,
+    handleSelectChoice,
+    handleNextCard,
+    quizQuestions.length,
+  ]);
+
   // Metrics: session tally
   const correctCount = sessionCorrectCount;
   const incorrectCount = sessionIncorrectCount;
@@ -841,6 +912,8 @@ export default function App() {
         isCameraGestureActive={isCameraGestureActive}
         onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
         onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
+        isEyeTrackingActive={isEyeTrackingActive}
+        onToggleEyeTracking={handleToggleEyeTracking}
         isMobileDrawerOpen={isMobileDrawerOpen}
         onToggleMobileDrawer={() => setIsMobileDrawerOpen(!isMobileDrawerOpen)}
         onCloseMobileDrawer={() => setIsMobileDrawerOpen(false)}
@@ -857,7 +930,7 @@ export default function App() {
             </span>
           </div>
 
-          {/* Right Controls: Ambient Sound + Camera Icon + Beside it Check & Wrong Counters */}
+          {/* Right Controls: Ambient Sound + Camera Icon + Eye Tracking Icon + Score Counters */}
           <div className="flex items-center gap-2">
             <AmbientSoundControl />
 
@@ -875,6 +948,24 @@ export default function App() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+              </svg>
+            </button>
+
+            {/* Hands-Free Eye Gaze Tracking Toggle Button */}
+            <button
+              type="button"
+              onClick={handleToggleEyeTracking}
+              className={`p-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center justify-center ${
+                isEyeTrackingActive
+                  ? 'bg-[#2dd4bf] text-zinc-950 border-[#2dd4bf] shadow-xs'
+                  : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
+              }`}
+              title="Eye Gaze Answer Control (Look at option to choose)"
+              aria-label="Toggle Eye Gaze Answer Control"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </button>
 
@@ -1023,6 +1114,8 @@ export default function App() {
                   }}
                   aiVoiceMode={aiVoiceMode}
                   onSetAiVoiceMode={setAiVoiceMode}
+                  eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
+                  eyeDwellProgress={eyeTrackingState.dwellProgress}
                 />
               )}
             </div>
@@ -1095,6 +1188,8 @@ export default function App() {
               onToggleFlag={handleToggleFlag}
               aiVoiceMode={aiVoiceMode}
               onSetAiVoiceMode={setAiVoiceMode}
+              eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
+              eyeDwellProgress={eyeTrackingState.dwellProgress}
             />
           )
         )}
@@ -1205,6 +1300,20 @@ export default function App() {
             ? currentQuizQuestion?.correctChoiceId
             : currentQuestion?.correctChoiceId
         }
+      />
+
+      {/* Eye Gaze Reticle & Indicator */}
+      <EyeGazeReticle
+        trackingState={eyeTrackingState}
+        onOpenCalibration={() => setIsEyeCalibrationOpen(true)}
+        onToggleActive={handleToggleEyeTracking}
+      />
+
+      {/* One-time 5-Point Eye Gaze Calibration Modal */}
+      <EyeGazeCalibrationModal
+        isOpen={isEyeCalibrationOpen}
+        onClose={() => setIsEyeCalibrationOpen(false)}
+        onComplete={() => setIsEyeTrackingActive(true)}
       />
     </div>
   );

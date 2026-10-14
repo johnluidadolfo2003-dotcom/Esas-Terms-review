@@ -114,68 +114,43 @@ export const AmbientSoundControl: React.FC<AmbientSoundControlProps> = ({
   return (
     <div className={`relative ${className}`} ref={popoverRef}>
       {/* Trigger Button */}
-      <div className="flex items-center gap-1">
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className={`px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
-            isPlaying
-              ? 'bg-[#181f2a] border-teal-700/80 text-teal-300'
-              : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
-          }`}
-          title="Background sound for study focus"
-        >
-          {/* Animated Wave Indicator or static icon */}
-          {isPlaying ? (
-            <span className="flex items-end gap-0.5 h-3.5 w-3.5 justify-center py-0.5">
-              <span className="w-0.5 h-3 bg-teal-400 rounded-full animate-pulse" />
-              <span className="w-0.5 h-2 bg-teal-400 rounded-full animate-ping" />
-              <span className="w-0.5 h-3.5 bg-teal-400 rounded-full animate-pulse" />
-            </span>
-          ) : (
-            <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
-            </svg>
-          )}
-
-          <span className="hidden sm:inline font-mono text-[11px]">
-            {isPlaying ? activePreset.name : 'Ambience'}
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className={`px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
+          isPlaying
+            ? 'bg-[#181f2a] border-teal-700/80 text-teal-300'
+            : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
+        }`}
+        title="Background sound for study focus"
+      >
+        {/* Animated Wave Indicator or static icon */}
+        {isPlaying ? (
+          <span className="flex items-end gap-0.5 h-3.5 w-3.5 justify-center py-0.5">
+            <span className="w-0.5 h-3 bg-teal-400 rounded-full animate-pulse" />
+            <span className="w-0.5 h-2 bg-teal-400 rounded-full animate-ping" />
+            <span className="w-0.5 h-3.5 bg-teal-400 rounded-full animate-pulse" />
           </span>
-
-          <svg
-            className={`w-3 h-3 text-zinc-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        ) : (
+          <svg className="w-3.5 h-3.5 text-zinc-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.757 3.63 8.25 4.51 8.25H6.75z" />
           </svg>
-        </button>
+        )}
 
-        {/* Quick Play/Pause Action Button */}
-        <button
-          type="button"
-          onClick={handleTogglePlay}
-          className={`p-1 sm:p-1.5 rounded-lg border text-xs transition-colors cursor-pointer flex items-center justify-center ${
-            isPlaying
-              ? 'bg-teal-600 border-teal-500 text-white shadow-xs hover:bg-teal-500'
-              : 'bg-[#181a21] border-[#272935] text-zinc-400 hover:text-white hover:bg-[#20222a]'
-          }`}
-          title={isPlaying ? 'Pause ambient background sound' : 'Play ambient background sound'}
-          aria-label={isPlaying ? 'Pause ambient sound' : 'Play ambient sound'}
+        <span className="hidden sm:inline font-mono text-[11px]">
+          {isPlaying ? activePreset.name : 'Ambience'}
+        </span>
+
+        <svg
+          className={`w-3 h-3 text-zinc-400 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
         >
-          {isPlaying ? (
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-              <path fillRule="evenodd" d="M6.75 5.25a.75.75 0 01.75.75v12a.75.75 0 01-1.5 0v-12a.75.75 0 01.75-.75zm9 0a.75.75 0 01.75.75v12a.75.75 0 01-1.5 0v-12a.75.75 0 01.75-.75z" clipRule="evenodd" />
-            </svg>
-          ) : (
-            <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-              <path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-            </svg>
-          )}
-        </button>
-      </div>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
 
       {/* Popover Dropdown Panel */}
       {isOpen && (

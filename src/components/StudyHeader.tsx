@@ -28,6 +28,8 @@ interface StudyHeaderProps {
   isCameraGestureActive?: boolean;
   onToggleCameraGesture?: () => void;
   onOpenGestureScanner?: () => void;
+  isEyeTrackingActive?: boolean;
+  onToggleEyeTracking?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -59,6 +61,8 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   isCameraGestureActive,
   onToggleCameraGesture,
   onOpenGestureScanner,
+  isEyeTrackingActive,
+  onToggleEyeTracking,
 }) => {
   const totalAttempted = correctCount + incorrectCount;
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
@@ -152,6 +156,26 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+              </svg>
+            </button>
+          )}
+
+          {/* Hands-Free Eye Gaze Answer Toggle Button */}
+          {onToggleEyeTracking && (
+            <button
+              type="button"
+              onClick={onToggleEyeTracking}
+              className={`p-1.5 sm:px-2 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold border transition-colors cursor-pointer flex items-center justify-center shrink-0 ${
+                isEyeTrackingActive
+                  ? 'bg-[#2dd4bf] border-[#2dd4bf] text-zinc-950 shadow-xs'
+                  : 'bg-slate-800 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700'
+              }`}
+              title="Eye Gaze Answer Control (Look at option to choose)"
+              aria-label="Toggle Eye Gaze Answer Control"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </button>
           )}
