@@ -1,99 +1,98 @@
 import React from 'react';
-import { EyeTrackingState } from '../services/eyeTrackingService';
+import { EyeTrackingState, eyeTrackingEngine } from '../services/eyeTrackingService';
 
 interface EyeGazeReticleProps {
   trackingState: EyeTrackingState;
-  onOpenCalibration: () => void;
+  onOpenCalibration?: () => void;
   onToggleActive: () => void;
 }
 
 export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
   trackingState,
-  onOpenCalibration,
   onToggleActive,
 }) => {
-  if (!trackingState.isActive || !trackingState.isTracking) return null;
+  if (!trackingState.isActive) return null;
 
-  const { gazeX, gazeY, hoveredChoiceId, dwellProgress, isBlinking } = trackingState;
+  const { activeSector, dwellProgress, isBlinking } = trackingState;
+
+  const handleReZero = () => {
+    eyeTrackingEngine.autoZeroBaseline(600);
+  };
 
   return (
     <>
-      {/* 1. Floating Screen Gaze Reticle */}
-      <div
-        className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"
-        style={{
-          left: `${gazeX}px`,
-          top: `${gazeY}px`,
-        }}
-      >
-        {/* Reticle Target Ring */}
-        <div className="relative flex items-center justify-center">
-          <div
-            className={`w-7 h-7 rounded-full border transition-all duration-150 flex items-center justify-center ${
-              hoveredChoiceId
-                ? 'border-[#2dd4bf] bg-[#2dd4bf]/20 scale-125 shadow-[0_0_16px_#2dd4bf]'
-                : isBlinking
-                ? 'border-rose-400 bg-rose-500/20 scale-90'
-                : 'border-[#2dd4bf]/60 bg-[#2dd4bf]/10 shadow-[0_0_8px_#2dd4bf/30]'
-            }`}
-          >
-            {/* Center pinpoint */}
+      {/* Active Sector Visual Feedback HUD Overlay */}
+      {activeSector && activeSector !== 'CENTER' && (
+        <div
+          className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 transition-all duration-100 ease-out"
+          style={{
+            left: `${trackingState.gazeX}px`,
+            top: `${trackingState.gazeY}px`,
+          }}
+        >
+          <div className="relative flex items-center justify-center">
+            {/* Glowing active sector badge */}
             <div
-              className={`w-1.5 h-1.5 rounded-full transition-transform ${
-                hoveredChoiceId ? 'bg-[#2dd4bf] scale-150' : 'bg-[#2dd4bf]'
+              className={`px-3 py-1.5 rounded-xl border flex items-center gap-1.5 font-mono text-xs font-bold shadow-[0_0_20px_#2dd4bf/50] ${
+                isBlinking
+                  ? 'bg-rose-500/20 border-rose-400 text-rose-300'
+                  : 'bg-[#14161d]/90 border-[#2dd4bf] text-[#2dd4bf]'
               }`}
-            />
-          </div>
-
-          {/* Dwell Progress Ring around reticle */}
-          {hoveredChoiceId && dwellProgress > 0 && (
-            <svg
-              className="absolute -top-2 -left-2 w-11 h-11 -rotate-90 pointer-events-none"
-              viewBox="0 0 44 44"
             >
-              <circle
-                cx="22"
-                cy="22"
-                r="18"
-                stroke="#181a21"
-                strokeWidth="3"
-                fill="none"
-              />
-              <circle
-                cx="22"
-                cy="22"
-                r="18"
-                stroke="#2dd4bf"
-                strokeWidth="3"
-                fill="none"
-                strokeDasharray="113.1"
-                strokeDashoffset={113.1 * (1 - dwellProgress)}
-                strokeLinecap="round"
-              />
-            </svg>
-          )}
+              <span>👁</span>
+              <span>{activeSector === 'NEXT' ? 'Next Card →' : `Option ${activeSector}`}</span>
+            </div>
+
+            {/* Circular Dwell Meter */}
+            {dwellProgress > 0 && (
+              <svg
+                className="absolute -top-3 -left-3 w-16 h-16 -rotate-90 pointer-events-none"
+                viewBox="0 0 64 64"
+              >
+                <circle
+                  cx="32"
+                  cy="32"
+                  r="26"
+                  stroke="#181a21"
+                  strokeWidth="3.5"
+                  fill="none"
+                />
+                <circle
+                  cx="32"
+                  cy="32"
+                  r="26"
+                  stroke="#2dd4bf"
+                  strokeWidth="3.5"
+                  fill="none"
+                  strokeDasharray="163.36"
+                  strokeDashoffset={163.36 * (1 - dwellProgress)}
+                  strokeLinecap="round"
+                />
+              </svg>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* 2. Compact Bottom Status Floating Pill */}
-      <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex items-center gap-2 shadow-lg text-xs font-mono select-none">
-        <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse" />
-        <span className="text-zinc-300 font-medium">Eye Gaze Active</span>
+      {/* Compact Floating Status Pill & Instant Re-Zero Button */}
+      <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/95 border border-[#272935] backdrop-blur-md px-3 py-1.5 rounded-xl flex items-center gap-2 shadow-xl text-xs font-mono select-none">
+        <span className="w-2.5 h-2.5 rounded-full bg-[#2dd4bf] animate-pulse" />
+        <span className="text-zinc-200 font-semibold">Eye Gaze Active</span>
 
-        {hoveredChoiceId && (
-          <span className="px-1.5 py-0.2 rounded bg-[#2dd4bf]/20 text-[#2dd4bf] font-bold border border-[#2dd4bf]/50">
-            {hoveredChoiceId === 'NEXT' ? 'Next' : `Option ${hoveredChoiceId}`}
+        {activeSector && activeSector !== 'CENTER' && (
+          <span className="px-1.5 py-0.5 rounded bg-[#2dd4bf]/20 text-[#2dd4bf] font-bold border border-[#2dd4bf]/40">
+            {activeSector}
           </span>
         )}
 
-        <div className="flex items-center gap-1 ml-1 border-l border-[#272935] pl-1.5">
+        <div className="flex items-center gap-1.5 ml-1 border-l border-[#272935] pl-2">
           <button
             type="button"
-            onClick={onOpenCalibration}
-            className="text-[10px] text-zinc-400 hover:text-zinc-200 cursor-pointer underline"
-            title="Recalibrate eyes"
+            onClick={handleReZero}
+            className="px-2 py-0.5 rounded bg-[#1e202a] hover:bg-[#282b38] border border-[#2f3242] text-[#2dd4bf] text-[11px] font-bold transition-colors cursor-pointer"
+            title="Look at center of screen and click to instant re-zero eye center"
           >
-            Recalibrate
+            🎯 Re-Zero
           </button>
           <button
             type="button"

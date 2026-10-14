@@ -138,14 +138,13 @@ export default function App() {
   const [isEyeTrackingActive, setIsEyeTrackingActive] = useState<boolean>(false);
   const [eyeTrackingState, setEyeTrackingState] = useState<EyeTrackingState>({
     isActive: false,
-    isCalibrated: eyeTrackingEngine.isCalibrated(),
     isTracking: false,
     faceDetected: false,
-    gazeX: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
-    gazeY: typeof window !== 'undefined' ? window.innerHeight / 2 : 400,
-    hoveredChoiceId: null,
+    activeSector: null,
     dwellProgress: 0,
     isBlinking: false,
+    gazeX: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
+    gazeY: typeof window !== 'undefined' ? window.innerHeight / 2 : 400,
   });
   const [isEyeCalibrationOpen, setIsEyeCalibrationOpen] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState(false);
@@ -1114,7 +1113,7 @@ export default function App() {
                   }}
                   aiVoiceMode={aiVoiceMode}
                   onSetAiVoiceMode={setAiVoiceMode}
-                  eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
+                  eyeHoveredChoiceId={eyeTrackingState.activeSector}
                   eyeDwellProgress={eyeTrackingState.dwellProgress}
                 />
               )}
@@ -1188,7 +1187,7 @@ export default function App() {
               onToggleFlag={handleToggleFlag}
               aiVoiceMode={aiVoiceMode}
               onSetAiVoiceMode={setAiVoiceMode}
-              eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
+              eyeHoveredChoiceId={eyeTrackingState.activeSector}
               eyeDwellProgress={eyeTrackingState.dwellProgress}
             />
           )
