@@ -37,6 +37,29 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
     combined.includes('r.a. 7920') ||
     combined.includes('republic act 7920') ||
     combined.includes('electrical engineering law') ||
+    combined.includes('ra 11361') ||
+    combined.includes('r.a. 11361') ||
+    combined.includes('anti-obstruction') ||
+    combined.includes('power line corridor') ||
+    combined.includes('ra 11285') ||
+    combined.includes('r.a. 11285') ||
+    combined.includes('energy efficiency') ||
+    combined.includes('ra 11371') ||
+    combined.includes('r.a. 11371') ||
+    combined.includes('murang kuryente') ||
+    combined.includes('ra 9136') ||
+    combined.includes('r.a. 9136') ||
+    combined.includes('epira') ||
+    combined.includes('ra 7832') ||
+    combined.includes('r.a. 7832') ||
+    combined.includes('anti-pilferage') ||
+    combined.includes('pilferage') ||
+    combined.includes('ra 10912') ||
+    combined.includes('r.a. 10912') ||
+    combined.includes('cpd law') ||
+    combined.includes('ra 8981') ||
+    combined.includes('r.a. 8981') ||
+    combined.includes('prc modernization') ||
     combined.includes('philippine electrical code') ||
     combined.includes('pec') ||
     combined.includes('code of ethics')

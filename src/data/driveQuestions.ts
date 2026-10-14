@@ -11932,6 +11932,682 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     ],
     "correctChoiceId": "D",
     "explanation": "Hon. Conrado T. Onglao is the current Commissioner II of the Professional Regulation Commission (PRC)."
+  
+  },
+  {
+    "id": "eelaws-76",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 76,
+    "question": "Under Republic Act No. 11361 (Anti-Obstruction of Power Lines Act), what is the designated corridor encompassing the land, air space, and ground around power lines where hazardous trees, structures, and tall vegetation are strictly prohibited?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Power Line Right-of-Way (PLROW)"
+      },
+      {
+        "id": "B",
+        "text": "Power Line Corridor (PLC)"
+      },
+      {
+        "id": "C",
+        "text": "Electric Transmission Buffer (ETB)"
+      },
+      {
+        "id": "D",
+        "text": "Utility Safety Zone (USZ)"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 4(e) of RA 11361, the 'Power Line Corridor' (PLC) is defined as the land mass, inland water, and the airspace upon, above, along, or under which power lines pass, within which tall trees and unauthorized structures are strictly prohibited."
+  },
+  {
+    "id": "eelaws-77",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 77,
+    "question": "Under RA 11361, who is legally tasked with the primary obligation and authority to inspect, manage, and prevent dangerous vegetative growth or hazardous obstacles within the Power Line Corridor?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The Department of Public Works and Highways (DPWH)"
+      },
+      {
+        "id": "B",
+        "text": "The Power Line Owner and/or Operator (distribution utility or transmission concessionaire)"
+      },
+      {
+        "id": "C",
+        "text": "The Local Government Barangay Chairman"
+      },
+      {
+        "id": "D",
+        "text": "The Bureau of Fire Protection (BFP)"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under RA 11361 Section 6, the Power Line Owner or Operator has the primary duty to continuously keep the power line corridor free from hazardous obstructions, including the legal right to trim or prune trees on private property after proper notice."
+  },
+  {
+    "id": "eelaws-78",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 78,
+    "question": "Under RA 11361, what is required before any person can plant trees, build structures, or perform civil works within or adjacent to a designated Power Line Corridor?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Verbal permission from the nearest substation operator"
+      },
+      {
+        "id": "B",
+        "text": "Prior express permit or clearance from the Power Line Owner or Operator"
+      },
+      {
+        "id": "C",
+        "text": "Endorsement from the Municipal Agrarian Reform Officer"
+      },
+      {
+        "id": "D",
+        "text": "An environmental clearance certificate (ECC) only"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 6 of RA 11361 prohibits planting tall-growing vegetation or constructing buildings within the power line corridor without prior permit or clearance from the power line owner/operator."
+  },
+  {
+    "id": "eelaws-79",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 79,
+    "question": "Under Republic Act No. 11285 (Energy Efficiency and Conservation Act), commercial, industrial, and transport establishments with an annual energy consumption ranging from 500,000 kWh to 4,000,000 kWh are categorized as:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Micro Energy Consumers"
+      },
+      {
+        "id": "B",
+        "text": "Type 1 Designated Establishments"
+      },
+      {
+        "id": "C",
+        "text": "Type 2 Designated Establishments"
+      },
+      {
+        "id": "D",
+        "text": "High-Efficiency Commercial Entities"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under RA 11285 and its IRR, 'Type 1 Designated Establishments' are defined as entities with annual energy consumption of 500,000 kWh to 4,000,000 kWh, while those consuming more than 4,000,000 kWh are classified as 'Type 2 Designated Establishments'."
+  },
+  {
+    "id": "eelaws-80",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 80,
+    "question": "Under RA 11285, what certified professional is required to be employed or engaged by Type 1 Designated Establishments to oversee energy conservation plans and reports?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Certified Energy Auditor (CEA)"
+      },
+      {
+        "id": "B",
+        "text": "Certified Energy Conservation Officer (CECO)"
+      },
+      {
+        "id": "C",
+        "text": "Certified Facility Director (CFD)"
+      },
+      {
+        "id": "D",
+        "text": "Professional Environmental Planner (PEP)"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 14 of RA 11285 mandates that Type 1 Designated Establishments employ a Certified Energy Conservation Officer (CECO), whereas Type 2 establishments must engage a Certified Energy Manager (CEM)."
+  },
+  {
+    "id": "eelaws-81",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 81,
+    "question": "Under RA 11285, which government agency serves as the lead implementing agency responsible for formulating the National Energy Efficiency and Conservation Plan (NEECP)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Department of Science and Technology (DOST)"
+      },
+      {
+        "id": "B",
+        "text": "Department of Trade and Industry (DTI)"
+      },
+      {
+        "id": "C",
+        "text": "Department of Energy (DOE)"
+      },
+      {
+        "id": "D",
+        "text": "Energy Regulatory Commission (ERC)"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Under RA 11285, the Department of Energy (DOE) is the primary government agency mandated to plan, implement, and monitor energy efficiency and conservation policies, standards, and programs."
+  },
+  {
+    "id": "eelaws-82",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 82,
+    "question": "Republic Act No. 11371, commonly known as the 'Murang Kuryente Act', provides a permanent funding mechanism to settle the stranded debt and stranded contract costs of which entity?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Manila Electric Company (MERALCO)"
+      },
+      {
+        "id": "B",
+        "text": "National Power Corporation (NPC)"
+      },
+      {
+        "id": "C",
+        "text": "National Grid Corporation of the Philippines (NGCP)"
+      },
+      {
+        "id": "D",
+        "text": "Power Sector Assets and Liabilities Management (PSALM) solely for IPP administrators"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "RA 11371 directs the use of government shares from the Malampaya fund to cover the stranded debt and stranded contract costs of the National Power Corporation (NPC), lowering universal charge pass-through costs to end consumers."
+  },
+  {
+    "id": "eelaws-83",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 83,
+    "question": "Under Republic Act No. 11371, what is the dedicated funding source utilized to satisfy the stranded contract costs and stranded debt to avert consumer universal charge increases?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Value Added Tax on electric transmission"
+      },
+      {
+        "id": "B",
+        "text": "The net national government share from the Malampaya natural gas project (Energy Resource Development Fund)"
+      },
+      {
+        "id": "C",
+        "text": "Tariff revenues collected from imported renewable energy hardware"
+      },
+      {
+        "id": "D",
+        "text": "Clean Energy bond issuances by the Central Bank of the Philippines"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 4 of RA 11371 authorizes the allocation of the net national government share from the Malampaya natural gas project pursuant to Presidential Decree 910 to pay off NPC's stranded debt and stranded contract costs."
+  },
+  {
+    "id": "eelaws-84",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 84,
+    "question": "Under Republic Act No. 7832 (Anti-Electricity and Electric Transmission Lines/Materials Pilferage Act), which of the following circumstances constitutes prima facie evidence of illegal use of electricity by a consumer?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "An unexpected 10% increase in monthly electric consumption"
+      },
+      {
+        "id": "B",
+        "text": "The presence of a bored hole, tapped wire, broken meter seal, or inverted meter in the electric installation"
+      },
+      {
+        "id": "C",
+        "text": "Operating an electric motor exceeding 10 horsepower without a separate transformer"
+      },
+      {
+        "id": "D",
+        "text": "Paying the electric utility bill via an unauthorized third-party payment center"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 4 of RA 7832 provides that the existence of any drilled hole, tapped wire, tampered seal, or inverted meter directly in the customer premises constitutes prima facie evidence of illegal use of electricity."
+  },
+  {
+    "id": "eelaws-85",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 85,
+    "question": "Under RA 7832, what percentage reduction in electric energy registered by a consumer's meter compared to average consumption constitutes statutory prima facie evidence of meter tampering?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "At least 15% drop"
+      },
+      {
+        "id": "B",
+        "text": "At least 30% drop"
+      },
+      {
+        "id": "C",
+        "text": "At least 50% drop"
+      },
+      {
+        "id": "D",
+        "text": "At least 75% drop"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 4(a) of RA 7832 establishes that a reduction in electric consumption of at least thirty percent (30%) without distinct operational justification is considered prima facie evidence of meter tampering."
+  },
+  {
+    "id": "eelaws-86",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 86,
+    "question": "Under RA 7832, what is the maximum period for differential billing that an electric distribution utility can assess and recover from a customer caught pilfering electricity when unmetered consumption duration cannot be precisely determined?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Not exceeding six (6) months"
+      },
+      {
+        "id": "B",
+        "text": "Not exceeding twelve (12) months (one year)"
+      },
+      {
+        "id": "C",
+        "text": "Not exceeding twenty-four (24) months"
+      },
+      {
+        "id": "D",
+        "text": "Up to sixty (60) months"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 6 of RA 7832, differential billing can be computed for a period not exceeding twelve (12) months when the exact duration of the violation cannot be conclusively determined."
+  },
+  {
+    "id": "eelaws-87",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 87,
+    "question": "Under RA 7832, what is the penalty for any person who steals, takes, or destroys high-voltage electric transmission line towers, conductors, or substations resulting in widespread power outages?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Arresto mayor or a fine of P5,000"
+      },
+      {
+        "id": "B",
+        "text": "Prision correccional and suspension of driver's license"
+      },
+      {
+        "id": "C",
+        "text": "Reclusion temporal to reclusion perpetua and payment of the value of damaged facilities"
+      },
+      {
+        "id": "D",
+        "text": "Administrative reprimand by the local government unit"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Section 7 of RA 7832 prescribes reclusion temporal to reclusion perpetua if the theft or destruction of transmission lines/materials causes widespread blackout, power failure, or serious public injury."
+  },
+  {
+    "id": "eelaws-88",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 88,
+    "question": "Under Republic Act No. 10912 (CPD Act of 2016) and relevant PRC guidelines (Resolution No. 2019-1146), what is the required Continuing Professional Development (CPD) credit unit minimum for Registered Electrical Engineers (REE) renewing their Professional Identification Card (PIC)?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "5 credit units"
+      },
+      {
+        "id": "B",
+        "text": "15 credit units"
+      },
+      {
+        "id": "C",
+        "text": "45 credit units"
+      },
+      {
+        "id": "D",
+        "text": "100 credit units"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under PRC Resolution No. 2019-1146 amending the implementation of RA 10912, the mandatory CPD credit unit requirement for regular professional license renewal was adjusted to 15 credit units."
+  },
+  {
+    "id": "eelaws-89",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 89,
+    "question": "Under Republic Act No. 10912, who serves as the Chairman of the Continuing Professional Development (CPD) Council for the Electrical Engineering profession?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The National President of the Integrated Institute of Electrical Engineers (IIEE)"
+      },
+      {
+        "id": "B",
+        "text": "A designated member of the Professional Regulatory Board of Electrical Engineering (PRBEE)"
+      },
+      {
+        "id": "C",
+        "text": "The Chairman of the PRC Commission"
+      },
+      {
+        "id": "D",
+        "text": "The Dean of an accredited electrical engineering college"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 7 of RA 10912, each CPD Council consists of a member of the PRBEE as Chairman, the president/officer of the accredited professional organization (IIEE) as First Member, and the president of the deans/department heads association as Second Member."
+  },
+  {
+    "id": "eelaws-90",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 90,
+    "question": "Under RA 10912, which of the following is recognized as an acceptable pathway for earning CPD credit units for electrical engineers?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Formal learning, non-formal learning, self-directed learning, and professional work experience"
+      },
+      {
+        "id": "B",
+        "text": "Only attendance at international overseas conventions"
+      },
+      {
+        "id": "C",
+        "text": "Solely by publishing peer-reviewed journal papers"
+      },
+      {
+        "id": "D",
+        "text": "Voting in national presidential elections"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Section 8 of RA 10912 recognizes formal learning, non-formal learning, informal learning, self-directed learning, online training modules, and professional work experience as legitimate credit-earning pathways."
+  },
+  {
+    "id": "eelaws-91",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 91,
+    "question": "Under Section 7(m) of Republic Act No. 8981 (PRC Modernization Act of 2000), what statutory requirement may the PRC impose on an applicant who has failed the licensure examination three (3) consecutive times before being admitted to re-examine?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Re-enrollment and completion of the full five-year BS Electrical Engineering degree"
+      },
+      {
+        "id": "B",
+        "text": "Completion of an accredited refresher course"
+      },
+      {
+        "id": "C",
+        "text": "Mandatory two-year apprenticeship under a licensed contractor"
+      },
+      {
+        "id": "D",
+        "text": "A five-year waiting period before submitting another examination application"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 7(m) of RA 8981 empowers the Professional Regulation Commission to adopt a measure requiring applicants who failed three (3) consecutive times in the licensure examination to take an accredited refresher course."
+  },
+  {
+    "id": "eelaws-92",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 92,
+    "question": "Under Republic Act No. 8981, what is the composition of the Professional Regulation Commission?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "One (1) Chairperson and four (4) Commissioners"
+      },
+      {
+        "id": "B",
+        "text": "One (1) Chairperson and two (2) Commissioners appointed by the President of the Philippines"
+      },
+      {
+        "id": "C",
+        "text": "A Board of Governors consisting of 12 regional representatives"
+      },
+      {
+        "id": "D",
+        "text": "Three (3) Supreme Court Justices and two (2) Cabinet Secretaries"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 3 of RA 8981, the Commission is composed of one (1) full-time Chairperson and two (2) full-time Commissioners appointed by the President of the Philippines for a term of seven (7) years without reappointment."
+  },
+  {
+    "id": "eelaws-93",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 93,
+    "question": "Under RA 8981, what is the penal sanction for any person who manipulates, sells, tampers with, or leaks licensure examination questions or results?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "30 days community service and a fine of P1,000"
+      },
+      {
+        "id": "B",
+        "text": "Imprisonment of not less than six (6) years and one day to twelve (12) years, and a fine of not less than P50,000 to P100,000"
+      },
+      {
+        "id": "C",
+        "text": "Administrative warning and payment of application fees"
+      },
+      {
+        "id": "D",
+        "text": "6 months probation with written reprimand"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 15 of RA 8981, any person who manipulates or tampers with the results of a licensure examination, or causes the unauthorized disclosure or sale of test questions, faces imprisonment of 6 years and 1 day to 12 years and fines up to P100,000."
+  },
+  {
+    "id": "eelaws-94",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 94,
+    "question": "Under RA 9136 (EPIRA), which independent market operator was created to administer the centralized wholesale electricity spot market where trading of electricity occurs?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "National Grid Corporation of the Philippines (NGCP)"
+      },
+      {
+        "id": "B",
+        "text": "Independent Electricity Market Operator of the Philippines (IEMOP) / PEMC"
+      },
+      {
+        "id": "C",
+        "text": "Power Sector Assets and Liabilities Management Corporation (PSALM)"
+      },
+      {
+        "id": "D",
+        "text": "National Transmission Corporation (TRANSCO)"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 30 of RA 9136 (EPIRA), the Wholesale Electricity Spot Market (WESM) was established under the Philippine Electricity Market Corporation (PEMC) and transitioned to an Independent Market Operator (IMO / IEMOP)."
+  },
+  {
+    "id": "eelaws-95",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 95,
+    "question": "Under RA 9136 (EPIRA), which corporate entity retains statutory ownership of the high-voltage transmission grid assets while the operations and maintenance are under concession to NGCP?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Energy Regulatory Commission (ERC)"
+      },
+      {
+        "id": "B",
+        "text": "National Transmission Corporation (TransCo)"
+      },
+      {
+        "id": "C",
+        "text": "Manila Electric Company (Meralco)"
+      },
+      {
+        "id": "D",
+        "text": "National Electrification Administration (NEA)"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 8 of RA 9136, the National Transmission Corporation (TransCo) was created to assume the transmission assets and functions of NPC. Operation, maintenance, and expansion were awarded to NGCP under concession."
+  },
+  {
+    "id": "eelaws-96",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 96,
+    "question": "Under Section 34 of RA 9136, what non-bypassable charge is levied on all electricity end-users to fund missionary electrification, stranded debts, and watershed rehabilitation?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Power Factor Surcharge"
+      },
+      {
+        "id": "B",
+        "text": "Universal Charge (UC)"
+      },
+      {
+        "id": "C",
+        "text": "Feed-in-Tariff Allowance (FIT-All)"
+      },
+      {
+        "id": "D",
+        "text": "System Loss Charge"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 34 of EPIRA, the Universal Charge is a non-bypassable charge imposed on all electricity end-users, determined and approved by ERC, to pay for stranded debts, missionary electrification, and environmental watershed rehabilitation."
+  },
+  {
+    "id": "eelaws-97",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 97,
+    "question": "Under Republic Act No. 7920, what is the maximum connected load and maximum system voltage within which a Registered Master Electrician (RME) is permitted to practice?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Up to 250 kVA and up to 480 Volts"
+      },
+      {
+        "id": "B",
+        "text": "Up to 500 kVA and up to 600 Volts"
+      },
+      {
+        "id": "C",
+        "text": "Up to 1,000 kVA and up to 4,160 Volts"
+      },
+      {
+        "id": "D",
+        "text": "Up to 750 kVA and up to 240 Volts"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 31(c) of RA 7920 limits the practice of a Registered Master Electrician (RME) to the installation, wiring, and maintenance of electric plants and machinery not exceeding 500 kVA capacity and voltage not exceeding 600 Volts."
+  },
+  {
+    "id": "eelaws-98",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 98,
+    "question": "Under Republic Act No. 7920, an applicant for registration as a Professional Electrical Engineer (PEE) must be a Registered Electrical Engineer (REE) with how many years of active engineering practice?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "At least two (2) years"
+      },
+      {
+        "id": "B",
+        "text": "At least four (4) years"
+      },
+      {
+        "id": "C",
+        "text": "At least six (6) years"
+      },
+      {
+        "id": "D",
+        "text": "At least ten (10) years"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Under Section 16(c) of RA 7920, an applicant for PEE must be a registered electrical engineer with valid certificate and professional license and with not less than four (4) years of active practice in electrical engineering."
+  },
+  {
+    "id": "eelaws-99",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 99,
+    "question": "Under Section 33 of RA 7920, who among the following personnel is required to be in charge of an industrial plant or commercial establishment with a connected load of over 500 kVA up to 2,000 kVA?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "At least one (1) Registered Master Electrician"
+      },
+      {
+        "id": "B",
+        "text": "At least one (1) Registered Electrical Engineer or one (1) Professional Electrical Engineer"
+      },
+      {
+        "id": "C",
+        "text": "Only a Professional Electrical Engineer"
+      },
+      {
+        "id": "D",
+        "text": "Two (2) Registered Master Electricians"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 33(b) of RA 7920 specifies that for establishments with connected loads over 500 kVA up to 2,000 kVA, the operation and maintenance must be under the charge of at least one (1) Registered Electrical Engineer (REE) or one (1) Professional Electrical Engineer (PEE)."
+  },
+  {
+    "id": "eelaws-100",
+    "subject": "EE Laws",
+    "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
+    "questionNumber": 100,
+    "question": "Under Section 40 (Penalty Clause) of RA 7920, any person who violates any provision of the Act shall, upon conviction, be sentenced to a fine of not less than ________ nor more than P50,000, or imprisonment of not less than 6 months nor more than 5 years, or both.",
+    "choices": [
+      {
+        "id": "A",
+        "text": "P1,000"
+      },
+      {
+        "id": "B",
+        "text": "P10,000"
+      },
+      {
+        "id": "C",
+        "text": "P25,000"
+      },
+      {
+        "id": "D",
+        "text": "P500"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Section 40 of RA 7920 prescribes a fine of not less than Ten Thousand Pesos (P10,000.00) nor more than Fifty Thousand Pesos (P50,000.00), or imprisonment of not less than 6 months nor more than 5 years, or both."
   },
   {
     "id": "pm-m1-1",

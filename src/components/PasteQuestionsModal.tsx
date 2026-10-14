@@ -142,7 +142,6 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
           </div>
 
           {/* Search Bar */}
-          {/* Search Bar */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-[#272935]">
             <div className="flex items-center gap-2 flex-1 min-w-0">
               <select
