@@ -1,6 +1,6 @@
 {
   "name": "ESAS TERMS",
-  "description": "Engineering Board Exam Reviewer for Economics, Mechanics, EE Laws, Project Management, and Communication.",
+  "description": "Electrical Engineer Reviewer (tEErms) for ESAS, MATH, and EE.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

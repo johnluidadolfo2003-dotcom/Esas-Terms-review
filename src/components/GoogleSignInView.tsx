@@ -15,7 +15,7 @@ export const GoogleSignInView: React.FC<GoogleSignInViewProps> = ({
     <div className="min-h-screen bg-[#0b1326] flex flex-col justify-center items-center px-4 py-12 font-sans">
       <div className="w-full max-w-lg bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-10 flex flex-col items-center text-center shadow-2xl relative overflow-hidden">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-100 tracking-tight">
-          ESAS TERMS
+          T<span className="text-[#2dd4bf] lowercase font-bold">ee</span>RMS <span className="text-[#2dd4bf]">Flashcard</span>
         </h1>
         <p className="text-sm text-slate-400 mt-2.5 leading-relaxed">
           Master authentic board exam terms and questions across Economics, Mechanics 1 & 2, EE Laws, Project Management, and Communication.

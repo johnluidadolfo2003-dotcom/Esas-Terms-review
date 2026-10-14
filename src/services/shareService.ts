@@ -202,6 +202,9 @@ export function parseCurrentLocationParams(): {
   const modeParam = urlParams.get('mode');
 
   const validSubjects: SubjectCategory[] = [
+    'ESAS',
+    'MATH',
+    'EE',
     'Economics',
     'Mechanics 1',
     'Mechanics 2',

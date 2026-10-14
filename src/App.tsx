@@ -28,6 +28,7 @@ import { GestureScannerModal } from './components/GestureScannerModal';
 import { DriveExplorerModal } from './components/DriveExplorerModal';
 import { PasteQuestionsModal } from './components/PasteQuestionsModal';
 import { ShareModal } from './components/ShareModal';
+import { AmbientSoundControl } from './components/AmbientSoundControl';
 import {
   loadSavedCustomQuestions,
   saveCustomQuestions,
@@ -597,7 +598,21 @@ export default function App() {
 
     // Filter by Subject
     if (selectedSubject !== 'All') {
-      list = list.filter((q) => q.subject === selectedSubject);
+      if (selectedSubject === 'ESAS') {
+        list = list.filter(
+          (q) =>
+            q.subject === 'ESAS' ||
+            q.subject === 'Economics' ||
+            q.subject === 'Mechanics 1' ||
+            q.subject === 'Mechanics 2' ||
+            q.subject === 'EE Laws' ||
+            q.subject === 'Project Management' ||
+            q.subject === 'Communication' ||
+            q.subject === 'General Engineering'
+        );
+      } else {
+        list = list.filter((q) => q.subject === selectedSubject);
+      }
     }
 
     // Filter by Mode
@@ -629,10 +644,39 @@ export default function App() {
 
   // Subject counts
   const subjectCounts = useMemo(() => {
-    const counts: Record<string, number> = { All: allQuestions.length };
+    const counts: Record<string, number> = {
+      All: allQuestions.length,
+      ESAS: 0,
+      MATH: 0,
+      EE: 0,
+      Economics: 0,
+      'Mechanics 1': 0,
+      'Mechanics 2': 0,
+      'EE Laws': 0,
+      'Project Management': 0,
+      Communication: 0,
+    };
+
     allQuestions.forEach((q) => {
       counts[q.subject] = (counts[q.subject] || 0) + 1;
+      if (
+        q.subject === 'Economics' ||
+        q.subject === 'Mechanics 1' ||
+        q.subject === 'Mechanics 2' ||
+        q.subject === 'EE Laws' ||
+        q.subject === 'Project Management' ||
+        q.subject === 'Communication' ||
+        q.subject === 'General Engineering' ||
+        q.subject === 'ESAS'
+      ) {
+        counts['ESAS'] = (counts['ESAS'] || 0) + 1;
+      } else if (q.subject === 'MATH') {
+        counts['MATH'] = (counts['MATH'] || 0) + 1;
+      } else if (q.subject === 'EE') {
+        counts['EE'] = (counts['EE'] || 0) + 1;
+      }
     });
+
     return counts;
   }, [allQuestions]);
 
@@ -813,28 +857,30 @@ export default function App() {
             </span>
           </div>
 
-          {/* Right Controls: Camera Icon + Beside it Check & Wrong Counters (not too big) */}
+          {/* Right Controls: Ambient Sound + Camera Icon + Beside it Check & Wrong Counters */}
           <div className="flex items-center gap-2">
+            <AmbientSoundControl />
+
             <button
               type="button"
               onClick={() => setIsCameraGestureActive(!isCameraGestureActive)}
-              className={`px-2.5 py-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center gap-1.5 ${
+              className={`p-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center justify-center ${
                 isCameraGestureActive
                   ? 'bg-zinc-200 text-zinc-950 border-zinc-100 shadow-xs'
                   : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
               }`}
               title="Wireless Hands-Free Camera Gesture Control"
+              aria-label="Toggle Camera Gestures"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
-              <span>Camera</span>
             </button>
 
             {/* Score Counters: Check and Wrong with numbers, compact */}
             <div className="flex items-center gap-1.5 px-2 py-1 rounded-lg bg-[#181a21] border border-[#272935] text-xs font-mono">
-              <span className="flex items-center gap-1 text-emerald-400 font-semibold" title="Correct">
+              <span className="flex items-center gap-1 text-[#2dd4bf] font-semibold" title="Correct">
                 <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                 </svg>
@@ -871,7 +917,7 @@ export default function App() {
                   <div className="flex items-center gap-2 min-w-0">
                     <div>
                       <h2 className="text-xs sm:text-base font-bold text-zinc-100 leading-tight">
-                        70 Items Quiz
+                        Take a Quiz
                       </h2>
                       <p className="text-[10px] sm:text-xs text-zinc-400 font-mono">
                         Econ (10) · Mech 1 (5) · Mech 2 (5) · EE Laws (20) · PM (20) · Comm (10)
@@ -890,7 +936,7 @@ export default function App() {
                     <button
                       type="button"
                       onClick={handleFinishQuiz}
-                      className="px-3 py-1.5 bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer shadow-xs"
+                      className="px-3 py-1.5 bg-[#2dd4bf] hover:bg-[#26bba8] text-zinc-950 font-bold text-xs rounded-lg transition-colors cursor-pointer shadow-sm"
                     >
                       Finish Quiz
                     </button>
@@ -983,21 +1029,32 @@ export default function App() {
           ) : filteredQuestions.length === 0 ? (
             /* Empty State */
             <div className="bg-[#181a21] border border-[#272935] rounded-xl p-8 sm:p-12 text-center max-w-xl w-full flex flex-col items-center shadow-lg">
-              <div className="w-12 h-12 rounded-full bg-[#14151b] border border-[#272935] flex items-center justify-center mb-4 text-zinc-300 font-mono text-sm">
+              <div className="w-12 h-12 rounded-full bg-[#14151b] border border-[#272935] flex items-center justify-center mb-4 text-[#2dd4bf] font-mono text-sm font-semibold">
                 0 Q
               </div>
               <h3 className="text-base sm:text-lg font-semibold text-zinc-100">
-                {selectedSubject !== 'All'
+                {selectedSubject === 'MATH' || selectedSubject === 'EE'
+                  ? `No terms yet for ${selectedSubject}`
+                  : selectedSubject !== 'All'
                   ? `No Questions Found for ${selectedSubject}`
                   : 'No Reviewer Questions Found'}
               </h3>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-2 max-w-md leading-relaxed">
-                {selectedSubject !== 'All'
-                  ? `Switch to another subject or select All Subjects.`
-                  : 'Questions from the board exam reviewers are ready.'}
-              </p>
+              {selectedSubject !== 'MATH' && selectedSubject !== 'EE' && (
+                <p className="text-xs sm:text-sm text-zinc-400 mt-2 max-w-md leading-relaxed">
+                  {selectedSubject !== 'All'
+                    ? `Switch to another subject or select All Subjects.`
+                    : 'Questions from the board exam reviewers are ready.'}
+                </p>
+              )}
 
               <div className="mt-6 flex flex-wrap gap-2.5 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setSelectedSubject('ESAS')}
+                  className="px-3.5 py-2 bg-[#20222a] text-zinc-200 border border-[#2c2f3c] font-medium text-xs rounded-lg hover:bg-[#282b35] cursor-pointer transition-colors"
+                >
+                  View ESAS Terms
+                </button>
                 <button
                   type="button"
                   onClick={() => setSelectedSubject('All')}
@@ -1008,9 +1065,9 @@ export default function App() {
                 <button
                   type="button"
                   onClick={handleStartQuiz}
-                  className="px-3.5 py-2 bg-zinc-100 text-zinc-950 font-semibold text-xs rounded-lg hover:bg-white cursor-pointer transition-colors shadow-xs"
+                  className="px-3.5 py-2 bg-[#2dd4bf] text-zinc-950 font-bold text-xs rounded-lg hover:bg-[#26bba8] cursor-pointer transition-colors shadow-sm"
                 >
-                  Start 70-Item Quiz
+                  Take a Quiz
                 </button>
               </div>
 

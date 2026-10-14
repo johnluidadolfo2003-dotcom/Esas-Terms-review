@@ -1,11 +1,23 @@
 export type SubjectCategory =
+  | 'ESAS'
   | 'Economics'
   | 'Mechanics 1'
   | 'Mechanics 2'
   | 'EE Laws'
   | 'Project Management'
   | 'Communication'
-  | 'General Engineering';
+  | 'General Engineering'
+  | 'MATH'
+  | 'EE';
+
+export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
+  'Economics',
+  'Mechanics 1',
+  'Mechanics 2',
+  'EE Laws',
+  'Project Management',
+  'Communication',
+];
 
 export interface Choice {
   id: string; // 'A', 'B', 'C', 'D', etc.

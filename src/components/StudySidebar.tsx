@@ -1,7 +1,12 @@
-import React from 'react';
-import { SubjectCategory } from '../services/questionParser';
+import React, { useState, useEffect } from 'react';
+import { SubjectCategory, ESAS_SUB_SUBJECTS } from '../services/questionParser';
 import { AiVoiceMode } from '../services/speechService';
-
+import { AmbientSoundControl } from './AmbientSoundControl';
+import {
+  ambientAudioEngine,
+  AMBIENT_PRESETS,
+  AmbientSoundPresetId,
+} from '../services/ambientAudioService';
 export interface StudySidebarProps {
   selectedSubject: SubjectCategory | 'All';
   onSelectSubject: (subject: SubjectCategory | 'All') => void;
@@ -65,6 +70,29 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
   onToggleMobileDrawer,
   onCloseMobileDrawer,
 }) => {
+  const [ambientPlaying, setAmbientPlaying] = useState<boolean>(false);
+  const [ambientPreset, setAmbientPreset] = useState<AmbientSoundPresetId>('stream');
+  const [ambientVolume, setAmbientVolume] = useState<number>(0.45);
+  const [isEsasExpanded, setIsEsasExpanded] = useState<boolean>(true);
+
+  // Automatically ensure ESAS is expanded when user selects any ESAS sub-subject or ESAS
+  useEffect(() => {
+    if (
+      selectedSubject === 'ESAS' ||
+      ESAS_SUB_SUBJECTS.includes(selectedSubject as SubjectCategory)
+    ) {
+      setIsEsasExpanded(true);
+    }
+  }, [selectedSubject]);
+
+  useEffect(() => {
+    return ambientAudioEngine.subscribe((playing, preset, vol) => {
+      setAmbientPlaying(playing);
+      setAmbientPreset(preset);
+      setAmbientVolume(vol);
+    });
+  }, []);
+
   const handleSelectSubject = (subj: SubjectCategory | 'All') => {
     onSelectSubject(subj);
     onCloseMobileDrawer();
@@ -78,9 +106,9 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
         <div className="flex items-center justify-between pb-2 border-b border-[#22242d]">
           <div>
             <h1 className="text-xs font-bold tracking-wider text-zinc-100 uppercase">
-              ESAS Reviewer
+              T<span className="text-[#2dd4bf] lowercase font-bold">ee</span>RMS <span className="text-[#2dd4bf]">Flashcard</span>
             </h1>
-            <p className="text-[10px] text-zinc-400">Engineering Board Exam</p>
+            <p className="text-[10px] text-zinc-400">Electrical Engineer Review</p>
           </div>
           {/* Close button inside mobile drawer */}
           <button
@@ -98,8 +126,8 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
         {/* Primary Quiz Action */}
         {isQuizActive ? (
           <div className="flex flex-col gap-2 p-2.5 rounded-lg bg-[#191b22] border border-[#272935]">
-            <span className="text-[11px] font-semibold text-amber-300">
-              70 Items Quiz Active
+            <span className="text-[11px] font-semibold text-teal-300">
+              Quiz Active
             </span>
             <div className="flex items-center gap-1.5">
               {onFinishQuiz && (
@@ -109,7 +137,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                     onFinishQuiz();
                     onCloseMobileDrawer();
                   }}
-                  className="flex-1 py-1.5 px-2 rounded text-xs font-semibold bg-zinc-100 hover:bg-white text-zinc-950 transition-colors cursor-pointer text-center"
+                  className="flex-1 py-1.5 px-2 rounded text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-zinc-950 transition-colors cursor-pointer text-center"
                 >
                   Finish
                 </button>
@@ -136,42 +164,164 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                 onStartQuiz();
                 onCloseMobileDrawer();
               }}
-              className="w-full py-2 px-2.5 rounded-lg text-xs font-semibold bg-zinc-100 hover:bg-white text-zinc-950 transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-xs"
+              className="w-full py-2 px-2.5 rounded-lg text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-zinc-950 transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow-sm"
             >
-              <span>70 Items Quiz</span>
+              <span>Take a Quiz</span>
             </button>
           )
         )}
 
-        {/* Subjects Navigation */}
+        {/* Subjects Navigation (3 Main: ESAS, MATH, EE) */}
         <div className="flex flex-col gap-1">
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400 px-1 mb-0.5">
-            Subjects
-          </span>
+          <div className="flex items-center justify-between px-1 mb-0.5">
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
+              Subjects
+            </span>
+            <button
+              type="button"
+              onClick={() => handleSelectSubject('All')}
+              className={`text-[10px] font-mono transition-colors cursor-pointer px-1.5 py-0.5 rounded ${
+                selectedSubject === 'All'
+                  ? 'text-[#2dd4bf] font-semibold bg-[#182329]'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              }`}
+              title="Show all terms from all subjects"
+            >
+              All ({subjectCounts['All'] || 0})
+            </button>
+          </div>
 
-          <nav className="flex flex-col gap-0.5">
-            {SUBJECT_LIST.map((subj) => {
-              const count = subj === 'All' ? subjectCounts['All'] || 0 : subjectCounts[subj] || 0;
-              const isSelected = selectedSubject === subj;
+          <nav className="flex flex-col gap-1">
+            {/* 1. MAIN SUBJECT: ESAS (Collapsible/Expandable) */}
+            <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
+              {/* ESAS Header Row */}
+              <div
+                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                  selectedSubject === 'ESAS'
+                    ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                    : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
+                }`}
+                onClick={() => handleSelectSubject('ESAS')}
+              >
+                <div className="flex items-center gap-1 min-w-0 pl-1">
+                  {/* Chevron Toggle Button */}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsEsasExpanded(!isEsasExpanded);
+                    }}
+                    className="p-1 rounded text-zinc-400 hover:text-zinc-100 transition-colors cursor-pointer"
+                    title={isEsasExpanded ? 'Shrink ESAS subjects' : 'Expand ESAS subjects'}
+                    aria-label={isEsasExpanded ? 'Collapse ESAS' : 'Expand ESAS'}
+                  >
+                    <svg
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        isEsasExpanded ? 'rotate-90' : ''
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                  </button>
 
-              return (
-                <button
-                  key={subj}
-                  type="button"
-                  onClick={() => handleSelectSubject(subj)}
-                  className={`w-full flex items-center justify-between px-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left ${
-                    isSelected
-                      ? 'bg-[#21232d] text-zinc-100 font-semibold border-l-2 border-zinc-200'
-                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21]'
+                  <span className="font-bold truncate">ESAS</span>
+                </div>
+
+                <span
+                  className={`text-[10px] font-mono ${
+                    selectedSubject === 'ESAS' ? 'text-[#2dd4bf]' : 'text-zinc-400'
                   }`}
                 >
-                  <span className="truncate">{subj}</span>
-                  <span className="text-[10px] font-mono text-zinc-400">
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
+                  {subjectCounts['ESAS'] || 0}
+                </span>
+              </div>
+
+              {/* Expanded Sub-Subjects (Economics, Mechanics 1 & 2, EE Laws, PM, Communication) */}
+              {isEsasExpanded && (
+                <div className="flex flex-col gap-0.5 pl-3 pr-1 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
+                  {ESAS_SUB_SUBJECTS.map((sub) => {
+                    const count = subjectCounts[sub] || 0;
+                    const isSelected = selectedSubject === sub;
+
+                    return (
+                      <button
+                        key={sub}
+                        type="button"
+                        onClick={() => handleSelectSubject(sub)}
+                        className={`w-full flex items-center justify-between pl-3 pr-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
+                          isSelected
+                            ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                            : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
+                        }`}
+                      >
+                        <span className="truncate">{sub}</span>
+                        <span
+                          className={`text-[10px] font-mono ${
+                            isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
+                          }`}
+                        >
+                          {count}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* 2. MAIN SUBJECT: MATH (Same box size & row height as ESAS) */}
+            <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
+              <button
+                type="button"
+                onClick={() => handleSelectSubject('MATH')}
+                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                  selectedSubject === 'MATH'
+                    ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                    : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
+                }`}
+              >
+                <div className="flex items-center gap-1 min-w-0 pl-1">
+                  <span className="w-5.5 h-5.5 flex items-center justify-center shrink-0" aria-hidden="true" />
+                  <span className="font-bold truncate">MATH</span>
+                </div>
+                <span
+                  className={`text-[10px] font-mono ${
+                    selectedSubject === 'MATH' ? 'text-[#2dd4bf]' : 'text-zinc-400'
+                  }`}
+                >
+                  {subjectCounts['MATH'] || 0}
+                </span>
+              </button>
+            </div>
+
+            {/* 3. MAIN SUBJECT: EE (Same box size & row height as ESAS) */}
+            <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
+              <button
+                type="button"
+                onClick={() => handleSelectSubject('EE')}
+                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                  selectedSubject === 'EE'
+                    ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                    : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
+                }`}
+              >
+                <div className="flex items-center gap-1 min-w-0 pl-1">
+                  <span className="w-5.5 h-5.5 flex items-center justify-center shrink-0" aria-hidden="true" />
+                  <span className="font-bold truncate">EE</span>
+                </div>
+                <span
+                  className={`text-[10px] font-mono ${
+                    selectedSubject === 'EE' ? 'text-[#2dd4bf]' : 'text-zinc-400'
+                  }`}
+                >
+                  {subjectCounts['EE'] || 0}
+                </span>
+              </button>
+            </div>
           </nav>
         </div>
       </div>
@@ -246,6 +396,78 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
           </div>
         </div>
 
+        {/* Study Ambience (Stream, Rain, Wave, Roof Rain, Focus) */}
+        <div className="flex flex-col gap-1.5 pt-1 border-t border-[#22242d]">
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] text-zinc-400 font-medium flex items-center gap-1">
+              <span>Study Ambience</span>
+              {ambientPlaying && (
+                <span className="flex items-end gap-0.5 h-2.5 w-2.5">
+                  <span className="w-0.5 h-2.5 bg-teal-400 rounded-full animate-pulse" />
+                  <span className="w-0.5 h-1.5 bg-teal-400 rounded-full animate-ping" />
+                  <span className="w-0.5 h-2 bg-teal-400 rounded-full animate-pulse" />
+                </span>
+              )}
+            </span>
+            <button
+              type="button"
+              onClick={() => ambientAudioEngine.toggle()}
+              className={`px-2 py-0.5 rounded text-[10px] font-semibold transition-colors cursor-pointer border ${
+                ambientPlaying
+                  ? 'bg-teal-600 border-teal-500 text-white shadow-xs'
+                  : 'bg-[#181a21] border-[#252834] text-zinc-400 hover:text-zinc-200'
+              }`}
+            >
+              {ambientPlaying ? 'On' : 'Off'}
+            </button>
+          </div>
+
+          {/* Sound Presets */}
+          <div className="grid grid-cols-2 gap-1 bg-[#181a21] p-1 rounded-md border border-[#252834]">
+            {AMBIENT_PRESETS.map((p) => {
+              const isSelected = ambientPreset === p.id;
+              return (
+                <button
+                  key={p.id}
+                  type="button"
+                  onClick={() => {
+                    ambientAudioEngine.setPreset(p.id);
+                    if (!ambientPlaying) {
+                      ambientAudioEngine.start();
+                    }
+                  }}
+                  className={`py-1 px-1.5 rounded text-[10px] font-medium transition-colors cursor-pointer text-left truncate ${
+                    isSelected
+                      ? 'bg-zinc-700 text-teal-300 font-semibold border-l-2 border-teal-400'
+                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#20222a]'
+                  }`}
+                  title={p.description}
+                >
+                  {p.name}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Volume Slider */}
+          <div className="flex items-center gap-2 px-1">
+            <span className="text-[10px] text-zinc-500 font-mono">Vol</span>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.05"
+              value={ambientVolume}
+              onChange={(e) => ambientAudioEngine.setVolume(parseFloat(e.target.value))}
+              aria-label="Ambient volume"
+              className="flex-1 h-1 bg-zinc-800 rounded appearance-none cursor-pointer accent-teal-500"
+            />
+            <span className="text-[10px] text-zinc-400 font-mono w-7 text-right">
+              {Math.round(ambientVolume * 100)}%
+            </span>
+          </div>
+        </div>
+
         {/* Calibrate Hand Gestures */}
         {onOpenGestureScanner && (
           <button
@@ -299,7 +521,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
 
           <div className="flex flex-col">
             <span className="text-xs font-bold text-zinc-100 tracking-wider uppercase">
-              ESAS Reviewer
+              T<span className="text-[#2dd4bf] lowercase font-bold">ee</span>RMS <span className="text-[#2dd4bf]">Flashcard</span>
             </span>
             <span className="text-[10px] text-zinc-400 truncate max-w-[120px]">
               {selectedSubject}
@@ -307,8 +529,10 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
           </div>
         </div>
 
-        {/* Mobile Right Controls: Camera Icon + beside it Check & Wrong icons and numbers (not too big) */}
+        {/* Mobile Right Controls: Ambient Sound + Camera Icon + Score counters */}
         <div className="flex items-center gap-1.5">
+          <AmbientSoundControl compact />
+
           {onToggleCameraGesture && (
             <button
               type="button"
@@ -329,7 +553,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
 
           {/* Beside camera icon: check and wrong numbers */}
           <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-[#181a21] border border-[#272935] text-xs font-mono">
-            <span className="flex items-center gap-1 text-emerald-400 font-semibold" title="Correct">
+            <span className="flex items-center gap-1 text-[#2dd4bf] font-semibold" title="Correct">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>

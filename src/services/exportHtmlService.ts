@@ -25,7 +25,7 @@ export function exportStandaloneReviewerHtml(
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ESAS TERMS - Engineering Board Exam Reviewer</title>
+  <title>TeeRMS Flashcard - Electrical Engineer Review</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -418,8 +418,8 @@ export function exportStandaloneReviewerHtml(
     <!-- Desktop Sidebar -->
     <aside class="sidebar">
       <div>
-        <div class="brand-title">ESAS Terms</div>
-        <div class="brand-subtitle">Board Exam Reviewer</div>
+        <div class="brand-title">T<span style="color:#2dd4bf">ee</span>RMS <span style="color:#2dd4bf">Flashcard</span></div>
+        <div class="brand-subtitle">Electrical Engineer Review</div>
 
         <div class="section-title">Subjects</div>
         <div id="subjectNavList"></div>

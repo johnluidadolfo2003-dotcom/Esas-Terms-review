@@ -58,7 +58,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
               Question Bank & PDF Downloads
             </h2>
             <p className="text-xs text-zinc-400 mt-0.5">
-              Access {exportQuestionsList.length} verified engineering board exam items and download PDF reviewers per subject.
+              Access {exportQuestionsList.length} verified electrical engineer review items and download PDF reviewers per subject.
             </p>
           </div>
 

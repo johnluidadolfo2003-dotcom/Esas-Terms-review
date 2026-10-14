@@ -47,7 +47,7 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
           </h2>
 
           <p className="text-xs text-slate-400 mt-2 font-mono">
-            70-Item Comprehensive Board Exam Quiz Completed!
+            Electrical Engineer Quiz Completed!
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export const QuizCongratulationsModal: React.FC<QuizCongratulationsModalProps> =
             onClick={onRetakeQuiz}
             className="w-full sm:flex-1 py-2.5 px-4 bg-zinc-100 hover:bg-white text-zinc-950 font-semibold text-xs rounded-lg transition-colors cursor-pointer text-center"
           >
-            Take New 70-Item Quiz
+            Take New Quiz
           </button>
 
           <button

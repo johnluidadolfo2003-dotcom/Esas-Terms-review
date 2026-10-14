@@ -1,6 +1,7 @@
 import React from 'react';
 import { SubjectCategory } from '../services/questionParser';
 import { AiVoiceMode } from '../services/speechService';
+import { AmbientSoundControl } from './AmbientSoundControl';
 
 interface StudyHeaderProps {
   selectedSubject: SubjectCategory | 'All';
@@ -69,7 +70,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
         {/* Brand / App Title */}
         <div className="flex items-center gap-1.5 min-w-0">
           <h1 className="text-xs sm:text-base font-extrabold text-slate-100 tracking-wider truncate uppercase">
-            ESAS TERMS
+            T<span className="text-[#2dd4bf] lowercase font-bold">ee</span>RMS <span className="text-[#2dd4bf]">Flashcard</span>
           </h1>
         </div>
 
@@ -78,14 +79,14 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           {/* Quiz Control or Quiz Trigger */}
           {isQuizActive ? (
             <div className="flex items-center gap-1">
-              <span className="px-2 py-0.5 rounded bg-amber-500/20 border border-amber-500/50 text-amber-300 font-bold text-[11px] sm:text-xs">
-                70 Items Quiz Mode
+              <span className="px-2 py-0.5 rounded bg-teal-500/20 border border-teal-500/50 text-teal-300 font-bold text-[11px] sm:text-xs">
+                Quiz in Progress
               </span>
               {onFinishQuiz && (
                 <button
                   type="button"
                   onClick={onFinishQuiz}
-                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[11px] sm:text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white transition-colors cursor-pointer"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded text-[11px] sm:text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-zinc-950 transition-colors cursor-pointer"
                 >
                   Finish
                 </button>
@@ -106,10 +107,10 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               <button
                 type="button"
                 onClick={onStartQuiz}
-                className="px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold bg-teal-600 hover:bg-teal-500 text-white transition-all cursor-pointer flex items-center gap-1 shrink-0 shadow-xs"
-                title="Start 70 items quiz covering all subjects"
+                className="px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-zinc-950 transition-all cursor-pointer flex items-center gap-1 shrink-0 shadow-sm"
+                title="Start quiz covering all subjects"
               >
-                <span>70 Items Quiz</span>
+                <span>Take a Quiz</span>
               </button>
             )
           )}
@@ -118,9 +119,9 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           <div className="flex items-center gap-1 px-2 py-0.5 sm:py-1 rounded bg-slate-950 border border-slate-800 text-[11px] sm:text-xs text-slate-300 font-mono">
             <span className="text-teal-400 font-bold">{accuracy}%</span>
             <span className="text-slate-600">·</span>
-            <span className="text-emerald-400 font-semibold flex items-center gap-0.5">
+            <span className="text-[#2dd4bf] font-semibold flex items-center gap-0.5">
               {correctCount}
-              <svg className="w-3 h-3 text-emerald-400 inline" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+              <svg className="w-3 h-3 text-[#2dd4bf] inline" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </span>
@@ -132,23 +133,26 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             </span>
           </div>
 
+          {/* Background Ambient Focus Sound Control */}
+          <AmbientSoundControl compact />
+
           {/* Hands-Free Camera Gesture Toggle Button */}
           {onToggleCameraGesture && (
             <button
               type="button"
               onClick={onToggleCameraGesture}
-              className={`px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold border transition-colors cursor-pointer flex items-center gap-1 shrink-0 ${
+              className={`p-1.5 sm:px-2 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold border transition-colors cursor-pointer flex items-center justify-center shrink-0 ${
                 isCameraGestureActive
                   ? 'bg-teal-600 border-teal-500 text-white shadow-xs'
                   : 'bg-slate-800 border-slate-700 text-slate-300 hover:text-white hover:bg-slate-700'
               }`}
               title="Toggle Wireless Hands-Free Camera Gesture Control"
+              aria-label="Toggle Camera Gestures"
             >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
               </svg>
-              <span className="hidden sm:inline">Camera</span>
             </button>
           )}
 

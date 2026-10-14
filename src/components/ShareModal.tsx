@@ -146,11 +146,11 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   };
 
   const handleNativeShare = async () => {
-    const title = 'ESAS TERMS';
+    const title = 'TeeRMS Flashcard';
     const text =
       selectedSubjectFilter === 'All'
-        ? 'Engineering Board Exam Flashcard Reviewer with questions from Google Drive.'
-        : `${selectedSubjectFilter} Flashcard Reviewer for Engineering Board Exam.`;
+        ? 'Electrical Engineer Review Flashcard with terms across ESAS, MATH, and EE.'
+        : `${selectedSubjectFilter} Flashcard - Electrical Engineer Review.`;
 
     await shareViaNavigator({
       title,
