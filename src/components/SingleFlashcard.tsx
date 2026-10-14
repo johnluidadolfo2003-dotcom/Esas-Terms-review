@@ -52,7 +52,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const [showMockingPopup, setShowMockingPopup] = useState(false);
   const mockingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Play audio sound & trigger 1-second pop-up on wrong answer selection
+  // Play audio sound & trigger 0.75-second pop-up on wrong answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
     if (selectedChoice && selectedChoice !== prevSelectedChoiceRef.current) {
@@ -68,7 +68,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         setShowMockingPopup(true);
         mockingTimerRef.current = setTimeout(() => {
           setShowMockingPopup(false);
-        }, 1000);
+        }, 750);
       }
     }
     prevSelectedChoiceRef.current = selectedChoice;
@@ -652,7 +652,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           </button>
         </div>
 
-        {/* 1-Second Pop-up on Wrong Answer: Centered directly in flashcard with blurred background */}
+        {/* 0.75-Second Pop-up on Wrong Answer: Centered directly in flashcard with blurred background */}
         {showMockingPopup && (
           <div className="absolute inset-0 z-40 flex items-center justify-center p-4 backdrop-blur-md bg-black/60 select-none animate-in fade-in zoom-in-95 duration-150">
             <div className="bg-[#181a21]/95 border-2 border-rose-500 rounded-2xl px-8 py-6 shadow-2xl flex flex-col items-center gap-3 backdrop-blur-lg ring-4 ring-rose-500/25">
