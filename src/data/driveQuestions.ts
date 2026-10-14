@@ -11947,18 +11947,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Power Line Corridor (PLC)"
+        "text": "Utility Safety Buffer Zone (USBZ)"
       },
       {
         "id": "C",
-        "text": "Electric Transmission Buffer (ETB)"
+        "text": "Power Line Corridor (PLC)"
       },
       {
         "id": "D",
-        "text": "Utility Safety Zone (USZ)"
+        "text": "Electric Clearance Perimeter (ECP)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Under Section 4(e) of RA 11361, the 'Power Line Corridor' (PLC) is defined as the land mass, inland water, and the airspace upon, above, along, or under which power lines pass, within which tall trees and unauthorized structures are strictly prohibited."
   },
   {
@@ -11970,22 +11970,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The Department of Public Works and Highways (DPWH)"
+        "text": "Power Line Owner or Operator"
       },
       {
         "id": "B",
-        "text": "The Power Line Owner and/or Operator (distribution utility or transmission concessionaire)"
+        "text": "Department of Public Works and Highways"
       },
       {
         "id": "C",
-        "text": "The Local Government Barangay Chairman"
+        "text": "Local Government Barangay Chairman"
       },
       {
         "id": "D",
-        "text": "The Bureau of Fire Protection (BFP)"
+        "text": "Bureau of Fire Protection"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Under RA 11361 Section 6, the Power Line Owner or Operator has the primary duty to continuously keep the power line corridor free from hazardous obstructions, including the legal right to trim or prune trees on private property after proper notice."
   },
   {
@@ -11997,22 +11997,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Verbal permission from the nearest substation operator"
+        "text": "Written endorsement from the Municipal Agrarian Reform Officer"
       },
       {
         "id": "B",
-        "text": "Prior express permit or clearance from the Power Line Owner or Operator"
+        "text": "Approved environmental compliance certificate from the DENR"
       },
       {
         "id": "C",
-        "text": "Endorsement from the Municipal Agrarian Reform Officer"
+        "text": "Express permit or clearance from the Power Line Owner or Operator"
       },
       {
         "id": "D",
-        "text": "An environmental clearance certificate (ECC) only"
+        "text": "Written clearance and inspection waiver from the Substation Operator"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Section 6 of RA 11361 prohibits planting tall-growing vegetation or constructing buildings within the power line corridor without prior permit or clearance from the power line owner/operator."
   },
   {
@@ -12024,7 +12024,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Micro Energy Consumers"
+        "text": "Tier 1 Designated Establishments"
       },
       {
         "id": "B",
@@ -12036,7 +12036,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "High-Efficiency Commercial Entities"
+        "text": "Class A Designated Establishments"
       }
     ],
     "correctChoiceId": "B",
@@ -12055,18 +12055,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Certified Energy Conservation Officer (CECO)"
+        "text": "Certified Energy Conservation Manager (CECM)"
       },
       {
         "id": "C",
-        "text": "Certified Facility Director (CFD)"
+        "text": "Certified Energy Efficiency Engineer (CEEE)"
       },
       {
         "id": "D",
-        "text": "Professional Environmental Planner (PEP)"
+        "text": "Certified Energy Conservation Officer (CECO)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Section 14 of RA 11285 mandates that Type 1 Designated Establishments employ a Certified Energy Conservation Officer (CECO), whereas Type 2 establishments must engage a Certified Energy Manager (CEM)."
   },
   {
@@ -12105,11 +12105,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Manila Electric Company (MERALCO)"
+        "text": "National Power Corporation (NPC)"
       },
       {
         "id": "B",
-        "text": "National Power Corporation (NPC)"
+        "text": "Manila Electric Company (Meralco)"
       },
       {
         "id": "C",
@@ -12117,10 +12117,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Power Sector Assets and Liabilities Management (PSALM) solely for IPP administrators"
+        "text": "National Transmission Corporation (TransCo)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "RA 11371 directs the use of government shares from the Malampaya fund to cover the stranded debt and stranded contract costs of the National Power Corporation (NPC), lowering universal charge pass-through costs to end consumers."
   },
   {
@@ -12132,22 +12132,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Value Added Tax on electric transmission"
+        "text": "Excise tax revenue collected from imported crude oil and petroleum"
       },
       {
         "id": "B",
-        "text": "The net national government share from the Malampaya natural gas project (Energy Resource Development Fund)"
+        "text": "Tariff collections derived from imported clean energy equipment"
       },
       {
         "id": "C",
-        "text": "Tariff revenues collected from imported renewable energy hardware"
+        "text": "Clean energy bond revenues floated by the Central Bank of the Philippines"
       },
       {
         "id": "D",
-        "text": "Clean Energy bond issuances by the Central Bank of the Philippines"
+        "text": "Net national government share from the Malampaya natural gas project"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Section 4 of RA 11371 authorizes the allocation of the net national government share from the Malampaya natural gas project pursuant to Presidential Decree 910 to pay off NPC's stranded debt and stranded contract costs."
   },
   {
@@ -12159,22 +12159,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "An unexpected 10% increase in monthly electric consumption"
+        "text": "Presence of a bored hole, tapped jumper wire, or tampered meter seal"
       },
       {
         "id": "B",
-        "text": "The presence of a bored hole, tapped wire, broken meter seal, or inverted meter in the electric installation"
+        "text": "Unexplained fifteen percent sudden variation in registered energy usage"
       },
       {
         "id": "C",
-        "text": "Operating an electric motor exceeding 10 horsepower without a separate transformer"
+        "text": "Operation of inductive motor machinery without dedicated transformer"
       },
       {
         "id": "D",
-        "text": "Paying the electric utility bill via an unauthorized third-party payment center"
+        "text": "Unauthorized relocation of service entrance wires and breaker panel"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Section 4 of RA 7832 provides that the existence of any drilled hole, tapped wire, tampered seal, or inverted meter directly in the customer premises constitutes prima facie evidence of illegal use of electricity."
   },
   {
@@ -12186,19 +12186,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "At least 15% drop"
+        "text": "At least 15%"
       },
       {
         "id": "B",
-        "text": "At least 30% drop"
+        "text": "At least 30%"
       },
       {
         "id": "C",
-        "text": "At least 50% drop"
+        "text": "At least 50%"
       },
       {
         "id": "D",
-        "text": "At least 75% drop"
+        "text": "At least 75%"
       }
     ],
     "correctChoiceId": "B",
@@ -12217,18 +12217,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Not exceeding twelve (12) months (one year)"
-      },
-      {
-        "id": "C",
         "text": "Not exceeding twenty-four (24) months"
       },
       {
+        "id": "C",
+        "text": "Not exceeding twelve (12) months"
+      },
+      {
         "id": "D",
-        "text": "Up to sixty (60) months"
+        "text": "Not exceeding thirty-six (36) months"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Under Section 6 of RA 7832, differential billing can be computed for a period not exceeding twelve (12) months when the exact duration of the violation cannot be conclusively determined."
   },
   {
@@ -12240,19 +12240,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Arresto mayor or a fine of P5,000"
+        "text": "Prision correccional to prision mayor and fine equal to damaged facilities"
       },
       {
         "id": "B",
-        "text": "Prision correccional and suspension of driver's license"
+        "text": "Prision mayor to reclusion temporal and forfeiture of electric licenses"
       },
       {
         "id": "C",
-        "text": "Reclusion temporal to reclusion perpetua and payment of the value of damaged facilities"
+        "text": "Reclusion temporal to reclusion perpetua and payment of damaged facilities"
       },
       {
         "id": "D",
-        "text": "Administrative reprimand by the local government unit"
+        "text": "Arresto mayor to prision mayor and revocation of government registrations"
       }
     ],
     "correctChoiceId": "C",
@@ -12267,22 +12267,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "5 credit units"
-      },
-      {
-        "id": "B",
         "text": "15 credit units"
       },
       {
+        "id": "B",
+        "text": "20 credit units"
+      },
+      {
         "id": "C",
-        "text": "45 credit units"
+        "text": "30 credit units"
       },
       {
         "id": "D",
-        "text": "100 credit units"
+        "text": "45 credit units"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Under PRC Resolution No. 2019-1146 amending the implementation of RA 10912, the mandatory CPD credit unit requirement for regular professional license renewal was adjusted to 15 credit units."
   },
   {
@@ -12294,19 +12294,19 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "The National President of the Integrated Institute of Electrical Engineers (IIEE)"
+        "text": "National President of the Accredited Integrated Professional Organization"
       },
       {
         "id": "B",
-        "text": "A designated member of the Professional Regulatory Board of Electrical Engineering (PRBEE)"
+        "text": "Designated member of the Professional Regulatory Board of Electrical Engineering"
       },
       {
         "id": "C",
-        "text": "The Chairman of the PRC Commission"
+        "text": "Executive Commissioner of the Professional Regulation Commission"
       },
       {
         "id": "D",
-        "text": "The Dean of an accredited electrical engineering college"
+        "text": "National President of the Philippine Association of Engineering Schools"
       }
     ],
     "correctChoiceId": "B",
@@ -12317,27 +12317,27 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "EE Laws",
     "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
     "questionNumber": 90,
-    "question": "Under RA 10912, which of the following is recognized as an acceptable pathway for earning CPD credit units for electrical engineers?",
+    "question": "Under Section 8 of RA 10912 (CPD Act of 2016), which CPD learning track encompasses structured post-graduate academic degrees, masteral studies, and doctoral engineering programs?",
     "choices": [
       {
         "id": "A",
-        "text": "Formal learning, non-formal learning, self-directed learning, and professional work experience"
+        "text": "Self-directed learning"
       },
       {
         "id": "B",
-        "text": "Only attendance at international overseas conventions"
+        "text": "Non-formal training"
       },
       {
         "id": "C",
-        "text": "Solely by publishing peer-reviewed journal papers"
+        "text": "Informal learning"
       },
       {
         "id": "D",
-        "text": "Voting in national presidential elections"
+        "text": "Formal learning"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Section 8 of RA 10912 recognizes formal learning, non-formal learning, informal learning, self-directed learning, online training modules, and professional work experience as legitimate credit-earning pathways."
+    "correctChoiceId": "D",
+    "explanation": "Under Section 8(a) of RA 10912, 'Formal learning' refers to structured educational programs such as masteral and doctoral degrees delivered by accredited higher education institutions for CPD credit units."
   },
   {
     "id": "eelaws-91",
@@ -12348,22 +12348,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Re-enrollment and completion of the full five-year BS Electrical Engineering degree"
-      },
-      {
-        "id": "B",
         "text": "Completion of an accredited refresher course"
       },
       {
+        "id": "B",
+        "text": "Re-enrollment and completion of the full degree curriculum"
+      },
+      {
         "id": "C",
-        "text": "Mandatory two-year apprenticeship under a licensed contractor"
+        "text": "Two-year supervised apprenticeship under a licensed engineer"
       },
       {
         "id": "D",
-        "text": "A five-year waiting period before submitting another examination application"
+        "text": "Mandatory three-year waiting period before re-examination"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Section 7(m) of RA 8981 empowers the Professional Regulation Commission to adopt a measure requiring applicants who failed three (3) consecutive times in the licensure examination to take an accredited refresher course."
   },
   {
@@ -12375,22 +12375,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "One (1) Chairperson and four (4) Commissioners"
+        "text": "One (1) Chairperson and one (1) Commissioner"
       },
       {
         "id": "B",
-        "text": "One (1) Chairperson and two (2) Commissioners appointed by the President of the Philippines"
+        "text": "One (1) Chairperson and three (3) Commissioners"
       },
       {
         "id": "C",
-        "text": "A Board of Governors consisting of 12 regional representatives"
+        "text": "One (1) Chairperson and two (2) Commissioners"
       },
       {
         "id": "D",
-        "text": "Three (3) Supreme Court Justices and two (2) Cabinet Secretaries"
+        "text": "One (1) Chairperson and four (4) Commissioners"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Under Section 3 of RA 8981, the Commission is composed of one (1) full-time Chairperson and two (2) full-time Commissioners appointed by the President of the Philippines for a term of seven (7) years without reappointment."
   },
   {
@@ -12402,22 +12402,22 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "30 days community service and a fine of P1,000"
+        "text": "Imprisonment of 1 year to 5 years and a fine of P20,000 to P50,000"
       },
       {
         "id": "B",
-        "text": "Imprisonment of not less than six (6) years and one day to twelve (12) years, and a fine of not less than P50,000 to P100,000"
+        "text": "Imprisonment of 2 years to 6 years and a fine of P30,000 to P60,000"
       },
       {
         "id": "C",
-        "text": "Administrative warning and payment of application fees"
+        "text": "Imprisonment of 3 years to 8 years and a fine of P40,000 to P80,000"
       },
       {
         "id": "D",
-        "text": "6 months probation with written reprimand"
+        "text": "Imprisonment of 6 years to 12 years and a fine of P50,000 to P100,000"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Under Section 15 of RA 8981, any person who manipulates or tampers with the results of a licensure examination, or causes the unauthorized disclosure or sale of test questions, faces imprisonment of 6 years and 1 day to 12 years and fines up to P100,000."
   },
   {
@@ -12429,11 +12429,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "National Grid Corporation of the Philippines (NGCP)"
+        "text": "Independent Electricity Market Operator of the Philippines (IEMOP)"
       },
       {
         "id": "B",
-        "text": "Independent Electricity Market Operator of the Philippines (IEMOP) / PEMC"
+        "text": "National Grid Corporation of the Philippines (NGCP)"
       },
       {
         "id": "C",
@@ -12441,10 +12441,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "National Transmission Corporation (TRANSCO)"
+        "text": "National Transmission Corporation (TransCo)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Under Section 30 of RA 9136 (EPIRA), the Wholesale Electricity Spot Market (WESM) was established under the Philippine Electricity Market Corporation (PEMC) and transitioned to an Independent Market Operator (IMO / IEMOP)."
   },
   {
@@ -12460,18 +12460,18 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "National Transmission Corporation (TransCo)"
+        "text": "National Electrification Administration (NEA)"
       },
       {
         "id": "C",
-        "text": "Manila Electric Company (Meralco)"
+        "text": "Power Sector Assets and Liabilities Management (PSALM)"
       },
       {
         "id": "D",
-        "text": "National Electrification Administration (NEA)"
+        "text": "National Transmission Corporation (TransCo)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Under Section 8 of RA 9136, the National Transmission Corporation (TransCo) was created to assume the transmission assets and functions of NPC. Operation, maintenance, and expansion were awarded to NGCP under concession."
   },
   {
@@ -12483,11 +12483,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Power Factor Surcharge"
+        "text": "Universal Charge (UC)"
       },
       {
         "id": "B",
-        "text": "Universal Charge (UC)"
+        "text": "Power Factor Surcharge"
       },
       {
         "id": "C",
@@ -12495,10 +12495,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "System Loss Charge"
+        "text": "Transmission System Loss Charge"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "A",
     "explanation": "Under Section 34 of EPIRA, the Universal Charge is a non-bypassable charge imposed on all electricity end-users, determined and approved by ERC, to pay for stranded debts, missionary electrification, and environmental watershed rehabilitation."
   },
   {
@@ -12518,11 +12518,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "C",
-        "text": "Up to 1,000 kVA and up to 4,160 Volts"
+        "text": "Up to 750 kVA and up to 480 Volts"
       },
       {
         "id": "D",
-        "text": "Up to 750 kVA and up to 240 Volts"
+        "text": "Up to 1,000 kVA and up to 600 Volts"
       }
     ],
     "correctChoiceId": "B",
@@ -12549,7 +12549,7 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "At least ten (10) years"
+        "text": "At least eight (8) years"
       }
     ],
     "correctChoiceId": "B",
@@ -12560,26 +12560,26 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "subject": "EE Laws",
     "sourceFileName": "Drive/EE_Laws_Board_Review_Pointers.docx",
     "questionNumber": 99,
-    "question": "Under Section 33 of RA 7920, who among the following personnel is required to be in charge of an industrial plant or commercial establishment with a connected load of over 500 kVA up to 2,000 kVA?",
+    "question": "Under Section 33 of RA 7920, what is the minimum professional license required to be in charge of an industrial plant or commercial establishment with a connected load of over 500 kVA up to 2,000 kVA?",
     "choices": [
       {
         "id": "A",
-        "text": "At least one (1) Registered Master Electrician"
+        "text": "Registered Master Electrician (RME)"
       },
       {
         "id": "B",
-        "text": "At least one (1) Registered Electrical Engineer or one (1) Professional Electrical Engineer"
+        "text": "Professional Electrical Engineer (PEE)"
       },
       {
         "id": "C",
-        "text": "Only a Professional Electrical Engineer"
+        "text": "Registered Electrical Engineer (REE)"
       },
       {
         "id": "D",
-        "text": "Two (2) Registered Master Electricians"
+        "text": "Certified Plant Electrician (CPE)"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "C",
     "explanation": "Section 33(b) of RA 7920 specifies that for establishments with connected loads over 500 kVA up to 2,000 kVA, the operation and maintenance must be under the charge of at least one (1) Registered Electrical Engineer (REE) or one (1) Professional Electrical Engineer (PEE)."
   },
   {
@@ -12591,11 +12591,11 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "P1,000"
+        "text": "P5,000"
       },
       {
         "id": "B",
-        "text": "P10,000"
+        "text": "P20,000"
       },
       {
         "id": "C",
@@ -12603,10 +12603,10 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "P500"
+        "text": "P10,000"
       }
     ],
-    "correctChoiceId": "B",
+    "correctChoiceId": "D",
     "explanation": "Section 40 of RA 7920 prescribes a fine of not less than Ten Thousand Pesos (P10,000.00) nor more than Fifty Thousand Pesos (P50,000.00), or imprisonment of not less than 6 months nor more than 5 years, or both."
   },
   {
