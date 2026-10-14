@@ -11772,33 +11772,6 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "explanation": "Choice D (One MW) refers to the original EPIRA Phase 1 statutory threshold. Note: Under current ERC RCOA regulations (Resolution No. 12, S. 2020), the contestability threshold has been lowered to 100 kW (0.1 MW)."
   },
   {
-    "id": "eelaws-69",
-    "subject": "EE Laws",
-    "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",
-    "questionNumber": 69,
-    "question": "A child on a sled is sliding down the hill covered with snow. The combined mass of the child and the sled is \"m\", the angle of inclination of the hill is \"q\" (phi), and the coefficient of kinetic friction between the snow and the sled runners is \"u\" (mu). Which of these expressions gives the frictional force?",
-    "choices": [
-      {
-        "id": "A",
-        "text": "u mg"
-      },
-      {
-        "id": "B",
-        "text": "u mg sin phi"
-      },
-      {
-        "id": "C",
-        "text": "mg"
-      },
-      {
-        "id": "D",
-        "text": "u mg cos phi"
-      }
-    ],
-    "correctChoiceId": "D",
-    "explanation": "The normal force on an incline of angle phi is N = m * g * cos(phi). The frictional force is f_k = mu * N = u * m * g * cos(phi)."
-  },
-  {
     "id": "eelaws-70",
     "subject": "EE Laws",
     "sourceFileName": "Drive/RA_7920_EE_Laws_Code.docx",

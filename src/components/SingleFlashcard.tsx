@@ -1,6 +1,13 @@
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { FlashcardQuestion, generateContextualExplanation } from '../services/questionParser';
-import { AiVoiceMode, stopSpeech, speakPhrase } from '../services/speechService';
+import {
+  AiVoiceMode,
+  stopSpeech,
+  speakPhrase,
+  testDeepMaleVoice,
+  setVoiceDepth,
+  VoiceDepth,
+} from '../services/speechService';
 import { playAnswerSound } from '../services/gestureCalibration';
 
 interface SingleFlashcardProps {
@@ -41,7 +48,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const isAnswered = cleanSelected !== null;
   const isCorrect = isAnswered && cleanSelected === cleanCorrect;
 
-  // Play audio sound on answer selection
+  // Mocking pop-up state on wrong answer
+  const [showMockingPopup, setShowMockingPopup] = useState(false);
+  const mockingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Play audio sound & trigger 1-second pop-up on wrong answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
     if (selectedChoice && selectedChoice !== prevSelectedChoiceRef.current) {
@@ -49,15 +60,41 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
       const curCorrect = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
       const isAnsCorrect = curSelected === curCorrect;
       playAnswerSound(isAnsCorrect);
+
+      if (!isAnsCorrect) {
+        if (mockingTimerRef.current) {
+          clearTimeout(mockingTimerRef.current);
+        }
+        setShowMockingPopup(true);
+        mockingTimerRef.current = setTimeout(() => {
+          setShowMockingPopup(false);
+        }, 1000);
+      }
     }
     prevSelectedChoiceRef.current = selectedChoice;
   }, [selectedChoice, question.correctChoiceId]);
+
+  useEffect(() => {
+    setShowMockingPopup(false);
+    if (mockingTimerRef.current) {
+      clearTimeout(mockingTimerRef.current);
+    }
+  }, [question.id]);
+
+  useEffect(() => {
+    return () => {
+      if (mockingTimerRef.current) {
+        clearTimeout(mockingTimerRef.current);
+      }
+    };
+  }, []);
 
   // Voice Engine State
   const [speechStatus, setSpeechStatus] = useState<
     'idle' | 'reading_question' | 'reading_options' | 'waiting_user' | 'ai_answering' | 'reading_explanation' | 'paused'
   >('idle');
   const [speechRate, setSpeechRate] = useState<number>(1.0);
+  const [voiceDepth, setVoiceDepthState] = useState<VoiceDepth>('deep');
   const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
   const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentSeqIdRef = useRef<number>(0);
@@ -75,6 +112,17 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     setSpeechStatus('paused');
   };
 
+  const handleSetVoiceDepth = (depth: VoiceDepth) => {
+    setVoiceDepth(depth);
+    setVoiceDepthState(depth);
+  };
+
+  const handleTestVoice = () => {
+    stopSpeech();
+    clearAutoAdvanceTimer();
+    testDeepMaleVoice(voiceDepth);
+  };
+
   const handleReplaySpeech = useCallback(() => {
     stopSpeech();
     clearAutoAdvanceTimer();
@@ -86,17 +134,17 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
     const seqId = ++currentSeqIdRef.current;
 
-    // Step 1: Speak Question
+    // Step 1: Speak Question with conversational podcast cadence
     setSpeechStatus('reading_question');
-    const questionPrompt = `Question ${currentIndex + 1}. ${question.question}`;
+    const questionPrompt = `Item ${currentIndex + 1}. ${question.question}`;
     speakPhrase(questionPrompt, speechRate, () => {
       if (seqId !== currentSeqIdRef.current) return;
 
-      // Step 2: Speak Choices
+      // Step 2: Speak Choices with distinct natural pauses
       setSpeechStatus('reading_options');
       const optionsText = question.choices
-        .map((c) => `Option ${c.id}: ${c.text}`)
-        .join('. ');
+        .map((c) => `Option ${c.id}... ${c.text}`)
+        .join('. ... ');
 
       speakPhrase(optionsText, speechRate, () => {
         if (seqId !== currentSeqIdRef.current) return;
@@ -108,9 +156,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           const correctChoice = question.choices.find(
             (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
           );
-          const answerText = `Thinking. The correct answer is Option ${
+          const answerText = `The correct answer is Option ${
             question.correctChoiceId
-          }${correctChoice ? ': ' + correctChoice.text : ''}.`;
+          }... ${correctChoice ? correctChoice.text : ''}.`;
 
           speakPhrase(answerText, speechRate, () => {
             if (seqId !== currentSeqIdRef.current) return;
@@ -118,7 +166,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             // Trigger AI answer selection
             onSelectChoice(question.correctChoiceId);
 
-            // Speak explanation
+            // Speak explanation in podcast style
             const expl = generateContextualExplanation(
               question.question,
               question.choices,
@@ -128,7 +176,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             );
 
             setSpeechStatus('reading_explanation');
-            const explText = `Explanation: ${expl}`;
+            const explText = `Here's why: ${expl}`;
 
             speakPhrase(explText, speechRate, () => {
               if (seqId !== currentSeqIdRef.current) return;
@@ -179,8 +227,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
 
       const resultIntro = isUserCorrect
-        ? `Correct! Option ${selectedChoice} is correct.`
-        : `Incorrect. You chose Option ${selectedChoice}. The correct answer is Option ${question.correctChoiceId}.`;
+        ? `That's correct! Option ${selectedChoice}.`
+        : `Not quite. The correct answer is Option ${question.correctChoiceId}.`;
 
       const expl = generateContextualExplanation(
         question.question,
@@ -190,7 +238,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         question.explanation
       );
 
-      const fullSpeechText = `${resultIntro} Explanation: ${expl}`;
+      const fullSpeechText = `${resultIntro} Here's why: ${expl}`;
       setSpeechStatus('reading_explanation');
 
       speakPhrase(fullSpeechText, speechRate, () => {
@@ -273,16 +321,20 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
         {/* Voice Status Banner when active */}
         {aiVoiceMode !== 'off' && (
-          <div className="bg-slate-950 border border-slate-800 rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="bg-[#131418] border border-[#272935] rounded-lg p-2.5 flex flex-wrap items-center justify-between gap-2 text-xs">
             <div className="flex items-center gap-2">
               <span
                 className="px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-800 text-zinc-200 border border-zinc-700"
               >
-                {aiVoiceMode === 'ai_reads_you_answer' ? 'Read Questions Mode' : 'Auto Read & Answer Mode'}
+                {aiVoiceMode === 'ai_reads_you_answer' ? 'Read Questions' : 'Auto Read & Answer'}
+              </span>
+
+              <span className="text-[10px] text-zinc-400 font-mono hidden sm:inline">
+                Deep Baritone
               </span>
 
               {/* Status Indicator */}
-              <span className="text-slate-300 font-medium flex items-center gap-1.5">
+              <span className="text-zinc-300 font-medium flex items-center gap-1.5">
                 {speechStatus === 'reading_question' && (
                   <>
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -303,8 +355,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 )}
                 {speechStatus === 'ai_answering' && (
                   <>
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    <span className="text-cyan-300 font-semibold">AI selecting answer...</span>
+                    <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+                    <span className="text-sky-300 font-semibold">Revealing answer...</span>
                   </>
                 )}
                 {speechStatus === 'reading_explanation' && (
@@ -314,16 +366,54 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   </>
                 )}
                 {speechStatus === 'paused' && (
-                  <span className="text-slate-400 italic">Paused</span>
+                  <span className="text-zinc-400 italic">Paused</span>
                 )}
                 {speechStatus === 'idle' && (
-                  <span className="text-slate-400">Ready</span>
+                  <span className="text-zinc-400">Ready</span>
                 )}
               </span>
             </div>
 
-            {/* Voice Controls: Replay / Pause & Speed & Auto-Next */}
+              {/* Voice Controls: Replay / Pause & Speed & Auto-Next */}
             <div className="flex items-center gap-1.5 flex-wrap">
+              {/* Voice Depth Selector (Baritone vs Ultra Deep) */}
+              <div className="flex items-center rounded border border-zinc-800 bg-zinc-900 p-0.5 text-[10px]">
+                <button
+                  type="button"
+                  onClick={() => handleSetVoiceDepth('deep')}
+                  className={`px-1.5 py-0.5 rounded cursor-pointer font-medium ${
+                    voiceDepth === 'deep'
+                      ? 'bg-zinc-700 text-white font-semibold'
+                      : 'text-zinc-400 hover:text-zinc-200'
+                  }`}
+                  title="Deep Baritone Voice (0.70 pitch)"
+                >
+                  Baritone
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleSetVoiceDepth('ultra_deep')}
+                  className={`px-1.5 py-0.5 rounded cursor-pointer font-medium ${
+                    voiceDepth === 'ultra_deep'
+                      ? 'bg-zinc-700 text-white font-semibold'
+                      : 'text-zinc-400 hover:text-zinc-200'
+                  }`}
+                  title="Ultra Deep Bass Voice (0.58 pitch)"
+                >
+                  Deep Bass
+                </button>
+              </div>
+
+              {/* Test Voice Button */}
+              <button
+                type="button"
+                onClick={handleTestVoice}
+                className="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[10px] font-medium cursor-pointer"
+                title="Hear sample of the deep male podcast voice"
+              >
+                Test Voice
+              </button>
+
               {speechStatus === 'paused' || speechStatus === 'idle' ? (
                 <button
                   type="button"
@@ -561,6 +651,18 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             {currentIndex + 1 === totalQuestions ? 'Finish Review' : 'Next Question →'}
           </button>
         </div>
+
+        {/* 1-Second Pop-up on Wrong Answer: Centered directly in flashcard with blurred background */}
+        {showMockingPopup && (
+          <div className="absolute inset-0 z-40 flex items-center justify-center p-4 backdrop-blur-md bg-black/60 select-none animate-in fade-in zoom-in-95 duration-150">
+            <div className="bg-[#181a21]/95 border-2 border-rose-500 rounded-2xl px-8 py-6 shadow-2xl flex flex-col items-center gap-3 backdrop-blur-lg ring-4 ring-rose-500/25">
+              <span className="text-6xl animate-bounce">🖕</span>
+              <span className="text-xl sm:text-2xl font-black text-rose-400 tracking-wider uppercase text-center drop-shadow-sm">
+                Ulol BOBO
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

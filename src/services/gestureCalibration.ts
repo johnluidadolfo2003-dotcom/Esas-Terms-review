@@ -512,22 +512,32 @@ export function playAnswerSound(isCorrect: boolean): void {
       osc2.start(ctx.currentTime + 0.1);
       osc2.stop(ctx.currentTime + 0.35);
     } else {
-      // Gentle distinct descending buzzer (349Hz -> 261Hz)
+      // Modern sleek UI tactile drop / soft pop cue (organic, satisfying, professional)
+      const now = ctx.currentTime;
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
+      const filter = ctx.createBiquadFilter();
 
-      osc.type = 'sawtooth';
-      osc.frequency.setValueAtTime(349.23, ctx.currentTime); // F4
-      osc.frequency.exponentialRampToValueAtTime(261.63, ctx.currentTime + 0.22); // C4
+      // Low-pass filter for smooth, rounded acoustic warmth
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(900, now);
+      filter.frequency.exponentialRampToValueAtTime(280, now + 0.15);
 
-      gain.gain.setValueAtTime(0.1, ctx.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.25);
+      // Quick smooth descending pitch drop (320Hz -> 135Hz) for a clean modern pop
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.exponentialRampToValueAtTime(135, now + 0.15);
 
-      osc.connect(gain);
+      // Snappy, clean decay
+      gain.gain.setValueAtTime(0.24, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+
+      osc.connect(filter);
+      filter.connect(gain);
       gain.connect(ctx.destination);
 
-      osc.start(ctx.currentTime);
-      osc.stop(ctx.currentTime + 0.25);
+      osc.start(now);
+      osc.stop(now + 0.15);
     }
   } catch {}
 }
