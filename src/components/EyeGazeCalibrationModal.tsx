@@ -24,6 +24,9 @@ export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete
  },[isOpen,phase]);
  if(!isOpen)return null;
  const report=eyeTrackingEngine.getReport(),ready=state?.setupReady;
+ const vw=eyeTrackingEngine.getVideoElement()?.videoWidth||640,vh=eyeTrackingEngine.getVideoElement()?.videoHeight||480;
+ const points=state?.detection?.points||[];
+ const retryCamera=()=>{setError('');eyeTrackingEngine.stop();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});};
  const run=async(short=mode==='short')=>{
   setError('');setPhase('collecting');setProgress(null);
   const success=await eyeTrackingEngine.calibrate(p=>{if(mounted.current)setProgress(p);},{short,confirmTargets:confirmDots});
@@ -35,14 +38,19 @@ export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete
   {phase!=='collecting'&&phase!=='guide'&&<div className="mx-auto max-w-4xl px-5 py-5 pb-16">
    <div className="flex justify-between items-center"><h2 className="font-semibold text-lg">Eye control · {phase==='setup'?'setup':'measured results'}</h2><button type="button" onClick={onClose} className="px-3 py-2">Close</button></div>
    {phase==='setup'&&<>
-    <div className="grid md:grid-cols-2 gap-5 mt-5"><video ref={preview} autoPlay muted playsInline aria-label="Mirrored camera preview" className="w-full aspect-[4/3] bg-black rounded-xl object-contain" style={{transform:'scaleX(-1)'}}/>
+    <div className="grid md:grid-cols-2 gap-5 mt-5"><div className="relative aspect-[4/3] bg-black rounded-xl overflow-hidden"><video ref={preview} autoPlay muted playsInline aria-label="Mirrored camera preview" className="w-full h-full object-contain" style={{transform:'scaleX(-1)'}}/>
+     <svg aria-label="Detected eye landmarks" viewBox={`0 0 ${vw} ${vh}`} preserveAspectRatio="xMidYMid meet" className="absolute inset-0 w-full h-full pointer-events-none" style={{transform:'scaleX(-1)'}}>{(state?.frameAgeMs??Infinity)<500&&points.map((p,i)=><circle key={i} cx={p.x*vw} cy={p.y*vh} r={i===5||i===11?3.5:1.7} fill={ready?'#2dd4bf':'#fbbf24'}/>)}</svg></div>
     <div className="space-y-3 text-sm"><p>Keep the device steady and sit comfortably.</p><p>Keep both eyes visible with even front lighting. Avoid strong backlighting and reflections on glasses.</p><p>Keep approximately the same position during calibration and use. Move your eyes toward each dot’s center.</p><p role="status" className={ready?'text-teal-300':'text-amber-300'}>{ready?'Camera and fresh eye samples ready':state?.status||'Starting camera…'}</p><p>{state?.effectiveHz?.toFixed(1)||'0.0'} valid eye samples/second. Readiness is based on eye visibility and fresh frames.</p></div></div>
+    <div className="mt-4 text-xs text-zinc-300" aria-label="Eye detection diagnostics"><p>Face: {state?.faceDetected?'detected':'not detected'} · Landmarks: {state?.detection?.landmarkCount||0}/478 · Processing: {state?.inferenceMs?.toFixed(0)||'—'} ms</p>
+     {state?.detection?.eyeWidths&&<p>Eye widths: {state.detection.eyeWidths.map(v=>v.toFixed(1)).join(' / ')} camera px · Eyelid opening: {state.detection.openness?.map(v=>v.toFixed(2)).join(' / ')}</p>}
+     <p className="mt-1">Colored dots show detected eye landmarks. Before calibration they do not indicate a screen gaze position.</p>
+     <button type="button" className="underline mt-2 mr-4" onClick={retryCamera}>{error&&!state?.isActive?'Retry camera':'Restart camera'}</button><button type="button" className="underline" onClick={()=>download(eyeTrackingEngine.exportDiagnostics())}>Export setup diagnostics</button>
+    </div>
     <details className="mt-4"><summary className="cursor-pointer text-sm">Timing and filter settings</summary><div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">{(['settleMs','validCollectionMs','pointTimeoutMs','dwellMs','minCutoffHz','beta'] as const).map(key=><label key={key} className="text-xs">{key}<input aria-label={key} type="number" min="0.001" step={key==='beta' ? 0.001 : key==='minCutoffHz' ? 0.1 : 100} value={settings[key]} onChange={e=>setSettings({...settings,[key]:Number(e.target.value)})} className="block w-full rounded bg-zinc-800 p-2 mt-1"/></label>)}</div><button type="button" onClick={()=>{try{eyeTrackingEngine.configure(settings);setError('Settings applied; fresh validation is required.');}catch(e){setError((e as Error).message);}}} className="mt-3 underline text-sm">Apply settings</button></details>
     <label className="block mt-4 text-sm"><input type="checkbox" checked={confirmDots} onChange={e=>setConfirmDots(e.target.checked)}/> Wait for tap, Enter or Space at each dot (helper confirmation)</label>
     <label className="block mt-4 text-sm"><input type="checkbox" checked={record} onChange={e=>{setRecord(e.target.checked);eyeTrackingEngine.setRecording(e.target.checked);}}/> Record diagnostic samples locally (eye features and labels; no video upload)</label>
     <button type="button" disabled={!ready} onClick={()=>void run()} className="mt-5 rounded-lg px-5 py-3 bg-teal-400 text-black font-semibold disabled:opacity-40">{mode==='short'?'Start short accuracy check':'Start nine-point calibration'}</button>
     {error&&<p role="alert" className="text-amber-300 mt-3">{error}</p>}
-    {error&&!state?.isActive&&<button type="button" className="mt-3 underline" onClick={()=>{setError('');eyeTrackingEngine.stop();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});}}>Retry camera</button>}
    </>}
    {phase==='results'&&<>
     <p role="status" className="mt-4 text-sm">{report?.passed?'Independent checks passed for the tested regions.':'Selection stays paused until the tested regions are distinguishable.'}</p>

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
 import { defineConfig, Plugin } from 'vite';
+import { eyeModelAssets } from './scripts/eyeModelAssets.ts';
 
 function questionSyncPlugin(): Plugin {
   return {
@@ -46,7 +47,7 @@ function questionSyncPlugin(): Plugin {
 
 export default defineConfig(() => {
   return {
-    plugins: [react(), tailwindcss(), questionSyncPlugin()],
+    plugins: [react(), tailwindcss(), questionSyncPlugin(), eyeModelAssets()],
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),

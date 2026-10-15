@@ -33,6 +33,7 @@ const {chromium}=require('playwright');const {spawn}=require('node:child_process
    if(header&&/^(Calibration|Independent check) \d+\//.test(header)&&header!==last){last=header;await page.keyboard.press('Enter');}
    await new Promise(r=>setTimeout(r,100));
   }
+  if(!await page.getByText('Independent checks passed for the tested regions.',{exact:true}).count()){await page.screenshot({path:'/tmp/gaze-browser-failure.png'});throw new Error('Calibration did not pass: '+await modal.innerText());}
   await page.getByText('Independent checks passed for the tested regions.',{exact:true}).waitFor({timeout:1000});
   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('teerms_eye_calibration_v4')));assert.equal(saved.version,4);assert.equal(saved.report.comparison.selected,'affine');assert.ok(saved.report.regions.some(r=>r.slot==='A'));assert.ok(saved.report.regions.every(r=>r.passed));assert.equal(await page.evaluate(()=>window.__models),1);
   await page.screenshot({path:'/tmp/gaze-results.png',fullPage:true});
@@ -41,7 +42,7 @@ const {chromium}=require('playwright');const {spawn}=require('node:child_process
   assert.equal(await page.locator('[data-choice-id]:disabled').count(),0,'guided test must not answer the reviewer');
   await page.getByRole('button',{name:'Use eye control',exact:true}).click();await modal.waitFor({state:'hidden'});
   await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByRole('button',{name:'Resume',exact:true}).click();
-  await page.evaluate(()=>window.__faceLost=true);await page.getByText('Face not detected',{exact:true}).waitFor();await page.evaluate(()=>window.__faceLost=false);
+  await page.evaluate(()=>window.__faceLost=true);await page.getByText('Face not detected. Face the camera and check front lighting.',{exact:true}).waitFor();await page.evaluate(()=>window.__faceLost=false);
   await page.setViewportSize({width:1200,height:900});await page.getByText(/geometry changed|recalibrate|unverified/i).first().waitFor({timeout:3000});
   await page.locator('button[aria-label="Toggle Eye Gaze Answer Control"]:visible').first().click();
   await page.evaluate(()=>{const original=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);let fail=true;navigator.mediaDevices.getUserMedia=(constraints)=>{if(fail){fail=false;return Promise.reject(new DOMException('Denied for regression','NotAllowedError'));}return original(constraints);};});

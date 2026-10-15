@@ -81,3 +81,12 @@ test('eye-local iris features normalize translation, scale and roll; blinks are 
  const transformed=original.map(p=>{const x=p.x*640-320,y=p.y*480-240;return {x:(350+1.1*(x*Math.cos(.1)-y*Math.sin(.1)))/640,y:(250+1.1*(x*Math.sin(.1)+y*Math.cos(.1)))/480};});const b=extractEyeSample(transformed,640,480,0).sample!;assert.ok(Math.abs(a.px-b.px)<1e-8&&Math.abs(a.py-b.py)<1e-8);
  original[159]=original[145];assert.equal(extractEyeSample(original,640,480,0).sample,null);assert.equal(extractEyeSample([],640,480,0).face,false);assert.equal(poseMatches({...pose,yaw:.5},pose),false);
 });
+test('setup rejection identifies missing iris, small eyes, eyelids, disagreement and invalid coordinates',()=>{
+ assert.match(extractEyeSample(face().slice(0,468),640,480,0).detection.reason,/Iris landmarks missing/);
+ const small=face().map(p=>({x:.5+(p.x-.5)*.1,y:.5+(p.y-.5)*.1}));
+ assert.match(extractEyeSample(small,640,480,0).detection.reason,/too small/);
+ const closed=face();closed[159]=closed[145];assert.match(extractEyeSample(closed,640,480,0).detection.reason,/Eyelids/);
+ const disagree=face();disagree[468].x+=.04;assert.match(extractEyeSample(disagree,640,480,0).detection.reason,/disagree/);
+ const invalid=face();invalid[468].x=NaN;assert.match(extractEyeSample(invalid,640,480,0).detection.reason,/invalid landmark/);
+ assert.equal(extractEyeSample(face().slice(0,468),640,480,0).face,true,'visible face without irises must not be reported as no face');
+});

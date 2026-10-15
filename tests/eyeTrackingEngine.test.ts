@@ -7,6 +7,7 @@ test('real engine orchestration with a simulated browser/camera (not measured we
  const names=['window','document','navigator','screen','localStorage','performance','requestAnimationFrame','cancelAnimationFrame','setTimeout','setInterval','clearInterval','getComputedStyle'] as const;
  const originals=new Map(names.map(n=>[n,Object.getOwnPropertyDescriptor(globalThis,n)]));const nativeTimeout=setTimeout;
  let now=0,opens=0,models=0,stops=0,raf:FrameRequestCallback|null=null,callback:(r:any)=>void=()=>{},cameraTime=0,frameLatency=0,duplicate=false,missing=false,validationBias=0,overlay=true;
+ let initializationError=false;
  let target={x:640,y:450},current:CalibrationProgress|null=null,failPoint:string|null=null;
  const timers=new Map<number,()=>void>();let timerId=0;
  const events=new Map<string,(()=>void)[]>(),memory=new Map<string,string>();
@@ -25,7 +26,7 @@ test('real engine orchestration with a simulated browser/camera (not measured we
   const points=Array.from({length:478},()=>({x:.5,y:.5,z:0}));const put=(i:number,x:number,y:number)=>{points[i]={x:x/640,y:y/480,z:0};};
   for(const [a,b,top,bottom,iris,left] of [[33,133,159,145,468,200],[362,263,386,374,473,360]]){put(a,left,200);put(b,left+80,200);put(top,left+40,188);put(bottom,left+40,212);put(iris,left+80*px,200+80*py);}put(1,320,280);return [points];
  };
- class Mesh{constructor(){models++;}setOptions(){}onResults(cb:any){callback=cb;}async send(){now+=frameLatency;const result={multiFaceLandmarks:landmarks()};callback(result);if(duplicate)callback(result);}async close(){}}
+ class Mesh{constructor(){models++;}setOptions(){}async initialize(){if(initializationError)throw new Error('Model assets unavailable');}onResults(cb:any){callback=cb;}async send(){now+=frameLatency;const result={multiFaceLandmarks:landmarks()};callback(result);if(duplicate)callback(result);}async close(){}}
  win.FaceMesh=Mesh;
  const put=(n:string,value:unknown)=>Object.defineProperty(globalThis,n,{value,writable:true,configurable:true});
  put('window',win);put('document',doc);put('screen',{orientation:{angle:0}});put('navigator',{mediaDevices:{getUserMedia:()=>camera()}});put('localStorage',{getItem:(k:string)=>memory.get(k)||null,setItem:(k:string,v:string)=>memory.set(k,v)});put('performance',{now:()=>now});put('getComputedStyle',()=>({display:'block',visibility:'visible'}));
@@ -36,6 +37,9 @@ test('real engine orchestration with a simulated browser/camera (not measured we
  const progress=(p:CalibrationProgress)=>{current=p;target=p.target;};
  const engines:EyeTrackingEngine[]=[];const engine=()=>{const e=new EyeTrackingEngine();engines.push(e);return e;};
  try{
+  await t.test('camera preview opens before model initialization and startup failures release the stream',async()=>{
+   const e=engine(),states:EyeTrackingState[]=[];e.subscribe(s=>states.push(s));initializationError=true;const before=stops;assert.equal(await e.start(),false);assert.match(e.getStatus(),/Model assets unavailable/);assert.equal(e.getMediaStream(),null);assert.ok(stops>before);assert.ok(states.some(s=>s.isActive&&s.status?.includes('Initializing')));initializationError=false;assert.equal(await e.start(),true);e.stop();
+  });
   await t.test('one camera/model/loop, balanced distinct samples and independent actual-region validation',async()=>{
    const e=engine();const before=opens;await Promise.all([e.start(),e.start()]);assert.equal(opens,before+1);assert.equal(models,opens);
    duplicate=true;const ok=await e.calibrate(progress);duplicate=false;
