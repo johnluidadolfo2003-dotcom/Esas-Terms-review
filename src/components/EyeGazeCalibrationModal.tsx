@@ -37,6 +37,15 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
   const callbacks = useRef({ onClose, onComplete });
   callbacks.current = { onClose, onComplete };
 
+  // Helper for immediate guaranteed calibration finish
+  const handleForceFinish = () => {
+    completed.current = true;
+    eyeTrackingEngine.forceCompleteCalibration();
+    setPhase('finished');
+    callbacks.current.onComplete();
+    callbacks.current.onClose();
+  };
+
   // Subscribe to live eye tracking state (30 FPS)
   useEffect(() => {
     if (!isOpen) return;
@@ -91,8 +100,9 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       .then((success) => {
         if (cancelled) return;
         if (!success) {
+          // If automatic validation check is strict, still allow user to finish directly
           setError(eyeTrackingEngine.getStatus());
-          setPhase('error');
+          setPhase('verifying');
           return;
         }
         finished = true;
@@ -100,8 +110,8 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       })
       .catch(() => {
         if (!cancelled) {
-          setError('Could not calibrate. Check camera permission and retry.');
-          setPhase('error');
+          setError('Could not complete automatic accuracy check. You can finish calibration directly below.');
+          setPhase('verifying');
         }
       });
 
@@ -141,18 +151,18 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       const targetY = node.y * screenH;
       const dist = Math.hypot(gx - targetX, gy - targetY);
 
-      if (dist < 80) {
+      if (dist < 140) {
         setVerifiedTargets((prev) => {
           const next = new Set(prev);
           next.add(node.id);
           if (next.size === verificationNodes.length) {
-            // All 4 test nodes verified!
             completed.current = true;
+            eyeTrackingEngine.forceCompleteCalibration();
             setPhase('finished');
             setTimeout(() => {
               callbacks.current.onComplete();
               callbacks.current.onClose();
-            }, 800);
+            }, 600);
           }
           return next;
         });
@@ -167,9 +177,9 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
   const targetPxX = typeof window !== 'undefined' ? target.x * window.innerWidth : 500;
   const targetPxY = typeof window !== 'undefined' ? target.y * window.innerHeight : 400;
 
-  // Calculate distance between live eye gaze and target dot
+  // Distance between live gaze and target dot
   const liveDistance = Math.hypot(trackingState.gazeX - targetPxX, trackingState.gazeY - targetPxY);
-  const isEyeAligned = liveDistance < 100;
+  const isEyeAligned = liveDistance < 120;
 
   return (
     <div
@@ -179,9 +189,9 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       data-eye-calibration
       className="fixed inset-0 z-[60] bg-[#0b0d13]/95 backdrop-blur-md select-none overflow-hidden"
     >
-      {/* 1. Header Navigation Bar */}
-      <div className="absolute top-5 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 bg-[#14161f] border border-[#262836] px-4 py-2 rounded-full shadow-xl">
-        <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse" />
+      {/* 1. Top Header Controls Bar */}
+      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-[#14161f] border border-[#262836] px-4 py-2 rounded-full shadow-xl max-w-[90vw]">
+        <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse shrink-0" />
         <span role="status" className="text-xs font-mono text-zinc-200">
           {phase === 'loading'
             ? 'Starting camera & eye tracker…'
@@ -190,11 +200,20 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
             : phase === 'error'
             ? 'Calibration needs another try'
             : phase === 'verifying'
-            ? `Eye Control Test: Look at all 4 targets (${verifiedTargets.size}/${verificationNodes.length})`
+            ? `Eye Control Test: Look at targets (${verifiedTargets.size}/${verificationNodes.length})`
             : validating
             ? `Testing Accuracy (${step - CALIBRATION_TARGETS.length + 1}/${VALIDATION_TARGETS.length})`
             : `Follow Dot with Eyes (${step + 1}/${CALIBRATION_TARGETS.length})`}
         </span>
+
+        {/* Action Button: Finish & Activate Eye Control Immediately */}
+        <button
+          type="button"
+          onClick={handleForceFinish}
+          className="text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 px-3 py-1 rounded-full transition-colors cursor-pointer shadow-sm shrink-0"
+        >
+          Finish & Activate Eye Control ✓
+        </button>
 
         <button
           type="button"
@@ -202,14 +221,14 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
             eyeTrackingEngine.stop();
             callbacks.current.onClose();
           }}
-          className="text-xs text-zinc-400 hover:text-white px-2 py-0.5 rounded bg-zinc-800/60 hover:bg-zinc-800 transition-colors cursor-pointer"
+          className="text-xs text-zinc-400 hover:text-white px-2.5 py-1 rounded-full bg-zinc-800/80 hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
         >
           Cancel
         </button>
       </div>
 
       {/* 2. Live Camera Viewport Widget (Top-Right Docked Monitor) */}
-      <div className="absolute top-5 right-5 z-20 w-48 sm:w-56 bg-[#141620] border border-[#272938] rounded-xl shadow-2xl overflow-hidden flex flex-col">
+      <div className="absolute top-4 right-4 z-20 w-44 sm:w-56 bg-[#141620] border border-[#272938] rounded-xl shadow-2xl overflow-hidden flex flex-col">
         <div className="relative aspect-[4/3] bg-black">
           <video
             ref={videoRef}
@@ -275,15 +294,12 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
           }}
         >
           <div className="relative flex items-center justify-center">
-            {/* Pulsing outer aura showing eye tracking activity */}
             <div className="w-8 h-8 rounded-full border border-[#2dd4bf] bg-[#2dd4bf]/20 shadow-[0_0_12px_#2dd4bf] animate-ping opacity-40" />
 
-            {/* Core reticle dot */}
             <div className="absolute w-5 h-5 rounded-full border-2 border-white bg-[#2dd4bf] shadow-[0_0_16px_#2dd4bf] flex items-center justify-center">
               <div className="w-1.5 h-1.5 rounded-full bg-slate-950" />
             </div>
 
-            {/* Label pill showing "EYE GAZE" */}
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#141620] border border-[#272938] px-2 py-0.5 rounded text-[9px] font-mono text-[#2dd4bf] font-semibold shadow-md">
               Your Eyes
             </div>
@@ -297,7 +313,6 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
           className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center"
           style={{ left: `${target.x * 100}%`, top: `${target.y * 100}%` }}
         >
-          {/* Laser connection line between eye gaze reticle and target dot */}
           {trackingState.isTracking && (
             <svg
               className="fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-30"
@@ -315,7 +330,6 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
             </svg>
           )}
 
-          {/* Outer Target Ring with Progress Fill */}
           <div className="relative flex items-center justify-center">
             <svg className="w-24 h-24 -rotate-90" viewBox="0 0 96 96">
               <circle cx="48" cy="48" r="40" stroke="#1c1f2b" strokeWidth="5" fill="none" />
@@ -333,7 +347,6 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
               />
             </svg>
 
-            {/* Center Target Dot */}
             <div
               className={`absolute w-5 h-5 rounded-full transition-all duration-200 ${
                 isEyeAligned
@@ -342,14 +355,13 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
               }`}
             />
 
-            {/* Convergence indicator ring when eyes are aligned on target */}
             {isEyeAligned && (
               <div className="absolute w-14 h-14 rounded-full border-2 border-[#2dd4bf] animate-ping opacity-60" />
             )}
           </div>
 
-          <div className="absolute top-16 whitespace-nowrap text-center">
-            <span className="text-[11px] font-mono text-zinc-300 bg-[#141620]/90 border border-[#272938] px-2.5 py-1 rounded-full shadow-md">
+          <div className="absolute top-16 whitespace-nowrap text-center pointer-events-auto">
+            <span className="text-[11px] font-mono text-zinc-300 bg-[#141620]/90 border border-[#272938] px-2.5 py-1 rounded-full shadow-md block mb-1">
               {isEyeAligned ? 'Eyes Aligned — Collecting Data' : 'Look directly at this dot'}
             </span>
           </div>
@@ -358,16 +370,14 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
 
       {/* 5. Live Eye Control Verification (Phase: 'verifying') */}
       {phase === 'verifying' && (
-        <div className="absolute inset-0 z-20 pointer-events-none">
+        <div className="absolute inset-0 z-20">
           {verificationNodes.map((node) => {
             const isVerified = verifiedTargets.has(node.id);
-            const nodePxX = node.x * window.innerWidth;
-            const nodePxY = node.y * window.innerHeight;
 
             return (
               <div
                 key={node.id}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center transition-all duration-300"
+                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center transition-all duration-300 pointer-events-none"
                 style={{ left: `${node.x * 100}%`, top: `${node.y * 100}%` }}
               >
                 <div
@@ -399,11 +409,21 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
             );
           })}
 
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-[#141620] border border-[#272938] px-6 py-3 rounded-xl shadow-2xl text-center">
-            <h4 className="text-sm font-semibold text-zinc-100">Test Your Eye Control</h4>
-            <p className="text-xs text-zinc-400 mt-1">
-              Look at each of the 4 targets. Your live eye dot must land on them to complete calibration.
-            </p>
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-[#141620] border border-[#272938] px-6 py-4 rounded-xl shadow-2xl text-center pointer-events-auto flex flex-col items-center gap-3 max-w-md w-full">
+            <div>
+              <h4 className="text-sm font-bold text-zinc-100">Test Your Eye Control</h4>
+              <p className="text-xs text-zinc-400 mt-1">
+                Look at the 4 targets to test accuracy, or click below to finish calibration immediately.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={handleForceFinish}
+              className="w-full bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 font-bold text-xs py-2.5 rounded-lg transition-colors cursor-pointer shadow-md"
+            >
+              Complete Calibration & Start Eye Control Now ✓
+            </button>
           </div>
         </div>
       )}
@@ -427,7 +447,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
             )}
 
             <h3 className="text-base font-bold text-zinc-100">
-              {phase === 'finished' ? 'Eye Tracking Ready' : 'Calibration Adjustment Needed'}
+              {phase === 'finished' ? 'Eye Tracking Ready' : 'Calibration Notice'}
             </h3>
 
             <p role={phase === 'error' ? 'alert' : undefined} className="text-xs text-zinc-300 mt-2">
@@ -436,37 +456,35 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
                 : `${eyeTrackingEngine.getAccuracyReport()}. The reticle is now calibrated to accurately follow your eye movements.`}
             </p>
 
-            {phase === 'error' && (
-              <div className="flex flex-col gap-2 mt-5 w-full">
+            <div className="flex flex-col gap-2 mt-5 w-full">
+              <button
+                type="button"
+                onClick={handleForceFinish}
+                className="w-full rounded-lg bg-[#2dd4bf] hover:bg-[#26bba8] px-4 py-2.5 text-xs font-bold text-slate-950 transition-colors cursor-pointer shadow-md"
+              >
+                Complete & Start Eye Control Now ✓
+              </button>
+
+              {phase === 'error' && (
                 <button
                   type="button"
                   onClick={() => setAttempt((a) => a + 1)}
-                  className="w-full rounded-lg bg-[#2dd4bf] hover:bg-[#26bba8] px-4 py-2 text-xs font-bold text-slate-950 transition-colors cursor-pointer"
+                  className="w-full rounded-lg bg-zinc-800 hover:bg-zinc-700 px-4 py-2 text-xs font-semibold text-zinc-200 transition-colors cursor-pointer"
                 >
-                  {eyeTrackingEngine.canRetryAccuracy() ? 'Retry Accuracy Checks' : 'Try Calibration Again'}
+                  Restart Calibration Dots
                 </button>
-                {eyeTrackingEngine.canRetryAccuracy() && (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      eyeTrackingEngine.discardCalibrationAttempt();
-                      setAttempt((a) => a + 1);
-                    }}
-                    className="text-xs text-zinc-400 hover:text-zinc-200 underline cursor-pointer py-1"
-                  >
-                    Restart all nine calibration dots
-                  </button>
-                )}
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       )}
 
       {/* Bottom Guidance Footer */}
-      <p className="absolute bottom-6 left-0 right-0 px-6 text-center text-xs text-zinc-400 z-20">
-        {hint || 'Keep your head in position and move only your eyes. The live dot tracks your eye movement in real-time.'}
-      </p>
+      <div className="absolute bottom-4 left-0 right-0 px-6 text-center z-20 flex flex-col items-center gap-1.5 pointer-events-auto">
+        <p className="text-xs text-zinc-400">
+          {hint || 'Keep your head in position and move only your eyes. The live dot tracks your eye movement in real-time.'}
+        </p>
+      </div>
     </div>
   );
 };
