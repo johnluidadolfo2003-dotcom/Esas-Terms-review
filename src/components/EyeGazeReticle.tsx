@@ -23,7 +23,7 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
     <>
       {/* 1. Floating Screen Gaze Reticle */}
       {trackingState.isTracking && <div
-        className="fixed pointer-events-none z-50"
+        className="fixed pointer-events-none z-[70]"
         style={{
           left: 0, top: 0,
           transform: `translate3d(${gazeX}px, ${gazeY}px, 0) translate(-50%, -50%)`,
@@ -76,7 +76,7 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
       </div>}
 
       {/* 2. Compact Bottom Status Floating Pill */}
-      <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex flex-wrap max-w-[95vw] items-center gap-2 shadow-lg text-xs font-mono select-none">
+      <div className="fixed bottom-3 right-3 z-[70] bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex flex-wrap max-w-[95vw] items-center gap-2 shadow-lg text-xs font-mono select-none">
         <span className={`w-2 h-2 rounded-full ${trackingState.isTracking ? 'bg-[#2dd4bf]' : 'bg-amber-400'}`} />
         <span role="status" className="text-zinc-300 font-medium max-w-[200px]">{trackingState.status || (trackingState.isTracking ? 'Eye Gaze Active' : 'Tracking paused')}</span>
 

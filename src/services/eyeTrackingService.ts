@@ -2,7 +2,7 @@ import {compareFilters} from './eyeTrackingReplay';
 import type {ReplayFrame} from './eyeTrackingReplay';
 import {EYE_DEFAULTS,validateSettings} from './eyeTrackingConfig';
 import type {EyeSettings} from './eyeTrackingConfig';
-import {CALIBRATION_TARGETS,VALIDATION_TARGETS,extractEyeSample,poseMatches,median,chooseModel,projectGaze,GazeSmoother,GazeDwell,collectionStats,measureRegion,detectTarget,rectCenter,inside} from './eyeTrackingMath';
+import {CALIBRATION_TARGETS,QUICK_CALIBRATION_TARGETS,VALIDATION_TARGETS,extractEyeSample,poseMatches,median,chooseModel,projectGaze,GazeSmoother,GazeDwell,collectionStats,measureRegion,detectTarget,rectCenter,inside} from './eyeTrackingMath';
 import type {EyeSample,Landmark,FrameObservation,LabeledSample,GazeModel,ModelComparison,RegionMetrics,TargetRegion,Pose,Point,EyeDetection} from './eyeTrackingMath';
 import {captureGeometry,sameGeometry,getTargetRegions,targetTolerance,pointHasTarget} from './eyeTrackingDom';
 import type {EyeGeometry} from './eyeTrackingDom';
@@ -13,7 +13,7 @@ export interface EyeTrackingState {
 export type EyeTrackingListener=(state:EyeTrackingState)=>void;
 export type CalibrationProgress={phase:'training'|'validation';index:number;total:number;id:string;label:string;target:Point;accepted:number;required:number;progress:number;message:string};
 export type GuidedRow={condition:string;expected:string;selected:string|null;result:'correct'|'incorrect'|'missed';elapsedMs:number;recordedAt:number};
-export type CalibrationReport={version:4;createdAt:number;mode:'full'|'short';passed:boolean;geometry:EyeGeometry;comparison?:ModelComparison;regions:RegionMetrics[];issues:string[];failedTrainingIds:string[];guided:GuidedRow[];baselineRegions?:RegionMetrics[]};
+export type CalibrationReport={version:4;createdAt:number;mode:'full'|'short';profile?:'quick'|'detailed';passed:boolean;geometry:EyeGeometry;comparison?:ModelComparison;regions:RegionMetrics[];issues:string[];failedTrainingIds:string[];guided:GuidedRow[];baselineRegions?:RegionMetrics[];reusedRegionIds?:string[];retainedSince?:number};
 export type EyeCalibrationData={version:4;model:GazeModel;pose:Pose;geometry:EyeGeometry;report:CalibrationReport;fullValidated:boolean;fullReport:CalibrationReport};
 type FaceMesh={setOptions(options:Record<string,unknown>):void;onResults(cb:(r:{multiFaceLandmarks?:Landmark[][]})=>void):void;send(input:{image:HTMLVideoElement}):Promise<void>;close():Promise<void>;initialize?():Promise<void>};
 declare global {interface Window {FaceMesh?:new(options:{locateFile:(file:string)=>string})=>FaceMesh}}
@@ -48,6 +48,7 @@ export class EyeTrackingEngine {
  private listeners=new Set<EyeTrackingListener>();private settings:EyeSettings=validateSettings({});
  private filter=new GazeSmoother(this.settings);private dwell=new GazeDwell(this.settings);
  private model:GazeModel|null=null;private baseline:Pose|null=null;private geometry:EyeGeometry|null=null;private verified=false;private fullValidated=false;private userPaused=true;private collectionPose:Pose|null=null;private activeLabel:{target:Point;id:string;phase:string}|null=null;
+ private trainingProfile:'quick'|'detailed'='detailed';private positionChangedAt:number|null=null;
  private training=new Map<string,LabeledSample[]>();private report:CalibrationReport|null=null;private fullReport:CalibrationReport|null=null;private comparison:ModelComparison|undefined;
  private face=false;private blink=false;private tracking=false;private status='Eye tracking is off';private gaze:Point={x:0,y:0};private hovered:TargetRegion|null=null;private progress=0;private context='';
  private onAction:((action:{type:'choice'|'next';id?:string})=>void)|null=null;
@@ -61,7 +62,8 @@ export class EyeTrackingEngine {
  public getDraftModel(){return this.model?structuredClone(this.model):null;}public getStatus(){return this.status;}public getReport(){return this.report;}
  public getAccuracyReport(){return this.report?.regions.length?`Worst checked p90 error: ${Math.ceil(Math.max(...this.report.regions.map(r=>r.p90Px)))} CSS px`:'Not measured';}
  public isCalibrated(){return this.verified&&!!this.model&&!!this.geometry&&!!this.video&&sameGeometry(this.geometry,captureGeometry(this.video,this.stream));}
- public canRetryAccuracy(){return !!this.model&&this.training.size===9;}
+ public canRetryAccuracy(){return !!this.model&&this.training.size===(this.trainingProfile==='quick'?5:9);}
+ public canRunShortCheck(){return this.fullValidated&&!!this.model;}
  public discardCalibrationAttempt(){this.training.clear();this.model=null;this.baseline=null;this.verified=false;this.fullValidated=false;this.fullReport=null;this.report=null;}
  public setActionCallback(cb:(action:{type:'choice'|'next';id?:string})=>void){this.onAction=cb;}
  public setContext(context:string){if(this.context!==context){this.context=context;this.dwell.setContext(context);this.hovered=null;this.progress=0;}}
@@ -80,7 +82,7 @@ export class EyeTrackingEngine {
    if(!Array.isArray(d.report.regions)||!d.report.regions.length||d.report.regions.some(r=>![r.p90Px,r.medianPx,r.jitterPx,r.validFraction,r.effectiveHz].every(Number.isFinite)||!r.passed))return null;
    const n=d.model.kind==='affine'?3:6;
    if([d.model.x,d.model.y].some(a=>!Array.isArray(a)||a.length!==n||a.some(v=>!Number.isFinite(v)))||![d.model.mean.x,d.model.mean.y,d.model.scale.x,d.model.scale.y].every(Number.isFinite)||d.model.scale.x<=0||d.model.scale.y<=0)return null;
-   this.model=d.model;this.baseline=d.pose;this.geometry=d.geometry;this.report=d.report;this.guidedRows=d.report.guided||[];this.fullReport=d.fullReport;this.fullValidated=true;this.verified=false;return d;
+   this.model=d.model;this.baseline=d.pose;this.geometry=d.geometry;this.report=d.report;this.guidedRows=d.report.guided||[];this.fullReport=d.fullReport;this.fullValidated=true;this.trainingProfile=d.report.profile||'detailed';this.verified=false;return d;
   }catch{return null;}
  }
  private persist(){if(!this.model||!this.baseline||!this.geometry||!this.report?.passed)return;try{localStorage.setItem(STORAGE,JSON.stringify({version:4,model:this.model,pose:this.baseline,geometry:this.geometry,report:this.report,fullValidated:this.fullValidated,fullReport:this.fullReport!} satisfies EyeCalibrationData));}catch{this.status+=' (browser storage unavailable)';}}
@@ -139,11 +141,12 @@ export class EyeTrackingEngine {
   const sample=reason?null:{...result.sample!,frameId:pending.frameId,videoTime:pending.videoTime};
   const observation:FrameObservation={...pending,sample,reason};this.observations.push(observation);this.observations=this.observations.filter(f=>now-f.timestamp<1500);this.collecting?.push(observation);this.latest=sample;if(sample)this.lastValid=pending.timestamp;
   if(this.recording){if(this.activeLabel?.id.startsWith('train-'))this.trainingTraceVersion++;this.trace.push({frame:observation,label:this.activeLabel?{...this.activeLabel}:null,raw:null,filtered:null});if(this.trace.length>6000)this.trace.shift();}
-  if(!sample){this.unavailable(reason||'Eyes unavailable');return;}
+  if(!sample){this.positionChangedAt=null;this.unavailable(reason||'Eyes unavailable');return;}
   if(this.calibrating){this.tracking=false;this.status='Valid eye frame';this.emit();return;}
   if(this.userPaused){this.tracking=false;this.status=this.verified?'Eye control paused':'Eyes ready — calibration or accuracy check required';this.emit();return;}
   if(!this.isCalibrated()){this.verified=false;this.unavailable('Geometry changed or calibration unverified — run a check');return;}
-  if(!this.baseline||!poseMatches(sample.pose,this.baseline)){this.verified=false;this.unavailable('Your position changed — run an accuracy check or recalibrate');return;}
+  if(!this.baseline||!poseMatches(sample.pose,this.baseline)){this.positionChangedAt??=now;if(now-this.positionChangedAt>1500){this.verified=false;this.unavailable('Your position changed — run a short accuracy check');}else this.unavailable('Position moved — return to your comfortable setup position');return;}
+  this.positionChangedAt=null;
   const raw=projectGaze(this.model!,sample.px,sample.py),filtered=this.filter.update(raw,pending.timestamp);
   if(this.recording)Object.assign(this.trace.at(-1) as object,{raw,filtered});
   if(!filtered){this.unavailable('Isolated tracking spike — selection paused');return;}
@@ -152,11 +155,10 @@ export class EyeTrackingEngine {
   if(document.querySelector('[data-eye-calibration]')){this.hovered=null;this.progress=0;this.dwell.reset();this.emit();return;}
   const regions=getTargetRegions(),target=detectTarget(filtered,regions,this.hovered?.id||null,this.settings.boundaryPx);
   const measuredRegions=[...(this.report?.regions||[]),...(this.report?.baselineRegions||[])];
-  const worst=measuredRegions.length?Math.max(...measuredRegions.map(r=>r.p90Px)):Infinity;
   const visible=target&&(pointHasTarget(filtered,target)||pointHasTarget({x:Math.max(target.rect.left+1,Math.min(target.rect.left+target.rect.width-1,filtered.x)),y:Math.max(target.rect.top+1,Math.min(target.rect.top+target.rect.height-1,filtered.y))},target));
   const measured=target&&measuredRegions.find(r=>r.slot===target.slot&&r.rect);
   const sameLayout=measured?.rect&&target?Math.hypot(rectCenter(measured.rect).x-rectCenter(target.rect).x,rectCenter(measured.rect).y-rectCenter(target.rect).y)<Math.max(30,Math.min(target.rect.width,target.rect.height)*.25):false;
-  const validTarget=target&&visible&&sameLayout&&worst<=targetTolerance(target,regions)?target:null;
+  const validTarget=target&&visible&&sameLayout&&measured?.passed&&measured.p90Px<=targetTolerance(target,regions)?target:null;
   if(target&&!validTarget){this.status='Target layout or precision changed — check accuracy or enlarge targets';}
   this.dwell.setContext(this.guide?`guided-${this.guide.index}`:this.context);
   const dwell=this.dwell.update(validTarget,filtered,pending.timestamp,true);this.hovered=validTarget;this.progress=dwell.progress;
@@ -165,57 +167,64 @@ export class EyeTrackingEngine {
  }
  private async collect(target:{id:string;label:string;point:Point},phase:CalibrationProgress['phase'],index:number,total:number,progress:(p:CalibrationProgress)=>void,token:number):Promise<FrameObservation[]> {
   const guard=()=>{if(token!==this.run)throw new Error('Calibration cancelled');};
-  const show=(frames:FrameObservation[],message:string)=>{const stats=collectionStats(frames,this.settings.maxSampleGapMs);progress({phase,index,total,id:target.id,label:target.label,target:target.point,accepted:stats.valid.length,required:this.settings.minSamples,progress:Math.min(1,stats.validMs/this.settings.validCollectionMs,stats.valid.length/this.settings.minSamples),message});};
+  const show=(frames:FrameObservation[],message:string)=>{const stats=collectionStats(frames,this.settings.maxSampleGapMs);progress({phase,index,total,id:target.id,label:target.label,target:target.point,accepted:stats.valid.length,required:this.settings.minSamples,progress:Math.min(1,stats.validMs/(this.trainingProfile==='quick'?Math.min(this.settings.validCollectionMs,800):this.settings.validCollectionMs),stats.valid.length/this.settings.minSamples),message});};
+  const quick=this.trainingProfile==='quick';const settleMs=quick?Math.min(this.settings.settleMs,500):this.settings.settleMs,collectionMs=quick?Math.min(this.settings.validCollectionMs,800):this.settings.validCollectionMs;
   this.collecting=null;this.pointConfirmed=false;this.activeLabel={target:target.point,id:target.id,phase:'waiting'};show([],this.confirmTargets?'Look at the dot, then tap it or press Enter/Space':'Look at the center of this dot');
   while(this.confirmTargets&&!this.pointConfirmed){await new Promise<void>(r=>setTimeout(r,30));guard();}
   this.activeLabel={target:target.point,id:target.id,phase:'settling'};
-  const delay=()=>new Promise<void>(r=>setTimeout(r,30));const settle=performance.now();while(performance.now()-settle<this.settings.settleMs){await delay();guard();}
+  const delay=()=>new Promise<void>(r=>setTimeout(r,30));const settle=performance.now();while(performance.now()-settle<settleMs){await delay();guard();}
   this.collecting=[];this.activeLabel={target:target.point,id:target.id,phase:'collecting'};const begin=performance.now();
   try{while(performance.now()-begin<this.settings.pointTimeoutMs){await delay();guard();const frames=[...this.collecting],stats=collectionStats(frames,this.settings.maxSampleGapMs);show(frames,stats.valid.length?'Keep looking at the dot center':this.status);
-    if(stats.validMs>=this.settings.validCollectionMs&&stats.valid.length>=this.settings.minSamples&&performance.now()-(stats.valid.at(-1)?.timestamp||0)<this.settings.maxFrameAgeMs)return frames;}
+    if(stats.validMs>=collectionMs&&stats.valid.length>=this.settings.minSamples&&performance.now()-(stats.valid.at(-1)?.timestamp||0)<this.settings.maxFrameAgeMs)return frames;}
    const stats=collectionStats(this.collecting,this.settings.maxSampleGapMs);throw new Error(`${target.label}: ${stats.valid.length} valid samples, ${Math.round(stats.validFraction*100)}% valid, ${stats.effectiveHz.toFixed(1)} Hz. Check eye visibility and retry this point.`);
   }finally{if(token===this.run){this.collecting=null;this.activeLabel=null;}}
  }
- public async calibrate(progress:(p:CalibrationProgress)=>void,options:{short?:boolean;confirmTargets?:boolean}={}):Promise<boolean>{
-  this.cancelCalibration();this.confirmTargets=options.confirmTargets||false;const token=this.run;this.userPaused=true;this.verified=false;
+ public async calibrate(progress:(p:CalibrationProgress)=>void,options:{short?:boolean;confirmTargets?:boolean;profile?:'quick'|'detailed'}={}):Promise<boolean>{
+  const profile=options.profile||'detailed';if(!options.short&&profile!==this.trainingProfile){this.discardCalibrationAttempt();this.trainingProfile=profile;}
+  this.positionChangedAt=null;this.cancelCalibration();this.confirmTargets=options.confirmTargets||false;const token=this.run;this.userPaused=true;this.verified=false;
   if(!await this.start()||token!==this.run)return false;
   const geometry=captureGeometry(this.video,this.stream);this.calibrating=true;this.collectionPose=this.latest?.pose||null;this.filter.reset();
-  const report:CalibrationReport={version:4,createdAt:Date.now(),mode:options.short?'short':'full',passed:false,geometry,regions:[],issues:[],failedTrainingIds:[],guided:[...this.guidedRows]};this.report=report;
+  const previousReport=this.report,previousModel=JSON.stringify(this.model);
+  const report:CalibrationReport={version:4,createdAt:Date.now(),mode:options.short?'short':'full',profile:this.trainingProfile,passed:false,geometry,regions:[],issues:[],failedTrainingIds:[],guided:[...this.guidedRows]};this.report=report;
   try{
    if(geometry.scale!==1)throw new Error('Reset page pinch zoom to 100% before calibration.');
    const setupDeadline=performance.now()+20000;while(!this.getSetup().ready){if(token!==this.run)return false;if(performance.now()>setupDeadline)throw new Error(this.status||'Eyes not ready');await new Promise(r=>setTimeout(r,40));}
-   if(options.short){if(!this.fullValidated||!this.model||!this.geometry||!sameGeometry(this.geometry,geometry))throw new Error('The restored model does not match this camera/viewport. Run all nine dots.');}
+   if(options.short){if(!this.fullValidated||!this.model||!this.geometry||!sameGeometry(this.geometry,geometry))throw new Error('The restored model does not match this camera/viewport. Start fresh setup.');}
    else{
     this.fullValidated=false;this.fullReport=null;
-    for(let i=0;i<CALIBRATION_TARGETS.length;i++){
-     const target=CALIBRATION_TARGETS[i],id=`train-${i}`;if(this.training.has(id))continue;
-     try{const frames=await this.collect({id,label:target.label,point:{x:target.x*geometry.width,y:target.y*geometry.height}},'training',i,9,progress,token);const stats=collectionStats(frames,this.settings.maxSampleGapMs);
+    const targets=this.trainingProfile==='quick'?QUICK_CALIBRATION_TARGETS:CALIBRATION_TARGETS;
+    for(let i=0;i<targets.length;i++){
+     const target=targets[i],id=`train-${i}`;if(this.training.has(id))continue;
+     try{const frames=await this.collect({id,label:target.label,point:{x:target.x*geometry.width,y:target.y*geometry.height}},'training',i,targets.length,progress,token);const stats=collectionStats(frames,this.settings.maxSampleGapMs);
       this.training.set(id,stats.valid.map(sample=>({sample,target:{x:target.x*geometry.width,y:target.y*geometry.height},targetId:id})));
      }catch(error){if(token!==this.run)return false;report.failedTrainingIds.push(id);report.issues.push(error instanceof Error?error.message:String(error));}
     }
-    if(this.training.size!==9){this.status=report.issues[0]||'Some calibration dots need another attempt';return false;}
-    const selection=chooseModel(this.training,{x:geometry.width,y:geometry.height},this.settings);if(!selection){this.training.clear();report.failedTrainingIds=CALIBRATION_TARGETS.map((_,i)=>`train-${i}`);throw new Error('Insufficient independent eye-feature variation or a numerical fit failure. Retry the nine dots with only your eyes moving.');}
+    if(this.training.size!==targets.length){this.status=report.issues[0]||'Some calibration dots need another attempt';return false;}
+    const selection=chooseModel(this.training,{x:geometry.width,y:geometry.height},this.settings);if(!selection){this.training.clear();report.failedTrainingIds=targets.map((_,i)=>`train-${i}`);throw new Error('Insufficient independent eye-feature variation or a numerical fit failure. Retry setup with your eyes following each dot.');}
     this.model=selection.model;this.comparison=selection.comparison;report.comparison=selection.comparison;
     const center=this.training.get('train-0')!;this.baseline=Object.fromEntries(Object.keys(center[0].sample.pose).map(k=>[k,median(center.map(d=>d.sample.pose[k as keyof Pose]))])) as Pose;
    }
-   const actual=getTargetRegions(true);if(!actual.length)throw new Error('Open a question with visible enabled answer choices before validating selection.');
+   const actual=getTargetRegions(true,true);if(!actual.length)throw new Error('Open a question with visible enabled answer choices before validating selection.');
    if(options.short&&actual.some(r=>!this.fullReport?.regions.some(m=>m.slot===r.slot&&m.rect&&Math.hypot(rectCenter(m.rect).x-rectCenter(r.rect).x,rectCenter(m.rect).y-rectCenter(r.rect).y)<30)))throw new Error('The answer layout changed. Run the full independent region checks.');
    const reference=Math.min(...actual.map(r=>targetTolerance(r,actual)));
-   const fixed=options.short?[VALIDATION_TARGETS[0]]:VALIDATION_TARGETS;
+   const fixed=options.short?[VALIDATION_TARGETS[0]]:this.trainingProfile==='quick'?[]:VALIDATION_TARGETS;
    const tests:{id:string;label:string;point:Point;region?:TargetRegion;tolerance:number}[]=fixed.map((t,i)=>({id:`validation-${i}`,label:t.label,point:{x:t.x*geometry.width,y:t.y*geometry.height},tolerance:reference}));
    const testedRegions=options.short?[actual[0],actual.at(-1)!]:actual;
    tests.push(...testedRegions.map(r=>({id:r.id,label:`Choice ${r.slot}`,point:rectCenter(r.rect),region:r,tolerance:targetTolerance(r,actual)})));
    // Freeze model coefficients. Fresh validation observations are NEVER fed to fitModel/chooseModel.
    const frozen=structuredClone(this.model!);const validationPoses:Pose[]=[];
    for(let i=0;i<tests.length;i++){
-    const t=tests[i];try{
+    const t=tests[i];
+    const reusable=!options.short&&previousReport&&!previousReport.passed&&Date.now()-(previousReport.retainedSince??previousReport.createdAt)<120000&&sameGeometry(previousReport.geometry,geometry)&&previousModel===JSON.stringify(frozen)&&this.baseline&&this.latest&&poseMatches(this.latest.pose,this.baseline)?previousReport.regions.find(r=>r.id===t.id&&r.passed&&r.p90Px<=t.tolerance&&JSON.stringify(r.rect)===JSON.stringify(t.region?.rect)):undefined;
+    if(reusable){report.retainedSince=previousReport!.retainedSince??previousReport!.createdAt;report.regions.push(structuredClone(reusable));(report.reusedRegionIds??=[]).push(t.id);continue;}
+    try{
      const frames=await this.collect(t,'validation',i,tests.length,progress,token),metrics=measureRegion(frozen,frames,t.point,t.region,this.settings,t.label,t.id,t.tolerance);
      validationPoses.push(...frames.flatMap(f=>f.sample?[f.sample.pose]:[]));
      if(!metrics){report.issues.push(`${t.label}: insufficient valid validation frames`);continue;}
      report.regions.push(metrics);if(!metrics.passed)report.issues.push(`${t.label}: median ${Math.round(metrics.medianPx)} px, p90 ${Math.round(metrics.p90Px)} px. ${metrics.reason}`);
     }catch(error){if(token!==this.run)return false;report.issues.push(error instanceof Error?error.message:String(error));}
    }
-   if(!sameGeometry(geometry,captureGeometry(this.video,this.stream)))throw new Error('Camera/viewport changed during calibration. Restart the nine dots.');
+   if(!sameGeometry(geometry,captureGeometry(this.video,this.stream)))throw new Error('Camera/viewport changed during calibration. Restart setup.');
    if(options.short&&validationPoses.length)this.baseline=Object.fromEntries(Object.keys(validationPoses[0]).map(k=>[k,median(validationPoses.map(p=>p[k as keyof Pose]))])) as Pose;
    report.passed=report.issues.length===0&&report.regions.length===tests.length&&report.regions.every(r=>r.passed);
    this.geometry=geometry;this.verified=report.passed;if(report.passed&&!options.short){this.fullValidated=true;this.fullReport=structuredClone(report);}if(report.passed&&options.short)report.baselineRegions=this.fullReport?.regions;this.status=report.passed?'Independent validation passed':report.issues[0]||'Validation incomplete';if(report.passed)this.persist();return report.passed;
