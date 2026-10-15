@@ -1,3 +1,4 @@
+import { GazeSelectionPanel } from './components/GazeSelectionPanel';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { User } from 'firebase/auth';
 import {
@@ -147,6 +148,8 @@ export default function App() {
     dwellProgress: 0,
     isBlinking: false,
   });
+  const [eyeCheckMode,setEyeCheckMode]=useState<'full'|'short'>('full');
+  const [isGazePanelOpen,setIsGazePanelOpen]=useState(false);
   const [isEyeCalibrationOpen, setIsEyeCalibrationOpen] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
@@ -819,12 +822,18 @@ export default function App() {
     });
   };
 
+  const handleToggleCameraGesture = useCallback(() => {
+    if (!isCameraGestureActive) {eyeTrackingEngine.stop();setIsEyeCalibrationOpen(false);}
+    setIsCameraGestureActive(!isCameraGestureActive);
+  },[isCameraGestureActive]);
+
   // Eye Tracking Controller Integration
   const handleToggleEyeTracking = useCallback(async () => {
     if (isEyeTrackingActive) {
       eyeTrackingEngine.stop();
       setIsEyeTrackingActive(false);
     } else {
+      setIsCameraGestureActive(false);
       if (!eyeTrackingEngine.isCalibrated()) {
         setIsEyeCalibrationOpen(true);
       } else {
@@ -875,6 +884,8 @@ export default function App() {
     quizQuestions.length,
   ]);
 
+  useEffect(()=>{eyeTrackingEngine.setContext(isQuizActive ? currentQuizQuestion?.id || '' : currentQuestion?.id || '');},[isQuizActive,currentQuizQuestion?.id,currentQuestion?.id]);
+
   // Metrics: session tally
   const correctCount = sessionCorrectCount;
   const incorrectCount = sessionIncorrectCount;
@@ -911,8 +922,8 @@ export default function App() {
         onFinishQuiz={handleFinishQuiz}
         onExitQuiz={handleExitQuiz}
         isCameraGestureActive={isCameraGestureActive}
-        onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
-        onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
+        onToggleCameraGesture={handleToggleCameraGesture}
+        onOpenGestureScanner={() => {eyeTrackingEngine.stop();setIsEyeCalibrationOpen(false);setIsCameraGestureActive(false);setIsGestureScannerOpen(true);}}
         isEyeTrackingActive={isEyeTrackingActive}
         onToggleEyeTracking={handleToggleEyeTracking}
         isMobileDrawerOpen={isMobileDrawerOpen}
@@ -937,7 +948,7 @@ export default function App() {
 
             <button
               type="button"
-              onClick={() => setIsCameraGestureActive(!isCameraGestureActive)}
+              onClick={handleToggleCameraGesture}
               className={`p-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center justify-center ${
                 isCameraGestureActive
                   ? 'bg-zinc-200 text-zinc-950 border-zinc-100 shadow-xs'
@@ -1305,14 +1316,19 @@ export default function App() {
 
       {/* Eye Gaze Reticle & Indicator */}
       <EyeGazeReticle
-        trackingState={eyeTrackingState}
-        onOpenCalibration={() => setIsEyeCalibrationOpen(true)}
+        trackingState={isEyeCalibrationOpen ? {...eyeTrackingState,isTracking:false} : eyeTrackingState}
+        onOpenCalibration={() => {setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}
+        onShortCheck={()=>{setEyeCheckMode('short');setIsEyeCalibrationOpen(true);}}
+        onMagnify={()=>{eyeTrackingEngine.pause();setIsGazePanelOpen(true);setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}
         onToggleActive={handleToggleEyeTracking}
       />
 
-      {/* One-time 5-Point Eye Gaze Calibration Modal */}
+      {isGazePanelOpen&&<GazeSelectionPanel question={isQuizActive?currentQuizQuestion:currentQuestion||null} selected={isQuizActive&&currentQuizQuestion?quizAnswers[currentQuizQuestion.id]||null:currentSelectedChoice} onChoice={isQuizActive?handleQuizSelectChoice:handleSelectChoice} onNext={()=>{if(isQuizActive)setQuizCurrentIndex(i=>Math.min(quizQuestions.length-1,i+1));else handleNextCard();}} hasNext={isQuizActive?quizCurrentIndex<quizQuestions.length-1:currentCardIndex<filteredQuestions.length-1} onClose={()=>{eyeTrackingEngine.pause();setIsGazePanelOpen(false);}} onCheck={()=>{setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}/>}
+      {/* Setup, independent validation and guided camera measurements */}
       <EyeGazeCalibrationModal
         isOpen={isEyeCalibrationOpen}
+        mode={eyeCheckMode}
+        onMagnify={()=>setIsGazePanelOpen(true)}
         onClose={() => setIsEyeCalibrationOpen(false)}
         onComplete={() => setIsEyeTrackingActive(true)}
       />

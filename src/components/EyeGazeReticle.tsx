@@ -1,16 +1,19 @@
 import React from 'react';
-import { EyeTrackingState } from '../services/eyeTrackingService';
+import { eyeTrackingEngine, EyeTrackingState } from '../services/eyeTrackingService';
 
 interface EyeGazeReticleProps {
   trackingState: EyeTrackingState;
   onOpenCalibration: () => void;
   onToggleActive: () => void;
+  onShortCheck?:()=>void;
+  onMagnify?:()=>void;
 }
 
 export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
   trackingState,
   onOpenCalibration,
   onToggleActive,
+  onShortCheck,onMagnify,
 }) => {
   if (!trackingState.isActive) return null;
 
@@ -73,7 +76,7 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
       </div>}
 
       {/* 2. Compact Bottom Status Floating Pill */}
-      <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex items-center gap-2 shadow-lg text-xs font-mono select-none">
+      <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex flex-wrap max-w-[95vw] items-center gap-2 shadow-lg text-xs font-mono select-none">
         <span className={`w-2 h-2 rounded-full ${trackingState.isTracking ? 'bg-[#2dd4bf]' : 'bg-amber-400'}`} />
         <span role="status" className="text-zinc-300 font-medium max-w-[200px]">{trackingState.status || (trackingState.isTracking ? 'Eye Gaze Active' : 'Tracking paused')}</span>
 
@@ -83,6 +86,9 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
           </span>
         )}
 
+        <button type="button" onClick={()=>{if(trackingState.isPaused)eyeTrackingEngine.resume();else eyeTrackingEngine.pause();}} className="underline text-[10px]">{trackingState.isPaused?'Resume':'Pause'}</button>
+        {onShortCheck&&<button type="button" onClick={onShortCheck} className="underline text-[10px]">Short check</button>}
+        {onMagnify&&<button type="button" onClick={onMagnify} className="underline text-[10px]">Larger targets</button>}
         <div className="flex items-center gap-1 ml-1 border-l border-[#272935] pl-1.5">
           <button
             type="button"
