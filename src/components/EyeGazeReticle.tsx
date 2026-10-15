@@ -4,12 +4,16 @@ import { EyeTrackingState } from '../services/eyeTrackingService';
 interface EyeGazeReticleProps {
   trackingState: EyeTrackingState;
   onOpenCalibration: () => void;
+  onShortCheck?: () => void;
+  onMagnify?: () => void;
   onToggleActive: () => void;
 }
 
 export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
   trackingState,
   onOpenCalibration,
+  onShortCheck,
+  onMagnify,
   onToggleActive,
 }) => {
   if (!trackingState.isActive || !trackingState.isTracking) return null;

@@ -93,6 +93,20 @@ class EyeTrackingEngine {
     return Boolean(this.calibration && this.calibration.center);
   }
 
+  public canRunShortCheck(): boolean {
+    return this.isCalibrated();
+  }
+
+  public setContext(_id: string): void {
+    // Context identifier for eye tracking
+  }
+
+  public pause(): void {
+    this.currentHoveredTarget = null;
+    this.dwellProgress = 0;
+    this.notify({ isTracking: false, dwellProgress: 0, hoveredChoiceId: null });
+  }
+
   public setActionCallback(cb: (action: { type: 'choice' | 'next'; id?: string }) => void): void {
     this.onActionCallback = cb;
   }

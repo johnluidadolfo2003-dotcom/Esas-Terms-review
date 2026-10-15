@@ -3,6 +3,8 @@ import { eyeTrackingEngine } from '../services/eyeTrackingService';
 
 interface EyeGazeCalibrationModalProps {
   isOpen: boolean;
+  mode?: 'full' | 'short';
+  onMagnify?: () => void;
   onClose: () => void;
   onComplete: () => void;
 }
@@ -17,6 +19,8 @@ const CALIBRATION_POSITIONS = [
 
 export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = ({
   isOpen,
+  mode = 'full',
+  onMagnify,
   onClose,
   onComplete,
 }) => {
