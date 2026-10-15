@@ -14,30 +14,41 @@ export const VALIDATION_TARGETS=[{label:'Center',x:.5,y:.5},{label:'Upper left',
 export const distance=(a:Point,b:Point)=>Math.hypot(a.x-b.x,a.y-b.y);
 export function quantile(values:number[],q:number):number {if(!values.length)return NaN;const a=[...values].sort((x,y)=>x-y);return a[Math.min(a.length-1,Math.floor(q*(a.length-1)))];}
 export const median=(values:number[])=>quantile(values,.5);
-export function extractEyeSample(landmarks: Landmark[], width: number, height: number, timestamp: number): { sample: EyeSample | null; blinking: boolean; face: boolean } {
-  if (landmarks.length < 478 || !width || !height) return { sample: null, blinking: false, face: false };
+export type EyeDetection = {landmarkCount:number;reason:string;eyeWidths?:number[];openness?:number[];points:Point[]};
+export function extractEyeSample(landmarks: Landmark[], width: number, height: number, timestamp: number): { sample: EyeSample | null; blinking: boolean; face: boolean; detection:EyeDetection } {
+  const detection:EyeDetection={landmarkCount:landmarks.length,reason:'',points:[]};
+  const reject=(reason:string,blinking=false,face=landmarks.length>=468)=>{detection.reason=reason;return {sample:null,blinking,face,detection};};
+  if (!landmarks.length) return reject('Face not detected. Face the camera and check front lighting.');
+  if (!width || !height) return reject('Camera video dimensions are not ready.');
+  if (landmarks.length < 478) return reject(`Iris landmarks missing (${landmarks.length}/478). Restart the eye model.`);
   const p = landmarks.map(l => ({ x: l.x * width, y: l.y * height }));
-  if (p.some(l=>!Number.isFinite(l.x) || !Number.isFinite(l.y))) return { sample: null, blinking: false, face: false };
+  if (p.some(l=>!Number.isFinite(l.x) || !Number.isFinite(l.y))) return reject('Eye model returned invalid landmark coordinates.');
+  detection.points=[33,159,133,145,33,468,362,386,263,374,362,473].map(i=>landmarks[i]);
   // Eye-local axes remove image translation, camera scale and head roll.
   const eye = (a: number, b: number, top: number, bottom: number, iris: number) => {
     const left = p[a].x < p[b].x ? p[a] : p[b];
     const right = p[a].x < p[b].x ? p[b] : p[a];
     const span = distance(left, right);
-    if (span < 12) return null;
+    if (span < 1) return null;
     const ux = (right.x-left.x) / span, uy = (right.y-left.y) / span;
     const dx = p[iris].x-left.x, dy = p[iris].y-left.y;
     const center = { x: (left.x+right.x)/2, y: (left.y+right.y)/2 };
     const vx = p[iris].x-center.x, vy = p[iris].y-center.y;
-    return { x: (dx*ux+dy*uy)/span, y: (-vx*uy+vy*ux)/span, openness: distance(p[top],p[bottom])/span, center };
+    return { x: (dx*ux+dy*uy)/span, y: (-vx*uy+vy*ux)/span, openness: distance(p[top],p[bottom])/span, center,span };
   };
   const l = eye(33,133,159,145,468), r = eye(362,263,386,374,473);
-  if (!l || !r) return { sample: null, blinking: false, face: true };
+  if (!l || !r) return reject('Eye corners could not be resolved. Face the camera.');
+  detection.eyeWidths=[l.span,r.span];detection.openness=[l.openness,r.openness];
+  if(Math.min(l.span,r.span)<12)return reject('Eyes are too small in the camera image. Move closer or use a sharper camera.');
   const blinking = Math.min(l.openness,r.openness) < .16;
-  if (blinking || Math.abs(l.x-r.x) > .18 || Math.abs(l.y-r.y) > .10 || [l,r].some(e=>e.x < .12 || e.x > .88 || Math.abs(e.y) > .24)) return { sample: null, blinking, face: true };
+  if(blinking)return reject('Eyelids appear closed or narrowed. Open both eyes; check reflections and camera angle.',true);
+  if(Math.abs(l.x-r.x)>.18||Math.abs(l.y-r.y)>.10)return reject('Eye measurements disagree. Face the camera and reduce reflections on glasses.');
+  if([l,r].some(e=>e.x<.12||e.x>.88||Math.abs(e.y)>.24))return reject('Iris is outside usable eye geometry. Look toward the screen and check eye visibility.');
   const span = distance(l.center,r.center);
-  if (span < 30) return { sample: null, blinking: false, face: true };
+  if (span < 30) return reject('Face is too small in the camera image. Move closer.');
   const cx = (l.center.x+r.center.x)/2, cy = (l.center.y+r.center.y)/2;
-  return { face: true, blinking: false, sample: {
+  detection.reason='Both irises detected';
+  return { face: true, blinking: false, detection, sample: {
     px: (l.x+r.x)/2, py: (l.y+r.y)/2, timestamp,
     pose: { x: cx/width, y: cy/height, yaw: (p[1].x-cx)/span, pitch: (p[1].y-cy)/span, roll: Math.atan2(r.center.y-l.center.y,r.center.x-l.center.x), scale: span/width },
   } };

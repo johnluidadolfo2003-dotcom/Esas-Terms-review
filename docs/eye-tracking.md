@@ -2,7 +2,7 @@
 
 ## Actual tracker and original faults
 
-The app uses browser `getUserMedia` with a user-facing camera (requested 640×480, up to 30 fps) and the pinned MediaPipe Face Mesh JavaScript solution `@mediapipe/face_mesh@0.4.1633559619`, loaded from jsDelivr. Face Mesh provides refined iris/face landmarks, **not calibrated screen gaze** and not a per-frame gaze-confidence score. It has no screen-calibration API; this app supplies its own mapper.
+The app uses browser `getUserMedia` with a user-facing camera (requested 640×480, up to 30 fps) and the pinned MediaPipe Face Mesh JavaScript solution `@mediapipe/face_mesh@0.4.1633559619`, installed as an exact npm dependency and served from the app’s own `/eye-model/0.4.1633559619/` path. The Vite plugin serves the same files in development and emits the script, graph, packed models and SIMD/non-SIMD WASM into the production build. No third-party CDN request is needed for eye detection. Face Mesh provides refined iris/face landmarks, **not calibrated screen gaze** and not a per-frame gaze-confidence score. It has no screen-calibration API; this app supplies its own mapper.
 
 | Stage | Current implementation |
 |---|---|
@@ -25,7 +25,7 @@ Saved metadata contains layout/visual viewport sizes, visual viewport offsets/sc
 
 ## Setup and calibration
 
-The setup screen shows the actual shared camera preview before collecting labels. It checks video readiness, recent usable eye samples, observed rate and frame freshness. It gives permission-denied, missing/busy camera, model-download/inference, missing-eye and insufficient-sample feedback. Startup failures offer a Retry camera action after permissions or connectivity are corrected. Detection/tracking thresholds are library options; readiness and sample-validity percentages are observed quality checks, not invented confidence values.
+The setup screen opens the camera and shows the actual shared preview before model download/initialization and before collecting labels. Model initialization uses the library’s documented `initialize()` API with a timeout. The rendered native source video avoids relying on detached-video playback; stalled native video-frame callbacks switch to one animation loop using distinct video times. It checks video readiness, recent usable eye samples, observed rate and frame freshness. It gives permission-denied, missing/busy camera, model-download/inference, missing-eye and insufficient-sample feedback. Startup failures offer a Retry camera action after permissions or connectivity are corrected. Restart camera is also available when a stream exists but inference fails. An eye-landmark overlay, landmark count, native eye widths, eyelid-opening ratios and measured processing time distinguish a missing face, missing iris, too-small eyes, eyelid closure, inconsistent eye measurements and slow processing. Setup diagnostics can be exported before calibration. These observed measurements are not confidence scores. Detection/tracking thresholds are library options; readiness and sample-validity percentages are observed quality checks, not invented confidence values.
 
 Keep the device steady, sit comfortably, use even front lighting, keep both eyes visible, avoid backlighting/glasses reflections, and maintain approximately the same position. Touch/keyboard buttons start calibration. Optional per-dot confirmation accepts a tap, Enter or Space and works with a helper; it never depends on an accurate predicted gaze click.
 
@@ -72,8 +72,10 @@ Opt-in local recording stores eye features, frame/rejection timestamps, explicit
 
 - `npm run lint`
 - `npm test`: regression tests for model selection/balancing, degeneracy, independent immutable validation, units/preview/DPR/geometry, distinct frames, valid-time dwell, switching/loss/staleness/release/context, large saccades, long gaps, recording/replay, persisted-model checks, lifecycle and guided outcomes with **synthetic observations**.
-- `npm run build`
+- `npm run build` (includes all pinned eye-model runtime assets)
 - `npx playwright install chromium --only-shell`, then `npm run test:browser`: a full browser flow with fake camera input and synthetic iris landmarks. It checks preview/setup, keyboard confirmation, 9-point calibration, region results, model-instance count, guided selections without changing reviewer answers, Pause/Resume, face loss, resizing and permission-denied recovery. Synthetic success is not physical accuracy.
+
+- `EYE_TEST_IMAGE=/absolute/path/to/clear-face.jpg npm run test:eye-model` after building: exercises the **real MediaPipe model**, production server and photo streamed as video with every third-party request blocked. Verifies fresh accepted samples, 478 landmarks, visible eye markers, and recovery from stalled native video-frame callbacks. Executed with MediaPipe’s public portrait test photograph (`https://storage.googleapis.com/mediapipe-assets/portrait.jpg`). Photo-stream detection passed; it does not measure physical webcam or screen-gaze accuracy.
 
 The app provides a guided measurement flow, but the user's physical camera, lighting, glasses, head movement and selection accuracy remain unmeasured until they run it. Automated tests do not establish webcam precision. Existing JSZip/large-client-bundle build warnings are separate from gaze functionality.
 
