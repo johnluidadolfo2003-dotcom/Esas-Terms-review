@@ -31,56 +31,6 @@ export type EyeTrackingListener = (state: EyeTrackingState) => void;
 const STORAGE_CALIBRATION_KEY = 'teerms_eye_calibration_v1';
 const DWELL_TIME_MS = 1100; // 1.1s comfortable dwell to prevent misfires
 
-class OneEuroFilter {
-  private minCutoff: number;
-  private beta: number;
-  private dCutoff: number;
-  private xPrev: number | null = null;
-  private dxPrev: number = 0;
-  private tPrev: number | null = null;
-
-  constructor(minCutoff: number = 0.7, beta: number = 0.006, dCutoff: number = 1.0) {
-    this.minCutoff = minCutoff;
-    this.beta = beta;
-    this.dCutoff = dCutoff;
-  }
-
-  private alpha(cutoff: number, dt: number): number {
-    const tau = 1.0 / (2 * Math.PI * cutoff);
-    return 1.0 / (1.0 + tau / dt);
-  }
-
-  public filter(x: number, t: number): number {
-    if (this.tPrev === null || this.xPrev === null) {
-      this.xPrev = x;
-      this.tPrev = t;
-      this.dxPrev = 0;
-      return x;
-    }
-
-    const dt = Math.max(0.001, (t - this.tPrev) / 1000);
-    this.tPrev = t;
-
-    const dx = (x - this.xPrev) / dt;
-    const aD = this.alpha(this.dCutoff, dt);
-    const edx = aD * dx + (1 - aD) * this.dxPrev;
-    this.dxPrev = edx;
-
-    const cutoff = this.minCutoff + this.beta * Math.abs(edx);
-    const a = this.alpha(cutoff, dt);
-
-    const xHat = a * x + (1 - a) * this.xPrev;
-    this.xPrev = xHat;
-    return xHat;
-  }
-
-  public reset(): void {
-    this.xPrev = null;
-    this.tPrev = null;
-    this.dxPrev = 0;
-  }
-}
-
 class EyeTrackingEngine {
   private video: HTMLVideoElement | null = null;
   private canvas: HTMLCanvasElement | null = null;
@@ -93,10 +43,6 @@ class EyeTrackingEngine {
   private calibration: EyeCalibrationData | null = null;
   private isCalibrating: boolean = false;
   private calibrationCallback: ((pointIndex: number, progress: number) => void) | null = null;
-
-  // Adaptive One-Euro Filters for X and Y
-  private filterX = new OneEuroFilter(0.6, 0.005);
-  private filterY = new OneEuroFilter(0.6, 0.005);
 
   // Smoothing state
   private smoothX: number = window.innerWidth / 2;
@@ -227,12 +173,9 @@ class EyeTrackingEngine {
       await this.video.play();
 
       this.canvas = document.createElement('canvas');
-      this.canvas.width = 160;
+      this.canvas.width = 160; // downscaled for 30-60fps real-time vision
       this.canvas.height = 120;
       this.ctx = this.canvas.getContext('2d', { willReadFrequently: true });
-
-      this.filterX.reset();
-      this.filterY.reset();
 
       this.startLoop();
       this.notify({ isActive: true });
@@ -287,9 +230,11 @@ class EyeTrackingEngine {
   private analyzeFrame(imgData: ImageData): void {
     const { width, height, data } = imgData;
 
+    // Region of interest: upper 30% to 55% of video frame (where eyes naturally rest)
     const eyeTop = Math.floor(height * 0.28);
     const eyeBottom = Math.floor(height * 0.54);
 
+    // Left and right eye search boxes
     const leftBox = { xMin: Math.floor(width * 0.22), xMax: Math.floor(width * 0.46) };
     const rightBox = { xMin: Math.floor(width * 0.54), xMax: Math.floor(width * 0.78) };
 
@@ -300,11 +245,13 @@ class EyeTrackingEngine {
       return;
     }
 
+    // Average relative pupil coordinates normalized
     const normX = ((leftPupil.normX + rightPupil.normX) / 2);
     const normY = ((leftPupil.normY + rightPupil.normY) / 2);
 
+    // Blink detection: check if average eye darkness suddenly flattens or luminance rises
     const eyeOpenness = (leftPupil.contrast + rightPupil.contrast) / 2;
-    const isBlinkingNow = eyeOpenness < 22;
+    const isBlinkingNow = eyeOpenness < 22; // low contrast indicates closed eyelid
 
     const now = performance.now();
     if (isBlinkingNow && !this.isBlinkActive) {
@@ -313,6 +260,7 @@ class EyeTrackingEngine {
     } else if (!isBlinkingNow && this.isBlinkActive) {
       const blinkDuration = now - this.blinkStartTime;
       this.isBlinkActive = false;
+      // Deliberate blink trigger (300ms to 750ms)
       if (blinkDuration >= 280 && blinkDuration <= 750 && this.currentHoveredTarget) {
         this.triggerTarget(this.currentHoveredTarget);
       }
@@ -322,8 +270,10 @@ class EyeTrackingEngine {
       return;
     }
 
-    this.mapPupilToScreen(normX, normY, now);
+    // Map pupil position to screen gaze coordinates using calibration
+    this.mapPupilToScreen(normX, normY);
 
+    // Perform dwell hit testing on screen choices
     this.updateDwellState(now);
 
     this.notify({
@@ -353,6 +303,7 @@ class EyeTrackingEngine {
     let sumY = 0;
     let count = 0;
 
+    // First pass: find luminance range
     for (let y = yMin; y < yMax; y++) {
       for (let x = xMin; x < xMax; x++) {
         const idx = (y * width + x) * 4;
@@ -365,6 +316,7 @@ class EyeTrackingEngine {
     const contrast = maxLuma - minLuma;
     const threshold = minLuma + contrast * 0.25;
 
+    // Second pass: centroid of darkest 25% pixels
     for (let y = yMin; y < yMax; y++) {
       for (let x = xMin; x < xMax; x++) {
         const idx = (y * width + x) * 4;
@@ -392,52 +344,32 @@ class EyeTrackingEngine {
   }
 
   /**
-   * Convert normalized pupil offset to screen pixel position with One-Euro Filter & Magnetic Snapping
+   * Convert normalized pupil offset to screen pixel position
    */
-  private mapPupilToScreen(normX: number, normY: number, now: number): void {
+  private mapPupilToScreen(normX: number, normY: number): void {
     const winW = window.innerWidth;
     const winH = window.innerHeight;
 
+    // Use calibration baseline if present, otherwise default to symmetrical range
     const center = this.calibration?.center || { px: 0.5, py: 0.5 };
     const dx = (normX - center.px);
     const dy = (normY - center.py);
 
+    // Note: webcam is mirrored, so looking right moves pupil in opposite direction
     const sensitivityX = 4.2;
     const sensitivityY = 4.0;
 
     const targetX = winW * 0.5 - dx * winW * sensitivityX;
     const targetY = winH * 0.5 + dy * winH * sensitivityY;
 
+    // Clamp within viewport
     this.rawGazeX = Math.max(30, Math.min(winW - 30, targetX));
     this.rawGazeY = Math.max(30, Math.min(winH - 30, targetY));
 
-    // Apply One-Euro Adaptive Filter (smooths static jitter, zero lag on fast eye moves)
-    let fx = this.filterX.filter(this.rawGazeX, now);
-    let fy = this.filterY.filter(this.rawGazeY, now);
-
-    // Magnetic target snap toward nearby choice buttons
-    const nearbyTarget = this.findNearbyTargetCenter(fx, fy, 55);
-    if (nearbyTarget) {
-      fx = fx + 0.38 * (nearbyTarget.x - fx);
-      fy = fy + 0.38 * (nearbyTarget.y - fy);
-    }
-
-    this.smoothX = fx;
-    this.smoothY = fy;
-  }
-
-  private findNearbyTargetCenter(gx: number, gy: number, radius: number): { x: number; y: number } | null {
-    const targets = document.querySelectorAll<HTMLElement>('[data-choice-id], [data-action="next-card"]');
-    for (const el of targets) {
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dist = Math.hypot(gx - cx, gy - cy);
-      if (dist <= radius) {
-        return { x: cx, y: cy };
-      }
-    }
-    return null;
+    // Smooth moving average
+    const alpha = 0.24;
+    this.smoothX = this.smoothX + alpha * (this.rawGazeX - this.smoothX);
+    this.smoothY = this.smoothY + alpha * (this.rawGazeY - this.smoothY);
   }
 
   /**
