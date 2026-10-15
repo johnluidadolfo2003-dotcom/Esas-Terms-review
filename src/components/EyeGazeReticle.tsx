@@ -12,18 +12,19 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
   onOpenCalibration,
   onToggleActive,
 }) => {
-  if (!trackingState.isActive || !trackingState.isTracking) return null;
+  if (!trackingState.isActive) return null;
 
   const { gazeX, gazeY, hoveredChoiceId, dwellProgress, isBlinking } = trackingState;
 
   return (
     <>
       {/* 1. Floating Screen Gaze Reticle */}
-      <div
-        className="fixed pointer-events-none z-50 -translate-x-1/2 -translate-y-1/2 transition-transform duration-75 ease-out"
+      {trackingState.isTracking && <div
+        className="fixed pointer-events-none z-50"
         style={{
-          left: `${gazeX}px`,
-          top: `${gazeY}px`,
+          left: 0, top: 0,
+          transform: `translate3d(${gazeX}px, ${gazeY}px, 0) translate(-50%, -50%)`,
+          willChange: 'transform',
         }}
       >
         {/* Reticle Target Ring */}
@@ -31,18 +32,14 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
           <div
             className={`w-7 h-7 rounded-full border transition-all duration-150 flex items-center justify-center ${
               hoveredChoiceId
-                ? 'border-[#2dd4bf] bg-[#2dd4bf]/20 scale-125 shadow-[0_0_16px_#2dd4bf]'
+                ? 'border-[#2dd4bf] bg-[#2dd4bf]/20 shadow-[0_0_16px_#2dd4bf]'
                 : isBlinking
                 ? 'border-rose-400 bg-rose-500/20 scale-90'
                 : 'border-[#2dd4bf]/60 bg-[#2dd4bf]/10 shadow-[0_0_8px_#2dd4bf/30]'
             }`}
           >
             {/* Center pinpoint */}
-            <div
-              className={`w-1.5 h-1.5 rounded-full transition-transform ${
-                hoveredChoiceId ? 'bg-[#2dd4bf] scale-150' : 'bg-[#2dd4bf]'
-              }`}
-            />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#2dd4bf]" />
           </div>
 
           {/* Dwell Progress Ring around reticle */}
@@ -73,12 +70,12 @@ export const EyeGazeReticle: React.FC<EyeGazeReticleProps> = ({
             </svg>
           )}
         </div>
-      </div>
+      </div>}
 
       {/* 2. Compact Bottom Status Floating Pill */}
       <div className="fixed bottom-3 right-3 z-40 bg-[#14161d]/90 border border-[#272935] backdrop-blur-md px-2.5 py-1.5 rounded-lg flex items-center gap-2 shadow-lg text-xs font-mono select-none">
-        <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse" />
-        <span className="text-zinc-300 font-medium">Eye Gaze Active</span>
+        <span className={`w-2 h-2 rounded-full ${trackingState.isTracking ? 'bg-[#2dd4bf]' : 'bg-amber-400'}`} />
+        <span role="status" className="text-zinc-300 font-medium max-w-[200px]">{trackingState.status || (trackingState.isTracking ? 'Eye Gaze Active' : 'Tracking paused')}</span>
 
         {hoveredChoiceId && (
           <span className="px-1.5 py-0.2 rounded bg-[#2dd4bf]/20 text-[#2dd4bf] font-bold border border-[#2dd4bf]/50">

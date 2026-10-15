@@ -831,6 +831,7 @@ export default function App() {
         const started = await eyeTrackingEngine.start();
         if (started) {
           setIsEyeTrackingActive(true);
+          if (!eyeTrackingEngine.isCalibrated()) setIsEyeCalibrationOpen(true);
         } else {
           setIsEyeCalibrationOpen(true);
         }
