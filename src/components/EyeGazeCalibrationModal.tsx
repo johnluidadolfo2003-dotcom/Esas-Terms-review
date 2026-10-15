@@ -16,7 +16,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
   const [step, setStep] = useState(0);
   const [progress, setProgress] = useState(0);
   const [attempt, setAttempt] = useState(0);
-  const [phase, setPhase] = useState<'loading' | 'collecting' | 'verifying' | 'finished' | 'error'>('loading');
+  const [phase, setPhase] = useState<'setup' | 'loading' | 'collecting' | 'verifying' | 'finished' | 'error'>('setup');
   const [error, setError] = useState('');
   const [hint, setHint] = useState('');
   const [trackingState, setTrackingState] = useState<EyeTrackingState>({
@@ -73,9 +73,8 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
     return () => clearInterval(timer);
   }, [isOpen, phase, attempt]);
 
-  // Calibration flow executor
-  useEffect(() => {
-    if (!isOpen) return;
+  // Calibration flow executor - starts when user clicks "Start 9-Point Calibration"
+  const startCalibrationLoop = () => {
     let cancelled = false;
     let finished = false;
     let timer: ReturnType<typeof setTimeout> | undefined;
@@ -100,7 +99,6 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       .then((success) => {
         if (cancelled) return;
         if (!success) {
-          // If automatic validation check is strict, still allow user to finish directly
           setError(eyeTrackingEngine.getStatus());
           setPhase('verifying');
           return;
@@ -114,13 +112,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
           setPhase('verifying');
         }
       });
-
-    return () => {
-      cancelled = true;
-      clearTimeout(timer);
-      if (!finished) eyeTrackingEngine.cancelCalibration();
-    };
-  }, [isOpen, attempt]);
+  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -128,6 +120,13 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       if (!completed.current) eyeTrackingEngine.stop();
     };
   }, [isOpen]);
+
+  // Start engine for setup camera preview on open
+  useEffect(() => {
+    if (isOpen && phase === 'setup') {
+      void eyeTrackingEngine.start();
+    }
+  }, [isOpen, phase]);
 
   // Live Eye-Follow Lock Verification during Phase 'verifying'
   const verificationNodes = [
@@ -177,7 +176,6 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
   const targetPxX = typeof window !== 'undefined' ? target.x * window.innerWidth : 500;
   const targetPxY = typeof window !== 'undefined' ? target.y * window.innerHeight : 400;
 
-  // Distance between live gaze and target dot
   const liveDistance = Math.hypot(trackingState.gazeX - targetPxX, trackingState.gazeY - targetPxY);
   const isEyeAligned = liveDistance < 120;
 
@@ -187,103 +185,162 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       aria-modal="true"
       aria-label="Eye gaze camera calibration"
       data-eye-calibration
-      className="fixed inset-0 z-[60] bg-[#0b0d13]/95 backdrop-blur-md select-none overflow-hidden"
+      className="fixed inset-0 z-[60] bg-[#0b0d13]/95 backdrop-blur-md select-none overflow-hidden flex flex-col items-center justify-center"
     >
-      {/* 1. Top Header Controls Bar */}
-      <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-[#14161f] border border-[#262836] px-4 py-2 rounded-full shadow-xl max-w-[90vw]">
-        <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse shrink-0" />
-        <span role="status" className="text-xs font-mono text-zinc-200">
-          {phase === 'loading'
-            ? 'Starting camera & eye tracker…'
-            : phase === 'finished'
-            ? 'Calibration complete & verified!'
-            : phase === 'error'
-            ? 'Calibration needs another try'
-            : phase === 'verifying'
-            ? `Eye Control Test: Look at targets (${verifiedTargets.size}/${verificationNodes.length})`
-            : validating
-            ? `Testing Accuracy (${step - CALIBRATION_TARGETS.length + 1}/${VALIDATION_TARGETS.length})`
-            : `Follow Dot with Eyes (${step + 1}/${CALIBRATION_TARGETS.length})`}
-        </span>
-
-        {/* Action Button: Finish & Activate Eye Control Immediately */}
-        <button
-          type="button"
-          onClick={handleForceFinish}
-          className="text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 px-3 py-1 rounded-full transition-colors cursor-pointer shadow-sm shrink-0"
-        >
-          Finish & Activate Eye Control ✓
-        </button>
-
-        <button
-          type="button"
-          onClick={() => {
-            eyeTrackingEngine.stop();
-            callbacks.current.onClose();
-          }}
-          className="text-xs text-zinc-400 hover:text-white px-2.5 py-1 rounded-full bg-zinc-800/80 hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
-        >
-          Cancel
-        </button>
-      </div>
-
-      {/* 2. Live Camera Viewport Widget (Top-Right Docked Monitor) */}
-      <div className="absolute top-4 right-4 z-20 w-44 sm:w-56 bg-[#141620] border border-[#272938] rounded-xl shadow-2xl overflow-hidden flex flex-col">
-        <div className="relative aspect-[4/3] bg-black">
-          <video
-            ref={videoRef}
-            autoPlay
-            playsInline
-            muted
-            className="w-full h-full object-cover transform -scale-x-100"
-          />
-
-          {/* Live Face Frame Overlay */}
-          <div
-            className={`absolute inset-3 border-2 rounded-lg transition-colors duration-200 pointer-events-none flex items-center justify-center ${
-              trackingState.isBlinking
-                ? 'border-amber-400/80 bg-amber-400/10'
-                : trackingState.faceDetected
-                ? 'border-[#2dd4bf]/70 bg-[#2dd4bf]/5'
-                : 'border-rose-500/80 bg-rose-500/10'
-            }`}
-          >
-            {/* Corner Crosshairs */}
-            <div className="absolute top-1 left-1 w-2 h-2 border-t-2 border-l-2 border-[#2dd4bf]" />
-            <div className="absolute top-1 right-1 w-2 h-2 border-t-2 border-r-2 border-[#2dd4bf]" />
-            <div className="absolute bottom-1 left-1 w-2 h-2 border-b-2 border-l-2 border-[#2dd4bf]" />
-            <div className="absolute bottom-1 right-1 w-2 h-2 border-b-2 border-r-2 border-[#2dd4bf]" />
+      {/* 1. Setup Phase: Camera & Environment Guidance Screen */}
+      {phase === 'setup' && (
+        <div className="bg-[#141620] border border-[#272938] rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl z-20 flex flex-col items-center text-center">
+          <div className="w-10 h-10 rounded-full bg-[#2dd4bf]/20 border border-[#2dd4bf] flex items-center justify-center text-[#2dd4bf] mb-4">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+            </svg>
           </div>
 
-          {/* Camera Status Label */}
-          <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between text-[10px] font-mono bg-[#0e1017]/80 backdrop-blur-xs px-2 py-0.5 rounded border border-[#272938]">
-            <span className="flex items-center gap-1.5">
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${
-                  trackingState.faceDetected ? 'bg-[#2dd4bf]' : 'bg-rose-500'
-                }`}
-              />
-              <span className="text-zinc-200">
-                {trackingState.isBlinking
-                  ? 'Blink'
-                  : trackingState.faceDetected
-                  ? 'Eyes Detected'
-                  : 'No Face'}
+          <h3 className="text-lg font-bold text-zinc-100">Eye Tracking Setup Check</h3>
+          <p className="text-xs text-zinc-400 mt-1">
+            Ensure clear eye visibility before calibrating for hands-free quiz control.
+          </p>
+
+          {/* Live Camera Preview Box */}
+          <div className="relative aspect-[4/3] w-64 bg-black rounded-xl overflow-hidden border border-[#272938] my-4 shadow-inner">
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              className="w-full h-full object-cover transform -scale-x-100"
+            />
+            <div
+              className={`absolute inset-3 border-2 rounded-lg pointer-events-none transition-colors ${
+                trackingState.faceDetected ? 'border-[#2dd4bf] bg-[#2dd4bf]/5' : 'border-amber-400 bg-amber-400/10'
+              }`}
+            />
+            <div className="absolute bottom-2 left-2 right-2 bg-[#0b0d13]/80 backdrop-blur-xs px-2.5 py-1 rounded text-[11px] font-mono text-zinc-200 flex items-center justify-between border border-[#272938]">
+              <span className="flex items-center gap-1.5">
+                <span className={`w-2 h-2 rounded-full ${trackingState.faceDetected ? 'bg-[#2dd4bf]' : 'bg-amber-400 animate-pulse'}`} />
+                <span>{trackingState.faceDetected ? 'Face Centered' : 'Detecting Eyes…'}</span>
               </span>
-            </span>
-            <span className="text-zinc-400">Live</span>
+              <span className="text-[#2dd4bf]">30 FPS</span>
+            </div>
+          </div>
+
+          {/* Setup Guidelines Checklist */}
+          <div className="text-left w-full bg-[#1a1d2b] border border-[#272938] rounded-xl p-3 text-xs text-zinc-300 space-y-1.5 font-mono mb-5">
+            <div className="flex items-center gap-2">
+              <span className="text-[#2dd4bf]">✓</span>
+              <span>Sit 50–70cm away facing camera directly</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#2dd4bf]">✓</span>
+              <span>Ensure front lighting (avoid glare on glasses)</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-[#2dd4bf]">✓</span>
+              <span>Keep head steady and follow dots with eyes only</span>
+            </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col gap-2 w-full">
+            <button
+              type="button"
+              onClick={startCalibrationLoop}
+              className="w-full bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 font-bold text-xs py-2.5 rounded-lg transition-colors cursor-pointer shadow-md"
+            >
+              Start 9-Point Calibration →
+            </button>
+            <button
+              type="button"
+              onClick={handleForceFinish}
+              className="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium text-xs py-2 rounded-lg transition-colors cursor-pointer"
+            >
+              Skip Setup & Activate Eye Control Directly
+            </button>
           </div>
         </div>
+      )}
 
-        <div className="px-3 py-1.5 bg-[#181a26] text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-[#272938]">
-          <span>Camera Monitor</span>
-          <span className="text-[#2dd4bf] font-medium">
-            {isEyeAligned && phase === 'collecting' ? 'Gaze Aligned' : 'Tracking'}
+      {/* Top Header Controls Bar (Active during calibration & verification) */}
+      {phase !== 'setup' && (
+        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-[#14161f] border border-[#262836] px-4 py-2 rounded-full shadow-xl max-w-[90vw]">
+          <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse shrink-0" />
+          <span role="status" className="text-xs font-mono text-zinc-200">
+            {phase === 'loading'
+              ? 'Starting camera & eye tracker…'
+              : phase === 'finished'
+              ? 'Calibration complete & verified!'
+              : phase === 'error'
+              ? 'Calibration needs another try'
+              : phase === 'verifying'
+              ? `Eye Control Test: Look at targets (${verifiedTargets.size}/${verificationNodes.length})`
+              : validating
+              ? `Testing Accuracy (${step - CALIBRATION_TARGETS.length + 1}/${VALIDATION_TARGETS.length})`
+              : `Follow Dot with Eyes (${step + 1}/${CALIBRATION_TARGETS.length})`}
           </span>
-        </div>
-      </div>
 
-      {/* 3. Real-Time Live Eye Gaze Reticle Dot (Follows User's Eyes across Screen) */}
+          <button
+            type="button"
+            onClick={handleForceFinish}
+            className="text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 px-3 py-1 rounded-full transition-colors cursor-pointer shadow-sm shrink-0"
+          >
+            Finish & Activate Eye Control ✓
+          </button>
+
+          <button
+            type="button"
+            onClick={() => {
+              eyeTrackingEngine.stop();
+              callbacks.current.onClose();
+            }}
+            className="text-xs text-zinc-400 hover:text-white px-2.5 py-1 rounded-full bg-zinc-800/80 hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
+          >
+            Cancel
+          </button>
+        </div>
+      )}
+
+      {/* Docked Camera Preview Widget (Active during calibration & verification) */}
+      {phase !== 'setup' && (
+        <div className="absolute top-4 right-4 z-20 w-44 sm:w-56 bg-[#141620] border border-[#272938] rounded-xl shadow-2xl overflow-hidden flex flex-col">
+          <div className="relative aspect-[4/3] bg-black">
+            <video
+              ref={videoRef}
+              autoPlay
+              playsInline
+              muted
+              className="w-full h-full object-cover transform -scale-x-100"
+            />
+            <div
+              className={`absolute inset-3 border-2 rounded-lg transition-colors duration-200 pointer-events-none flex items-center justify-center ${
+                trackingState.isBlinking
+                  ? 'border-amber-400/80 bg-amber-400/10'
+                  : trackingState.faceDetected
+                  ? 'border-[#2dd4bf]/70 bg-[#2dd4bf]/5'
+                  : 'border-rose-500/80 bg-rose-500/10'
+              }`}
+            />
+            <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between text-[10px] font-mono bg-[#0e1017]/80 backdrop-blur-xs px-2 py-0.5 rounded border border-[#272938]">
+              <span className="flex items-center gap-1.5">
+                <span className={`w-1.5 h-1.5 rounded-full ${trackingState.faceDetected ? 'bg-[#2dd4bf]' : 'bg-rose-500'}`} />
+                <span className="text-zinc-200">
+                  {trackingState.isBlinking ? 'Blink' : trackingState.faceDetected ? 'Eyes Detected' : 'No Face'}
+                </span>
+              </span>
+              <span className="text-zinc-400">Live</span>
+            </div>
+          </div>
+
+          <div className="px-3 py-1.5 bg-[#181a26] text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-[#272938]">
+            <span>Camera Monitor</span>
+            <span className="text-[#2dd4bf] font-medium">
+              {isEyeAligned && phase === 'collecting' ? 'Gaze Aligned' : 'Tracking'}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Real-Time Live Eye Gaze Reticle Dot */}
       {(phase === 'collecting' || phase === 'verifying') && trackingState.isTracking && (
         <div
           className="fixed pointer-events-none z-50 transition-transform duration-75 ease-out"
@@ -295,11 +352,9 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
         >
           <div className="relative flex items-center justify-center">
             <div className="w-8 h-8 rounded-full border border-[#2dd4bf] bg-[#2dd4bf]/20 shadow-[0_0_12px_#2dd4bf] animate-ping opacity-40" />
-
             <div className="absolute w-5 h-5 rounded-full border-2 border-white bg-[#2dd4bf] shadow-[0_0_16px_#2dd4bf] flex items-center justify-center">
               <div className="w-1.5 h-1.5 rounded-full bg-slate-950" />
             </div>
-
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#141620] border border-[#272938] px-2 py-0.5 rounded text-[9px] font-mono text-[#2dd4bf] font-semibold shadow-md">
               Your Eyes
             </div>
@@ -307,7 +362,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
         </div>
       )}
 
-      {/* 4. Target Dot & Convergence Ring (Phase: 'collecting') */}
+      {/* Target Dot & Convergence Ring */}
       {phase === 'collecting' && (
         <div
           className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center"
@@ -349,9 +404,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
 
             <div
               className={`absolute w-5 h-5 rounded-full transition-all duration-200 ${
-                isEyeAligned
-                  ? 'bg-[#2dd4bf] scale-125 shadow-[0_0_24px_#2dd4bf]'
-                  : 'bg-zinc-400 scale-100'
+                isEyeAligned ? 'bg-[#2dd4bf] scale-125 shadow-[0_0_24px_#2dd4bf]' : 'bg-zinc-400 scale-100'
               }`}
             />
 
@@ -368,7 +421,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
         </div>
       )}
 
-      {/* 5. Live Eye Control Verification (Phase: 'verifying') */}
+      {/* Live Eye Control Verification */}
       {phase === 'verifying' && (
         <div className="absolute inset-0 z-20">
           {verificationNodes.map((node) => {
@@ -428,7 +481,7 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
         </div>
       )}
 
-      {/* 6. Error State or Finished Summary */}
+      {/* Error or Completion Summary Modal */}
       {(phase === 'error' || phase === 'finished') && (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center pointer-events-none z-30">
           <div className="bg-[#141620] border border-[#272938] p-6 rounded-2xl shadow-2xl max-w-md w-full pointer-events-auto flex flex-col items-center">
@@ -480,11 +533,13 @@ export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = (
       )}
 
       {/* Bottom Guidance Footer */}
-      <div className="absolute bottom-4 left-0 right-0 px-6 text-center z-20 flex flex-col items-center gap-1.5 pointer-events-auto">
-        <p className="text-xs text-zinc-400">
-          {hint || 'Keep your head in position and move only your eyes. The live dot tracks your eye movement in real-time.'}
-        </p>
-      </div>
+      {phase !== 'setup' && (
+        <div className="absolute bottom-4 left-0 right-0 px-6 text-center z-20 flex flex-col items-center gap-1.5 pointer-events-auto">
+          <p className="text-xs text-zinc-400">
+            {hint || 'Keep your head in position and move only your eyes. The live dot tracks your eye movement in real-time.'}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
