@@ -171,15 +171,21 @@ export function collectionStats(frames:FrameObservation[],maxGapMs:number){
  const duration=unique.length>1?unique.at(-1)!.timestamp-unique[0].timestamp:0;
  return {valid:valid.map(f=>f.sample!),validMs,validFraction:unique.length?valid.length/unique.length:0,effectiveHz:duration>0?Math.max(0,valid.length-1)*1000/duration:0,total:unique.length};
 }
-export type RegionMetrics={id:string;slot?:string;label:string;target:Point;rect?:Rect;medianPx:number;p90Px:number;biasX:number;biasY:number;jitterPx:number;validFraction:number;effectiveHz:number;rawMedianPx:number;rawP90Px:number;passed:boolean;reason:string};
+export type RegionMetrics={id:string;slot?:string;label:string;target:Point;rect?:Rect;medianPx:number;p90Px:number;biasX:number;biasY:number;jitterPx:number;validFraction:number;effectiveHz:number;rawMedianPx:number;rawP90Px:number;passed:boolean;reason:string;inputSamples?:number;usableSamples?:number;eligibleSamples?:number;usableFraction?:number;usableHz?:number;tolerancePx?:number};
 export function measureRegion(model:GazeModel,frames:FrameObservation[],target:Point,region:TargetRegion|undefined,settings:EyeSettings,label:string,id:string,tolerancePx=40):RegionMetrics|null {
  const stats=collectionStats(frames,settings.maxSampleGapMs);if(stats.valid.length<settings.minSamples)return null;
- const filter=new GazeSmoother(settings),raw:Point[]=[],out:Point[]=[];
- for(const f of frames){if(!f.sample)continue;const p=projectGaze(model,f.sample.px,f.sample.py);if(![p.x,p.y].every(Number.isFinite))continue;raw.push(p);const value=filter.update(p,f.timestamp);if(value&&f.timestamp-frames[0].timestamp>=250)out.push(value);}
- if(out.length<5)return null;
+ const filter=new GazeSmoother(settings),raw:Point[]=[],out:Point[]=[],eligibleTimes:number[]=[];
+ for(const f of frames){if(!f.sample)continue;const p=projectGaze(model,f.sample.px,f.sample.py);if(![p.x,p.y].every(Number.isFinite))continue;raw.push(p);const value=filter.update(p,f.timestamp);if(f.timestamp-frames[0].timestamp>=250){eligibleTimes.push(f.timestamp);if(value)out.push(value);}}
+ // Keep raw evidence even if the mapping jumps so much that filtering rejects it.
+ // A received eye sample and a usable screen-gaze estimate are different checks.
+ const usableFraction=eligibleTimes.length?out.length/eligibleTimes.length:0;
+ const duration=eligibleTimes.length>1?eligibleTimes.at(-1)!-eligibleTimes[0]:0;
+ const usableHz=duration>0?Math.max(0,out.length-1)*1000/duration:0;
  const center={x:median(out.map(p=>p.x)),y:median(out.map(p=>p.y))},error=out.map(p=>distance(p,target));
  const medianPx=median(error),p90Px=quantile(error,.9),jitterPx=quantile(out.map(p=>distance(p,center)),.9);
  const radius=tolerancePx;
- const passed=p90Px<=radius&&jitterPx<=radius*.6&&stats.validFraction>=settings.minValidFraction&&stats.effectiveHz>=settings.minEffectiveHz;
- return {id,slot:region?.slot,label,target,rect:region?.rect,medianPx,p90Px,biasX:center.x-target.x,biasY:center.y-target.y,jitterPx,validFraction:stats.validFraction,effectiveHz:stats.effectiveHz,rawMedianPx:median(raw.map(p=>distance(p,target))),rawP90Px:quantile(raw.map(p=>distance(p,target)),.9),passed,reason:passed?'Checked':stats.validFraction<settings.minValidFraction?'Too many missing eye samples':stats.effectiveHz<settings.minEffectiveHz?'Camera/model frame rate is too low':region?'Neighboring choices need larger, separated targets':'Repeat this location while looking at the dot center'};
+ const stable=out.length>=5&&usableFraction>=settings.minValidFraction;
+ const passed=stable&&p90Px<=radius&&jitterPx<=radius*.6&&stats.validFraction>=settings.minValidFraction&&stats.effectiveHz>=settings.minEffectiveHz&&usableHz>=settings.minEffectiveHz;
+ const reason=passed?'Checked':stats.validFraction<settings.minValidFraction?'Too many missing eye samples':!stable?`${stats.valid.length} eye samples received, but only ${out.length}/${eligibleTimes.length} usable gaze estimates after warm-up. Calibrated gaze is unstable; export measurements.`:stats.effectiveHz<settings.minEffectiveHz||usableHz<settings.minEffectiveHz?'Usable screen-gaze rate is too low':p90Px>radius?`Screen-gaze p90 ${Math.round(p90Px)} px exceeds this target's ${Math.round(radius)} px tolerance. Enlarge targets or inspect calibration measurements.`:'Fixation spread is too large for this target.';
+ return {id,slot:region?.slot,label,target,rect:region?.rect,medianPx,p90Px,biasX:center.x-target.x,biasY:center.y-target.y,jitterPx,validFraction:stats.validFraction,effectiveHz:stats.effectiveHz,rawMedianPx:median(raw.map(p=>distance(p,target))),rawP90Px:quantile(raw.map(p=>distance(p,target)),.9),passed,reason,inputSamples:stats.valid.length,usableSamples:out.length,eligibleSamples:eligibleTimes.length,usableFraction,usableHz,tolerancePx};
 }
