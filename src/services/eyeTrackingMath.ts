@@ -5,10 +5,21 @@ export type Pose = { x: number; y: number; yaw: number; pitch: number; roll: num
 export type EyeSample = { px: number; py: number; pose: Pose; timestamp: number };
 export const CALIBRATION_TARGETS = [
   { label: 'Center', x: .5, y: .5 },
-  { label: 'Top left', x: .18, y: .22 },
-  { label: 'Top right', x: .82, y: .22 },
-  { label: 'Bottom left', x: .18, y: .78 },
-  { label: 'Bottom right', x: .82, y: .78 },
+  { label: 'Top left', x: .12, y: .16 },
+  { label: 'Top center', x: .5, y: .16 },
+  { label: 'Top right', x: .88, y: .16 },
+  { label: 'Middle left', x: .12, y: .5 },
+  { label: 'Middle right', x: .88, y: .5 },
+  { label: 'Bottom left', x: .12, y: .84 },
+  { label: 'Bottom center', x: .5, y: .84 },
+  { label: 'Bottom right', x: .88, y: .84 },
+] as const;
+// These locations are not used for fitting. Center-only validation misses edge/interior offsets.
+export const VALIDATION_TARGETS = [
+  { label: 'Check upper left', x: .31, y: .33 },
+  { label: 'Check upper right', x: .69, y: .33 },
+  { label: 'Check lower left', x: .31, y: .67 },
+  { label: 'Check lower right', x: .69, y: .67 },
 ] as const;
 export const median = (values: number[]) => {
   const sorted = [...values].sort((a,b) => a-b);
@@ -45,7 +56,7 @@ export function extractEyeSample(landmarks: Landmark[], width: number, height: n
   } };
 }
 export function poseMatches(p: Pose, baseline: Pose): boolean {
-  return Math.abs(p.x-baseline.x) < .10 && Math.abs(p.y-baseline.y) < .10 && Math.abs(p.yaw-baseline.yaw) < .10 && Math.abs(p.pitch-baseline.pitch) < .12 && Math.abs(p.roll-baseline.roll) < .18 && Math.abs(p.scale / baseline.scale - 1) < .22;
+  return Math.abs(p.x-baseline.x) < .05 && Math.abs(p.y-baseline.y) < .05 && Math.abs(p.yaw-baseline.yaw) < .055 && Math.abs(p.pitch-baseline.pitch) < .07 && Math.abs(p.roll-baseline.roll) < .12 && Math.abs(p.scale / baseline.scale - 1) < .12;
 }
 export function summarizeFixation(samples: EyeSample[]): EyeSample | null {
   if (samples.length < 12 || samples.at(-1)!.timestamp-samples[0].timestamp<1000 || samples.some((s,i)=>i>0&&(s.timestamp<=samples[i-1].timestamp||s.timestamp-samples[i-1].timestamp>250))) return null;
@@ -57,33 +68,67 @@ export function summarizeFixation(samples: EyeSample[]): EyeSample | null {
   return { px, py, pose, timestamp: good.at(-1)!.timestamp };
 }
 export type GazeModel = { mean: Point; scale: Point; x: number[]; y: number[]; error: number };
-const solve3 = (matrix: number[][], vector: number[]): number[] | null => {
-  const rows=matrix.map((r,i)=>[...r,vector[i]]);
-  for(let col=0;col<3;col++) {
+const solve = (matrix: number[][], vector: number[]): number[] | null => {
+  const n=vector.length, rows=matrix.map((r,i)=>[...r,vector[i]]);
+  for(let col=0;col<n;col++) {
     let pivot=col;
-    for(let r=col+1;r<3;r++) if(Math.abs(rows[r][col])>Math.abs(rows[pivot][col])) pivot=r;
-    if(Math.abs(rows[pivot][col])<1e-6) return null;
+    for(let r=col+1;r<n;r++) if(Math.abs(rows[r][col])>Math.abs(rows[pivot][col])) pivot=r;
+    if(Math.abs(rows[pivot][col])<1e-7) return null;
     [rows[col],rows[pivot]]=[rows[pivot],rows[col]];
-    const divisor=rows[col][col]; for(let c=col;c<4;c++) rows[col][c]/=divisor;
-    for(let r=0;r<3;r++) if(r!==col) { const f=rows[r][col]; for(let c=col;c<4;c++) rows[r][c]-=f*rows[col][c]; }
+    const divisor=rows[col][col]; for(let c=col;c<=n;c++) rows[col][c]/=divisor;
+    for(let r=0;r<n;r++) if(r!==col) {const f=rows[r][col];for(let c=col;c<=n;c++)rows[r][c]-=f*rows[col][c];}
   }
-  return rows.map(r=>r[3]);
+  return rows.map(r=>r[n]);
+};
+const features=(model:Pick<GazeModel,'mean'|'scale'>,px:number,py:number)=>{
+  const x=(px-model.mean.x)/model.scale.x,y=(py-model.mean.y)/model.scale.y;
+  return [1,x,y,x*y,x*x,y*y];
 };
 export function fitCalibration(samples: EyeSample[]): GazeModel | null {
-  if(samples.length!==5 || samples.some(s=>![s.px,s.py].every(Number.isFinite))) return null;
-  const mean={x:samples.reduce((a,s)=>a+s.px,0)/5,y:samples.reduce((a,s)=>a+s.py,0)/5};
+  const count=CALIBRATION_TARGETS.length;
+  if(samples.length!==count || samples.some(s=>![s.px,s.py].every(Number.isFinite))) return null;
+  const mean={x:samples.reduce((a,s)=>a+s.px,0)/count,y:samples.reduce((a,s)=>a+s.py,0)/count};
   const scale={x:Math.max(...samples.map(s=>s.px))-Math.min(...samples.map(s=>s.px)),y:Math.max(...samples.map(s=>s.py))-Math.min(...samples.map(s=>s.py))};
-  if(scale.x<.025 || scale.y<.008) return null;
-  const features=samples.map(s=>[1,(s.px-mean.x)/scale.x,(s.py-mean.y)/scale.y]);
-  const matrix=Array.from({length:3},(_,i)=>Array.from({length:3},(_,j)=>features.reduce((a,f)=>a+f[i]*f[j],0)));
-  const fit=(axis:'x'|'y')=>solve3(matrix,[0,1,2].map(i=>features.reduce((a,f,j)=>a+f[i]*CALIBRATION_TARGETS[j][axis],0)));
-  const x=fit('x'), y=fit('y'); if(!x || !y) return null;
-  const error=Math.sqrt(features.reduce((a,f,i)=>a+Math.pow(f.reduce((s,v,k)=>s+v*x[k],0)-CALIBRATION_TARGETS[i].x,2)+Math.pow(f.reduce((s,v,k)=>s+v*y[k],0)-CALIBRATION_TARGETS[i].y,2),0)/5);
-  return error<=.085 ? {mean,scale,x,y,error} : null;
+  if(scale.x<.025||scale.y<.008)return null;
+  const rows=samples.map(s=>features({mean,scale},s.px,s.py));
+  const matrix=Array.from({length:6},(_,i)=>Array.from({length:6},(_,j)=>rows.reduce((a,f)=>a+f[i]*f[j],0)));
+  // Penalize curvature slightly to avoid amplifying small landmark noise.
+  for(let i=3;i<6;i++)matrix[i][i]+=.0001;
+  const fit=(axis:'x'|'y')=>solve(matrix,Array.from({length:6},(_,i)=>rows.reduce((a,f,j)=>a+f[i]*CALIBRATION_TARGETS[j][axis],0)));
+  const x=fit('x'),y=fit('y');if(!x||!y)return null;
+  const error=Math.sqrt(rows.reduce((a,f,i)=>a+Math.pow(f.reduce((v,k,j)=>v+k*x[j],0)-CALIBRATION_TARGETS[i].x,2)+Math.pow(f.reduce((v,k,j)=>v+k*y[j],0)-CALIBRATION_TARGETS[i].y,2),0)/count);
+  return error<=.045?{mean,scale,x,y,error}:null;
 }
-export function projectGaze(model: GazeModel, px:number,py:number): Point {
-  const f=[1,(px-model.mean.x)/model.scale.x,(py-model.mean.y)/model.scale.y];
-  return {x:f.reduce((s,v,i)=>s+v*model.x[i],0),y:f.reduce((s,v,i)=>s+v*model.y[i],0)};
+export function projectGaze(model:GazeModel,px:number,py:number):Point {
+  const f=features(model,px,py);
+  return {x:f.reduce((a,v,i)=>a+v*model.x[i],0),y:f.reduce((a,v,i)=>a+v*model.y[i],0)};
+}
+export type GazeAccuracy = { errorPx:number; p90ErrorPx:number; jitterPx:number };
+const percentile90=(values:number[])=>[...values].sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*.9))];
+export function measureGazeAccuracy(model:GazeModel,samples:EyeSample[],target:Point,viewport:{width:number;height:number}):GazeAccuracy|null {
+  if(!summarizeFixation(samples))return null;
+  const projected=samples.map(s=>projectGaze(model,s.px,s.py)).map(p=>({x:p.x*viewport.width,y:p.y*viewport.height}));
+  if(projected.some(p=>!Number.isFinite(p.x)||!Number.isFinite(p.y)))return null;
+  const center={x:median(projected.map(p=>p.x)),y:median(projected.map(p=>p.y))};
+  const expected={x:target.x*viewport.width,y:target.y*viewport.height};
+  return {errorPx:distance(center,expected),p90ErrorPx:percentile90(projected.map(p=>distance(p,expected))),jitterPx:percentile90(projected.map(p=>distance(p,center)))};
+}
+export function accuracyLimit(viewport:{width:number;height:number}):number{return Math.max(24,Math.min(40,Math.min(viewport.width,viewport.height)*.04));}
+export function accuracyPasses(result:GazeAccuracy,viewport:{width:number;height:number}):boolean {
+  const limit=accuracyLimit(viewport);
+  return result.errorPx<=limit&&result.p90ErrorPx<=limit*1.5&&result.jitterPx<=Math.min(18,limit*.6);
+}
+/** Live screen-space confidence: do not follow a noisy fixation or a moving saccade. */
+export class GazeConfidence {
+  private frames:(Point&{time:number})[]=[];
+  reset(){this.frames=[];}
+  update(point:Point,time:number):Point|null {
+    if(this.frames.length&&time-this.frames.at(-1)!.time>250)this.reset();
+    this.frames.push({...point,time});this.frames=this.frames.filter(p=>time-p.time<=200);
+    if(this.frames.length<3||time-this.frames[0].time<100)return null;
+    const center={x:median(this.frames.map(p=>p.x)),y:median(this.frames.map(p=>p.y))};
+    return percentile90(this.frames.map(p=>distance(p,center)))<=20?center:null;
+  }
 }
 /** Median rejects isolated jumps; time-based adaptive smoothing reduces fixation noise without fixed-frame lag. */
 export class GazeSmoother {
@@ -94,11 +139,13 @@ export class GazeSmoother {
   private velocity: Point={x:0,y:0};
   private time=0;
   reset() { this.history=[]; this.value=this.output=this.previous=null; this.velocity={x:0,y:0}; this.time=0; }
+  suspend() { this.history=[];this.previous=null;this.time=0;this.velocity={x:0,y:0}; }
   update(raw:Point,time:number):Point {
-    if(this.time && time-this.time>250) this.reset();
+    if(this.time && time-this.time>250) this.suspend();
     this.history.push(raw); if(this.history.length>5) this.history.shift();
     const target={x:median(this.history.map(p=>p.x)),y:median(this.history.map(p=>p.y))};
     if(!this.value) {this.value={...target};this.output={...target};this.previous={...target};this.time=time;return {...target};}
+    if(!this.previous){this.previous={...target};this.time=time;return {...this.output!};}
     const dt=Math.max(.001,Math.min(.1,(time-this.time)/1000));this.time=time;
     const alpha=(cutoff:number)=>1/(1+1/(2*Math.PI*cutoff*dt));
     for(const axis of ['x','y'] as const) {
