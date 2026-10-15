@@ -8,7 +8,68 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
+import fs from 'fs';
+
+const CUSTOM_QUESTIONS_FILE = path.join(__dirname, 'custom_questions.json');
+const DRIVE_QUESTIONS_FILE = path.join(__dirname, 'src', 'data', 'driveQuestions.ts');
+
 app.use(express.json({ limit: '50mb' }));
+
+// Helper to load questions stored on server
+function readServerQuestions() {
+  try {
+    if (fs.existsSync(CUSTOM_QUESTIONS_FILE)) {
+      const data = fs.readFileSync(CUSTOM_QUESTIONS_FILE, 'utf-8');
+      return JSON.parse(data);
+    }
+  } catch (err) {
+    console.warn('Could not read custom_questions.json:', err);
+  }
+  return [];
+}
+
+// Helper to write questions stored on server
+function writeServerQuestions(questions: any[]) {
+  try {
+    fs.writeFileSync(CUSTOM_QUESTIONS_FILE, JSON.stringify(questions, null, 2), 'utf-8');
+    
+    // Also try updating driveQuestions.ts source if it exists
+    if (fs.existsSync(DRIVE_QUESTIONS_FILE)) {
+      const tsContent = `import { FlashcardQuestion } from '../services/questionParser';\n\nexport const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = ${JSON.stringify(questions, null, 2)};\n`;
+      fs.writeFileSync(DRIVE_QUESTIONS_FILE, tsContent, 'utf-8');
+    }
+  } catch (err) {
+    console.error('Could not write custom questions to server storage:', err);
+  }
+}
+
+// API Route: GET /api/custom-questions
+app.get('/api/custom-questions', (_req, res) => {
+  const questions = readServerQuestions();
+  res.json({ questions });
+});
+
+// API Route: POST /api/custom-questions
+app.post('/api/custom-questions', (req, res) => {
+  const { questions } = req.body;
+  if (!Array.isArray(questions)) {
+    res.status(400).json({ error: 'Invalid payload: questions array expected' });
+    return;
+  }
+  writeServerQuestions(questions);
+  res.json({ success: true, count: questions.length });
+});
+
+// API Route: POST /api/save-drive-questions
+app.post('/api/save-drive-questions', (req, res) => {
+  const { questions } = req.body;
+  if (!Array.isArray(questions)) {
+    res.status(400).json({ error: 'Invalid payload: questions array expected' });
+    return;
+  }
+  writeServerQuestions(questions);
+  res.json({ success: true, count: questions.length });
+});
 
 // Serve built assets
 const distPath = path.join(__dirname, 'dist');

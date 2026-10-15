@@ -61,11 +61,36 @@ export function saveCustomQuestions(questions: FlashcardQuestion[]): boolean {
         })
       );
     }
+
+    // Sync with backend server API so all users logging into the site see updated questions
+    fetch('/api/custom-questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ questions }),
+    }).catch((err) => console.warn('Background server question sync notice:', err));
+
     return true;
   } catch (err) {
     console.error('Failed to save custom questions to localStorage:', err);
     return false;
   }
+}
+
+/**
+ * Fetches custom questions from server endpoint /api/custom-questions
+ */
+export async function fetchServerCustomQuestions(): Promise<FlashcardQuestion[]> {
+  try {
+    const res = await fetch('/api/custom-questions');
+    if (!res.ok) return [];
+    const data = await res.json();
+    if (Array.isArray(data.questions)) {
+      return data.questions;
+    }
+  } catch (err) {
+    console.warn('Could not fetch server custom questions:', err);
+  }
+  return [];
 }
 
 /**

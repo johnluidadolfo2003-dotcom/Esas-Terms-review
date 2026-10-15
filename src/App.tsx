@@ -1,4 +1,3 @@
-import { GazeSelectionPanel } from './components/GazeSelectionPanel';
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { User } from 'firebase/auth';
 import {
@@ -18,6 +17,7 @@ import {
 import {
   FlashcardQuestion,
   SubjectCategory,
+  ESAS_SUB_SUBJECTS,
   parseQuestionsFromText,
   shuffleQuestionChoices,
 } from './services/questionParser';
@@ -40,9 +40,6 @@ import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
 import { generate70ItemQuiz, TOTAL_QUIZ_ITEMS } from './services/quizService';
 import { QuizCongratulationsModal } from './components/QuizCongratulationsModal';
-import { eyeTrackingEngine, EyeTrackingState } from './services/eyeTrackingService';
-import { EyeGazeCalibrationModal } from './components/EyeGazeCalibrationModal';
-import { EyeGazeReticle } from './components/EyeGazeReticle';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -85,18 +82,28 @@ export default function App() {
   const [driveExtractedQuestions, setDriveExtractedQuestions] = useState<FlashcardQuestion[]>([]);
 
   // 3. Combined questions bank: custom pasted questions + drive extracted + built-in reviewer
-  // Deduplicates both by unique ID and normalized question text
+  // Deduplicates by unique ID and per-subject normalized question text
   const allQuestions = useMemo(() => {
     const seenIds = new Set<string>();
     const seenTexts = new Set<string>();
     const combined: FlashcardQuestion[] = [];
 
-    const normalizeQuestionText = (text: string) =>
-      text.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim();
+    const normalizeQuestionText = (q: FlashcardQuestion) =>
+      `${q.subject || 'All'}_${q.question.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim()}`;
 
-    // Custom pasted questions come first
+    // Built-in copied drive questions (includes physics 1 questions)
+    for (const q of DRIVE_COPIED_QUESTIONS) {
+      const norm = normalizeQuestionText(q);
+      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
+        seenIds.add(q.id);
+        seenTexts.add(norm);
+        combined.push(q);
+      }
+    }
+
+    // Custom pasted questions
     for (const q of customQuestions) {
-      const norm = normalizeQuestionText(q.question);
+      const norm = normalizeQuestionText(q);
       if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
         seenTexts.add(norm);
@@ -106,17 +113,7 @@ export default function App() {
 
     // Drive-extracted dynamic questions
     for (const q of driveExtractedQuestions) {
-      const norm = normalizeQuestionText(q.question);
-      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
-        seenIds.add(q.id);
-        seenTexts.add(norm);
-        combined.push(q);
-      }
-    }
-
-    // Built-in copied drive questions
-    for (const q of DRIVE_COPIED_QUESTIONS) {
-      const norm = normalizeQuestionText(q.question);
+      const norm = normalizeQuestionText(q);
       if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
         seenTexts.add(norm);
@@ -136,21 +133,6 @@ export default function App() {
   const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
   const [isCameraGestureActive, setIsCameraGestureActive] = useState(false);
   const [isGestureScannerOpen, setIsGestureScannerOpen] = useState(false);
-  const [isEyeTrackingActive, setIsEyeTrackingActive] = useState<boolean>(false);
-  const [eyeTrackingState, setEyeTrackingState] = useState<EyeTrackingState>({
-    isActive: false,
-    isCalibrated: eyeTrackingEngine.isCalibrated(),
-    isTracking: false,
-    faceDetected: false,
-    gazeX: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
-    gazeY: typeof window !== 'undefined' ? window.innerHeight / 2 : 400,
-    hoveredChoiceId: null,
-    dwellProgress: 0,
-    isBlinking: false,
-  });
-  const [eyeCheckMode,setEyeCheckMode]=useState<'full'|'short'>('full');
-  const [isGazePanelOpen,setIsGazePanelOpen]=useState(false);
-  const [isEyeCalibrationOpen, setIsEyeCalibrationOpen] = useState<boolean>(false);
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -561,49 +543,128 @@ export default function App() {
   const handleImportLocalFile = async (file: File) => {
     try {
       setLoadingFileContent(true);
-      let content = '';
+      const JSZipModule = (await import('jszip')).default;
 
-      if (file.name.endsWith('.docx')) {
+      if (file.name.toLowerCase().endsWith('.zip')) {
         const arrayBuffer = await file.arrayBuffer();
-        const JSZipModule = (await import('jszip')).default;
         const zip = await JSZipModule.loadAsync(arrayBuffer);
-        const docXml = zip.file('word/document.xml');
-        if (docXml) {
-          const xmlText = await docXml.async('text');
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
-          const paragraphs = xmlDoc.getElementsByTagName('w:p');
-          const lines: string[] = [];
-          for (let i = 0; i < paragraphs.length; i++) {
-            const p = paragraphs[i];
-            const textNodes = p.getElementsByTagName('w:t');
-            let pText = '';
-            for (let j = 0; j < textNodes.length; j++) {
-              pText += textNodes[j].textContent || '';
-            }
-            if (pText.trim().length > 0) lines.push(pText.trim());
+
+        const newDriveItems: DriveItem[] = [];
+        const newExtractedQuestions: FlashcardQuestion[] = [];
+        const newCounts: Record<string, number> = {};
+        const newSelectedIds = new Set<string>();
+
+        for (const relativePath of Object.keys(zip.files)) {
+          const zipEntry = zip.files[relativePath];
+          if (
+            zipEntry.dir ||
+            relativePath.includes('__MACOSX') ||
+            relativePath.startsWith('.')
+          ) {
+            continue;
           }
-          content = lines.join('\n');
+
+          let fileContent = '';
+          const entryName = zipEntry.name.split('/').pop() || zipEntry.name;
+
+          if (entryName.toLowerCase().endsWith('.docx')) {
+            const docxBuffer = await zipEntry.async('arraybuffer');
+            const docxZip = await JSZipModule.loadAsync(docxBuffer);
+            const docXml = docxZip.file('word/document.xml');
+            if (docXml) {
+              const xmlText = await docXml.async('text');
+              const parser = new DOMParser();
+              const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+              const paragraphs = xmlDoc.getElementsByTagName('w:p');
+              const lines: string[] = [];
+              for (let i = 0; i < paragraphs.length; i++) {
+                const p = paragraphs[i];
+                const textNodes = p.getElementsByTagName('w:t');
+                let pText = '';
+                for (let j = 0; j < textNodes.length; j++) {
+                  pText += textNodes[j].textContent || '';
+                }
+                if (pText.trim().length > 0) lines.push(pText.trim());
+              }
+              fileContent = lines.join('\n');
+            }
+          } else {
+            fileContent = await zipEntry.async('text');
+          }
+
+          if (fileContent.trim().length > 0) {
+            const fileId = `zip-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
+            const qList = parseQuestionsFromText(fileContent, entryName, fileId);
+
+            const driveItem: DriveItem = {
+              id: fileId,
+              name: `${file.name} / ${entryName}`,
+              mimeType: 'text/plain',
+              matchedSubject: qList[0]?.subject || 'Economics',
+            };
+
+            newDriveItems.push(driveItem);
+            newSelectedIds.add(fileId);
+            newCounts[fileId] = qList.length;
+            newExtractedQuestions.push(...qList);
+          }
+        }
+
+        if (newDriveItems.length > 0) {
+          setDriveFiles((prev) => [...newDriveItems, ...prev]);
+          setSelectedFileIds((prev) => {
+            const next = new Set(prev);
+            newSelectedIds.forEach((id) => next.add(id));
+            return next;
+          });
+          setFileQuestionCounts((prev) => ({ ...prev, ...newCounts }));
+          setDriveExtractedQuestions((prev) => [...newExtractedQuestions, ...prev]);
+          setCurrentCardIndex(0);
         }
       } else {
-        content = await file.text();
+        let content = '';
+
+        if (file.name.toLowerCase().endsWith('.docx')) {
+          const arrayBuffer = await file.arrayBuffer();
+          const zip = await JSZipModule.loadAsync(arrayBuffer);
+          const docXml = zip.file('word/document.xml');
+          if (docXml) {
+            const xmlText = await docXml.async('text');
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'application/xml');
+            const paragraphs = xmlDoc.getElementsByTagName('w:p');
+            const lines: string[] = [];
+            for (let i = 0; i < paragraphs.length; i++) {
+              const p = paragraphs[i];
+              const textNodes = p.getElementsByTagName('w:t');
+              let pText = '';
+              for (let j = 0; j < textNodes.length; j++) {
+                pText += textNodes[j].textContent || '';
+              }
+              if (pText.trim().length > 0) lines.push(pText.trim());
+            }
+            content = lines.join('\n');
+          }
+        } else {
+          content = await file.text();
+        }
+
+        const fileId = `local-${Date.now()}`;
+        const questions = parseQuestionsFromText(content, file.name, fileId);
+
+        const localDriveItem: DriveItem = {
+          id: fileId,
+          name: file.name,
+          mimeType: file.type || 'text/plain',
+          matchedSubject: questions[0]?.subject || 'Economics',
+        };
+
+        setDriveFiles((prev) => [localDriveItem, ...prev]);
+        setSelectedFileIds((prev) => new Set(prev).add(fileId));
+        setFileQuestionCounts((prev) => ({ ...prev, [fileId]: questions.length }));
+        setDriveExtractedQuestions((prev) => [...questions, ...prev]);
+        setCurrentCardIndex(0);
       }
-
-      const fileId = `local-${Date.now()}`;
-      const questions = parseQuestionsFromText(content, file.name, fileId);
-
-      const localDriveItem: DriveItem = {
-        id: fileId,
-        name: file.name,
-        mimeType: file.type || 'text/plain',
-        matchedSubject: questions[0]?.subject || 'Economics',
-      };
-
-      setDriveFiles((prev) => [localDriveItem, ...prev]);
-      setSelectedFileIds((prev) => new Set(prev).add(fileId));
-      setFileQuestionCounts((prev) => ({ ...prev, [fileId]: questions.length }));
-      setDriveExtractedQuestions((prev) => [...questions, ...prev]);
-      setCurrentCardIndex(0);
     } catch (err) {
       console.error('Error importing local file:', err);
     } finally {
@@ -621,12 +682,7 @@ export default function App() {
         list = list.filter(
           (q) =>
             q.subject === 'ESAS' ||
-            q.subject === 'Economics' ||
-            q.subject === 'Mechanics 1' ||
-            q.subject === 'Mechanics 2' ||
-            q.subject === 'EE Laws' ||
-            q.subject === 'Project Management' ||
-            q.subject === 'Communication' ||
+            ESAS_SUB_SUBJECTS.includes(q.subject) ||
             q.subject === 'General Engineering'
         );
       } else {
@@ -668,23 +724,17 @@ export default function App() {
       ESAS: 0,
       MATH: 0,
       EE: 0,
-      Economics: 0,
-      'Mechanics 1': 0,
-      'Mechanics 2': 0,
-      'EE Laws': 0,
-      'Project Management': 0,
-      Communication: 0,
     };
+
+    // Pre-populate all ESAS sub-subjects so they display 0 when empty
+    ESAS_SUB_SUBJECTS.forEach((sub) => {
+      counts[sub] = 0;
+    });
 
     allQuestions.forEach((q) => {
       counts[q.subject] = (counts[q.subject] || 0) + 1;
       if (
-        q.subject === 'Economics' ||
-        q.subject === 'Mechanics 1' ||
-        q.subject === 'Mechanics 2' ||
-        q.subject === 'EE Laws' ||
-        q.subject === 'Project Management' ||
-        q.subject === 'Communication' ||
+        ESAS_SUB_SUBJECTS.includes(q.subject) ||
         q.subject === 'General Engineering' ||
         q.subject === 'ESAS'
       ) {
@@ -822,69 +872,6 @@ export default function App() {
     });
   };
 
-  const handleToggleCameraGesture = useCallback(() => {
-    if (!isCameraGestureActive) {eyeTrackingEngine.stop();setIsEyeCalibrationOpen(false);}
-    setIsCameraGestureActive(!isCameraGestureActive);
-  },[isCameraGestureActive]);
-
-  // Eye Tracking Controller Integration
-  const handleToggleEyeTracking = useCallback(async () => {
-    if (isEyeTrackingActive) {
-      eyeTrackingEngine.stop();
-      setIsEyeTrackingActive(false);setIsGazePanelOpen(false);
-    } else {
-      setIsCameraGestureActive(false);setIsGazePanelOpen(true);setEyeCheckMode(eyeTrackingEngine.canRunShortCheck()?'short':'full');
-      if (!eyeTrackingEngine.isCalibrated()) {
-        setIsEyeCalibrationOpen(true);
-      } else {
-        const started = await eyeTrackingEngine.start();
-        if (started) {
-          setIsEyeTrackingActive(true);
-        } else {
-          setIsEyeCalibrationOpen(true);
-        }
-      }
-    }
-  }, [isEyeTrackingActive]);
-
-  useEffect(() => {
-    const unsubscribe = eyeTrackingEngine.subscribe((state) => {
-      setEyeTrackingState(state);
-      setIsEyeTrackingActive(state.isActive);
-    });
-
-    return () => {
-      unsubscribe();
-      eyeTrackingEngine.stop();
-    };
-  }, []);
-
-  useEffect(() => {
-    eyeTrackingEngine.setActionCallback((action) => {
-      if (action.type === 'choice' && action.id) {
-        if (isQuizActive) {
-          handleQuizSelectChoice(action.id);
-        } else {
-          handleSelectChoice(action.id);
-        }
-      } else if (action.type === 'next') {
-        if (isQuizActive) {
-          setQuizCurrentIndex((prev) => (prev < quizQuestions.length - 1 ? prev + 1 : prev));
-        } else {
-          handleNextCard();
-        }
-      }
-    });
-  }, [
-    isQuizActive,
-    handleQuizSelectChoice,
-    handleSelectChoice,
-    handleNextCard,
-    quizQuestions.length,
-  ]);
-
-  useEffect(()=>{eyeTrackingEngine.setContext(isQuizActive ? currentQuizQuestion?.id || '' : currentQuestion?.id || '');},[isQuizActive,currentQuizQuestion?.id,currentQuestion?.id]);
-
   // Metrics: session tally
   const correctCount = sessionCorrectCount;
   const incorrectCount = sessionIncorrectCount;
@@ -921,10 +908,8 @@ export default function App() {
         onFinishQuiz={handleFinishQuiz}
         onExitQuiz={handleExitQuiz}
         isCameraGestureActive={isCameraGestureActive}
-        onToggleCameraGesture={handleToggleCameraGesture}
-        onOpenGestureScanner={() => {eyeTrackingEngine.stop();setIsEyeCalibrationOpen(false);setIsCameraGestureActive(false);setIsGestureScannerOpen(true);}}
-        isEyeTrackingActive={isEyeTrackingActive}
-        onToggleEyeTracking={handleToggleEyeTracking}
+        onToggleCameraGesture={() => setIsCameraGestureActive(!isCameraGestureActive)}
+        onOpenGestureScanner={() => setIsGestureScannerOpen(true)}
         isMobileDrawerOpen={isMobileDrawerOpen}
         onToggleMobileDrawer={() => setIsMobileDrawerOpen(!isMobileDrawerOpen)}
         onCloseMobileDrawer={() => setIsMobileDrawerOpen(false)}
@@ -941,13 +926,13 @@ export default function App() {
             </span>
           </div>
 
-          {/* Right Controls: Ambient Sound + Camera Icon + Eye Tracking Icon + Score Counters */}
+          {/* Right Controls: Ambient Sound + Camera Icon + Score Counters */}
           <div className="flex items-center gap-2">
             <AmbientSoundControl />
 
             <button
               type="button"
-              onClick={handleToggleCameraGesture}
+              onClick={() => setIsCameraGestureActive(!isCameraGestureActive)}
               className={`p-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center justify-center ${
                 isCameraGestureActive
                   ? 'bg-zinc-200 text-zinc-950 border-zinc-100 shadow-xs'
@@ -959,24 +944,6 @@ export default function App() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-              </svg>
-            </button>
-
-            {/* Hands-Free Eye Gaze Tracking Toggle Button */}
-            <button
-              type="button"
-              onClick={handleToggleEyeTracking}
-              className={`p-1.5 rounded-lg border text-xs font-medium transition-colors cursor-pointer flex items-center justify-center ${
-                isEyeTrackingActive
-                  ? 'bg-[#2dd4bf] text-zinc-950 border-[#2dd4bf] shadow-xs'
-                  : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
-              }`}
-              title="Eye Gaze Answer Control (Look at option to choose)"
-              aria-label="Toggle Eye Gaze Answer Control"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </button>
 
@@ -1125,8 +1092,6 @@ export default function App() {
                   }}
                   aiVoiceMode={aiVoiceMode}
                   onSetAiVoiceMode={setAiVoiceMode}
-                  eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
-                  eyeDwellProgress={eyeTrackingState.dwellProgress}
                 />
               )}
             </div>
@@ -1199,8 +1164,6 @@ export default function App() {
               onToggleFlag={handleToggleFlag}
               aiVoiceMode={aiVoiceMode}
               onSetAiVoiceMode={setAiVoiceMode}
-              eyeHoveredChoiceId={eyeTrackingState.hoveredChoiceId}
-              eyeDwellProgress={eyeTrackingState.dwellProgress}
             />
           )
         )}
@@ -1311,25 +1274,6 @@ export default function App() {
             ? currentQuizQuestion?.correctChoiceId
             : currentQuestion?.correctChoiceId
         }
-      />
-
-      {/* Eye Gaze Reticle & Indicator */}
-      <EyeGazeReticle
-        trackingState={isEyeCalibrationOpen ? {...eyeTrackingState,isTracking:false} : eyeTrackingState}
-        onOpenCalibration={() => {setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}
-        onShortCheck={()=>{setEyeCheckMode('short');setIsEyeCalibrationOpen(true);}}
-        onMagnify={()=>{eyeTrackingEngine.pause();setIsGazePanelOpen(true);setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}
-        onToggleActive={handleToggleEyeTracking}
-      />
-
-      {isGazePanelOpen&&<GazeSelectionPanel question={isQuizActive?currentQuizQuestion:currentQuestion||null} selected={isQuizActive&&currentQuizQuestion?quizAnswers[currentQuizQuestion.id]||null:currentSelectedChoice} onChoice={isQuizActive?handleQuizSelectChoice:handleSelectChoice} onNext={()=>{if(isQuizActive)setQuizCurrentIndex(i=>Math.min(quizQuestions.length-1,i+1));else handleNextCard();}} hasNext={isQuizActive?quizCurrentIndex<quizQuestions.length-1:currentCardIndex<filteredQuestions.length-1} onClose={()=>{eyeTrackingEngine.pause();setIsGazePanelOpen(false);}} onCheck={()=>{setEyeCheckMode('full');setIsEyeCalibrationOpen(true);}}/>}
-      {/* Setup, independent validation and guided camera measurements */}
-      <EyeGazeCalibrationModal
-        isOpen={isEyeCalibrationOpen}
-        mode={eyeCheckMode}
-        onMagnify={()=>setIsGazePanelOpen(true)}
-        onClose={() => setIsEyeCalibrationOpen(false)}
-        onComplete={() => setIsEyeTrackingActive(true)}
       />
     </div>
   );

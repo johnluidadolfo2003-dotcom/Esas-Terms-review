@@ -1,6 +1,16 @@
 import { FlashcardQuestion } from '../services/questionParser';
+import { PHYSICS_1_QUESTIONS } from './physics1Questions';
+import { PHYSICS_2_QUESTIONS } from './physics2Questions';
+import { CHEMISTRY_QUESTIONS } from './chemistryQuestions';
+import { COMPUTER_QUESTIONS } from './computerQuestions';
+import { PEC_QUESTIONS } from './pecQuestions';
 
 export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
+  ...PHYSICS_1_QUESTIONS,
+  ...PHYSICS_2_QUESTIONS,
+  ...CHEMISTRY_QUESTIONS,
+  ...COMPUTER_QUESTIONS,
+  ...PEC_QUESTIONS,
   {
     "id": "pasted-preview-1791625232830-1-1791625232833-1h7mp",
     "subject": "Economics",

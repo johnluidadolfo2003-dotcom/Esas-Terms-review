@@ -162,7 +162,7 @@ export const DriveExplorerModal: React.FC<DriveExplorerModalProps> = ({
                 <span>Upload File</span>
                 <input
                   type="file"
-                  accept=".docx,.txt,.csv,.json"
+                  accept=".zip,.docx,.txt,.csv,.json"
                   onChange={handleFileUpload}
                   className="hidden"
                 />

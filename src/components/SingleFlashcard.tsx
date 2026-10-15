@@ -25,8 +25,6 @@ interface SingleFlashcardProps {
   onToggleFlag?: () => void;
   aiVoiceMode: AiVoiceMode;
   onSetAiVoiceMode: (mode: AiVoiceMode) => void;
-  eyeHoveredChoiceId?: string | null;
-  eyeDwellProgress?: number;
 }
 
 export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
@@ -44,8 +42,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   onToggleFlag,
   aiVoiceMode,
   onSetAiVoiceMode,
-  eyeHoveredChoiceId,
-  eyeDwellProgress,
 }) => {
   const cleanSelected = selectedChoice ? selectedChoice.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') : null;
   const cleanCorrect = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
@@ -509,8 +505,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 'bg-[#16171e]/50 border-[#22242d] text-zinc-400 opacity-50 pointer-events-none';
             }
 
-            const isEyeHovered = eyeHoveredChoiceId === cleanChoiceId && !isAnswered;
-
             return (
               <button
                 key={`${question.id}-${choice.id}-${idx}`}
@@ -518,17 +512,13 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 data-choice-id={cleanChoiceId}
                 disabled={isAnswered}
                 onClick={() => onSelectChoice(choice.id)}
-                className={`${buttonClasses} ${
-                  isEyeHovered ? 'ring-2 ring-[#2dd4bf] border-[#2dd4bf] bg-[#1a2528]' : ''
-                }`}
+                className={buttonClasses}
               >
                 <div className="flex items-start gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">
                   <span
                     className={`font-mono text-xs sm:text-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border shrink-0 font-bold ${
                       !isAnswered
-                        ? isEyeHovered
-                          ? 'bg-[#2dd4bf] border-[#2dd4bf] text-zinc-950'
-                          : 'bg-[#15171e] border-[#2d303d] text-zinc-200'
+                        ? 'bg-[#15171e] border-[#2d303d] text-zinc-200'
                         : isUserSelected && !isCorrectOption
                         ? 'bg-rose-700 border-rose-400 text-white'
                         : isCorrectOption
@@ -540,31 +530,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   </span>
                   <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
                 </div>
-
-                {/* Eye Gaze Dwell countdown indicator */}
-                {isEyeHovered && (
-                  <div className="shrink-0 flex items-center gap-1.5 pl-2 animate-fade-in">
-                    <div className="relative w-6 h-6 flex items-center justify-center">
-                      <svg className="w-6 h-6 -rotate-90 pointer-events-none" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="9" stroke="#222530" strokeWidth="2.5" fill="none" />
-                        <circle
-                          cx="12"
-                          cy="12"
-                          r="9"
-                          stroke="#2dd4bf"
-                          strokeWidth="2.5"
-                          fill="none"
-                          strokeDasharray="56.55"
-                          strokeDashoffset={56.55 * (1 - (eyeDwellProgress || 0))}
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-[9px] font-mono font-bold text-[#2dd4bf]">
-                        👁
-                      </span>
-                    </div>
-                  </div>
-                )}
 
                 {/* Status indicator badge */}
                 {isAnswered && (
@@ -683,19 +648,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   ? 'bg-zinc-100 text-zinc-950 border-zinc-200 hover:bg-white cursor-pointer active:scale-98'
                   : 'bg-[#20222a] border-[#2f323e] text-zinc-200 hover:bg-[#272935] hover:text-white cursor-pointer active:scale-98'
                 : 'bg-[#181a21] border-[#22242c] text-zinc-600 opacity-40 cursor-not-allowed'
-            } ${
-              eyeHoveredChoiceId === 'NEXT' ? 'ring-2 ring-[#2dd4bf] border-[#2dd4bf]' : ''
             }`}
           >
-            {eyeHoveredChoiceId === 'NEXT' && (
-              <span
-                className="absolute inset-y-0 left-0 bg-[#2dd4bf]/25 pointer-events-none transition-all duration-75"
-                style={{ width: `${Math.round((eyeDwellProgress || 0) * 100)}%` }}
-              />
-            )}
             <span className="relative z-10 flex items-center gap-1.5">
               <span>{currentIndex + 1 === totalQuestions ? 'Finish Review' : 'Next Question →'}</span>
-              {eyeHoveredChoiceId === 'NEXT' && <span className="text-[#2dd4bf] text-xs">👁</span>}
             </span>
           </button>
         </div>

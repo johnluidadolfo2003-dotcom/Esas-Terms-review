@@ -12,6 +12,7 @@ export const QUIZ_SUBJECT_QUOTAS: SubjectQuota[] = [
   { subject: 'EE Laws', count: 20 },
   { subject: 'Project Management', count: 20 },
   { subject: 'Communication', count: 10 },
+  { subject: 'Physics 1', count: 10 },
 ];
 
 export const TOTAL_QUIZ_ITEMS = QUIZ_SUBJECT_QUOTAS.reduce((acc, item) => acc + item.count, 0);

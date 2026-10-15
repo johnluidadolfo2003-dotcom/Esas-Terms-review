@@ -6,6 +6,11 @@ export type SubjectCategory =
   | 'EE Laws'
   | 'Project Management'
   | 'Communication'
+  | 'Physics 1'
+  | 'Physics 2'
+  | 'Chemistry'
+  | 'Computer'
+  | 'PEC'
   | 'General Engineering'
   | 'MATH'
   | 'EE';
@@ -17,7 +22,18 @@ export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
   'EE Laws',
   'Project Management',
   'Communication',
+  'Physics 1',
+  'Physics 2',
+  'Chemistry',
+  'Computer',
+  'PEC',
 ];
+
+export function getParentCategory(subject: string, _question?: FlashcardQuestion): 'ESAS' | 'MATH' | 'EE' {
+  if (subject === 'MATH') return 'MATH';
+  if (subject === 'EE') return 'EE';
+  return 'ESAS';
+}
 
 export interface Choice {
   id: string; // 'A', 'B', 'C', 'D', etc.
@@ -125,6 +141,46 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
     combined.includes('transmission line')
   ) {
     return 'Communication';
+  }
+
+  if (
+    combined.includes('philippine electrical code') ||
+    combined.includes('pec 1') ||
+    combined.includes('pec 2') ||
+    combined.includes('pec')
+  ) {
+    return 'PEC';
+  }
+
+  if (
+    combined.includes('physics 1') ||
+    combined.includes('physics i') ||
+    combined.includes('physics-1')
+  ) {
+    return 'Physics 1';
+  }
+
+  if (
+    combined.includes('physics 2') ||
+    combined.includes('physics ii') ||
+    combined.includes('physics-2')
+  ) {
+    return 'Physics 2';
+  }
+
+  if (
+    combined.includes('chemistry') ||
+    combined.includes('chem')
+  ) {
+    return 'Chemistry';
+  }
+
+  if (
+    combined.includes('computer') ||
+    combined.includes('programming') ||
+    combined.includes('coding')
+  ) {
+    return 'Computer';
   }
 
   if (
