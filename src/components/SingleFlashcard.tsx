@@ -516,13 +516,15 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 key={`${question.id}-${choice.id}-${idx}`}
                 type="button"
                 data-choice-id={cleanChoiceId}
+                data-gaze-context={question.id}
+                data-gaze-label={choice.text}
                 disabled={isAnswered}
                 onClick={() => onSelectChoice(choice.id)}
                 className={`${buttonClasses} ${
                   isEyeHovered ? 'ring-2 ring-[#2dd4bf] border-[#2dd4bf] bg-[#1a2528]' : ''
                 }`}
               >
-                <div className="flex items-start gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">
+                <div className="flex items-start gap-2.5 sm:gap-3.5 pr-7 sm:pr-8">
                   <span
                     className={`font-mono text-xs sm:text-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border shrink-0 font-bold ${
                       !isAnswered
@@ -543,7 +545,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
                 {/* Eye Gaze Dwell countdown indicator */}
                 {isEyeHovered && (
-                  <div className="shrink-0 flex items-center gap-1.5 pl-2 animate-fade-in">
+                  <div className="absolute right-2 top-2 pointer-events-none">
                     <div className="relative w-6 h-6 flex items-center justify-center">
                       <svg className="w-6 h-6 -rotate-90 pointer-events-none" viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="9" stroke="#222530" strokeWidth="2.5" fill="none" />
@@ -675,6 +677,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           <button
             type="button"
             data-action="next-card"
+            data-gaze-context={question.id}
+            data-gaze-label="next"
             onClick={onNext}
             disabled={!hasNext}
             className={`relative overflow-hidden px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg border font-semibold transition-all shadow-sm min-h-[40px] flex items-center justify-center ${
