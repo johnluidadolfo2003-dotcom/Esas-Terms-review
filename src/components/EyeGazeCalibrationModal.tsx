@@ -6,10 +6,12 @@ interface Props{isOpen:boolean;onClose:()=>void;onComplete:()=>void;onMagnify?:(
 const download=(value:unknown)=>{const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='gaze-diagnostics.json';a.click();URL.revokeObjectURL(url);};
 export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete,onMagnify,mode='full'})=>{
  const [phase,setPhase]=useState<'setup'|'collecting'|'results'|'guide'>('setup'),[state,setState]=useState<EyeTrackingState|null>(null),[progress,setProgress]=useState<CalibrationProgress|null>(null),[error,setError]=useState(''),[record,setRecord]=useState(false),[confirmDots,setConfirmDots]=useState(false),[condition,setCondition]=useState('Normal lighting');
+ const [fresh,setFresh]=useState(false);
+ const [profile,setProfile]=useState<'quick'|'detailed'>('quick');
  const [settings,setSettings]=useState(eyeTrackingEngine.getSettings());const [guidedRegions,setGuidedRegions]=useState(()=>getTargetRegions(true));
  const preview=useRef<HTMLVideoElement>(null),mounted=useRef(false),keepCamera=useRef(false),callbacks=useRef({onClose,onComplete});callbacks.current={onClose,onComplete};
  useEffect(()=>{
-  if(!isOpen)return;mounted.current=true;keepCamera.current=false;setPhase('setup');setProgress(null);setError('');
+  if(!isOpen)return;mounted.current=true;keepCamera.current=false;setPhase('setup');setProgress(null);setError('');setFresh(false);
   const unsubscribe=eyeTrackingEngine.subscribe(s=>{if(mounted.current)setState(s);});
   eyeTrackingEngine.pause();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});
   return ()=>{mounted.current=false;unsubscribe();eyeTrackingEngine.cancelCalibration();if(!keepCamera.current)eyeTrackingEngine.stop();};
@@ -27,12 +29,13 @@ export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete
  const vw=eyeTrackingEngine.getVideoElement()?.videoWidth||640,vh=eyeTrackingEngine.getVideoElement()?.videoHeight||480;
  const points=state?.detection?.points||[];
  const retryCamera=()=>{setError('');eyeTrackingEngine.stop();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});};
- const run=async(short=mode==='short')=>{
+ const shortMode=mode==='short'&&!fresh&&eyeTrackingEngine.canRunShortCheck();
+ const run=async(short=shortMode)=>{
   setError('');setPhase('collecting');setProgress(null);
-  const success=await eyeTrackingEngine.calibrate(p=>{if(mounted.current)setProgress(p);},{short,confirmTargets:confirmDots});
-  if(mounted.current){setPhase('results');if(!success)setError(eyeTrackingEngine.getStatus());}
+  const success=await eyeTrackingEngine.calibrate(p=>{if(mounted.current)setProgress(p);},{short,confirmTargets:confirmDots,profile});
+  if(mounted.current){if(success&&profile==='quick'){finish();return;}setPhase('results');if(!success)setError(eyeTrackingEngine.getStatus());}
  };
- const finish=()=>{if(!eyeTrackingEngine.resume()){setError(eyeTrackingEngine.getStatus());return;}keepCamera.current=true;callbacks.current.onComplete();callbacks.current.onClose();};
+ const finish=()=>{if(!eyeTrackingEngine.resume()){setPhase('results');setError(eyeTrackingEngine.getStatus());return;}keepCamera.current=true;callbacks.current.onComplete();callbacks.current.onClose();};
  const startGuide=()=>{try{const regions=getTargetRegions(true);setGuidedRegions(regions);eyeTrackingEngine.beginGuidedTest(regions.map(r=>r.slot),condition);setPhase('guide');}catch(e){setError((e as Error).message);}};
  return <div role="dialog" aria-modal="true" aria-label="Eye gaze setup and calibration" data-eye-calibration={phase==='guide'?undefined:true} data-gaze-panel={phase==='guide'?true:undefined} data-gaze-guide={phase==='guide'?true:undefined} className="fixed inset-0 z-[80] overflow-auto bg-[#0e1015] text-zinc-100">
   {phase!=='collecting'&&phase!=='guide'&&<div className="mx-auto max-w-4xl px-5 py-5 pb-16">
@@ -47,19 +50,22 @@ export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete
      <button type="button" className="underline mt-2 mr-4" onClick={retryCamera}>{error&&!state?.isActive?'Retry camera':'Restart camera'}</button><button type="button" className="underline" onClick={()=>download(eyeTrackingEngine.exportDiagnostics())}>Export setup diagnostics</button>
     </div>
     <details className="mt-4"><summary className="cursor-pointer text-sm">Timing and filter settings</summary><div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">{(['settleMs','validCollectionMs','pointTimeoutMs','dwellMs','minCutoffHz','beta'] as const).map(key=><label key={key} className="text-xs">{key}<input aria-label={key} type="number" min="0.001" step={key==='beta' ? 0.001 : key==='minCutoffHz' ? 0.1 : 100} value={settings[key]} onChange={e=>setSettings({...settings,[key]:Number(e.target.value)})} className="block w-full rounded bg-zinc-800 p-2 mt-1"/></label>)}</div><button type="button" onClick={()=>{try{eyeTrackingEngine.configure(settings);setError('Settings applied; fresh validation is required.');}catch(e){setError((e as Error).message);}}} className="mt-3 underline text-sm">Apply settings</button></details>
+    {!shortMode&&<label className="block mt-4 text-sm"><input type="checkbox" checked={profile==='detailed'} onChange={e=>setProfile(e.target.checked?'detailed':'quick')}/> Detailed nine-point setup (optional)</label>}
+    <p className="mt-3 text-sm">{shortMode?'Check your saved setup without repeating the calibration dots.':profile==='quick'?'Follow five dots, then the answer-area checks. Eye control starts automatically when they pass.':'Detailed mode: nine dots plus intermediate and answer-area checks.'}</p>
     <label className="block mt-4 text-sm"><input type="checkbox" checked={confirmDots} onChange={e=>setConfirmDots(e.target.checked)}/> Wait for tap, Enter or Space at each dot (helper confirmation)</label>
     <label className="block mt-4 text-sm"><input type="checkbox" checked={record} onChange={e=>{setRecord(e.target.checked);eyeTrackingEngine.setRecording(e.target.checked);}}/> Record diagnostic samples locally (eye features and labels; no video upload)</label>
-    <button type="button" disabled={!ready} onClick={()=>void run()} className="mt-5 rounded-lg px-5 py-3 bg-teal-400 text-black font-semibold disabled:opacity-40">{mode==='short'?'Start short accuracy check':'Start nine-point calibration'}</button>
+    <button type="button" disabled={!ready} onClick={()=>void run()} className="mt-5 rounded-lg px-5 py-3 bg-teal-400 text-black font-semibold disabled:opacity-40">{shortMode?'Start short accuracy check':profile==='quick'?'Start eye control':'Start nine-point calibration'}</button>
     {error&&<p role="alert" className="text-amber-300 mt-3">{error}</p>}
    </>}
    {phase==='results'&&<>
     <p role="status" className="mt-4 text-sm">{report?.passed?'Independent checks passed for the tested regions.':'Selection stays paused until the tested regions are distinguishable.'}</p>
+    {!!report?.reusedRegionIds?.length&&<p className="text-xs mt-2">Kept {report.reusedRegionIds.length} recent successful checks; retried the unsuccessful areas.</p>}
     {report?.comparison&&<p className="text-xs mt-2 text-zinc-400">Selected {report.comparison.selected}; temporal held-out p90: affine {report.comparison.affineP90Px.toFixed(1)} px / quadratic {report.comparison.quadraticP90Px?.toFixed(1)||'not fit'} px. Separate validation below did not train either model.</p>}
     {!!report?.regions.length&&<div className="overflow-auto mt-4"><table className="w-full text-xs text-left"><thead><tr>{['Region','Filtered median / p90 px','Raw median / p90 px','X / Y bias px','Jitter px','Valid samples','Rate','Result'].map(t=><th key={t} className="p-2 border-b border-zinc-700">{t}</th>)}</tr></thead><tbody>{report.regions.map(r=><tr key={r.id}><td className="p-2">{r.label.slice(0,50)}</td><td>{r.medianPx.toFixed(1)} / {r.p90Px.toFixed(1)}</td><td>{r.rawMedianPx.toFixed(1)} / {r.rawP90Px.toFixed(1)}</td><td>{r.biasX.toFixed(1)} / {r.biasY.toFixed(1)}</td><td>{r.jitterPx.toFixed(1)}</td><td>{Math.round(r.validFraction*100)}%</td><td>{r.effectiveHz.toFixed(1)} Hz</td><td>{r.passed?'Checked':r.reason}</td></tr>)}</tbody></table></div>}
     {report?.issues.map((issue,i)=><p role="alert" key={i} className="text-amber-300 text-sm mt-2">{issue}</p>)}{!report&&error&&<p role="alert">{error}</p>}
     <div className="flex gap-3 flex-wrap mt-5">{report?.passed&&<button type="button" onClick={finish} className="rounded bg-teal-400 text-black px-4 py-2">Use eye control</button>}
-    <button type="button" onClick={()=>void run(false)} className="rounded bg-zinc-700 px-4 py-2">{report?.failedTrainingIds.length?'Retry unsuccessful dots':'Repeat independent checks'}</button>
-    <button type="button" onClick={()=>{eyeTrackingEngine.discardCalibrationAttempt();setPhase('setup');}} className="underline px-2">Restart all nine dots</button>
+    <button type="button" onClick={()=>void run(false)} className="rounded bg-zinc-700 px-4 py-2">{report?.failedTrainingIds.length?'Retry unsuccessful dots':'Retry answer checks'}</button>
+    <button type="button" onClick={()=>{eyeTrackingEngine.discardCalibrationAttempt();setFresh(true);setPhase('setup');}} className="underline px-2">Restart setup</button>
     {onMagnify&&<button type="button" onClick={()=>{onMagnify();setError('Larger targets opened behind this screen. Repeat independent checks to measure their new dimensions.');}} className="underline px-2">Enlarge answer targets</button>}
     <button type="button" onClick={()=>download(eyeTrackingEngine.exportDiagnostics())} className="underline px-2">Export measurements</button></div>
     {error&&<p className="text-sm mt-2 text-amber-300">{error}</p>}

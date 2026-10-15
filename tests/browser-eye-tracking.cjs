@@ -24,7 +24,18 @@ const {chromium}=require('playwright');const {spawn}=require('node:child_process
   await page.getByText('Camera and fresh eye samples ready',{exact:true}).waitFor({timeout:15000});
   assert.equal(await page.getByLabel('Mirrored camera preview').evaluate(el=>!!el.srcObject),true);
   assert.equal(await page.getByRole('button',{name:/force|finish immediately/i}).count(),0);
-  await page.getByLabel(/Wait for tap/).check();await page.getByLabel(/Record diagnostic/).check();
+  if(process.env.EYE_QUICK==='1'){
+   await page.getByRole('button',{name:'Start eye control',exact:true}).click();await modal.waitFor({state:'hidden',timeout:45000});
+   const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('teerms_eye_calibration_v4')));assert.equal(saved.report.profile,'quick');assert.equal(saved.model.kind,'affine');assert.equal(saved.report.regions.length,5);
+   const panel=page.getByRole('dialog',{name:'Large eye selection targets'});await panel.waitFor();const a=panel.locator('[data-choice-id="A"]');
+   const r=await a.boundingBox();await page.evaluate(p=>window.__manualGaze=p,{x:r.x+r.width/2,y:r.y+r.height/2});await page.waitForFunction(()=>document.querySelector('[data-gaze-panel] [data-choice-id="A"]')?.disabled,{timeout:5000});
+   const before=await a.getAttribute('data-gaze-context');const n=await panel.locator('[data-action="next-card"]').boundingBox();await page.evaluate(p=>window.__manualGaze=p,{x:n.x+n.width/2,y:n.y+n.height/2});
+   await page.waitForFunction(id=>document.querySelector('[data-gaze-panel] [data-choice-id="A"]')?.getAttribute('data-gaze-context')!==id,before,{timeout:6000});
+   const after=await panel.locator('[data-choice-id="A"]').getAttribute('data-gaze-context');await page.waitForTimeout(1400);assert.equal(await panel.locator('[data-choice-id="A"]').getAttribute('data-gaze-context'),after,'one Next fixation must not skip multiple questions');
+   assert.equal(await modal.isVisible(),false);assert.ok(await page.locator('[title="Turn off eye tracking"]').isVisible());assert.deepEqual(errors,[]);
+   console.log('Quick browser flow passed: five-dot affine setup, only five independent control checks, automatic start, actual gaze answer and Next actions, no repeated Next activation and no recalibration between questions. Synthetic camera input only.');return;
+  }
+  await page.getByLabel('Detailed nine-point setup (optional)').check();await page.getByLabel(/Wait for tap/).check();await page.getByLabel(/Record diagnostic/).check();
   await page.getByRole('button',{name:'Start nine-point calibration'}).click();
   let last='',start=Date.now();
   while(Date.now()-start<65000){
@@ -44,7 +55,7 @@ const {chromium}=require('playwright');const {spawn}=require('node:child_process
   await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByRole('button',{name:'Resume',exact:true}).click();
   await page.evaluate(()=>window.__faceLost=true);await page.getByText('Face not detected. Face the camera and check front lighting.',{exact:true}).waitFor();await page.evaluate(()=>window.__faceLost=false);
   await page.setViewportSize({width:1200,height:900});await page.getByText(/geometry changed|recalibrate|unverified/i).first().waitFor({timeout:3000});
-  await page.locator('button[aria-label="Toggle Eye Gaze Answer Control"]:visible').first().click();
+  await page.locator('button[title="Turn off eye tracking"]').click();
   await page.evaluate(()=>{const original=navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);let fail=true;navigator.mediaDevices.getUserMedia=(constraints)=>{if(fail){fail=false;return Promise.reject(new DOMException('Denied for regression','NotAllowedError'));}return original(constraints);};});
   await page.locator('button[aria-label="Toggle Eye Gaze Answer Control"]:visible').first().click();
   await page.getByRole('alert').filter({hasText:'Camera permission denied'}).waitFor();

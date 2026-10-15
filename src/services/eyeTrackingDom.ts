@@ -14,12 +14,12 @@ export function previewPoint(native:Point,video:{width:number;height:number},box
  return {x:(box.width-video.width*factor)/2+(mirror?video.width-native.x:native.x)*factor,y:(box.height-video.height*factor)/2+native.y*factor};
 }
 const selector='[data-choice-id], [data-action="next-card"], [data-gaze-test-target]';
-export function getTargetRegions(includeOccluded=false):TargetRegion[] {
+export function getTargetRegions(includeOccluded=false,includeDisabled=false):TargetRegion[] {
  const panel=document.querySelector('[data-gaze-guide]')||document.querySelector('[data-gaze-panel]');
  const root=panel||document;
  return [...root.querySelectorAll<HTMLElement>(selector)].filter(el=>{
   const r=el.getBoundingClientRect(),style=getComputedStyle(el);
-  if(el.matches(':disabled,[aria-disabled="true"]')||style.display==='none'||style.visibility==='hidden'||r.width<1||r.height<1||r.left<0||r.top<0||r.right>window.innerWidth||r.bottom>window.innerHeight)return false;
+  if((!includeDisabled&&el.matches(':disabled,[aria-disabled="true"]'))||style.display==='none'||style.visibility==='hidden'||r.width<1||r.height<1||r.left<0||r.top<0||r.right>window.innerWidth||r.bottom>window.innerHeight)return false;
   if(includeOccluded)return true;
   return document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest(selector)===el;
  }).map(el=>{

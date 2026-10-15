@@ -10,6 +10,7 @@ export const CALIBRATION_TARGETS = [
  {label:'Top right',x:.9,y:.1},{label:'Middle left',x:.1,y:.5},{label:'Middle right',x:.9,y:.5},
  {label:'Bottom left',x:.1,y:.9},{label:'Bottom center',x:.5,y:.9},{label:'Bottom right',x:.9,y:.9},
 ] as const;
+export const QUICK_CALIBRATION_TARGETS=[CALIBRATION_TARGETS[0],CALIBRATION_TARGETS[1],CALIBRATION_TARGETS[3],CALIBRATION_TARGETS[6],CALIBRATION_TARGETS[8]];
 export const VALIDATION_TARGETS=[{label:'Center',x:.5,y:.5},{label:'Upper left',x:.3,y:.3},{label:'Upper right',x:.7,y:.3},{label:'Lower left',x:.3,y:.7},{label:'Lower right',x:.7,y:.7}] as const;
 export const distance=(a:Point,b:Point)=>Math.hypot(a.x-b.x,a.y-b.y);
 export function quantile(values:number[],q:number):number {if(!values.length)return NaN;const a=[...values].sort((x,y)=>x-y);return a[Math.min(a.length-1,Math.floor(q*(a.length-1)))];}
@@ -74,7 +75,7 @@ function solve(a:number[][],b:number[]):number[]|null {
 export function fitModel(data:LabeledSample[],kind:GazeModel['kind'],ridge=EYE_DEFAULTS.ridge):GazeModel|null {
  if(data.length<12||data.some(d=>![d.sample.px,d.sample.py,d.target.x,d.target.y].every(Number.isFinite)))return null;
  const groups=new Map<string,LabeledSample[]>();for(const d of data)groups.set(d.targetId,[...(groups.get(d.targetId)||[]),d]);
- if(groups.size<6)return null;
+ if(groups.size<(kind==='affine'?3:6))return null;
  const mean={x:median([...groups.values()].map(g=>median(g.map(d=>d.sample.px)))),y:median([...groups.values()].map(g=>median(g.map(d=>d.sample.py))))};
  const scale={x:Math.max(...data.map(d=>d.sample.px))-Math.min(...data.map(d=>d.sample.px)),y:Math.max(...data.map(d=>d.sample.py))-Math.min(...data.map(d=>d.sample.py))};
  if(scale.x<.025||scale.y<.008)return null;
@@ -143,12 +144,12 @@ export class GazeDwell {
  constructor(private settings:Pick<EyeSettings,'dwellMs'|'releaseMs'|'maxSampleGapMs'>=EYE_DEFAULTS){}
  reset(){this.candidate=null;this.last=null;this.elapsed=0;this.samples=[];this.away=null;}
  clear(){this.reset();this.fired=null;this.firedRect=null;}
- setContext(context:string){if(context!==this.context){this.context=context;this.clear();}}
+ setContext(context:string){if(context!==this.context){this.context=context;this.reset();}}
  update(target:TargetRegion|null,point:Point,now:number,valid=true):DwellResult {
   if(!valid||!Number.isFinite(now)||this.last!==null&&now<=this.last){this.reset();return {target:null,progress:0,fire:false};}
   const delta=this.last===null?0:now-this.last;if(delta>this.settings.maxSampleGapMs){this.reset();}
   if(this.fired&&target?.id!==this.fired&&(!this.firedRect||!inside(point,this.firedRect,6))){if(this.away===null)this.away=now;if(now-this.away>=this.settings.releaseMs)this.fired=null;}else this.away=null;
-  if(!target||target.id===this.fired){this.candidate=null;this.elapsed=0;this.samples=[];this.last=now;return {target:null,progress:0,fire:false};}
+  if(!target||target.id===this.fired||this.fired&&this.firedRect&&inside(point,this.firedRect,6)){this.candidate=null;this.elapsed=0;this.samples=[];this.last=now;return {target:null,progress:0,fire:false};}
   if(target.id!==this.candidate){this.candidate=target.id;this.elapsed=0;this.samples=[];this.last=now;}
   this.samples.push({...point,time:now});this.samples=this.samples.filter(p=>now-p.time<=200);
   const center={x:median(this.samples.map(p=>p.x)),y:median(this.samples.map(p=>p.y))};

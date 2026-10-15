@@ -831,9 +831,9 @@ export default function App() {
   const handleToggleEyeTracking = useCallback(async () => {
     if (isEyeTrackingActive) {
       eyeTrackingEngine.stop();
-      setIsEyeTrackingActive(false);
+      setIsEyeTrackingActive(false);setIsGazePanelOpen(false);
     } else {
-      setIsCameraGestureActive(false);
+      setIsCameraGestureActive(false);setIsGazePanelOpen(true);setEyeCheckMode(eyeTrackingEngine.canRunShortCheck()?'short':'full');
       if (!eyeTrackingEngine.isCalibrated()) {
         setIsEyeCalibrationOpen(true);
       } else {

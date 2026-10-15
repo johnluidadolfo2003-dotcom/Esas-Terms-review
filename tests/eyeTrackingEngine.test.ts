@@ -7,7 +7,7 @@ test('real engine orchestration with a simulated browser/camera (not measured we
  const names=['window','document','navigator','screen','localStorage','performance','requestAnimationFrame','cancelAnimationFrame','setTimeout','setInterval','clearInterval','getComputedStyle'] as const;
  const originals=new Map(names.map(n=>[n,Object.getOwnPropertyDescriptor(globalThis,n)]));const nativeTimeout=setTimeout;
  let now=0,opens=0,models=0,stops=0,raf:FrameRequestCallback|null=null,callback:(r:any)=>void=()=>{},cameraTime=0,frameLatency=0,duplicate=false,missing=false,validationBias=0,overlay=true;
- let initializationError=false;
+ let initializationError=false,poseShift=0,failValidation=false;
  let target={x:640,y:450},current:CalibrationProgress|null=null,failPoint:string|null=null;
  const timers=new Map<number,()=>void>();let timerId=0;
  const events=new Map<string,(()=>void)[]>(),memory=new Map<string,string>();
@@ -21,10 +21,11 @@ test('real engine orchestration with a simulated browser/camera (not measured we
  const win:any={innerWidth:1280,innerHeight:900,devicePixelRatio:1,addEventListener:doc.addEventListener,removeEventListener(){}};
  const video:any={videoWidth:640,videoHeight:480,readyState:2,currentTime:0,srcObject:null,play:async()=>{},pause(){}};
  const landmarks=()=>{
+  if(failValidation&&current?.phase==='validation'&&current.label==='Choice A')return [];
   if(missing||current?.phase==='training'&&current.id===failPoint)return [];
   const px=.5-(target.x/win.innerWidth-.5)*.2+(current?.phase==='validation'?validationBias:0),py=.02+(target.y/win.innerHeight-.5)*.12;
   const points=Array.from({length:478},()=>({x:.5,y:.5,z:0}));const put=(i:number,x:number,y:number)=>{points[i]={x:x/640,y:y/480,z:0};};
-  for(const [a,b,top,bottom,iris,left] of [[33,133,159,145,468,200],[362,263,386,374,473,360]]){put(a,left,200);put(b,left+80,200);put(top,left+40,188);put(bottom,left+40,212);put(iris,left+80*px,200+80*py);}put(1,320,280);return [points];
+  for(const [a,b,top,bottom,iris,left] of [[33,133,159,145,468,200],[362,263,386,374,473,360]]){put(a,left,200);put(b,left+80,200);put(top,left+40,188);put(bottom,left+40,212);put(iris,left+80*px,200+80*py);}put(1,320+poseShift*640,280);return [points];
  };
  class Mesh{constructor(){models++;}setOptions(){}async initialize(){if(initializationError)throw new Error('Model assets unavailable');}onResults(cb:any){callback=cb;}async send(){now+=frameLatency;const result={multiFaceLandmarks:landmarks()};callback(result);if(duplicate)callback(result);}async close(){}}
  win.FaceMesh=Mesh;
@@ -46,6 +47,14 @@ test('real engine orchestration with a simulated browser/camera (not measured we
    assert.equal(ok,true);const report=e.getReport()!;assert.equal(report.regions.length,10);assert.ok(report.regions.some(r=>r.slot==='A'));assert.equal(report.comparison?.selected,'affine');assert.equal(e.isCalibrated(),true);
    const data=JSON.parse(memory.get('teerms_eye_calibration_v4')!);assert.equal(data.fullValidated,true);assert.equal(data.model.kind,'affine');assert.equal((e as any).forceCompleteCalibration,undefined);
    assert.equal(new EyeTrackingEngine().isCalibrated(),false);e.stop();
+  });
+  await t.test('quick setup uses five balanced labels and only fresh actual-control checks',async()=>{
+   const e=engine(),dots=new Set<string>();assert.equal(await e.calibrate(p=>{progress(p);if(p.phase==='training')dots.add(p.id);},{profile:'quick'}),true);
+   assert.equal(dots.size,5);assert.equal(e.getReport()!.profile,'quick');assert.equal(e.getReport()!.regions.length,5);assert.ok(e.getReport()!.regions.every(r=>r.slot));assert.equal(e.getDraftModel()!.kind,'affine');assert.equal(e.canRunShortCheck(),true);e.stop();
+  });
+  await t.test('retry keeps recent passed checks without refitting or repeating calibration dots',async()=>{
+   const e=engine();failValidation=true;assert.equal(await e.calibrate(progress,{profile:'quick'}),false);assert.equal(e.getReport()!.regions.length,4);failValidation=false;
+   const seen=new Set<string>();assert.equal(await e.calibrate(p=>{progress(p);seen.add(p.id);},{profile:'quick'}),true);assert.equal(e.getReport()!.reusedRegionIds?.length,4);assert.equal(seen.size,1);e.stop();
   });
   await t.test('validation bias cannot train, correct or force-enable the model',async()=>{
    const e=engine();validationBias=.025;let before='';
@@ -79,6 +88,14 @@ test('real engine orchestration with a simulated browser/camera (not measured we
    const e=engine();await e.start();assert.equal(e.isCalibrated(),false);assert.equal(await e.calibrate(progress,{short:true}),true);assert.ok(e.getReport()!.baselineRegions?.some(r=>r.slot==='B'));
    overlay=false;current=null;target={x:640,y:365};let selected='';e.setActionCallback(a=>{selected=a.id||'';});e.resume();for(let i=0;i<30;i++)await tick();assert.equal(selected,'B');overlay=true;e.stop();
    const bad=engine();bad.discardCalibrationAttempt();assert.equal(await bad.calibrate(progress,{short:true}),false);bad.stop();
+  });
+  await t.test('per-region precision gates do not apply another region error to every target; transient head movement recovers',async()=>{
+   const e=engine();assert.equal(await e.calibrate(progress),true);current=null;overlay=false;target={x:640,y:230};let selected='';e.setActionCallback(a=>{selected=a.id||'';});e.getReport()!.regions.find(r=>!r.slot)!.p90Px=300;e.resume();
+   for(let i=0;i<32;i++)await tick();assert.equal(selected,'A');
+   poseShift=.1;for(let i=0;i<5;i++)await tick();assert.equal(e.isCalibrated(),true,'brief pose excursion pauses, without forcing recalibration');
+   poseShift=0;await tick();assert.equal(e.isCalibrated(),true);
+   poseShift=.1;for(let i=0;i<45;i++)await tick();assert.equal(e.isCalibrated(),false,'sustained pose change still requires a check');
+   poseShift=0;e.stop();overlay=true;
   });
   await t.test('stop while camera permission is pending releases the late stream',async()=>{
    const e=engine();let release:(s:any)=>void=()=>{};camera=()=>new Promise(r=>{release=r;});const pending=e.start();await Promise.resolve();await Promise.resolve();const before=stops;e.stop();release(stream);assert.equal(await pending,false);assert.equal(stops,before+1);

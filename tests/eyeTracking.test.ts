@@ -90,3 +90,9 @@ test('setup rejection identifies missing iris, small eyes, eyelids, disagreement
  const invalid=face();invalid[468].x=NaN;assert.match(extractEyeSample(invalid,640,480,0).detection.reason,/invalid landmark/);
  assert.equal(extractEyeSample(face().slice(0,468),640,480,0).face,true,'visible face without irises must not be reported as no face');
 });
+
+test('a new question cannot rearm Next while the same fixation remains on its rectangle',()=>{
+ const d=new GazeDwell(),next=region('NEXT'),point={x:50,y:50};for(let t=0;t<=900;t+=100)d.update(next,point,t);
+ d.setContext('question-2');const nextQuestion={...next,id:'q2:NEXT'};for(let t=1000;t<=3000;t+=100)assert.equal(d.update(nextQuestion,point,t).fire,false);
+ for(let t=3100;t<=3400;t+=100)d.update(null,{x:200,y:200},t);let fired=false;for(let t=3500;t<=4500;t+=100)fired=d.update(nextQuestion,point,t).fire||fired;assert.equal(fired,true);
+});

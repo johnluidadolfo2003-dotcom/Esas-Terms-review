@@ -1,5 +1,13 @@
 # Eye control: implementation and verification
 
+## Default use: short setup
+
+Turn on eye control: it opens the large answer panel by default. Choose **Start eye control**, follow five dots (center and corners), then look at the actual answer/Next areas as they are checked. A passing check starts eye control automatically. The mapper is affine in this mode; the nine-point, quadratic-comparison and intermediate-location measurement flow remains under **Detailed nine-point setup (optional)**.
+
+Quick mode starts with 500 ms settling and 800 ms valid collection per location, bounded by the configured settings; the 12 distinct samples, freshness and valid-rate requirements still apply, so slow input extends collection. Dwell remains 900 ms. Changing questions keeps the panel's slot positions fixed, and a held Next fixation cannot skip multiple questions. The visible ring and Pause/Resume controls sit above the answer panel. Short pose excursions pause selection and recover when position returns; a sustained 1.5-second excursion requires a check.
+
+A retry preserves recent passed regions for at most two minutes only with the same frozen model, geometry, slot rectangles and compatible pose. Retained measurements are identified, not reported as newly collected. Failed locations get fresh samples. Selection uses the current region's own measured error rather than the worst error from an unrelated region. Missing/stale input, changed geometry, untested regions or failed measurements still cannot activate a choice.
+
 ## Actual tracker and original faults
 
 The app uses browser `getUserMedia` with a user-facing camera (requested 640×480, up to 30 fps) and the pinned MediaPipe Face Mesh JavaScript solution `@mediapipe/face_mesh@0.4.1633559619`, installed as an exact npm dependency and served from the app’s own `/eye-model/0.4.1633559619/` path. The Vite plugin serves the same files in development and emits the script, graph, packed models and SIMD/non-SIMD WASM into the production build. No third-party CDN request is needed for eye detection. Face Mesh provides refined iris/face landmarks, **not calibrated screen gaze** and not a per-frame gaze-confidence score. It has no screen-calibration API; this app supplies its own mapper.
@@ -7,7 +15,7 @@ The app uses browser `getUserMedia` with a user-facing camera (requested 640×48
 | Stage | Current implementation |
 |---|---|
 | Features | Both iris centers projected into each eye's corner-to-corner local axes. Native image translation, scale and roll are normalized. Eye openness, binocular agreement, finite values and minimum geometry sizes are checked. Head position/yaw/pitch/roll/scale are monitored separately; head direction is not used as gaze. |
-| Labels | Nine explicit screen targets at the 10%, 50%, 90% grid. Accepted eye features retain target ID, target CSS position, frame identity, media time and capture timestamp. |
+| Labels | Five explicit center/corner targets by default; nine targets at the 10%, 50%, 90% grid in detailed mode. Accepted eye features retain target ID, target CSS position, frame identity, media time and capture timestamp. |
 | Model | Normalized ridge regression; equal total weight per target. Affine and quadratic candidates use a temporal frame holdout with balanced target contribution. Quadratic is kept only for the configured absolute and relative p90 improvement without worse median error. |
 | Output | Viewport CSS pixels throughout. Native video pixels are used only to extract normalized features. |
 | Filtering | One timestamp-aware One Euro filter plus quarantine of an isolated extreme spike. A second consistent observation accepts a large deliberate movement. No stacked moving-median/confidence/deadband smoothing chain. |
@@ -35,11 +43,11 @@ Regularization does not hide absent feature variation: collapsed/collinear featu
 
 ## Independent measurement and usability
 
-After model choice, fresh validation checks the center, intermediate locations and **actual enabled choice/Next regions**. The model is frozen. No validation sample corrects coefficients or becomes a training label.
+After model choice, quick validation checks **actual choice/Next regions**, including disabled choice slots that become enabled on the next question. Detailed mode also measures center and intermediate screen locations. Runtime selection only uses enabled, measured regions. The model is frozen. No validation sample corrects coefficients or becomes a training label.
 
 Each region reports raw and filtered median/p90 Euclidean error, X/Y bias, fixation p90 dispersion, valid-sample fraction and effective valid sampling rate. Measurements precede target detection; there is no target snapping. Tolerances derive from actual region dimensions and neighboring rectangle separation. The UI reports failed locations and offers a real larger/spaced answer panel, which must itself be measured. It does not convert sample validity into an accuracy percentage.
 
-A short check is available only after a full independently validated model. It checks the center and two current regions and retains explicitly identified full-check region data. Changed layouts require full region checks; unmeasured/incompatible controls cannot activate. New geometry requires full calibration. Substantial user-position changes stop selection until rechecked.
+A short check is available only after a complete independently validated model (quick or detailed). It checks the center and two current regions and retains explicitly identified full-check region data. Changed layouts require full region checks; unmeasured/incompatible controls cannot activate. New geometry requires full calibration. Substantial user-position changes stop selection until rechecked.
 
 The guided real-camera test copies the measured selectable footprints, requests targets, suppresses reviewer answers, and records correct/incorrect/missed outcomes and elapsed time. Choose a user-reported condition (normal lighting, glasses, normal head movement). Its results are not automatically inferred from the condition name. Test center/edges in validation, adjacent choices in the guided test, and repeat with glasses/head motion. No real-camera result is prefilled.
 
@@ -71,6 +79,7 @@ Opt-in local recording stores eye features, frame/rejection timestamps, explicit
 ## Checks and honest results
 
 - `npm run lint`
+- `EYE_QUICK=1 npm run test:browser`: short automatic-start flow with actual synthetic gaze answering and moving to the next question, without repeated calibration or repeated Next activation.
 - `npm test`: regression tests for model selection/balancing, degeneracy, independent immutable validation, units/preview/DPR/geometry, distinct frames, valid-time dwell, switching/loss/staleness/release/context, large saccades, long gaps, recording/replay, persisted-model checks, lifecycle and guided outcomes with **synthetic observations**.
 - `npm run build` (includes all pinned eye-model runtime assets)
 - `npx playwright install chromium --only-shell`, then `npm run test:browser`: a full browser flow with fake camera input and synthetic iris landmarks. It checks preview/setup, keyboard confirmation, 9-point calibration, region results, model-instance count, guided selections without changing reviewer answers, Pause/Resume, face loss, resizing and permission-denied recovery. Synthetic success is not physical accuracy.
