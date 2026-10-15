@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CALIBRATION_TARGETS, VALIDATION_TARGETS, accuracyPasses, measureGazeAccuracy, extractEyeSample, fitCalibration, GazeConfidence, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from '../src/services/eyeTrackingMath';
+import { CALIBRATION_TARGETS, VALIDATION_TARGETS, accuracyPasses, correctConsistentOffset, measureGazeAccuracy, measureRenderedGazeAccuracy, recentFixationFrames, extractEyeSample, fitCalibration, GazeConfidence, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from '../src/services/eyeTrackingMath';
 import type { EyeSample, Landmark } from '../src/services/eyeTrackingMath';
 const pose={x:.5,y:.4,yaw:0,pitch:.5,roll:0,scale:.2};
 const sample=(px:number,py:number,timestamp=0):EyeSample=>({px,py,pose,timestamp});
@@ -104,4 +104,27 @@ test('a brief loss does not restart smoothing at the first noisy reacquired samp
  assert.deepEqual(filter.update({x:700,y:500},300),{x:500,y:400});
  let p={x:500,y:400};for(let i=1;i<35;i++)p=filter.update({x:520,y:410},300+i*33);
  assert.ok(Math.hypot(p.x-520,p.y-410)<8);
+});
+
+test('consistent-offset repair changes only translation and is checked on new observations',()=>{
+ const original=fitCalibration(training)!,viewport={width:1280,height:900};
+ const cloud=(target:{x:number;y:number})=>Array.from({length:40},(_,i)=>sample(.5-(target.x-.5)*.2+(target.y-.5)*.02+.01,.02+(target.y-.5)*.12,i*50));
+ const checks=VALIDATION_TARGETS.map(target=>measureRenderedGazeAccuracy(original,cloud(target),target,viewport)!);
+ assert.ok(checks.every(c=>!accuracyPasses(c,viewport)));
+ const repaired=correctConsistentOffset(original,checks,viewport);assert.ok(repaired);assert.notDeepEqual(repaired.x,original.x);assert.deepEqual(repaired.x.slice(1),original.x.slice(1));
+ for(const target of VALIDATION_TARGETS){const fresh=measureRenderedGazeAccuracy(repaired,cloud(target),target,viewport);assert.ok(fresh&&accuracyPasses(fresh,viewport));}
+ const inconsistent=checks.map((c,i)=>({...c,offsetX:i%2?80:-80}));assert.equal(correctConsistentOffset(original,inconsistent,viewport),null);
+ assert.equal(correctConsistentOffset(original,checks.map(c=>({...c,jitterPx:60})),viewport),null);
+});
+test('accuracy is measured on rendered cursor while raw noise is still rejected when unusable',()=>{
+ const model=fitCalibration(training)!,target=VALIDATION_TARGETS[0],viewport={width:1280,height:900};
+ const frames=Array.from({length:60},(_,i)=>sample(.5-(target.x-.5)*.2+(target.y-.5)*.02+Math.sin(i)*.003,.02+(target.y-.5)*.12,i*50));
+ const raw=measureGazeAccuracy(model,frames,target,viewport)!,rendered=measureRenderedGazeAccuracy(model,frames,target,viewport);
+ assert.equal(accuracyPasses(raw,viewport),false);assert.ok(rendered&&accuracyPasses(rendered,viewport));
+ const noisy=frames.map((s,i)=>({...s,px:s.px+(i%2?.015:-.015)}));assert.equal(measureRenderedGazeAccuracy(model,noisy,target,viewport),null);
+});
+test('recent fixation recovery discards the segment before a blink gap',()=>{
+ const before=Array.from({length:15},(_,i)=>sample(.5,.02,i*50));const after=Array.from({length:25},(_,i)=>sample(.5,.02,1200+i*50));
+ assert.equal(summarizeFixation([...before,...after]),null);
+ const recent=recentFixationFrames([...before,...after],2400);assert.equal(recent[0].timestamp,1200);assert.ok(summarizeFixation(recent));
 });

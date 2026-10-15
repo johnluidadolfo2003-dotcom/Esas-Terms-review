@@ -103,16 +103,55 @@ export function projectGaze(model:GazeModel,px:number,py:number):Point {
   const f=features(model,px,py);
   return {x:f.reduce((a,v,i)=>a+v*model.x[i],0),y:f.reduce((a,v,i)=>a+v*model.y[i],0)};
 }
-export type GazeAccuracy = { errorPx:number; p90ErrorPx:number; jitterPx:number };
+export type GazeAccuracy = { errorPx:number; p90ErrorPx:number; jitterPx:number; offsetX?:number; offsetY?:number };
 const percentile90=(values:number[])=>[...values].sort((a,b)=>a-b)[Math.min(values.length-1,Math.floor(values.length*.9))];
 export function measureGazeAccuracy(model:GazeModel,samples:EyeSample[],target:Point,viewport:{width:number;height:number}):GazeAccuracy|null {
   if(!summarizeFixation(samples))return null;
   const projected=samples.map(s=>projectGaze(model,s.px,s.py)).map(p=>({x:p.x*viewport.width,y:p.y*viewport.height}));
   if(projected.some(p=>!Number.isFinite(p.x)||!Number.isFinite(p.y)))return null;
+  return summarizeAccuracy(projected,target,viewport);
+}
+function summarizeAccuracy(projected:Point[],target:Point,viewport:{width:number;height:number}):GazeAccuracy {
   const center={x:median(projected.map(p=>p.x)),y:median(projected.map(p=>p.y))};
   const expected={x:target.x*viewport.width,y:target.y*viewport.height};
-  return {errorPx:distance(center,expected),p90ErrorPx:percentile90(projected.map(p=>distance(p,expected))),jitterPx:percentile90(projected.map(p=>distance(p,center)))};
+  return {errorPx:distance(center,expected),p90ErrorPx:percentile90(projected.map(p=>distance(p,expected))),jitterPx:percentile90(projected.map(p=>distance(p,center))),offsetX:center.x-expected.x,offsetY:center.y-expected.y};
 }
+/** Evaluate the same confidence/filter pipeline used by the cursor, after settling. */
+export function measureRenderedGazeAccuracy(model:GazeModel,samples:EyeSample[],target:Point,viewport:{width:number;height:number}):GazeAccuracy|null {
+  if(!summarizeFixation(samples))return null;
+  const confidence=new GazeConfidence(),filter=new GazeSmoother();
+  const output:(Point&{time:number})[]=[];
+  let eligible=0;
+  for(const sample of samples){
+    const gaze=projectGaze(model,sample.px,sample.py);
+    const fixation=confidence.update({x:gaze.x*viewport.width,y:gaze.y*viewport.height},sample.timestamp);
+    const settled=sample.timestamp-samples[0].timestamp>=400;
+    if(settled)eligible++;
+    if(!fixation){filter.suspend();continue;}
+    const point=filter.update(fixation,sample.timestamp);
+    if(settled)output.push({...point,time:sample.timestamp});
+  }
+  // Filtering may not hide an unusable camera: require enough usable frames and duration.
+  if(output.length<8||output.length<eligible*.5||output.at(-1)!.time-output[0].time<500)return null;
+  return summarizeAccuracy(output,target,viewport);
+}
+/** A translation is repairable only when all independent checks agree on it. */
+export function correctConsistentOffset(model:GazeModel,checks:GazeAccuracy[],viewport:{width:number;height:number}):GazeModel|null {
+  if(checks.length!==VALIDATION_TARGETS.length||checks.some(c=>!Number.isFinite(c.offsetX)||!Number.isFinite(c.offsetY)||c.jitterPx>Math.min(18,accuracyLimit(viewport)*.6)))return null;
+  const offset={x:median(checks.map(c=>c.offsetX!)),y:median(checks.map(c=>c.offsetY!))};
+  if(distance(offset,{x:0,y:0})>Math.min(viewport.width,viewport.height)*.18||checks.some(c=>distance({x:c.offsetX!,y:c.offsetY!},offset)>accuracyLimit(viewport)*.7))return null;
+  const corrected={...model,x:[...model.x],y:[...model.y]};
+  corrected.x[0]-=offset.x/viewport.width;corrected.y[0]-=offset.y/viewport.height;
+  return corrected;
+}
+/** Most recent uninterrupted observations; a blink need not spoil the entire point. */
+export function recentFixationFrames(samples:EyeSample[],now:number):EyeSample[] {
+  const recent=samples.filter(s=>now-s.timestamp<=1800);
+  let start=0;
+  for(let i=1;i<recent.length;i++)if(recent[i].timestamp-recent[i-1].timestamp>250)start=i;
+  return recent.slice(start);
+}
+
 export function accuracyLimit(viewport:{width:number;height:number}):number{return Math.max(24,Math.min(40,Math.min(viewport.width,viewport.height)*.04));}
 export function accuracyPasses(result:GazeAccuracy,viewport:{width:number;height:number}):boolean {
   const limit=accuracyLimit(viewport);
@@ -127,7 +166,9 @@ export class GazeConfidence {
     this.frames.push({...point,time});this.frames=this.frames.filter(p=>time-p.time<=200);
     if(this.frames.length<3||time-this.frames[0].time<100)return null;
     const center={x:median(this.frames.map(p=>p.x)),y:median(this.frames.map(p=>p.y))};
-    return percentile90(this.frames.map(p=>distance(p,center)))<=20?center:null;
+    // A single landmark spike must not disqualify an otherwise stable median.
+    const dispersion=median(this.frames.map(p=>distance(p,center)));
+    return dispersion<=16&&distance(point,center)<=48?center:null;
   }
 }
 /** Median rejects isolated jumps; time-based adaptive smoothing reduces fixation noise without fixed-frame lag. */
