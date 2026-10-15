@@ -1,6 +1,8 @@
 import { FlashcardQuestion, shuffleQuestionChoices } from '../services/questionParser';
+import { RAW_P2_PART1 } from './physics2RawPart1';
+import { RAW_P2_PART2 } from './physics2RawPart2';
 
-const RAW_PHYSICS_2_QUESTIONS: FlashcardQuestion[] = [
+const ORIGINAL_45_QUESTIONS: FlashcardQuestion[] = [
   {
     id: 'p2-1',
     subject: 'Physics 2',
@@ -678,8 +680,31 @@ const RAW_PHYSICS_2_QUESTIONS: FlashcardQuestion[] = [
   }
 ];
 
-export const PHYSICS_2_QUESTIONS: FlashcardQuestion[] = RAW_PHYSICS_2_QUESTIONS.map((q, idx) => {
-  // Deterministically shuffle choice order so the correct answer is NOT always choice A
-  const seed = (q.questionNumber || idx + 1) * 31 + 107;
-  return shuffleQuestionChoices(q, true, seed);
+// The 44 valid answered questions from the original Physics 2 reviewer (omitting #10 which had no answer in source)
+const ORIGINAL_44_QUESTIONS = ORIGINAL_45_QUESTIONS.filter((q) => q.id !== 'p2-10');
+
+// The 411 uploaded expanded reviewer questions
+const RAW_411_TUPLES = [...RAW_P2_PART1, ...RAW_P2_PART2.slice(0, 51)];
+
+const letters = ['A', 'B', 'C', 'D', 'E', 'F'];
+const EXPANDED_411_QUESTIONS: FlashcardQuestion[] = RAW_411_TUPLES.map(([q, choicesList], idx) => {
+  return {
+    id: `p2-exp-${idx + 1}`,
+    subject: 'Physics 2',
+    sourceFileName: 'Physics 2 Comprehensive Bank (411 Questions)',
+    questionNumber: idx + 45,
+    question: q,
+    choices: choicesList.map((chText, cIdx) => ({
+      id: letters[cIdx] || `C${cIdx}`,
+      text: chText,
+    })),
+    correctChoiceId: 'A',
+  };
 });
+
+// Deterministic choice shuffling across A, B, C, D so the correct answer is not always A
+export const PHYSICS_2_QUESTIONS: FlashcardQuestion[] = [
+  ...ORIGINAL_44_QUESTIONS.map((q, idx) => shuffleQuestionChoices(q, true, (idx + 1) * 31 + 17)),
+  ...EXPANDED_411_QUESTIONS.map((q, idx) => shuffleQuestionChoices(q, true, (idx + 1) * 47 + 103))
+];
+

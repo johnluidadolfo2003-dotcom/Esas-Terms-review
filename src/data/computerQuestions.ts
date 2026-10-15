@@ -2291,6 +2291,160 @@ const RAW_COMPUTER_QUESTIONS: FlashcardQuestion[] = [
       { id: 'D', text: 'Common Business Language' }
     ],
     correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-235',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 235,
+    question: "What is computer language in which groups of 1's ans 0's are used to represent instructions and the only language a computer can actually understood?",
+    choices: [
+      { id: 'A', text: 'Machine language' },
+      { id: 'B', text: 'Application software' },
+      { id: 'C', text: 'High-level language' },
+      { id: 'D', text: 'FORTRAN' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-236',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 236,
+    question: 'What is the technique used to ensure that the bits with in a memory byte are correct?',
+    choices: [
+      { id: 'A', text: 'Parity' },
+      { id: 'B', text: 'Handshaking' },
+      { id: 'C', text: 'Swapping' },
+      { id: 'D', text: 'Processing' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-237',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 237,
+    question: 'What do you call a person who gains illegal access to a computer system?',
+    choices: [
+      { id: 'A', text: 'Hacker' },
+      { id: 'B', text: 'Electronic enthusiast' },
+      { id: 'C', text: 'Computer pirate' },
+      { id: 'D', text: 'All of the choices' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-238',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 238,
+    question: 'Computer to computer communication is:',
+    choices: [
+      { id: 'A', text: 'Duplex' },
+      { id: 'B', text: 'Simplex' },
+      { id: 'C', text: 'Half Duplex' },
+      { id: 'D', text: 'Both Duplex and Half Duplex' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-239',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 239,
+    question: 'The ASCII code has',
+    choices: [
+      { id: 'A', text: '7 bits' },
+      { id: 'B', text: '4 bits' },
+      { id: 'C', text: '5 bits' },
+      { id: 'D', text: '8 bits' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-240',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 240,
+    question: 'A mainframe computer connected to multiple terminals and PCs usually uses which configuration?',
+    choices: [
+      { id: 'A', text: 'Star' },
+      { id: 'B', text: 'Bus' },
+      { id: 'C', text: 'Ring' },
+      { id: 'D', text: 'Tree' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-241',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 241,
+    question: 'Why is the following expression NOT acceptable as a FORTRAN integer constant? 237,100',
+    choices: [
+      { id: 'A', text: 'It contains a comma.' },
+      { id: 'B', text: 'The first character must be a letter.' },
+      { id: 'C', text: 'There are more than six characters.' },
+      { id: 'D', text: 'There is no decimal point.' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-242',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 242,
+    question: 'Which of the following are NOT acceptable as FORTRAN integer constants? I. 5000 II. -14 III. A15 IV. 16.52 V. +999',
+    choices: [
+      { id: 'A', text: 'III and IV' },
+      { id: 'B', text: 'II, III, IV, and V' },
+      { id: 'C', text: 'I and II' },
+      { id: 'D', text: 'II and III' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-243',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 243,
+    question: 'Which of the following DO statements counts J from 1 to 11 in increments of 2?',
+    choices: [
+      { id: 'A', text: 'DO 5 J=1,11,2' },
+      { id: 'B', text: 'DO 5 J=1,2,11' },
+      { id: 'C', text: 'DO 5, J=1,11,2' },
+      { id: 'D', text: 'DO 5 J=l.ll.2' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-244',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 244,
+    question: 'Which of the following are true statements regarding user-defined functions? I. The function is more versatile than a subroutine as it is not limited to mathematical calculations. II. The function is defined as a variable in the main program. III. The function may be used repeatedly and anywhere in the program',
+    choices: [
+      { id: 'A', text: 'II and III' },
+      { id: 'B', text: 'I only' },
+      { id: 'C', text: 'I and II' },
+      { id: 'D', text: 'I and III' }
+    ],
+    correctChoiceId: 'A'
+  },
+  {
+    id: 'comp-245',
+    subject: 'Computer',
+    sourceFileName: 'Computer Reviewer (245 Questions)',
+    questionNumber: 245,
+    question: 'Of the following statements, which is FALSE?',
+    choices: [
+      { id: 'A', text: 'The FORMAT statement may or may not be executed by the program' },
+      { id: 'B', text: 'More than one STOP statement is permitted in a program.' },
+      { id: 'C', text: 'The arithmetic IF can only be used to evaluate an arithmetic expression' },
+      { id: 'D', text: 'No FORMAT statement is required with unformatted READ or WRITE statements.' }
+    ],
+    correctChoiceId: 'A'
   }
 ];
 
@@ -2298,3 +2452,4 @@ export const COMPUTER_QUESTIONS: FlashcardQuestion[] = RAW_COMPUTER_QUESTIONS.ma
   const seed = (q.questionNumber || idx + 1) * 37 + 151;
   return shuffleQuestionChoices(q, true, seed);
 });
+

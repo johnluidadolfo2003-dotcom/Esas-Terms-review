@@ -2637,15 +2637,603 @@ const RAW_PEC_QUESTIONS: FlashcardQuestion[] = [
   {
     id: 'pec-283',
     subject: 'PEC',
-    sourceFileName: 'PEC Reviewer (283 Questions)',
+    sourceFileName: 'PEC Reviewer (325 Questions)',
     questionNumber: 283,
     question: 'What type of electrical building conductor has trade name "moisture resistant thermoplastic"?',
     choices: [{ id: 'A', text: 'Type TW' }, { id: 'B', text: 'Type THW' }, { id: 'C', text: 'Type THHN' }, { id: 'D', text: 'Type UF' }],
     correctChoiceId: 'A'
+  },
+  {
+    id: "pec-284",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 284,
+    question: "What is the maximum number of conductor in a raceway that does not need to be derated?",
+    choices: [
+      { id: "A", text: "3" },
+      { id: "B", text: "2" },
+      { id: "C", text: "4" },
+      { id: "D", text: "5" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-285",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 285,
+    question: "Which of the following is NOT a factor in calculating the feeder conductor size?",
+    choices: [
+      { id: "A", text: "branch circuit protection" },
+      { id: "B", text: "ambient temperature" },
+      { id: "C", text: "voltage drop" },
+      { id: "D", text: "demand factor" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-286",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 286,
+    question: "An attachment plug and receptacle shall be permitted to serve as the disconnecting means for single phase room airconditioner rated 250 V or less, if the manual controls of the room air conditioner is readily accessible and located within distance from the floor in mm",
+    choices: [
+      { id: "A", text: "1800" },
+      { id: "B", text: "1500" },
+      { id: "C", text: "2500" },
+      { id: "D", text: "2200" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-287",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 287,
+    question: "Flexible metal conduits must not be used in",
+    choices: [
+      { id: "A", text: "all of these" },
+      { id: "B", text: "wet locations" },
+      { id: "C", text: "hoistways" },
+      { id: "D", text: "storage battery rooms" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-288",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 288,
+    question: "The minimum number of branch circuits shall be determined from the",
+    choices: [
+      { id: "A", text: "total computed load and the rating of the circuits used" },
+      { id: "B", text: "size or rating of the circuits by the PEC" },
+      { id: "C", text: "minimum number required by the PEC" },
+      { id: "D", text: "total computed load and the size of disconnected needed" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-289",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 289,
+    question: "If the terminal of the equipment grounding conductor is not visible, the conductor entrance hole shall be marked with the word",
+    choices: [
+      { id: "A", text: "green" },
+      { id: "B", text: "white" },
+      { id: "C", text: "gray" },
+      { id: "D", text: "black" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-290",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 290,
+    question: "No over-current device shall be connected in series with any conductor that is",
+    choices: [
+      { id: "A", text: "intentionally grounded" },
+      { id: "B", text: "stranded" },
+      { id: "C", text: "closed" },
+      { id: "D", text: "current carrying" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-291",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 291,
+    question: "Service entrance cables shall be supported at intervals NOT exceeding",
+    choices: [
+      { id: "A", text: "760 mm" },
+      { id: "B", text: "900 mm" },
+      { id: "C", text: "800 mm" },
+      { id: "D", text: "1000 mm" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-292",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 292,
+    question: "Groundings allows __ opposition path of current of flow.",
+    choices: [
+      { id: "A", text: "Low" },
+      { id: "B", text: "Effective" },
+      { id: "C", text: "high" },
+      { id: "D", text: "medium" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-293",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 293,
+    question: "Individual arrester grounding conductors shall be no smaller than __ copper.",
+    choices: [
+      { id: "A", text: "14 mm^2" },
+      { id: "B", text: "8.0 mm^2" },
+      { id: "C", text: "5.5 mm^2" },
+      { id: "D", text: "none of these" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-294",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 294,
+    question: "A switch intended for use in general distribution and branch circuits. It is rated in amperes, and it is capable of interrupting its rated current at its rated voltage, is a __________ switch.",
+    choices: [
+      { id: "A", text: "General use" },
+      { id: "B", text: "Bypass isolation" },
+      { id: "C", text: "Isolating" },
+      { id: "D", text: "Transfer" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-295",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 295,
+    question: "__________ is a pliable raceway. I. EMT II. ENT III. PVC",
+    choices: [
+      { id: "A", text: "ll only" },
+      { id: "B", text: "l only" },
+      { id: "C", text: "l and lll only" },
+      { id: "D", text: "l, ll and lll" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-296",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 296,
+    question: "Flexible cords and cables shall be protected by __________ where passing through holes in covers, outlet boxes, or similar enclosures. I. Fittings II. Bushings III. Tie wraps",
+    choices: [
+      { id: "A", text: "l and ll only" },
+      { id: "B", text: "l only" },
+      { id: "C", text: "ll only" },
+      { id: "D", text: "ll and lll only" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-297",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 297,
+    question: "Raceways or cable trays containing electric conductors shall not contain __________. I. Pipe for steam II. Tube for air III. Pipe for water",
+    choices: [
+      { id: "A", text: "l, ll and lll" },
+      { id: "B", text: "l only" },
+      { id: "C", text: "ll only" },
+      { id: "D", text: "lll only" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-298",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 298,
+    question: "Electrical continuity is required by the electrical code for metallic conduit _____.",
+    choices: [
+      { id: "A", text: "To ensure equipment grounding" },
+      { id: "B", text: "To reduce static electricity" },
+      { id: "C", text: "To reduce inductive heat" },
+      { id: "D", text: "To trace electrical wiring" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-299",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 299,
+    question: "The grounded conductor would connect to the ______ of a lampholder",
+    choices: [
+      { id: "A", text: "Screw shell" },
+      { id: "B", text: "Filament" },
+      { id: "C", text: "Base contact" },
+      { id: "D", text: "Lead in wire" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-300",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 300,
+    question: "The service conductors between the terminal of the service equipment and a point usually outside the building, clear of the building walls, where joined by tap or splice to the service drop is called the ______",
+    choices: [
+      { id: "A", text: "Service-entrance conductors" },
+      { id: "B", text: "Service drop" },
+      { id: "C", text: "Service equipment" },
+      { id: "D", text: "none of these" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-301",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 301,
+    question: "A chain wrench can be used ______. I. With one hand after the chain is around the conduit. II. In confined places and close to walls. III. For all sizes of conduit.",
+    choices: [
+      { id: "A", text: "I, II, and III" },
+      { id: "B", text: "I and II only" },
+      { id: "C", text: "I and III only" },
+      { id: "D", text: "II and III only" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-302",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 302,
+    question: "A one-quarter bend in a raceway is equivalent to an angle of ____ degrees.",
+    choices: [
+      { id: "A", text: "90" },
+      { id: "B", text: "45" },
+      { id: "C", text: "25" },
+      { id: "D", text: "180" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-303",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 303,
+    question: "A fuse on a 20 amp branch circuit has blown. The fuse is replaced with a 20 amp fuse and the fuse blows when the switch is turned on. The electrician should _____.",
+    choices: [
+      { id: "A", text: "Check the circuit for a problem" },
+      { id: "B", text: "Check the ground rod connection first" },
+      { id: "C", text: "Change to a circuit breaker" },
+      { id: "D", text: "Install a 30 amp fuse" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-304",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 304,
+    question: "A conduit body is _____.",
+    choices: [
+      { id: "A", text: "A “LB” or “T”, or similar fitting" },
+      { id: "B", text: "A cast fitting such as an FD or FS box" },
+      { id: "C", text: "A standard 10 foot length of conduit" },
+      { id: "D", text: "A sealtight enclosure" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-305",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 305,
+    question: "Raceways shall be provided with ____ to compensate for thermal expansion and contraction",
+    choices: [
+      { id: "A", text: "Expansion joints" },
+      { id: "B", text: "Accordion joints" },
+      { id: "C", text: "Thermal fittings" },
+      { id: "D", text: "Control-expansion" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-306",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 306,
+    question: "The most important reason for using a conduit-type fitting in preference to making a bend in a one inch conduit is to _____",
+    choices: [
+      { id: "A", text: "Make wire pulling easier" },
+      { id: "B", text: "Avoid the possible flattening of the conduit when making the bend" },
+      { id: "C", text: "Cut down the amount of conduit needed" },
+      { id: "D", text: "Make a neater job" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-307",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 307,
+    question: "Where conductors carrying alternating current are installed in metal enclosures or metal raceways, they shall be so arranged as to avoid heating the surrounding metal by induction to accomplish this ______ shall be grouped together. I. All phase conductors II. Where used, the neutral III. All equipment grounding conductors",
+    choices: [
+      { id: "A", text: "I, II, and III" },
+      { id: "B", text: "I only" },
+      { id: "C", text: "I and II only" },
+      { id: "D", text: "I and III only" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-308",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 308,
+    question: "A wrench you would not use to connect rigid metal conduit is a ____ wrench",
+    choices: [
+      { id: "A", text: "Box end" },
+      { id: "B", text: "Chain" },
+      { id: "C", text: "Strap" },
+      { id: "D", text: "Stillson" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-309",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 309,
+    question: "When re-routing conduit, it may be necessary to increase the wire size, if the distance is greater, in order to __________.",
+    choices: [
+      { id: "A", text: "Compensate for voltage drop" },
+      { id: "B", text: "Account for current drop" },
+      { id: "C", text: "Allow for possible resistance drop" },
+      { id: "D", text: "Account for ampacity drop" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-310",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 310,
+    question: "Galvanized conduit is made of _________",
+    choices: [
+      { id: "A", text: "Iron" },
+      { id: "B", text: "Zinc" },
+      { id: "C", text: "Nickle" },
+      { id: "D", text: "Lead" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-311",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 311,
+    question: "When cutting a metal conduit with a hacksaw, the pressure applied to the hacksaw should be on",
+    choices: [
+      { id: "A", text: "The forward stroke only" },
+      { id: "B", text: "None of these" },
+      { id: "C", text: "The return stroke only" },
+      { id: "D", text: "Both the forward and return stroke equally" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-312",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 312,
+    question: "A rigid conduit connecting to an outlet box should have a",
+    choices: [
+      { id: "A", text: "Locknut on the outside and a bushing on the inside" },
+      { id: "B", text: "Bushing and locknut on the outside" },
+      { id: "C", text: "Bushing on the outside and a locknut on the inside" },
+      { id: "D", text: "Locknut and bushing on the inside" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-313",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 313,
+    question: "To fasten a raceway to a solid concrete ceiling, you would use ___________.",
+    choices: [
+      { id: "A", text: "Expansion bolts" },
+      { id: "B", text: "Toggle bolts" },
+      { id: "C", text: "Wooden plugs" },
+      { id: "D", text: "Rawl plugs" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-314",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 314,
+    question: "The identified grounded conductor of a lighting circuit is always connected to the screw of a light socket to _____.",
+    choices: [
+      { id: "A", text: "Reduce the possibility of accidental shock" },
+      { id: "B", text: "Ground the light fixture" },
+      { id: "C", text: "Improve the efficiency of the lamp" },
+      { id: "D", text: "Provide the easiest place to contact the wire" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-315",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 315,
+    question: "The Code rule for maximum 90 degree bends in a conduit between two boxes is four, the most likely reason for the total 360 degree limitation is __",
+    choices: [
+      { id: "A", text: "It makes pulling the conductors through the conduit too difficult" },
+      { id: "B", text: "It is unsafe" },
+      { id: "C", text: "You can damage the galvanized coating on the conduit" },
+      { id: "D", text: "Too many bends require extra wire to be pulled" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-316",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 316,
+    question: "The best thing to cut PVC conduit within a tight area is __",
+    choices: [
+      { id: "A", text: "A nylon string" },
+      { id: "B", text: "A short hacksaw" },
+      { id: "C", text: "A knife" },
+      { id: "D", text: "A pipe cutter" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-317",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 317,
+    question: "When installing raceway systems, it is essential that they be __",
+    choices: [
+      { id: "A", text: "Rigidly supported as required" },
+      { id: "B", text: "Exposed" },
+      { id: "C", text: "Concealed in walls" },
+      { id: "D", text: "Readily Accessible" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-318",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 318,
+    question: "The ungrounded conductor can be identified by the color ___",
+    choices: [
+      { id: "A", text: "Pink flamingo" },
+      { id: "B", text: "White or gray" },
+      { id: "C", text: "Green or bare" },
+      { id: "D", text: "None of these" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-319",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 319,
+    question: "Copper-clad aluminum conductors have an ampacity ______",
+    choices: [
+      { id: "A", text: "Equal to aluminum" },
+      { id: "B", text: "Lower than copper but higher than aluminum" },
+      { id: "C", text: "Equal to copper" },
+      { id: "D", text: "Rating of their own" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-320",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 320,
+    question: "The advantage of cutting a metal rigid conduit with a hacksaw rather than a pipe cutter is ___",
+    choices: [
+      { id: "A", text: "Less reaming is required" },
+      { id: "B", text: "You do not need a vice" },
+      { id: "C", text: "Less energy required in cutting" },
+      { id: "D", text: "Threading oil is not required" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-321",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 321,
+    question: "A current limiting overcurrent protective device which will _____ the current flowing in the faulted circuit.",
+    choices: [
+      { id: "A", text: "Reduce" },
+      { id: "B", text: "Increase" },
+      { id: "C", text: "Maintain" },
+      { id: "D", text: "None of these" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-322",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 322,
+    question: "Because aluminum is not a magnetic metal, there will be _____ present when aluminum conductors are grouped in a raceway",
+    choices: [
+      { id: "A", text: "No heating due to hysteresis" },
+      { id: "B", text: "No heat due to voltage" },
+      { id: "C", text: "No induced current" },
+      { id: "D", text: "None of these" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-323",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 323,
+    question: "Conduit should be installed as to prevent the confliction of water in it between outlets. The conduit should not have a ___",
+    choices: [
+      { id: "A", text: "Low point between successive outlets" },
+      { id: "B", text: "Low point at an outlet" },
+      { id: "C", text: "High point at an outlet" },
+      { id: "D", text: "High point between successive outlets" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-324",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 324,
+    question: "Receptacles in residential wiring are regularly connected in ___",
+    choices: [
+      { id: "A", text: "Parallel" },
+      { id: "B", text: "Perpendicular" },
+      { id: "C", text: "Series" },
+      { id: "D", text: "Diagonal" }
+    ],
+    correctChoiceId: "A"
+  },
+  {
+    id: "pec-325",
+    subject: "PEC",
+    sourceFileName: "PEC Reviewer (325 Questions)",
+    questionNumber: 325,
+    question: "The connection between the grounded circuit conductor and the equipment grounding conductor at the service is called ____ bonding jumper",
+    choices: [
+      { id: "A", text: "Main" },
+      { id: "B", text: "Circuit" },
+      { id: "C", text: "Equipment" },
+      { id: "D", text: "Appliance" }
+    ],
+    correctChoiceId: "A"
   }
 ];
 
 export const PEC_QUESTIONS: FlashcardQuestion[] = RAW_PEC_QUESTIONS.map((q, idx) => {
-  const seed = (q.questionNumber || idx + 1) * 31 + 179;
+  const seed = (q.questionNumber || idx + 1) * 59 + 179;
   return shuffleQuestionChoices(q, true, seed);
 });

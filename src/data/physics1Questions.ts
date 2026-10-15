@@ -1200,5 +1200,215 @@ export const PHYSICS_1_QUESTIONS: FlashcardQuestion[] = [
     ],
     correctChoiceId: "B",
     explanation: "Liquids have a definite volume but conform to the shape of their container."
+  },
+  {
+    id: "phys1-81",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 81,
+    question: "No kinetic energy is possessed by:",
+    choices: [
+      { id: "A", text: "An elevator standing at the fifth floor" },
+      { id: "B", text: "A shooting star" },
+      { id: "C", text: "A rotating propeller on a moving airplane" },
+      { id: "D", text: "A pendulum at the bottom of its swing" }
+    ],
+    correctChoiceId: "A",
+    explanation: "An elevator stationary at the fifth floor has zero velocity and thus zero kinetic energy (KE = ½mv²)."
+  },
+  {
+    id: "phys1-82",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 82,
+    question: "Possible units of angular momentum are:",
+    choices: [
+      { id: "A", text: "kg·m/s" },
+      { id: "B", text: "kg·m²/s" },
+      { id: "C", text: "kg·m²/s²" },
+      { id: "D", text: "kg·m/s²" }
+    ],
+    correctChoiceId: "B",
+    explanation: "Angular momentum L = r × p has units of meters × (kg·m/s) = kg·m²/s."
+  },
+  {
+    id: "phys1-83",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 83,
+    question: "A nonconservative force:",
+    choices: [
+      { id: "A", text: "Violates Newton’s second law" },
+      { id: "B", text: "Violates Newton’s third law" },
+      { id: "C", text: "Must be perpendicular to the velocity of the particle" },
+      { id: "D", text: "None of the above" }
+    ],
+    correctChoiceId: "D",
+    explanation: "A nonconservative force obeys Newton's laws but does net work over a closed path, changing mechanical energy."
+  },
+  {
+    id: "phys1-84",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 84,
+    question: "The sum of the kinetic and potential energies of a system of objects is conserved:",
+    choices: [
+      { id: "A", text: "Only when the objects move along closed paths" },
+      { id: "B", text: "Only when no external force acts on the objects" },
+      { id: "C", text: "None of the above" },
+      { id: "D", text: "Only when the work done by the resultant external force is zero" }
+    ],
+    correctChoiceId: "C",
+    explanation: "Total mechanical energy is conserved whenever nonconservative forces do no net work on the system."
+  },
+  {
+    id: "phys1-85",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 85,
+    question: "Two particles interact by conservative forces. In addition, an external force acts on each particle. They complete round trips, ending at the points where they started. Which of the following must have the same values at the beginning and end of this trip?",
+    choices: [
+      { id: "A", text: "The total linear momentum of the two-particle system" },
+      { id: "B", text: "The mechanical energy of the two-particle system" },
+      { id: "C", text: "The potential energy of the two-particle system" },
+      { id: "D", text: "The total kinetic energy of the two-particle system" }
+    ],
+    correctChoiceId: "C",
+    explanation: "Potential energy depends solely on spatial positions; since particles return to initial starting positions, potential energy is identical."
+  },
+  {
+    id: "phys1-86",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 86,
+    question: "The wound spring of a clock possesses:",
+    choices: [
+      { id: "A", text: "Both potential and kinetic energy in equal amounts" },
+      { id: "B", text: "Potential but no kinetic energy" },
+      { id: "C", text: "Kinetic but no potential energy" },
+      { id: "D", text: "Neither potential nor kinetic energy" }
+    ],
+    correctChoiceId: "B",
+    explanation: "A wound spring stores elastic potential energy due to its deformed state while stationary."
+  },
+  {
+    id: "phys1-87",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 87,
+    question: "A body at rest in a system is capable of doing work if:",
+    choices: [
+      { id: "A", text: "It is free to move in such a way as to decrease the potential energy of the system" },
+      { id: "B", text: "It is free to move in such a way as to increase the potential energy of the system" },
+      { id: "C", text: "The potential energy of the system is positive" },
+      { id: "D", text: "It is free to move in such a way as to decrease its kinetic energy" }
+    ],
+    correctChoiceId: "A",
+    explanation: "When a system moves to decrease potential energy (-ΔU), conservative forces do positive work W = -ΔU."
+  },
+  {
+    id: "phys1-88",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 88,
+    question: "An elevator is rising at constant speed. Consider the following statements:\nI. the upward cable force is constant\nII. the kinetic energy of the elevator is constant\nIII. the gravitational potential energy of the Earth-elevator system is constant\nIV. the acceleration of the elevator is zero\nV. the mechanical energy of the Earth-elevator system is constant",
+    choices: [
+      { id: "A", text: "Only I, II, and IV are true" },
+      { id: "B", text: "Only II and V are true" },
+      { id: "C", text: "All five are true" },
+      { id: "D", text: "Only I, II, and III are true" }
+    ],
+    correctChoiceId: "A",
+    explanation: "At constant speed, acceleration is 0 so cable force = mg (constant) and KE is constant. Potential energy increases with height, so mechanical energy increases."
+  },
+  {
+    id: "phys1-89",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 89,
+    question: "Given a potential energy function U(x), the corresponding force F is in the positive x direction if:",
+    choices: [
+      { id: "A", text: "U is an increasing function of x" },
+      { id: "B", text: "U is positive" },
+      { id: "C", text: "U is a decreasing function of x" },
+      { id: "D", text: "U is negative" }
+    ],
+    correctChoiceId: "C",
+    explanation: "Force F(x) = -dU/dx. F is positive when dU/dx is negative (i.e. U is a decreasing function of x)."
+  },
+  {
+    id: "phys1-90",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 90,
+    question: "Objects A and B interact with each other via both conservative and nonconservative forces. Let KA and KB be the kinetic energies, U be the potential energy, and Eint be the thermal energy. If no external agent does work on the objects then:",
+    choices: [
+      { id: "A", text: "KA + KB + U + Eint is conserved" },
+      { id: "B", text: "KA + U is conserved" },
+      { id: "C", text: "KA + U + Eint is conserved" },
+      { id: "D", text: "KA + KB + Eint is conserved" }
+    ],
+    correctChoiceId: "A",
+    explanation: "By conservation of total energy in an isolated system, the sum of all kinetic energies, potential energy, and internal/thermal energy remains constant."
+  },
+  {
+    id: "phys1-91",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 91,
+    question: "A block slides across a rough horizontal table top. The work done by friction changes:",
+    choices: [
+      { id: "A", text: "Only the kinetic energy" },
+      { id: "B", text: "Only the kinetic and internal energies" },
+      { id: "C", text: "Only the potential energy" },
+      { id: "D", text: "Only the internal energy" }
+    ],
+    correctChoiceId: "B",
+    explanation: "Friction converts macroscopic kinetic energy into microscopic internal thermal energy (heat)."
+  },
+  {
+    id: "phys1-92",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 92,
+    question: "How many degrees of freedom does a coin rolling without slipping on the ground have?",
+    choices: [
+      { id: "A", text: "Five" },
+      { id: "B", text: "Two" },
+      { id: "C", text: "One" },
+      { id: "D", text: "Three" }
+    ],
+    correctChoiceId: "D",
+    explanation: "A coin moving on a plane has 3 degrees of freedom: 2 position coordinates (x, y) for its point of contact and 1 rotation angle."
+  },
+  {
+    id: "phys1-93",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 93,
+    question: "In a ballistic pendulum, a bullet of mass m is fired into a block of mass M that can swing freely. Which of the following is true for the system during the swing motion after impact?",
+    choices: [
+      { id: "A", text: "Mechanical energy is conserved; momentum is not conserved." },
+      { id: "B", text: "Momentum is conserved; mechanical energy is not conserved." },
+      { id: "C", text: "Neither mechanical energy nor momentum is conserved." },
+      { id: "D", text: "Both mechanical energy and momentum are conserved." }
+    ],
+    correctChoiceId: "A",
+    explanation: "During the swing after the impact, gravity acts as a conservative force so mechanical energy is conserved, but gravity is an external force so momentum is not conserved."
+  },
+  {
+    id: "phys1-94",
+    subject: "Physics 1",
+    sourceFileName: "Physics 1 Reviewer Bank",
+    questionNumber: 94,
+    question: "Which of the following statements is FALSE?",
+    choices: [
+      { id: "A", text: "The frictional force always acts to resist motion." },
+      { id: "B", text: "Momentum is conserved during elastic collisions." },
+      { id: "C", text: "The coefficient of restitution can be less than zero" },
+      { id: "D", text: "The time rate of change of angular momentum is equal to total external torque." }
+    ],
+    correctChoiceId: "C",
+    explanation: "The coefficient of restitution e ranges from 0 (perfectly inelastic) to 1 (perfectly elastic) and cannot be less than zero."
   }
 ];
