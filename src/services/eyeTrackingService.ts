@@ -1,5 +1,5 @@
 /** Iris-based gaze control. Camera frames stay in the browser; only model assets are fetched. */
-import { VALIDATION_TARGETS, accuracyPasses, measureGazeAccuracy, CALIBRATION_TARGETS, extractEyeSample, fitCalibration, GazeConfidence, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from './eyeTrackingMath';
+import { VALIDATION_TARGETS, accuracyPasses, correctConsistentOffset, measureRenderedGazeAccuracy, recentFixationFrames, CALIBRATION_TARGETS, extractEyeSample, fitCalibration, GazeConfidence, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from './eyeTrackingMath';
 import type { EyeSample, GazeAccuracy, GazeModel, Landmark, Pose } from './eyeTrackingMath';
 export interface EyeCalibrationData {
   version: 3;
@@ -53,6 +53,7 @@ export class EyeTrackingEngine {
   private collecting: EyeSample[] | null=null;
   private calibration: EyeCalibrationData | null=null;
   private sessionVerified=false;
+  private draft:{samples:EyeSample[];model:GazeModel;viewport:{width:number;height:number};deviceId:string}|null=null;
   private listeners=new Set<EyeTrackingListener>();
   private filter=new GazeSmoother();
   private confidence=new GazeConfidence();
@@ -94,6 +95,8 @@ export class EyeTrackingEngine {
     this.listeners.forEach(listener=>listener(state));
   }
   public getStatus() {return this.status;}
+  public canRetryAccuracy():boolean {return Boolean(this.draft&&this.stream&&this.draft.viewport.width===window.innerWidth&&this.draft.viewport.height===window.innerHeight&&this.draft.deviceId===(this.stream.getVideoTracks()[0].getSettings().deviceId||''));}
+  public discardCalibrationAttempt():void {this.draft=null;}
   public getAccuracyReport():string {return this.sessionVerified&&this.calibration?`Calibration test error: ${Math.ceil(Math.max(...this.calibration.checks.map(c=>c.errorPx)))} px`:'Calibration not verified';}
   private pause(status:string,keepWindow=false) {if(!keepWindow)this.confidence.reset();this.tracking=false;this.status=status;this.hovered=null;this.progress=0;this.previousTarget=null;this.validSince=0;this.dwell.reset();this.filter.suspend();this.notify();}
   public async start():Promise<boolean> {
@@ -141,7 +144,7 @@ export class EyeTrackingEngine {
   }
   public cancelCalibration() {++this.calibrationGeneration;this.isCalibrating=false;this.collecting=null;this.dwell.reset();this.filter.reset();}
   public stop() {
-    ++this.generation;this.starting=null;this.sessionVerified=false;this.cancelCalibration();
+    ++this.generation;this.starting=null;this.sessionVerified=false;this.draft=null;this.cancelCalibration();
     if(this.frame!==null)cancelAnimationFrame(this.frame);this.frame=null;
     if(this.watchdog)clearInterval(this.watchdog);this.watchdog=null;
     const mesh=this.mesh;this.mesh=null;void mesh?.close().catch(()=>{});
@@ -193,53 +196,87 @@ export class EyeTrackingEngine {
     return null;
   }
   private clickSound() {try{this.audio ||= new AudioContext();void this.audio.resume();const o=this.audio.createOscillator(),g=this.audio.createGain();o.frequency.value=880;g.gain.setValueAtTime(.04,this.audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,this.audio.currentTime+.08);o.connect(g);g.connect(this.audio.destination);o.start();o.stop(this.audio.currentTime+.08);}catch{/* Optional audio. */}}
-  public async calibrate(onProgress:(point:number,progress:number)=>void):Promise<boolean> {
-    this.cancelCalibration();const generation=this.calibrationGeneration;
+  public async calibrate(onProgress:(point:number,progress:number,message?:string)=>void):Promise<boolean> {
+    this.cancelCalibration();
+    const generation=this.calibrationGeneration;
     const started=await this.start();
     if(!started||generation!==this.calibrationGeneration)return false;
-    this.sessionVerified=false;this.isCalibrating=true;this.dwell.clear();this.hovered=null;this.progress=0;this.tracking=false;this.notify();
-    const samples:EyeSample[]=[];
+    this.sessionVerified=false;this.isCalibrating=true;this.dwell.clear();
+    this.hovered=null;this.progress=0;this.tracking=false;this.notify();
     const viewport={width:window.innerWidth,height:window.innerHeight};
+    const deviceId=this.stream!.getVideoTracks()[0].getSettings().deviceId||'';
+    if(this.draft&&(this.draft.deviceId!==deviceId||this.draft.viewport.width!==viewport.width||this.draft.viewport.height!==viewport.height))this.draft=null;
     const delay=(ms:number)=>new Promise<void>(resolve=>setTimeout(resolve,ms));
+    const guard=()=>{if(generation!==this.calibrationGeneration)throw new Error('Calibration cancelled');};
+    const collectPoint=async(index:number,baseline?:Pose,hint?:string):Promise<EyeSample[]>=>{
+      this.collecting=null;onProgress(index,0,hint);
+      for(let i=0;i<18;i++){await delay(40);guard();}
+      this.collecting=[];
+      const begin=performance.now();
+      try {
+        while(performance.now()-begin<6000){
+          await delay(40);guard();
+          const elapsed=performance.now()-begin;
+          const frames=recentFixationFrames(this.collecting,performance.now());
+          const fixation=summarizeFixation(frames);
+          onProgress(index,Math.min(.95,elapsed/1800),elapsed>2200?'Keep looking at this dot — collecting clearer frames':hint);
+          if(elapsed>=1800&&fixation&&performance.now()-fixation.timestamp<200&&(!baseline||poseMatches(fixation.pose,baseline))){onProgress(index,1);return frames;}
+        }
+        throw new Error('This dot needs a clearer view. Keep both eyes visible and your head in the same position, then retry.');
+      } finally {if(generation===this.calibrationGeneration)this.collecting=null;}
+    };
     try {
-      // WASM/model initialization can outlast camera startup. Never train on empty startup frames.
       const warmupStart=performance.now();
       while(!this.lastSample||performance.now()-this.lastSample.timestamp>200){
-        await delay(40);if(generation!==this.calibrationGeneration)return false;
+        await delay(40);guard();
         if(performance.now()-warmupStart>20000)throw new Error('Could not find both eyes. Check lighting, camera position and model connection, then retry.');
       }
-      for(let index=0;index<CALIBRATION_TARGETS.length;index++) {
-        onProgress(index,0);this.collecting=null;
-        // Let eyes settle after the dot moves. Transition frames must not become training samples.
-        for(let i=0;i<18;i++){await delay(40);if(generation!==this.calibrationGeneration)return false;}
-        this.collecting=[];const begin=performance.now();
-        while(performance.now()-begin<1800){await delay(40);if(generation!==this.calibrationGeneration)return false;onProgress(index,Math.min(.99,(performance.now()-begin)/1800));}
-        const fixation=summarizeFixation(this.collecting);this.collecting=null;
-        if(!fixation||performance.now()-fixation.timestamp>200)throw new Error('Could not measure a steady gaze. Improve lighting, keep your head still, and retry.');
-        if(samples.length&&!poseMatches(fixation.pose,samples[0].pose))throw new Error('Your head moved during calibration. Keep the same position and retry.');
-        samples.push(fixation);onProgress(index,1);
+      if(!this.draft){
+        const samples:EyeSample[]=[];
+        for(let index=0;index<CALIBRATION_TARGETS.length;index++){
+          const frames=await collectPoint(index,samples[0]?.pose);
+          samples.push(summarizeFixation(frames)!);
+        }
+        const model=fitCalibration(samples);
+        if(!model)throw new Error('The nine dots did not form a reliable mapping. Look directly at each dot and restart calibration.');
+        this.draft={samples,model,viewport,deviceId};
       }
-      if(viewport.width!==window.innerWidth||viewport.height!==window.innerHeight)throw new Error('Screen size changed. Please calibrate again.');
-      const model=fitCalibration(samples);
-      if(!model)throw new Error('Calibration was not accurate enough. Look directly at each dot and retry.');
-      const checks:GazeAccuracy[]=[];
-      for(let index=0;index<VALIDATION_TARGETS.length;index++) {
-        const step=CALIBRATION_TARGETS.length+index;
-        onProgress(step,0);this.collecting=null;
-        for(let i=0;i<18;i++){await delay(40);if(generation!==this.calibrationGeneration)return false;}
-        this.collecting=[];const validationStart=performance.now();
-        while(performance.now()-validationStart<1600){await delay(40);if(generation!==this.calibrationGeneration)return false;onProgress(step,Math.min(.99,(performance.now()-validationStart)/1600));}
-        const frames=this.collecting;const check=summarizeFixation(frames);this.collecting=null;
-        if(!check||performance.now()-check.timestamp>200||!poseMatches(check.pose,samples[0].pose))throw new Error('Could not confirm calibration. Keep your head still and retry.');
-        const accuracy=measureGazeAccuracy(model,frames,VALIDATION_TARGETS[index],viewport);
-        if(!accuracy||!accuracyPasses(accuracy,viewport))throw new Error(`Eye control is not accurate enough at this point${accuracy?` (offset ${Math.round(accuracy.errorPx)} px, shake ${Math.round(accuracy.jitterPx)} px)`:''}. Retry calibration or use touch/mouse.`);
-        checks.push(accuracy);onProgress(step,1);
+      let model=this.draft.model;
+      const baseline=this.draft.samples[0].pose;
+      let checks:GazeAccuracy[]=[];
+      // One bounded correction attempt, followed by an entirely fresh validation round.
+      for(let round=0;round<2;round++){
+        checks=[];
+        for(let index=0;index<VALIDATION_TARGETS.length;index++){
+          const step=CALIBRATION_TARGETS.length+index;
+          let accuracy:GazeAccuracy|null=null;
+          for(let attempt=0;attempt<2&&!accuracy;attempt++){
+            const frames=await collectPoint(step,baseline,round===1?'Offset adjusted — verifying again':undefined);
+            accuracy=measureRenderedGazeAccuracy(model,frames,VALIDATION_TARGETS[index],viewport);
+            if(!accuracy)onProgress(step,0,'Hold this dot — checking the stabilized cursor again');
+          }
+          if(!accuracy)throw new Error('The cursor cannot stay stable yet. Your nine calibration dots are kept; retry the accuracy checks or use touch/mouse.');
+          checks.push(accuracy);
+        }
+        if(checks.every(c=>accuracyPasses(c,viewport)))break;
+        const corrected=round===0?correctConsistentOffset(model,checks,viewport):null;
+        if(corrected){
+          model=corrected;this.draft.model=corrected;
+          continue;
+        }
+        const worst=checks.reduce((a,b)=>a.errorPx>b.errorPx?a:b);
+        throw new Error(`Accuracy still needs improvement (offset ${Math.round(worst.errorPx)} px, shake ${Math.round(worst.jitterPx)} px). Retry checks to keep your nine dots, or restart if your position changed.`);
       }
-      if(viewport.width!==window.innerWidth||viewport.height!==window.innerHeight||window.visualViewport&&Math.abs(window.visualViewport.scale-1)>.01)throw new Error('Screen size or zoom changed. Reset zoom and calibrate again.');
-      this.saveCalibration({version:3,checks,model,pose:samples[0].pose,viewport,deviceId:this.stream!.getVideoTracks()[0].getSettings().deviceId||'',calibratedAt:Date.now()});
-      this.status=`Calibration test error: ${Math.ceil(Math.max(...checks.map(c=>c.errorPx)))} px`;this.filter.reset();return true;
-    } catch(error) {this.status=error instanceof Error?error.message:'Calibration failed.';return false;}
-    finally {if(generation===this.calibrationGeneration){this.isCalibrating=false;this.collecting=null;this.validSince=0;this.notify();}}
+      if(!checks.every(c=>accuracyPasses(c,viewport)))throw new Error('Accuracy checks did not pass. Retry the checks.');
+      if(viewport.width!==window.innerWidth||viewport.height!==window.innerHeight||window.visualViewport&&Math.abs(window.visualViewport.scale-1)>.01)throw new Error('Screen size or zoom changed. Reset zoom and restart calibration.');
+      this.saveCalibration({version:3,checks,model,pose:baseline,viewport,deviceId,calibratedAt:Date.now()});
+      this.draft=null;this.status=this.getAccuracyReport();this.confidence.reset();this.filter.reset();return true;
+    } catch(error) {
+      if(generation===this.calibrationGeneration)this.status=error instanceof Error?error.message:'Calibration failed.';
+      return false;
+    } finally {
+      if(generation===this.calibrationGeneration){this.isCalibrating=false;this.collecting=null;this.validSince=0;this.notify();}
+    }
   }
 }
 export const eyeTrackingEngine=new EyeTrackingEngine();

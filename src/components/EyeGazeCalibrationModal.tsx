@@ -6,23 +6,29 @@ export const EyeGazeCalibrationModal:React.FC<EyeGazeCalibrationModalProps>=({is
   const [step,setStep]=useState(0),[progress,setProgress]=useState(0),[attempt,setAttempt]=useState(0);
   const [phase,setPhase]=useState<'loading'|'collecting'|'finished'|'error'>('loading');
   const [error,setError]=useState('');
+  const [hint,setHint]=useState('');
+  const completed=useRef(false);
   // Parent renders every camera frame. Inline callbacks must never restart calibration.
   const callbacks=useRef({onClose,onComplete});callbacks.current={onClose,onComplete};
   useEffect(()=>{
     if(!isOpen)return;
     let cancelled=false,finished=false;
     let timer:ReturnType<typeof setTimeout>|undefined;
-    setPhase('loading');setStep(0);setProgress(0);setError('');
-    void eyeTrackingEngine.calibrate((point,value)=>{
-      if(!cancelled){setPhase('collecting');setStep(point);setProgress(value);}
+    setPhase('loading');setStep(0);setProgress(0);setError('');setHint('');completed.current=false;
+    void eyeTrackingEngine.calibrate((point,value,message)=>{
+      if(!cancelled){setPhase('collecting');setStep(point);setProgress(value);setHint(message||'');}
     }).then(success=>{
       if(cancelled)return;
       if(!success){setError(eyeTrackingEngine.getStatus());setPhase('error');return;}
-      finished=true;setPhase('finished');
+      finished=true;completed.current=true;setPhase('finished');
       timer=setTimeout(()=>{if(!cancelled){callbacks.current.onComplete();callbacks.current.onClose();}},600);
     }).catch(()=>{if(!cancelled){setError('Could not calibrate. Check camera permission and retry.');setPhase('error');}});
-    return ()=>{cancelled=true;clearTimeout(timer);if(!finished)eyeTrackingEngine.stop();};
+    return ()=>{cancelled=true;clearTimeout(timer);if(!finished)eyeTrackingEngine.cancelCalibration();};
   },[isOpen,attempt]);
+  useEffect(()=>{
+    if(!isOpen)return;
+    return ()=>{if(!completed.current)eyeTrackingEngine.stop();};
+  },[isOpen]);
   if(!isOpen)return null;
   const target=[...CALIBRATION_TARGETS,...VALIDATION_TARGETS][step] || CALIBRATION_TARGETS[0];
   const validating=step>=CALIBRATION_TARGETS.length;
@@ -37,8 +43,9 @@ export const EyeGazeCalibrationModal:React.FC<EyeGazeCalibrationModalProps>=({is
     </div>}
     {(phase==='error'||phase==='finished')&&<div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center pointer-events-none">
       <p role={phase==='error'?'alert':undefined} className="max-w-md text-sm text-zinc-200">{phase==='error'?error:`${eyeTrackingEngine.getAccuracyReport()}. Ready for eye control.`}</p>
-      {phase==='error'&&<button type="button" onClick={()=>setAttempt(a=>a+1)} className="pointer-events-auto rounded-lg bg-teal-500 px-4 py-2 text-sm font-semibold text-slate-950">Try again</button>}
+      {phase==='error'&&<button type="button" onClick={()=>setAttempt(a=>a+1)} className="pointer-events-auto rounded-lg bg-teal-500 px-4 py-2 text-sm font-semibold text-slate-950">{eyeTrackingEngine.canRetryAccuracy()?'Retry accuracy checks':'Try again'}</button>}
+      {phase==='error'&&eyeTrackingEngine.canRetryAccuracy()&&<button type="button" onClick={()=>{eyeTrackingEngine.discardCalibrationAttempt();setAttempt(a=>a+1);}} className="pointer-events-auto text-xs text-zinc-400 underline">Restart all nine dots</button>}
     </div>}
-    <p className="absolute bottom-6 left-0 right-0 px-6 text-center text-xs text-zinc-400">Keep your head still. Move only your eyes. Each camera session is checked before eye control starts.</p>
+    <p className="absolute bottom-6 left-0 right-0 px-6 text-center text-xs text-zinc-400">{hint||'Keep your head still. Move only your eyes. Each camera session is checked before eye control starts.'}</p>
   </div>;
 };
