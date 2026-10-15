@@ -94,6 +94,10 @@ export class EyeTrackingEngine {
     const state:EyeTrackingState={isActive:Boolean(this.stream),isCalibrated:this.isCalibrated(),isTracking:this.tracking&&!this.isCalibrating,faceDetected:this.face,gazeX:this.gaze.x,gazeY:this.gaze.y,hoveredChoiceId:this.hovered,dwellProgress:this.progress,isBlinking:this.blinking,status:this.status};
     this.listeners.forEach(listener=>listener(state));
   }
+  public getMediaStream(): MediaStream | null { return this.stream; }
+  public getVideoElement(): HTMLVideoElement | null { return this.video; }
+  public getLatestSample(): EyeSample | null { return this.lastSample; }
+  public getDraftModel(): GazeModel | null { return this.draft?.model || null; }
   public getStatus() {return this.status;}
   public canRetryAccuracy():boolean {return Boolean(this.draft&&this.stream&&this.draft.viewport.width===window.innerWidth&&this.draft.viewport.height===window.innerHeight&&this.draft.deviceId===(this.stream.getVideoTracks()[0].getSettings().deviceId||''));}
   public discardCalibrationAttempt():void {this.draft=null;}
@@ -160,7 +164,26 @@ export class EyeTrackingEngine {
     this.lastSample=result.sample;
     if(!result.sample){this.pause(result.blinking?'Blink detected — selection paused':result.face?'Keep both eyes visible and face the camera':'Face not detected');return;}
     const sample=result.sample;
-    if(this.isCalibrating){this.collecting?.push(sample);this.tracking=false;this.notify();return;}
+    if(this.isCalibrating){
+      this.collecting?.push(sample);
+      const activeModel = this.draft?.model || this.calibration?.model;
+      if (activeModel) {
+        const normalized = projectGaze(activeModel, sample.px, sample.py);
+        if (Number.isFinite(normalized.x) && Number.isFinite(normalized.y)) {
+          const fixation = this.confidence.update({x: normalized.x * window.innerWidth, y: normalized.y * window.innerHeight}, now);
+          if (fixation) {
+            this.gaze = this.filter.update({x: Math.max(0, Math.min(window.innerWidth, fixation.x)), y: Math.max(0, Math.min(window.innerHeight, fixation.y))}, now);
+          }
+        }
+      } else if (this.collecting && this.collecting.length > 2) {
+        const interimX = Math.max(0, Math.min(window.innerWidth, (sample.px - 0.2) / 0.6 * window.innerWidth));
+        const interimY = Math.max(0, Math.min(window.innerHeight, (sample.py - 0.05) / 0.2 * window.innerHeight));
+        this.gaze = this.filter.update({x: interimX, y: interimY}, now);
+      }
+      this.tracking=true;
+      this.notify();
+      return;
+    }
     if(!this.isCalibrated()){this.pause('Recalibrate for this screen and camera');return;}
     if(!poseMatches(sample.pose,this.calibration!.pose)){this.pause('Return to your calibration position or recalibrate');return;}
     const normalized=projectGaze(this.calibration!.model,sample.px,sample.py);
