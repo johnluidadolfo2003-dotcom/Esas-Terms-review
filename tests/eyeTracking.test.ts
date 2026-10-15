@@ -96,3 +96,10 @@ test('a new question cannot rearm Next while the same fixation remains on its re
  d.setContext('question-2');const nextQuestion={...next,id:'q2:NEXT'};for(let t=1000;t<=3000;t+=100)assert.equal(d.update(nextQuestion,point,t).fire,false);
  for(let t=3100;t<=3400;t+=100)d.update(null,{x:200,y:200},t);let fired=false;for(let t=3500;t<=4500;t+=100)fired=d.update(nextQuestion,point,t).fire||fired;assert.equal(fired,true);
 });
+
+test('unstable mapping preserves raw evidence instead of reporting missing eye samples',()=>{
+ const frames=Array.from({length:12},(_,i)=>({frameId:i+1,videoTime:i/10,timestamp:i*100,sample:sample(i%2?.42:.58,.02,i*100)}));
+ const metrics=measureRegion(model,frames,{x:640,y:450},region('A'),EYE_DEFAULTS,'A','A',100)!;
+ assert.ok(metrics);assert.equal(metrics.inputSamples,12);assert.equal(metrics.validFraction,1);assert.ok(metrics.usableSamples!<5);assert.ok(metrics.usableFraction!<.65);assert.equal(metrics.passed,false);assert.match(metrics.reason,/Calibrated gaze is unstable/);assert.ok(metrics.rawP90Px>500);
+ const stable=frames.map(f=>({...f,sample:sample(.5,.02,f.timestamp)}));const checked=measureRegion(model,stable,{x:640,y:450},region('A'),EYE_DEFAULTS,'A','A',100)!;assert.equal(checked.passed,true);assert.equal(checked.usableFraction,1);assert.equal(checked.usableHz,10);
+});

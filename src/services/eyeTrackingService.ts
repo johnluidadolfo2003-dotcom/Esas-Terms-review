@@ -60,7 +60,7 @@ export class EyeTrackingEngine {
  public configure(values:Partial<EyeSettings>){if(this.calibrating)throw new Error('Pause calibration before changing settings.');this.settings=validateSettings(values);this.filter=new GazeSmoother(this.settings);this.dwell=new GazeDwell(this.settings);this.verified=false;this.fullValidated=false;this.fullReport=null;}
  public getMediaStream(){return this.stream;}public getVideoElement(){return this.video;}public getLatestSample(){return this.latest;}
  public getDraftModel(){return this.model?structuredClone(this.model):null;}public getStatus(){return this.status;}public getReport(){return this.report;}
- public getAccuracyReport(){return this.report?.regions.length?`Worst checked p90 error: ${Math.ceil(Math.max(...this.report.regions.map(r=>r.p90Px)))} CSS px`:'Not measured';}
+ public getAccuracyReport(){const errors=this.report?.regions.map(r=>r.p90Px).filter(Number.isFinite)||[];return errors.length?`Worst checked p90 error: ${Math.ceil(Math.max(...errors))} CSS px`:'No usable screen-gaze measurements yet';}
  public isCalibrated(){return this.verified&&!!this.model&&!!this.geometry&&!!this.video&&sameGeometry(this.geometry,captureGeometry(this.video,this.stream));}
  public canRetryAccuracy(){return !!this.model&&this.training.size===(this.trainingProfile==='quick'?5:9);}
  public canRunShortCheck(){return this.fullValidated&&!!this.model;}
@@ -88,7 +88,7 @@ export class EyeTrackingEngine {
  private persist(){if(!this.model||!this.baseline||!this.geometry||!this.report?.passed)return;try{localStorage.setItem(STORAGE,JSON.stringify({version:4,model:this.model,pose:this.baseline,geometry:this.geometry,report:this.report,fullValidated:this.fullValidated,fullReport:this.fullReport!} satisfies EyeCalibrationData));}catch{this.status+=' (browser storage unavailable)';}}
  public setRecording(value:boolean){this.recording=value;if(value){this.trace=[];this.trainingTraceVersion=0;this.filterCache=null;}}
  public confirmPoint(){this.pointConfirmed=true;}
- public exportDiagnostics(){return {version:4,units:'viewport CSS pixels and performance milliseconds',containsObservations:this.trace.length>0,settings:this.settings,report:this.report,detection:this.detection,inferenceMs:this.inferenceMs,status:this.status,guided:this.guidedRows,frames:this.trace};}
+ public exportDiagnostics(){return {version:4,units:'viewport CSS pixels and performance milliseconds',containsObservations:this.trace.length>0,settings:this.settings,report:this.report,mapping:this.getDraftModel(),calibrationSummary:[...this.training.entries()].map(([id,rows])=>({id,target:rows[0]?.target,samples:rows.length,px:{median:median(rows.map(r=>r.sample.px)),min:Math.min(...rows.map(r=>r.sample.px)),max:Math.max(...rows.map(r=>r.sample.px))},py:{median:median(rows.map(r=>r.sample.py)),min:Math.min(...rows.map(r=>r.sample.py)),max:Math.max(...rows.map(r=>r.sample.py))}})),detection:this.detection,inferenceMs:this.inferenceMs,status:this.status,guided:this.guidedRows,frames:this.trace};}
  public getFilterTrials(){if(!this.model)return [];const key=String(this.trainingTraceVersion)+JSON.stringify([this.model,this.settings]);if(this.filterCache?.key===key)return this.filterCache.value;const value=compareFilters(this.trace as ReplayFrame[],this.model,this.settings);this.filterCache={key,value};return value;}
  public getGuidedState(){return this.guide?{expected:this.guide.sequence[this.guide.index],index:this.guide.index,total:this.guide.sequence.length,rows:this.guide.rows,condition:this.guide.condition}:null;}
  public beginGuidedTest(sequence:string[],condition:string){if(!this.isCalibrated())throw new Error('Pass validation before guided selection testing.');this.guide={sequence,index:0,start:performance.now(),condition,rows:[]};this.userPaused=false;this.dwell.clear();this.emit(true);}
@@ -221,7 +221,7 @@ export class EyeTrackingEngine {
      const frames=await this.collect(t,'validation',i,tests.length,progress,token),metrics=measureRegion(frozen,frames,t.point,t.region,this.settings,t.label,t.id,t.tolerance);
      validationPoses.push(...frames.flatMap(f=>f.sample?[f.sample.pose]:[]));
      if(!metrics){report.issues.push(`${t.label}: insufficient valid validation frames`);continue;}
-     report.regions.push(metrics);if(!metrics.passed)report.issues.push(`${t.label}: median ${Math.round(metrics.medianPx)} px, p90 ${Math.round(metrics.p90Px)} px. ${metrics.reason}`);
+     report.regions.push(metrics);if(!metrics.passed)report.issues.push(`${t.label}: ${metrics.reason}`);
     }catch(error){if(token!==this.run)return false;report.issues.push(error instanceof Error?error.message:String(error));}
    }
    if(!sameGeometry(geometry,captureGeometry(this.video,this.stream)))throw new Error('Camera/viewport changed during calibration. Restart setup.');
