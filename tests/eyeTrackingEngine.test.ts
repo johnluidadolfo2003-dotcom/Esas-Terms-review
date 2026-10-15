@@ -1,89 +1,83 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { EyeTrackingEngine } from '../src/services/eyeTrackingService';
-import { CALIBRATION_TARGETS, VALIDATION_TARGETS } from '../src/services/eyeTrackingMath';
-import type { EyeTrackingState } from '../src/services/eyeTrackingService';
+import {EyeTrackingEngine} from '../src/services/eyeTrackingService';
+import type {CalibrationProgress,EyeTrackingState} from '../src/services/eyeTrackingService';
 
-test('engine calibration, cancellation and camera lifecycle with simulated browser and iris landmarks', async (t) => {
-  const names=['window','document','navigator','localStorage','performance','requestAnimationFrame','cancelAnimationFrame','setTimeout'] as const;
-  const original=new Map(names.map(name=>[name,Object.getOwnPropertyDescriptor(globalThis,name)]));
-  const nativeTimeout=setTimeout;let now=0,stops=0,opens=0,models=0,step=0,missing=false,validationOffset=false,inconsistentOffset=false;let blinkWindow:{start:number;end:number}|null=null;
-  const memory=new Map<string,string>();let callback:(results:any)=>void=()=>{};
-  let getCamera=async()=>{opens++;return stream;};
-  const track={stop(){stops++;},getSettings(){return {deviceId:'test-camera'};},addEventListener(){}};
-  const stream={getTracks(){return [track];},getVideoTracks(){return [track];}};
-  const put=(name:string,value:unknown)=>Object.defineProperty(globalThis,name,{value,configurable:true,writable:true});
-  const landmarks=()=>{
-    if(missing||blinkWindow&&now>=blinkWindow.start&&now<=blinkWindow.end)return [];
-    const target=[...CALIBRATION_TARGETS,...VALIDATION_TARGETS][step]||CALIBRATION_TARGETS[0];
-    const px=.5-(target.x-.5)*.2+(target.y-.5)*.02+(validationOffset&&step>=9?(inconsistentOffset&&step%2===0?-.018:.018):0),py=.02+(target.y-.5)*.12;
-    const points=Array.from({length:478},()=>({x:.5,y:.5,z:0}));
-    const p=(i:number,x:number,y:number)=>{points[i]={x:x/640,y:y/480,z:0};};
-    for(const [a,b,top,bottom,iris,left] of [[33,133,159,145,468,200],[362,263,386,374,473,360]]){
-      p(a,left,200);p(b,left+80,200);p(top,left+40,188);p(bottom,left+40,212);p(iris,left+80*px,200+80*py);
-    }p(1,320,280);return [points];
-  };
-  class Mesh {constructor(){models++;}setOptions(){}onResults(cb:any){callback=cb;}send(){return Promise.resolve();}close(){return Promise.resolve();}}
-  put('window',{innerWidth:1280,innerHeight:900,FaceMesh:Mesh});
-  put('document',{hidden:false,elementFromPoint:()=>null,createElement:()=>({playsInline:true,muted:true,srcObject:null,videoWidth:640,videoHeight:480,currentTime:0,readyState:2,play:async()=>{},pause(){}})});
-  put('navigator',{mediaDevices:{getUserMedia:()=>getCamera()}});
-  put('localStorage',{getItem:(k:string)=>memory.get(k)||null,setItem:(k:string,v:string)=>memory.set(k,v)});
-  put('performance',{now:()=>now});put('requestAnimationFrame',()=>1);put('cancelAnimationFrame',()=>{});
-  // Advance simulated camera time per calibration wait, delivering a fresh observation each tick.
-  put('setTimeout',(cb:()=>void,ms:number)=>nativeTimeout(()=>{now+=ms;callback({multiFaceLandmarks:landmarks()});cb();},0));
-  try {
-    await t.test('concurrent starts share a single camera and model; all targets plus validation are measured',async()=>{
-      const engine=new EyeTrackingEngine();await Promise.all([engine.start(),engine.start()]);assert.equal(opens,1);assert.equal(models,1);
-      const visited=new Set<number>();const ok=await engine.calibrate((i)=>{step=i;visited.add(i);});
-      assert.equal(ok,true);assert.deepEqual([...visited],Array.from({length:13},(_,i)=>i));assert.equal(engine.isCalibrated(),true);
-      const saved=JSON.parse(memory.get('teerms_eye_calibration_v3')!);assert.ok(saved.model.error<1e-6);assert.equal(saved.deviceId,'test-camera');
-      assert.equal(saved.checks.length,4);assert.equal(new EyeTrackingEngine().isCalibrated(),false,'persisted data must not authorize a new camera session');
-      let state:EyeTrackingState|undefined;engine.subscribe(s=>state=s);
-      missing=true;callback({multiFaceLandmarks:landmarks()});assert.equal(state?.faceDetected,false);assert.equal(state?.isTracking,false);assert.equal(state?.dwellProgress,0);
-      missing=false;engine.stop();assert.equal(stops,1);
-    });
-    await t.test('a model that fits training but points away at held-out locations is rejected',async()=>{
-      const saved=memory.get('teerms_eye_calibration_v3');const engine=new EyeTrackingEngine();validationOffset=true;inconsistentOffset=true;
-      const ok=await engine.calibrate(i=>{step=i;});assert.equal(ok,false);assert.match(engine.getStatus(),/offset/);assert.equal(memory.get('teerms_eye_calibration_v3'),saved);assert.equal(engine.isCalibrated(),false);engine.stop();validationOffset=false;inconsistentOffset=false;
-    });
-    await t.test('consistent bias is corrected and must pass a fresh independent check round',async()=>{
-      const engine=new EyeTrackingEngine();validationOffset=true;inconsistentOffset=false;let checkVisits=0,trainingVisits=0;
-      try {
-        const ok=await engine.calibrate((i,progress)=>{step=i;if(progress===0){if(i>=9)checkVisits++;else trainingVisits++;}});
-        assert.equal(ok,true);assert.equal(trainingVisits,9);assert.equal(checkVisits,8);assert.equal(engine.isCalibrated(),true);
-        const saved=JSON.parse(memory.get('teerms_eye_calibration_v3')!);assert.ok(saved.checks.every((c:any)=>c.errorPx<1));
-      } finally {engine.stop();validationOffset=false;}
-    });
-    await t.test('retry accuracy retains the nine dots and keeps the same camera session',async()=>{
-      const engine=new EyeTrackingEngine();validationOffset=true;inconsistentOffset=true;
-      try {
-        assert.equal(await engine.calibrate(i=>{step=i;}),false);assert.equal(engine.canRetryAccuracy(),true);
-        const cameraOpens=opens;engine.cancelCalibration();validationOffset=false;inconsistentOffset=false;const visited=new Set<number>();
-        const ok=await engine.calibrate(i=>{step=i;visited.add(i);});assert.equal(ok,true);assert.deepEqual([...visited],[9,10,11,12]);assert.equal(opens,cameraOpens);
-      } finally {engine.stop();validationOffset=false;inconsistentOffset=false;}
-    });
-    await t.test('a blink extends sampling at the current dot rather than discarding the entire attempt',async()=>{
-      const engine=new EyeTrackingEngine();let begin:number|undefined,end=0;
-      try {
-        const ok=await engine.calibrate((i,progress)=>{step=i;if(i===0&&begin===undefined){begin=now;blinkWindow={start:now+1200,end:now+1600};}if(i===0&&progress===1)end=now;});
-        assert.equal(ok,true);assert.ok(end-begin!>2520);
-      } finally {engine.stop();blinkWindow=null;}
-    });
-    await t.test('invalid measurements cannot replace a good saved calibration',async()=>{
-      const saved=memory.get('teerms_eye_calibration_v3');const engine=new EyeTrackingEngine();missing=true;
-      const ok=await engine.calibrate(i=>{step=i;});assert.equal(ok,false);assert.equal(memory.get('teerms_eye_calibration_v3'),saved);assert.match(engine.getStatus(),/find both eyes/);engine.stop();missing=false;
-    });
-    await t.test('cancelled calibration does not save or complete in the background',async()=>{
-      const saved=memory.get('teerms_eye_calibration_v3');const engine=new EyeTrackingEngine();
-      const ok=await engine.calibrate(i=>{step=i;engine.stop();});assert.equal(ok,false);assert.equal(memory.get('teerms_eye_calibration_v3'),saved);
-    });
-    await t.test('stopping during a pending camera request releases the late stream',async()=>{
-      const engine=new EyeTrackingEngine();let release:(value:any)=>void=()=>{};
-      getCamera=()=>new Promise(resolve=>{release=resolve;});
-      const pending=engine.start();await Promise.resolve();await Promise.resolve();const before=stops;engine.stop();release(stream);
-      assert.equal(await pending,false);assert.equal(stops,before+1);
-    });
-  } finally {
-    for(const [name,descriptor] of original){if(descriptor)Object.defineProperty(globalThis,name,descriptor);else Reflect.deleteProperty(globalThis,name);}
-  }
+test('real engine orchestration with a simulated browser/camera (not measured webcam accuracy)',async t=>{
+ const names=['window','document','navigator','screen','localStorage','performance','requestAnimationFrame','cancelAnimationFrame','setTimeout','setInterval','clearInterval','getComputedStyle'] as const;
+ const originals=new Map(names.map(n=>[n,Object.getOwnPropertyDescriptor(globalThis,n)]));const nativeTimeout=setTimeout;
+ let now=0,opens=0,models=0,stops=0,raf:FrameRequestCallback|null=null,callback:(r:any)=>void=()=>{},cameraTime=0,frameLatency=0,duplicate=false,missing=false,validationBias=0,overlay=true;
+ let target={x:640,y:450},current:CalibrationProgress|null=null,failPoint:string|null=null;
+ const timers=new Map<number,()=>void>();let timerId=0;
+ const events=new Map<string,(()=>void)[]>(),memory=new Map<string,string>();
+ const track={stop(){stops++;},getSettings(){return {deviceId:'simulated-camera'};},addEventListener(){}};
+ const stream={getTracks:()=>[track],getVideoTracks:()=>[track]};let camera=async()=>{opens++;return stream;};
+ const controls=['A','B','C','D','NEXT'].map((slot,i)=>({dataset:{choiceId:slot==='NEXT'?undefined:slot,action:slot==='NEXT'?'next-card':undefined,gazeContext:'q1',gazeLabel:slot},textContent:slot,
+  matches:()=>false,getBoundingClientRect:()=>({left:400,top:180+i*135,width:480,height:100,right:880,bottom:280+i*135}),closest(){return this;}}));
+ const doc:any={hidden:false,addEventListener:(n:string,fn:()=>void)=>events.set(n,[...(events.get(n)||[]),fn]),removeEventListener(){},querySelector:()=>null,querySelectorAll:()=>controls,
+  elementFromPoint:(x:number,y:number)=>overlay?{closest:()=>null}:controls.find(c=>{const r=c.getBoundingClientRect();return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;})||null,
+  createElement:()=>video};
+ const win:any={innerWidth:1280,innerHeight:900,devicePixelRatio:1,addEventListener:doc.addEventListener,removeEventListener(){}};
+ const video:any={videoWidth:640,videoHeight:480,readyState:2,currentTime:0,srcObject:null,play:async()=>{},pause(){}};
+ const landmarks=()=>{
+  if(missing||current?.phase==='training'&&current.id===failPoint)return [];
+  const px=.5-(target.x/win.innerWidth-.5)*.2+(current?.phase==='validation'?validationBias:0),py=.02+(target.y/win.innerHeight-.5)*.12;
+  const points=Array.from({length:478},()=>({x:.5,y:.5,z:0}));const put=(i:number,x:number,y:number)=>{points[i]={x:x/640,y:y/480,z:0};};
+  for(const [a,b,top,bottom,iris,left] of [[33,133,159,145,468,200],[362,263,386,374,473,360]]){put(a,left,200);put(b,left+80,200);put(top,left+40,188);put(bottom,left+40,212);put(iris,left+80*px,200+80*py);}put(1,320,280);return [points];
+ };
+ class Mesh{constructor(){models++;}setOptions(){}onResults(cb:any){callback=cb;}async send(){now+=frameLatency;const result={multiFaceLandmarks:landmarks()};callback(result);if(duplicate)callback(result);}async close(){}}
+ win.FaceMesh=Mesh;
+ const put=(n:string,value:unknown)=>Object.defineProperty(globalThis,n,{value,writable:true,configurable:true});
+ put('window',win);put('document',doc);put('screen',{orientation:{angle:0}});put('navigator',{mediaDevices:{getUserMedia:()=>camera()}});put('localStorage',{getItem:(k:string)=>memory.get(k)||null,setItem:(k:string,v:string)=>memory.set(k,v)});put('performance',{now:()=>now});put('getComputedStyle',()=>({display:'block',visibility:'visible'}));
+ put('requestAnimationFrame',(cb:FrameRequestCallback)=>{raf=cb;return 1;});put('cancelAnimationFrame',()=>{raf=null;});
+ put('setInterval',(cb:()=>void)=>{const id=++timerId;timers.set(id,cb);return id;});put('clearInterval',(id:number)=>timers.delete(id));
+ async function tick(ms=40,produce=true){now+=ms;cameraTime+=ms/1000;video.currentTime=cameraTime;if(produce&&raf){const cb=raf;raf=null;cb(now);await Promise.resolve();await Promise.resolve();await Promise.resolve();}for(const cb of timers.values())cb();}
+ put('setTimeout',(fn:()=>void,ms:number)=>nativeTimeout(()=>{void tick(ms).then(fn);},0));
+ const progress=(p:CalibrationProgress)=>{current=p;target=p.target;};
+ const engines:EyeTrackingEngine[]=[];const engine=()=>{const e=new EyeTrackingEngine();engines.push(e);return e;};
+ try{
+  await t.test('one camera/model/loop, balanced distinct samples and independent actual-region validation',async()=>{
+   const e=engine();const before=opens;await Promise.all([e.start(),e.start()]);assert.equal(opens,before+1);assert.equal(models,opens);
+   duplicate=true;const ok=await e.calibrate(progress);duplicate=false;
+   assert.equal(ok,true);const report=e.getReport()!;assert.equal(report.regions.length,10);assert.ok(report.regions.some(r=>r.slot==='A'));assert.equal(report.comparison?.selected,'affine');assert.equal(e.isCalibrated(),true);
+   const data=JSON.parse(memory.get('teerms_eye_calibration_v4')!);assert.equal(data.fullValidated,true);assert.equal(data.model.kind,'affine');assert.equal((e as any).forceCompleteCalibration,undefined);
+   assert.equal(new EyeTrackingEngine().isCalibrated(),false);e.stop();
+  });
+  await t.test('validation bias cannot train, correct or force-enable the model',async()=>{
+   const e=engine();validationBias=.025;let before='';
+   assert.equal(await e.calibrate(p=>{progress(p);if(p.phase==='validation'&&!before)before=JSON.stringify(e.getDraftModel());}),false);
+   assert.equal(JSON.stringify(e.getDraftModel()),before);assert.equal(e.isCalibrated(),false);assert.ok(e.getReport()!.issues.some(s=>/p90/.test(s)));
+   validationBias=0;e.stop();
+  });
+  await t.test('only unsuccessful training dots are reacquired and valid samples survive retry',async()=>{
+   const e=engine();failPoint='train-2';const first=new Set<string>();assert.equal(await e.calibrate(p=>{progress(p);if(p.phase==='training')first.add(p.id);}),false);assert.equal(first.size,9);assert.deepEqual(e.getReport()!.failedTrainingIds,['train-2']);
+   failPoint=null;const retried=new Set<string>();assert.equal(await e.calibrate(p=>{progress(p);if(p.phase==='training')retried.add(p.id);}),true);assert.deepEqual([...retried],['train-2']);e.stop();
+  });
+  await t.test('valid frame freshness, hidden pages, duplicate results, scrolling and context clear selection',async()=>{
+   const e=engine();assert.equal(await e.calibrate(progress),true);overlay=false;doc.querySelector=(s:string)=>s==='[data-eye-calibration]'&&overlay?{}:null;current=null;target={x:640,y:230};let state:EyeTrackingState|undefined;e.subscribe(s=>state=s);let actions=0;e.setActionCallback(()=>actions++);e.setContext('q1');e.resume();
+   for(let i=0;i<12;i++)await tick();assert.ok((state?.dwellProgress||0)>0);
+   missing=true;await tick();assert.equal(state?.dwellProgress,0);assert.equal(state?.isTracking,false);missing=false;
+   for(let i=0;i<5;i++)await tick();frameLatency=350;await tick();frameLatency=0;assert.equal(state?.isTracking,false);assert.equal(state?.dwellProgress,0);
+   doc.hidden=true;await tick();assert.equal(state?.isTracking,false);doc.hidden=false;
+   for(let i=0;i<6;i++)await tick();for(const cb of events.get('scroll')||[])cb();assert.equal(state?.dwellProgress,0);
+   e.setContext('q2');assert.equal(actions,0);e.stop();overlay=true;
+  });
+  await t.test('major resizing invalidates the session and stops selection',async()=>{
+   const e=engine();assert.equal(await e.calibrate(progress),true);win.innerWidth=1000;for(const cb of events.get('resize')||[])cb();assert.equal(e.isCalibrated(),false);assert.equal(e.resume(),false);win.innerWidth=1280;e.stop();
+  });
+  await t.test('guided test records incorrect, missed and correct attempts without answering reviewer questions',async()=>{
+   const e=engine();assert.equal(await e.calibrate(progress),true);current=null;overlay=false;let actions=0;e.setActionCallback(()=>actions++);
+   e.beginGuidedTest(['A','C'],'With glasses');target={x:640,y:365};for(let i=0;i<32;i++)await tick();assert.equal(e.getReport()!.guided[0]?.result,'incorrect');
+   target={x:10,y:10};for(let i=0;i<210;i++)await tick();assert.ok(e.getReport()!.guided.some(r=>r.result==='missed'));assert.equal(actions,0);
+   e.beginGuidedTest(['A'],'Normal head movement');target={x:640,y:230};for(let i=0;i<35;i++)await tick();assert.ok(e.getReport()!.guided.some(r=>r.result==='correct'));assert.equal(actions,0);e.stop();overlay=true;
+  });
+  await t.test('complete persisted model requires a fresh short check; failed full fit cannot bypass it',async()=>{
+   const e=engine();await e.start();assert.equal(e.isCalibrated(),false);assert.equal(await e.calibrate(progress,{short:true}),true);assert.ok(e.getReport()!.baselineRegions?.some(r=>r.slot==='B'));
+   overlay=false;current=null;target={x:640,y:365};let selected='';e.setActionCallback(a=>{selected=a.id||'';});e.resume();for(let i=0;i<30;i++)await tick();assert.equal(selected,'B');overlay=true;e.stop();
+   const bad=engine();bad.discardCalibrationAttempt();assert.equal(await bad.calibrate(progress,{short:true}),false);bad.stop();
+  });
+  await t.test('stop while camera permission is pending releases the late stream',async()=>{
+   const e=engine();let release:(s:any)=>void=()=>{};camera=()=>new Promise(r=>{release=r;});const pending=e.start();await Promise.resolve();await Promise.resolve();const before=stops;e.stop();release(stream);assert.equal(await pending,false);assert.equal(stops,before+1);
+  });
+ }finally{for(const e of engines)e.stop();for(const [n,d] of originals){if(d)Object.defineProperty(globalThis,n,d);else Reflect.deleteProperty(globalThis,n);}}
 });

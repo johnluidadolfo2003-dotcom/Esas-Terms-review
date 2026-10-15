@@ -1,545 +1,76 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { eyeTrackingEngine, EyeTrackingState } from '../services/eyeTrackingService';
-import { CALIBRATION_TARGETS, VALIDATION_TARGETS } from '../services/eyeTrackingMath';
-
-interface EyeGazeCalibrationModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onComplete: () => void;
-}
-
-export const EyeGazeCalibrationModal: React.FC<EyeGazeCalibrationModalProps> = ({
-  isOpen,
-  onClose,
-  onComplete,
-}) => {
-  const [step, setStep] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [attempt, setAttempt] = useState(0);
-  const [phase, setPhase] = useState<'setup' | 'loading' | 'collecting' | 'verifying' | 'finished' | 'error'>('setup');
-  const [error, setError] = useState('');
-  const [hint, setHint] = useState('');
-  const [trackingState, setTrackingState] = useState<EyeTrackingState>({
-    isActive: false,
-    isCalibrated: false,
-    isTracking: false,
-    faceDetected: false,
-    gazeX: typeof window !== 'undefined' ? window.innerWidth / 2 : 500,
-    gazeY: typeof window !== 'undefined' ? window.innerHeight / 2 : 400,
-    hoveredChoiceId: null,
-    dwellProgress: 0,
-    isBlinking: false,
-  });
-
-  const [verifiedTargets, setVerifiedTargets] = useState<Set<number>>(new Set());
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const completed = useRef(false);
-  const callbacks = useRef({ onClose, onComplete });
-  callbacks.current = { onClose, onComplete };
-
-  // Helper for immediate guaranteed calibration finish
-  const handleForceFinish = () => {
-    completed.current = true;
-    eyeTrackingEngine.forceCompleteCalibration();
-    setPhase('finished');
-    callbacks.current.onComplete();
-    callbacks.current.onClose();
-  };
-
-  // Subscribe to live eye tracking state (30 FPS)
-  useEffect(() => {
-    if (!isOpen) return;
-    const unsubscribe = eyeTrackingEngine.subscribe((state) => {
-      setTrackingState(state);
-    });
-    return () => unsubscribe();
-  }, [isOpen]);
-
-  // Connect live video stream to local preview <video>
-  useEffect(() => {
-    if (!isOpen) return;
-
-    let timer: ReturnType<typeof setInterval>;
-    const setupStream = () => {
-      const stream = eyeTrackingEngine.getMediaStream();
-      if (videoRef.current && stream && videoRef.current.srcObject !== stream) {
-        videoRef.current.srcObject = stream;
-        videoRef.current.play().catch(() => {});
-      }
-    };
-
-    setupStream();
-    timer = setInterval(setupStream, 300);
-    return () => clearInterval(timer);
-  }, [isOpen, phase, attempt]);
-
-  // Calibration flow executor - starts when user clicks "Start 9-Point Calibration"
-  const startCalibrationLoop = () => {
-    let cancelled = false;
-    let finished = false;
-    let timer: ReturnType<typeof setTimeout> | undefined;
-
-    setPhase('loading');
-    setStep(0);
-    setProgress(0);
-    setError('');
-    setHint('');
-    setVerifiedTargets(new Set());
-    completed.current = false;
-
-    void eyeTrackingEngine
-      .calibrate((point, value, message) => {
-        if (!cancelled) {
-          setPhase('collecting');
-          setStep(point);
-          setProgress(value);
-          setHint(message || '');
-        }
-      })
-      .then((success) => {
-        if (cancelled) return;
-        if (!success) {
-          setError(eyeTrackingEngine.getStatus());
-          setPhase('verifying');
-          return;
-        }
-        finished = true;
-        setPhase('verifying');
-      })
-      .catch(() => {
-        if (!cancelled) {
-          setError('Could not complete automatic accuracy check. You can finish calibration directly below.');
-          setPhase('verifying');
-        }
-      });
-  };
-
-  useEffect(() => {
-    if (!isOpen) return;
-    return () => {
-      if (!completed.current) eyeTrackingEngine.stop();
-    };
-  }, [isOpen]);
-
-  // Start engine for setup camera preview on open
-  useEffect(() => {
-    if (isOpen && phase === 'setup') {
-      void eyeTrackingEngine.start();
-    }
-  }, [isOpen, phase]);
-
-  // Live Eye-Follow Lock Verification during Phase 'verifying'
-  const verificationNodes = [
-    { id: 0, label: 'Top Left', x: 0.2, y: 0.25 },
-    { id: 1, label: 'Top Right', x: 0.8, y: 0.25 },
-    { id: 2, label: 'Bottom Left', x: 0.2, y: 0.75 },
-    { id: 3, label: 'Bottom Right', x: 0.8, y: 0.75 },
-  ];
-
-  useEffect(() => {
-    if (phase !== 'verifying') return;
-
-    const screenW = window.innerWidth;
-    const screenH = window.innerHeight;
-    const gx = trackingState.gazeX;
-    const gy = trackingState.gazeY;
-
-    verificationNodes.forEach((node) => {
-      if (verifiedTargets.has(node.id)) return;
-      const targetX = node.x * screenW;
-      const targetY = node.y * screenH;
-      const dist = Math.hypot(gx - targetX, gy - targetY);
-
-      if (dist < 140) {
-        setVerifiedTargets((prev) => {
-          const next = new Set(prev);
-          next.add(node.id);
-          if (next.size === verificationNodes.length) {
-            completed.current = true;
-            eyeTrackingEngine.forceCompleteCalibration();
-            setPhase('finished');
-            setTimeout(() => {
-              callbacks.current.onComplete();
-              callbacks.current.onClose();
-            }, 600);
-          }
-          return next;
-        });
-      }
-    });
-  }, [phase, trackingState.gazeX, trackingState.gazeY, verifiedTargets]);
-
-  if (!isOpen) return null;
-
-  const target = [...CALIBRATION_TARGETS, ...VALIDATION_TARGETS][step] || CALIBRATION_TARGETS[0];
-  const validating = step >= CALIBRATION_TARGETS.length;
-  const targetPxX = typeof window !== 'undefined' ? target.x * window.innerWidth : 500;
-  const targetPxY = typeof window !== 'undefined' ? target.y * window.innerHeight : 400;
-
-  const liveDistance = Math.hypot(trackingState.gazeX - targetPxX, trackingState.gazeY - targetPxY);
-  const isEyeAligned = liveDistance < 120;
-
-  return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Eye gaze camera calibration"
-      data-eye-calibration
-      className="fixed inset-0 z-[60] bg-[#0b0d13]/95 backdrop-blur-md select-none overflow-hidden flex flex-col items-center justify-center"
-    >
-      {/* 1. Setup Phase: Camera & Environment Guidance Screen */}
-      {phase === 'setup' && (
-        <div className="bg-[#141620] border border-[#272938] rounded-2xl p-6 sm:p-8 max-w-lg w-full shadow-2xl z-20 flex flex-col items-center text-center">
-          <div className="w-10 h-10 rounded-full bg-[#2dd4bf]/20 border border-[#2dd4bf] flex items-center justify-center text-[#2dd4bf] mb-4">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-            </svg>
-          </div>
-
-          <h3 className="text-lg font-bold text-zinc-100">Eye Tracking Setup Check</h3>
-          <p className="text-xs text-zinc-400 mt-1">
-            Ensure clear eye visibility before calibrating for hands-free quiz control.
-          </p>
-
-          {/* Live Camera Preview Box */}
-          <div className="relative aspect-[4/3] w-64 bg-black rounded-xl overflow-hidden border border-[#272938] my-4 shadow-inner">
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              muted
-              className="w-full h-full object-cover transform -scale-x-100"
-            />
-            <div
-              className={`absolute inset-3 border-2 rounded-lg pointer-events-none transition-colors ${
-                trackingState.faceDetected ? 'border-[#2dd4bf] bg-[#2dd4bf]/5' : 'border-amber-400 bg-amber-400/10'
-              }`}
-            />
-            <div className="absolute bottom-2 left-2 right-2 bg-[#0b0d13]/80 backdrop-blur-xs px-2.5 py-1 rounded text-[11px] font-mono text-zinc-200 flex items-center justify-between border border-[#272938]">
-              <span className="flex items-center gap-1.5">
-                <span className={`w-2 h-2 rounded-full ${trackingState.faceDetected ? 'bg-[#2dd4bf]' : 'bg-amber-400 animate-pulse'}`} />
-                <span>{trackingState.faceDetected ? 'Face Centered' : 'Detecting Eyes…'}</span>
-              </span>
-              <span className="text-[#2dd4bf]">30 FPS</span>
-            </div>
-          </div>
-
-          {/* Setup Guidelines Checklist */}
-          <div className="text-left w-full bg-[#1a1d2b] border border-[#272938] rounded-xl p-3 text-xs text-zinc-300 space-y-1.5 font-mono mb-5">
-            <div className="flex items-center gap-2">
-              <span className="text-[#2dd4bf]">✓</span>
-              <span>Sit 50–70cm away facing camera directly</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#2dd4bf]">✓</span>
-              <span>Ensure front lighting (avoid glare on glasses)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-[#2dd4bf]">✓</span>
-              <span>Keep head steady and follow dots with eyes only</span>
-            </div>
-          </div>
-
-          {/* Action Buttons */}
-          <div className="flex flex-col gap-2 w-full">
-            <button
-              type="button"
-              onClick={startCalibrationLoop}
-              className="w-full bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 font-bold text-xs py-2.5 rounded-lg transition-colors cursor-pointer shadow-md"
-            >
-              Start 9-Point Calibration →
-            </button>
-            <button
-              type="button"
-              onClick={handleForceFinish}
-              className="w-full bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-medium text-xs py-2 rounded-lg transition-colors cursor-pointer"
-            >
-              Skip Setup & Activate Eye Control Directly
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Top Header Controls Bar (Active during calibration & verification) */}
-      {phase !== 'setup' && (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex flex-wrap items-center justify-center gap-2 sm:gap-3 bg-[#14161f] border border-[#262836] px-4 py-2 rounded-full shadow-xl max-w-[90vw]">
-          <span className="w-2 h-2 rounded-full bg-[#2dd4bf] animate-pulse shrink-0" />
-          <span role="status" className="text-xs font-mono text-zinc-200">
-            {phase === 'loading'
-              ? 'Starting camera & eye tracker…'
-              : phase === 'finished'
-              ? 'Calibration complete & verified!'
-              : phase === 'error'
-              ? 'Calibration needs another try'
-              : phase === 'verifying'
-              ? `Eye Control Test: Look at targets (${verifiedTargets.size}/${verificationNodes.length})`
-              : validating
-              ? `Testing Accuracy (${step - CALIBRATION_TARGETS.length + 1}/${VALIDATION_TARGETS.length})`
-              : `Follow Dot with Eyes (${step + 1}/${CALIBRATION_TARGETS.length})`}
-          </span>
-
-          <button
-            type="button"
-            onClick={handleForceFinish}
-            className="text-xs font-bold bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 px-3 py-1 rounded-full transition-colors cursor-pointer shadow-sm shrink-0"
-          >
-            Finish & Activate Eye Control ✓
-          </button>
-
-          <button
-            type="button"
-            onClick={() => {
-              eyeTrackingEngine.stop();
-              callbacks.current.onClose();
-            }}
-            className="text-xs text-zinc-400 hover:text-white px-2.5 py-1 rounded-full bg-zinc-800/80 hover:bg-zinc-800 transition-colors cursor-pointer shrink-0"
-          >
-            Cancel
-          </button>
-        </div>
-      )}
-
-      {/* Docked Camera Preview Widget (Active during calibration & verification) */}
-      {phase !== 'setup' && (
-        <div className="absolute top-4 right-4 z-20 w-44 sm:w-56 bg-[#141620] border border-[#272938] rounded-xl shadow-2xl overflow-hidden flex flex-col">
-          <div className="relative aspect-[4/3] bg-black">
-            <video
-              ref={videoRef}
-              autoPlay
-              playsInline
-              muted
-              className="w-full h-full object-cover transform -scale-x-100"
-            />
-            <div
-              className={`absolute inset-3 border-2 rounded-lg transition-colors duration-200 pointer-events-none flex items-center justify-center ${
-                trackingState.isBlinking
-                  ? 'border-amber-400/80 bg-amber-400/10'
-                  : trackingState.faceDetected
-                  ? 'border-[#2dd4bf]/70 bg-[#2dd4bf]/5'
-                  : 'border-rose-500/80 bg-rose-500/10'
-              }`}
-            />
-            <div className="absolute bottom-1.5 left-2 right-2 flex items-center justify-between text-[10px] font-mono bg-[#0e1017]/80 backdrop-blur-xs px-2 py-0.5 rounded border border-[#272938]">
-              <span className="flex items-center gap-1.5">
-                <span className={`w-1.5 h-1.5 rounded-full ${trackingState.faceDetected ? 'bg-[#2dd4bf]' : 'bg-rose-500'}`} />
-                <span className="text-zinc-200">
-                  {trackingState.isBlinking ? 'Blink' : trackingState.faceDetected ? 'Eyes Detected' : 'No Face'}
-                </span>
-              </span>
-              <span className="text-zinc-400">Live</span>
-            </div>
-          </div>
-
-          <div className="px-3 py-1.5 bg-[#181a26] text-[10px] font-mono text-zinc-400 flex items-center justify-between border-t border-[#272938]">
-            <span>Camera Monitor</span>
-            <span className="text-[#2dd4bf] font-medium">
-              {isEyeAligned && phase === 'collecting' ? 'Gaze Aligned' : 'Tracking'}
-            </span>
-          </div>
-        </div>
-      )}
-
-      {/* Real-Time Live Eye Gaze Reticle Dot */}
-      {(phase === 'collecting' || phase === 'verifying') && trackingState.isTracking && (
-        <div
-          className="fixed pointer-events-none z-50 transition-transform duration-75 ease-out"
-          style={{
-            left: 0,
-            top: 0,
-            transform: `translate3d(${trackingState.gazeX}px, ${trackingState.gazeY}px, 0) translate(-50%, -50%)`,
-          }}
-        >
-          <div className="relative flex items-center justify-center">
-            <div className="w-8 h-8 rounded-full border border-[#2dd4bf] bg-[#2dd4bf]/20 shadow-[0_0_12px_#2dd4bf] animate-ping opacity-40" />
-            <div className="absolute w-5 h-5 rounded-full border-2 border-white bg-[#2dd4bf] shadow-[0_0_16px_#2dd4bf] flex items-center justify-center">
-              <div className="w-1.5 h-1.5 rounded-full bg-slate-950" />
-            </div>
-            <div className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap bg-[#141620] border border-[#272938] px-2 py-0.5 rounded text-[9px] font-mono text-[#2dd4bf] font-semibold shadow-md">
-              Your Eyes
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Target Dot & Convergence Ring */}
-      {phase === 'collecting' && (
-        <div
-          className="absolute -translate-x-1/2 -translate-y-1/2 pointer-events-none flex items-center justify-center"
-          style={{ left: `${target.x * 100}%`, top: `${target.y * 100}%` }}
-        >
-          {trackingState.isTracking && (
-            <svg
-              className="fixed top-0 left-0 w-full h-full pointer-events-none z-10 opacity-30"
-              style={{ overflow: 'visible' }}
-            >
-              <line
-                x1={trackingState.gazeX}
-                y1={trackingState.gazeY}
-                x2={targetPxX}
-                y2={targetPxY}
-                stroke="#2dd4bf"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-              />
-            </svg>
-          )}
-
-          <div className="relative flex items-center justify-center">
-            <svg className="w-24 h-24 -rotate-90" viewBox="0 0 96 96">
-              <circle cx="48" cy="48" r="40" stroke="#1c1f2b" strokeWidth="5" fill="none" />
-              <circle
-                cx="48"
-                cy="48"
-                r="40"
-                stroke="#2dd4bf"
-                strokeWidth="5"
-                fill="none"
-                strokeDasharray="251.3"
-                strokeDashoffset={251.3 * (1 - progress)}
-                strokeLinecap="round"
-                className="transition-all duration-100"
-              />
-            </svg>
-
-            <div
-              className={`absolute w-5 h-5 rounded-full transition-all duration-200 ${
-                isEyeAligned ? 'bg-[#2dd4bf] scale-125 shadow-[0_0_24px_#2dd4bf]' : 'bg-zinc-400 scale-100'
-              }`}
-            />
-
-            {isEyeAligned && (
-              <div className="absolute w-14 h-14 rounded-full border-2 border-[#2dd4bf] animate-ping opacity-60" />
-            )}
-          </div>
-
-          <div className="absolute top-16 whitespace-nowrap text-center pointer-events-auto">
-            <span className="text-[11px] font-mono text-zinc-300 bg-[#141620]/90 border border-[#272938] px-2.5 py-1 rounded-full shadow-md block mb-1">
-              {isEyeAligned ? 'Eyes Aligned — Collecting Data' : 'Look directly at this dot'}
-            </span>
-          </div>
-        </div>
-      )}
-
-      {/* Live Eye Control Verification */}
-      {phase === 'verifying' && (
-        <div className="absolute inset-0 z-20">
-          {verificationNodes.map((node) => {
-            const isVerified = verifiedTargets.has(node.id);
-
-            return (
-              <div
-                key={node.id}
-                className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center transition-all duration-300 pointer-events-none"
-                style={{ left: `${node.x * 100}%`, top: `${node.y * 100}%` }}
-              >
-                <div
-                  className={`relative w-20 h-20 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${
-                    isVerified
-                      ? 'border-[#2dd4bf] bg-[#2dd4bf]/20 shadow-[0_0_24px_#2dd4bf/50] scale-110'
-                      : 'border-zinc-700 bg-[#141620]/80'
-                  }`}
-                >
-                  {isVerified ? (
-                    <svg className="w-8 h-8 text-[#2dd4bf]" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                  ) : (
-                    <div className="w-4 h-4 rounded-full bg-zinc-500" />
-                  )}
-                </div>
-
-                <span
-                  className={`mt-2 text-[11px] font-mono px-2.5 py-0.5 rounded-full border ${
-                    isVerified
-                      ? 'bg-[#2dd4bf]/20 border-[#2dd4bf] text-[#2dd4bf] font-bold'
-                      : 'bg-[#141620] border-[#272938] text-zinc-400'
-                  }`}
-                >
-                  {isVerified ? 'VERIFIED ✓' : node.label}
-                </span>
-              </div>
-            );
-          })}
-
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-[#141620] border border-[#272938] px-6 py-4 rounded-xl shadow-2xl text-center pointer-events-auto flex flex-col items-center gap-3 max-w-md w-full">
-            <div>
-              <h4 className="text-sm font-bold text-zinc-100">Test Your Eye Control</h4>
-              <p className="text-xs text-zinc-400 mt-1">
-                Look at the 4 targets to test accuracy, or click below to finish calibration immediately.
-              </p>
-            </div>
-
-            <button
-              type="button"
-              onClick={handleForceFinish}
-              className="w-full bg-[#2dd4bf] hover:bg-[#26bba8] text-slate-950 font-bold text-xs py-2.5 rounded-lg transition-colors cursor-pointer shadow-md"
-            >
-              Complete Calibration & Start Eye Control Now ✓
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Error or Completion Summary Modal */}
-      {(phase === 'error' || phase === 'finished') && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-8 text-center pointer-events-none z-30">
-          <div className="bg-[#141620] border border-[#272938] p-6 rounded-2xl shadow-2xl max-w-md w-full pointer-events-auto flex flex-col items-center">
-            {phase === 'finished' ? (
-              <div className="w-12 h-12 rounded-full bg-[#2dd4bf]/20 border border-[#2dd4bf] flex items-center justify-center text-[#2dd4bf] mb-3">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-              </div>
-            ) : (
-              <div className="w-12 h-12 rounded-full bg-rose-500/20 border border-rose-500 flex items-center justify-center text-rose-400 mb-3">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
-                </svg>
-              </div>
-            )}
-
-            <h3 className="text-base font-bold text-zinc-100">
-              {phase === 'finished' ? 'Eye Tracking Ready' : 'Calibration Notice'}
-            </h3>
-
-            <p role={phase === 'error' ? 'alert' : undefined} className="text-xs text-zinc-300 mt-2">
-              {phase === 'error'
-                ? error
-                : `${eyeTrackingEngine.getAccuracyReport()}. The reticle is now calibrated to accurately follow your eye movements.`}
-            </p>
-
-            <div className="flex flex-col gap-2 mt-5 w-full">
-              <button
-                type="button"
-                onClick={handleForceFinish}
-                className="w-full rounded-lg bg-[#2dd4bf] hover:bg-[#26bba8] px-4 py-2.5 text-xs font-bold text-slate-950 transition-colors cursor-pointer shadow-md"
-              >
-                Complete & Start Eye Control Now ✓
-              </button>
-
-              {phase === 'error' && (
-                <button
-                  type="button"
-                  onClick={() => setAttempt((a) => a + 1)}
-                  className="w-full rounded-lg bg-zinc-800 hover:bg-zinc-700 px-4 py-2 text-xs font-semibold text-zinc-200 transition-colors cursor-pointer"
-                >
-                  Restart Calibration Dots
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Bottom Guidance Footer */}
-      {phase !== 'setup' && (
-        <div className="absolute bottom-4 left-0 right-0 px-6 text-center z-20 flex flex-col items-center gap-1.5 pointer-events-auto">
-          <p className="text-xs text-zinc-400">
-            {hint || 'Keep your head in position and move only your eyes. The live dot tracks your eye movement in real-time.'}
-          </p>
-        </div>
-      )}
-    </div>
-  );
+import React,{useEffect,useRef,useState} from 'react';
+import {eyeTrackingEngine} from '../services/eyeTrackingService';
+import type {CalibrationProgress,EyeTrackingState} from '../services/eyeTrackingService';
+import {getTargetRegions} from '../services/eyeTrackingDom';
+interface Props{isOpen:boolean;onClose:()=>void;onComplete:()=>void;onMagnify?:()=>void;mode?:'full'|'short';}
+const download=(value:unknown)=>{const url=URL.createObjectURL(new Blob([JSON.stringify(value,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='gaze-diagnostics.json';a.click();URL.revokeObjectURL(url);};
+export const EyeGazeCalibrationModal:React.FC<Props>=({isOpen,onClose,onComplete,onMagnify,mode='full'})=>{
+ const [phase,setPhase]=useState<'setup'|'collecting'|'results'|'guide'>('setup'),[state,setState]=useState<EyeTrackingState|null>(null),[progress,setProgress]=useState<CalibrationProgress|null>(null),[error,setError]=useState(''),[record,setRecord]=useState(false),[confirmDots,setConfirmDots]=useState(false),[condition,setCondition]=useState('Normal lighting');
+ const [settings,setSettings]=useState(eyeTrackingEngine.getSettings());const [guidedRegions,setGuidedRegions]=useState(()=>getTargetRegions(true));
+ const preview=useRef<HTMLVideoElement>(null),mounted=useRef(false),keepCamera=useRef(false),callbacks=useRef({onClose,onComplete});callbacks.current={onClose,onComplete};
+ useEffect(()=>{
+  if(!isOpen)return;mounted.current=true;keepCamera.current=false;setPhase('setup');setProgress(null);setError('');
+  const unsubscribe=eyeTrackingEngine.subscribe(s=>{if(mounted.current)setState(s);});
+  eyeTrackingEngine.pause();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});
+  return ()=>{mounted.current=false;unsubscribe();eyeTrackingEngine.cancelCalibration();if(!keepCamera.current)eyeTrackingEngine.stop();};
+ },[isOpen]);
+ useEffect(()=>{if(preview.current&&isOpen&&phase==='setup'){preview.current.srcObject=eyeTrackingEngine.getMediaStream();void preview.current.play().catch(()=>{});} },[isOpen,phase,state?.isActive]);
+ const guide=eyeTrackingEngine.getGuidedState();
+ useEffect(()=>{if(phase==='guide'&&!guide)setPhase('results');},[phase,guide]);
+ useEffect(()=>{
+  if(!isOpen||phase!=='collecting')return;
+  const key=(e:KeyboardEvent)=>{if(e.key==='Enter'||e.code==='Space'){e.preventDefault();e.stopImmediatePropagation();eyeTrackingEngine.confirmPoint();}};
+  window.addEventListener('keydown',key,true);return ()=>window.removeEventListener('keydown',key,true);
+ },[isOpen,phase]);
+ if(!isOpen)return null;
+ const report=eyeTrackingEngine.getReport(),ready=state?.setupReady;
+ const run=async(short=mode==='short')=>{
+  setError('');setPhase('collecting');setProgress(null);
+  const success=await eyeTrackingEngine.calibrate(p=>{if(mounted.current)setProgress(p);},{short,confirmTargets:confirmDots});
+  if(mounted.current){setPhase('results');if(!success)setError(eyeTrackingEngine.getStatus());}
+ };
+ const finish=()=>{if(!eyeTrackingEngine.resume()){setError(eyeTrackingEngine.getStatus());return;}keepCamera.current=true;callbacks.current.onComplete();callbacks.current.onClose();};
+ const startGuide=()=>{try{const regions=getTargetRegions(true);setGuidedRegions(regions);eyeTrackingEngine.beginGuidedTest(regions.map(r=>r.slot),condition);setPhase('guide');}catch(e){setError((e as Error).message);}};
+ return <div role="dialog" aria-modal="true" aria-label="Eye gaze setup and calibration" data-eye-calibration={phase==='guide'?undefined:true} data-gaze-panel={phase==='guide'?true:undefined} data-gaze-guide={phase==='guide'?true:undefined} className="fixed inset-0 z-[80] overflow-auto bg-[#0e1015] text-zinc-100">
+  {phase!=='collecting'&&phase!=='guide'&&<div className="mx-auto max-w-4xl px-5 py-5 pb-16">
+   <div className="flex justify-between items-center"><h2 className="font-semibold text-lg">Eye control · {phase==='setup'?'setup':'measured results'}</h2><button type="button" onClick={onClose} className="px-3 py-2">Close</button></div>
+   {phase==='setup'&&<>
+    <div className="grid md:grid-cols-2 gap-5 mt-5"><video ref={preview} autoPlay muted playsInline aria-label="Mirrored camera preview" className="w-full aspect-[4/3] bg-black rounded-xl object-contain" style={{transform:'scaleX(-1)'}}/>
+    <div className="space-y-3 text-sm"><p>Keep the device steady and sit comfortably.</p><p>Keep both eyes visible with even front lighting. Avoid strong backlighting and reflections on glasses.</p><p>Keep approximately the same position during calibration and use. Move your eyes toward each dot’s center.</p><p role="status" className={ready?'text-teal-300':'text-amber-300'}>{ready?'Camera and fresh eye samples ready':state?.status||'Starting camera…'}</p><p>{state?.effectiveHz?.toFixed(1)||'0.0'} valid eye samples/second. Readiness is based on eye visibility and fresh frames.</p></div></div>
+    <details className="mt-4"><summary className="cursor-pointer text-sm">Timing and filter settings</summary><div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-3">{(['settleMs','validCollectionMs','pointTimeoutMs','dwellMs','minCutoffHz','beta'] as const).map(key=><label key={key} className="text-xs">{key}<input aria-label={key} type="number" min="0.001" step={key==='beta' ? 0.001 : key==='minCutoffHz' ? 0.1 : 100} value={settings[key]} onChange={e=>setSettings({...settings,[key]:Number(e.target.value)})} className="block w-full rounded bg-zinc-800 p-2 mt-1"/></label>)}</div><button type="button" onClick={()=>{try{eyeTrackingEngine.configure(settings);setError('Settings applied; fresh validation is required.');}catch(e){setError((e as Error).message);}}} className="mt-3 underline text-sm">Apply settings</button></details>
+    <label className="block mt-4 text-sm"><input type="checkbox" checked={confirmDots} onChange={e=>setConfirmDots(e.target.checked)}/> Wait for tap, Enter or Space at each dot (helper confirmation)</label>
+    <label className="block mt-4 text-sm"><input type="checkbox" checked={record} onChange={e=>{setRecord(e.target.checked);eyeTrackingEngine.setRecording(e.target.checked);}}/> Record diagnostic samples locally (eye features and labels; no video upload)</label>
+    <button type="button" disabled={!ready} onClick={()=>void run()} className="mt-5 rounded-lg px-5 py-3 bg-teal-400 text-black font-semibold disabled:opacity-40">{mode==='short'?'Start short accuracy check':'Start nine-point calibration'}</button>
+    {error&&<p role="alert" className="text-amber-300 mt-3">{error}</p>}
+    {error&&!state?.isActive&&<button type="button" className="mt-3 underline" onClick={()=>{setError('');eyeTrackingEngine.stop();void eyeTrackingEngine.start().then(ok=>{if(mounted.current&&!ok)setError(eyeTrackingEngine.getStatus());});}}>Retry camera</button>}
+   </>}
+   {phase==='results'&&<>
+    <p role="status" className="mt-4 text-sm">{report?.passed?'Independent checks passed for the tested regions.':'Selection stays paused until the tested regions are distinguishable.'}</p>
+    {report?.comparison&&<p className="text-xs mt-2 text-zinc-400">Selected {report.comparison.selected}; temporal held-out p90: affine {report.comparison.affineP90Px.toFixed(1)} px / quadratic {report.comparison.quadraticP90Px?.toFixed(1)||'not fit'} px. Separate validation below did not train either model.</p>}
+    {!!report?.regions.length&&<div className="overflow-auto mt-4"><table className="w-full text-xs text-left"><thead><tr>{['Region','Filtered median / p90 px','Raw median / p90 px','X / Y bias px','Jitter px','Valid samples','Rate','Result'].map(t=><th key={t} className="p-2 border-b border-zinc-700">{t}</th>)}</tr></thead><tbody>{report.regions.map(r=><tr key={r.id}><td className="p-2">{r.label.slice(0,50)}</td><td>{r.medianPx.toFixed(1)} / {r.p90Px.toFixed(1)}</td><td>{r.rawMedianPx.toFixed(1)} / {r.rawP90Px.toFixed(1)}</td><td>{r.biasX.toFixed(1)} / {r.biasY.toFixed(1)}</td><td>{r.jitterPx.toFixed(1)}</td><td>{Math.round(r.validFraction*100)}%</td><td>{r.effectiveHz.toFixed(1)} Hz</td><td>{r.passed?'Checked':r.reason}</td></tr>)}</tbody></table></div>}
+    {report?.issues.map((issue,i)=><p role="alert" key={i} className="text-amber-300 text-sm mt-2">{issue}</p>)}{!report&&error&&<p role="alert">{error}</p>}
+    <div className="flex gap-3 flex-wrap mt-5">{report?.passed&&<button type="button" onClick={finish} className="rounded bg-teal-400 text-black px-4 py-2">Use eye control</button>}
+    <button type="button" onClick={()=>void run(false)} className="rounded bg-zinc-700 px-4 py-2">{report?.failedTrainingIds.length?'Retry unsuccessful dots':'Repeat independent checks'}</button>
+    <button type="button" onClick={()=>{eyeTrackingEngine.discardCalibrationAttempt();setPhase('setup');}} className="underline px-2">Restart all nine dots</button>
+    {onMagnify&&<button type="button" onClick={()=>{onMagnify();setError('Larger targets opened behind this screen. Repeat independent checks to measure their new dimensions.');}} className="underline px-2">Enlarge answer targets</button>}
+    <button type="button" onClick={()=>download(eyeTrackingEngine.exportDiagnostics())} className="underline px-2">Export measurements</button></div>
+    {error&&<p className="text-sm mt-2 text-amber-300">{error}</p>}
+    {eyeTrackingEngine.getFilterTrials().length>0&&<details className="mt-4"><summary>Replay filter settings on this recording</summary><p className="text-xs text-zinc-400">Uses labeled training frames only. Time to target includes eye reaction time. Applying settings requires new independent validation.</p>{eyeTrackingEngine.getFilterTrials().map((trial,i)=><div key={i} className="text-xs mt-2">{trial.minCutoffHz} Hz · beta {trial.beta} · fixation jitter {trial.fixationP90Px.toFixed(1)} px · time to target {trial.medianTimeToTargetMs?.toFixed(0)||'not reached'} ms <button type="button" className="underline" onClick={()=>{eyeTrackingEngine.configure({minCutoffHz:trial.minCutoffHz,beta:trial.beta});setSettings(eyeTrackingEngine.getSettings());setPhase('setup');}}>Apply and revalidate</button></div>)}</details>}
+    <div className="mt-6 border-t border-zinc-700 pt-4"><h3 className="font-semibold">Guided real-camera selection test</h3><p className="text-sm mt-2">Look at the requested choice until it activates. Try center/edge checks above, adjacent choices here, glasses, and small normal head movements. Missed targets time out. These are your measured results, not an accuracy promise.</p>
+    <select aria-label="Test condition" value={condition} onChange={e=>setCondition(e.target.value)} className="mt-3 rounded bg-zinc-800 p-2"><option>Normal lighting</option><option>With glasses</option><option>Normal head movement</option></select><button disabled={!report?.passed} type="button" onClick={startGuide} className="ml-3 underline disabled:opacity-40">Start guided test</button>
+    <p className="text-xs mt-3">{report?.guided.length?`${report.guided.filter(r=>r.result==='correct').length} correct · ${report.guided.filter(r=>r.result==='incorrect').length} incorrect · ${report.guided.filter(r=>r.result==='missed').length} missed`:'Real-camera selection results: not yet measured.'}</p></div>
+   </>}
+  </div>}
+  {phase==='collecting'&&<>
+   <div className="absolute top-2 left-1/2 -translate-x-1/2 text-center text-xs max-w-[90vw] bg-zinc-900 px-3 py-2 rounded"><p>{progress?`${progress.phase==='training'?'Calibration':'Independent check'} ${progress.index+1}/${progress.total}`:'Waiting for fresh eye frames…'}</p><p>{progress?.accepted||0} accepted samples · {progress?.message}</p><button type="button" className="underline mt-1" onClick={()=>{eyeTrackingEngine.cancelCalibration();setPhase('results');}}>Pause calibration</button></div>
+   {progress&&<button type="button" aria-label="Confirm gaze target" onClick={()=>eyeTrackingEngine.confirmPoint()} className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full focus:ring-2 focus:ring-white" style={{left:progress.target.x,top:progress.target.y}}><svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="25" fill="none" stroke="#30353e" strokeWidth="4"/><circle cx="32" cy="32" r="25" fill="none" stroke="#2dd4bf" strokeWidth="4" strokeDasharray="157.08" strokeDashoffset={157.08*(1-progress.progress)}/><circle cx="32" cy="32" r="5" fill="#2dd4bf"/></svg></button>}
+   <p className="absolute bottom-2 w-full text-center text-xs pointer-events-none">Look at the dot’s center. No gaze click is required.</p>
+  </>}
+  {phase==='guide'&&<>
+   <div className="fixed top-1 left-1/2 -translate-x-1/2 z-10 text-center text-xs bg-zinc-900 p-2 rounded">Look at {guide?.expected} ({(guide?.index||0)+1}/{guide?.total}) · {condition}<button type="button" className="ml-3 underline" onClick={()=>{eyeTrackingEngine.endGuidedTest();setPhase('results');}}>Stop test</button></div>
+   {guidedRegions.map(r=><button key={r.slot} type="button" data-gaze-test-target={r.slot} data-gaze-context="guided" data-gaze-label={r.slot} onClick={()=>{}} style={{position:'fixed',left:r.rect.left,top:r.rect.top,width:r.rect.width,height:r.rect.height}} className="rounded-xl border border-zinc-500 bg-zinc-800 text-lg">{r.slot}</button>)}
+   {state?.isTracking&&<div className="fixed pointer-events-none z-[90]" style={{left:state.gazeX-22,top:state.gazeY-22}}><svg width="44" height="44"><circle cx="22" cy="22" r="18" fill="none" stroke="#2dd4bf" strokeWidth="2" strokeDasharray="113.1" strokeDashoffset={113.1*(1-(state.dwellProgress||0))}/><circle cx="22" cy="22" r="3" fill="#2dd4bf"/></svg></div>}
+   {!state?.isTracking&&<p className="fixed bottom-2 left-2 right-2 text-center text-amber-300 text-xs">{state?.status}</p>}
+  </>}
+ </div>;
 };

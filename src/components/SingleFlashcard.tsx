@@ -543,31 +543,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
                 </div>
 
-                {/* Eye Gaze Dwell countdown indicator */}
-                {isEyeHovered && (
-                  <div className="absolute right-2 top-2 pointer-events-none">
-                    <div className="relative w-6 h-6 flex items-center justify-center">
-                      <svg className="w-6 h-6 -rotate-90 pointer-events-none" viewBox="0 0 24 24">
-                        <circle cx="12" cy="12" r="9" stroke="#222530" strokeWidth="2.5" fill="none" />
-                        <circle
-                          cx="12"
-                          cy="12"
-                          r="9"
-                          stroke="#2dd4bf"
-                          strokeWidth="2.5"
-                          fill="none"
-                          strokeDasharray="56.55"
-                          strokeDashoffset={56.55 * (1 - (eyeDwellProgress || 0))}
-                          strokeLinecap="round"
-                        />
-                      </svg>
-                      <span className="absolute inset-0 flex items-center justify-center text-[9px] font-mono font-bold text-[#2dd4bf]">
-                        👁
-                      </span>
-                    </div>
-                  </div>
-                )}
-
                 {/* Status indicator badge */}
                 {isAnswered && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
@@ -691,12 +666,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               eyeHoveredChoiceId === 'NEXT' ? 'ring-2 ring-[#2dd4bf] border-[#2dd4bf]' : ''
             }`}
           >
-            {eyeHoveredChoiceId === 'NEXT' && (
-              <span
-                className="absolute inset-y-0 left-0 bg-[#2dd4bf]/25 pointer-events-none transition-all duration-75"
-                style={{ width: `${Math.round((eyeDwellProgress || 0) * 100)}%` }}
-              />
-            )}
             <span className="relative z-10 flex items-center gap-1.5">
               <span>{currentIndex + 1 === totalQuestions ? 'Finish Review' : 'Next Question →'}</span>
               {eyeHoveredChoiceId === 'NEXT' && <span className="text-[#2dd4bf] text-xs">👁</span>}
