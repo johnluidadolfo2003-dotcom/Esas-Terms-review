@@ -1,12 +1,12 @@
 # Eye gaze control
 
-The old tracker measured dark pixels in fixed image boxes, used only the center calibration point, and allowed the calibration effect to restart on parent camera updates. The new tracker uses MediaPipe Face Mesh iris landmarks in eye-local coordinates and fits a screen mapping from all five fixation points. Old v1 calibration is deliberately ignored.
+The old tracker measured dark pixels in fixed image boxes, used only the center calibration point, and allowed the calibration effect to restart on parent camera updates. The new tracker uses MediaPipe Face Mesh iris landmarks in eye-local coordinates and fits a nonlinear screen mapping from nine fixation points. Old v1/v2 calibrations are deliberately ignored. Each camera activation requires a fresh check; saved data alone never enables selection.
 
 ## Using it
 
 1. Open the app over HTTPS (localhost also works) and enable Eye Gaze. Allow camera access.
 2. Face the camera in even front lighting, with both eyes visible. Keep the camera and your head in the same position.
-3. Look at each dot with your eyes; the initial settling period is excluded from measurement. Finish the separate center accuracy check.
+3. Look at each dot with your eyes; the initial settling period is excluded from measurement. Finish the four separate accuracy checks across the screen. A pass shows the measured test error in pixels; a failure shows offset and shake instead of enabling inaccurate selection.
 4. Hold your gaze steadily on an enabled answer or Next for about 1.1 seconds. Look away before repeating an action. Normal blinks do not click.
 5. If tracking pauses, read the status pill. Return to your calibration position or use Recalibrate after moving the camera or changing screen size.
 
@@ -15,7 +15,8 @@ The model assets are loaded on demand from pinned `@mediapipe/face_mesh@0.4.1633
 ## Stability and accuracy
 
 - Eye-local iris positions remove image translation, scale, and roll from the feature measurement. Larger head/pose changes pause control rather than selecting with stale calibration.
-- Five-point least-squares calibration learns individual direction, sensitivity, and cross-axis skew. It rejects degenerate, noisy, or incomplete data. A held-out center fixation checks repeatability before saving.
+- Nine-point regularized quadratic calibration learns individual direction, sensitivity, cross-axis skew and position-dependent curvature. It rejects degenerate, noisy, or incomplete data. Four held-out interior fixations check screen position and within-fixation jitter before saving. Checks use pixel errors (24–40 px typical-offset limit depending on viewport, with tighter jitter limits), rather than accepting a good center alone. Passing is a check of those locations, not a guarantee of future precision.
+- A short screen-space confidence window pauses broad jitter and saccades. Brief detection loss preserves the cursor filter state instead of jumping to the first reacquired sample.
 - A short median window rejects isolated outliers. A time-based adaptive low-pass filter and five-pixel output deadband reduce fixation jitter while allowing larger intentional movements.
 - Missing/closed eyes, camera gaps, hidden pages, off-screen gaze and pose changes reset dwell. Only visible enabled controls under the gaze can acquire a target. Small boundary hysteresis retains a current control without overlapping acquisition boxes.
 - A per-question target context prevents dwell carrying across cards. The action latch requires an actual gaze movement away, including after the selected control becomes disabled. No blink-to-click shortcut is enabled.

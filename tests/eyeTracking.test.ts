@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CALIBRATION_TARGETS, extractEyeSample, fitCalibration, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from '../src/services/eyeTrackingMath';
+import { CALIBRATION_TARGETS, VALIDATION_TARGETS, accuracyPasses, measureGazeAccuracy, extractEyeSample, fitCalibration, GazeConfidence, GazeDwell, GazeSmoother, poseMatches, projectGaze, summarizeFixation } from '../src/services/eyeTrackingMath';
 import type { EyeSample, Landmark } from '../src/services/eyeTrackingMath';
 const pose={x:.5,y:.4,yaw:0,pitch:.5,roll:0,scale:.2};
 const sample=(px:number,py:number,timestamp=0):EyeSample=>({px,py,pose,timestamp});
 const training=CALIBRATION_TARGETS.map(p=>sample(.5-(p.x-.5)*.2+(p.y-.5)*.02,.02+(p.y-.5)*.12));
-test('five-point fit learns individual sensitivity, direction and cross-axis skew',()=>{
+test('nine-point fit learns individual sensitivity, direction and cross-axis skew',()=>{
  const model=fitCalibration(training);assert.ok(model);
- for(let i=0;i<5;i++){const gaze=projectGaze(model,training[i].px,training[i].py);assert.ok(Math.abs(gaze.x-CALIBRATION_TARGETS[i].x)<1e-8);assert.ok(Math.abs(gaze.y-CALIBRATION_TARGETS[i].y)<1e-8);}
+ for(let i=0;i<CALIBRATION_TARGETS.length;i++){const gaze=projectGaze(model,training[i].px,training[i].py);assert.ok(Math.abs(gaze.x-CALIBRATION_TARGETS[i].x)<1e-8);assert.ok(Math.abs(gaze.y-CALIBRATION_TARGETS[i].y)<1e-8);}
  const gaze=projectGaze(model,.5-(.6-.5)*.2+(.7-.5)*.02,.02+(.7-.5)*.12);assert.ok(Math.hypot(gaze.x-.6,gaze.y-.7)<1e-8);
 });
 test('corner measurements influence the fitted map instead of just using center',()=>{
@@ -16,10 +16,11 @@ test('corner measurements influence the fitted map instead of just using center'
  assert.ok(Math.abs(projectGaze(original,.53,.02).x-projectGaze(wide,.53,.02).x)>.07);
 });
 test('reject degenerate and inconsistent calibration, too few samples and non-finite values',()=>{
- assert.equal(fitCalibration(Array.from({length:5},()=>sample(.5,.5))),null);
+ assert.equal(fitCalibration(Array.from({length:9},()=>sample(.5,.5))),null);
  assert.equal(fitCalibration(training.slice(0,4)),null);
  assert.equal(fitCalibration(training.map(s=>({...s,px:NaN}))),null);
- assert.equal(fitCalibration([training[0],training[2],training[1],training[3],training[4]]),null);
+ const shuffled=[...training];[shuffled[1],shuffled[2]]=[shuffled[2],shuffled[1]];
+ assert.equal(fitCalibration(shuffled),null);
 });
 test('fixation rejects unstable data and missing eyes; trims isolated outliers',()=>{
  assert.equal(summarizeFixation([]),null);
@@ -70,4 +71,37 @@ test('iris features withstand head translation, scale and roll; closed eyes neve
  const transformed=base.map(p=>{const x=p.x*640-320,y=p.y*480-240;return {x:(320+30+1.1*(x*Math.cos(.1)-y*Math.sin(.1)))/640,y:(240+10+1.1*(x*Math.sin(.1)+y*Math.cos(.1)))/480};});
  const next=extractEyeSample(transformed,640,480,2).sample;assert.ok(next);assert.ok(Math.abs(first.px-next.px)<1e-8);assert.ok(Math.abs(first.py-next.py)<1e-8);
  base[159]=base[145];const blink=extractEyeSample(base,640,480,3);assert.equal(blink.blinking,true);assert.equal(blink.sample,null);
+});
+
+test('nonlinear mapping corrects position-dependent offsets at unfitted screen locations',()=>{
+  const inverse=(screen:number,curvature:number)=>(Math.sqrt(1+4*curvature*(screen-.5))-1)/(2*curvature);
+  const observations=CALIBRATION_TARGETS.map(p=>sample(.5-.2*inverse(p.x,.3),.02+.12*inverse(p.y,.4)));
+  const model=fitCalibration(observations);assert.ok(model);
+  for(const target of VALIDATION_TARGETS){
+    const px=.5-.2*inverse(target.x,.3),py=.02+.12*inverse(target.y,.4);
+    const predicted=projectGaze(model,px,py);
+    assert.ok(Math.hypot(predicted.x-target.x,predicted.y-target.y)<.001);
+  }
+});
+test('multi-location pixel checks reject systematic wrong-position and unstable fixations',()=>{
+ const model=fitCalibration(training)!,viewport={width:1280,height:900},target=VALIDATION_TARGETS[0];
+ const good=Array.from({length:30},(_,i)=>sample(.5-(target.x-.5)*.2+(target.y-.5)*.02,.02+(target.y-.5)*.12,i*50));
+ const accurate=measureGazeAccuracy(model,good,target,viewport);assert.ok(accurate);assert.ok(accuracyPasses(accurate,viewport));
+ const offset=measureGazeAccuracy(model,good.map(s=>({...s,px:s.px+.02})),target,viewport);assert.ok(offset);assert.equal(accuracyPasses(offset,viewport),false);
+ const noise=measureGazeAccuracy(model,good.map((s,i)=>({...s,px:s.px+Math.sin(i)*.006})),target,viewport);assert.ok(noise);assert.equal(accuracyPasses(noise,viewport),false);
+});
+test('live confidence waits for a stable position and pauses broad camera jitter',()=>{
+ const confidence=new GazeConfidence();let point:null|{x:number;y:number}=null;
+ for(let i=0;i<12;i++)point=confidence.update({x:500+Math.sin(i)*3,y:400},i*33);
+ assert.ok(point);assert.ok(Math.abs(point.x-500)<4);
+ for(let i=12;i<30;i++)point=confidence.update({x:500+Math.sin(i)*90,y:400},i*33);
+ assert.equal(point,null);
+ for(let i=30;i<44;i++)point=confidence.update({x:800,y:600},i*33);
+ assert.deepEqual(point,{x:800,y:600});
+});
+test('a brief loss does not restart smoothing at the first noisy reacquired sample',()=>{
+ const filter=new GazeSmoother();filter.update({x:500,y:400},1);filter.suspend();
+ assert.deepEqual(filter.update({x:700,y:500},300),{x:500,y:400});
+ let p={x:500,y:400};for(let i=1;i<35;i++)p=filter.update({x:520,y:410},300+i*33);
+ assert.ok(Math.hypot(p.x-520,p.y-410)<8);
 });
