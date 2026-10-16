@@ -6,7 +6,8 @@ import {
   speakPhrase,
   previewReaderVoice,
   getUSVoices,
-  getReaderVoice,
+  getReaderVoiceNotice,
+  getSpeechErrorMessage,
   getPreferredVoiceURI,
   setPreferredVoiceURI,
   subscribeVoices,
@@ -101,7 +102,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const [availableVoices, setAvailableVoices] = useState(getUSVoices);
   const [preferredVoice, setPreferredVoice] = useState(getPreferredVoiceURI);
   const [voiceError, setVoiceError] = useState('');
-  const readerVoice = getReaderVoice();
+  const voiceNotice = getReaderVoiceNotice();
   useEffect(() => subscribeVoices(() => setAvailableVoices(getUSVoices())), []);
   const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
   const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -128,9 +129,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     setVoiceError('');
   };
 
-  const speechFailed = useCallback(() => {
+  const speechFailed = useCallback((error?: string) => {
     setSpeechStatus('paused');
-    setVoiceError('Voice playback is unavailable. Choose a voice and tap Test Voice, then Play.');
+    setVoiceError(getSpeechErrorMessage(error));
   }, []);
 
   const readPhrase = useCallback((text: string, rate: number, onEnd: () => void) => {
@@ -406,7 +407,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   onChange={event => handleVoiceChange(event.target.value)}
                   className="max-w-[240px] rounded border border-zinc-700 bg-zinc-900 p-1 text-zinc-100"
                 >
-                  <option value="">Automatic · US male</option>
+                  <option value="">Automatic · Prefer US male</option>
                   {preferredVoice && !availableVoices.some(v => v.voiceURI === preferredVoice) && (
                     <option value={preferredVoice}>Saved voice unavailable</option>
                   )}
@@ -428,16 +429,15 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 Test Voice
               </button>
 
-              {speechStatus === 'paused' || speechStatus === 'idle' ? (
-                <button
+              <button
                   type="button"
                   onClick={handleReplaySpeech}
                   className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
                   title="Play / Re-read aloud"
                 >
                   Play
-                </button>
-              ) : (
+              </button>
+              {speechStatus !== 'paused' && speechStatus !== 'idle' && (
                 <button
                   type="button"
                   onClick={handlePauseSpeech}
@@ -483,9 +483,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               )}
             </div>
             <p className="w-full text-[11px] text-zinc-400" role="status" aria-live="polite">
-              {voiceError || (!readerVoice
-                ? 'No selected US male voice is available. Choose an installed US voice and preview it, or install a US English male voice in your device speech settings.'
-                : `Using ${readerVoice.name} at its natural pitch. Voice quality depends on your device.`)}
+              {voiceError || voiceNotice}
             </p>
           </div>
         )}

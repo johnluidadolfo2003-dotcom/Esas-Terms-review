@@ -1,19 +1,19 @@
 # US English reader
 
-Auto Read and Auto Read & Answer continue using device Web Speech synthesis. The old forced 0.70/0.58 pitch, hidden speed multiplier, UK-voice priority, and unidentified/female automatic fallbacks are removed.
+Auto Read and Auto Read & Answer use device Web Speech synthesis at native pitch 1 and the exact selected speed. The forced bass pitch and UK-voice priority are removed. The voice dropdown, preview, and saved preference remain available.
 
-Automatic mode selects only recognized US English male voices exposed by the browser. Natural/neural/premium/enhanced variants rank ahead of basic variants. The reader uses native pitch 1 and the exact selected speed. A voice dropdown, preview, selected-voice status, and saved preference replace the Baritone/Deep Bass buttons. Unknown-gender US voices can be explicitly previewed and selected; they are not automatically labeled male. Web Speech has no standard gender or audio-quality field, so names are recognized conservatively; no additional voices are downloaded or purchased by the app.
+Automatic selection prefers recognized US English male voices, with natural/neural/premium/enhanced variants first. If no recognized male exists, it uses another available US voice and explicitly says that male gender is not confirmed. A missing saved voice falls back with a notice. If the browser's voice list is empty or has no US voice, the reader leaves voice selection to the engine with lang=en-US rather than refusing to speak. That fallback cannot guarantee a US male voice; the UI says so. The browser API has no standard gender field, so unknown voices are never relabeled male.
 
-If the requested voice is missing, playback stops with guidance rather than silently choosing another accent or speaker. Device speech settings may offer US English male voices, but installed/downloaded voices are not necessarily exposed to every browser. Naturalness cannot be guaranteed across devices. A consistent hosted neural narrator would require a separately configured speech service; this update does not claim to provide one.
+Play and Test Voice call speechSynthesis.speak synchronously from their tap handlers. There is no asynchronous voice-list wait before speaking. This preserves the direct user interaction for engines that restrict audio startup. The initial auto-reading attempt may still be blocked by browser audio policy; Play is always visible so the user can start or restart explicitly. Browser error codes produce specific guidance for blocked audio, audio output, missing voices/engine, or network problems. A startup watchdog releases a dropped request and offers a retry instead of leaving the UI indefinitely reading. A paused engine is resumed before speaking.
 
-Voice loading waits briefly for the browser list and listens without replacing other voiceschanged handlers. Cancellation invalidates pending reads and stale callbacks so Pause, voice preview, question changes, or switching voice cannot advance an old auto-reading sequence. Stored voice preference also works for the current session when browser storage is blocked.
+Cancellation invalidates speech callbacks so Pause, preview, voice changes, and question changes cannot advance an old sequence. Voice-list changes update the choices without restarting a canceled read. Independent voiceschanged listeners do not overwrite other listeners. Preference works for the current session even when persistent storage is blocked.
 
-Speech cleanup no longer misreads P2 as pesos, substitutes theta for a literal q, or removes the friction subscript before expanding it.
+Actual timbre, pronunciation, and audible output still require listening on the target phone/browser. The app cannot detect device volume, muted site settings, Bluetooth routing, or guarantee that a browser exposes an installed male voice. A consistent hosted neural narrator would need a separately configured speech service; this code does not claim to provision one.
 
-Validation: `npm run test:speech` covers locale/voice ranking, refusal of unidentified automatic male voices, explicit selection and missing saved voices, native pitch and speed, delayed voice loading, cancellation, callback deduplication, subscriptions, and text normalization. Run `npm run lint`, `npm run build`, `npm run test:questions`, and `npm run test:server` for regressions. These checks use a simulated speech engine; final voice timbre and pronunciation still need listening on the target phone/browser using Test Voice.
+Validation: npm run test:speech covers 13 regression cases: US male ranking, conservative gender identification, fallback for unavailable saved/male voices, synchronous startup, exact pitch/speed, duplicate callbacks, cancellation, empty and late lists, paused engines, browser error reasons, startup timeout, successful startup cleanup, subscriptions, and text normalization. npm run lint and npm run build check integration. These tests simulate speech and do not establish real-device audio quality.
 
 References:
 - https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisVoice
-- https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis/voiceschanged_event
+- https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisErrorEvent/error
+- https://groups.google.com/a/chromium.org/g/blink-dev/c/WsnBm53M4Pc/m/f6c7DBBIBwAJ
 - https://learn.microsoft.com/en-us/azure/ai-services/speech-service/language-support
-- https://developer.apple.com/documentation/avfaudio/avspeechsynthesisvoiceidentifieralex

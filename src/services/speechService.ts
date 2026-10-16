@@ -32,9 +32,28 @@ export function selectBestUSMaleVoice(voices: SpeechSynthesisVoice[]): SpeechSyn
 export function getReaderVoice(): SpeechSynthesisVoice | null {
   const voices = getUSVoices();
   const saved = getPreferredVoiceURI();
-  // An explicitly selected device voice is allowed after the user's preview.
-  // If it disappears, do not silently replace it with another speaker.
-  return saved ? voices.find(v => v.voiceURI === saved) || null : selectBestUSMaleVoice(voices);
+  return voices.find(v => v.voiceURI === saved) || selectBestUSMaleVoice(voices) ||
+    voices.find(v => v.default) || voices[0] || null;
+}
+export function getReaderVoiceNotice(): string {
+  if (!isSpeechSupported()) return 'This browser does not support reading aloud. Open the app in Safari or Chrome.';
+  const voice = getReaderVoice();
+  if (!voice) return 'Using the browser’s English voice while the voice list is unavailable. A US male voice cannot be confirmed.';
+  const missing = getPreferredVoiceURI() && voice.voiceURI !== getPreferredVoiceURI();
+  return `${missing ? 'Saved voice unavailable; using ' : 'Using '}${voice.name}. ${
+    isRecognizedMaleVoice(voice) ? 'US English male, natural pitch.' : 'US English fallback; male voice not confirmed. Choose a voice and preview it.'}`;
+}
+export function getSpeechErrorMessage(error?: string): string {
+  switch (error) {
+    case 'not-allowed': return 'Audio was blocked. Tap Play or Test Voice to enable it; check that this site is not muted.';
+    case 'audio-busy': case 'audio-hardware': return 'Audio output is unavailable. Check media volume, Bluetooth output, or another app using audio, then tap Play.';
+    case 'network': return 'The speech voice could not connect. Check your connection or choose an installed offline voice.';
+    case 'voice-unavailable': case 'language-unavailable': return 'This voice cannot play here. Choose Automatic or another voice, then tap Test Voice.';
+    case 'unsupported': return 'Reading aloud is not supported here. Open the app in Safari or Chrome.';
+    case 'synthesis-unavailable': return 'No speech engine is available. Check your device’s text-to-speech settings, then try again.';
+    case 'start-timeout': return 'Speech did not start. Tap Play to retry; check media volume and site audio settings.';
+    default: return 'Voice playback stopped. Tap Play to retry, or choose another voice and tap Test Voice.';
+  }
 }
 export function subscribeVoices(listener: () => void): () => void {
   if (!isSpeechSupported()) return () => {};
@@ -42,34 +61,16 @@ export function subscribeVoices(listener: () => void): () => void {
   return () => window.speechSynthesis.removeEventListener('voiceschanged', listener);
 }
 let generation = 0;
-let pendingVoiceWait: (() => void) | null = null;
+let startTimer: ReturnType<typeof setTimeout> | null = null;
 // Hold a strong reference until completion (some engines otherwise stop long utterances).
 let activeUtterance: SpeechSynthesisUtterance | null = null;
 export function stopSpeech(): void {
   generation++;
-  pendingVoiceWait?.();
-  pendingVoiceWait = null;
+  if (startTimer) clearTimeout(startTimer);
+  startTimer = null;
   activeUtterance = null;
   if (isSpeechSupported()) window.speechSynthesis.cancel();
 }
-function waitForVoices(): Promise<void> {
-  if (getUSVoices().length) return Promise.resolve();
-  return new Promise(resolve => {
-    let timer: ReturnType<typeof setTimeout>;
-    const finish = () => {
-      clearTimeout(timer);
-      window.speechSynthesis.removeEventListener('voiceschanged', changed);
-      if (pendingVoiceWait === finish) pendingVoiceWait = null;
-      resolve();
-    };
-    const changed = () => { if (getUSVoices().length) finish(); };
-    pendingVoiceWait = finish;
-    window.speechSynthesis.addEventListener('voiceschanged', changed);
-    timer = setTimeout(finish, 1500);
-    changed();
-  });
-}
-
 export function cleanTextForSpeech(text: string): string {
   if (!text) return '';
 
@@ -123,10 +124,10 @@ export function cleanTextForSpeech(text: string): string {
 
 
 export function speakPhrase(
-  phrase: string, rate = 1, onEnd?: () => void, onError?: () => void
+  phrase: string, rate = 1, onEnd?: () => void, onError?: (error?: string) => void
 ): SpeechSynthesisUtterance | null {
   stopSpeech();
-  if (!isSpeechSupported()) { onError?.(); return null; }
+  if (!isSpeechSupported()) { onError?.('unsupported'); return null; }
   const text = cleanTextForSpeech(phrase);
   if (!text) { onEnd?.(); return null; }
   const token = generation;
@@ -135,25 +136,43 @@ export function speakPhrase(
   utterance.rate = Number.isFinite(rate) ? Math.max(.5, Math.min(2, rate)) : 1;
   utterance.volume = 1;
   utterance.lang = 'en-US';
-  void waitForVoices().then(() => {
+  const voice = getReaderVoice();
+  // An empty/late list is normal on mobile. Let the engine resolve en-US instead
+  // of waiting asynchronously and losing the tap's activation context.
+  if (voice) utterance.voice = voice;
+  let settled = false;
+  let started = false;
+  const finish = (callback?: () => void) => {
+    if (settled || token !== generation) return;
+    settled = true;
+    if (startTimer) clearTimeout(startTimer);
+    startTimer = null;
+    activeUtterance = null;
+    callback?.();
+  };
+  utterance.onstart = () => {
     if (token !== generation) return;
-    const voice = getReaderVoice();
-    if (!voice) { onError?.(); return; }
-    utterance.voice = voice;
-    let settled = false;
-    const finish = (callback?: () => void) => {
-      if (settled || token !== generation) return;
-      settled = true;
-      activeUtterance = null;
-      callback?.();
-    };
-    utterance.onend = () => finish(onEnd);
-    utterance.onerror = () => finish(onError);
-    activeUtterance = utterance;
-    try { window.speechSynthesis.speak(utterance); } catch { finish(onError); }
-  });
+    started = true;
+    if (startTimer) clearTimeout(startTimer);
+    startTimer = null;
+  };
+  utterance.onend = () => finish(onEnd);
+  utterance.onerror = event => finish(() => onError?.(event.error));
+  activeUtterance = utterance;
+  startTimer = setTimeout(() => {
+    if (!started && token === generation && !window.speechSynthesis.speaking) {
+      // Invalidate this utterance before cancel; late events must not advance.
+      stopSpeech();
+      onError?.('start-timeout');
+    }
+  }, 6000);
+  try {
+    if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+    // Keep this synchronous: Play/Test Voice must reach speak in the tap handler.
+    window.speechSynthesis.speak(utterance);
+  } catch { finish(() => onError?.('synthesis-failed')); }
   return utterance;
 }
-export function previewReaderVoice(onEnd?: () => void, onError?: () => void): void {
+export function previewReaderVoice(onEnd?: () => void, onError?: (error?: string) => void): void {
   speakPhrase('Welcome. Let’s review one question at a time. Listen carefully, then choose the best answer.', 1, onEnd, onError);
 }

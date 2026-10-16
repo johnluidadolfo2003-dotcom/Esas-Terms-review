@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
-import { test, beforeEach } from 'node:test';
+import { test, beforeEach, afterEach } from 'node:test';
 import {
   selectBestUSMaleVoice, getReaderVoice, setPreferredVoiceURI, speakPhrase,
-  stopSpeech, cleanTextForSpeech, subscribeVoices,
+  stopSpeech, cleanTextForSpeech, subscribeVoices, getReaderVoiceNotice, getSpeechErrorMessage,
 } from '../src/services/speechService';
 const voice = (name: string, lang = 'en-US', uri = name) => ({ name, lang, voiceURI: uri, default: false, localService: true }) as SpeechSynthesisVoice;
 let voices: SpeechSynthesisVoice[];
@@ -22,6 +22,7 @@ beforeEach(() => {
   (globalThis as any).SpeechSynthesisUtterance = class { constructor(public text: string) {} };
   setPreferredVoiceURI('');
 });
+afterEach(() => stopSpeech());
 test('US locale is mandatory; native neural male is preferred over local male', () => {
   const neural = voice('Microsoft Andrew Online (Natural)');
   assert.equal(selectBestUSMaleVoice([voice('Google UK English Male', 'en-GB'), voice('Microsoft David'), neural]), neural);
@@ -30,16 +31,18 @@ test('US locale is mandatory; native neural male is preferred over local male', 
 test('generic Google US, female names, and unfamiliar voices are never assumed male', () => {
   assert.equal(selectBestUSMaleVoice([voice('Google US English'), voice('Samantha'), voice('female'), voice('Unknown')]), null);
 });
-test('explicit voice choice works without storage and never silently changes speakers', () => {
+test('missing saved voices use a reported fallback rather than silence', () => {
   voices = [voice('Custom voice', 'en-US', 'chosen')];
   setPreferredVoiceURI('chosen');
   assert.equal(getReaderVoice()?.voiceURI, 'chosen');
   voices = [voice('Microsoft David')];
-  assert.equal(getReaderVoice(), null);
+  assert.equal(getReaderVoice()?.name, 'Microsoft David');
+  assert.match(getReaderVoiceNotice(), /Saved voice unavailable/);
 });
-test('native pitch and the user speed are preserved; repeated completion fires once', async () => {
+test('speaking starts synchronously at native pitch and speed; completion fires once', async () => {
   voices = [voice('Alex')]; let ended = 0;
   const u = speakPhrase('Hello.', 1.5, () => ended++)!;
+  assert.equal(spoken.length, 1, 'speak must happen inside the tap handler, without a promise or timer');
   await flush();
   assert.equal(u.pitch, 1); assert.equal(u.rate, 1.5); assert.equal(u.lang, 'en-US');
   assert.equal(spoken[0].voice, voices[0]);
@@ -52,18 +55,53 @@ test('cancellation blocks stale callbacks from selecting an answer or advancing'
   await flush(); stopSpeech(); u.onend?.({} as any); u.onerror?.({} as any);
   assert.equal(ended, 0);
 });
-test('late voice loading starts once; cancellation removes a pending reader', async () => {
-  speakPhrase('Canceled pending read'); stopSpeech();
-  voices = [voice('Alex')]; events.dispatchEvent(new Event('voiceschanged')); await flush();
-  assert.equal(spoken.length, 0);
-  voices = []; speakPhrase('Fresh read');
-  voices = [voice('Alex')]; events.dispatchEvent(new Event('voiceschanged')); await flush();
-  assert.equal(spoken.length, 1); stopSpeech();
+test('empty voice list speaks with en-US default immediately; late voices do not duplicate it', () => {
+  let ended = 0;
+  const u = speakPhrase('Default read', 1, () => ended++)!;
+  assert.equal(spoken.length, 1);
+  assert.equal(u.lang, 'en-US'); assert.equal(u.voice, undefined);
+  stopSpeech();
+  voices = [voice('Alex')]; events.dispatchEvent(new Event('voiceschanged'));
+  u.onend?.({} as any);
+  assert.equal(spoken.length, 1); assert.equal(ended, 0);
+  speakPhrase('Fresh read'); assert.equal(spoken[1].voice, voices[0]);
 });
-test('unavailable male voice reports an error instead of speaking a different accent or speaker', async () => {
-  voices = [voice('Samantha')]; let errors = 0;
-  speakPhrase('Hello', 1, undefined, () => errors++); await flush();
-  assert.equal(spoken.length, 0); assert.equal(errors, 1);
+test('missing male voice uses an explicitly reported US fallback without claiming male', () => {
+  voices = [voice('Google US English')]; let errors = 0;
+  speakPhrase('Hello', 1, undefined, () => errors++);
+  assert.equal(spoken.length, 1); assert.equal(errors, 0);
+  assert.match(getReaderVoiceNotice(), /male voice not confirmed/);
+});
+test('paused engine resumes before speaking', () => {
+  const engine = window.speechSynthesis;
+  let resumed = false;
+  Object.assign(engine, { paused: true, resume: () => { resumed = true; } });
+  speakPhrase('Resume');
+  assert.ok(resumed); assert.equal(spoken.length, 1);
+});
+test('browser error reason is preserved and does not advance', () => {
+  let ended = 0; let reason = '';
+  const u = speakPhrase('Blocked', 1, () => ended++, error => { reason = error || ''; })!;
+  u.onerror?.({ error: 'not-allowed' } as any); u.onend?.({} as any);
+  assert.equal(reason, 'not-allowed'); assert.equal(ended, 0);
+  assert.match(getSpeechErrorMessage(reason), /Tap Play/);
+});
+test('start watchdog stops a silently dropped request and late completion cannot advance', context => {
+  context.mock.timers.enable({ apis: ['setTimeout'] });
+  let reason = ''; let ended = 0;
+  const u = speakPhrase('Never started', 1, () => ended++, error => { reason = error || ''; })!;
+  context.mock.timers.tick(6000);
+  assert.equal(reason, 'start-timeout');
+  u.onend?.({} as any); assert.equal(ended, 0);
+  context.mock.timers.reset();
+});
+test('successful start clears the startup watchdog', context => {
+  context.mock.timers.enable({ apis: ['setTimeout'] });
+  let errors = 0;
+  const u = speakPhrase('Started', 1, undefined, () => errors++)!;
+  u.onstart?.({} as any); context.mock.timers.tick(6000);
+  assert.equal(errors, 0);
+  context.mock.timers.reset();
 });
 test('voice subscriptions are independent and removable', () => {
   let a = 0, b = 0;
