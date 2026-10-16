@@ -4,8 +4,9 @@ import { PHYSICS_2_QUESTIONS } from './physics2Questions';
 import { CHEMISTRY_QUESTIONS } from './chemistryQuestions';
 import { COMPUTER_QUESTIONS } from './computerQuestions';
 import { PEC_QUESTIONS } from './pecQuestions';
+import { applyContentAudit } from './audit/applyContentAudit';
 
-export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
+export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
   ...PHYSICS_1_QUESTIONS,
   ...PHYSICS_2_QUESTIONS,
   ...CHEMISTRY_QUESTIONS,
@@ -28622,3 +28623,5 @@ export const DRIVE_COPIED_QUESTIONS: FlashcardQuestion[] = [
     "rawSnippet": "What technique is used to permit hundreds of TV signals to share a common cable?\nA. Frequency modulation\nB. Mixing\nC. Frequency division multiplexing\nD. Time division multiplexing"
   }
 ];
+
+export const DRIVE_COPIED_QUESTIONS = applyContentAudit(ORIGINAL_DRIVE_QUESTIONS);
