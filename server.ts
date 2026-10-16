@@ -1,4 +1,5 @@
 import express from 'express';
+import { createGeminiSpeechRouter } from './server/geminiSpeech';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -12,6 +13,7 @@ import fs from 'fs';
 
 const CUSTOM_QUESTIONS_FILE = path.join(__dirname, 'custom_questions.json');
 
+app.use(createGeminiSpeechRouter());
 app.use(express.json({ limit: '50mb' }));
 
 // Helper to load questions stored on server
