@@ -22,6 +22,7 @@ import {
   shuffleQuestionChoices,
 } from './services/questionParser';
 import { DRIVE_COPIED_QUESTIONS } from './data/driveQuestions';
+import { applyKnownContentCorrections } from './data/audit/applyContentAudit';
 import { StudySidebar } from './components/StudySidebar';
 import { SingleFlashcard } from './components/SingleFlashcard';
 import { HandGestureController } from './components/HandGestureController';
@@ -102,7 +103,7 @@ export default function App() {
     }
 
     // Custom pasted questions
-    for (const q of customQuestions) {
+    for (const q of applyKnownContentCorrections(customQuestions)) {
       const norm = normalizeQuestionText(q);
       if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
@@ -112,7 +113,7 @@ export default function App() {
     }
 
     // Drive-extracted dynamic questions
-    for (const q of driveExtractedQuestions) {
+    for (const q of applyKnownContentCorrections(driveExtractedQuestions)) {
       const norm = normalizeQuestionText(q);
       if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
         seenIds.add(q.id);
