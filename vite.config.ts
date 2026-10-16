@@ -1,4 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
+import { createGeminiSpeechRouter } from './server/geminiSpeech.ts';
+import express from 'express';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
@@ -8,6 +10,9 @@ function questionSyncPlugin(): Plugin {
   return {
     name: 'question-sync-plugin',
     configureServer(server) {
+      const speechApp = express();
+      speechApp.use(createGeminiSpeechRouter());
+      server.middlewares.use((req, res, next) => speechApp(req as express.Request, res as express.Response, next));
       const customQuestionsFile = path.resolve(process.cwd(), 'custom_questions.json');
       const driveQuestionsFile = path.resolve(process.cwd(), 'src/data/driveQuestions.ts');
 

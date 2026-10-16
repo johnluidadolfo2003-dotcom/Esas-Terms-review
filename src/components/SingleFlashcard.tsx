@@ -5,12 +5,10 @@ import {
   stopSpeech,
   speakPhrase,
   previewReaderVoice,
-  getUSVoices,
-  getReaderVoice,
-  getPreferredVoiceURI,
-  setPreferredVoiceURI,
-  subscribeVoices,
-  isRecognizedMaleVoice,
+  getSpeechErrorMessage,
+  getSpeechConfiguration,
+  getReaderState,
+  subscribeReaderState,
 } from '../services/speechService';
 import { playAnswerSound } from '../services/gestureCalibration';
 
@@ -98,11 +96,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     'idle' | 'reading_question' | 'reading_options' | 'waiting_user' | 'ai_answering' | 'reading_explanation' | 'paused'
   >('idle');
   const [speechRate, setSpeechRate] = useState<number>(1.0);
-  const [availableVoices, setAvailableVoices] = useState(getUSVoices);
-  const [preferredVoice, setPreferredVoice] = useState(getPreferredVoiceURI);
   const [voiceError, setVoiceError] = useState('');
-  const readerVoice = getReaderVoice();
-  useEffect(() => subscribeVoices(() => setAvailableVoices(getUSVoices())), []);
+  const [readerPhase, setReaderPhase] = useState(getReaderState);
+  useEffect(() => {
+    let active = true;
+    const unsubscribe = subscribeReaderState(setReaderPhase);
+    getSpeechConfiguration().then(config => {
+      if (active && !config.configured) setVoiceError(getSpeechErrorMessage('speech-not-configured'));
+    }).catch(() => { if (active) setVoiceError('Deploy the Gemini audio server to enable reading.'); });
+    return () => { active = false; unsubscribe(); };
+  }, []);
   const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
   const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentSeqIdRef = useRef<number>(0);
@@ -121,16 +124,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     setSpeechStatus('paused');
   };
 
-  const handleVoiceChange = (uri: string) => {
-    handlePauseSpeech();
-    setPreferredVoiceURI(uri);
-    setPreferredVoice(uri);
-    setVoiceError('');
-  };
-
-  const speechFailed = useCallback(() => {
+  const speechFailed = useCallback((error?: string) => {
     setSpeechStatus('paused');
-    setVoiceError('Voice playback is unavailable. Choose a voice and tap Test Voice, then Play.');
+    setVoiceError(getSpeechErrorMessage(error));
   }, []);
 
   const readPhrase = useCallback((text: string, rate: number, onEnd: () => void) => {
@@ -352,7 +348,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               </span>
 
               <span className="text-[10px] text-zinc-400 font-mono hidden sm:inline">
-                US English · Native tone
+                Gemini · Puck
               </span>
 
               {/* Status Indicator */}
@@ -398,46 +394,25 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
               {/* Voice Controls: Replay / Pause & Speed & Auto-Next */}
             <div className="flex items-center gap-1.5 flex-wrap">
-              <label className="flex items-center gap-1 text-[11px] text-zinc-300">
-                Voice
-                <select
-                  aria-label="US English reading voice"
-                  value={preferredVoice}
-                  onChange={event => handleVoiceChange(event.target.value)}
-                  className="max-w-[240px] rounded border border-zinc-700 bg-zinc-900 p-1 text-zinc-100"
-                >
-                  <option value="">Automatic · US male</option>
-                  {preferredVoice && !availableVoices.some(v => v.voiceURI === preferredVoice) && (
-                    <option value={preferredVoice}>Saved voice unavailable</option>
-                  )}
-                  {availableVoices.map(v => (
-                    <option key={v.voiceURI} value={v.voiceURI}>
-                      {v.name}{isRecognizedMaleVoice(v) ? ' · Male' : ' · Preview to check voice'}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
               {/* Test Voice Button */}
               <button
                 type="button"
                 onClick={handleTestVoice}
                 className="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[10px] font-medium cursor-pointer"
-                title="Preview the selected US English voice at its natural pitch"
+                title="Preview the Gemini narrator"
               >
                 Test Voice
               </button>
 
-              {speechStatus === 'paused' || speechStatus === 'idle' ? (
-                <button
+              <button
                   type="button"
                   onClick={handleReplaySpeech}
                   className="px-2.5 py-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-[11px] cursor-pointer flex items-center gap-1"
                   title="Play / Re-read aloud"
                 >
                   Play
-                </button>
-              ) : (
+              </button>
+              {speechStatus !== 'paused' && speechStatus !== 'idle' && (
                 <button
                   type="button"
                   onClick={handlePauseSpeech}
@@ -483,9 +458,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               )}
             </div>
             <p className="w-full text-[11px] text-zinc-400" role="status" aria-live="polite">
-              {voiceError || (!readerVoice
-                ? 'No selected US male voice is available. Choose an installed US voice and preview it, or install a US English male voice in your device speech settings.'
-                : `Using ${readerVoice.name} at its natural pitch. Voice quality depends on your device.`)}
+              {voiceError || (readerPhase === 'loading' ? 'Preparing Gemini audio…' : 'One Gemini narrator · Clear US English delivery')}
             </p>
           </div>
         )}
