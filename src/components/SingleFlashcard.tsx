@@ -4,9 +4,13 @@ import {
   AiVoiceMode,
   stopSpeech,
   speakPhrase,
-  testDeepMaleVoice,
-  setVoiceDepth,
-  VoiceDepth,
+  previewReaderVoice,
+  getUSVoices,
+  getReaderVoice,
+  getPreferredVoiceURI,
+  setPreferredVoiceURI,
+  subscribeVoices,
+  isRecognizedMaleVoice,
 } from '../services/speechService';
 import { playAnswerSound } from '../services/gestureCalibration';
 
@@ -94,7 +98,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     'idle' | 'reading_question' | 'reading_options' | 'waiting_user' | 'ai_answering' | 'reading_explanation' | 'paused'
   >('idle');
   const [speechRate, setSpeechRate] = useState<number>(1.0);
-  const [voiceDepth, setVoiceDepthState] = useState<VoiceDepth>('deep');
+  const [availableVoices, setAvailableVoices] = useState(getUSVoices);
+  const [preferredVoice, setPreferredVoice] = useState(getPreferredVoiceURI);
+  const [voiceError, setVoiceError] = useState('');
+  const readerVoice = getReaderVoice();
+  useEffect(() => subscribeVoices(() => setAvailableVoices(getUSVoices())), []);
   const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
   const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentSeqIdRef = useRef<number>(0);
@@ -107,20 +115,33 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   };
 
   const handlePauseSpeech = () => {
+    currentSeqIdRef.current++;
     stopSpeech();
     clearAutoAdvanceTimer();
     setSpeechStatus('paused');
   };
 
-  const handleSetVoiceDepth = (depth: VoiceDepth) => {
-    setVoiceDepth(depth);
-    setVoiceDepthState(depth);
+  const handleVoiceChange = (uri: string) => {
+    handlePauseSpeech();
+    setPreferredVoiceURI(uri);
+    setPreferredVoice(uri);
+    setVoiceError('');
   };
 
+  const speechFailed = useCallback(() => {
+    setSpeechStatus('paused');
+    setVoiceError('Voice playback is unavailable. Choose a voice and tap Test Voice, then Play.');
+  }, []);
+
+  const readPhrase = useCallback((text: string, rate: number, onEnd: () => void) => {
+    setVoiceError('');
+    return speakPhrase(text, rate, onEnd, speechFailed);
+  }, [speechFailed]);
+
   const handleTestVoice = () => {
-    stopSpeech();
-    clearAutoAdvanceTimer();
-    testDeepMaleVoice(voiceDepth);
+    handlePauseSpeech();
+    setVoiceError('');
+    previewReaderVoice(() => setSpeechStatus('paused'), speechFailed);
   };
 
   const handleReplaySpeech = useCallback(() => {
@@ -137,16 +158,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     // Step 1: Speak Question with conversational podcast cadence
     setSpeechStatus('reading_question');
     const questionPrompt = `Item ${currentIndex + 1}. ${question.question}`;
-    speakPhrase(questionPrompt, speechRate, () => {
+    readPhrase(questionPrompt, speechRate, () => {
       if (seqId !== currentSeqIdRef.current) return;
 
       // Step 2: Speak Choices with distinct natural pauses
       setSpeechStatus('reading_options');
       const optionsText = question.choices
-        .map((c) => `Option ${c.id}... ${c.text}`)
-        .join('. ... ');
+        .map((c) => `Option ${c.id}. ${c.text}`)
+        .join('. ');
 
-      speakPhrase(optionsText, speechRate, () => {
+      readPhrase(optionsText, speechRate, () => {
         if (seqId !== currentSeqIdRef.current) return;
 
         if (aiVoiceMode === 'ai_reads_you_answer') {
@@ -158,9 +179,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           );
           const answerText = `The correct answer is Option ${
             question.correctChoiceId
-          }... ${correctChoice ? correctChoice.text : ''}.`;
+          }. ${correctChoice ? correctChoice.text : ''}.`;
 
-          speakPhrase(answerText, speechRate, () => {
+          readPhrase(answerText, speechRate, () => {
             if (seqId !== currentSeqIdRef.current) return;
 
             // Trigger AI answer selection
@@ -178,7 +199,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             setSpeechStatus('reading_explanation');
             const explText = `Here's why: ${expl}`;
 
-            speakPhrase(explText, speechRate, () => {
+            readPhrase(explText, speechRate, () => {
               if (seqId !== currentSeqIdRef.current) return;
               setSpeechStatus('idle');
 
@@ -207,6 +228,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   useEffect(() => {
     handleReplaySpeech();
     return () => {
+      currentSeqIdRef.current++;
       stopSpeech();
       clearAutoAdvanceTimer();
     };
@@ -241,7 +263,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
       const fullSpeechText = `${resultIntro} Here's why: ${expl}`;
       setSpeechStatus('reading_explanation');
 
-      speakPhrase(fullSpeechText, speechRate, () => {
+      readPhrase(fullSpeechText, speechRate, () => {
         if (seqId !== currentSeqIdRef.current) return;
         setSpeechStatus('idle');
       });
@@ -330,7 +352,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               </span>
 
               <span className="text-[10px] text-zinc-400 font-mono hidden sm:inline">
-                Deep Baritone
+                US English · Native tone
               </span>
 
               {/* Status Indicator */}
@@ -376,40 +398,32 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
               {/* Voice Controls: Replay / Pause & Speed & Auto-Next */}
             <div className="flex items-center gap-1.5 flex-wrap">
-              {/* Voice Depth Selector (Baritone vs Ultra Deep) */}
-              <div className="flex items-center rounded border border-zinc-800 bg-zinc-900 p-0.5 text-[10px]">
-                <button
-                  type="button"
-                  onClick={() => handleSetVoiceDepth('deep')}
-                  className={`px-1.5 py-0.5 rounded cursor-pointer font-medium ${
-                    voiceDepth === 'deep'
-                      ? 'bg-zinc-700 text-white font-semibold'
-                      : 'text-zinc-400 hover:text-zinc-200'
-                  }`}
-                  title="Deep Baritone Voice (0.70 pitch)"
+              <label className="flex items-center gap-1 text-[11px] text-zinc-300">
+                Voice
+                <select
+                  aria-label="US English reading voice"
+                  value={preferredVoice}
+                  onChange={event => handleVoiceChange(event.target.value)}
+                  className="max-w-[240px] rounded border border-zinc-700 bg-zinc-900 p-1 text-zinc-100"
                 >
-                  Baritone
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleSetVoiceDepth('ultra_deep')}
-                  className={`px-1.5 py-0.5 rounded cursor-pointer font-medium ${
-                    voiceDepth === 'ultra_deep'
-                      ? 'bg-zinc-700 text-white font-semibold'
-                      : 'text-zinc-400 hover:text-zinc-200'
-                  }`}
-                  title="Ultra Deep Bass Voice (0.58 pitch)"
-                >
-                  Deep Bass
-                </button>
-              </div>
+                  <option value="">Automatic · US male</option>
+                  {preferredVoice && !availableVoices.some(v => v.voiceURI === preferredVoice) && (
+                    <option value={preferredVoice}>Saved voice unavailable</option>
+                  )}
+                  {availableVoices.map(v => (
+                    <option key={v.voiceURI} value={v.voiceURI}>
+                      {v.name}{isRecognizedMaleVoice(v) ? ' · Male' : ' · Preview to check voice'}
+                    </option>
+                  ))}
+                </select>
+              </label>
 
               {/* Test Voice Button */}
               <button
                 type="button"
                 onClick={handleTestVoice}
                 className="px-2 py-0.5 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 hover:text-white border border-zinc-700 text-[10px] font-medium cursor-pointer"
-                title="Hear sample of the deep male podcast voice"
+                title="Preview the selected US English voice at its natural pitch"
               >
                 Test Voice
               </button>
@@ -468,6 +482,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 </button>
               )}
             </div>
+            <p className="w-full text-[11px] text-zinc-400" role="status" aria-live="polite">
+              {voiceError || (!readerVoice
+                ? 'No selected US male voice is available. Choose an installed US voice and preview it, or install a US English male voice in your device speech settings.'
+                : `Using ${readerVoice.name} at its natural pitch. Voice quality depends on your device.`)}
+            </p>
           </div>
         )}
 

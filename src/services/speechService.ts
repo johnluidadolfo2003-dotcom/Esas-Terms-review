@@ -1,175 +1,80 @@
-/**
- * Web Speech API Service for AI Question Reader & Auto-Tutor
- * Engineered for an authentic, unmistakably deep male podcast-host voice with natural conversational cadence.
- */
-
+/** Device speech uses the voice's native timbre, never pitch-shifted to simulate gender. */
 export type AiVoiceMode = 'off' | 'ai_reads_you_answer' | 'ai_reads_and_answers';
-export type VoiceDepth = 'deep' | 'ultra_deep';
-
-export function isSpeechSupported(): boolean {
-  return typeof window !== 'undefined' && 'speechSynthesis' in window;
-}
-
-// Known male voice identifiers across Chrome (Desktop & Android), Edge, Safari, iOS, macOS, Windows, Linux
-const PREFERRED_DEEP_MALE_VOICE_NAMES = [
-  // Microsoft Neural Natural Male Voices (Rich broadcast/podcast quality)
-  'Microsoft Guy Online (Natural)',
-  'Microsoft Ryan Online (Natural)',
-  'Microsoft Christopher Online (Natural)',
-  'Microsoft Andrew Online (Natural)',
-  'Microsoft Brian Online (Natural)',
-  'Microsoft Davis Online (Natural)',
-  'Microsoft Steffan Online (Natural)',
-  'Microsoft Jason Online (Natural)',
-  'Microsoft Tony Online (Natural)',
-  // Google TTS Natural Male Voices (Chrome Desktop & Android)
-  'Google UK English Male',
-  'Google US English',
-  'en-us-x-sfg#male',
-  'en-us-x-iol#male',
-  'en-us-x-tpd#male',
-  'en-gb-x-rjs#male',
-  // Apple / macOS / iOS deep male voices
-  'Arthur',
-  'Daniel',
-  'Oliver',
-  'Alex',
-  'Fred',
-  'Aaron',
-  'Ralph',
-  'Tom',
-  // Windows desktop local male voices
-  'Microsoft David Desktop',
-  'Microsoft Mark',
-  'Microsoft George',
-  'Microsoft David',
-  'David',
-  'Guy',
-  'Ryan',
-  'Christopher',
-  'Brian',
-  'Mark',
-];
-
-const FEMALE_VOICE_KEYWORDS = [
-  'female',
-  'woman',
-  'girl',
-  'zira',
-  'samantha',
-  'victoria',
-  'karen',
-  'hazel',
-  'moira',
-  'fiona',
-  'tessa',
-  'veena',
-  'susan',
-  'helen',
-  'eva',
-  'catherine',
-  'jenny',
-  'aria',
-  'stephanie',
-  'libby',
-  'sonia',
-  'natasha',
-  'siri',
-  'kate',
-  'serena',
-  'allison',
-  'ava',
-  'susan',
-  'shelby',
-];
-
-let cachedVoices: SpeechSynthesisVoice[] = [];
-let cachedDeepMaleVoice: SpeechSynthesisVoice | null = null;
-let currentVoiceDepth: VoiceDepth = 'deep';
-
-export function setVoiceDepth(depth: VoiceDepth): void {
-  currentVoiceDepth = depth;
-}
-
-export function getVoiceDepth(): VoiceDepth {
-  return currentVoiceDepth;
-}
-
-function loadVoices(): SpeechSynthesisVoice[] {
+const VOICE_KEY = 'esas-reader-us-voice-v1';
+let sessionVoiceURI: string | undefined;
+// Recognized provider voice names. Web Speech exposes no standard gender field.
+const MALE_NAMES = /\b(guy|christopher|andrew|brian|davis|steffan|jason|tony|eric|roger|david|mark|alex|aaron|tom|evan|nathan)\b/i;
+const EXPLICIT_MALE = /(?:^|[^a-z])male(?:$|[^a-z])/i;
+const QUALITY = /natural|neural|premium|enhanced/i;
+export const isSpeechSupported = () => typeof window !== 'undefined' && 'speechSynthesis' in window;
+export const isUSVoice = (v: SpeechSynthesisVoice) => v.lang.replace(/_/g, '-').toLowerCase() === 'en-us';
+export const isRecognizedMaleVoice = (v: SpeechSynthesisVoice) =>
+  !/female/i.test(v.name) && (MALE_NAMES.test(v.name) || EXPLICIT_MALE.test(v.name + ' ' + v.voiceURI));
+export function getUSVoices(): SpeechSynthesisVoice[] {
   if (!isSpeechSupported()) return [];
-  const liveVoices = window.speechSynthesis.getVoices();
-  if (liveVoices && liveVoices.length > 0) {
-    cachedVoices = liveVoices;
-    return liveVoices;
-  }
-  return cachedVoices;
+  return window.speechSynthesis.getVoices().filter(isUSVoice).sort((a, b) =>
+    Number(isRecognizedMaleVoice(b)) - Number(isRecognizedMaleVoice(a)) ||
+    Number(QUALITY.test(b.name)) - Number(QUALITY.test(a.name)) || a.name.localeCompare(b.name));
 }
-
-if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-  window.speechSynthesis.onvoiceschanged = () => {
-    cachedVoices = window.speechSynthesis.getVoices();
-    cachedDeepMaleVoice = selectBestDeepMaleVoice(cachedVoices);
-  };
+export function getPreferredVoiceURI(): string {
+  if (sessionVoiceURI !== undefined) return sessionVoiceURI;
+  try { return window.localStorage.getItem(VOICE_KEY) || ''; } catch { return ''; }
 }
-
-/**
- * Finds the highest quality deep, natural male English voice available on the device
- */
-export function selectBestDeepMaleVoice(voicesList?: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
-  const voices = voicesList && voicesList.length > 0 ? voicesList : loadVoices();
-  if (!voices || voices.length === 0) return null;
-
-  const englishVoices = voices.filter((v) => v.lang && v.lang.toLowerCase().startsWith('en'));
-  const candidatePool = englishVoices.length > 0 ? englishVoices : voices;
-
-  // STRICT ANTI-FEMALE FILTER: Remove any voice known to be female
-  const maleOrNeutralPool = candidatePool.filter((v) => {
-    const nameLower = v.name.toLowerCase();
-    return !FEMALE_VOICE_KEYWORDS.some((kw) => nameLower.includes(kw));
+export function setPreferredVoiceURI(uri: string): void {
+  stopSpeech();
+  sessionVoiceURI = uri;
+  try { if (uri) window.localStorage.setItem(VOICE_KEY, uri); else window.localStorage.removeItem(VOICE_KEY); } catch {}
+}
+export function selectBestUSMaleVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+  return voices.filter(v => isUSVoice(v) && isRecognizedMaleVoice(v)).sort((a, b) =>
+    Number(QUALITY.test(b.name)) - Number(QUALITY.test(a.name)) || a.name.localeCompare(b.name))[0] || null;
+}
+export function getReaderVoice(): SpeechSynthesisVoice | null {
+  const voices = getUSVoices();
+  const saved = getPreferredVoiceURI();
+  // An explicitly selected device voice is allowed after the user's preview.
+  // If it disappears, do not silently replace it with another speaker.
+  return saved ? voices.find(v => v.voiceURI === saved) || null : selectBestUSMaleVoice(voices);
+}
+export function subscribeVoices(listener: () => void): () => void {
+  if (!isSpeechSupported()) return () => {};
+  window.speechSynthesis.addEventListener('voiceschanged', listener);
+  return () => window.speechSynthesis.removeEventListener('voiceschanged', listener);
+}
+let generation = 0;
+let pendingVoiceWait: (() => void) | null = null;
+// Hold a strong reference until completion (some engines otherwise stop long utterances).
+let activeUtterance: SpeechSynthesisUtterance | null = null;
+export function stopSpeech(): void {
+  generation++;
+  pendingVoiceWait?.();
+  pendingVoiceWait = null;
+  activeUtterance = null;
+  if (isSpeechSupported()) window.speechSynthesis.cancel();
+}
+function waitForVoices(): Promise<void> {
+  if (getUSVoices().length) return Promise.resolve();
+  return new Promise(resolve => {
+    let timer: ReturnType<typeof setTimeout>;
+    const finish = () => {
+      clearTimeout(timer);
+      window.speechSynthesis.removeEventListener('voiceschanged', changed);
+      if (pendingVoiceWait === finish) pendingVoiceWait = null;
+      resolve();
+    };
+    const changed = () => { if (getUSVoices().length) finish(); };
+    pendingVoiceWait = finish;
+    window.speechSynthesis.addEventListener('voiceschanged', changed);
+    timer = setTimeout(finish, 1500);
+    changed();
   });
-
-  const poolToSearch = maleOrNeutralPool.length > 0 ? maleOrNeutralPool : candidatePool;
-
-  // 1. Match known high-fidelity deep male voices by prioritized name
-  for (const preferredName of PREFERRED_DEEP_MALE_VOICE_NAMES) {
-    const match = poolToSearch.find(
-      (v) => v.name.toLowerCase().includes(preferredName.toLowerCase())
-    );
-    if (match) return match;
-  }
-
-  // 2. Look for voices tagged explicitly with "male" and not "female"
-  const maleTaggedVoice = poolToSearch.find((v) => {
-    const nameLower = v.name.toLowerCase();
-    return nameLower.includes('male') && !nameLower.includes('female');
-  });
-  if (maleTaggedVoice) return maleTaggedVoice;
-
-  // 3. Fallback to any non-female voice
-  if (maleOrNeutralPool.length > 0) {
-    return maleOrNeutralPool[0];
-  }
-
-  return candidatePool[0] || null;
 }
 
-export function getDeepMaleVoice(): SpeechSynthesisVoice | null {
-  // Always check if new voices arrived
-  if (!cachedDeepMaleVoice || cachedVoices.length === 0) {
-    cachedDeepMaleVoice = selectBestDeepMaleVoice();
-  }
-  return cachedDeepMaleVoice;
-}
-
-/**
- * Formats raw quiz text into natural, spoken English with conversational micro-pauses
- * and expanded engineering abbreviations suitable for a podcast host.
- */
 export function cleanTextForSpeech(text: string): string {
   if (!text) return '';
 
   let spoken = text
-    .replace(/[_*#`~]/g, '') // remove markdown symbols
+    .replace(/[*#`~]/g, '') // remove markdown symbols
     .replace(/[\r\n]+/g, ', ') // replace linebreaks with conversational pauses
     .replace(/\s+/g, ' ')
     .trim();
@@ -200,15 +105,14 @@ export function cleanTextForSpeech(text: string): string {
     .replace(/\b(\d+)\s*ft\^2\b/gi, '$1 square feet')
     .replace(/\bPhp\s*(\d+)/gi, '$1 pesos')
     .replace(/\bPHP\s*(\d+)/gi, '$1 pesos')
-    .replace(/\bP\s*(\d+)/g, '$1 pesos')
+    .replace(/₱\s*(\d+)/g, '$1 pesos')
     .replace(/\bcos\s*phi\b/gi, 'cosine of fee')
     .replace(/\bsin\s*phi\b/gi, 'sine of fee')
-    .replace(/\bcos\s*q\b/gi, 'cosine of theta')
-    .replace(/\bsin\s*q\b/gi, 'sine of theta')
     .replace(/\bu\s*mg\b/gi, 'mew times m times g')
     .replace(/\bf_k\b/gi, 'friction force')
     // Conversational smoothing for options
-    .replace(/\bOption\s*([A-D]):?\s*/gi, 'Option $1... ')
+    .replace(/\bOption\s*([A-D]):?\s*/gi, 'Option $1. ')
+    .replace(/_/g, ' ')
     // Remove standalone bracket artifacts
     .replace(/[\[\]{}()]/g, ' ')
     .replace(/\s{2,}/g, ' ')
@@ -217,88 +121,39 @@ export function cleanTextForSpeech(text: string): string {
   return spoken;
 }
 
-/**
- * Stop any ongoing speech synthesis immediately
- */
-export function stopSpeech(): void {
-  if (isSpeechSupported()) {
-    window.speechSynthesis.cancel();
-  }
-}
 
-/**
- * Speak a phrase with a truly deep, warm male podcast host voice.
- * - Enforces low pitch (0.70 for deep baritone, 0.58 for ultra-deep bass)
- * - Assigns top natural male English voice
- * - Natural unhurried conversational cadence
- */
 export function speakPhrase(
-  phrase: string,
-  rate: number = 1.0,
-  onEnd?: () => void,
-  onError?: () => void,
-  depthOverride?: VoiceDepth
+  phrase: string, rate = 1, onEnd?: () => void, onError?: () => void
 ): SpeechSynthesisUtterance | null {
-  if (!isSpeechSupported()) {
-    if (onError) onError();
-    return null;
-  }
-
   stopSpeech();
-
-  const clean = cleanTextForSpeech(phrase);
-  if (!clean) {
-    if (onEnd) onEnd();
-    return null;
-  }
-
-  const utterance = new SpeechSynthesisUtterance(clean);
-
-  // DEEP MALE PITCH CALIBRATION:
-  // Standard speech pitch is 1.0.
-  // 0.70 drops the formant into a rich, deep, masculine baritone podcast host.
-  // 0.58 drops into a heavy, deep radio bass.
-  const depth = depthOverride || currentVoiceDepth;
-  utterance.pitch = depth === 'ultra_deep' ? 0.58 : 0.70;
-
-  // Unrushed, natural podcast host cadence (0.92x of user's chosen speed)
-  utterance.rate = Math.max(0.70, Math.min(1.3, rate * 0.92));
-
-  // Natural volume
-  utterance.volume = 1.0;
-
-  // Dynamically ensure latest available deep male voice
-  const deepMaleVoice = getDeepMaleVoice();
-  if (deepMaleVoice) {
-    utterance.voice = deepMaleVoice;
-    utterance.lang = deepMaleVoice.lang || 'en-US';
-  } else {
-    utterance.lang = 'en-US';
-  }
-
-  if (onEnd) {
-    utterance.onend = () => {
-      onEnd();
+  if (!isSpeechSupported()) { onError?.(); return null; }
+  const text = cleanTextForSpeech(phrase);
+  if (!text) { onEnd?.(); return null; }
+  const token = generation;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.pitch = 1;
+  utterance.rate = Number.isFinite(rate) ? Math.max(.5, Math.min(2, rate)) : 1;
+  utterance.volume = 1;
+  utterance.lang = 'en-US';
+  void waitForVoices().then(() => {
+    if (token !== generation) return;
+    const voice = getReaderVoice();
+    if (!voice) { onError?.(); return; }
+    utterance.voice = voice;
+    let settled = false;
+    const finish = (callback?: () => void) => {
+      if (settled || token !== generation) return;
+      settled = true;
+      activeUtterance = null;
+      callback?.();
     };
-  }
-
-  if (onError) {
-    utterance.onerror = (e) => {
-      if (e.error !== 'canceled' && e.error !== 'interrupted') {
-        console.warn('Speech synthesis error:', e);
-      }
-      onError();
-    };
-  }
-
-  window.speechSynthesis.speak(utterance);
+    utterance.onend = () => finish(onEnd);
+    utterance.onerror = () => finish(onError);
+    activeUtterance = utterance;
+    try { window.speechSynthesis.speak(utterance); } catch { finish(onError); }
+  });
   return utterance;
 }
-
-/**
- * Test play sample to immediately demonstrate the deep male podcast voice
- */
-export function testDeepMaleVoice(depth: VoiceDepth = currentVoiceDepth): void {
-  const sample = "Welcome to the reviewer. This is your deep male podcast host voice. Clear, confident, and ready for your board exam questions.";
-  speakPhrase(sample, 1.0, undefined, undefined, depth);
+export function previewReaderVoice(onEnd?: () => void, onError?: () => void): void {
+  speakPhrase('Welcome. Let’s review one question at a time. Listen carefully, then choose the best answer.', 1, onEnd, onError);
 }
