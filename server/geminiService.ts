@@ -51,32 +51,64 @@ export interface ExplainRequestPayload {
 
 export interface ExplainResponseData {
   summary: string;
-  detailedAnalysis: string;
-  formulaOrRule?: string;
   boardExamTip?: string;
-  optionsBreakdown?: { id: string; status: 'correct' | 'incorrect'; note: string }[];
+  modelUsed?: string;
+  taskComplexity?: 'light' | 'complicated';
 }
 
-const CANDIDATE_MODELS = ['gemini-3.8-flash', 'gemini-2.5-flash', 'gemini-flash-latest'];
+/**
+ * Assesses whether an engineering problem is complicated (numerical, math formulas, circuit calculations)
+ * or light (conceptual definition, law identification, standard naming, acronym).
+ */
+export function assessTaskComplexity(
+  question: string,
+  choices: { text: string }[] = []
+): 'light' | 'complicated' {
+  const combined = `${question} ${choices.map(c => c.text).join(' ')}`;
+  const hasCalculation =
+    /\b(calculate|compute|solve|derive|finding|determined by formula|efficiency|impedance|reactance|reactive power|apparent power|power factor|transformer ratio|torque|resonance|slip|integral|derivative|frequency resonance|voltage drop)\b/i.test(
+      combined
+    );
+  const hasNumbersAndUnits =
+    /\d+\.?\d*\s*(?:kW|MW|kV|Hz|kHz|MHz|rpm|HP|hp|ohms?|Ω|amps?|A|volts?|V|µF|mH|henry|joules?|rad\/s|m\/s|kVA|VAR)/i.test(
+      combined
+    );
+  const isMultiStep = question.length > 300;
+
+  return hasCalculation || hasNumbersAndUnits || isMultiStep ? 'complicated' : 'light';
+}
+
+export function assessQueryComplexity(query: string): 'light' | 'complicated' {
+  const isComplex =
+    query.length > 80 ||
+    /\b(derive|calculate|compute|step-by-step math|prove|equation|integral|solve for|matrix|differential)\b/i.test(
+      query
+    );
+  return isComplex ? 'complicated' : 'light';
+}
 
 async function callGenerateContentWithFallback(
   ai: GoogleGenAI,
+  models: string[],
   request: {
     contents: string;
     config?: any;
   }
-) {
+): Promise<{ text: string | undefined; model: string }> {
   let lastError: any = null;
-  for (const model of CANDIDATE_MODELS) {
+  for (const model of models) {
     try {
-      return await ai.models.generateContent({
+      const response = await ai.models.generateContent({
         ...request,
         model,
       });
+      return { text: response.text, model };
     } catch (err: any) {
       lastError = err;
       const msg = String(err?.message || '');
-      const isNotFound = err?.status === 404 || /not found|unsupported model|not supported|not available/i.test(msg);
+      const isNotFound =
+        err?.status === 404 ||
+        /not found|unsupported model|not supported|not available/i.test(msg);
       if (isNotFound) {
         console.warn(`Gemini model ${model} unavailable, trying fallback model...`);
         continue;
@@ -98,6 +130,14 @@ export async function generateQuestionExplanation(
   const { question, choices, correctChoiceId, subject = 'Electrical Engineering', userChoice } = payload;
   const formattedChoices = choices.map(c => `[${c.id}] ${c.text}`).join('\n');
 
+  // Task-based model selection: light tasks use low-version Gemini to save tokens;
+  // complicated tasks (math/calculations) use higher Gemini tier.
+  const complexity = assessTaskComplexity(question, choices);
+  const models =
+    complexity === 'complicated'
+      ? ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-2.5-flash']
+      : ['gemini-3.1-flash-lite', 'gemini-flash-latest', 'gemini-2.5-flash'];
+
   const prompt = `Subject: ${subject}
 Question:
 ${question}
@@ -108,27 +148,22 @@ ${formattedChoices}
 Official Correct Answer: Option ${correctChoiceId}
 ${userChoice ? `User selected Option: ${userChoice}` : ''}
 
-Please analyze this engineering question thoroughly. Provide:
-1. Short Summary: A concise, direct statement of why the correct option is the right answer.
-2. Detailed Analysis: The underlying physics, electrical theory, mathematics, or Philippine Electrical Code (PEC) / RA 7920 legal statute. Explain any relevant equations or principles step-by-step.
-3. Formula or Standard: The relevant formula, equation, or code section (if applicable).
-4. Board Exam Tip: A practical memory tip, rule of thumb, or key takeaway for the PRC Electrical Engineering Board Examination.
-5. Options Breakdown: A brief note for each option explaining why it is correct or incorrect.
+Provide a direct, concise, token-efficient explanation.
+Do NOT include detailed physics proofs, mathematical theories, governing equations, or choice breakdowns.
 
-Keep your response factual, rigorous, and easy to read. Output in structured JSON format with the keys:
-"summary" (string),
-"detailedAnalysis" (string),
-"formulaOrRule" (string),
-"boardExamTip" (string),
-"optionsBreakdown" (array of objects with "id", "status" as "correct" or "incorrect", and "note")`;
+Respond strictly in valid JSON format with:
+{
+  "summary": "1-2 direct sentences explaining why Option ${correctChoiceId} is correct.",
+  "boardExamTip": "1 short, practical rule of thumb or takeaway for the PRC Electrical Engineering Board Exam."
+}`;
 
-  const response = await callGenerateContentWithFallback(ai, {
+  const response = await callGenerateContentWithFallback(ai, models, {
     contents: prompt,
     config: {
       systemInstruction:
-        'You are an expert Registered Electrical Engineer (REE / RME / PEE) and Philippine PRC Board Examination reviewer professor. You provide rigorous, accurate, and easy-to-follow explanations for engineering students. You never hallucinate codes or formulas. Output valid JSON only.',
+        'You are an expert Registered Electrical Engineer (REE / RME / PEE) professor. Provide ultra-concise, accurate, token-efficient explanations without filler. Output valid JSON only.',
       responseMimeType: 'application/json',
-      temperature: 0.2,
+      temperature: 0.1,
     },
   });
 
@@ -136,17 +171,17 @@ Keep your response factual, rigorous, and easy to read. Output in structured JSO
   try {
     const parsed = JSON.parse(rawText.trim());
     return {
-      summary: parsed.summary || `The correct answer is Option ${correctChoiceId}.`,
-      detailedAnalysis: parsed.detailedAnalysis || parsed.explanation || '',
-      formulaOrRule: parsed.formulaOrRule || '',
-      boardExamTip: parsed.boardExamTip || '',
-      optionsBreakdown: Array.isArray(parsed.optionsBreakdown) ? parsed.optionsBreakdown : [],
+      summary: parsed.summary || `Option ${correctChoiceId} is the correct answer.`,
+      boardExamTip: parsed.boardExamTip || 'Review the core definition and standard terms for this question.',
+      modelUsed: response.model,
+      taskComplexity: complexity,
     };
   } catch {
     return {
-      summary: `The correct answer is Option ${correctChoiceId}.`,
-      detailedAnalysis: rawText,
-      boardExamTip: 'Review the fundamental laws and definitions governing this topic.',
+      summary: `Option ${correctChoiceId} is the correct answer.`,
+      boardExamTip: 'Review the fundamental PRC definitions governing this question.',
+      modelUsed: response.model,
+      taskComplexity: complexity,
     };
   }
 }
@@ -159,11 +194,17 @@ export async function askGeminiTutor(
     subject?: string;
   },
   userQuery: string
-): Promise<string> {
+): Promise<{ answer: string; modelUsed: string }> {
   const ai = getGeminiClient();
   if (!ai) {
     throw new Error('gemini-not-configured');
   }
+
+  const queryComplexity = assessQueryComplexity(userQuery);
+  const models =
+    queryComplexity === 'complicated'
+      ? ['gemini-3.8-flash', 'gemini-flash-latest', 'gemini-2.5-flash']
+      : ['gemini-3.1-flash-lite', 'gemini-flash-latest', 'gemini-2.5-flash'];
 
   const prompt = `Context:
 Subject: ${questionContext.subject || 'Engineering Reviewer'}
@@ -175,16 +216,19 @@ Correct Answer: Option ${questionContext.correctChoiceId}
 Student Question:
 "${userQuery}"
 
-Provide a direct, helpful, and concise answer explaining the concept to the engineering student. Avoid unnecessary filler.`;
+Provide a direct, concise, 1-2 sentence answer for the engineering student. Avoid unnecessary filler or lengthy derivations.`;
 
-  const response = await callGenerateContentWithFallback(ai, {
+  const response = await callGenerateContentWithFallback(ai, models, {
     contents: prompt,
     config: {
       systemInstruction:
-        'You are an authoritative engineering tutor helping a reviewee prepare for the Philippine Electrical Engineering board examination. Be clear, accurate, and concise.',
-      temperature: 0.2,
+        'You are an engineering tutor. Give ultra-concise, helpful, token-saving answers directly answering the student question.',
+      temperature: 0.1,
     },
   });
 
-  return response.text || 'Unable to generate an answer at this time.';
+  return {
+    answer: response.text || 'Unable to generate an answer at this time.',
+    modelUsed: response.model,
+  };
 }

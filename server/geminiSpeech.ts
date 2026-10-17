@@ -4,7 +4,7 @@ import { createHash } from 'node:crypto';
 import { resolveGeminiApiKey } from './geminiService';
 
 export const NARRATOR = 'Puck';
-export const TTS_MODEL = 'gemini-3.8-flash-tts';
+export const TTS_MODEL = 'gemini-3.8-flash-lite-tts';
 export const SPEECH_STYLE = 'Clear American English pronunciation, warm conversational delivery, calm and easy to understand, with natural sentence pauses at a moderate pace.';
 const MAX_TEXT = 1800;
 const MAX_AUDIO = 8 * 1024 * 1024;

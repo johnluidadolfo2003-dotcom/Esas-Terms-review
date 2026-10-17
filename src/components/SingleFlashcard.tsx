@@ -153,7 +153,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const [geminiError, setGeminiError] = useState<string | null>(null);
   const [showGeminiPanel, setShowGeminiPanel] = useState<boolean>(false);
   const [geminiQuery, setGeminiQuery] = useState<string>('');
-  const [tutorQAs, setTutorQAs] = useState<{ query: string; answer: string }[]>([]);
+  const [tutorQAs, setTutorQAs] = useState<{ query: string; answer: string; modelUsed?: string }[]>([]);
   const [askingTutor, setAskingTutor] = useState<boolean>(false);
   const [geminiConfigured, setGeminiConfigured] = useState<boolean>(true);
   const geminiAbortRef = useRef<AbortController | null>(null);
@@ -221,7 +221,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     setAskingTutor(true);
 
     try {
-      const answer = await askGeminiTutorQuestion(
+      const result = await askGeminiTutorQuestion(
         {
           question: question.question,
           choices: question.choices,
@@ -230,7 +230,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         },
         query
       );
-      setTutorQAs(prev => [...prev, { query, answer }]);
+      setTutorQAs(prev => [...prev, { query, answer: result.answer, modelUsed: result.modelUsed }]);
     } catch (err: any) {
       setTutorQAs(prev => [
         ...prev,
@@ -243,7 +243,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
   const handleReadGeminiExplanation = () => {
     if (!geminiExplanation) return;
-    const textToRead = `${geminiExplanation.summary}. ${geminiExplanation.detailedAnalysis}. ${geminiExplanation.boardExamTip ? `Board exam tip: ${geminiExplanation.boardExamTip}` : ''}`;
+    const textToRead = `${geminiExplanation.summary}. ${geminiExplanation.boardExamTip ? `Board exam tip: ${geminiExplanation.boardExamTip}` : ''}`;
     readPhrase(textToRead, speechRate, () => setSpeechStatus('idle'));
   };
 
@@ -718,10 +718,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   <path d="M12 16v-4" />
                   <path d="M12 8h.01" />
                 </svg>
-                <span>{showGeminiPanel ? 'Hide Gemini Analysis' : 'Gemini 3.8 Flash Deep Dive'}</span>
+                <span>{showGeminiPanel ? 'Hide Gemini Analysis' : 'Gemini AI Explanation'}</span>
               </button>
               <span className="text-[10px] text-zinc-400 font-mono hidden xs:inline">
-                Formulas • Derivations • Board Tips
+                Concise Concept • Board Exam Tip
               </span>
             </div>
           </div>
@@ -734,10 +734,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             <div className="flex items-center justify-between border-b border-zinc-800 pb-2.5">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-700/60 text-emerald-400 font-mono text-[10px] uppercase font-bold tracking-wider">
-                  Gemini 3.8 Flash
+                  {geminiExplanation?.modelUsed || (geminiExplanation?.taskComplexity === 'complicated' ? 'Gemini 3.8 Flash' : 'Gemini 3.1 Flash-Lite')}
                 </span>
                 <h3 className="font-bold text-sm text-zinc-100">
-                  Engineering Analysis & Tutor
+                  Engineering Review Tutor
                 </h3>
               </div>
               <button
@@ -753,7 +753,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             {loadingGemini && (
               <div className="py-6 flex flex-col items-center justify-center gap-2 text-zinc-400">
                 <div className="w-5 h-5 border-2 border-emerald-400 border-t-transparent rounded-full animate-spin"></div>
-                <p className="text-xs font-mono">Consulting Gemini 3.8 Flash for detailed engineering derivation...</p>
+                <p className="text-xs font-mono">Consulting Gemini for quick explanation...</p>
               </div>
             )}
 
@@ -807,37 +807,22 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             {/* Explanation Content */}
             {geminiExplanation && !loadingGemini && (
               <div className="flex flex-col gap-3">
-                {/* Summary */}
+                {/* Concise Summary / Core Concept */}
                 <div className="bg-zinc-950/60 border border-zinc-800/80 rounded-lg p-3">
-                  <span className="text-[10px] font-mono uppercase text-emerald-400 font-semibold tracking-wider block mb-1">
-                    Summary
-                  </span>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-mono uppercase text-emerald-400 font-semibold tracking-wider">
+                      Explanation
+                    </span>
+                    {geminiExplanation.taskComplexity && (
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400">
+                        {geminiExplanation.taskComplexity === 'light' ? 'Light Task • Token Saver' : 'Complicated Problem'}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-xs sm:text-sm text-zinc-200 font-medium leading-relaxed">
                     {geminiExplanation.summary}
                   </p>
                 </div>
-
-                {/* Detailed Analysis */}
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-mono uppercase text-zinc-400 font-semibold tracking-wider">
-                    Detailed Engineering Theory & Physics
-                  </span>
-                  <div className="text-xs sm:text-sm text-zinc-300 leading-relaxed whitespace-pre-line bg-zinc-950/40 p-3 rounded-lg border border-zinc-800/60">
-                    {geminiExplanation.detailedAnalysis}
-                  </div>
-                </div>
-
-                {/* Formula or Standard */}
-                {geminiExplanation.formulaOrRule && (
-                  <div className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-800 flex flex-col gap-1">
-                    <span className="text-[10px] font-mono uppercase text-zinc-400 font-semibold tracking-wider">
-                      Governing Equation / Code Clause
-                    </span>
-                    <code className="text-xs font-mono text-emerald-300 break-words">
-                      {geminiExplanation.formulaOrRule}
-                    </code>
-                  </div>
-                )}
 
                 {/* Board Exam High-Yield Tip */}
                 {geminiExplanation.boardExamTip && (
@@ -851,52 +836,23 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                   </div>
                 )}
 
-                {/* Options Breakdown */}
-                {geminiExplanation.optionsBreakdown && geminiExplanation.optionsBreakdown.length > 0 && (
-                  <div className="flex flex-col gap-1.5">
-                    <span className="text-[10px] font-mono uppercase text-zinc-400 font-semibold tracking-wider">
-                      Choice Distractor Analysis
-                    </span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-                      {geminiExplanation.optionsBreakdown.map((opt) => (
-                        <div
-                          key={opt.id}
-                          className={`p-2 rounded border text-xs flex flex-col gap-0.5 ${
-                            opt.status === 'correct'
-                              ? 'bg-emerald-950/40 border-emerald-800/60 text-emerald-200'
-                              : 'bg-zinc-950/50 border-zinc-800 text-zinc-400'
-                          }`}
-                        >
-                          <div className="font-semibold flex items-center gap-1">
-                            <span className="font-mono">Option {opt.id}:</span>
-                            <span className="text-[10px] uppercase font-bold">
-                              {opt.status === 'correct' ? 'Correct' : 'Incorrect'}
-                            </span>
-                          </div>
-                          <span className="text-[11px] leading-snug">{opt.note}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
                 {/* Read Aloud Action */}
                 <div className="pt-2 border-t border-zinc-800 flex items-center justify-between gap-2 flex-wrap">
                   <button
                     type="button"
                     onClick={handleReadGeminiExplanation}
                     className="px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 font-medium text-xs cursor-pointer flex items-center gap-1.5"
-                    title="Listen to this Gemini explanation read aloud in natural US voice"
+                    title="Listen to this explanation in fastest response natural voice"
                   >
                     <svg className="w-3.5 h-3.5 text-zinc-300 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
                       <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
                     </svg>
-                    <span>Listen to Gemini Analysis</span>
+                    <span>Listen (Fast Gemini Voice)</span>
                   </button>
 
                   <span className="text-[10px] font-mono text-zinc-500">
-                    Model: gemini-3.8-flash
+                    Model: {geminiExplanation.modelUsed || (geminiExplanation.taskComplexity === 'complicated' ? 'gemini-3.8-flash' : 'gemini-3.1-flash-lite')}
                   </span>
                 </div>
 
@@ -911,9 +867,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                     <div className="flex flex-col gap-2 max-h-48 overflow-y-auto pr-1">
                       {tutorQAs.map((qa, index) => (
                         <div key={index} className="flex flex-col gap-1 text-xs bg-zinc-950/70 p-2.5 rounded border border-zinc-800">
-                          <div className="font-semibold text-zinc-300 flex items-center gap-1">
-                            <span className="text-zinc-500 font-mono">Q:</span>
-                            <span>{qa.query}</span>
+                          <div className="font-semibold text-zinc-300 flex items-center justify-between gap-1">
+                            <div className="flex items-center gap-1">
+                              <span className="text-zinc-500 font-mono">Q:</span>
+                              <span>{qa.query}</span>
+                            </div>
+                            {qa.modelUsed && (
+                              <span className="text-[9px] font-mono text-zinc-500 shrink-0">
+                                {qa.modelUsed}
+                              </span>
+                            )}
                           </div>
                           <div className="text-zinc-400 pl-4 border-l border-zinc-700 leading-relaxed">
                             {qa.answer}

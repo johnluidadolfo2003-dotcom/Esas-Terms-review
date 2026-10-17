@@ -72,8 +72,8 @@ export function createGeminiRouter(): express.Router {
     }
 
     try {
-      const answer = await askGeminiTutor(context, query.trim());
-      res.json({ success: true, answer });
+      const result = await askGeminiTutor(context, query.trim());
+      res.json({ success: true, answer: result.answer, modelUsed: result.modelUsed });
     } catch (err: any) {
       console.error('Gemini ask tutor error:', err);
       res.status(502).json({

@@ -14,10 +14,9 @@ export interface GeminiConfig {
 
 export interface GeminiExplanation {
   summary: string;
-  detailedAnalysis: string;
-  formulaOrRule?: string;
   boardExamTip?: string;
-  optionsBreakdown?: { id: string; status: 'correct' | 'incorrect'; note: string }[];
+  modelUsed?: string;
+  taskComplexity?: 'light' | 'complicated';
 }
 
 export interface ExplainQuestionParams {
@@ -122,7 +121,7 @@ export async function askGeminiTutorQuestion(
   },
   query: string,
   signal?: AbortSignal
-): Promise<string> {
+): Promise<{ answer: string; modelUsed?: string }> {
   const response = await fetch('/api/gemini/ask', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -136,5 +135,5 @@ export async function askGeminiTutorQuestion(
   }
 
   const result = await response.json();
-  return result.answer;
+  return { answer: result.answer, modelUsed: result.modelUsed };
 }
