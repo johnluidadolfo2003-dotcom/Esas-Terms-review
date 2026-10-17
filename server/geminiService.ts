@@ -149,7 +149,8 @@ Official Correct Answer: Option ${correctChoiceId}
 ${userChoice ? `User selected Option: ${userChoice}` : ''}
 
 Provide a direct, concise, token-efficient explanation.
-Do NOT include detailed physics proofs, mathematical theories, governing equations, or choice breakdowns.
+Do NOT include Detailed Engineering Theory & Physics, Governing Equation / Code Clause, or Choice Distractor Analysis.
+Keep the explanation focused strictly on 1-2 direct sentences to save tokens.
 
 Respond strictly in valid JSON format with:
 {

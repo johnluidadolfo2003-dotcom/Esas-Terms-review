@@ -65,8 +65,9 @@ export function createGeminiSpeechRouter(options: { apiKey?: string; fetchImpl?:
     const ip = req.ip || 'unknown';
     for (const [key, value] of limits) if (value.until <= now) limits.delete(key);
     const limit = limits.get(ip) || { count: 0, until: now + 60_000 };
-    if (limit.count >= 20 || (!limits.has(ip) && limits.size >= 1000)) {
-      res.set('Retry-After', '60').status(429).json({ error: 'speech-rate-limit' }); return;
+    // Allow up to 240 requests/min per IP to prevent blocking during flashcard review
+    if (limit.count >= 240 || (!limits.has(ip) && limits.size >= 10000)) {
+      res.set('Retry-After', '30').status(429).json({ error: 'speech-rate-limit' }); return;
     }
     limit.count++; limits.set(ip, limit);
     const key = createHash('sha256').update(JSON.stringify([text, rate])).digest('hex');
@@ -76,15 +77,20 @@ export function createGeminiSpeechRouter(options: { apiKey?: string; fetchImpl?:
       if (!wav) {
         let job = pending.get(key);
         if (!job) {
-          if (pending.size >= 2) { res.set('Retry-After', '2').status(429).json({ error: 'speech-busy' }); return; }
+          // Allow up to 8 concurrent generation jobs
+          if (pending.size >= 8) { res.set('Retry-After', '2').status(429).json({ error: 'speech-busy' }); return; }
           job = (async () => {
             const response = await request('https://generativelanguage.googleapis.com/v1beta/interactions', {
               method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
               body: JSON.stringify(buildSpeechRequest(text, rate)), signal: AbortSignal.timeout(45_000),
             });
             if (!response.ok) {
-              throw new SpeechFailure(response.status === 429 ? 429 : 502,
-                response.status === 429 ? 'speech-quota' : [401, 403].includes(response.status) ? 'speech-key-rejected' : 'speech-provider-error');
+              const isQuota = response.status === 429;
+              const isAuth = [401, 403].includes(response.status);
+              throw new SpeechFailure(
+                isQuota ? 429 : 502,
+                isQuota ? 'speech-quota' : isAuth ? 'speech-key-rejected' : 'speech-provider-error'
+              );
             }
             const buffer = extractWav(await response.json());
             while (cacheBytes + buffer.length > 16 * 1024 * 1024 && cache.size) {

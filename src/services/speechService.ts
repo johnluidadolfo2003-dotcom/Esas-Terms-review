@@ -32,10 +32,87 @@ let context: AudioContext | null = null;
 let source: AudioBufferSourceNode | null = null;
 const cache = new Map<string, { bytes: ArrayBuffer; expires: number }>();
 let cacheBytes = 0;
+let geminiSpeechQuotaHit = false;
+
+export function isSpeechFallbackActive(): boolean {
+  return geminiSpeechQuotaHit;
+}
+
+export function resetSpeechFallback(): void {
+  geminiSpeechQuotaHit = false;
+}
+
 export function stopSpeech(): void {
-  generation++; controller?.abort(); controller = null;
-  if (source) { source.onended = null; try { source.stop(); } catch {} source.disconnect(); source = null; }
+  generation++;
+  controller?.abort();
+  controller = null;
+  if (typeof window !== 'undefined' && window.speechSynthesis) {
+    try {
+      window.speechSynthesis.cancel();
+    } catch {}
+  }
+  if (source) {
+    source.onended = null;
+    try {
+      source.stop();
+    } catch {}
+    source.disconnect();
+    source = null;
+  }
   updateState('idle');
+}
+
+export function speakWithNativeSpeech(
+  text: string,
+  rate = 1,
+  onEnd?: () => void,
+  onError?: (error?: string) => void
+): boolean {
+  if (typeof window === 'undefined' || !window.speechSynthesis) {
+    return false;
+  }
+
+  try {
+    window.speechSynthesis.cancel();
+    const token = generation;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = Math.max(0.75, Math.min(1.8, Number.isFinite(rate) ? rate : 1));
+    utterance.pitch = 1.0;
+
+    const voices = window.speechSynthesis.getVoices();
+    const bestVoice =
+      voices.find(v => v.lang.startsWith('en') && /Google|Natural|Guy|David|Daniel|Alex|Samantha/i.test(v.name)) ||
+      voices.find(v => v.lang.startsWith('en-US')) ||
+      voices.find(v => v.lang.startsWith('en')) ||
+      null;
+
+    if (bestVoice) {
+      utterance.voice = bestVoice;
+    }
+
+    updateState('playing');
+
+    utterance.onend = () => {
+      if (token !== generation) return;
+      updateState('idle');
+      onEnd?.();
+    };
+
+    utterance.onerror = (e) => {
+      if (token !== generation) return;
+      if (e.error === 'canceled' || e.error === 'interrupted') {
+        updateState('idle');
+        return;
+      }
+      updateState('idle');
+      onEnd?.();
+    };
+
+    window.speechSynthesis.speak(utterance);
+    return true;
+  } catch {
+    return false;
+  }
 }
 function audioContext(): AudioContext {
   const Constructor = window.AudioContext || (window as any).webkitAudioContext;
@@ -148,6 +225,13 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
   const text = cleanTextForSpeech(phrase);
   if (!text) { onEnd?.(); return; }
   if (text.length > 12000) { onError?.('invalid-speech-text'); return; }
+
+  // If Gemini quota has been reached during this session, use instant native speech synthesis directly
+  if (geminiSpeechQuotaHit) {
+    const success = speakWithNativeSpeech(text, rate, onEnd, onError);
+    if (success) return;
+  }
+
   const token = generation;
   const current = new AbortController(); controller = current;
   updateState('loading');
@@ -157,11 +241,21 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
     engine = audioContext();
     // Invoked before the first await, so Play/Test Voice can unlock mobile audio.
     resume = engine.state === 'suspended' ? engine.resume() : Promise.resolve();
-  } catch (error) { updateState('error'); onError?.(error instanceof Error ? error.message : 'unsupported'); return; }
+  } catch (error) {
+    // If Web Audio context fails, try speech synthesis
+    const fallbackOk = speakWithNativeSpeech(text, rate, onEnd, onError);
+    if (!fallbackOk) {
+      updateState('error');
+      onError?.(error instanceof Error ? error.message : 'unsupported');
+    }
+    return;
+  }
+
   void (async () => {
     try {
       await abortable(resume, current.signal, 10_000).catch(() => { throw new Error('audio-blocked'); });
       if (token !== generation) return;
+
       for (const chunk of splitSpeechText(text)) {
         updateState('loading');
         const bytes = await requestClip(chunk, Number.isFinite(rate) ? Math.max(.5, Math.min(2, rate)) : 1, current.signal);
@@ -177,9 +271,21 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
         if (token !== generation) return;
       }
       controller = null; updateState('idle'); onEnd?.();
-    } catch (error) {
+    } catch (error: any) {
       if (token !== generation || current.signal.aborted) return;
-      stopSpeech(); updateState('error');
+      const errMsg = error instanceof Error ? error.message : String(error);
+
+      // If Gemini speech hit quota, rate limit, busy, or key issue, seamlessly continue reading via native voice
+      if (/quota|rate-limit|busy|speech-not-configured|speech-key-rejected|speech-timeout|speech-server-unavailable/i.test(errMsg)) {
+        geminiSpeechQuotaHit = true;
+        const fallbackSuccess = speakWithNativeSpeech(text, rate, onEnd, onError);
+        if (fallbackSuccess) {
+          return;
+        }
+      }
+
+      stopSpeech();
+      updateState('error');
       onError?.(error instanceof Error ? error.message : 'speech-provider-error');
     }
   })();

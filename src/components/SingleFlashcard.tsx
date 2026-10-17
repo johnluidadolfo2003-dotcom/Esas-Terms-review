@@ -57,11 +57,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const isAnswered = cleanSelected !== null;
   const isCorrect = isAnswered && cleanSelected === cleanCorrect;
 
-  // Mocking pop-up state on wrong answer
-  const [showMockingPopup, setShowMockingPopup] = useState(false);
-  const mockingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Play audio sound & trigger 0.75-second pop-up on wrong answer selection
+  // Play audio sound on answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
     if (selectedChoice && selectedChoice !== prevSelectedChoiceRef.current) {
@@ -69,34 +65,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
       const curCorrect = question.correctChoiceId.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
       const isAnsCorrect = curSelected === curCorrect;
       playAnswerSound(isAnsCorrect);
-
-      if (!isAnsCorrect) {
-        if (mockingTimerRef.current) {
-          clearTimeout(mockingTimerRef.current);
-        }
-        setShowMockingPopup(true);
-        mockingTimerRef.current = setTimeout(() => {
-          setShowMockingPopup(false);
-        }, 750);
-      }
     }
     prevSelectedChoiceRef.current = selectedChoice;
   }, [selectedChoice, question.correctChoiceId]);
 
-  useEffect(() => {
-    setShowMockingPopup(false);
-    if (mockingTimerRef.current) {
-      clearTimeout(mockingTimerRef.current);
-    }
-  }, [question.id]);
-
-  useEffect(() => {
-    return () => {
-      if (mockingTimerRef.current) {
-        clearTimeout(mockingTimerRef.current);
-      }
-    };
-  }, []);
 
   // Voice Engine State
   const [speechStatus, setSpeechStatus] = useState<
@@ -136,9 +108,12 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     setVoiceError(getSpeechErrorMessage(error));
   }, []);
 
-  const readPhrase = useCallback((text: string, rate: number, onEnd: () => void) => {
+  const readPhrase = useCallback((text: string, rate: number, onEnd: () => void, onError?: (error?: string) => void) => {
     setVoiceError('');
-    return speakPhrase(text, rate, onEnd, speechFailed);
+    return speakPhrase(text, rate, onEnd, (err) => {
+      speechFailed(err);
+      onError?.(err);
+    });
   }, [speechFailed]);
 
   const handleTestVoice = () => {
@@ -290,28 +265,17 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             // Trigger AI answer selection
             onSelectChoice(question.correctChoiceId);
 
-            // Speak explanation in podcast style
-            const expl = generateContextualExplanation(
-              question.question,
-              question.choices,
-              question.correctChoiceId,
-              question.subject,
-              question.explanation
-            );
+            setSpeechStatus('idle');
 
-            setSpeechStatus('reading_explanation');
-            const explText = `Here's why: ${expl}`;
-
-            readPhrase(explText, speechRate, () => {
-              if (seqId !== currentSeqIdRef.current) return;
-              setSpeechStatus('idle');
-
-              if (autoAdvance && hasNext) {
-                autoAdvanceTimerRef.current = setTimeout(() => {
+            // Automatically advance to the next card
+            if (hasNext) {
+              clearAutoAdvanceTimer();
+              autoAdvanceTimerRef.current = setTimeout(() => {
+                if (seqId === currentSeqIdRef.current) {
                   onNext();
-                }, 2200);
-              }
-            });
+                }
+              }, 1600);
+            }
           });
         }
       });
@@ -337,41 +301,74 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     };
   }, [question.id, aiVoiceMode, speechRate]);
 
-  // Handle user answer in "AI Reads, You Answer" mode
+  // Handle user answer in Auto Reading modes: automatically next when done answering
   useEffect(() => {
-    if (
-      aiVoiceMode === 'ai_reads_you_answer' &&
-      selectedChoice !== null &&
-      (speechStatus === 'waiting_user' || speechStatus === 'reading_question' || speechStatus === 'reading_options')
-    ) {
-      stopSpeech();
-      clearAutoAdvanceTimer();
+    if (selectedChoice === null) return;
 
+    clearAutoAdvanceTimer();
+
+    if (aiVoiceMode !== 'off') {
+      stopSpeech();
       const seqId = ++currentSeqIdRef.current;
       const isUserCorrect =
         selectedChoice.toUpperCase() === question.correctChoiceId.toUpperCase();
 
-      const resultIntro = isUserCorrect
-        ? `That's correct! Option ${selectedChoice}.`
-        : `Not quite. The correct answer is Option ${question.correctChoiceId}.`;
+      const confirmPhrase = isUserCorrect
+        ? `Option ${selectedChoice} is correct.`
+        : `Option ${question.correctChoiceId} is the correct answer.`;
 
-      const expl = generateContextualExplanation(
-        question.question,
-        question.choices,
-        question.correctChoiceId,
-        question.subject,
-        question.explanation
-      );
-
-      const fullSpeechText = `${resultIntro} Here's why: ${expl}`;
       setSpeechStatus('reading_explanation');
 
-      readPhrase(fullSpeechText, speechRate, () => {
-        if (seqId !== currentSeqIdRef.current) return;
-        setSpeechStatus('idle');
-      });
+      // Play quick 1-line confirmation (fast & token-efficient)
+      readPhrase(
+        confirmPhrase,
+        speechRate,
+        () => {
+          if (seqId !== currentSeqIdRef.current) return;
+          setSpeechStatus('idle');
+          if (hasNext) {
+            clearAutoAdvanceTimer();
+            autoAdvanceTimerRef.current = setTimeout(() => {
+              onNext();
+            }, 600);
+          }
+        },
+        () => {
+          if (seqId !== currentSeqIdRef.current) return;
+          setSpeechStatus('idle');
+          if (hasNext) {
+            clearAutoAdvanceTimer();
+            autoAdvanceTimerRef.current = setTimeout(() => {
+              onNext();
+            }, 800);
+          }
+        }
+      );
+
+      // Guaranteed auto-advance safeguard: always next within 1.6s so user is never stuck
+      if (hasNext) {
+        autoAdvanceTimerRef.current = setTimeout(() => {
+          if (seqId === currentSeqIdRef.current) {
+            stopSpeech();
+            setSpeechStatus('idle');
+            onNext();
+          }
+        }, 1600);
+      }
+    } else if (autoAdvance && hasNext) {
+      autoAdvanceTimerRef.current = setTimeout(() => {
+        onNext();
+      }, 1200);
     }
-  }, [selectedChoice, aiVoiceMode, question, speechRate, speechStatus]);
+  }, [
+    selectedChoice,
+    aiVoiceMode,
+    question,
+    speechRate,
+    autoAdvance,
+    hasNext,
+    onNext,
+  ]);
 
   // Keyboard navigation support (A, B, C, D, Left Arrow, Right Arrow)
   const handleKeyDown = useCallback(
@@ -548,21 +545,19 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 ))}
               </div>
 
-              {/* Auto Advance Toggle (for AI Reads & Answers) */}
-              {aiVoiceMode === 'ai_reads_and_answers' && (
-                <button
-                  type="button"
-                  onClick={() => setAutoAdvance(!autoAdvance)}
-                  className={`px-2 py-1 rounded text-[10px] font-medium border cursor-pointer ${
-                    autoAdvance
-                      ? 'bg-zinc-800 border-zinc-700 text-zinc-200'
-                      : 'bg-zinc-900 border-zinc-800 text-zinc-400'
-                  }`}
-                  title="Automatically advance to next question after explanation"
-                >
-                  {autoAdvance ? 'Auto-Next: ON' : 'Auto-Next: OFF'}
-                </button>
-              )}
+              {/* Auto Advance Toggle */}
+              <button
+                type="button"
+                onClick={() => setAutoAdvance(!autoAdvance)}
+                className={`px-2 py-1 rounded text-[10px] font-medium border cursor-pointer ${
+                  autoAdvance
+                    ? 'bg-zinc-800 border-zinc-700 text-zinc-200'
+                    : 'bg-zinc-900 border-zinc-800 text-zinc-400'
+                }`}
+                title="Automatically advance to next question after answering"
+              >
+                {autoAdvance ? 'Auto-Next: ON' : 'Auto-Next: OFF'}
+              </button>
             </div>
             <p className="w-full text-[11px] text-zinc-400" role="status" aria-live="polite">
               {voiceError || (readerPhase === 'loading' ? 'Preparing Gemini audio…' : 'One Gemini narrator · Clear US English delivery')}
@@ -967,18 +962,6 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             </span>
           </button>
         </div>
-
-        {/* 0.75-Second Pop-up on Wrong Answer: Centered directly in flashcard with blurred background */}
-        {showMockingPopup && (
-          <div className="absolute inset-0 z-40 flex items-center justify-center p-4 backdrop-blur-md bg-black/60 select-none animate-in fade-in zoom-in-95 duration-150">
-            <div className="bg-[#181a21]/95 border-2 border-rose-500 rounded-2xl px-8 py-6 shadow-2xl flex flex-col items-center gap-3 backdrop-blur-lg ring-4 ring-rose-500/25">
-              <span className="text-6xl animate-bounce">🖕</span>
-              <span className="text-xl sm:text-2xl font-black text-rose-400 tracking-wider uppercase text-center drop-shadow-sm">
-                Ulol BOBO
-              </span>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
