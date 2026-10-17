@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import { createHash } from 'node:crypto';
+import { resolveGeminiApiKey } from './geminiService';
 
 export const NARRATOR = 'Puck';
 export const TTS_MODEL = 'gemini-3.8-flash-tts';
@@ -30,7 +31,8 @@ export function extractWav(result: any): Buffer {
 }
 export function createGeminiSpeechRouter(options: { apiKey?: string; fetchImpl?: typeof fetch } = {}) {
   const router = express.Router();
-  const apiKey = options.apiKey ?? process.env.GEMINI_API_KEY ?? '';
+  const rawKey = options.apiKey ?? resolveGeminiApiKey();
+  const apiKey = typeof rawKey === 'string' ? rawKey.trim().replace(/^["']|["']$/g, '') : '';
   const configured = Boolean(apiKey && !/MY_GEMINI_API_KEY|PLACEHOLDER/i.test(apiKey));
   const request = options.fetchImpl ?? fetch;
   const cache = new Map<string, { wav: Buffer; expires: number }>();
@@ -50,8 +52,14 @@ export function createGeminiSpeechRouter(options: { apiKey?: string; fetchImpl?:
     }
     const origin = req.get('origin');
     if (origin) {
-      try { if (new URL(origin).host !== req.get('host')) throw new Error(); }
-      catch { res.status(403).json({ error: 'origin-not-allowed' }); return; }
+      try {
+        const originHost = new URL(origin).host.toLowerCase().replace(/:\d+$/, '');
+        const hostHeader = (req.get('x-forwarded-host') || req.get('host') || '').toLowerCase().replace(/:\d+$/, '');
+        if (hostHeader && originHost !== hostHeader) throw new Error();
+      } catch {
+        res.status(403).json({ error: 'origin-not-allowed' });
+        return;
+      }
     }
     const now = Date.now();
     const ip = req.ip || 'unknown';

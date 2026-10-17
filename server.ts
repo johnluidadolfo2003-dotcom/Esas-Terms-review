@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import { createGeminiSpeechRouter } from './server/geminiSpeech';
 import { createGeminiRouter } from './server/geminiRouter';
@@ -8,6 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+app.set('trust proxy', true);
 const PORT = Number(process.env.PORT) || 3000;
 
 import fs from 'fs';

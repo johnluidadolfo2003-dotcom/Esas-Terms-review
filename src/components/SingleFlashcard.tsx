@@ -15,6 +15,7 @@ import {
   fetchGeminiExplanation,
   askGeminiTutorQuestion,
   getGeminiConfig,
+  refreshGeminiConfig,
 } from '../services/geminiService';
 import { playAnswerSound } from '../services/gestureCalibration';
 
@@ -756,23 +757,49 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               </div>
             )}
 
-            {/* Error State */}
+            {/* Error or Unconfigured State */}
             {geminiError && !loadingGemini && (
-              <div className="p-3 rounded-lg bg-rose-950/60 border border-rose-800/80 text-rose-200 text-xs flex flex-col gap-2">
-                <p className="font-semibold">{geminiError}</p>
-                <div className="flex items-center gap-2">
+              <div className="p-3.5 rounded-lg bg-zinc-950 border border-amber-900/60 text-zinc-200 text-xs flex flex-col gap-2.5">
+                <div className="flex items-start gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 mt-1 shrink-0"></span>
+                  <div className="flex flex-col gap-0.5">
+                    <p className="font-semibold text-amber-300">{geminiError}</p>
+                    <p className="text-[11px] text-zinc-400 leading-relaxed">
+                      To use Gemini when deployed on Render, add your API key to your Render Web Service:
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-zinc-900/90 rounded border border-zinc-800 p-2.5 text-[11px] font-mono flex flex-col gap-1 text-zinc-300">
+                  <div>1. Open <strong className="text-zinc-100">dashboard.render.com</strong> &gt; your Web Service</div>
+                  <div>2. Click <strong className="text-emerald-400">Environment</strong> tab in the left sidebar</div>
+                  <div>3. Add Variable: Key = <code className="text-zinc-100 bg-zinc-800 px-1 py-0.5 rounded">GEMINI_API_KEY</code></div>
+                  <div>4. Value = <span className="text-zinc-400">your key from aistudio.google.com/apikey</span></div>
+                  <div>5. Click <strong className="text-emerald-400">Save Changes</strong> (Render restarts automatically)</div>
+                </div>
+
+                <div className="flex items-center gap-2 pt-0.5">
                   <button
                     type="button"
-                    onClick={handleFetchGeminiExplanation}
-                    className="px-2.5 py-1 rounded bg-rose-900/80 hover:bg-rose-900 border border-rose-700 text-white font-medium text-[11px] cursor-pointer"
+                    onClick={async () => {
+                      setLoadingGemini(true);
+                      const cfg = await refreshGeminiConfig();
+                      setGeminiConfigured(cfg.configured);
+                      setLoadingGemini(false);
+                      handleFetchGeminiExplanation();
+                    }}
+                    className="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-zinc-950 font-bold text-xs cursor-pointer transition-colors"
                   >
-                    Retry Analysis
+                    Check Key & Retry
                   </button>
-                  {!geminiConfigured && (
-                    <span className="text-[10px] text-zinc-400">
-                      (Configure GEMINI_API_KEY in server environment)
-                    </span>
-                  )}
+                  <a
+                    href="https://aistudio.google.com/apikey"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-[11px] text-zinc-400 hover:text-zinc-200 underline"
+                  >
+                    Get free Gemini API Key
+                  </a>
                 </div>
               </div>
             )}

@@ -3,8 +3,19 @@ import { GoogleGenAI } from '@google/genai';
 let cachedAiClient: GoogleGenAI | null = null;
 let cachedKey: string = '';
 
+export function resolveGeminiApiKey(): string {
+  const raw =
+    process.env.GEMINI_API_KEY ||
+    process.env.GOOGLE_API_KEY ||
+    process.env.GOOGLE_GENAI_API_KEY ||
+    process.env.API_KEY ||
+    process.env.VITE_GEMINI_API_KEY ||
+    '';
+  return raw.trim().replace(/^["']|["']$/g, '');
+}
+
 export function getGeminiClient(): GoogleGenAI | null {
-  const apiKey = process.env.GEMINI_API_KEY || '';
+  const apiKey = resolveGeminiApiKey();
   if (!apiKey || /MY_GEMINI_API_KEY|PLACEHOLDER/i.test(apiKey)) {
     return null;
   }
@@ -46,6 +57,36 @@ export interface ExplainResponseData {
   optionsBreakdown?: { id: string; status: 'correct' | 'incorrect'; note: string }[];
 }
 
+const CANDIDATE_MODELS = ['gemini-3.8-flash', 'gemini-2.5-flash', 'gemini-flash-latest'];
+
+async function callGenerateContentWithFallback(
+  ai: GoogleGenAI,
+  request: {
+    contents: string;
+    config?: any;
+  }
+) {
+  let lastError: any = null;
+  for (const model of CANDIDATE_MODELS) {
+    try {
+      return await ai.models.generateContent({
+        ...request,
+        model,
+      });
+    } catch (err: any) {
+      lastError = err;
+      const msg = String(err?.message || '');
+      const isNotFound = err?.status === 404 || /not found|unsupported model|not supported|not available/i.test(msg);
+      if (isNotFound) {
+        console.warn(`Gemini model ${model} unavailable, trying fallback model...`);
+        continue;
+      }
+      throw err;
+    }
+  }
+  throw lastError;
+}
+
 export async function generateQuestionExplanation(
   payload: ExplainRequestPayload
 ): Promise<ExplainResponseData> {
@@ -81,8 +122,7 @@ Keep your response factual, rigorous, and easy to read. Output in structured JSO
 "boardExamTip" (string),
 "optionsBreakdown" (array of objects with "id", "status" as "correct" or "incorrect", and "note")`;
 
-  const response = await ai.models.generateContent({
-    model: 'gemini-3.8-flash',
+  const response = await callGenerateContentWithFallback(ai, {
     contents: prompt,
     config: {
       systemInstruction:
@@ -137,8 +177,7 @@ Student Question:
 
 Provide a direct, helpful, and concise answer explaining the concept to the engineering student. Avoid unnecessary filler.`;
 
-  const response = await ai.models.generateContent({
-    model: 'gemini-3.8-flash',
+  const response = await callGenerateContentWithFallback(ai, {
     contents: prompt,
     config: {
       systemInstruction:

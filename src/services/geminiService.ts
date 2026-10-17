@@ -8,6 +8,8 @@ export interface GeminiConfig {
   configured: boolean;
   model: string;
   provider: string;
+  serverReachable?: boolean;
+  renderGuidance?: string;
 }
 
 export interface GeminiExplanation {
@@ -28,36 +30,78 @@ export interface ExplainQuestionParams {
 
 let cachedConfig: GeminiConfig | null = null;
 
-export async function getGeminiConfig(): Promise<GeminiConfig> {
-  if (cachedConfig) return cachedConfig;
+export async function getGeminiConfig(forceRefresh = false): Promise<GeminiConfig> {
+  if (cachedConfig && !forceRefresh) return cachedConfig;
   try {
     const res = await fetch('/api/gemini/config');
-    if (!res.ok) {
-      return { configured: false, model: 'gemini-3.8-flash', provider: 'Google Gemini' };
+    const contentType = res.headers.get('content-type') || '';
+    if (!res.ok || !contentType.includes('application/json')) {
+      const isStaticHtml = contentType.includes('text/html');
+      const config: GeminiConfig = {
+        configured: false,
+        model: 'gemini-3.8-flash',
+        provider: 'Google Gemini',
+        serverReachable: false,
+        renderGuidance: isStaticHtml
+          ? 'Deployed as a Static Site instead of a Web Service. On Render, create a Web Service running "npm start" so the Node API server runs.'
+          : 'Server API route unavailable (HTTP ' + res.status + '). Ensure your Render Web Service is running.',
+      };
+      cachedConfig = config;
+      return config;
     }
     const data = await res.json();
-    cachedConfig = data;
-    return data;
+    const config: GeminiConfig = {
+      ...data,
+      serverReachable: true,
+    };
+    cachedConfig = config;
+    return config;
   } catch {
-    return { configured: false, model: 'gemini-3.8-flash', provider: 'Google Gemini' };
+    const config: GeminiConfig = {
+      configured: false,
+      model: 'gemini-3.8-flash',
+      provider: 'Google Gemini',
+      serverReachable: false,
+      renderGuidance: 'Cannot reach server API. Check your Render deployment status and network connection.',
+    };
+    cachedConfig = config;
+    return config;
   }
+}
+
+export async function refreshGeminiConfig(): Promise<GeminiConfig> {
+  return getGeminiConfig(true);
 }
 
 export async function fetchGeminiExplanation(
   params: ExplainQuestionParams,
   signal?: AbortSignal
 ): Promise<GeminiExplanation> {
-  const response = await fetch('/api/gemini/explain', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(params),
-    signal,
-  });
+  let response: Response;
+  try {
+    response = await fetch('/api/gemini/explain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(params),
+      signal,
+    });
+  } catch (netErr: any) {
+    if (netErr.name === 'AbortError') throw netErr;
+    throw new Error('Network error: Unable to connect to backend server. If using Render, ensure your Web Service is healthy.');
+  }
 
   if (!response.ok) {
+    const contentType = response.headers.get('content-type') || '';
+    if (response.status === 404 || contentType.includes('text/html')) {
+      throw new Error(
+        'Gemini API endpoint not found. On Render, deploy as a Web Service (Node.js) with start command "npm start", not as a Static Site.'
+      );
+    }
     const data = await response.json().catch(() => ({}));
     if (response.status === 503) {
-      throw new Error('Gemini API is not configured on this server. Check GEMINI_API_KEY environment variable.');
+      throw new Error(
+        'Gemini API key is not configured. On Render: Go to your Web Service -> Environment -> Add GEMINI_API_KEY with your key from aistudio.google.com, then save changes.'
+      );
     }
     if (response.status === 429) {
       throw new Error('Gemini API quota reached. Please wait a moment before asking again.');

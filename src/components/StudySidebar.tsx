@@ -7,6 +7,7 @@ import {
   AMBIENT_PRESETS,
   AmbientSoundPresetId,
 } from '../services/ambientAudioService';
+import { getGeminiConfig, refreshGeminiConfig } from '../services/geminiService';
 export interface StudySidebarProps {
   selectedSubject: SubjectCategory | 'All';
   onSelectSubject: (subject: SubjectCategory | 'All') => void;
@@ -82,6 +83,18 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
   const [ambientPreset, setAmbientPreset] = useState<AmbientSoundPresetId>('stream');
   const [ambientVolume, setAmbientVolume] = useState<number>(0.45);
   const [isEsasExpanded, setIsEsasExpanded] = useState<boolean>(false);
+  const [geminiStatus, setGeminiStatus] = useState<{ configured: boolean; serverReachable?: boolean } | null>(null);
+  const [showRenderHelp, setShowRenderHelp] = useState<boolean>(false);
+
+  useEffect(() => {
+    let active = true;
+    getGeminiConfig().then(cfg => {
+      if (active) setGeminiStatus({ configured: cfg.configured, serverReachable: cfg.serverReachable ?? true });
+    }).catch(() => {
+      if (active) setGeminiStatus({ configured: false, serverReachable: false });
+    });
+    return () => { active = false; };
+  }, []);
 
   // Automatically ensure ESAS is expanded when user selects any specific ESAS sub-subject
   useEffect(() => {
@@ -401,13 +414,86 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
           </div>
         </div>
 
-        {/* Gemini AI Status */}
-        <div className="flex items-center justify-between py-1 px-2 rounded bg-[#181a21] border border-[#252834] text-[11px]">
-          <span className="text-zinc-400 font-medium">Gemini 3.8 Flash</span>
-          <span className="text-emerald-400 font-mono text-[10px] font-semibold flex items-center gap-1">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
-            Ready
-          </span>
+        {/* Gemini AI Status & Render Setup */}
+        <div className="flex flex-col gap-1.5">
+          <div
+            onClick={() => {
+              if (!geminiStatus?.configured || !geminiStatus?.serverReachable) {
+                setShowRenderHelp(prev => !prev);
+              }
+            }}
+            className={`flex items-center justify-between py-1 px-2 rounded bg-[#181a21] border text-[11px] ${
+              !geminiStatus?.configured || !geminiStatus?.serverReachable
+                ? 'border-amber-900/60 cursor-pointer hover:bg-[#1e202a]'
+                : 'border-[#252834]'
+            }`}
+            title={
+              geminiStatus?.configured
+                ? 'Gemini API is connected and active'
+                : 'Click to view instructions for setting up Gemini on Render'
+            }
+          >
+            <span className="text-zinc-400 font-medium">Gemini AI</span>
+            {geminiStatus === null ? (
+              <span className="text-zinc-500 font-mono text-[10px]">Checking...</span>
+            ) : geminiStatus.configured ? (
+              <span className="text-emerald-400 font-mono text-[10px] font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+                Ready
+              </span>
+            ) : !geminiStatus.serverReachable ? (
+              <span className="text-rose-400 font-mono text-[10px] font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-400 inline-block"></span>
+                Web Service Needed
+              </span>
+            ) : (
+              <span className="text-amber-400 font-mono text-[10px] font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 inline-block"></span>
+                Key Needed on Render
+              </span>
+            )}
+          </div>
+
+          {showRenderHelp && (!geminiStatus?.configured || !geminiStatus?.serverReachable) && (
+            <div className="p-2 rounded bg-[#13141b] border border-amber-900/50 text-[10px] text-zinc-300 flex flex-col gap-1.5 font-mono">
+              <div className="font-semibold text-amber-300 flex items-center justify-between">
+                <span>Render Deployment Guide</span>
+                <button
+                  type="button"
+                  onClick={() => setShowRenderHelp(false)}
+                  className="text-zinc-400 hover:text-zinc-200"
+                >
+                  ✕
+                </button>
+              </div>
+              {!geminiStatus?.serverReachable ? (
+                <p className="text-zinc-400 font-sans leading-tight">
+                  The Node server is not responding. On Render, make sure this repo is deployed as a <strong>Web Service</strong> (Node environment) with start command <code className="text-zinc-200">npm start</code>, not as a Static Site.
+                </p>
+              ) : (
+                <div className="flex flex-col gap-1 font-sans text-zinc-400 leading-tight">
+                  <p>To enable Gemini on Render:</p>
+                  <ol className="list-decimal pl-3 space-y-0.5 text-zinc-300">
+                    <li>Open your Render Web Service</li>
+                    <li>Go to <strong>Environment</strong> tab</li>
+                    <li>Add: <code className="text-emerald-400">GEMINI_API_KEY</code></li>
+                    <li>Value: your Google AI Studio key</li>
+                    <li>Click <strong>Save Changes</strong></li>
+                  </ol>
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={async () => {
+                  const cfg = await refreshGeminiConfig();
+                  setGeminiStatus({ configured: cfg.configured, serverReachable: cfg.serverReachable ?? true });
+                }}
+                className="mt-1 py-1 px-2 rounded bg-emerald-600 hover:bg-emerald-500 text-zinc-950 font-bold font-sans text-center cursor-pointer transition-colors"
+              >
+                Re-check Connection
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Study Ambience (Stream, Rain, Wave, Roof Rain, Focus) */}

@@ -10,10 +10,14 @@ export function createGeminiRouter(): express.Router {
 
   // Status check for Gemini API
   router.get('/api/gemini/config', (_req, res) => {
+    const configured = isGeminiConfigured();
     res.set('Cache-Control', 'no-store').json({
-      configured: isGeminiConfigured(),
+      configured,
       model: 'gemini-3.8-flash',
       provider: 'Google Gemini',
+      renderGuidance: configured
+        ? undefined
+        : 'To enable Gemini on Render: open your Render Web Service -> Environment -> Add GEMINI_API_KEY with your key from aistudio.google.com and save.',
     });
   });
 
