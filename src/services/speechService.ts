@@ -17,7 +17,7 @@ export function getSpeechErrorMessage(error?: string): string {
   switch (error) {
     case 'speech-not-configured': return 'Gemini voice needs the server’s GEMINI_API_KEY. Add it in Render Environment, then redeploy.';
     case 'speech-key-rejected': return 'The server’s Gemini key was rejected. Check its API permissions in Render.';
-    case 'speech-quota': case 'speech-rate-limit': return 'Gemini speech quota or request limit reached. Wait before retrying, or check the API project quota.';
+    case 'speech-quota': case 'speech-rate-limit': return 'Gemini speech quota limit reached. Link a billing account in Google AI Studio or add multiple keys in Render to unlock unlimited reading.';
     case 'speech-busy': return 'Gemini is preparing another reading. Wait a moment, then tap Play.';
     case 'audio-blocked': return 'Tap Play or Test Voice to enable audio. Check media volume and Bluetooth output.';
     case 'unsupported': return 'Audio playback is unavailable in this browser. Open the app in Safari or Chrome.';
@@ -32,25 +32,11 @@ let context: AudioContext | null = null;
 let source: AudioBufferSourceNode | null = null;
 const cache = new Map<string, { bytes: ArrayBuffer; expires: number }>();
 let cacheBytes = 0;
-let geminiSpeechQuotaHit = false;
-
-export function isSpeechFallbackActive(): boolean {
-  return geminiSpeechQuotaHit;
-}
-
-export function resetSpeechFallback(): void {
-  geminiSpeechQuotaHit = false;
-}
 
 export function stopSpeech(): void {
   generation++;
   controller?.abort();
   controller = null;
-  if (typeof window !== 'undefined' && window.speechSynthesis) {
-    try {
-      window.speechSynthesis.cancel();
-    } catch {}
-  }
   if (source) {
     source.onended = null;
     try {
@@ -62,58 +48,6 @@ export function stopSpeech(): void {
   updateState('idle');
 }
 
-export function speakWithNativeSpeech(
-  text: string,
-  rate = 1,
-  onEnd?: () => void,
-  onError?: (error?: string) => void
-): boolean {
-  if (typeof window === 'undefined' || !window.speechSynthesis) {
-    return false;
-  }
-
-  try {
-    window.speechSynthesis.cancel();
-    const token = generation;
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = Math.max(0.75, Math.min(1.8, Number.isFinite(rate) ? rate : 1));
-    utterance.pitch = 1.0;
-
-    const voices = window.speechSynthesis.getVoices();
-    const bestVoice =
-      voices.find(v => v.lang.startsWith('en') && /Google|Natural|Guy|David|Daniel|Alex|Samantha/i.test(v.name)) ||
-      voices.find(v => v.lang.startsWith('en-US')) ||
-      voices.find(v => v.lang.startsWith('en')) ||
-      null;
-
-    if (bestVoice) {
-      utterance.voice = bestVoice;
-    }
-
-    updateState('playing');
-
-    utterance.onend = () => {
-      if (token !== generation) return;
-      updateState('idle');
-      onEnd?.();
-    };
-
-    utterance.onerror = (e) => {
-      if (token !== generation) return;
-      if (e.error === 'canceled' || e.error === 'interrupted') {
-        updateState('idle');
-        return;
-      }
-      updateState('idle');
-      onEnd?.();
-    };
-
-    window.speechSynthesis.speak(utterance);
-    return true;
-  } catch {
-    return false;
-  }
-}
 function audioContext(): AudioContext {
   const Constructor = window.AudioContext || (window as any).webkitAudioContext;
   if (!Constructor) throw new Error('unsupported');
@@ -226,11 +160,6 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
   if (!text) { onEnd?.(); return; }
   if (text.length > 12000) { onError?.('invalid-speech-text'); return; }
 
-  // If Gemini quota has been reached during this session, use instant native speech synthesis directly
-  if (geminiSpeechQuotaHit) {
-    const success = speakWithNativeSpeech(text, rate, onEnd, onError);
-    if (success) return;
-  }
 
   const token = generation;
   const current = new AbortController(); controller = current;
@@ -242,12 +171,8 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
     // Invoked before the first await, so Play/Test Voice can unlock mobile audio.
     resume = engine.state === 'suspended' ? engine.resume() : Promise.resolve();
   } catch (error) {
-    // If Web Audio context fails, try speech synthesis
-    const fallbackOk = speakWithNativeSpeech(text, rate, onEnd, onError);
-    if (!fallbackOk) {
-      updateState('error');
-      onError?.(error instanceof Error ? error.message : 'unsupported');
-    }
+    updateState('error');
+    onError?.(error instanceof Error ? error.message : 'unsupported');
     return;
   }
 
@@ -273,17 +198,6 @@ export function speakPhrase(phrase: string, rate = 1, onEnd?: () => void, onErro
       controller = null; updateState('idle'); onEnd?.();
     } catch (error: any) {
       if (token !== generation || current.signal.aborted) return;
-      const errMsg = error instanceof Error ? error.message : String(error);
-
-      // If Gemini speech hit quota, rate limit, busy, or key issue, seamlessly continue reading via native voice
-      if (/quota|rate-limit|busy|speech-not-configured|speech-key-rejected|speech-timeout|speech-server-unavailable/i.test(errMsg)) {
-        geminiSpeechQuotaHit = true;
-        const fallbackSuccess = speakWithNativeSpeech(text, rate, onEnd, onError);
-        if (fallbackSuccess) {
-          return;
-        }
-      }
-
       stopSpeech();
       updateState('error');
       onError?.(error instanceof Error ? error.message : 'speech-provider-error');

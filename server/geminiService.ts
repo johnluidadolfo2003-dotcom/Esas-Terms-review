@@ -4,14 +4,31 @@ let cachedAiClient: GoogleGenAI | null = null;
 let cachedKey: string = '';
 
 export function resolveGeminiApiKey(): string {
-  const raw =
-    process.env.GEMINI_API_KEY ||
-    process.env.GOOGLE_API_KEY ||
-    process.env.GOOGLE_GENAI_API_KEY ||
-    process.env.API_KEY ||
-    process.env.VITE_GEMINI_API_KEY ||
-    '';
-  return raw.trim().replace(/^["']|["']$/g, '');
+  const keys = resolveGeminiApiKeys();
+  return keys[0] || '';
+}
+
+export function resolveGeminiApiKeys(): string[] {
+  const envVars = [
+    process.env.GEMINI_API_KEYS,
+    process.env.GEMINI_API_KEY,
+    process.env.GOOGLE_API_KEY,
+    process.env.GOOGLE_GENAI_API_KEY,
+    process.env.API_KEY,
+    process.env.VITE_GEMINI_API_KEY,
+  ];
+  const keys: string[] = [];
+  for (const item of envVars) {
+    if (!item) continue;
+    const parts = item.split(/[,\s]+/);
+    for (const p of parts) {
+      const cleaned = p.trim().replace(/^["']|["']$/g, '');
+      if (cleaned && !/MY_GEMINI_API_KEY|PLACEHOLDER/i.test(cleaned) && !keys.includes(cleaned)) {
+        keys.push(cleaned);
+      }
+    }
+  }
+  return keys;
 }
 
 export function getGeminiClient(): GoogleGenAI | null {

@@ -233,52 +233,47 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
     const seqId = ++currentSeqIdRef.current;
 
-    // Step 1: Speak Question with conversational podcast cadence
+    // Speak Question and Choices in one seamless Gemini narration to save quota and provide fluid delivery
     setSpeechStatus('reading_question');
     const questionPrompt = `Item ${currentIndex + 1}. ${question.question}`;
-    readPhrase(questionPrompt, speechRate, () => {
+    const optionsText = question.choices
+      .map((c) => `Option ${c.id}. ${c.text}`)
+      .join('. ');
+    const fullNarration = `${questionPrompt}. ${optionsText}.`;
+
+    readPhrase(fullNarration, speechRate, () => {
       if (seqId !== currentSeqIdRef.current) return;
 
-      // Step 2: Speak Choices with distinct natural pauses
-      setSpeechStatus('reading_options');
-      const optionsText = question.choices
-        .map((c) => `Option ${c.id}. ${c.text}`)
-        .join('. ');
+      if (aiVoiceMode === 'ai_reads_you_answer') {
+        setSpeechStatus('waiting_user');
+      } else if (aiVoiceMode === 'ai_reads_and_answers') {
+        setSpeechStatus('ai_answering');
+        const correctChoice = question.choices.find(
+          (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
+        );
+        const answerText = `The correct answer is Option ${
+          question.correctChoiceId
+        }. ${correctChoice ? correctChoice.text : ''}.`;
 
-      readPhrase(optionsText, speechRate, () => {
-        if (seqId !== currentSeqIdRef.current) return;
+        readPhrase(answerText, speechRate, () => {
+          if (seqId !== currentSeqIdRef.current) return;
 
-        if (aiVoiceMode === 'ai_reads_you_answer') {
-          setSpeechStatus('waiting_user');
-        } else if (aiVoiceMode === 'ai_reads_and_answers') {
-          setSpeechStatus('ai_answering');
-          const correctChoice = question.choices.find(
-            (c) => c.id.toUpperCase() === question.correctChoiceId.toUpperCase()
-          );
-          const answerText = `The correct answer is Option ${
-            question.correctChoiceId
-          }. ${correctChoice ? correctChoice.text : ''}.`;
+          // Trigger AI answer selection
+          onSelectChoice(question.correctChoiceId);
 
-          readPhrase(answerText, speechRate, () => {
-            if (seqId !== currentSeqIdRef.current) return;
+          setSpeechStatus('idle');
 
-            // Trigger AI answer selection
-            onSelectChoice(question.correctChoiceId);
-
-            setSpeechStatus('idle');
-
-            // Automatically advance to the next card
-            if (hasNext) {
-              clearAutoAdvanceTimer();
-              autoAdvanceTimerRef.current = setTimeout(() => {
-                if (seqId === currentSeqIdRef.current) {
-                  onNext();
-                }
-              }, 1600);
-            }
-          });
-        }
-      });
+          // Automatically advance to the next card
+          if (hasNext) {
+            clearAutoAdvanceTimer();
+            autoAdvanceTimerRef.current = setTimeout(() => {
+              if (seqId === currentSeqIdRef.current) {
+                onNext();
+              }
+            }, 1600);
+          }
+        });
+      }
     });
   }, [
     aiVoiceMode,
