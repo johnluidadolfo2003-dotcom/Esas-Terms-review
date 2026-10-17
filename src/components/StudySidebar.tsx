@@ -363,7 +363,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
 
         {/* Voice Readout Mode */}
         <div className="flex flex-col gap-1">
-          <span className="text-[11px] text-zinc-400 font-medium">Voice Readout</span>
+          <span className="text-[11px] text-zinc-400 font-medium">US Male Voice</span>
           <div className="grid grid-cols-3 gap-1 bg-[#181a21] p-0.5 rounded-md border border-[#252834]">
             <button
               type="button"
@@ -399,6 +399,15 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
               Auto
             </button>
           </div>
+        </div>
+
+        {/* Gemini AI Status */}
+        <div className="flex items-center justify-between py-1 px-2 rounded bg-[#181a21] border border-[#252834] text-[11px]">
+          <span className="text-zinc-400 font-medium">Gemini 3.8 Flash</span>
+          <span className="text-emerald-400 font-mono text-[10px] font-semibold flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block"></span>
+            Ready
+          </span>
         </div>
 
         {/* Study Ambience (Stream, Rain, Wave, Roof Rain, Focus) */}

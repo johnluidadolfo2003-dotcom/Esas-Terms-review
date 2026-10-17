@@ -279,7 +279,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
           {/* Voice Control Strip - Compact Portion on Mobile */}
           <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-800/60 text-[10px] sm:text-xs">
             <span className="text-slate-400 font-semibold uppercase tracking-wider shrink-0 text-[10px]">
-              Voice:
+              US Male Voice:
             </span>
 
             <div className="flex items-center gap-0.5 rounded border border-slate-800 bg-slate-900 p-0.5">

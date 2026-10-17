@@ -1,5 +1,5 @@
 // server.ts
-import express2 from "express";
+import express3 from "express";
 
 // server/geminiSpeech.ts
 import "dotenv/config";
@@ -128,17 +128,195 @@ function createGeminiSpeechRouter(options = {}) {
   return router;
 }
 
+// server/geminiRouter.ts
+import express2 from "express";
+
+// server/geminiService.ts
+import { GoogleGenAI } from "@google/genai";
+var cachedAiClient = null;
+var cachedKey = "";
+function getGeminiClient() {
+  const apiKey = process.env.GEMINI_API_KEY || "";
+  if (!apiKey || /MY_GEMINI_API_KEY|PLACEHOLDER/i.test(apiKey)) {
+    return null;
+  }
+  if (cachedAiClient && cachedKey === apiKey) {
+    return cachedAiClient;
+  }
+  cachedKey = apiKey;
+  cachedAiClient = new GoogleGenAI({
+    apiKey,
+    httpOptions: {
+      headers: {
+        "User-Agent": "aistudio-build"
+      }
+    }
+  });
+  return cachedAiClient;
+}
+function isGeminiConfigured() {
+  return getGeminiClient() !== null;
+}
+async function generateQuestionExplanation(payload) {
+  const ai = getGeminiClient();
+  if (!ai) {
+    throw new Error("gemini-not-configured");
+  }
+  const { question, choices, correctChoiceId, subject = "Electrical Engineering", userChoice } = payload;
+  const formattedChoices = choices.map((c) => `[${c.id}] ${c.text}`).join("\n");
+  const prompt = `Subject: ${subject}
+Question:
+${question}
+
+Choices:
+${formattedChoices}
+
+Official Correct Answer: Option ${correctChoiceId}
+${userChoice ? `User selected Option: ${userChoice}` : ""}
+
+Please analyze this engineering question thoroughly. Provide:
+1. Short Summary: A concise, direct statement of why the correct option is the right answer.
+2. Detailed Analysis: The underlying physics, electrical theory, mathematics, or Philippine Electrical Code (PEC) / RA 7920 legal statute. Explain any relevant equations or principles step-by-step.
+3. Formula or Standard: The relevant formula, equation, or code section (if applicable).
+4. Board Exam Tip: A practical memory tip, rule of thumb, or key takeaway for the PRC Electrical Engineering Board Examination.
+5. Options Breakdown: A brief note for each option explaining why it is correct or incorrect.
+
+Keep your response factual, rigorous, and easy to read. Output in structured JSON format with the keys:
+"summary" (string),
+"detailedAnalysis" (string),
+"formulaOrRule" (string),
+"boardExamTip" (string),
+"optionsBreakdown" (array of objects with "id", "status" as "correct" or "incorrect", and "note")`;
+  const response = await ai.models.generateContent({
+    model: "gemini-3.8-flash",
+    contents: prompt,
+    config: {
+      systemInstruction: "You are an expert Registered Electrical Engineer (REE / RME / PEE) and Philippine PRC Board Examination reviewer professor. You provide rigorous, accurate, and easy-to-follow explanations for engineering students. You never hallucinate codes or formulas. Output valid JSON only.",
+      responseMimeType: "application/json",
+      temperature: 0.2
+    }
+  });
+  const rawText = response.text || "{}";
+  try {
+    const parsed = JSON.parse(rawText.trim());
+    return {
+      summary: parsed.summary || `The correct answer is Option ${correctChoiceId}.`,
+      detailedAnalysis: parsed.detailedAnalysis || parsed.explanation || "",
+      formulaOrRule: parsed.formulaOrRule || "",
+      boardExamTip: parsed.boardExamTip || "",
+      optionsBreakdown: Array.isArray(parsed.optionsBreakdown) ? parsed.optionsBreakdown : []
+    };
+  } catch {
+    return {
+      summary: `The correct answer is Option ${correctChoiceId}.`,
+      detailedAnalysis: rawText,
+      boardExamTip: "Review the fundamental laws and definitions governing this topic."
+    };
+  }
+}
+async function askGeminiTutor(questionContext, userQuery) {
+  const ai = getGeminiClient();
+  if (!ai) {
+    throw new Error("gemini-not-configured");
+  }
+  const prompt = `Context:
+Subject: ${questionContext.subject || "Engineering Reviewer"}
+Question: ${questionContext.question}
+Choices:
+${questionContext.choices.map((c) => `[${c.id}] ${c.text}`).join("\n")}
+Correct Answer: Option ${questionContext.correctChoiceId}
+
+Student Question:
+"${userQuery}"
+
+Provide a direct, helpful, and concise answer explaining the concept to the engineering student. Avoid unnecessary filler.`;
+  const response = await ai.models.generateContent({
+    model: "gemini-3.8-flash",
+    contents: prompt,
+    config: {
+      systemInstruction: "You are an authoritative engineering tutor helping a reviewee prepare for the Philippine Electrical Engineering board examination. Be clear, accurate, and concise.",
+      temperature: 0.2
+    }
+  });
+  return response.text || "Unable to generate an answer at this time.";
+}
+
+// server/geminiRouter.ts
+function createGeminiRouter() {
+  const router = express2.Router();
+  router.get("/api/gemini/config", (_req, res) => {
+    res.set("Cache-Control", "no-store").json({
+      configured: isGeminiConfigured(),
+      model: "gemini-3.8-flash",
+      provider: "Google Gemini"
+    });
+  });
+  router.post("/api/gemini/explain", express2.json({ limit: "32kb" }), async (req, res) => {
+    res.set("Cache-Control", "no-store");
+    if (!isGeminiConfigured()) {
+      res.status(503).json({ error: "gemini-not-configured" });
+      return;
+    }
+    const { question, choices, correctChoiceId, subject, userChoice } = req.body || {};
+    if (!question || typeof question !== "string" || !Array.isArray(choices) || !correctChoiceId) {
+      res.status(400).json({ error: "invalid-request-payload" });
+      return;
+    }
+    try {
+      const explanation = await generateQuestionExplanation({
+        question,
+        choices,
+        correctChoiceId,
+        subject,
+        userChoice
+      });
+      res.json({ success: true, explanation });
+    } catch (err) {
+      console.error("Gemini explanation error:", err);
+      const isQuota = err?.status === 429 || /quota/i.test(err?.message || "");
+      res.status(isQuota ? 429 : 502).json({
+        error: isQuota ? "gemini-quota-exceeded" : "gemini-generation-failed",
+        message: err?.message || "Failed to generate explanation"
+      });
+    }
+  });
+  router.post("/api/gemini/ask", express2.json({ limit: "32kb" }), async (req, res) => {
+    res.set("Cache-Control", "no-store");
+    if (!isGeminiConfigured()) {
+      res.status(503).json({ error: "gemini-not-configured" });
+      return;
+    }
+    const { context, query } = req.body || {};
+    if (!context || !query || typeof query !== "string" || query.trim().length === 0) {
+      res.status(400).json({ error: "invalid-request-payload" });
+      return;
+    }
+    try {
+      const answer = await askGeminiTutor(context, query.trim());
+      res.json({ success: true, answer });
+    } catch (err) {
+      console.error("Gemini ask tutor error:", err);
+      res.status(502).json({
+        error: "gemini-generation-failed",
+        message: err?.message || "Failed to answer student question"
+      });
+    }
+  });
+  return router;
+}
+
 // server.ts
 import path from "path";
 import { fileURLToPath } from "url";
 import fs from "fs";
 var __filename = fileURLToPath(import.meta.url);
 var __dirname = path.dirname(__filename);
-var app = express2();
+var app = express3();
 var PORT = Number(process.env.PORT) || 3e3;
 var CUSTOM_QUESTIONS_FILE = path.join(__dirname, "custom_questions.json");
 app.use(createGeminiSpeechRouter());
-app.use(express2.json({ limit: "50mb" }));
+app.use(createGeminiRouter());
+app.use(express3.json({ limit: "50mb" }));
 function readServerQuestions() {
   try {
     if (fs.existsSync(CUSTOM_QUESTIONS_FILE)) {
@@ -180,7 +358,7 @@ app.post("/api/save-drive-questions", (req, res) => {
   res.json({ success: true, count: questions.length });
 });
 var distPath = path.join(__dirname, "dist");
-app.use(express2.static(distPath));
+app.use(express3.static(distPath));
 app.get("/healthz", (_req, res) => {
   res.status(200).send("OK");
 });
