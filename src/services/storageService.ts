@@ -1,6 +1,8 @@
 import { FlashcardQuestion } from './questionParser';
 import jsPDF from 'jspdf';
 
+export type { FlashcardQuestion };
+
 export const STORAGE_KEY_CUSTOM_QUESTIONS = 'drive_flashcards_custom_questions_v2';
 export const STORAGE_KEY_BACKUP = 'drive_flashcards_custom_questions_backup';
 export const STORAGE_KEY_LEGACY = 'drive_flashcards_custom_questions';
@@ -521,6 +523,324 @@ export function downloadQuestionsPdf(
       ? subjectFilter.replace(/\s+/g, '_')
       : 'All_Subjects';
   doc.save(`Reviewer_${filenameSubject}_${new Date().toISOString().slice(0, 10)}.pdf`);
+}
+
+/**
+ * Formats a question into a concise Quick Recall / Cheat-Sheet pair:
+ * Term (Answer) and Clue (Short concept/definition).
+ * Tailored for rapid board exam memorization: 1 short line per number.
+ */
+export function formatQuickRecallItem(q: FlashcardQuestion): { term: string; clue: string } {
+  const correctChoice = q.choices.find(
+    (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+  );
+  let rawChoiceText = correctChoice ? correctChoice.text.trim() : `Option ${q.correctChoiceId}`;
+  rawChoiceText = rawChoiceText.replace(/^[A-Da-d][\.\)]\s*/, '').replace(/^\([A-Da-d]\)\s*/, '').trim();
+
+  const rawQ = q.question.trim();
+  let term = rawChoiceText;
+  let clue = '';
+
+  // 1. Inverted definition check: If choice is a long sentence (>28 chars) and question defines a concept
+  const conceptMatch = rawQ.match(/^([A-Za-z0-9\s,\-\(\)\/]{3,40}?)\s+(?:can be considered as|is defined as|refers to|is characterized by|is described as|is called|is known as)\b/i);
+  if (conceptMatch && rawChoiceText.length > 28) {
+    term = conceptMatch[1].replace(/^(?:a |an |the )/i, '').trim();
+    clue = rawChoiceText;
+  }
+
+  // Check 'What is X?' / 'Define X'
+  const whatIsMatch = rawQ.match(/^(?:what is (?:the definition of |the |an? )?|define |what refers to )([^?\.,]{3,35})\??$/i);
+  if (whatIsMatch && whatIsMatch[1] && rawChoiceText.length > 25) {
+    term = whatIsMatch[1].trim();
+    clue = rawChoiceText;
+  }
+
+  // 2. High-yield board exam direct concept pairs
+  if (!clue) {
+    if (/FCC.*shall NOT be used/i.test(rawQ)) {
+      term = rawChoiceText;
+      clue = 'Flat conductor cable (FCC) prohibited in';
+    } else if (/primarily used for service/i.test(rawQ)) {
+      term = 'Service Entrance Cable';
+      clue = 'Conductor assembly primarily used for service';
+    } else if (/load of a given area.*concentrated/i.test(rawQ)) {
+      term = 'Load Center';
+      clue = 'Point where given area load is concentrated';
+    } else if (/quarterbends/i.test(rawQ)) {
+      term = `${rawChoiceText} quarterbends`;
+      clue = 'Maximum bends allowed in a conduit run';
+    } else if (/for banks.*lighting load/i.test(rawQ)) {
+      term = rawChoiceText;
+      clue = 'Bank general lighting load per sq meter';
+    } else if (/dwelling units.*above 120,000/i.test(rawQ)) {
+      term = rawChoiceText;
+      clue = 'Demand factor for dwelling load above 120 kVA';
+    } else if (/branch circuit rating for non-time delay fuse/i.test(rawQ)) {
+      term = rawChoiceText;
+      clue = 'Motor non-time delay fuse multiplier';
+    } else if (/rms speed of different molecules/i.test(rawQ)) {
+      term = 'RMS molecular speed';
+      clue = rawChoiceText;
+    } else if (/frictional force is.*area of contact/i.test(rawQ)) {
+      term = 'Frictional force';
+      clue = 'Independent of contact surface area';
+    }
+  }
+
+  // 3. If still no clue, check explanation first (if clean and informative)
+  if (!clue && q.explanation && typeof q.explanation === 'string' && q.explanation.trim().length > 15) {
+    let exp = q.explanation.trim();
+    // Stop at first sentence boundary if long
+    const firstSent = exp.match(/^([^\.\?!]+)(?:[\.\?!]|$)/);
+    if (firstSent && firstSent[1] && firstSent[1].length >= 15) {
+      exp = firstSent[1].trim();
+    }
+    // Clean boilerplate
+    exp = exp
+      .replace(/^(?:according to [^,]+,?\s*|it is known that\s*|note that\s*|in general,?\s*)/i, '')
+      .trim();
+
+    // Strip term from explanation start
+    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    exp = exp.replace(new RegExp(`^${esc}\\s+(?:is |studies |refers to |describes |states that |has |count )?`, 'i'), '');
+
+    if (exp.length >= 12) {
+      clue = exp;
+    }
+  }
+
+  // 4. Fill in the blank replacement if no explanation
+  if (!clue && rawQ.includes('___')) {
+    let filled = rawQ.replace(/_{2,}/, rawChoiceText);
+    filled = filled
+      .replace(/^(?:in |for |according to [^,]+,?\s*)/i, '')
+      .replace(/\s*(?:is called|are called|is known as)\s*[\.:\?]?$/i, '')
+      .trim();
+    if (filled.length < 85) {
+      clue = filled;
+    }
+  }
+
+  // 5. Fallback to cleaning the raw question
+  if (!clue) {
+    let src = rawQ
+      .replace(/^Item\s*\d+[\.:\s]*/i, '')
+      .replace(/^\d+[\.:\s]*/, '')
+      .replace(/^(?:which of the following (?:is defined as|describes|refers to|best describes|is|are)|which of the following)\s+/i, '')
+      .replace(/^(?:what is the definition of|what is the purpose of|what is the unit of|what is the|what is|what are the|what are|what refers to|what do you call)\s+/i, '')
+      .replace(/^(?:identify the|determine the|define the|named as|known as|referred to as|give the formula for|give the unit of|formula for|unit of|symbol of|symbol for)\s+/i, '')
+      .replace(/^(?:it refers to|it is defined as|it is a|it is an|this is a|this is an|defined as|refers to|described as|classified as)\s+/i, '')
+      .replace(/^(?:according to the philippine electrical code|according to pec|under ra 7920|under the law|in electrical engineering|in engineering economics|in physics|in chemistry|in general),?\s*/i, '')
+      .replace(/\b(?:enumerated below EXCEPT one\.?|EXCEPT one\.?|EXCEPT:?|NOT applicable:?|is NOT true:?|all of the following except\??|which one is this\??)\b/gi, '')
+      .replace(/_{2,}/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    src = src.replace(/^(?:a |an |the )/i, '');
+    src = src.replace(/^(?:point at which|condition where|process by which|device that|assembly provided with or without an overall covering,?\s*primarily used for|system where|state in which|type of|method of)\s+/i, '');
+    src = src.replace(/\s*(?:is called|are called|is known as|are known as|is termed|is defined as|is given by|is equal to|refers to|shall be computed at|is assumed to be)\s*[\.:\?]?$/i, '');
+
+    // Stop at first punctuation
+    const punct = src.search(/[\.;\?]/);
+    if (punct > 15 && punct < 75) {
+      src = src.slice(0, punct).trim();
+    }
+
+    const esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    src = src.replace(new RegExp(`^${esc}\\s+(?:is |studies |refers to |describes |states that |has )?`, 'i'), '');
+
+    clue = src;
+  }
+
+  // 6. Natural word-boundary limit: 110 characters (allows complete thought on 1-2 lines without cutting off)
+  if (clue.length > 110) {
+    const cutPos = clue.lastIndexOf(' ', 108);
+    if (cutPos > 40) {
+      clue = clue.slice(0, cutPos).trim();
+    }
+  }
+
+  // Clean trailing dangling words, prepositions, conjunctions, and copulas
+  const danglingRegex = /\s+(?:of|in|for|with|an|a|the|at|to|by|and|or|as|is|are|shall|be|from|on|which|that|where|its|their|whose|into|onto|than|then|when|about|foundational|generalized|compared|respectively|without|closed|equal|depending|forming)$/i;
+  while (danglingRegex.test(clue)) {
+    clue = clue.replace(danglingRegex, '').trim();
+  }
+  clue = clue.replace(/[\.,;:\-\(\)]+$/, '').trim();
+
+  // Balance parentheses if needed
+  const openCount = (clue.match(/\(/g) || []).length;
+  const closeCount = (clue.match(/\)/g) || []).length;
+  if (openCount > closeCount) {
+    clue += ')'.repeat(openCount - closeCount);
+  }
+
+  // Clean term
+  if (term.length > 55) {
+    const cutPos = term.lastIndexOf(' ', 50);
+    if (cutPos > 20) term = term.slice(0, cutPos).trim();
+  }
+  term = term.replace(/[\.,;:\-]+$/, '').trim();
+
+  if (!clue) clue = rawQ.slice(0, 45).replace(/\s+\S*$/, '');
+  clue = clue.charAt(0).toUpperCase() + clue.slice(1);
+  term = term.charAt(0).toUpperCase() + term.slice(1);
+
+  return { term, clue };
+}
+
+/**
+ * Downloads a high-density, 1-line per number Quick Recall Cheat Sheet PDF per subject or all subjects.
+ * Mimics high-yield board exam recall notes with highlighted key terms and short definitions.
+ */
+export function downloadQuickRecallPdf(
+  questions: FlashcardQuestion[],
+  subjectFilter?: string
+): void {
+  const filtered =
+    subjectFilter && subjectFilter !== 'All'
+      ? questions.filter((q) => q.subject === subjectFilter)
+      : questions;
+
+  if (filtered.length === 0) return;
+
+  const doc = new jsPDF({
+    orientation: 'portrait',
+    unit: 'pt',
+    format: 'a4',
+  });
+
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 36;
+  const contentWidth = pageWidth - margin * 2;
+
+  let y = margin;
+
+  const checkPageBreak = (neededHeight: number) => {
+    if (y + neededHeight > pageHeight - margin - 15) {
+      doc.addPage();
+      y = margin;
+    }
+  };
+
+  // Header Banner
+  doc.setFillColor(24, 27, 34); // Slate Dark Header Banner
+  doc.rect(margin, y, contentWidth, 36, 'F');
+
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(12);
+  doc.setTextColor(255, 255, 255);
+  const subjTitle =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.toUpperCase()
+      : 'ALL SUBJECTS';
+  doc.text(`RAPID RECALL REVIEWER - ${subjTitle}`, margin + 12, y + 15);
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(8.5);
+  doc.setTextColor(200, 210, 225);
+  doc.text(
+    `High-Yield Flash Recall Sheet | ${filtered.length} Items | Quick Memorization Form`,
+    margin + 12,
+    y + 28
+  );
+
+  y += 48;
+
+  filtered.forEach((q, idx) => {
+    const { term, clue } = formatQuickRecallItem(q);
+    const itemNum = `${idx + 1}.`;
+
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    const numWidth = doc.getTextWidth(itemNum) + 6;
+
+    // Check width of term
+    const termWidth = doc.getTextWidth(term);
+
+    // Full text estimation (using standard hyphen, not em dash)
+    const fullText = `${itemNum} ${term} - ${clue}`;
+    const wrappedLines = doc.splitTextToSize(fullText, contentWidth);
+    const itemHeight = Math.max(15, wrappedLines.length * 12.5 + 3);
+
+    checkPageBreak(itemHeight);
+
+    // Soft pastel yellow highlighter behind the key term (mimicking marker highlight in review notes)
+    doc.setFillColor(254, 240, 138); // Marker yellow highlight
+    const highlightW = Math.min(termWidth + 4, contentWidth - numWidth - 10);
+    doc.rect(margin + numWidth - 2, y - 9, highlightW, 11, 'F');
+
+    // Number in bold dark slate
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(50, 60, 75);
+    doc.text(itemNum, margin, y);
+
+    // Term in bold dark ink
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(15, 23, 42);
+    doc.text(term, margin + numWidth, y);
+
+    // Dash and Clue
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(51, 65, 85);
+    const prefixOffset = numWidth + termWidth;
+
+    if (prefixOffset + 12 < contentWidth) {
+      // First line continuation
+      const remainingWidth = contentWidth - prefixOffset - 8;
+      const clueLead = ` - ${clue}`;
+      const clueLines = doc.splitTextToSize(clueLead, remainingWidth);
+
+      doc.text(clueLines[0], margin + prefixOffset, y);
+
+      // Subsequent wrapped lines if any
+      if (clueLines.length > 1) {
+        for (let l = 1; l < clueLines.length; l++) {
+          y += 12.5;
+          doc.text(clueLines[l], margin + numWidth + 8, y);
+        }
+      }
+    } else {
+      // Very long term, wrap clue to next line
+      y += 12.5;
+      const wrappedClue = doc.splitTextToSize(`- ${clue}`, contentWidth - numWidth);
+      for (let l = 0; l < wrappedClue.length; l++) {
+        if (l > 0) y += 12.5;
+        doc.text(wrappedClue[l], margin + numWidth, y);
+      }
+    }
+
+    y += 13.5;
+
+    // Subtle hairline separator every 5 items for easy visual tracking
+    if ((idx + 1) % 5 === 0 && idx + 1 < filtered.length) {
+      doc.setDrawColor(230, 233, 240);
+      doc.line(margin, y - 4, pageWidth - margin, y - 4);
+      y += 3.5;
+    }
+  });
+
+  // Footer page numbers
+  const totalPages = doc.internal.pages.length - 1;
+  for (let i = 1; i <= totalPages; i++) {
+    doc.setPage(i);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(8);
+    doc.setTextColor(140, 145, 155);
+    doc.text(
+      `Page ${i} of ${totalPages} • Rapid Recall Reviewer • ${subjTitle}`,
+      pageWidth / 2,
+      pageHeight - 14,
+      { align: 'center' }
+    );
+  }
+
+  const filenameSubject =
+    subjectFilter && subjectFilter !== 'All'
+      ? subjectFilter.replace(/\s+/g, '_')
+      : 'All_Subjects';
+  doc.save(`Rapid_Recall_${filenameSubject}_${new Date().toISOString().slice(0, 10)}.pdf`);
 }
 
 /**

@@ -4,14 +4,28 @@ import { PHYSICS_2_QUESTIONS } from './physics2Questions';
 import { CHEMISTRY_QUESTIONS } from './chemistryQuestions';
 import { COMPUTER_QUESTIONS } from './computerQuestions';
 import { PEC_QUESTIONS } from './pecQuestions';
+import { STRENGTH_OF_MATERIALS_QUESTIONS } from './strengthOfMaterialsQuestions';
+import { FLUID_MECHANICS_QUESTIONS } from './fluidMechanicsQuestions';
+import { THERMODYNAMICS_QUESTIONS } from './thermodynamicsQuestions';
+import { ESAS_1001_PART_1_QUESTIONS } from './esas1001Part1Questions';
+import { ESAS_1001_PART_2_QUESTIONS } from './esas1001Part2Questions';
+import { ESAS_1001_PART_3_QUESTIONS } from './esas1001Part3Questions';
+import { PROJECT_MANAGEMENT_2_QUESTIONS } from './projectManagement2Questions';
 import { applyContentAudit } from './audit/applyContentAudit';
 
 export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
+  ...PROJECT_MANAGEMENT_2_QUESTIONS,
+  ...ESAS_1001_PART_1_QUESTIONS,
+  ...ESAS_1001_PART_2_QUESTIONS,
+  ...ESAS_1001_PART_3_QUESTIONS,
   ...PHYSICS_1_QUESTIONS,
   ...PHYSICS_2_QUESTIONS,
   ...CHEMISTRY_QUESTIONS,
   ...COMPUTER_QUESTIONS,
   ...PEC_QUESTIONS,
+  ...STRENGTH_OF_MATERIALS_QUESTIONS,
+  ...FLUID_MECHANICS_QUESTIONS,
+  ...THERMODYNAMICS_QUESTIONS,
   {
     "id": "pasted-preview-1791625232830-1-1791625232833-1h7mp",
     "subject": "Economics",

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { FlashcardQuestion, parseQuestionsFromText, getParentCategory } from '../services/questionParser';
-import { downloadQuestionsPdf } from '../services/storageService';
+import { downloadQuestionsPdf, downloadQuickRecallPdf, formatQuickRecallItem } from '../services/storageService';
 
 interface PasteQuestionsModalProps {
   isOpen: boolean;
@@ -20,8 +20,10 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   onAddQuestions,
 }) => {
   const [activeTab, setActiveTab] = useState<'browse' | 'add'>('browse');
-  const [manageSubjectFilter, setManageSubjectFilter] = useState<string>('All');
-  const [manageSearchQuery, setManageSearchQuery] = useState<string>('');
+  const [bankViewMode, setBankViewMode] = useState<'recall' | 'cards'>('recall');
+  const [subjectFilter, setSubjectFilter] = useState<string>('All');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [copiedRecall, setCopiedRecall] = useState<boolean>(false);
 
   // Bulk Add Category State
   const [targetParentCategory, setTargetParentCategory] = useState<'ESAS' | 'MATH' | 'EE'>('ESAS');
@@ -40,7 +42,22 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
   // Existing sub-subjects grouped under ESAS, MATH, and EE
   const categorizedSubSubjects = useMemo(() => {
     const map: Record<'ESAS' | 'MATH' | 'EE', Set<string>> = {
-      ESAS: new Set(['ESAS', 'Economics', 'Mechanics 1', 'Mechanics 2', 'EE Laws', 'Project Management', 'Communication']),
+      ESAS: new Set([
+        'ESAS',
+        '1001 terms part 1',
+        '1001 terms part 2',
+        '1001 terms part 3',
+        'Economics',
+        'Mechanics 1',
+        'Mechanics 2',
+        'Strength of Materials',
+        'Fluid Mechanics',
+        'Thermodynamics',
+        'EE Laws',
+        'Project Management',
+        'Project Management 2.0',
+        'Communication',
+      ]),
       MATH: new Set(['MATH']),
       EE: new Set(['EE']),
     };
@@ -69,27 +86,56 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
     return counts;
   }, [exportQuestionsList]);
 
-  // Filtered list of questions for the management view
-  const filteredManageQuestions = useMemo(() => {
+  // Unified filtered questions for Question Bank & PDF (both Recall & Cards)
+  const filteredQuestions = useMemo(() => {
     return exportQuestionsList.filter((q) => {
-      let matchesSubject = manageSubjectFilter === 'All';
+      let matchesSubject = subjectFilter === 'All';
       if (!matchesSubject) {
-        if (manageSubjectFilter === 'ESAS' || manageSubjectFilter === 'MATH' || manageSubjectFilter === 'EE') {
+        if (subjectFilter === 'ESAS' || subjectFilter === 'MATH' || subjectFilter === 'EE') {
           const parent = getParentCategory(q.subject, q);
-          matchesSubject = parent === manageSubjectFilter || q.subject === manageSubjectFilter;
+          matchesSubject = parent === subjectFilter || q.subject === subjectFilter;
         } else {
-          matchesSubject = q.subject === manageSubjectFilter;
+          matchesSubject = q.subject === subjectFilter;
         }
       }
 
-      const query = manageSearchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !query ||
-        q.question.toLowerCase().includes(query) ||
-        q.choices.some((c) => c.text.toLowerCase().includes(query));
-      return matchesSubject && matchesSearch;
+      const query = searchQuery.toLowerCase().trim();
+      if (!query) return matchesSubject;
+
+      const matchesQuestion = q.question.toLowerCase().includes(query);
+      const matchesChoices = q.choices.some((c) => c.text.toLowerCase().includes(query));
+      const recallItem = formatQuickRecallItem(q);
+      const matchesRecall =
+        recallItem.term.toLowerCase().includes(query) ||
+        recallItem.clue.toLowerCase().includes(query);
+
+      return matchesSubject && (matchesQuestion || matchesChoices || matchesRecall);
     });
-  }, [exportQuestionsList, manageSubjectFilter, manageSearchQuery]);
+  }, [exportQuestionsList, subjectFilter, searchQuery]);
+
+  // 1-line rapid recall items derived from filtered questions
+  const formattedRecallItems = useMemo(() => {
+    return filteredQuestions.map((q, idx) => {
+      const item = formatQuickRecallItem(q);
+      return {
+        id: q.id || `recall-${idx}`,
+        num: idx + 1,
+        term: item.term,
+        clue: item.clue,
+        subject: q.subject,
+        question: q,
+      };
+    });
+  }, [filteredQuestions]);
+
+  const handleCopyRecallSheet = () => {
+    const lines = formattedRecallItems.map(
+      (item) => `${item.num}. ${item.term} - ${item.clue}`
+    );
+    navigator.clipboard.writeText(lines.join('\n'));
+    setCopiedRecall(true);
+    setTimeout(() => setCopiedRecall(false), 2000);
+  };
 
   // Effective sub-subject name
   const getEffectiveSubSubject = (): string => {
@@ -221,7 +267,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
                   : 'bg-[#191b22] border-[#272935] text-zinc-400 hover:text-zinc-200'
               }`}
             >
-              <span>📚 Question Bank & PDF Downloads</span>
+              <span>Question Bank & PDFs</span>
               <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-zinc-800 text-zinc-300">
                 {exportQuestionsList.length}
               </span>
@@ -236,7 +282,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
                   : 'bg-[#191b22] border-[#272935] text-zinc-300 hover:text-white'
               }`}
             >
-              <span>➕ Bulk Add Questions to ESAS, MATH, or EE</span>
+              <span>Bulk Add Questions</span>
             </button>
           </div>
         </div>
@@ -264,32 +310,45 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
           )}
 
           {activeTab === 'browse' ? (
-            /* TAB 1: BROWSE QUESTION BANK & DOWNLOAD PDFS */
+            /* TAB 1: QUESTION BANK & PDFS (WITH INTEGRATED QUICK RECALL & FULL CARDS) */
             <>
               {/* Master Action Banner */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 rounded-xl bg-[#191b22] border border-[#272935] shadow-sm">
                 <div>
                   <h3 className="text-sm sm:text-base font-bold text-zinc-100 flex items-center gap-2">
-                    <span>All Subjects Master PDF</span>
+                    <span>All Subjects Reviewer PDFs</span>
                     <span className="text-xs font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-200 border border-zinc-700">
                       {exportQuestionsList.length} Questions
                     </span>
                   </h3>
                   <p className="text-xs text-zinc-400 mt-1 leading-relaxed">
-                    Download complete reviewer with questions, options, and verified answers formatted for study.
+                    Download complete board reviewer as a short 1-line Quick Recall cheat sheet or full 4-choice Q&A PDF.
                   </p>
                 </div>
 
                 {/* Master Download Action Buttons */}
-                <div className="flex items-center gap-2 w-full sm:w-auto">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={() => downloadQuickRecallPdf(exportQuestionsList, 'All')}
+                    disabled={exportQuestionsList.length === 0}
+                    className="px-3.5 py-2 text-xs font-bold rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 disabled:opacity-40 transition-colors cursor-pointer text-center shadow-xs flex items-center justify-center gap-1.5"
+                    title="Download rapid-recall cheat sheet (1 line per number, short definition) for fast memorization"
+                  >
+                    <svg className="w-3.5 h-3.5 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                    <span>Download Quick Recall PDF</span>
+                  </button>
+
                   <button
                     type="button"
                     onClick={() => downloadQuestionsPdf(exportQuestionsList, 'All')}
                     disabled={exportQuestionsList.length === 0}
-                    className="w-full sm:w-auto px-4 py-2 text-xs font-bold rounded-lg bg-zinc-100 hover:bg-white text-zinc-950 disabled:opacity-40 transition-colors cursor-pointer text-center shadow-xs"
-                    title="Download PDF containing all questions, choices, and answers"
+                    className="px-3.5 py-2 text-xs font-medium rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 disabled:opacity-40 transition-colors cursor-pointer text-center shadow-xs"
+                    title="Download complete exam PDF containing all questions, choices, and answers"
                   >
-                    Download All PDF
+                    Download Full Q&A PDF
                   </button>
                 </div>
               </div>
@@ -298,7 +357,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-mono uppercase tracking-wider text-zinc-400">
-                    Download per Subject (PDF)
+                    Download per Subject (Full Q&A & Quick Recall)
                   </h4>
                   <span className="text-[11px] text-zinc-500 font-mono">
                     {Object.keys(subjectBreakdown).length} Subjects Available
@@ -318,15 +377,26 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
                         </span>
                       </div>
 
-                      {/* Individual PDF Download Button per Subject */}
-                      <div className="flex items-center gap-1.5 text-xs font-mono">
+                      {/* Download Buttons: Full PDF + Quick Recall PDF beside each other */}
+                      <div className="grid grid-cols-2 gap-1.5 text-xs font-mono">
+                        <button
+                          type="button"
+                          onClick={() => downloadQuickRecallPdf(exportQuestionsList, subj)}
+                          className="py-1.5 px-2 bg-amber-400/90 hover:bg-amber-300 text-zinc-950 font-bold rounded-md transition-colors text-center cursor-pointer truncate flex items-center justify-center gap-1 shadow-xs"
+                          title={`Download short 1-line rapid recall cheat sheet for ${subj}`}
+                        >
+                          <svg className="w-3 h-3 text-zinc-950 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                          </svg>
+                          <span>Quick Recall</span>
+                        </button>
                         <button
                           type="button"
                           onClick={() => downloadQuestionsPdf(exportQuestionsList, subj)}
-                          className="w-full py-1.5 px-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-200 border border-zinc-700 rounded-md font-semibold transition-colors text-center cursor-pointer"
-                          title={`Download PDF reviewer for ${subj}`}
+                          className="py-1.5 px-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 rounded-md font-medium transition-colors text-center cursor-pointer truncate"
+                          title={`Download full Q&A PDF with 4 choices for ${subj}`}
                         >
-                          Download PDF
+                          Full PDF
                         </button>
                       </div>
                     </div>
@@ -334,161 +404,290 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
                 </div>
               </div>
 
-              {/* Search & Subject Filter Bar */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 pt-2 border-t border-[#272935]">
-                <div className="flex items-center gap-2 flex-1 min-w-0">
-                  <select
-                    value={manageSubjectFilter}
-                    onChange={(e) => setManageSubjectFilter(e.target.value)}
-                    className="bg-[#191b22] border border-[#272935] text-zinc-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-zinc-500 font-sans"
-                  >
-                    <option value="All">All Subjects ({exportQuestionsList.length})</option>
-                    <optgroup label="Main Categories">
-                      <option value="ESAS">ESAS Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'ESAS').length})</option>
-                      <option value="MATH">MATH Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'MATH').length})</option>
-                      <option value="EE">EE Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'EE').length})</option>
-                    </optgroup>
-                    <optgroup label="Sub-Subjects / Topics">
-                      {Object.keys(subjectBreakdown).map((subj) => (
-                        <option key={subj} value={subj}>
-                          {subj} ({subjectBreakdown[subj]})
-                        </option>
-                      ))}
-                    </optgroup>
-                  </select>
+              {/* Study Mode Switcher & Filter Bar */}
+              <div className="flex flex-col gap-2.5 pt-3 border-t border-[#272935]">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+                  {/* Mode Selector Toggle: Quick Recall (1-Line) vs Full Cards */}
+                  <div className="flex items-center p-1 bg-[#101217] rounded-xl border border-[#272935] self-start sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={() => setBankViewMode('recall')}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                        bankViewMode === 'recall'
+                          ? 'bg-amber-400 text-zinc-950 shadow-sm'
+                          : 'text-zinc-400 hover:text-zinc-200'
+                      }`}
+                      title="Short 1-line per number reviewer format for rapid familiarization"
+                    >
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                      </svg>
+                      <span>Quick Recall (1-Line Mode)</span>
+                    </button>
 
-                  <input
-                    type="text"
-                    placeholder="Search questions or choices..."
-                    value={manageSearchQuery}
-                    onChange={(e) => setManageSearchQuery(e.target.value)}
-                    className="flex-1 bg-[#191b22] border border-[#272935] text-zinc-200 text-xs rounded-lg px-3 py-2 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 font-sans"
-                  />
+                    <button
+                      type="button"
+                      onClick={() => setBankViewMode('cards')}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                        bankViewMode === 'cards'
+                          ? 'bg-zinc-200 text-zinc-950 shadow-sm'
+                          : 'text-zinc-400 hover:text-zinc-200'
+                      }`}
+                      title="Full question cards with 4 choices and explanations"
+                    >
+                      <span>Question Cards</span>
+                    </button>
+                  </div>
+
+                  {/* Actions for current filter / mode */}
+                  <div className="flex items-center gap-2 self-end sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        bankViewMode === 'recall'
+                          ? downloadQuickRecallPdf(exportQuestionsList, subjectFilter)
+                          : downloadQuestionsPdf(exportQuestionsList, subjectFilter)
+                      }
+                      disabled={filteredQuestions.length === 0}
+                      className="px-3 py-1.5 text-xs font-bold rounded-lg bg-amber-400 hover:bg-amber-300 text-zinc-950 disabled:opacity-40 transition-colors cursor-pointer flex items-center gap-1"
+                      title={`Download PDF for ${subjectFilter}`}
+                    >
+                      <svg className="w-3 h-3 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                      </svg>
+                      <span>
+                        {bankViewMode === 'recall' ? 'Download Recall PDF' : 'Download Cards PDF'}
+                      </span>
+                    </button>
+
+                    {bankViewMode === 'recall' && (
+                      <button
+                        type="button"
+                        onClick={handleCopyRecallSheet}
+                        disabled={formattedRecallItems.length === 0}
+                        className="px-2.5 py-1.5 text-xs font-medium rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 transition-colors cursor-pointer"
+                        title="Copy all lines to clipboard"
+                      >
+                        {copiedRecall ? 'Copied' : 'Copy'}
+                      </button>
+                    )}
+                  </div>
                 </div>
 
-                <span className="text-[11px] font-mono text-zinc-400 self-end sm:self-center shrink-0">
-                  Showing {filteredManageQuestions.length} of {exportQuestionsList.length} items
-                </span>
+                {/* Filter and Search Bar */}
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5">
+                  <div className="flex items-center gap-2 flex-1 min-w-0">
+                    <select
+                      value={subjectFilter}
+                      onChange={(e) => setSubjectFilter(e.target.value)}
+                      className="bg-[#191b22] border border-[#272935] text-zinc-200 text-xs rounded-lg px-3 py-2 focus:outline-none focus:border-zinc-500 font-sans cursor-pointer"
+                    >
+                      <option value="All">All Subjects ({exportQuestionsList.length})</option>
+                      <optgroup label="Main Categories">
+                        <option value="ESAS">ESAS Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'ESAS').length})</option>
+                        <option value="MATH">MATH Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'MATH').length})</option>
+                        <option value="EE">EE Category ({exportQuestionsList.filter(q => getParentCategory(q.subject, q) === 'EE').length})</option>
+                      </optgroup>
+                      <optgroup label="Sub-Subjects / Topics">
+                        {Object.keys(subjectBreakdown).map((subj) => (
+                          <option key={subj} value={subj}>
+                            {subj} ({subjectBreakdown[subj]})
+                          </option>
+                        ))}
+                      </optgroup>
+                    </select>
+
+                    <input
+                      type="text"
+                      placeholder="Search key terms, questions, or definitions..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="flex-1 bg-[#191b22] border border-[#272935] text-zinc-200 text-xs rounded-lg px-3 py-2 placeholder-zinc-500 focus:outline-none focus:border-zinc-500 font-sans"
+                    />
+                  </div>
+
+                  <span className="text-[11px] font-mono text-zinc-400 self-end sm:self-center shrink-0">
+                    Showing {filteredQuestions.length} of {exportQuestionsList.length} items
+                  </span>
+                </div>
               </div>
 
-              {/* Question Cards List */}
-              {filteredManageQuestions.length === 0 ? (
-                <div className="py-10 text-center text-zinc-500 flex flex-col items-center gap-2">
-                  <p className="text-xs text-zinc-400">No questions match your current search.</p>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setManageSubjectFilter('All');
-                      setManageSearchQuery('');
-                    }}
-                    className="text-xs text-zinc-300 hover:underline cursor-pointer"
-                  >
-                    Reset search
-                  </button>
+              {/* View Content: QUICK RECALL SHEET or FULL QUESTION CARDS */}
+              {bankViewMode === 'recall' ? (
+                /* QUICK RECALL SHEET VIEW (1-Line per number, short explanation for fast familiarization) */
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center justify-between px-1">
+                    <span className="text-xs font-mono font-bold text-zinc-300 uppercase tracking-wider">
+                      {subjectFilter === 'All' ? 'ALL SUBJECTS' : subjectFilter} - QUICK RECALL REVIEWER
+                    </span>
+                    <span className="text-[11px] text-zinc-400 font-sans hidden sm:inline">
+                      Short 1-line format • Highlighted key term and concise definition
+                    </span>
+                  </div>
+
+                  <div className="p-3.5 sm:p-4 rounded-xl bg-[#0f1115] border border-[#22242e] flex flex-col gap-0.5 font-mono shadow-inner max-h-[48vh] overflow-y-auto">
+                    {formattedRecallItems.length === 0 ? (
+                      <div className="py-12 text-center text-zinc-500 text-xs">
+                        No recall items match your current filter.
+                      </div>
+                    ) : (
+                      formattedRecallItems.map((item, idx) => (
+                        <React.Fragment key={item.id}>
+                          <div className="py-1 px-1.5 rounded hover:bg-[#181a22] transition-colors flex items-start gap-1.5 text-xs leading-relaxed">
+                            <span className="font-bold text-zinc-400 w-8 text-right shrink-0 select-none">
+                              {item.num}.
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <span className="bg-[#fef08a] text-[#0f172a] font-bold px-1.5 py-0.5 rounded text-[11px] inline-block mr-1 shadow-xs select-all">
+                                {item.term}
+                              </span>
+                              <span className="text-zinc-400 font-bold mr-1.5">-</span>
+                              <span className="text-zinc-200 font-sans text-xs select-all">
+                                {item.clue}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Subtle hairline divider every 5 items */}
+                          {(idx + 1) % 5 === 0 && idx + 1 < formattedRecallItems.length && (
+                            <div className="border-b border-[#21232d] my-1 ml-9" />
+                          )}
+                        </React.Fragment>
+                      ))
+                    )}
+                  </div>
                 </div>
               ) : (
-                <div className="flex flex-col gap-3 max-h-[45vh] overflow-y-auto pr-1">
-                  {filteredManageQuestions.map((q, idx) => {
-                    const correctChoiceObj = q.choices.find(
-                      (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
-                    );
+                /* FULL QUESTION CARDS VIEW */
+                filteredQuestions.length === 0 ? (
+                  <div className="py-10 text-center text-zinc-500 flex flex-col items-center gap-2">
+                    <p className="text-xs text-zinc-400">No questions match your current search.</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSubjectFilter('All');
+                        setSearchQuery('');
+                      }}
+                      className="text-xs text-zinc-300 hover:underline cursor-pointer"
+                    >
+                      Reset search
+                    </button>
+                  </div>
+                ) : (
+                  <div className="flex flex-col gap-3 max-h-[48vh] overflow-y-auto pr-1">
+                    {filteredQuestions.map((q, idx) => {
+                      const correctChoiceObj = q.choices.find(
+                        (c) => c.id.toUpperCase() === q.correctChoiceId.toUpperCase()
+                      );
+                      const recall = formatQuickRecallItem(q);
 
-                    return (
-                      <div
-                        key={q.id || idx}
-                        className="p-3.5 rounded-xl bg-[#191b22] border border-[#272935] flex flex-col gap-2.5"
-                      >
-                        {/* Header */}
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-[11px] font-mono font-bold text-zinc-400">
-                              #{idx + 1}
+                      return (
+                        <div
+                          key={q.id || idx}
+                          className="p-3.5 rounded-xl bg-[#191b22] border border-[#272935] flex flex-col gap-2.5"
+                        >
+                          {/* Header */}
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <span className="text-[11px] font-mono font-bold text-zinc-400">
+                                #{idx + 1}
+                              </span>
+                              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-bold">
+                                {getParentCategory(q.subject, q)} → {q.subject}
+                              </span>
+                              <span className="text-[10px] font-mono text-zinc-500 truncate max-w-xs">
+                                {q.sourceFileName || 'Reviewer Item'}
+                              </span>
+                            </div>
+
+                            {onDeleteQuestion && savedCustomQuestions.some((cq) => cq.id === q.id) && (
+                              <button
+                                type="button"
+                                onClick={() => onDeleteQuestion(q.id)}
+                                className="px-2 py-0.5 text-[11px] font-mono text-rose-400 hover:text-rose-200 hover:bg-rose-950 rounded border border-rose-900 transition-colors shrink-0 cursor-pointer"
+                              >
+                                Delete
+                              </button>
+                            )}
+                          </div>
+
+                          {/* Quick Recall 1-Line Tag */}
+                          <div className="px-2.5 py-1 rounded bg-[#101217] border border-[#232631] text-[11px] font-mono flex items-center gap-1.5 overflow-hidden">
+                            <span className="text-amber-400 font-bold shrink-0">Recall:</span>
+                            <span className="bg-[#fef08a] text-[#0f172a] font-bold px-1 py-0.2 rounded text-[10px] shrink-0">
+                              {recall.term}
                             </span>
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 font-bold">
-                              {getParentCategory(q.subject, q)} → {q.subject}
-                            </span>
-                            <span className="text-[10px] font-mono text-zinc-500 truncate max-w-xs">
-                              {q.sourceFileName || 'Reviewer Item'}
+                            <span className="text-zinc-500">-</span>
+                            <span className="text-zinc-300 truncate font-sans">{recall.clue}</span>
+                          </div>
+
+                          {/* Question Text */}
+                          <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-relaxed">
+                            {q.question}
+                          </p>
+
+                          {/* Choices Grid */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-0.5">
+                            {q.choices.map((c) => {
+                              const isCorrect =
+                                c.id.toUpperCase() === q.correctChoiceId.toUpperCase();
+
+                              return (
+                                <div
+                                  key={c.id}
+                                  className={`px-2.5 py-1.5 rounded-lg text-xs flex items-center justify-between border transition-all ${
+                                    isCorrect
+                                      ? 'bg-emerald-950/70 border-emerald-600/80 text-emerald-200 font-semibold'
+                                      : 'bg-[#14161c] border-[#252733] text-zinc-400'
+                                  }`}
+                                >
+                                  <span className="truncate">
+                                    <strong className="font-mono mr-1.5 text-zinc-300">
+                                      {c.id.toUpperCase()}.
+                                    </strong>{' '}
+                                    {c.text}
+                                  </span>
+                                  {isCorrect && (
+                                    <span className="text-[10px] font-mono text-emerald-300 font-bold ml-1 shrink-0 bg-emerald-900 px-1.5 py-0.5 rounded border border-emerald-700">
+                                      Correct
+                                    </span>
+                                  )}
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          {/* Correct Answer Banner */}
+                          <div className="mt-1 px-3 py-1.5 rounded-lg bg-[#14161c] border border-[#252733] text-xs flex items-center justify-between">
+                            <span className="font-mono text-zinc-300 font-semibold flex items-center gap-1.5">
+                              <span>Answer:</span>
+                              <strong className="text-emerald-300 font-bold bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
+                                {q.correctChoiceId.toUpperCase()}
+                              </strong>
+                              {correctChoiceObj && (
+                                <span className="text-zinc-200 truncate font-sans">
+                                  - {correctChoiceObj.text}
+                                </span>
+                              )}
                             </span>
                           </div>
 
-                          {onDeleteQuestion && savedCustomQuestions.some((cq) => cq.id === q.id) && (
-                            <button
-                              type="button"
-                              onClick={() => onDeleteQuestion(q.id)}
-                              className="px-2 py-0.5 text-[11px] font-mono text-rose-400 hover:text-rose-200 hover:bg-rose-950 rounded border border-rose-900 transition-colors shrink-0 cursor-pointer"
-                            >
-                              Delete
-                            </button>
+                          {/* Explanation */}
+                          {q.explanation && (
+                            <p className="text-[11px] text-zinc-400 bg-[#14161c] p-2 rounded-md border border-[#252733]">
+                              <strong className="font-mono text-zinc-400">Explanation:</strong>{' '}
+                              {q.explanation}
+                            </p>
                           )}
                         </div>
-
-                        {/* Question Text */}
-                        <p className="text-xs sm:text-sm font-medium text-zinc-100 leading-relaxed">
-                          {q.question}
-                        </p>
-
-                        {/* Choices Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 mt-0.5">
-                          {q.choices.map((c) => {
-                            const isCorrect =
-                              c.id.toUpperCase() === q.correctChoiceId.toUpperCase();
-
-                            return (
-                              <div
-                                key={c.id}
-                                className={`px-2.5 py-1.5 rounded-lg text-xs flex items-center justify-between border transition-all ${
-                                  isCorrect
-                                    ? 'bg-emerald-950/70 border-emerald-600/80 text-emerald-200 font-semibold'
-                                    : 'bg-[#14161c] border-[#252733] text-zinc-400'
-                                }`}
-                              >
-                                <span className="truncate">
-                                  <strong className="font-mono mr-1.5 text-zinc-300">
-                                    {c.id.toUpperCase()}.
-                                  </strong>{' '}
-                                  {c.text}
-                                </span>
-                                {isCorrect && (
-                                  <span className="text-[10px] font-mono text-emerald-300 font-bold ml-1 shrink-0 bg-emerald-900 px-1.5 py-0.5 rounded border border-emerald-700">
-                                    Correct
-                                  </span>
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
-
-                        {/* Correct Answer Banner */}
-                        <div className="mt-1 px-3 py-1.5 rounded-lg bg-[#14161c] border border-[#252733] text-xs flex items-center justify-between">
-                          <span className="font-mono text-zinc-300 font-semibold flex items-center gap-1.5">
-                            <span>Answer:</span>
-                            <strong className="text-emerald-300 font-bold bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">
-                              {q.correctChoiceId.toUpperCase()}
-                            </strong>
-                            {correctChoiceObj && (
-                              <span className="text-zinc-200 truncate font-sans">
-                                — {correctChoiceObj.text}
-                              </span>
-                            )}
-                          </span>
-                        </div>
-
-                        {/* Explanation */}
-                        {q.explanation && (
-                          <p className="text-[11px] text-zinc-400 bg-[#14161c] p-2 rounded-md border border-[#252733]">
-                            <strong className="font-mono text-zinc-400">Explanation:</strong>{' '}
-                            {q.explanation}
-                          </p>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                      );
+                    })}
+                  </div>
+                )
               )}
             </>
           ) : (
-            /* TAB 2: BULK ADD QUESTIONS TO ESAS, MATH, OR EE */
+            /* TAB 3: BULK ADD QUESTIONS TO ESAS, MATH, OR EE */
             <div className="flex flex-col gap-4">
               {/* Category & Sub-Subject Selection Panel */}
               <div className="p-4 rounded-xl bg-[#191b22] border border-[#272935] flex flex-col gap-3.5">
@@ -542,7 +741,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
                         {sub} ({subjectBreakdown[sub] || 0} questions)
                       </option>
                     ))}
-                    <option value="NEW">➕ Add New Sub-Subject under {targetParentCategory}...</option>
+                    <option value="NEW">+ Add New Sub-Subject under {targetParentCategory}...</option>
                   </select>
 
                   {/* Input for New Custom Sub-Subject */}

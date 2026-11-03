@@ -36,6 +36,8 @@ import {
   saveCustomQuestions,
   deleteCustomQuestion,
   saveQuestionsToProjectApi,
+  downloadQuestionsPdf,
+  downloadQuickRecallPdf,
 } from './services/storageService';
 import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
@@ -232,11 +234,18 @@ export default function App() {
 
   const quizSubjectScores = useMemo(() => {
     const scores: Record<string, { correct: number; total: number }> = {
+      '1001 terms part 1': { correct: 0, total: 0 },
+      '1001 terms part 2': { correct: 0, total: 0 },
+      '1001 terms part 3': { correct: 0, total: 0 },
       'Economics': { correct: 0, total: 0 },
       'Mechanics 1': { correct: 0, total: 0 },
       'Mechanics 2': { correct: 0, total: 0 },
+      'Strength of Materials': { correct: 0, total: 0 },
+      'Fluid Mechanics': { correct: 0, total: 0 },
+      'Thermodynamics': { correct: 0, total: 0 },
       'EE Laws': { correct: 0, total: 0 },
       'Project Management': { correct: 0, total: 0 },
+      'Project Management 2.0': { correct: 0, total: 0 },
       'Communication': { correct: 0, total: 0 },
     };
 
@@ -904,6 +913,7 @@ export default function App() {
         onDisableShuffle={handleDisableShuffle}
         onOpenPasteModal={() => setIsPasteModalOpen(true)}
         customQuestionsCount={customQuestions.length}
+        allQuestions={allQuestions}
         isQuizActive={isQuizActive}
         onStartQuiz={handleStartQuiz}
         onFinishQuiz={handleFinishQuiz}
@@ -925,6 +935,25 @@ export default function App() {
             <span className="text-zinc-200 font-semibold bg-[#181a21] border border-[#272935] px-2.5 py-0.5 rounded-md">
               {selectedSubject}
             </span>
+            <button
+              type="button"
+              onClick={() => downloadQuestionsPdf(allQuestions, selectedSubject)}
+              className="px-2 py-0.5 rounded text-[10px] font-mono bg-[#1c1f28] hover:bg-zinc-700 text-zinc-300 border border-zinc-700 transition-colors cursor-pointer"
+              title={`Download Full Q&A PDF with 4 choices for ${selectedSubject}`}
+            >
+              Full PDF
+            </button>
+            <button
+              type="button"
+              onClick={() => downloadQuickRecallPdf(allQuestions, selectedSubject)}
+              className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-amber-400 hover:bg-amber-300 text-zinc-950 transition-colors cursor-pointer flex items-center gap-1 shadow-xs"
+              title={`Download Quick Recall Cheat Sheet PDF (short 1-line form) for ${selectedSubject}`}
+            >
+              <svg className="w-3 h-3 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span>Recall PDF</span>
+            </button>
           </div>
 
           {/* Right Controls: Ambient Sound + Camera Icon + Score Counters */}

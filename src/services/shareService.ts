@@ -203,14 +203,26 @@ export function parseCurrentLocationParams(): {
 
   const validSubjects: SubjectCategory[] = [
     'ESAS',
+    '1001 terms part 1',
+    '1001 terms part 2',
+    '1001 terms part 3',
     'MATH',
     'EE',
     'Economics',
     'Mechanics 1',
     'Mechanics 2',
+    'Strength of Materials',
+    'Fluid Mechanics',
+    'Thermodynamics',
     'EE Laws',
     'Project Management',
+    'Project Management 2.0',
     'Communication',
+    'Physics 1',
+    'Physics 2',
+    'Chemistry',
+    'Computer',
+    'PEC',
     'General Engineering',
   ];
 

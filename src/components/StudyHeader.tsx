@@ -2,6 +2,7 @@ import React from 'react';
 import { SubjectCategory } from '../services/questionParser';
 import { AiVoiceMode } from '../services/speechService';
 import { AmbientSoundControl } from './AmbientSoundControl';
+import { FlashcardQuestion, downloadQuickRecallPdf, downloadQuestionsPdf } from '../services/storageService';
 
 interface StudyHeaderProps {
   selectedSubject: SubjectCategory | 'All';
@@ -21,6 +22,7 @@ interface StudyHeaderProps {
   onDisableShuffle?: () => void;
   onOpenPasteModal?: () => void;
   customQuestionsCount?: number;
+  allQuestions?: FlashcardQuestion[];
   isQuizActive?: boolean;
   onStartQuiz?: () => void;
   onFinishQuiz?: () => void;
@@ -33,11 +35,18 @@ interface StudyHeaderProps {
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
   'All',
   'ESAS',
+  '1001 terms part 1',
+  '1001 terms part 2',
+  '1001 terms part 3',
   'Economics',
   'Mechanics 1',
   'Mechanics 2',
+  'Strength of Materials',
+  'Fluid Mechanics',
+  'Thermodynamics',
   'EE Laws',
   'Project Management',
+  'Project Management 2.0',
   'Communication',
   'Physics 1',
   'Physics 2',
@@ -60,6 +69,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   onToggleShuffle,
   onDisableShuffle,
   onOpenPasteModal,
+  allQuestions = [],
   isQuizActive = false,
   onStartQuiz,
   onFinishQuiz,
@@ -164,6 +174,22 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
             </button>
           )}
 
+          {/* Quick Recall PDF Download for Active Subject */}
+          {allQuestions && allQuestions.length > 0 && !isQuizActive && (
+            <button
+              type="button"
+              onClick={() => downloadQuickRecallPdf(allQuestions, selectedSubject)}
+              className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-bold bg-amber-400 hover:bg-amber-300 text-zinc-950 transition-colors cursor-pointer flex items-center gap-1 shrink-0 shadow-xs"
+              title={`Download Quick Recall Cheat Sheet PDF (short 1-line form) for ${selectedSubject}`}
+            >
+              <svg className="w-3 h-3 text-zinc-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+              <span className="hidden sm:inline">Recall PDF</span>
+              <span className="sm:hidden">Recall</span>
+            </button>
+          )}
+
           {/* Calibrate / Scan Hand Gestures Button */}
           {onOpenGestureScanner && (
             <button
@@ -172,7 +198,10 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               className="px-2 py-1 sm:px-2.5 sm:py-1 rounded-md text-[11px] sm:text-xs font-semibold bg-slate-800 border border-teal-800/70 text-teal-300 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer flex items-center gap-1 shrink-0"
               title="Scan and calibrate your personal hand gestures first"
             >
-              <span>🎯 Scan</span>
+              <svg className="w-3.5 h-3.5 text-teal-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m12 0h-4.5m4.5 0v4.5m0 12v-4.5m0 4.5h-4.5m-12 0h4.5m-4.5 0v-4.5" />
+              </svg>
+              <span>Scan</span>
             </button>
           )}
 
@@ -187,7 +216,7 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
               <svg className="w-3.5 h-3.5 text-slate-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25" />
               </svg>
-              <span className="hidden sm:inline">Bank</span>
+              <span className="hidden sm:inline">Bank & PDFs</span>
             </button>
           )}
         </div>

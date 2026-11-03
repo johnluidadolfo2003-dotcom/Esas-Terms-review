@@ -405,13 +405,28 @@ export const ShareModal: React.FC<ShareModalProps> = ({
                 }
                 className="w-full bg-slate-950 border border-slate-800 rounded-md px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-600"
               >
-                <option value="All">All Subjects (All 177+ Questions)</option>
+                <option value="All">All Subjects</option>
+                <option value="ESAS">ESAS (All ESAS Subjects)</option>
+                <option value="1001 terms part 1">1001 terms part 1 (122 Questions)</option>
+                <option value="1001 terms part 2">1001 terms part 2 (510 Questions)</option>
+                <option value="1001 terms part 3">1001 terms part 3 (50 Questions)</option>
                 <option value="Economics">Economics</option>
                 <option value="Mechanics 1">Mechanics 1 (Statics)</option>
                 <option value="Mechanics 2">Mechanics 2 (Dynamics)</option>
+                <option value="Strength of Materials">Strength of Materials</option>
+                <option value="Fluid Mechanics">Fluid Mechanics</option>
+                <option value="Thermodynamics">Thermodynamics</option>
                 <option value="EE Laws">EE Laws (RA 7920 & PEC)</option>
                 <option value="Project Management">Project Management</option>
+                <option value="Project Management 2.0">Project Management 2.0</option>
                 <option value="Communication">Communication</option>
+                <option value="Physics 1">Physics 1</option>
+                <option value="Physics 2">Physics 2</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Computer">Computer</option>
+                <option value="PEC">PEC</option>
+                <option value="MATH">MATH</option>
+                <option value="EE">EE</option>
               </select>
             </div>
 
@@ -505,11 +520,18 @@ export const ShareModal: React.FC<ShareModalProps> = ({
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {(
                 [
+                  '1001 terms part 1',
+                  '1001 terms part 2',
+                  '1001 terms part 3',
                   'Economics',
                   'Mechanics 1',
                   'Mechanics 2',
+                  'Strength of Materials',
+                  'Fluid Mechanics',
+                  'Thermodynamics',
                   'EE Laws',
                   'Project Management',
+                  'Project Management 2.0',
                   'Communication',
                 ] as SubjectCategory[]
               ).map((subj) => (

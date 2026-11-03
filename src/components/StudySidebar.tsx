@@ -8,6 +8,8 @@ import {
   AmbientSoundPresetId,
 } from '../services/ambientAudioService';
 import { getGeminiConfig, refreshGeminiConfig } from '../services/geminiService';
+import { FlashcardQuestion } from '../services/storageService';
+
 export interface StudySidebarProps {
   selectedSubject: SubjectCategory | 'All';
   onSelectSubject: (subject: SubjectCategory | 'All') => void;
@@ -26,6 +28,7 @@ export interface StudySidebarProps {
   onDisableShuffle?: () => void;
   onOpenPasteModal?: () => void;
   customQuestionsCount?: number;
+  allQuestions?: FlashcardQuestion[];
   isQuizActive?: boolean;
   onStartQuiz?: () => void;
   onFinishQuiz?: () => void;
@@ -41,11 +44,18 @@ export interface StudySidebarProps {
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
   'All',
   'ESAS',
+  '1001 terms part 1',
+  '1001 terms part 2',
+  '1001 terms part 3',
   'Economics',
   'Mechanics 1',
   'Mechanics 2',
+  'Strength of Materials',
+  'Fluid Mechanics',
+  'Thermodynamics',
   'EE Laws',
   'Project Management',
+  'Project Management 2.0',
   'Communication',
   'Physics 1',
   'Physics 2',
@@ -68,6 +78,8 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
   onToggleShuffle,
   onDisableShuffle,
   onOpenPasteModal,
+  customQuestionsCount,
+  allQuestions = [],
   isQuizActive = false,
   onStartQuiz,
   onFinishQuiz,
@@ -214,7 +226,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
             <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
               {/* ESAS Header Row */}
               <div
-                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
                   selectedSubject === 'ESAS'
                     ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
                     : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
@@ -250,7 +262,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                 </div>
 
                 <span
-                  className={`text-[10px] font-mono ${
+                  className={`text-[10px] font-mono min-w-[22px] text-right ${
                     selectedSubject === 'ESAS' ? 'text-[#2dd4bf]' : 'text-zinc-400'
                   }`}
                 >
@@ -260,31 +272,30 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
 
               {/* Expanded Sub-Subjects (Economics, Mechanics 1 & 2, EE Laws, PM, Communication) */}
               {isEsasExpanded && (
-                <div className="flex flex-col gap-0.5 pl-3 pr-1 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
+                <div className="flex flex-col gap-0.5 pl-2.5 pr-1.5 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
                   {ESAS_SUB_SUBJECTS.map((sub) => {
                     const count = subjectCounts[sub] || 0;
                     const isSelected = selectedSubject === sub;
 
                     return (
-                      <button
+                      <div
                         key={sub}
-                        type="button"
                         onClick={() => handleSelectSubject(sub)}
-                        className={`w-full flex items-center justify-between pl-3 pr-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
+                        className={`w-full flex items-center justify-between px-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
                           isSelected
                             ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
                             : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
                         }`}
                       >
-                        <span className="truncate">{sub}</span>
+                        <span className="truncate mr-1">{sub}</span>
                         <span
-                          className={`text-[10px] font-mono ${
+                          className={`text-[10px] font-mono min-w-[18px] text-right ${
                             isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
                           }`}
                         >
                           {count}
                         </span>
-                      </button>
+                      </div>
                     );
                   })}
                 </div>
@@ -293,10 +304,9 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
 
             {/* 2. MAIN SUBJECT: MATH (Same box size & row height as ESAS) */}
             <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
-              <button
-                type="button"
+              <div
                 onClick={() => handleSelectSubject('MATH')}
-                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
                   selectedSubject === 'MATH'
                     ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
                     : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
@@ -307,21 +317,20 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                   <span className="font-bold truncate">MATH</span>
                 </div>
                 <span
-                  className={`text-[10px] font-mono ${
+                  className={`text-[10px] font-mono min-w-[22px] text-right ${
                     selectedSubject === 'MATH' ? 'text-[#2dd4bf]' : 'text-zinc-400'
                   }`}
                 >
                   {subjectCounts['MATH'] || 0}
                 </span>
-              </button>
+              </div>
             </div>
 
             {/* 3. MAIN SUBJECT: EE (Same box size & row height as ESAS) */}
             <div className="flex flex-col rounded-md overflow-hidden bg-[#15171e]/70 border border-[#21232c]">
-              <button
-                type="button"
+              <div
                 onClick={() => handleSelectSubject('EE')}
-                className={`w-full flex items-center justify-between pr-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
+                className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-xs transition-colors cursor-pointer text-left border-l-2 ${
                   selectedSubject === 'EE'
                     ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
                     : 'text-zinc-300 hover:text-white hover:bg-[#1a1c24] border-transparent'
@@ -332,13 +341,13 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                   <span className="font-bold truncate">EE</span>
                 </div>
                 <span
-                  className={`text-[10px] font-mono ${
+                  className={`text-[10px] font-mono min-w-[22px] text-right ${
                     selectedSubject === 'EE' ? 'text-[#2dd4bf]' : 'text-zinc-400'
                   }`}
                 >
                   {subjectCounts['EE'] || 0}
                 </span>
-              </button>
+              </div>
             </div>
           </nav>
         </div>

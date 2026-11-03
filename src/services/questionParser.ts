@@ -1,10 +1,17 @@
 export type SubjectCategory =
   | 'ESAS'
+  | '1001 terms part 1'
+  | '1001 terms part 2'
+  | '1001 terms part 3'
   | 'Economics'
   | 'Mechanics 1'
   | 'Mechanics 2'
+  | 'Strength of Materials'
+  | 'Fluid Mechanics'
+  | 'Thermodynamics'
   | 'EE Laws'
   | 'Project Management'
+  | 'Project Management 2.0'
   | 'Communication'
   | 'Physics 1'
   | 'Physics 2'
@@ -16,11 +23,18 @@ export type SubjectCategory =
   | 'EE';
 
 export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
+  '1001 terms part 1',
+  '1001 terms part 2',
+  '1001 terms part 3',
   'Economics',
   'Mechanics 1',
   'Mechanics 2',
+  'Strength of Materials',
+  'Fluid Mechanics',
+  'Thermodynamics',
   'EE Laws',
   'Project Management',
+  'Project Management 2.0',
   'Communication',
   'Physics 1',
   'Physics 2',
@@ -60,6 +74,36 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
   const combined = `${fileName} ${text}`.toLowerCase();
 
   if (
+    combined.includes('1001 terms part 3') ||
+    combined.includes('1003-esas') ||
+    combined.includes('1003 esas') ||
+    combined.includes('esas-ug') ||
+    combined.includes('undergrounds review center')
+  ) {
+    return '1001 terms part 3';
+  }
+
+  if (
+    combined.includes('1001 terms part 2') ||
+    combined.includes('1002-esas') ||
+    combined.includes('1002 esas') ||
+    combined.includes('esas 2012-2017') ||
+    combined.includes('esas_2012-2017')
+  ) {
+    return '1001 terms part 2';
+  }
+
+  if (
+    combined.includes('1001 terms part 1') ||
+    combined.includes('1001 terms') ||
+    combined.includes('1001-esas') ||
+    combined.includes('1001 esas') ||
+    combined.includes('esas august 2019')
+  ) {
+    return '1001 terms part 1';
+  }
+
+  if (
     combined.includes('ee law') ||
     combined.includes('ra 7920') ||
     combined.includes('r.a. 7920') ||
@@ -96,6 +140,92 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
   }
 
   if (
+    combined.includes('strength of materials') ||
+    combined.includes('mechanics of deformable') ||
+    combined.includes('poisson') ||
+    combined.includes('young\'s modulus') ||
+    combined.includes('modulus of rigidity') ||
+    combined.includes('bulk modulus') ||
+    combined.includes('axial deformation') ||
+    combined.includes('hoop stress') ||
+    combined.includes('tangential stress') ||
+    combined.includes('flexure formula') ||
+    combined.includes('bending stress') ||
+    combined.includes('section modulus') ||
+    combined.includes('transverse shear') ||
+    combined.includes('polar moment') ||
+    combined.includes('angle of twist') ||
+    combined.includes('beam deflection') ||
+    combined.includes('mohr\'s circle') ||
+    combined.includes('principal stress') ||
+    combined.includes('euler') ||
+    combined.includes('slenderness ratio') ||
+    combined.includes('modulus of resilience')
+  ) {
+    return 'Strength of Materials';
+  }
+
+  if (
+    combined.includes('fluid mechanics') ||
+    combined.includes('hydraulics') ||
+    combined.includes('viscosity') ||
+    combined.includes('pascal\'s principle') ||
+    combined.includes('pascal\'s law') ||
+    combined.includes('archimedes') ||
+    combined.includes('buoyant force') ||
+    combined.includes('buoyancy') ||
+    combined.includes('bernoulli') ||
+    combined.includes('torricelli') ||
+    combined.includes('reynolds number') ||
+    combined.includes('darcy-weisbach') ||
+    combined.includes('darcy friction') ||
+    combined.includes('moody diagram') ||
+    combined.includes('hagen-poiseuille') ||
+    combined.includes('manometer') ||
+    combined.includes('piezometer') ||
+    combined.includes('pitot') ||
+    combined.includes('venturi') ||
+    combined.includes('vena contracta') ||
+    combined.includes('cavitation') ||
+    combined.includes('water hammer') ||
+    combined.includes('surface tension') ||
+    combined.includes('capillary rise')
+  ) {
+    return 'Fluid Mechanics';
+  }
+
+  if (
+    combined.includes('thermodynamics') ||
+    combined.includes('thermo') ||
+    combined.includes('zeroth law') ||
+    combined.includes('first law of thermo') ||
+    combined.includes('second law of thermo') ||
+    combined.includes('third law of thermo') ||
+    combined.includes('carnot') ||
+    combined.includes('otto cycle') ||
+    combined.includes('diesel cycle') ||
+    combined.includes('brayton cycle') ||
+    combined.includes('rankine cycle') ||
+    combined.includes('isentropic') ||
+    combined.includes('isothermal') ||
+    combined.includes('isochoric') ||
+    combined.includes('isometric process') ||
+    combined.includes('isobaric') ||
+    combined.includes('polytropic') ||
+    combined.includes('internal energy') ||
+    combined.includes('enthalpy') ||
+    combined.includes('entropy') ||
+    combined.includes('heat engine') ||
+    combined.includes('heat pump') ||
+    combined.includes('coefficient of performance') ||
+    combined.includes('refrigeration') ||
+    combined.includes('kelvin-planck') ||
+    combined.includes('clausius')
+  ) {
+    return 'Thermodynamics';
+  }
+
+  if (
     combined.includes('mechanics 2') ||
     combined.includes('dynamics') ||
     combined.includes('kinematics') ||
@@ -117,6 +247,16 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
     combined.includes('centroid')
   ) {
     return 'Mechanics 1';
+  }
+
+  if (
+    combined.includes('project management 2.0') ||
+    combined.includes('project management 2') ||
+    combined.includes('pm 2.0') ||
+    combined.includes('pm2') ||
+    combined.includes('sales promotion') && combined.includes('aggressive')
+  ) {
+    return 'Project Management 2.0';
   }
 
   if (
@@ -263,6 +403,26 @@ export function generateContextualExplanation(
       return `For an object sliding on an incline of angle θ, normal contact force is N = mg cos θ, yielding kinetic friction f = μN = μ mg cos θ.`;
     }
     return `In mechanics, "${correctText}" applies fundamental equilibrium (∑F = 0) and dynamic acceleration equations (F = ma) to solve physical systems.`;
+  }
+
+  if (subject === 'Strength of Materials' || qLower.includes('stress') || qLower.includes('strain') || qLower.includes('deflection')) {
+    return `In strength of materials, "${correctText}" governs internal stress-strain responses, allowable load capacities, and structural integrity under mechanical forces.`;
+  }
+
+  if (subject === 'Fluid Mechanics' || qLower.includes('fluid') || qLower.includes('viscosity') || qLower.includes('flow')) {
+    return `In fluid mechanics, "${correctText}" characterizes fluid transport properties, hydrostatic pressure distribution, and conservation principles in fluid flow systems.`;
+  }
+
+  if (subject === 'Thermodynamics' || qLower.includes('thermodynamic') || qLower.includes('heat') || qLower.includes('entropy')) {
+    return `In engineering thermodynamics, "${correctText}" relates energy transformation, thermal efficiency, and state properties across thermodynamic cycles.`;
+  }
+
+  if (subject === '1001 terms part 1' || subject === '1001 terms part 2' || subject === '1001 terms part 3') {
+    return `In ESAS 1001 terms board review, "${correctText}" represents the verified standard answer established in board exam curricula and engineering codes.`;
+  }
+
+  if (subject === 'Project Management 2.0' || subject === 'Project Management') {
+    return `In project and engineering management, "${correctText}" governs managerial decision making, promotional strategies, and operational control.`;
   }
 
   if (subject === 'Communication' || qLower.includes('signal') || qLower.includes('wave')) {

@@ -9,10 +9,13 @@ export const QUIZ_SUBJECT_QUOTAS: SubjectQuota[] = [
   { subject: 'Economics', count: 10 },
   { subject: 'Mechanics 1', count: 5 },
   { subject: 'Mechanics 2', count: 5 },
-  { subject: 'EE Laws', count: 20 },
-  { subject: 'Project Management', count: 20 },
-  { subject: 'Communication', count: 10 },
-  { subject: 'Physics 1', count: 10 },
+  { subject: 'Strength of Materials', count: 5 },
+  { subject: 'Fluid Mechanics', count: 5 },
+  { subject: 'Thermodynamics', count: 5 },
+  { subject: 'EE Laws', count: 15 },
+  { subject: 'Project Management', count: 15 },
+  { subject: 'Communication', count: 5 },
+  { subject: 'Physics 1', count: 5 },
 ];
 
 export const TOTAL_QUIZ_ITEMS = QUIZ_SUBJECT_QUOTAS.reduce((acc, item) => acc + item.count, 0);
