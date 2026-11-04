@@ -51,6 +51,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
         'Mechanics 1',
         'Mechanics 2',
         'Strength of Materials',
+        'Engineering Materials',
         'Fluid Mechanics',
         'Thermodynamics',
         'EE Laws',
@@ -877,3 +878,4 @@ Answer: A`}
     </div>
   );
 };
+

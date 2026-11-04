@@ -241,6 +241,7 @@ export default function App() {
       'Mechanics 1': { correct: 0, total: 0 },
       'Mechanics 2': { correct: 0, total: 0 },
       'Strength of Materials': { correct: 0, total: 0 },
+      'Engineering Materials': { correct: 0, total: 0 },
       'Fluid Mechanics': { correct: 0, total: 0 },
       'Thermodynamics': { correct: 0, total: 0 },
       'EE Laws': { correct: 0, total: 0 },
@@ -1308,3 +1309,4 @@ export default function App() {
     </div>
   );
 }
+

@@ -1,0 +1,3071 @@
+{
+  "subject": "Engineering Materials",
+  "sourceCounts": {
+    "quiz": 150,
+    "discussion": 50
+  },
+  "uniqueQuestions": 193,
+  "duplicates": 7,
+  "quizCorrections": 87,
+  "sourceDecisions": [
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 1,
+      "appQuestionId": "engineering-materials-quiz-001",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is a combination of two or more materials that has properties that the components materials do not have by themselves?",
+        "choices": [
+          "Composite",
+          "Compound",
+          "Mixture",
+          "Matrix"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 2,
+      "appQuestionId": "engineering-materials-quiz-002",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is a reference sheet for the elements that can be used to form engineering materials?",
+        "choices": [
+          "Periodic Table",
+          "Truth Table",
+          "Building blocks of Materials",
+          "Structure of Materials"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 3,
+      "appQuestionId": "engineering-materials-quiz-003",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What physical property of a material that refers to the point at which a material liquefies on heating or solidifies on cooling?",
+        "choices": [
+          "Melting point",
+          "Curie point",
+          "Refractive index",
+          "Specific heat"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 4,
+      "appQuestionId": "engineering-materials-quiz-004",
+      "status": "add",
+      "reason": "Above the Curie point the material can still respond weakly to an applied magnetic field.",
+      "original": {
+        "question": "What physical property of a material that refers to the temperature at which ferromagnetic materials can no longer be magnetized by outside forces?",
+        "choices": [
+          "Curie point",
+          "Melting point",
+          "Thermal conductivity",
+          "Thermal expansion"
+        ],
+        "answer": 0
+      },
+      "correction": "Above the Curie point the material can still respond weakly to an applied magnetic field."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 5,
+      "appQuestionId": "engineering-materials-quiz-005",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What physical property of a material refers to the amount of weight gain (%) experienced in a polymer after immersion in water for a specified length of time under a controlled environment?",
+        "choices": [
+          "Water absorption",
+          "Thermal conductivity",
+          "Dielectric strength",
+          "Electric resistivity"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 6,
+      "appQuestionId": "engineering-materials-quiz-006",
+      "status": "add",
+      "reason": "Thermal conductivity is the proportionality coefficient in Fourier’s law.",
+      "original": {
+        "question": "What physical property of a material that refers to the rate of heat flow per unit time in a homogenous material under steady-state conditions per unit are, per unit temperature gradient in a direction perpendicular to area?",
+        "choices": [
+          "Thermal conductivity",
+          "Heat distortion temperature",
+          "Water absorption",
+          "Thermal expansion"
+        ],
+        "answer": 0
+      },
+      "correction": "Thermal conductivity is the proportionality coefficient in Fourier’s law."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 7,
+      "appQuestionId": "engineering-materials-quiz-007",
+      "status": "add",
+      "reason": "Dielectric strength is electric field (e.g., V/m), not voltage alone.",
+      "original": {
+        "question": "What physical property of a material refers to the highest potential difference (voltage) that an insulting material of given thickness can withstand for a specified time without occurrence of electrical breakdown through its bulk?",
+        "choices": [
+          "Dielectric strength",
+          "Electrical resistivity",
+          "Thermal expansion",
+          "Conductivity"
+        ],
+        "answer": 0
+      },
+      "correction": "Dielectric strength is electric field (e.g., V/m), not voltage alone."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 8,
+      "appQuestionId": "engineering-materials-quiz-008",
+      "status": "add",
+      "reason": "Use specific heat capacity, not a dimensionless comparison with water.",
+      "original": {
+        "question": "What physical property of a material refers to the ratio of the amount of heat required to raise the temperature of a unit mass of a substance 1 degree to the heat required to raise the same mass of water to 1 degree.",
+        "choices": [
+          "Specific heat",
+          "Heat of fusion",
+          "Latent heat",
+          "Heat of fission"
+        ],
+        "answer": 0
+      },
+      "correction": "Use specific heat capacity, not a dimensionless comparison with water."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 9,
+      "appQuestionId": "engineering-materials-quiz-009",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What physical property of a material refers to the temperature at which a polymer under a specified load shows a specified amount of deflection?",
+        "choices": [
+          "Heat distortion temperature",
+          "Thermal conductivity",
+          "Curie temperature",
+          "Specific heat"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 10,
+      "appQuestionId": "engineering-materials-quiz-010",
+      "status": "add",
+      "reason": "Stress-rupture strength requires a specified time and temperature; corrected “rapture”.",
+      "original": {
+        "question": "What mechanical property of a material refers to the nominal stress at fracture in a tension test at constant load and constant temperature?",
+        "choices": [
+          "Stress rapture strength",
+          "Compressive yield strength",
+          "Hardness",
+          "Creep strength"
+        ],
+        "answer": 0
+      },
+      "correction": "Stress-rupture strength requires a specified time and temperature; corrected “rapture”."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 11,
+      "appQuestionId": "engineering-materials-quiz-011",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What mechanical property of a material refers to the resistance to plastic deformation?",
+        "choices": [
+          "Hardness",
+          "Rigidity",
+          "Plasticity",
+          "Ductility"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 12,
+      "appQuestionId": "engineering-materials-quiz-012",
+      "status": "add",
+      "reason": "Fatigue strength at a specified cycle count is not necessarily an endurance limit.",
+      "original": {
+        "question": "What is obtained by repeatedly loading a specimen at given stress levels until it fails?",
+        "choices": [
+          "Endurance limit or fatigue strength of material",
+          "Elastic limit",
+          "Creep",
+          "All of the choices"
+        ],
+        "answer": 0
+      },
+      "correction": "Fatigue strength at a specified cycle count is not necessarily an endurance limit."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 13,
+      "appQuestionId": "engineering-materials-quiz-013",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What dimensional property of a material refers to the deviation from edge straightness?",
+        "choices": [
+          "Camber",
+          "Waviness",
+          "Lay",
+          "Out of flat"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 14,
+      "appQuestionId": "engineering-materials-quiz-014",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What dimensional property of a material refers to a wavelike variation from a perfect surface, generally much wider in spacing and higher in amplitude than surface roughness?",
+        "choices": [
+          "Waviness",
+          "surface finish",
+          "Out of flat",
+          "Lay"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 15,
+      "appQuestionId": "engineering-materials-quiz-015",
+      "status": "add",
+      "reason": "Corrected “monuments” to monomers.",
+      "original": {
+        "question": "What is a polymer production process that involves forming a polymer chain containing two different monuments?",
+        "choices": [
+          "Copolymerization",
+          "Blending",
+          "Alloying",
+          "Cross-linking"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected “monuments” to monomers."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 16,
+      "appQuestionId": "engineering-materials-quiz-016",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is a process of forming continuous shapes by forcing a molten polymer through a metal die?",
+        "choices": [
+          "Extrusion",
+          "Calendaring",
+          "Thermoforming",
+          "Lithugraphy"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 17,
+      "appQuestionId": "engineering-materials-quiz-017",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What chemical property of a material which refers to its ability to resist deterioration by chemical or electrochemical reactions with environment?",
+        "choices": [
+          "Corrosion resistance",
+          "Conductivity",
+          "Electrical resistance",
+          "Stereo specificity"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 18,
+      "appQuestionId": "engineering-materials-quiz-018",
+      "status": "add",
+      "reason": "Added impact loading to distinguish impact strength from general toughness.",
+      "original": {
+        "question": "What is the amount of energy required to fracture a given volume of material?",
+        "choices": [
+          "Impact strength",
+          "Endurance limit",
+          "Creep strength",
+          "Stress rupture strength"
+        ],
+        "answer": 0
+      },
+      "correction": "Added impact loading to distinguish impact strength from general toughness."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 19,
+      "appQuestionId": "engineering-materials-quiz-019",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What mechanical property of a material which is a time-dependent permanent strain under stress?",
+        "choices": [
+          "Creep",
+          "Rupture",
+          "Elongation",
+          "Elasticity"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 20,
+      "appQuestionId": "engineering-materials-quiz-020",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What refers to the stress at which a material exhibits a specified deviation from proportionality of stress and strain?",
+        "choices": [
+          "Yield strength",
+          "Flexural strength",
+          "Tensile strength",
+          "shear strength"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 21,
+      "appQuestionId": "engineering-materials-quiz-021",
+      "status": "add",
+      "reason": "The proportional limit marks the end of the linear stress-strain range.",
+      "original": {
+        "question": "The greatest stress which a material is capable of withstanding without a deviation from acceptable of stress to strain is called _______.",
+        "choices": [
+          "proportional limit",
+          "yield point",
+          "elastic limit",
+          "Elongation"
+        ],
+        "answer": 0
+      },
+      "correction": "The proportional limit marks the end of the linear stress-strain range."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 22,
+      "appQuestionId": "engineering-materials-quiz-022",
+      "status": "add",
+      "reason": "Not every material has an endurance limit.",
+      "original": {
+        "question": "What is the maximum stress below which a material can theoretically endure an infinite number of stress cycles?",
+        "choices": [
+          "Endurance limit",
+          "endurance strength",
+          "Endurance state",
+          "Endurance test"
+        ],
+        "answer": 0
+      },
+      "correction": "Not every material has an endurance limit."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 23,
+      "appQuestionId": "engineering-materials-quiz-023",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which of the following is a natural magnet?",
+        "choices": [
+          "Lodestone",
+          "Soft iron",
+          "Steel",
+          "Magnesia"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 24,
+      "appQuestionId": "engineering-materials-quiz-024",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the resistance of a material to plastic deformation?",
+        "choices": [
+          "Hardness",
+          "Stiffness",
+          "Creepage",
+          "Rigidity"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 25,
+      "appQuestionId": "engineering-materials-quiz-025",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Which of the following materials has permeability slightly less than that of free space?",
+        "choices": [
+          "Diamagnetic materials",
+          "Paramagnetic materials",
+          "Non-magnetic materials",
+          "Ferromagnetic materials"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 26,
+      "appQuestionId": "engineering-materials-quiz-026",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What materials has permiabilities slightly greater than of free space?",
+        "choices": [
+          "Paramagnetic materials",
+          "Non-magnetic materials",
+          "Ferromagnetic materials",
+          "Diamagnetic materials"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 27,
+      "appQuestionId": "engineering-materials-quiz-027",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which of the materials have very high permiabilities?",
+        "choices": [
+          "Ferromagnetic materials",
+          "Diamagnetic materials",
+          "Paramagnetic materials",
+          "Non-magnetic materials"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 28,
+      "appQuestionId": "engineering-materials-quiz-028",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the defined by ASTM as a material that contains as an essential ingredient an organic substance of large molecular weight, is solid in its finished state, and some stage in its manufactured or in its processing into finished articles, can be shaped by flow?",
+        "choices": [
+          "Plastic",
+          "Ceramic",
+          "Metal",
+          "Metalloid"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 29,
+      "appQuestionId": "engineering-materials-quiz-029",
+      "status": "add",
+      "reason": "Cross-linking is the interchain network arrangement; the links themselves are covalent bonds.",
+      "original": {
+        "question": "Some polymetric materials such as epoxies are formed by strong primary chemical bonds called ___",
+        "choices": [
+          "Cross linking",
+          "Covalent bond",
+          "Metallic bond",
+          "Van der Waals bond"
+        ],
+        "answer": 0
+      },
+      "correction": "Cross-linking is the interchain network arrangement; the links themselves are covalent bonds."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 30,
+      "appQuestionId": "engineering-materials-quiz-030",
+      "status": "add",
+      "reason": "Copolymers need not have an alternating sequence.",
+      "original": {
+        "question": "A large molecule with two alternating mers is called as _",
+        "choices": [
+          "copolymer or interpolymer",
+          "monomer",
+          "elastomer",
+          "mers"
+        ],
+        "answer": 0
+      },
+      "correction": "Copolymers need not have an alternating sequence."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 31,
+      "appQuestionId": "engineering-materials-quiz-031",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What term is used to describe a polymer that has rubberlike properties?",
+        "choices": [
+          "Elastomer",
+          "Vulcanizer",
+          "Elasticmer",
+          "Polychloroprene"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 32,
+      "appQuestionId": "engineering-materials-quiz-032",
+      "status": "add",
+      "reason": "Specified steel grades to distinguish the answer from wrought and cast iron.",
+      "original": {
+        "question": "What is defined as an alloy of iron and carbon, with the carbon being restricted within certain concentration limits?",
+        "choices": [
+          "Steel",
+          "Wrought Iron",
+          "Cast Iron",
+          "Tendons"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified steel grades to distinguish the answer from wrought and cast iron."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 33,
+      "appQuestionId": "engineering-materials-quiz-033",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What type of steel has carbon as its principal hardening agent?",
+        "choices": [
+          "Carbon steel",
+          "Alloy steel",
+          "Stainless steel",
+          "Galvanized steel"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 34,
+      "appQuestionId": "engineering-materials-quiz-034",
+      "status": "add",
+      "reason": "Eutectoid carbon content is approximately 0.76%; full pearlite requires suitable cooling.",
+      "original": {
+        "question": "What type of steel has 0.8% carbon and 100% pearlite?",
+        "choices": [
+          "Eutectoid",
+          "Hyper-eutectoid",
+          "Stainless steel",
+          "Austenite"
+        ],
+        "answer": 0
+      },
+      "correction": "Eutectoid carbon content is approximately 0.76%; full pearlite requires suitable cooling."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 35,
+      "appQuestionId": "engineering-materials-quiz-035",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Steels that are used for axles, gears, and similar parts requiring medium to high and strength are known as?",
+        "choices": [
+          "Medium-carbon steel",
+          "Low-carbon steel",
+          "Very high-carbon",
+          "High-carbon steel"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 36,
+      "appQuestionId": "engineering-materials-quiz-036",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Galvanized steel are steel products coated with _______",
+        "choices": [
+          "Zinc",
+          "Nickel",
+          "Carbon",
+          "Sulfur"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 37,
+      "appQuestionId": "engineering-materials-quiz-037",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The use of acids to remove oxides and scale on hot-worked steels is known as___",
+        "choices": [
+          "Pickling",
+          "Machining",
+          "Galvanizing",
+          "Tempering"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 38,
+      "appQuestionId": "engineering-materials-quiz-038",
+      "status": "add",
+      "reason": "Replaced vague, overlapping options with one defensible alloying effect.",
+      "original": {
+        "question": "What is the purpose of molybdenum in steel alloying?",
+        "choices": [
+          "To increase dynamic and high-temperature strength and hardness",
+          "To reduce brittleness, combine with sulfur",
+          "To increase corrosion and resistance",
+          "To increase brittleness"
+        ],
+        "answer": 0
+      },
+      "correction": "Replaced vague, overlapping options with one defensible alloying effect."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 39,
+      "appQuestionId": "engineering-materials-quiz-039",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What refers to the tin mill steel, without a coating?",
+        "choices": [
+          "Black plate",
+          "Dechromate tin",
+          "White plate",
+          "Tin Steel free"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 40,
+      "appQuestionId": "engineering-materials-quiz-040",
+      "status": "add",
+      "reason": "Nichrome is a Ni-Cr resistance alloy; not every Ni-Cr alloy has the same properties.",
+      "original": {
+        "question": "What combination of elements has high electrical resistance, high corrosion resistance, and high strength at red hear temperatures, making it useful in resistance heating?",
+        "choices": [
+          "Nichrome",
+          "Hastelloy",
+          "Alnico",
+          "Aluminum bronze"
+        ],
+        "answer": 0
+      },
+      "correction": "Nichrome is a Ni-Cr resistance alloy; not every Ni-Cr alloy has the same properties."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 41,
+      "appQuestionId": "engineering-materials-quiz-041",
+      "status": "add",
+      "reason": "The source cast-iron stem had no matching option; reconstructed the deoxidizer concept from its keyed answer.",
+      "original": {
+        "question": "Which of the following cast irons is a high-carbon, iron-carbon-silicon alloy?",
+        "choices": [
+          "Deoxidizers",
+          "Deterrent",
+          "Deoxifiers",
+          "Deorizers"
+        ],
+        "answer": 0
+      },
+      "correction": "The source cast-iron stem had no matching option; reconstructed the deoxidizer concept from its keyed answer."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 42,
+      "appQuestionId": "engineering-materials-quiz-042",
+      "status": "add",
+      "reason": "The original high-carbon-silicon description did not uniquely identify gray iron.",
+      "original": {
+        "question": "Which of the following cast irons is a high-carbon-silicon alloy?",
+        "choices": [
+          "Gray iron",
+          "Malleable iron",
+          "White iron",
+          "Alloy iron"
+        ],
+        "answer": 0
+      },
+      "correction": "The original high-carbon-silicon description did not uniquely identify gray iron."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 43,
+      "appQuestionId": "engineering-materials-quiz-043",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which of the following cast irons is heat-treated for ductility?",
+        "choices": [
+          "Malleable iron",
+          "White iron",
+          "Ductile iron",
+          "Gray iron"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 44,
+      "appQuestionId": "engineering-materials-quiz-044",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which cast iron is hard and wear resistant?",
+        "choices": [
+          "White iron",
+          "Malleable iron",
+          "Gray iron",
+          "Ductile iron"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 45,
+      "appQuestionId": "engineering-materials-quiz-045",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is considered as the general purpose oldest type and widely used cast iron?",
+        "choices": [
+          "Gray iron",
+          "Ductile iron",
+          "Alloy iron",
+          "Malleable iron"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 46,
+      "appQuestionId": "engineering-materials-quiz-046",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Iron is said to be abundant in nature. About how many percent of the earth’s crust is iron?",
+        "choices": [
+          "5%",
+          "20%",
+          "8%",
+          "10%"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 47,
+      "appQuestionId": "engineering-materials-quiz-047",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the advantage of quench hardening?",
+        "choices": [
+          "All of the choices",
+          "Improved strength",
+          "Hardness",
+          "Wear characteristics"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 48,
+      "appQuestionId": "engineering-materials-quiz-048",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is the lowest-temperature diffusion-hardening process and does not require a quench?",
+        "choices": [
+          "Nitriding",
+          "Heat-treating",
+          "Carburizing",
+          "Tempering"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 49,
+      "appQuestionId": "engineering-materials-quiz-049",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What field of study encompasses the procurement and production of metals?",
+        "choices": [
+          "Metallurgy",
+          "Geology",
+          "Material Science",
+          "Metalgraphy"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 50,
+      "appQuestionId": "engineering-materials-quiz-050",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What do you call earth and stone missed with the iron oxides?",
+        "choices": [
+          "Gangue",
+          "Ore",
+          "Hematite",
+          "Magnetite"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 51,
+      "appQuestionId": "engineering-materials-quiz-051",
+      "status": "add",
+      "reason": "Coke is produced by carbonization, not ordinary complete combustion.",
+      "original": {
+        "question": "What is a coal that has been previously burned in an oxygen-poor environment?",
+        "choices": [
+          "Coke",
+          "Diamond",
+          "Hematite",
+          "Tuyere"
+        ],
+        "answer": 0
+      },
+      "correction": "Coke is produced by carbonization, not ordinary complete combustion."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 52,
+      "appQuestionId": "engineering-materials-quiz-052",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is the most common alloying ingredient in copper?",
+        "choices": [
+          "Zinc",
+          "Nickle",
+          "Aluminum",
+          "Brass"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 53,
+      "appQuestionId": "engineering-materials-quiz-053",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What refers to the casehardening process by which the carbon content of the steel ear the surface of a part is increased?",
+        "choices": [
+          "Carburizing",
+          "Annealing",
+          "Normalizing",
+          "Martempering"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 54,
+      "appQuestionId": "engineering-materials-quiz-054",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the process of heating a hardened steel to any temperature below the lower critical temperature, followed by any desired rate of cooling?",
+        "choices": [
+          "Tempering",
+          "Normalizing",
+          "Spheroidizing",
+          "Carburizing"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 55,
+      "appQuestionId": "engineering-materials-quiz-055",
+      "status": "add",
+      "reason": "A eutectoid is a solid-state reaction, not simply any mechanical mixture.",
+      "original": {
+        "question": "What is defined as an intimate mechanical mixture of two or more phases having a definite composition and a definite temperature of transformation within the solid state?",
+        "choices": [
+          "Eutectoid",
+          "Austernite",
+          "Delta solid solution",
+          "Pearlite"
+        ],
+        "answer": 0
+      },
+      "correction": "A eutectoid is a solid-state reaction, not simply any mechanical mixture."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 56,
+      "appQuestionId": "engineering-materials-quiz-056",
+      "status": "add",
+      "reason": "“Most undesirable” is not universal; excessive phosphorus promotes embrittlement.",
+      "original": {
+        "question": "What is the most undesirable of all the elements commonly found in steels?",
+        "choices": [
+          "Phosphorus",
+          "Silicon",
+          "Manganese",
+          "Sulfur"
+        ],
+        "answer": 0
+      },
+      "correction": "“Most undesirable” is not universal; excessive phosphorus promotes embrittlement."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 57,
+      "appQuestionId": "engineering-materials-quiz-057",
+      "status": "add",
+      "reason": "Specified nitrogen and a representative range instead of an ambiguous airtight-box description.",
+      "original": {
+        "question": "What is a method of casehardening involving diffusion in which the steel to be casehardened is machined, heat-treated, placed in an air-tight box and heated to about 1000oF?",
+        "choices": [
+          "Nitriding",
+          "Annealing",
+          "Normalizing",
+          "Carburizing"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified nitrogen and a representative range instead of an ambiguous airtight-box description."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 58,
+      "appQuestionId": "engineering-materials-quiz-058",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the ratio of the maximum load in a tension test to the original cross-sectional area of the test bar?",
+        "choices": [
+          "Tensile strength",
+          "Yield strength",
+          "Shear strength",
+          "Flexural Strength"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 59,
+      "appQuestionId": "engineering-materials-quiz-059",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is the ratio of stress to strain in a material loaded within its elastic ranger?",
+        "choices": [
+          "Modulus of elasticity",
+          "Percent elongation",
+          "Poisson’s ratio",
+          "Refractive index"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 60,
+      "appQuestionId": "engineering-materials-quiz-060",
+      "status": "add",
+      "reason": "Young’s modulus measures uniaxial stiffness; modulus of rigidity specifically means shear modulus.",
+      "original": {
+        "question": "What is a measure of rigidity?",
+        "choices": [
+          "Modulus of elasticity",
+          "Stiffness",
+          "Hardness",
+          "Strength"
+        ],
+        "answer": 0
+      },
+      "correction": "Young’s modulus measures uniaxial stiffness; modulus of rigidity specifically means shear modulus."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 61,
+      "appQuestionId": "engineering-materials-quiz-061",
+      "status": "add",
+      "reason": "Percent elongation is a percentage, not the unnormalized increase in length.",
+      "original": {
+        "question": "In tensile testing, the increase in the gage length measured after the specimen fractures, within the gage length is called __",
+        "choices": [
+          "percent elongation",
+          "creep",
+          "elasticity",
+          "elongation"
+        ],
+        "answer": 0
+      },
+      "correction": "Percent elongation is a percentage, not the unnormalized increase in length."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 62,
+      "appQuestionId": "engineering-materials-quiz-062",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What impurity in steel can cause “red shortness”, which means the steel becomes unworkable at high temperature?",
+        "choices": [
+          "Sulfur",
+          "Silicon",
+          "Manganese",
+          "Phosphorus"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 63,
+      "appQuestionId": "engineering-materials-quiz-063",
+      "status": "add",
+      "reason": "Specified flame heating so induction hardening is not also a correct answer.",
+      "original": {
+        "question": "What is a process of producing a hard surface in a steel having a sufficiently high carbon content to respond to hardening by a rapid cooling of the surface?",
+        "choices": [
+          "Flame hardening",
+          "Induction hardening",
+          "Cyaniding",
+          "Nitriding"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified flame heating so induction hardening is not also a correct answer."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 64,
+      "appQuestionId": "engineering-materials-quiz-064",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the common reinforcement for polymer composites?",
+        "choices": [
+          "Glass fiber",
+          "Boron",
+          "Ceramic",
+          "Graphite"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 65,
+      "appQuestionId": "engineering-materials-quiz-065",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is defined as a local corrosion damaged characterized by surface cavities?",
+        "choices": [
+          "Pitting",
+          "Cavitation",
+          "Erosion",
+          "Cracking"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 66,
+      "appQuestionId": "engineering-materials-quiz-066",
+      "status": "add",
+      "reason": "Dezincification is a particular form of dealloying.",
+      "original": {
+        "question": "What refers to the removal of zinc from brasses?",
+        "choices": [
+          "Dezincification",
+          "Graphitization",
+          "Stabilization",
+          "Dealloying"
+        ],
+        "answer": 0
+      },
+      "correction": "Dezincification is a particular form of dealloying."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 67,
+      "appQuestionId": "engineering-materials-quiz-067",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is the scaling off of a surface in flakes or layers as the result of corrosion?",
+        "choices": [
+          "Expoliation",
+          "Corrosion fatigue",
+          "Scaping",
+          "Fretting"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 68,
+      "appQuestionId": "engineering-materials-quiz-068",
+      "status": "add",
+      "reason": "Carbon is a minor constituent, not necessarily a major alloying addition.",
+      "original": {
+        "question": "What are the four major alloying elements of austenitic stainless steels?",
+        "choices": [
+          "Iron, chromium, carbon and nickel",
+          "Iron, chromium, zinc and nickel",
+          "Iron, chromium, carbon and zinc",
+          "Iron, chromium, carbon and copper"
+        ],
+        "answer": 0
+      },
+      "correction": "Carbon is a minor constituent, not necessarily a major alloying addition."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 69,
+      "appQuestionId": "engineering-materials-quiz-069",
+      "status": "add",
+      "reason": "Removed overlapping “molding” and “all” alternatives.",
+      "original": {
+        "question": "What refers to a shape achieved by allowing a liquid to solidify in a mold?",
+        "choices": [
+          "Casting",
+          "Molding",
+          "Forming",
+          "All of the choices"
+        ],
+        "answer": 0
+      },
+      "correction": "Removed overlapping “molding” and “all” alternatives."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 70,
+      "appQuestionId": "engineering-materials-quiz-070",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What cast iron has modular or spheroidal graphite?",
+        "choices": [
+          "Ductile iron",
+          "Wrought iron",
+          "Gray iron",
+          "White iron"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 71,
+      "appQuestionId": "engineering-materials-quiz-071",
+      "status": "add",
+      "reason": "The historical expansion is American Society for Testing and Materials.",
+      "original": {
+        "question": "What does ASTM stands for?",
+        "choices": [
+          "American Society for Testing and Materials",
+          "Asian Society for Testing and Materials",
+          "Allied Society for Testing and Materials",
+          "Association of Steel Testing and Materials"
+        ],
+        "answer": 0
+      },
+      "correction": "The historical expansion is American Society for Testing and Materials."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 72,
+      "appQuestionId": "engineering-materials-quiz-072",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The wear-resistance of this material is attributed to its ability to _______, that is, the hardness is increased greatly when the steel is cold worked.",
+        "choices": [
+          "strain harden",
+          "cold harden",
+          "stress harden",
+          "cool-temperature"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 73,
+      "appQuestionId": "engineering-materials-quiz-073",
+      "status": "add",
+      "reason": "Distinguished case hardening from the broader term surface hardening.",
+      "original": {
+        "question": "What refers to the application of any process whereby the surface of steel is altered so that it will become hard?",
+        "choices": [
+          "Casehardening",
+          "Annealing",
+          "Surfacehardening",
+          "Caburizing"
+        ],
+        "answer": 0
+      },
+      "correction": "Distinguished case hardening from the broader term surface hardening."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 74,
+      "appQuestionId": "engineering-materials-quiz-074",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What refers to the ability of steel to be hardened through to its center in large section?",
+        "choices": [
+          "Hardenability",
+          "Spheroidability",
+          "Rigidity",
+          "Malleability"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 75,
+      "appQuestionId": "engineering-materials-quiz-075",
+      "status": "add",
+      "reason": "Specified the upper transformation region; “down to the knee” alone is ambiguous.",
+      "original": {
+        "question": "What structure is formed when transformation occurs at temperatures down to the knee of the curve?",
+        "choices": [
+          "Pearlite",
+          "Bainite",
+          "Austenite",
+          "Martensite"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified the upper transformation region; “down to the knee” alone is ambiguous."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 76,
+      "appQuestionId": "engineering-materials-quiz-076",
+      "status": "add",
+      "reason": "The Curie transition does not change alpha iron’s BCC crystal structure.",
+      "original": {
+        "question": "What allotropic form of iron refers to iron that has a temperature range of room temperature to 1670°F?",
+        "choices": [
+          "Alpha iron",
+          "Beta iron",
+          "Gamma iron",
+          "Delta iron"
+        ],
+        "answer": 0
+      },
+      "correction": "The Curie transition does not change alpha iron’s BCC crystal structure."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 77,
+      "appQuestionId": "engineering-materials-quiz-077",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the chief ore of tin?",
+        "choices": [
+          "Cassiterite",
+          "Bauxite",
+          "Ilmanite",
+          "Galena"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 78,
+      "appQuestionId": "engineering-materials-quiz-078",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the chief ore of zinc?",
+        "choices": [
+          "Sphalerite",
+          "Ilmanite",
+          "Cassiterite",
+          "Bauxite"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 79,
+      "appQuestionId": "engineering-materials-quiz-079",
+      "status": "add",
+      "reason": "Corrected ilmenite spelling; rutile is also an important titanium ore.",
+      "original": {
+        "question": "What is the chief ore of titanium?",
+        "choices": [
+          "Ilmanite",
+          "Bauxite",
+          "Cassiterite",
+          "Sphalerite"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected ilmenite spelling; rutile is also an important titanium ore."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 80,
+      "appQuestionId": "engineering-materials-quiz-080",
+      "status": "add",
+      "reason": "Bauxite can contain several aluminum hydroxide minerals.",
+      "original": {
+        "question": "What is the mixture of gibbsite and diaspore, of which aluminum is derived?",
+        "choices": [
+          "Bauxite",
+          "Rutile",
+          "Galera",
+          "Sphalerite"
+        ],
+        "answer": 0
+      },
+      "correction": "Bauxite can contain several aluminum hydroxide minerals."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 81,
+      "appQuestionId": "engineering-materials-quiz-081",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The term “brass” is very commonly used to designate any alloy primarily of:",
+        "choices": [
+          "copper and zinc",
+          "aluminum and iron",
+          "copper and aluminum",
+          "zinc and nickel"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 82,
+      "appQuestionId": "engineering-materials-quiz-082",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is the most abundant metal in nature?",
+        "choices": [
+          "Aluminum",
+          "Steel",
+          "Iron",
+          "Copper"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 83,
+      "appQuestionId": "engineering-materials-quiz-083",
+      "status": "add",
+      "reason": "Tempering produces tempered martensite with carbide precipitation, not ordinary lamellar pearlite.",
+      "original": {
+        "question": "What steel relief process is used with hypocutectoid steels to change martenite into pearlite?",
+        "choices": [
+          "Tempering",
+          "Normalizing",
+          "Annealing",
+          "Spheroidizing"
+        ],
+        "answer": 0
+      },
+      "correction": "Tempering produces tempered martensite with carbide precipitation, not ordinary lamellar pearlite."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 84,
+      "appQuestionId": "engineering-materials-quiz-084",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "What is another term for tempering?",
+        "choices": [
+          "Drawing or toughening",
+          "Recrystalization",
+          "Annealing",
+          "Spheroidizing"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 85,
+      "appQuestionId": "engineering-materials-quiz-085",
+      "status": "add",
+      "reason": "Corrected the key to annealing. Nitriding, carburizing and flame hardening are surface-hardening treatments.",
+      "original": {
+        "question": "All are steel surface hardening processes except one. Which one?",
+        "choices": [
+          "Nitriding",
+          "Annealing",
+          "Carburizing",
+          "Flame hardening"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected the key to annealing. Nitriding, carburizing and flame hardening are surface-hardening treatments."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 86,
+      "appQuestionId": "engineering-materials-quiz-086",
+      "status": "add",
+      "reason": "Replaced the unsupported generator-collector application with an unambiguous alloy-composition distinction.",
+      "original": {
+        "question": "What type of copper alloy is used as collectors for electric generator?",
+        "choices": [
+          "Tin Bronze",
+          "Phosphor bronze",
+          "yellow brass",
+          "Beryllium copper"
+        ],
+        "answer": 0
+      },
+      "correction": "Replaced the unsupported generator-collector application with an unambiguous alloy-composition distinction."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 87,
+      "appQuestionId": "engineering-materials-quiz-087",
+      "status": "add",
+      "reason": "Removed overlapping “polymer/plastic” and unsupported superlative “most widely used”.",
+      "original": {
+        "question": "What is the most widely used dielectric material in the electrical and electronics industry?",
+        "choices": [
+          "Plastic",
+          "Rubber",
+          "All of the above",
+          "Polymer"
+        ],
+        "answer": 0
+      },
+      "correction": "Removed overlapping “polymer/plastic” and unsupported superlative “most widely used”."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 88,
+      "appQuestionId": "engineering-materials-quiz-088",
+      "status": "add",
+      "reason": "The original options contained several valid insulators; specified paper insulation.",
+      "original": {
+        "question": "What is the widely used electrical insulator?",
+        "choices": [
+          "Paper",
+          "Plastic",
+          "Polymer",
+          "Epoxy"
+        ],
+        "answer": 0
+      },
+      "correction": "The original options contained several valid insulators; specified paper insulation."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 89,
+      "appQuestionId": "engineering-materials-quiz-089",
+      "status": "add",
+      "reason": "Specified soft iron and DC; removed the overlapping generic steel alternative.",
+      "original": {
+        "question": "Which material is used for de application such as electromagnetic cores and relays?",
+        "choices": [
+          "Iron",
+          "Copper",
+          "Steel",
+          "Aluminum"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified soft iron and DC; removed the overlapping generic steel alternative."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 90,
+      "appQuestionId": "engineering-materials-quiz-090",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which of the following is known as “electrical steel”?",
+        "choices": [
+          "Silicon steel",
+          "Stainless steel",
+          "Carbon steel",
+          "Cast Steel"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 91,
+      "appQuestionId": "engineering-materials-quiz-091",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What element is added to copper to increase its strength and fatigue properties?",
+        "choices": [
+          "Beryllium",
+          "Zinc",
+          "Silicon",
+          "Aluminum"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 92,
+      "appQuestionId": "engineering-materials-quiz-092",
+      "status": "add",
+      "reason": "Lead improves machinability; it does not make copper extremely hard.",
+      "original": {
+        "question": "What element is added to copper to make it extremely hard?",
+        "choices": [
+          "Lead",
+          "Silicon",
+          "Aluminum",
+          "Zinc"
+        ],
+        "answer": 0
+      },
+      "correction": "Lead improves machinability; it does not make copper extremely hard."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 93,
+      "appQuestionId": "engineering-materials-quiz-093",
+      "status": "add",
+      "reason": "Copper is the major component; tin is an alloying addition.",
+      "original": {
+        "question": "What element constitutes the major component of most bronzes?",
+        "choices": [
+          "Tin",
+          "Lead",
+          "Aluminum",
+          "Zinc"
+        ],
+        "answer": 0
+      },
+      "correction": "Copper is the major component; tin is an alloying addition."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 94,
+      "appQuestionId": "engineering-materials-quiz-052",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "original": {
+        "question": "What is the most common alloying ingredient in copper?",
+        "choices": [
+          "Zinc",
+          "Aluminum",
+          "Tin",
+          "Lead"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 95,
+      "appQuestionId": "engineering-materials-quiz-095",
+      "status": "add",
+      "reason": "Corrected malleability to ductility: wire drawing involves tensile plastic deformation.",
+      "original": {
+        "question": "The property of metals that allows them to be drawn into thin wires beyond their elastic limit without being ruptured is called",
+        "choices": [
+          "malleability",
+          "elasticity",
+          "hardness",
+          "ductility"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected malleability to ductility: wire drawing involves tensile plastic deformation."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 96,
+      "appQuestionId": "engineering-materials-quiz-096",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Interaction between the surface of two closely adjacent bodies which causes them to cling together is known as",
+        "choices": [
+          "Adhesion",
+          "Viscosity",
+          "Friction",
+          "Cohesion"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 97,
+      "appQuestionId": "engineering-materials-quiz-097",
+      "status": "add",
+      "reason": "Conductance is I/V in siemens; material conductivity is a different quantity.",
+      "original": {
+        "question": "The property which permits the flow of current under the action of a potential difference is called",
+        "choices": [
+          "Conductance",
+          "Resistance",
+          "Permeance",
+          "Impedence"
+        ],
+        "answer": 0
+      },
+      "correction": "Conductance is I/V in siemens; material conductivity is a different quantity."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 98,
+      "appQuestionId": "engineering-materials-quiz-098",
+      "status": "add",
+      "reason": "Replaced obscure synonyms with distinct distractors.",
+      "original": {
+        "question": "The property of fluids by virtue of which they offer resistance to flow is known as",
+        "choices": [
+          "Viscosity",
+          "Gummosity",
+          "Glutinosity",
+          "Viscidity"
+        ],
+        "answer": 0
+      },
+      "correction": "Replaced obscure synonyms with distinct distractors."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 99,
+      "appQuestionId": "engineering-materials-quiz-099",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The tendency of a body to return to its original size or shape after having been deformed is called",
+        "choices": [
+          "Elasticity",
+          "Elastivity",
+          "Anelastivity",
+          "Elastance"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 100,
+      "appQuestionId": "engineering-materials-quiz-100",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The emission of light by a material because of its high temperature is known as",
+        "choices": [
+          "Incandescence",
+          "Luminescence",
+          "Scintillation",
+          "Phosphorescence"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 101,
+      "appQuestionId": "engineering-materials-quiz-101",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The property by virtue of which a body resists any attempt to change its state of rest or motion is called",
+        "choices": [
+          "Inertia",
+          "Torpidity",
+          "Passivity",
+          "Inactivity"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 102,
+      "appQuestionId": "engineering-materials-quiz-102",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "If the properties of a body are the same in all directions, it is called",
+        "choices": [
+          "Isotropic",
+          "Isogonic",
+          "Isotopic",
+          "Isodynamic"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 103,
+      "appQuestionId": "engineering-materials-quiz-103",
+      "status": "add",
+      "reason": "The original fracture-pressure stem did not define yield stress and duplicated yield-strength options.",
+      "original": {
+        "question": "The pressure which a substances is capable of supporting without fracturing",
+        "choices": [
+          "Yield Stress",
+          "Shear Modulus",
+          "Shear Stress",
+          "Yield Strength"
+        ],
+        "answer": 0
+      },
+      "correction": "The original fracture-pressure stem did not define yield stress and duplicated yield-strength options."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 104,
+      "appQuestionId": "engineering-materials-quiz-104",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The dimensionless parameter describing deformation",
+        "choices": [
+          "Strain",
+          "Stress",
+          "Energy",
+          "Work"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 105,
+      "appQuestionId": "engineering-materials-quiz-105",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "The general law of mechanics that stress is directly proportional to strain",
+        "choices": [
+          "Hooke’s Law",
+          "Mean Speed Theorem",
+          "Poisson Ratio",
+          "Charles’ Theorem"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 106,
+      "appQuestionId": "engineering-materials-quiz-106",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the absolute value of the ratio of the transverse strain to the corresponding axial strain in a body subjected to uniaxial stress?",
+        "choices": [
+          "Poisson’s Ratio",
+          "Euler’s Ratio",
+          "Refractive index",
+          "Dielectric index"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 107,
+      "appQuestionId": "engineering-materials-quiz-107",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What refers to the heat needed to change the temperature of the substances without changing its phases?",
+        "choices": [
+          "Sensible heat",
+          "Specific heat",
+          "entropy",
+          "Latent heat"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 108,
+      "appQuestionId": "engineering-materials-quiz-108",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What property of an element is determined by the number of protons in its nucleus?",
+        "choices": [
+          "Atomic number",
+          "Isotopes",
+          "Atomic Mass unit",
+          "Atomic weight"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 109,
+      "appQuestionId": "engineering-materials-quiz-109",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What refers to a metal combined with one or more other elements?",
+        "choices": [
+          "Alloy",
+          "Molecule",
+          "Mixture",
+          "Compound"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 110,
+      "appQuestionId": "engineering-materials-quiz-110",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Emission of radiations from a substance during illumination by radiations of higher frequency is called",
+        "choices": [
+          "fluorescence",
+          "radioluminescence",
+          "incandescence",
+          "illuminance"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 111,
+      "appQuestionId": "engineering-materials-quiz-060",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "original": {
+        "question": "What is measure of rigidity?",
+        "choices": [
+          "Modulus of elasticity",
+          "Stiffness",
+          "Hardness",
+          "Strength"
+        ],
+        "answer": 0
+      },
+      "correction": "Same clarified concept as quiz item 60; merged during deduplication."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 112,
+      "appQuestionId": "engineering-materials-quiz-112",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Property of some pure metals and their alloys at extremely low temperatures of having negligible to the flow of an electric current is called",
+        "choices": [
+          "superconductivity",
+          "supercharging",
+          "supercooling",
+          "superfluidity"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 113,
+      "appQuestionId": "engineering-materials-quiz-113",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The progressive decrease of a property as a result of repeated stress is called",
+        "choices": [
+          "fatigue",
+          "debility",
+          "rigidity",
+          "elastic deformation"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 114,
+      "appQuestionId": "engineering-materials-quiz-114",
+      "status": "add",
+      "reason": "Removed brass (an alloy) and neon (a gas) as misleading alternatives.",
+      "original": {
+        "question": "he element that is practically insoluble in solid copper is known as",
+        "choices": [
+          "Lead",
+          "Brass",
+          "Boron",
+          "Neon"
+        ],
+        "answer": 0
+      },
+      "correction": "Removed brass (an alloy) and neon (a gas) as misleading alternatives."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 115,
+      "appQuestionId": "engineering-materials-quiz-115",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "The purpose of copper in steel alloying is top increase",
+        "choices": [
+          "Atmosphere corrosion resistance",
+          "Hardness and strength",
+          "Corrosion resistance",
+          "Deoxidation"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 116,
+      "appQuestionId": "engineering-materials-quiz-116",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "When exposed to the atmosphere, which of the following liquids is coldest?",
+        "choices": [
+          "helium",
+          "Oxygen",
+          "nitrogen",
+          "hydrogen"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 117,
+      "appQuestionId": "engineering-materials-quiz-117",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "The element that was discovered between calcium and titanium is ___",
+        "choices": [
+          "Scandium",
+          "Molybdenum",
+          "Potassium",
+          "Silicon"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 118,
+      "appQuestionId": "engineering-materials-quiz-118",
+      "status": "add",
+      "reason": "Specified a named process instead of asserting an absolute “best method”.",
+      "original": {
+        "question": "The best method use to refine gold metal is",
+        "choices": [
+          "Electrolysis",
+          "Bessemerization",
+          "Oxidation",
+          "Distillation"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified a named process instead of asserting an absolute “best method”."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 119,
+      "appQuestionId": "engineering-materials-quiz-119",
+      "status": "add",
+      "reason": "Corrected elastic limit to proportional limit; elastic behavior need not always be linear.",
+      "original": {
+        "question": "The Hooke’s law hold good within",
+        "choices": [
+          "elastic limit",
+          "plastic limit",
+          "Euler’s limit",
+          "Yield point"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected elastic limit to proportional limit; elastic behavior need not always be linear."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 120,
+      "appQuestionId": "engineering-materials-quiz-120",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The ore from which iron is obtained is",
+        "choices": [
+          "taconite",
+          "chalcocite",
+          "Sphalerite",
+          "bauxite"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 121,
+      "appQuestionId": "engineering-materials-quiz-121",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Aluminum can be added to the steel to produce",
+        "choices": [
+          "killed steel",
+          "dead steel",
+          "live steel",
+          "first steel"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 122,
+      "appQuestionId": "engineering-materials-quiz-122",
+      "status": "add",
+      "reason": "Lead is ductile. Replaced the incorrect keyed option with brittle bismuth.",
+      "original": {
+        "question": "Which of the following is not a ductile metal?",
+        "choices": [
+          "Lead",
+          "Aluminum",
+          "Copper",
+          "Mild steel"
+        ],
+        "answer": 0
+      },
+      "correction": "Lead is ductile. Replaced the incorrect keyed option with brittle bismuth."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 123,
+      "appQuestionId": "engineering-materials-quiz-123",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The most abundant element in the universe is",
+        "choices": [
+          "H",
+          "O",
+          "He",
+          "C"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 124,
+      "appQuestionId": "engineering-materials-quiz-124",
+      "status": "add",
+      "reason": "Specified graphite; the electrical properties of carbon depend on its allotrope.",
+      "original": {
+        "question": "Which of the following is the poorest conductor of electricity?",
+        "choices": [
+          "Carbon",
+          "Silver",
+          "Steel",
+          "Aluminum"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified graphite; the electrical properties of carbon depend on its allotrope."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 125,
+      "appQuestionId": "engineering-materials-quiz-125",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Under very slow deformation and at high temperature, it is possible to have some plastic flow in a crystal at shear stress lower than the critical shear stress. What is this phenomenon called?",
+        "choices": [
+          "creep",
+          "bending",
+          "Ship",
+          "twinning"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 126,
+      "appQuestionId": "engineering-materials-quiz-126",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Which element is present in all organic compounds?",
+        "choices": [
+          "carbon",
+          "nitrogen",
+          "phosphorous",
+          "Oxygen"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 127,
+      "appQuestionId": "engineering-materials-quiz-127",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "The phenomenon of melting under pressure and freezing again when the pressure is reduced is known as",
+        "choices": [
+          "regelation",
+          "Sublimation",
+          "condensation",
+          "depiction"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 128,
+      "appQuestionId": "engineering-materials-quiz-128",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "In Galvanized iron, a lining on iron is provided with",
+        "choices": [
+          "Zn",
+          "Cu",
+          "Al",
+          "Sn"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 129,
+      "appQuestionId": "engineering-materials-quiz-129",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What are elements that have properties intermediate between metals and non-metals?",
+        "choices": [
+          "Metalloids",
+          "Liquids",
+          "Gases",
+          "Solids"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 130,
+      "appQuestionId": "engineering-materials-quiz-130",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The ability of the surface of material to reflect light is called",
+        "choices": [
+          "lustre",
+          "ductility",
+          "Creep",
+          "malleability"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 131,
+      "appQuestionId": "engineering-materials-quiz-131",
+      "status": "add",
+      "reason": "Specified manual kneading; pugging refers to machine mixing in a pugmill.",
+      "original": {
+        "question": "The process of mixing clay, water and other ingredients to make brick is known as",
+        "choices": [
+          "kneading",
+          "moulding",
+          "pugging",
+          "drying"
+        ],
+        "answer": 0
+      },
+      "correction": "Specified manual kneading; pugging refers to machine mixing in a pugmill."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 132,
+      "appQuestionId": "engineering-materials-quiz-132",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Which element is the best conductor of electricity?",
+        "choices": [
+          "silver",
+          "copper",
+          "aluminum",
+          "Gold"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 133,
+      "appQuestionId": "engineering-materials-quiz-133",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Which these statements is TRUE for twinning?",
+        "choices": [
+          "It frequently occurs in hexagonal closed pack structures.",
+          "It is the most significant form plastic deformation",
+          "It cannot be cause by impact of thermalstructures.",
+          "It occurs at lower shear stresses than slip."
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 134,
+      "appQuestionId": "engineering-materials-quiz-134",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What refers to ions that are NOT involved in the overall reactions?",
+        "choices": [
+          "Spectator ions",
+          "Extra ion",
+          "Special ions",
+          "Guest ions"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 135,
+      "appQuestionId": "engineering-materials-quiz-135",
+      "status": "add",
+      "reason": "Glass and aluminum moduli can overlap; provided explicit values for a unique comparison.",
+      "original": {
+        "question": "Which of the following material has the least modulus elasticity?",
+        "choices": [
+          "Glass",
+          "Aluminum",
+          "Copper",
+          "Steel"
+        ],
+        "answer": 0
+      },
+      "correction": "Glass and aluminum moduli can overlap; provided explicit values for a unique comparison."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 136,
+      "appQuestionId": "engineering-materials-quiz-136",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "Materials in this group are composed of one or more metallic elements such as iron, aluminum, copper, titanium, gold, and nickel. What is this group called?",
+        "choices": [
+          "Metals",
+          "Metalloid",
+          "Solids",
+          "Crystals"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 137,
+      "appQuestionId": "engineering-materials-quiz-137",
+      "status": "add",
+      "reason": "Corrected “luminated” to luminous.",
+      "original": {
+        "question": "Objects that emit their own light are called _____ bodies",
+        "choices": [
+          "Luminated",
+          "Photovoltaic",
+          "Illuminated",
+          "Solar"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected “luminated” to luminous."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 138,
+      "appQuestionId": "engineering-materials-quiz-138",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "In the periodic table of elements, which ONE of the following is light metal?",
+        "choices": [
+          "Potassium",
+          "Mercury",
+          "Silver",
+          "Gold"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 139,
+      "appQuestionId": "engineering-materials-quiz-139",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Heat can be transferred by conduction through",
+        "choices": [
+          "all of these",
+          "Solids only",
+          "liquids only",
+          "gases only"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 140,
+      "appQuestionId": "engineering-materials-quiz-140",
+      "status": "add",
+      "reason": "Clarified wording and corrected the source.",
+      "original": {
+        "question": "Which is also called stranger gas?",
+        "choices": [
+          "Xenon",
+          "eon",
+          "Argon",
+          "Nitrous oxide"
+        ],
+        "answer": 0
+      },
+      "correction": "Clarified wording and corrected the source."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 141,
+      "appQuestionId": "engineering-materials-quiz-141",
+      "status": "add",
+      "reason": "Corrected the truncated answer “iamond”.",
+      "original": {
+        "question": "The hardest form of carbon is",
+        "choices": [
+          "iamond",
+          "Charcoal",
+          "graphite",
+          "Coke"
+        ],
+        "answer": 0
+      },
+      "correction": "Corrected the truncated answer “iamond”."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 142,
+      "appQuestionId": "engineering-materials-quiz-142",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The deformation of a bar per unit length in the direction of force is known as",
+        "choices": [
+          "Linear strain",
+          "lateral strain",
+          "shear strain",
+          "volumetric strain"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 143,
+      "appQuestionId": "engineering-materials-quiz-143",
+      "status": "add",
+      "reason": "Replaced an unqualified hardness ranking with the established role of silicon.",
+      "original": {
+        "question": "The most effective alloying ingredient in increasing hardness is known as",
+        "choices": [
+          "Silicon",
+          "Sodium",
+          "Silver",
+          "Boron"
+        ],
+        "answer": 0
+      },
+      "correction": "Replaced an unqualified hardness ranking with the established role of silicon."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 144,
+      "appQuestionId": "engineering-materials-quiz-144",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The simplest and most common grades of steel belong to the group of",
+        "choices": [
+          "Carbon steels",
+          "krypton steels",
+          "neon steels",
+          "Boron steels"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 145,
+      "appQuestionId": "engineering-materials-quiz-145",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is the process of putting back the lost electrons to convert ion back to a metal?",
+        "choices": [
+          "Reduction",
+          "Ionization",
+          "Oxidation",
+          "Corrosion"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 146,
+      "appQuestionId": "engineering-materials-quiz-146",
+      "status": "add",
+      "reason": "Metalloids as a whole do not all have valence four.",
+      "original": {
+        "question": "Metalloids have a valence of __",
+        "choices": [
+          "4",
+          "3",
+          "5",
+          "Unity"
+        ],
+        "answer": 0
+      },
+      "correction": "Metalloids as a whole do not all have valence four."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 147,
+      "appQuestionId": "engineering-materials-quiz-147",
+      "status": "add",
+      "reason": "CuO is black; copper exposed to air can show brown oxides or a later green patina, so exposure alone is not a unique color condition.",
+      "original": {
+        "question": "Copper when exposed to ordinary atmosphere becomes oxidized turning it into what color?",
+        "choices": [
+          "Black",
+          "Brown",
+          "Light gray",
+          "Light orange"
+        ],
+        "answer": 0
+      },
+      "correction": "CuO is black; copper exposed to air can show brown oxides or a later green patina, so exposure alone is not a unique color condition."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 148,
+      "appQuestionId": "engineering-materials-quiz-148",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "The most malleable metal is",
+        "choices": [
+          "Gold",
+          "Platinum",
+          "Silver",
+          "Iron"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 149,
+      "appQuestionId": "engineering-materials-quiz-149",
+      "status": "add",
+      "reason": "Avoided the uncertain claim that one metal was universally the first used by humans.",
+      "original": {
+        "question": "The first metal used by man was",
+        "choices": [
+          "Copper",
+          "Gold",
+          "Bronze",
+          "Iron"
+        ],
+        "answer": 0
+      },
+      "correction": "Avoided the uncertain claim that one metal was universally the first used by humans."
+    },
+    {
+      "source": "quiz",
+      "sourceQuestionNumber": 150,
+      "appQuestionId": "engineering-materials-quiz-150",
+      "status": "add",
+      "reason": "Spelling/spacing normalized where necessary; source concept retained.",
+      "original": {
+        "question": "What is another term for modulus of elasticity?",
+        "choices": [
+          "Young’s modulus",
+          "Bulk modulus",
+          "Shear strain",
+          "constant of elongation"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 1,
+      "appQuestionId": "engineering-materials-discussion-001",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 2
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 2,
+      "appQuestionId": "engineering-materials-discussion-002",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 2
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 3,
+      "appQuestionId": "engineering-materials-discussion-003",
+      "status": "add",
+      "reason": "Replaced the oversimplified density/conductivity option with an established cold-work effect.",
+      "sourcePage": 2
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 4,
+      "appQuestionId": "engineering-materials-discussion-004",
+      "status": "add",
+      "reason": "Clarified hot-working conditions and avoided unconditional density claims.",
+      "sourcePage": 2
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 5,
+      "appQuestionId": "engineering-materials-discussion-005",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 6,
+      "appQuestionId": "engineering-materials-quiz-133",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 7,
+      "appQuestionId": "engineering-materials-discussion-007",
+      "status": "add",
+      "reason": "Replaced an overlapping generic corrosion-resistance alternative.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 8,
+      "appQuestionId": "engineering-materials-discussion-008",
+      "status": "add",
+      "reason": "The original FALSE question had multiple defensible false answers; rewritten to one correct statement.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 9,
+      "appQuestionId": "engineering-materials-discussion-009",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 10,
+      "appQuestionId": "engineering-materials-discussion-010",
+      "status": "add",
+      "reason": "Removed overlapping materials-science alternative.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 11,
+      "appQuestionId": "engineering-materials-discussion-011",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 12,
+      "appQuestionId": "engineering-materials-discussion-012",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 13,
+      "appQuestionId": "engineering-materials-discussion-013",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 14,
+      "appQuestionId": "engineering-materials-discussion-014",
+      "status": "add",
+      "reason": "Corrected the source description of coke as coal simply burned in little oxygen.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 15,
+      "appQuestionId": "engineering-materials-quiz-052",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 16,
+      "appQuestionId": "engineering-materials-discussion-016",
+      "status": "add",
+      "reason": "Corrected the false definition in the source.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 17,
+      "appQuestionId": "engineering-materials-discussion-017",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 18,
+      "appQuestionId": "engineering-materials-discussion-018",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 19,
+      "appQuestionId": "engineering-materials-discussion-019",
+      "status": "add",
+      "reason": "Changed “purpose” to a harmful effect; iron sulfide is not deliberately added to improve steel.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 20,
+      "appQuestionId": "engineering-materials-discussion-020",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 21,
+      "appQuestionId": "engineering-materials-discussion-021",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 22,
+      "appQuestionId": "engineering-materials-discussion-022",
+      "status": "add",
+      "reason": "Specified a general class comparison; individual materials can differ.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 23,
+      "appQuestionId": "engineering-materials-discussion-023",
+      "status": "add",
+      "reason": "Used “can” and distinguished creep from instantaneous yielding.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 24,
+      "appQuestionId": "engineering-materials-discussion-024",
+      "status": "add",
+      "reason": "Replaced the ambiguous claim “unstable in pure form”.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 25,
+      "appQuestionId": "engineering-materials-discussion-025",
+      "status": "add",
+      "reason": "Corrected “can no longer be magnetized” to loss of ferromagnetism.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 26,
+      "appQuestionId": "engineering-materials-discussion-026",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 27,
+      "appQuestionId": "engineering-materials-discussion-027",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 28,
+      "appQuestionId": "engineering-materials-discussion-028",
+      "status": "add",
+      "reason": "Removed non-element brass and gaseous neon from the alternatives.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 29,
+      "appQuestionId": "engineering-materials-discussion-029",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 30,
+      "appQuestionId": "engineering-materials-discussion-030",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 31,
+      "appQuestionId": "engineering-materials-discussion-031",
+      "status": "add",
+      "reason": "Removed broader dealloying as an overlapping option.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 32,
+      "appQuestionId": "engineering-materials-discussion-032",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 33,
+      "appQuestionId": "engineering-materials-discussion-033",
+      "status": "add",
+      "reason": "Specified the distinction from oxidative roasting.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 34,
+      "appQuestionId": "engineering-materials-discussion-012",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 35,
+      "appQuestionId": "engineering-materials-discussion-035",
+      "status": "add",
+      "reason": "Removed the undated and changing claim about the world’s chief energy source.",
+      "sourcePage": 3
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 36,
+      "appQuestionId": "engineering-materials-discussion-036",
+      "status": "add",
+      "reason": "Replaced a dimensionless ratio-to-water definition with standard specific heat capacity.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 37,
+      "appQuestionId": "engineering-materials-discussion-037",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 38,
+      "appQuestionId": "engineering-materials-discussion-038",
+      "status": "add",
+      "reason": "Specified non-roasting thermal decomposition.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 39,
+      "appQuestionId": "engineering-materials-discussion-039",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 40,
+      "appQuestionId": "engineering-materials-quiz-059",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 41,
+      "appQuestionId": "engineering-materials-discussion-041",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 42,
+      "appQuestionId": "engineering-materials-discussion-042",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 43,
+      "appQuestionId": "engineering-materials-discussion-043",
+      "status": "add",
+      "reason": "Used a historical application and a distinct distractor rather than the broad ceramic class.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 44,
+      "appQuestionId": "engineering-materials-discussion-044",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 45,
+      "appQuestionId": "engineering-materials-discussion-045",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 46,
+      "appQuestionId": "engineering-materials-discussion-046",
+      "status": "add",
+      "reason": "Hardenability is distinct from maximum hardness; corrected the source’s vague hardness ranking.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 47,
+      "appQuestionId": "engineering-materials-discussion-011",
+      "status": "duplicate",
+      "reason": "Same normalized reviewed stem and answer as an earlier imported item.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 48,
+      "appQuestionId": "engineering-materials-discussion-048",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 49,
+      "appQuestionId": "engineering-materials-discussion-049",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    },
+    {
+      "source": "discussion",
+      "sourceQuestionNumber": 50,
+      "appQuestionId": "engineering-materials-discussion-050",
+      "status": "add",
+      "reason": "Transcribed from the Engineering Materials section; wording/spelling normalized.",
+      "sourcePage": 4
+    }
+  ],
+  "references": [
+    {
+      "title": "Copper Development Association: Copper and copper alloys",
+      "url": "https://copper.org/publications/pub_list/pdf/a1050.pdf"
+    },
+    {
+      "title": "TWI: heat treatment",
+      "url": "https://www.twi-global.com/what-we-do/services-and-support/manufacturing-production-support/heat-treatment"
+    },
+    {
+      "title": "TWI: microstructural constituents",
+      "url": "https://www.twi-global.com/technical-knowledge/faqs/faq-what-are-the-microstructural-constituents-austenite-martensite-bainite-pearlite-and-ferrite"
+    },
+    {
+      "title": "ASTM: former name",
+      "url": "https://www.astm.org/v3/assets/blt5eb0a2cb04534832/blt7eb5f09b5bd5ea84/67b2e77be3c89c5cfd55a414/Consumer_Guide.pdf"
+    },
+    {
+      "title": "Royal Society of Chemistry: bismuth",
+      "url": "https://periodic-table.rsc.org/element/83/bismuth"
+    }
+  ]
+}

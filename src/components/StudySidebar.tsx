@@ -51,6 +51,7 @@ const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
   'Mechanics 1',
   'Mechanics 2',
   'Strength of Materials',
+  'Engineering Materials',
   'Fluid Mechanics',
   'Thermodynamics',
   'EE Laws',
@@ -702,3 +703,4 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
     </>
   );
 };
+

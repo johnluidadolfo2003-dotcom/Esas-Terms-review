@@ -7,6 +7,7 @@ export type SubjectCategory =
   | 'Mechanics 1'
   | 'Mechanics 2'
   | 'Strength of Materials'
+  | 'Engineering Materials'
   | 'Fluid Mechanics'
   | 'Thermodynamics'
   | 'EE Laws'
@@ -30,6 +31,7 @@ export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
   'Mechanics 1',
   'Mechanics 2',
   'Strength of Materials',
+  'Engineering Materials',
   'Fluid Mechanics',
   'Thermodynamics',
   'EE Laws',
@@ -72,6 +74,15 @@ export interface FlashcardQuestion {
  */
 export function detectSubject(text: string, fileName: string): SubjectCategory {
   const combined = `${fileName} ${text}`.toLowerCase();
+
+  // Explicit Materials titles take precedence over shared words such as
+  // stress, heat and conductivity used by the broader ESAS classifiers.
+  if (
+    /\bengineering[\s_-]+materials\b/i.test(fileName) ||
+    /^\s*(?:#+\s*|subject:\s*)?engineering[\s_-]+materials\s*$/i.test(text)
+  ) {
+    return 'Engineering Materials';
+  }
 
   if (
     combined.includes('1001 terms part 3') ||
@@ -499,7 +510,7 @@ export function parseQuestionsFromText(
   let activeSectionSubject = defaultSubject;
 
   // Patterns
-  const subjectSectionRegex = /^(?:#+\s*|={3,}\s*|subject:\s*)(economics|mechanics\s*1|mechanics\s*2|ee\s*laws|project\s*management|communication)/i;
+  const subjectSectionRegex = /^(?:#+\s*|={3,}\s*|subject:\s*)(engineering[\s_-]+materials|economics|mechanics\s*1|mechanics\s*2|ee\s*laws|project\s*management|communication)/i;
   const questionStartRegex = /^(?:(?:Q|Question|Item)\s*(\d+)[\.:\)]?|(\d{1,4})[\.\)]\s+)(.*)$/i;
   // Flexible choice pattern: allows bullet, asterisk, parentheses, brackets, dot, colon, dash (with or without spaces)
   const choiceRegex = /^[•\*\-\s]*[\(\[]?([A-Ha-h])(?:[\)\]\.\:]|[\s]+[-–—:\.]|[\s]*[\)\]\.\:])\s*(.*)$/i;
@@ -874,5 +885,6 @@ function parseCsvContent(
 
   return questions;
 }
+
 
 

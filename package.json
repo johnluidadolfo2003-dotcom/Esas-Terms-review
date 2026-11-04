@@ -12,7 +12,8 @@
     "lint": "tsc --noEmit",
     "test:questions": "node --import tsx --test scripts/check-question-bank.ts",
     "test:server": "node --test scripts/check-server.mjs",
-    "test:speech": "node --import tsx --test scripts/check-speech.ts"
+    "test:speech": "node --import tsx --test scripts/check-speech.ts",
+    "test:materials": "node --import tsx --test scripts/check-engineering-materials.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
@@ -51,3 +52,4 @@
     "typescript": "^7.0.2"
   }
 }
+
