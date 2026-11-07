@@ -44,6 +44,7 @@ export const PasteQuestionsModal: React.FC<PasteQuestionsModalProps> = ({
     const map: Record<'ESAS' | 'MATH' | 'EE', Set<string>> = {
       ESAS: new Set([
         'ESAS',
+        'COACH G 1000 TERMS',
         '1001 terms part 1',
         '1001 terms part 2',
         '1001 terms part 3',

@@ -235,6 +235,7 @@ export default function App() {
 
   const quizSubjectScores = useMemo(() => {
     const scores: Record<string, { correct: number; total: number }> = {
+      'COACH G 1000 TERMS': { correct: 0, total: 0 },
       '1001 terms part 1': { correct: 0, total: 0 },
       '1001 terms part 2': { correct: 0, total: 0 },
       '1001 terms part 3': { correct: 0, total: 0 },

@@ -10,12 +10,14 @@ import { THERMODYNAMICS_QUESTIONS } from './thermodynamicsQuestions';
 import { ESAS_1001_PART_1_QUESTIONS } from './esas1001Part1Questions';
 import { ESAS_1001_PART_2_QUESTIONS } from './esas1001Part2Questions';
 import { ESAS_1001_PART_3_QUESTIONS } from './esas1001Part3Questions';
+import { COACH_G_1000_QUESTIONS } from './coachG1000Questions';
 import { PROJECT_MANAGEMENT_2_QUESTIONS } from './projectManagement2Questions';
 import { ENGINEERING_MATERIALS_QUESTIONS } from './engineeringMaterialsQuestions';
 import { DRIVE_CORPUS_QUESTIONS } from './driveCorpusQuestions';
 import { applyContentAudit } from './audit/applyContentAudit';
 
 export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
+  ...COACH_G_1000_QUESTIONS,
   ...PROJECT_MANAGEMENT_2_QUESTIONS,
   ...ESAS_1001_PART_1_QUESTIONS,
   ...ESAS_1001_PART_2_QUESTIONS,

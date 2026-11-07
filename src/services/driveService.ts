@@ -19,6 +19,7 @@ export interface DriveFolder {
 
 // Target subjects requested by user
 export const TARGET_SUBJECT_KEYWORDS = [
+  { subject: 'COACH G 1000 TERMS', keywords: ['coach g', 'coachg', 'coach_g', '1000 terms exam', 'coach g 1000'] },
   { subject: '1001 terms part 1', keywords: ['1001 terms part 1', '1001 terms', '1001-esas', '1001 esas', 'esas august 2019'] },
   { subject: '1001 terms part 2', keywords: ['1001 terms part 2', '1002 terms', '1002-esas', '1002 esas', 'esas 2012-2017', 'esas_2012-2017'] },
   { subject: '1001 terms part 3', keywords: ['1001 terms part 3', '1003 terms', '1003-esas', '1003 esas', 'esas-ug', 'undergrounds review center'] },

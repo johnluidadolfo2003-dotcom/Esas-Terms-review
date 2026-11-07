@@ -1,5 +1,6 @@
 export type SubjectCategory =
   | 'ESAS'
+  | 'COACH G 1000 TERMS'
   | '1001 terms part 1'
   | '1001 terms part 2'
   | '1001 terms part 3'
@@ -25,6 +26,7 @@ export type SubjectCategory =
   | 'EE';
 
 export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
+  'COACH G 1000 TERMS',
   '1001 terms part 1',
   '1001 terms part 2',
   '1001 terms part 3',
@@ -108,6 +110,15 @@ export function detectSubject(text: string, fileName: string): SubjectCategory {
     /^\s*(?:#+\s*|subject:\s*)?engineering[\s_-]+materials\s*$/i.test(text)
   ) {
     return 'Engineering Materials';
+  }
+
+  if (
+    combined.includes('coach g') ||
+    combined.includes('coachg') ||
+    combined.includes('coach_g') ||
+    combined.includes('1000 terms exam')
+  ) {
+    return 'COACH G 1000 TERMS';
   }
 
   if (
