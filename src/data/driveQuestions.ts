@@ -12,6 +12,7 @@ import { ESAS_1001_PART_2_QUESTIONS } from './esas1001Part2Questions';
 import { ESAS_1001_PART_3_QUESTIONS } from './esas1001Part3Questions';
 import { PROJECT_MANAGEMENT_2_QUESTIONS } from './projectManagement2Questions';
 import { ENGINEERING_MATERIALS_QUESTIONS } from './engineeringMaterialsQuestions';
+import { DRIVE_CORPUS_QUESTIONS } from './driveCorpusQuestions';
 import { applyContentAudit } from './audit/applyContentAudit';
 
 export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
@@ -28,6 +29,7 @@ export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
   ...ENGINEERING_MATERIALS_QUESTIONS,
   ...FLUID_MECHANICS_QUESTIONS,
   ...THERMODYNAMICS_QUESTIONS,
+  ...DRIVE_CORPUS_QUESTIONS,
   {
     "id": "pasted-preview-1791625232830-1-1791625232833-1h7mp",
     "subject": "Economics",
