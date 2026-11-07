@@ -3,6 +3,7 @@ export type SubjectCategory =
   | '1001 terms part 1'
   | '1001 terms part 2'
   | '1001 terms part 3'
+  | 'Needs Subject Review'
   | 'Economics'
   | 'Mechanics 1'
   | 'Mechanics 2'
@@ -27,6 +28,7 @@ export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
   '1001 terms part 1',
   '1001 terms part 2',
   '1001 terms part 3',
+  'Needs Subject Review',
   'Economics',
   'Mechanics 1',
   'Mechanics 2',
@@ -67,6 +69,30 @@ export interface FlashcardQuestion {
   correctChoiceId: string; // 'A', 'B', etc.
   explanation?: string;
   rawSnippet?: string;
+  sourceSubject?: '1001 terms part 1' | '1001 terms part 2' | '1001 terms part 3';
+  classificationStatus?: 'classified' | 'needs-review';
+  suggestedSubject?: SubjectCategory;
+  classificationConfidence?: number;
+}
+
+export const LEGACY_1001_SOURCE_SUBJECTS = [
+  '1001 terms part 1',
+  '1001 terms part 2',
+  '1001 terms part 3',
+] as const;
+
+export function questionMatchesSubject(
+  question: FlashcardQuestion,
+  subject: string
+): boolean {
+  if (subject === 'All') return true;
+  if ((LEGACY_1001_SOURCE_SUBJECTS as readonly string[]).includes(subject)) {
+    return question.sourceSubject === subject;
+  }
+  if (subject === 'Needs Subject Review') {
+    return question.classificationStatus === 'needs-review';
+  }
+  return question.subject === subject;
 }
 
 /**

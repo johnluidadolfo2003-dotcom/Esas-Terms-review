@@ -47,6 +47,7 @@ const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
   '1001 terms part 1',
   '1001 terms part 2',
   '1001 terms part 3',
+  'Needs Subject Review',
   'Economics',
   'Mechanics 1',
   'Mechanics 2',
