@@ -620,7 +620,7 @@ export const ESAS_DRIVE_NOV_2026_QUESTIONS: FlashcardQuestion[] = [
   },
   {
     "id": "esas-2019-2022-extra-5",
-    "subject": "Thermodynamics",
+    "subject": "Engineering Materials",
     "sourceFileName": "ESAS 2019–2022 Past Board Questions",
     "sourceFileId": "1p7m3bisYUiC3YyMcxO1HPQMq7MOTN9Qs",
     "questionNumber": 6,
@@ -648,7 +648,7 @@ export const ESAS_DRIVE_NOV_2026_QUESTIONS: FlashcardQuestion[] = [
   },
   {
     "id": "esas-2019-2022-extra-6",
-    "subject": "Physics 1",
+    "subject": "Project Management",
     "sourceFileName": "ESAS 2019–2022 Past Board Questions",
     "sourceFileId": "1p7m3bisYUiC3YyMcxO1HPQMq7MOTN9Qs",
     "questionNumber": 10,
@@ -1348,7 +1348,7 @@ export const ESAS_DRIVE_NOV_2026_QUESTIONS: FlashcardQuestion[] = [
   },
   {
     "id": "esas-2019-2022-extra-31",
-    "subject": "Physics 2",
+    "subject": "Project Management",
     "sourceFileName": "ESAS 2019–2022 Past Board Questions",
     "sourceFileId": "1p7m3bisYUiC3YyMcxO1HPQMq7MOTN9Qs",
     "questionNumber": 54,
@@ -6276,7 +6276,7 @@ export const ESAS_DRIVE_NOV_2026_QUESTIONS: FlashcardQuestion[] = [
   },
   {
     "id": "esas-2019-2022-extra-207",
-    "subject": "Physics 1",
+    "subject": "Project Management",
     "sourceFileName": "ESAS 2019–2022 Past Board Questions",
     "sourceFileId": "1p7m3bisYUiC3YyMcxO1HPQMq7MOTN9Qs",
     "questionNumber": 5,
