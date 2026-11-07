@@ -364,5 +364,313 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
     ],
     "correctChoiceId": "C",
     "explanation": "Source: highlighted answer in uploaded reviewer, page 1."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-1",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 1,
+    "question": "What type of bond exists predominantly in sodium chloride crystal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Ionic bond"
+      },
+      {
+        "id": "B",
+        "text": "Covalent bond"
+      },
+      {
+        "id": "C",
+        "text": "Metallic bond"
+      },
+      {
+        "id": "D",
+        "text": "Polar bond"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-2",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 2,
+    "question": "What does HTTP stand for?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Hypertext Transfer Protocol"
+      },
+      {
+        "id": "B",
+        "text": "Hyper Text Transmission Protocol"
+      },
+      {
+        "id": "C",
+        "text": "High Speed Text Translate Protocol"
+      },
+      {
+        "id": "D",
+        "text": "Hyper Text Transfer Process"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-5",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 5,
+    "question": "Entropy is the measure of:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Internal energy"
+      },
+      {
+        "id": "B",
+        "text": "Heat capacity"
+      },
+      {
+        "id": "C",
+        "text": "Randomness or disorder"
+      },
+      {
+        "id": "D",
+        "text": "Change in enthalpy"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-6",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 6,
+    "question": "What refers to a computer's use of hard disk storage to simulate RAM?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Volatile memory"
+      },
+      {
+        "id": "B",
+        "text": "ROM"
+      },
+      {
+        "id": "C",
+        "text": "Data storage"
+      },
+      {
+        "id": "D",
+        "text": "Virtual memory"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-7",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 7,
+    "question": "What is the term for a situation when a program references a different page for almost every instruction and there is not enough real memory?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Paging"
+      },
+      {
+        "id": "B",
+        "text": "Scanning"
+      },
+      {
+        "id": "C",
+        "text": "Thrashing"
+      },
+      {
+        "id": "D",
+        "text": "Handshaking"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-10",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 10,
+    "question": "Which material is used for making coils of standard resistances?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Copper"
+      },
+      {
+        "id": "B",
+        "text": "Platinum"
+      },
+      {
+        "id": "C",
+        "text": "Nichrome"
+      },
+      {
+        "id": "D",
+        "text": "Manganin"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-11",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 11,
+    "question": "It is the claim of anyone to ownership:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Proprietorship"
+      },
+      {
+        "id": "B",
+        "text": "Assets"
+      },
+      {
+        "id": "C",
+        "text": "Equity"
+      },
+      {
+        "id": "D",
+        "text": "Liability"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-14",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 14,
+    "question": "The price a buyer is willing to pay a willing seller for stock is:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Bond value"
+      },
+      {
+        "id": "B",
+        "text": "Scrap value"
+      },
+      {
+        "id": "C",
+        "text": "Market value"
+      },
+      {
+        "id": "D",
+        "text": "Stock value"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-16",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 16,
+    "question": "When magma rocks cool, these rocks are called:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Granite"
+      },
+      {
+        "id": "B",
+        "text": "Sedimentary rocks"
+      },
+      {
+        "id": "C",
+        "text": "Igneous rocks"
+      },
+      {
+        "id": "D",
+        "text": "Metamorphic rocks"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-19",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 19,
+    "question": "A device intended for the protection of personal life functions to de-energize a circuit or portion thereof within an established period of time when current to ground exceeds a predetermined value is:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Grounding conductor"
+      },
+      {
+        "id": "B",
+        "text": "Ground-fault circuit interrupter"
+      },
+      {
+        "id": "C",
+        "text": "Ground-fault protection of equipment"
+      },
+      {
+        "id": "D",
+        "text": "Grounding conductor equipment"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-24",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 24,
+    "question": "A gas in the atmosphere that traps the sun's UV rays is:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Oxygen"
+      },
+      {
+        "id": "B",
+        "text": "Ozone"
+      },
+      {
+        "id": "C",
+        "text": "Water vapor"
+      },
+      {
+        "id": "D",
+        "text": "Nitrogen"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
   }
 ];
