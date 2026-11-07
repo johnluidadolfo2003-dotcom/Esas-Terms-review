@@ -1,4 +1,4 @@
-import { FlashcardQuestion } from './questionParser';
+import { FlashcardQuestion, questionMatchesSubject } from './questionParser';
 import jsPDF from 'jspdf';
 
 export type { FlashcardQuestion };
@@ -240,7 +240,7 @@ export function downloadQuestionsCsv(
 ): void {
   const filtered =
     subjectFilter && subjectFilter !== 'All'
-      ? questions.filter((q) => q.subject === subjectFilter)
+      ? questions.filter((q) => questionMatchesSubject(q, subjectFilter))
       : questions;
 
   if (filtered.length === 0) return;
@@ -316,7 +316,7 @@ export function downloadQuestionsTxt(
 ): void {
   const filtered =
     subjectFilter && subjectFilter !== 'All'
-      ? questions.filter((q) => q.subject === subjectFilter)
+      ? questions.filter((q) => questionMatchesSubject(q, subjectFilter))
       : questions;
 
   if (filtered.length === 0) return;
@@ -388,7 +388,7 @@ export function downloadQuestionsPdf(
 ): void {
   const filtered =
     subjectFilter && subjectFilter !== 'All'
-      ? questions.filter((q) => q.subject === subjectFilter)
+      ? questions.filter((q) => questionMatchesSubject(q, subjectFilter))
       : questions;
 
   if (filtered.length === 0) return;
@@ -698,7 +698,7 @@ export function downloadQuickRecallPdf(
 ): void {
   const filtered =
     subjectFilter && subjectFilter !== 'All'
-      ? questions.filter((q) => q.subject === subjectFilter)
+      ? questions.filter((q) => questionMatchesSubject(q, subjectFilter))
       : questions;
 
   if (filtered.length === 0) return;

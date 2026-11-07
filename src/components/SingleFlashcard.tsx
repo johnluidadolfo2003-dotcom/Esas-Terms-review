@@ -420,6 +420,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
           <span className="px-2.5 py-0.5 rounded-md bg-[#181a21] text-zinc-300 border border-[#272935] text-[11px] font-medium">
             {question.subject}
           </span>
+          {question.classificationStatus === 'needs-review' && question.suggestedSubject && (
+            <span className="px-2.5 py-0.5 rounded-md bg-amber-950/70 text-amber-200 border border-amber-700/70 text-[11px] font-medium">
+              Suggested: {question.suggestedSubject}
+            </span>
+          )}
         </div>
       </div>
 

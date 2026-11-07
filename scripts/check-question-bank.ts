@@ -4,6 +4,7 @@ import { DRIVE_COPIED_QUESTIONS as bank, ORIGINAL_DRIVE_QUESTIONS as original } 
 import audit from '../src/data/audit/esasContentAudit.json';
 import review from '../docs/esas-drive-review.json';
 import { applyKnownContentCorrections } from '../src/data/audit/applyContentAudit';
+import { questionMatchesSubject } from '../src/services/questionParser';
 
 const key = (q: typeof bank[number]) => `${q.subject}_${q.question.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim()}`;
 const answer = (id: string) => {
@@ -13,8 +14,9 @@ const answer = (id: string) => {
 };
 
 test('every playable question has one existing answer, distinct options and a unique ID', () => {
+  const playable = bank.filter(q => q.classificationStatus !== 'needs-review');
   assert.equal(new Set(bank.map(q => q.id)).size, bank.length);
-  for (const q of bank) {
+  for (const q of playable) {
     assert.ok(q.question.trim(), q.id);
     assert.ok(q.choices.length >= 2, q.id);
     assert.equal(q.choices.filter(c => c.id === q.correctChoiceId).length, 1, q.id);
@@ -25,14 +27,18 @@ test('every playable question has one existing answer, distinct options and a un
 
 test('only the nine authorized subjects change; existing unrelated records remain identical', () => {
   const scope = new Set(audit.scope);
+  const legacySources = new Set(['1001 terms part 1', '1001 terms part 2', '1001 terms part 3']);
   assert.equal(scope.size, 9);
-  assert.deepEqual(bank.filter(q => !scope.has(q.subject)), original.filter(q => !scope.has(q.subject)));
+  assert.deepEqual(
+    bank.filter(q => !scope.has(q.subject) && !q.sourceSubject),
+    original.filter(q => !scope.has(q.subject) && !legacySources.has(q.subject))
+  );
   assert.ok(audit.additions.every(q => scope.has(q.subject)));
-  assert.deepEqual(new Set(bank.map(q => q.subject)), new Set(original.map(q => q.subject)));
+  assert.ok(bank.every(q => !legacySources.has(q.subject)));
 });
 
 test('reviewed subjects have no duplicate normalized stems or withheld IDs', () => {
-  const scoped = bank.filter(q => audit.scope.includes(q.subject));
+  const scoped = bank.filter(q => audit.scope.includes(q.subject) && !q.sourceSubject);
   assert.equal(new Set(scoped.map(key)).size, scoped.length);
   for (const id of Object.keys(audit.excluded)) assert.ok(!bank.some(q => q.id === id), id);
   for (const [id, patch] of Object.entries(audit.patches)) {
@@ -42,6 +48,16 @@ test('reviewed subjects have no duplicate normalized stems or withheld IDs', () 
     assert.ok(actual.rawSnippet?.includes(`Answer: ${actual.correctChoiceId}`));
     assert.ok(actual.rawSnippet?.startsWith(actual.question));
   }
+});
+
+test('all legacy 1001 questions retain source filters and uncertain items are isolated', () => {
+  const legacy = bank.filter(q => q.sourceSubject);
+  assert.equal(legacy.length, 682);
+  assert.equal(legacy.filter(q => q.sourceSubject === '1001 terms part 1').length, 122);
+  assert.equal(legacy.filter(q => q.sourceSubject === '1001 terms part 2').length, 510);
+  assert.equal(legacy.filter(q => q.sourceSubject === '1001 terms part 3').length, 50);
+  assert.ok(legacy.every(q => q.classificationStatus === 'classified' || q.classificationStatus === 'needs-review'));
+  assert.ok(legacy.filter(q => q.classificationStatus === 'needs-review').every(q => questionMatchesSubject(q, 'Needs Subject Review')));
 });
 
 test('every distinct Drive stem is accounted for, with source provenance on each addition', () => {

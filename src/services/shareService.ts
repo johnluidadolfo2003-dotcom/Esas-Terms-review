@@ -100,6 +100,10 @@ function encodeQuestionsToHash(questions: FlashcardQuestion[]): string {
       correctChoiceId: q.correctChoiceId,
       explanation: q.explanation,
       sourceFileName: q.sourceFileName || 'Shared Question Pack',
+      sourceSubject: q.sourceSubject,
+      classificationStatus: q.classificationStatus,
+      suggestedSubject: q.suggestedSubject,
+      classificationConfidence: q.classificationConfidence,
     }));
 
     const jsonStr = JSON.stringify(lightweight);
@@ -206,6 +210,7 @@ export function parseCurrentLocationParams(): {
     '1001 terms part 1',
     '1001 terms part 2',
     '1001 terms part 3',
+    'Needs Subject Review',
     'MATH',
     'EE',
     'Economics',

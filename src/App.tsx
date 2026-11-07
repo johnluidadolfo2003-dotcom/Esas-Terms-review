@@ -18,6 +18,7 @@ import {
   FlashcardQuestion,
   SubjectCategory,
   ESAS_SUB_SUBJECTS,
+  questionMatchesSubject,
   parseQuestionsFromText,
   shuffleQuestionChoices,
 } from './services/questionParser';
@@ -697,7 +698,7 @@ export default function App() {
             q.subject === 'General Engineering'
         );
       } else {
-        list = list.filter((q) => q.subject === selectedSubject);
+        list = list.filter((q) => questionMatchesSubject(q, selectedSubject));
       }
     }
 
@@ -744,6 +745,12 @@ export default function App() {
 
     allQuestions.forEach((q) => {
       counts[q.subject] = (counts[q.subject] || 0) + 1;
+      if (q.sourceSubject) {
+        counts[q.sourceSubject] = (counts[q.sourceSubject] || 0) + 1;
+      }
+      if (q.classificationStatus === 'needs-review' && q.subject !== 'Needs Subject Review') {
+        counts['Needs Subject Review'] = (counts['Needs Subject Review'] || 0) + 1;
+      }
       if (
         ESAS_SUB_SUBJECTS.includes(q.subject) ||
         q.subject === 'General Engineering' ||
