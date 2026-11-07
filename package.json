@@ -13,7 +13,8 @@
     "test:questions": "node --import tsx --test scripts/check-question-bank.ts",
     "test:server": "node --test scripts/check-server.mjs",
     "test:speech": "node --import tsx --test scripts/check-speech.ts",
-    "test:materials": "node --import tsx --test scripts/check-engineering-materials.ts"
+    "test:materials": "node --import tsx --test scripts/check-engineering-materials.ts",
+    "test:drive-corpus": "node --import tsx --test scripts/check-drive-corpus.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",
