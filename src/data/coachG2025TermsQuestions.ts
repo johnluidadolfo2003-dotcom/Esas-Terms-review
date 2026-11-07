@@ -403,23 +403,23 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Hypertext Transfer Protocol"
+        "text": "Huge Text Transfer Protocol"
       },
       {
         "id": "B",
-        "text": "Hyper Text Transmission Protocol"
+        "text": "Hyper Text Transfer Protocol"
       },
       {
         "id": "C",
-        "text": "High Speed Text Translate Protocol"
+        "text": "Hyper Text Transmission Protocol"
       },
       {
         "id": "D",
-        "text": "Hyper Text Transfer Process"
+        "text": "High Speed Text Translate Protocol"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+    "correctChoiceId": "B",
+    "explanation": "Corrected against the four choices printed on PDF page 3."
   },
   {
     "id": "coach-g-2025-1000-terms-p3-5",
@@ -631,19 +631,19 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Grounded conductor"
+        "text": "Grounding Conductor Equipment"
       },
       {
         "id": "C",
-        "text": "Ground-fault circuit interrupter"
+        "text": "Grounding-Fault Circuit Interrupter"
       },
       {
         "id": "D",
-        "text": "Ground-fault protection of equipment"
+        "text": "Ground-Fault Protection of Equipment"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Corrected against the original page 3 choices and engineering definitions."
+    "correctChoiceId": "C",
+    "explanation": "A ground-fault circuit interrupter (GFCI) protects people; corrected against page 3."
   },
   {
     "id": "coach-g-2025-1000-terms-p3-24",
@@ -840,5 +840,285 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
     ],
     "correctChoiceId": "A",
     "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-3",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 3,
+    "question": "What is the actual shape of the methane CH₄ molecule?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Tetrahedral"
+      },
+      {
+        "id": "B",
+        "text": "Linear"
+      },
+      {
+        "id": "C",
+        "text": "Square planar"
+      },
+      {
+        "id": "D",
+        "text": "Pyramidal"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-4",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 4,
+    "question": "The element that is practically insoluble in solid copper is known as:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Brass"
+      },
+      {
+        "id": "B",
+        "text": "Lead"
+      },
+      {
+        "id": "C",
+        "text": "Neon"
+      },
+      {
+        "id": "D",
+        "text": "Boron"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-8",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 8,
+    "question": "Which element must be introduced to remove copper from copper sulphate, CuSO₄?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Hg"
+      },
+      {
+        "id": "B",
+        "text": "Ag"
+      },
+      {
+        "id": "C",
+        "text": "Fe"
+      },
+      {
+        "id": "D",
+        "text": "Na"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-9",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 9,
+    "question": "Coal heating value depends largely on which of the following?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Size of particle"
+      },
+      {
+        "id": "B",
+        "text": "Moisture content"
+      },
+      {
+        "id": "C",
+        "text": "Ash content"
+      },
+      {
+        "id": "D",
+        "text": "Sulfur content"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-12",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 12,
+    "question": "RA 7920 Rule 2(d) defines?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "CHED"
+      },
+      {
+        "id": "B",
+        "text": "Commission"
+      },
+      {
+        "id": "C",
+        "text": "Board of EE"
+      },
+      {
+        "id": "D",
+        "text": "TESDA"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-13",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 13,
+    "question": "What is Section 33 of RA 7920?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Personnel Required"
+      },
+      {
+        "id": "B",
+        "text": "Prohibition in the Practice of Electrical Engineering"
+      },
+      {
+        "id": "C",
+        "text": "Field of Practice"
+      },
+      {
+        "id": "D",
+        "text": "Foreign Reciprocity"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-20",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 20,
+    "question": "The maximum bending moment of a simply supported beam at both ends carrying a uniformly distributed total load W over length L is:",
+    "choices": [
+      {
+        "id": "A",
+        "text": "WL/8"
+      },
+      {
+        "id": "B",
+        "text": "WL²/8"
+      },
+      {
+        "id": "C",
+        "text": "WL/2"
+      },
+      {
+        "id": "D",
+        "text": "WL/4"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-28",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 28,
+    "question": "What is the term used for the situation when FM signal dominates AM signal?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Captured effect"
+      },
+      {
+        "id": "B",
+        "text": "Dominating syndrome"
+      },
+      {
+        "id": "C",
+        "text": "Amplitude effect"
+      },
+      {
+        "id": "D",
+        "text": "Frequency effect"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-29",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 29,
+    "question": "Which of the following is not full duplex?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Telephone"
+      },
+      {
+        "id": "B",
+        "text": "LAN"
+      },
+      {
+        "id": "C",
+        "text": "Radar"
+      },
+      {
+        "id": "D",
+        "text": "Telemetry"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-32",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 32,
+    "question": "What is annuity?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "The future worth of a present amount"
+      },
+      {
+        "id": "B",
+        "text": "A series of uniform amounts over a period of time"
+      },
+      {
+        "id": "C",
+        "text": "An annual repayment of a loan"
+      },
+      {
+        "id": "D",
+        "text": "A lump sum at the end of the year"
+      }
+    ],
+    "correctChoiceId": "B",
+    "explanation": "Transcribed and checked against the highlighted PDF page 3; corrections based on engineering definitions where applicable."
   }
 ];
