@@ -1,5 +1,6 @@
 import type { FlashcardQuestion } from '../../services/questionParser';
 import auditData from './esasContentAudit.json';
+import { auditDriveCorpusAnswers } from './driveCorpusAnswerCorrections';
 import { LEGACY_1001_SUBJECT_ASSIGNMENTS } from '../legacy1001SubjectAssignments';
 
 type ContentAudit = {
@@ -50,5 +51,5 @@ export function applyKnownContentCorrections(original: FlashcardQuestion[]): Fla
 }
 
 export function applyContentAudit(original: FlashcardQuestion[]): FlashcardQuestion[] {
-  return applyKnownContentCorrections(original).concat(audit.additions);
+  return auditDriveCorpusAnswers(applyKnownContentCorrections(original).concat(audit.additions));
 }
