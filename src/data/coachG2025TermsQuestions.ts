@@ -631,19 +631,19 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Ground-fault circuit interrupter"
+        "text": "Grounded conductor"
       },
       {
         "id": "C",
-        "text": "Ground-fault protection of equipment"
+        "text": "Ground-fault circuit interrupter"
       },
       {
         "id": "D",
-        "text": "Grounding conductor equipment"
+        "text": "Ground-fault protection of equipment"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+    "correctChoiceId": "D",
+    "explanation": "Corrected against the original page 3 choices and engineering definitions."
   },
   {
     "id": "coach-g-2025-1000-terms-p3-24",
@@ -659,18 +659,186 @@ export const COACH_G_2025_TERMS_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Ozone"
+        "text": "Helium"
       },
       {
         "id": "C",
-        "text": "Water vapor"
+        "text": "Ozone"
       },
       {
         "id": "D",
-        "text": "Nitrogen"
+        "text": "Water vapor"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Corrected against the original page 3 choices and engineering definitions."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-21",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 21,
+    "question": "What is the form of the bending moment diagram of a simply supported beam carrying a uniformly distributed load?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Triangle"
+      },
+      {
+        "id": "B",
+        "text": "Hyperbola"
+      },
+      {
+        "id": "C",
+        "text": "Parabola"
+      },
+      {
+        "id": "D",
+        "text": "Rectangle"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-22",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 22,
+    "question": "A byte is composed of how many bits?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "2"
+      },
+      {
+        "id": "B",
+        "text": "4"
+      },
+      {
+        "id": "C",
+        "text": "6"
+      },
+      {
+        "id": "D",
+        "text": "8"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-23",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 23,
+    "question": "A glass of water is filled to the brim with floating ice. What happens to the water level when the ice melts?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Cannot determine"
+      },
+      {
+        "id": "B",
+        "text": "Water spills over"
+      },
+      {
+        "id": "C",
+        "text": "Water level rises"
+      },
+      {
+        "id": "D",
+        "text": "No water spills"
+      }
+    ],
+    "correctChoiceId": "D",
+    "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-25",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 25,
+    "question": "Pluto travels from perihelion to aphelion. What is the work done by gravity on Pluto?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Zero"
+      },
+      {
+        "id": "B",
+        "text": "Negative"
+      },
+      {
+        "id": "C",
+        "text": "Positive"
+      },
+      {
+        "id": "D",
+        "text": "Undetermined"
       }
     ],
     "correctChoiceId": "B",
-    "explanation": "Source: uploaded reviewer, page 3; transcription requires comparison with original scan."
+    "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-26",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 26,
+    "question": "Carnot cycle gives the maximum efficiency for which type of engine?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Steam engine"
+      },
+      {
+        "id": "B",
+        "text": "Gas engine"
+      },
+      {
+        "id": "C",
+        "text": "Reversible engine"
+      },
+      {
+        "id": "D",
+        "text": "Well-lubricated engine"
+      }
+    ],
+    "correctChoiceId": "C",
+    "explanation": "Checked against original scanned page 3 and underlying concept."
+  },
+  {
+    "id": "coach-g-2025-1000-terms-p3-27",
+    "subject": "COACH G 2025 1000 TERMS",
+    "sourceFileName": "ESAS 1000 TERMS.pdf",
+    "sourceFileId": "uploaded-ESAS-1000-TERMS",
+    "questionNumber": 27,
+    "question": "What is the interest earned when interest is added to the principal and also earns interest in succeeding periods?",
+    "choices": [
+      {
+        "id": "A",
+        "text": "Compound interest"
+      },
+      {
+        "id": "B",
+        "text": "Simple interest"
+      },
+      {
+        "id": "C",
+        "text": "Discount"
+      },
+      {
+        "id": "D",
+        "text": "Interest rate"
+      }
+    ],
+    "correctChoiceId": "A",
+    "explanation": "Checked against original scanned page 3 and underlying concept."
   }
 ];
