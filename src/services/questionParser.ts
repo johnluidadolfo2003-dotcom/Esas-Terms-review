@@ -1,5 +1,6 @@
 export type SubjectCategory =
   | 'ESAS'
+  | 'COACH G 2025 1000 TERMS'
   | '1001 terms part 1'
   | '1001 terms part 2'
   | '1001 terms part 3'
@@ -25,6 +26,7 @@ export type SubjectCategory =
   | 'EE';
 
 export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
+  'COACH G 2025 1000 TERMS',
   '1001 terms part 1',
   '1001 terms part 2',
   '1001 terms part 3',

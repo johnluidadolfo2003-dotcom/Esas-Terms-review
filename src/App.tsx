@@ -98,7 +98,7 @@ export default function App() {
     // Built-in copied drive questions (includes physics 1 questions)
     for (const q of DRIVE_COPIED_QUESTIONS) {
       const norm = normalizeQuestionText(q);
-      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
+      if (!seenIds.has(q.id) && (q.subject === 'COACH G 2025 1000 TERMS' || !seenTexts.has(norm))) {
         seenIds.add(q.id);
         seenTexts.add(norm);
         combined.push(q);
@@ -108,7 +108,7 @@ export default function App() {
     // Custom pasted questions
     for (const q of applyKnownContentCorrections(customQuestions)) {
       const norm = normalizeQuestionText(q);
-      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
+      if (!seenIds.has(q.id) && (q.subject === 'COACH G 2025 1000 TERMS' || !seenTexts.has(norm))) {
         seenIds.add(q.id);
         seenTexts.add(norm);
         combined.push(q);
@@ -118,7 +118,7 @@ export default function App() {
     // Drive-extracted dynamic questions
     for (const q of applyKnownContentCorrections(driveExtractedQuestions)) {
       const norm = normalizeQuestionText(q);
-      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
+      if (!seenIds.has(q.id) && (q.subject === 'COACH G 2025 1000 TERMS' || !seenTexts.has(norm))) {
         seenIds.add(q.id);
         seenTexts.add(norm);
         combined.push(q);
