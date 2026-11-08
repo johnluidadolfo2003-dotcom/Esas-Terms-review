@@ -59,33 +59,11 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const isCorrect = isAnswered && cleanSelected === cleanCorrect;
 
   // Show Answer Key & Keyword Highlight State
-  const [showAnswerKey, setShowAnswerKey] = useState<boolean>(() => {
-    try {
-      const saved = localStorage.getItem('terms_show_answer_key');
-      return saved !== null ? JSON.parse(saved) : false;
-    } catch {
-      return false;
-    }
-  });
+  const [showAnswerKey, setShowAnswerKey] = useState<boolean>(false);
 
   const handleToggleAnswerKey = () => {
-    setShowAnswerKey((prev) => {
-      const next = !prev;
-      try {
-        localStorage.setItem('terms_show_answer_key', JSON.stringify(next));
-      } catch (err) {
-        console.error('Failed to save show_answer_key state:', err);
-      }
-      return next;
-    });
+    setShowAnswerKey((prev) => !prev);
   };
-
-  // Automatically reveal correct answer when Answer Key is active
-  useEffect(() => {
-    if (showAnswerKey && !selectedChoice && question?.correctChoiceId) {
-      onSelectChoice(question.correctChoiceId);
-    }
-  }, [showAnswerKey, question.id, selectedChoice, question.correctChoiceId, onSelectChoice]);
 
   const correctChoiceObj = question.choices.find(
     (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanCorrect
@@ -666,18 +644,19 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             const cleanChoiceId = choice.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
             const isUserSelected = cleanSelected === cleanChoiceId;
             const isCorrectOption = cleanChoiceId === cleanCorrect;
+            const shouldShowCorrect = isCorrectOption && (isAnswered || showAnswerKey);
 
             let buttonClasses =
               'relative flex items-center justify-between p-2.5 sm:p-3.5 rounded-lg sm:rounded-xl border text-left transition-all min-h-[44px] ';
 
-            if (!isAnswered) {
+            if (!isAnswered && !showAnswerKey) {
               buttonClasses +=
                 'bg-[#20222a] border-[#2c2f3c] text-zinc-100 hover:border-zinc-500 hover:bg-[#252833] cursor-pointer active:scale-[0.99]';
             } else if (isUserSelected && !isCorrectOption) {
               // WRONG SELECTED: Red
               buttonClasses +=
                 'bg-rose-600 border-rose-500 text-white font-semibold shadow-md ring-2 ring-rose-400/50';
-            } else if (isCorrectOption) {
+            } else if (shouldShowCorrect) {
               // CORRECT ANSWER: Emerald Green
               buttonClasses +=
                 'bg-emerald-600 border-emerald-500 text-white font-semibold shadow-md ring-2 ring-emerald-400/50';
@@ -702,29 +681,31 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 <div className="flex items-start gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">
                   <span
                     className={`font-mono text-xs sm:text-sm px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md border shrink-0 font-bold ${
-                      !isAnswered
+                      !isAnswered && !showAnswerKey
                         ? 'bg-[#15171e] border-[#2d303d] text-zinc-200'
                         : isUserSelected && !isCorrectOption
                         ? 'bg-rose-700 border-rose-400 text-white'
-                        : isCorrectOption
+                        : shouldShowCorrect
                         ? 'bg-emerald-700 border-emerald-400 text-white'
                         : 'bg-[#181a21] border-[#272935] text-zinc-400'
                     }`}
                   >
                     {choice.id}
                   </span>
-                  <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">{choice.text}</span>
+                  <span className="text-xs sm:text-base leading-snug font-medium pt-0.5">
+                    {showAnswerKey ? highlightTextWithKeywords(choice.text, answerKeywords) : choice.text}
+                  </span>
                 </div>
 
                 {/* Status indicator badge */}
-                {isAnswered && (
+                {(isAnswered || showAnswerKey) && (
                   <div className="shrink-0 font-mono text-[10px] sm:text-xs uppercase tracking-wide">
                     {isUserSelected && isCorrectOption && (
                       <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
                         Correct
                       </span>
                     )}
-                    {!isUserSelected && isCorrectOption && (
+                    {(!isUserSelected || showAnswerKey) && isCorrectOption && (
                       <span className="px-2 py-0.5 rounded bg-emerald-950 border border-emerald-300 text-emerald-100 font-bold">
                         Correct Answer
                       </span>

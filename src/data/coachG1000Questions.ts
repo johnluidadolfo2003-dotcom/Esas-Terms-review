@@ -5589,7 +5589,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
         "text": "does it obey Newton's third law"
       }
     ],
-    "correctChoiceId": "C"
+    "correctChoiceId": "A"
   },
   {
     "id": "coachg-s3-q16",
