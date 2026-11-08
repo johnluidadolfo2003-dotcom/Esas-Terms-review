@@ -1098,7 +1098,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 43,
-    "question": "A diagram drawn to help visualize and simplify problem having diverse rece i pts and disbursements.",
+    "question": "A diagram drawn to help visualize and simplify problem having diverse receipts and disbursements.",
     "choices": [
       {
         "id": "A",
@@ -1410,7 +1410,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 55,
-    "question": "The property that character i zes a mater i al's ab i lity to be drawn into a wire is its",
+    "question": "The property that character i zes a material's ab i lity to be drawn into a wire is its",
     "choices": [
       {
         "id": "A",
@@ -4218,7 +4218,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 163,
-    "question": "Which of the following insul a tion color Identify the grounded conductor of a branch circuit?",
+    "question": "Which of the following insulation color Identify the grounded conductor of a branch circuit?",
     "choices": [
       {
         "id": "A",
@@ -4278,7 +4278,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "A series of uniforms amounts over a per i od of time"
+        "text": "A series of uniforms amounts over a period of time"
       },
       {
         "id": "C",
@@ -4608,7 +4608,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 178,
-    "question": "What is the o nl y gas n group VIA in the per i odic table?",
+    "question": "What is the o nl y gas n group VIA in the periodic table?",
     "choices": [
       {
         "id": "A",
@@ -5700,7 +5700,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 220,
-    "question": "What is the i nterest ac quir ed over the i nterest period i s also subject to the interest rate in the next per i od?",
+    "question": "What is the i nterest ac quir ed over the i nterest period i s also subject to the interest rate in the next period?",
     "choices": [
       {
         "id": "A",
@@ -5756,7 +5756,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "Fa i lure of Insulation"
+        "text": "failure of Insulation"
       },
       {
         "id": "B",
@@ -9340,7 +9340,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 360,
-    "question": "Which of the following holds true for any given mater i al?",
+    "question": "Which of the following holds true for any given material?",
     "choices": [
       {
         "id": "A",
@@ -11264,7 +11264,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 434,
-    "question": "When instal l ing the heatsink back into a computer after repla ci ng a fa i led processor, which of the following must be done during installation?",
+    "question": "When install ing the heatsink back into a computer after replaci ng a failed processor, which of the following must be done during installation?",
     "choices": [
       {
         "id": "A",
@@ -11472,7 +11472,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 442,
-    "question": "A description of the arrangements of atoms or ions in a mater i al is called",
+    "question": "A description of the arrangements of atoms or ions in a material is called",
     "choices": [
       {
         "id": "A",
@@ -11992,7 +11992,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 462,
-    "question": "An annuity where the payments are made at the beginning of each per i od.",
+    "question": "An annuity where the payments are made at the beginning of each period.",
     "choices": [
       {
         "id": "A",
@@ -12252,7 +12252,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 472,
-    "question": "Which the following refers to the parallel axis theorem for second moment of area for strength of mater i als?",
+    "question": "Which the following refers to the parallel axis theorem for second moment of area for strength of materials?",
     "choices": [
       {
         "id": "A",
@@ -12278,7 +12278,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 473,
-    "question": "What physical property of material that refers to the point at which a mater i al liquefies on heating or solidifies on cooling?",
+    "question": "What physical property of material that refers to the point at which a material liquefies on heating or solidifies on cooling?",
     "choices": [
       {
         "id": "A",
@@ -14340,7 +14340,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "Mater i al signages data sheet"
+        "text": "material signages data sheet"
       },
       {
         "id": "C",
@@ -17010,7 +17010,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 655,
-    "question": "A type of annuity where the payments are made at the start of each per i od, beginning from the first per i od.",
+    "question": "A type of annuity where the payments are made at the start of each period, beginning from the first period.",
     "choices": [
       {
         "id": "A",
@@ -21742,7 +21742,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 837,
-    "question": "If a flu i d \"fails\" In a p i ping system, the \"fa i lure\" is related to which of the following properties?",
+    "question": "If a flu i d \"fails\" In a p i ping system, the \"failure\" is related to which of the following properties?",
     "choices": [
       {
         "id": "A",
@@ -23380,7 +23380,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 900,
-    "question": "What is the present worth of cost asso ci ated with an asset for an Infinite per i od of time?",
+    "question": "What is the present worth of cost asso ci ated with an asset for an Infinite period of time?",
     "choices": [
       {
         "id": "A",
@@ -23830,7 +23830,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "per i od"
+        "text": "period"
       },
       {
         "id": "C",
@@ -24446,7 +24446,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 941,
-    "question": "It is the ratio of total number of sustained c ustomers power interruption within given per i od to t he total number of customers served within the same period.",
+    "question": "It is the ratio of total number of sustained c ustomers power interruption within given period to t he total number of customers served within the same period.",
     "choices": [
       {
         "id": "A",
@@ -25382,7 +25382,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
     "subject": "COACH G 1000 TERMS",
     "sourceFileName": "COACH_G_1000_TERMS_54292455.pdf",
     "questionNumber": 977,
-    "question": "Which group of the per i odic table is known as the alka l i metals?",
+    "question": "Which group of the periodic table is known as the alka l i metals?",
     "choices": [
       {
         "id": "A",
