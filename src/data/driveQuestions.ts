@@ -14,6 +14,7 @@ import { COACH_G_1000_QUESTIONS } from './coachG1000Questions';
 import { PROJECT_MANAGEMENT_2_QUESTIONS } from './projectManagement2Questions';
 import { ENGINEERING_MATERIALS_QUESTIONS } from './engineeringMaterialsQuestions';
 import { DRIVE_CORPUS_QUESTIONS } from './driveCorpusQuestions';
+import { ESAS_DRIVE_NOV_2026_QUESTIONS } from './esasDriveNov2026Questions';
 import { applyContentAudit } from './audit/applyContentAudit';
 
 export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
@@ -32,6 +33,7 @@ export const ORIGINAL_DRIVE_QUESTIONS: FlashcardQuestion[] = [
   ...FLUID_MECHANICS_QUESTIONS,
   ...THERMODYNAMICS_QUESTIONS,
   ...DRIVE_CORPUS_QUESTIONS,
+  ...ESAS_DRIVE_NOV_2026_QUESTIONS,
   {
     "id": "pasted-preview-1791625232830-1-1791625232833-1h7mp",
     "subject": "Economics",
