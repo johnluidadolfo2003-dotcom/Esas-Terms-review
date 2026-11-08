@@ -5,7 +5,7 @@ import { AmbientSoundControl } from './AmbientSoundControl';
 import { FlashcardQuestion, downloadQuickRecallPdf, downloadQuestionsPdf } from '../services/storageService';
 
 interface StudyHeaderProps {
-  selectedSubject: SubjectCategory | 'All';
+  selectedSubject: SubjectCategory | 'All' | string;
   onSelectSubject: (subject: SubjectCategory | 'All') => void;
   subjectCounts: Record<string, number>;
   totalQuestions: number;
@@ -30,6 +30,8 @@ interface StudyHeaderProps {
   isCameraGestureActive?: boolean;
   onToggleCameraGesture?: () => void;
   onOpenGestureScanner?: () => void;
+  isSidebarVisible?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -78,6 +80,8 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
   isCameraGestureActive,
   onToggleCameraGesture,
   onOpenGestureScanner,
+  isSidebarVisible = true,
+  onToggleSidebar,
 }) => {
   const totalAttempted = correctCount + incorrectCount;
   const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
@@ -86,8 +90,20 @@ export const StudyHeader: React.FC<StudyHeaderProps> = ({
     <header className="w-full bg-slate-900 border-b border-slate-800 shadow-sm shrink-0 sticky top-0 z-30 font-sans">
       {/* Primary Top Bar */}
       <div className="max-w-4xl mx-auto px-2.5 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between gap-1.5 border-b border-slate-800/80">
-        {/* Brand / App Title */}
-        <div className="flex items-center gap-1.5 min-w-0">
+        {/* Brand / App Title & Sidebar Toggle */}
+        <div className="flex items-center gap-2 min-w-0">
+          {onToggleSidebar && (
+            <button
+              type="button"
+              onClick={onToggleSidebar}
+              className="p-1 rounded-md text-zinc-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer hidden md:flex items-center gap-1 text-xs font-mono"
+              title={isSidebarVisible ? 'Hide Sidebar Menu' : 'Show Sidebar Menu'}
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          )}
           <h1 className="text-xs sm:text-base font-extrabold text-slate-100 tracking-wider truncate uppercase">
             T<span className="text-[#2dd4bf] lowercase font-bold">ee</span>RMS <span className="text-[#2dd4bf]">Flashcard</span>
           </h1>

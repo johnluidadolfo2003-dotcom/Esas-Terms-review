@@ -18,7 +18,7 @@ import { formatQuestionsAsTypeScriptCode } from '../services/storageService';
 interface ShareModalProps {
   isOpen: boolean;
   onClose: () => void;
-  currentSubject: SubjectCategory | 'All';
+  currentSubject: SubjectCategory | 'All' | string;
   customQuestions: FlashcardQuestion[];
   allQuestions?: FlashcardQuestion[];
 }
@@ -30,7 +30,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
   customQuestions,
   allQuestions = [],
 }) => {
-  const [selectedSubjectFilter, setSelectedSubjectFilter] = useState<SubjectCategory | 'All'>(
+  const [selectedSubjectFilter, setSelectedSubjectFilter] = useState<SubjectCategory | 'All' | string>(
     currentSubject
   );
   // Default to TRUE whenever there are custom questions so they are never omitted on share!

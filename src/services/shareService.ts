@@ -78,7 +78,7 @@ export function getBaseShareUrl(usePublicUrl: boolean = true, customBaseUrl?: st
 }
 
 export interface ShareOptions {
-  subject?: SubjectCategory | 'All';
+  subject?: SubjectCategory | 'All' | string;
   mode?: 'all' | 'missed' | 'flagged';
   customQuestions?: FlashcardQuestion[];
   includeCustomQuestions?: boolean;

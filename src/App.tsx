@@ -132,7 +132,7 @@ export default function App() {
   const [scanMessage, setScanMessage] = useState<string>('');
 
   // Study session state
-  const [selectedSubject, setSelectedSubject] = useState<SubjectCategory | 'All'>('All');
+  const [selectedSubject, setSelectedSubject] = useState<SubjectCategory | 'All' | string>('All');
   const [studyMode, setStudyMode] = useState<'all' | 'missed' | 'flagged'>('all');
   const [aiVoiceMode, setAiVoiceMode] = useState<AiVoiceMode>('off');
   const [isCameraGestureActive, setIsCameraGestureActive] = useState(false);
@@ -140,6 +140,50 @@ export default function App() {
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+  // Persistent sidebar visibility state
+  const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('terms_sidebar_visible');
+      return saved !== null ? JSON.parse(saved) : true;
+    } catch {
+      return true;
+    }
+  });
+
+  const handleToggleSidebar = useCallback(() => {
+    setIsSidebarVisible((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('terms_sidebar_visible', JSON.stringify(next));
+      } catch (err) {
+        console.error('Failed to save sidebar visibility:', err);
+      }
+      return next;
+    });
+  }, []);
+
+  // Persistent 100-item parts completion checkmarks
+  const [completedParts, setCompletedParts] = useState<Record<string, boolean>>(() => {
+    try {
+      const saved = localStorage.getItem('terms_completed_parts');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  const handleTogglePartCompleted = useCallback((partKey: string) => {
+    setCompletedParts((prev) => {
+      const next = { ...prev, [partKey]: !prev[partKey] };
+      try {
+        localStorage.setItem('terms_completed_parts', JSON.stringify(next));
+      } catch (err) {
+        console.error('Failed to save completed parts:', err);
+      }
+      return next;
+    });
+  }, []);
 
   const handleToggleShuffle = useCallback(() => {
     setIsShuffled(true);
@@ -691,13 +735,30 @@ export default function App() {
 
     // Filter by Subject
     if (selectedSubject !== 'All') {
-      if (selectedSubject === 'ESAS') {
+      if (selectedSubject.includes('__part__')) {
+        const [baseSubject, partNumStr] = selectedSubject.split('__part__');
+        const partNum = parseInt(partNumStr, 10) || 1;
+        let baseList = list;
+        if (baseSubject === 'ESAS') {
+          baseList = baseList.filter(
+            (q) =>
+              q.subject === 'ESAS' ||
+              ESAS_SUB_SUBJECTS.includes(q.subject) ||
+              q.subject === 'General Engineering'
+          );
+        } else {
+          baseList = baseList.filter((q) => questionMatchesSubject(q, baseSubject));
+        }
+        const startIdx = (partNum - 1) * 100;
+        const endIdx = partNum * 100;
+        list = baseList.slice(startIdx, endIdx);
+      } else if (selectedSubject === 'ESAS') {
         list = list.filter(
           (q) =>
             q.subject === 'ESAS' ||
             ESAS_SUB_SUBJECTS.includes(q.subject) ||
             q.subject === 'General Engineering'
-        );
+          );
       } else {
         list = list.filter((q) => questionMatchesSubject(q, selectedSubject));
       }
@@ -900,7 +961,7 @@ export default function App() {
       {/* Sidebar Navigation (Slim Desktop sidebar on left / Mobile header & drawer) */}
       <StudySidebar
         selectedSubject={selectedSubject}
-        onSelectSubject={(subj: SubjectCategory | 'All') => {
+        onSelectSubject={(subj: SubjectCategory | 'All' | string) => {
           setSelectedSubject(subj);
           setCurrentCardIndex(0);
         }}
@@ -933,6 +994,10 @@ export default function App() {
         isMobileDrawerOpen={isMobileDrawerOpen}
         onToggleMobileDrawer={() => setIsMobileDrawerOpen(!isMobileDrawerOpen)}
         onCloseMobileDrawer={() => setIsMobileDrawerOpen(false)}
+        completedParts={completedParts}
+        onTogglePartCompleted={handleTogglePartCompleted}
+        isSidebarVisible={isSidebarVisible}
+        onToggleSidebar={handleToggleSidebar}
       />
 
       {/* Main Viewport Container */}
@@ -940,9 +1005,27 @@ export default function App() {
         {/* Desktop Top Bar (Clean & Minimal) */}
         <header className="hidden md:flex items-center justify-between px-6 py-2.5 border-b border-[#22242d] bg-[#131418]/60 shrink-0">
           <div className="flex items-center gap-2 text-xs font-mono">
+            <button
+              type="button"
+              onClick={handleToggleSidebar}
+              className="p-1.5 rounded-md bg-[#181a21] hover:bg-[#222530] text-zinc-300 border border-[#272935] transition-colors cursor-pointer flex items-center gap-1.5 mr-1"
+              title={isSidebarVisible ? 'Hide Sidebar' : 'Show Sidebar'}
+            >
+              <svg className="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                {isSidebarVisible ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M18.75 19.5l-7.5-7.5 7.5-7.5m-6 15L5.25 12l7.5-7.5" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5" />
+                )}
+              </svg>
+              <span className="text-[11px] font-medium">{isSidebarVisible ? 'Hide Sidebar' : 'Show Sidebar'}</span>
+            </button>
+
             <span className="text-zinc-400 uppercase font-medium">Subject:</span>
             <span className="text-zinc-200 font-semibold bg-[#181a21] border border-[#272935] px-2.5 py-0.5 rounded-md">
-              {selectedSubject}
+              {selectedSubject.includes('__part__')
+                ? `${selectedSubject.split('__part__')[0]} (Part ${selectedSubject.split('__part__')[1]})`
+                : selectedSubject}
             </span>
             <button
               type="button"

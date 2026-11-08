@@ -11,7 +11,7 @@ import { FlashcardQuestion, SubjectCategory } from './questionParser';
  */
 export function exportStandaloneReviewerHtml(
   questions: FlashcardQuestion[],
-  filterSubject: SubjectCategory | 'All' = 'All'
+  filterSubject: SubjectCategory | 'All' | string = 'All'
 ): void {
   const filtered =
     filterSubject === 'All'

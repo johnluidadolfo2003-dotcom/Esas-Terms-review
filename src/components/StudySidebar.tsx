@@ -11,8 +11,8 @@ import { getGeminiConfig, refreshGeminiConfig } from '../services/geminiService'
 import { FlashcardQuestion } from '../services/storageService';
 
 export interface StudySidebarProps {
-  selectedSubject: SubjectCategory | 'All';
-  onSelectSubject: (subject: SubjectCategory | 'All') => void;
+  selectedSubject: SubjectCategory | 'All' | string;
+  onSelectSubject: (subject: SubjectCategory | 'All' | string) => void;
   subjectCounts: Record<string, number>;
   totalQuestions: number;
   studyMode: 'all' | 'missed' | 'flagged';
@@ -39,6 +39,10 @@ export interface StudySidebarProps {
   isMobileDrawerOpen: boolean;
   onToggleMobileDrawer: () => void;
   onCloseMobileDrawer: () => void;
+  completedParts?: Record<string, boolean>;
+  onTogglePartCompleted?: (partKey: string) => void;
+  isSidebarVisible?: boolean;
+  onToggleSidebar?: () => void;
 }
 
 const SUBJECT_LIST: (SubjectCategory | 'All')[] = [
@@ -93,11 +97,16 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
   isMobileDrawerOpen,
   onToggleMobileDrawer,
   onCloseMobileDrawer,
+  completedParts = {},
+  onTogglePartCompleted,
+  isSidebarVisible = true,
+  onToggleSidebar,
 }) => {
   const [ambientPlaying, setAmbientPlaying] = useState<boolean>(false);
   const [ambientPreset, setAmbientPreset] = useState<AmbientSoundPresetId>('stream');
   const [ambientVolume, setAmbientVolume] = useState<number>(0.45);
   const [isEsasExpanded, setIsEsasExpanded] = useState<boolean>(false);
+  const [expandedSubSubjects, setExpandedSubSubjects] = useState<Record<string, boolean>>({});
   const [geminiStatus, setGeminiStatus] = useState<{ configured: boolean; serverReachable?: boolean } | null>(null);
   const [showRenderHelp, setShowRenderHelp] = useState<boolean>(false);
 
@@ -111,10 +120,14 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
     return () => { active = false; };
   }, []);
 
-  // Automatically ensure ESAS is expanded when user selects any specific ESAS sub-subject
+  // Automatically ensure ESAS and target sub-subject are expanded when user selects any specific ESAS sub-subject or part
   useEffect(() => {
-    if (ESAS_SUB_SUBJECTS.includes(selectedSubject as SubjectCategory)) {
+    const rawSub = selectedSubject.includes('__part__') ? selectedSubject.split('__part__')[0] : selectedSubject;
+    if (ESAS_SUB_SUBJECTS.includes(rawSub as SubjectCategory)) {
       setIsEsasExpanded(true);
+      if (selectedSubject.includes('__part__')) {
+        setExpandedSubSubjects((prev) => ({ ...prev, [rawSub]: true }));
+      }
     }
   }, [selectedSubject]);
 
@@ -126,7 +139,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
     });
   }, []);
 
-  const handleSelectSubject = (subj: SubjectCategory | 'All') => {
+  const handleSelectSubject = (subj: SubjectCategory | 'All' | string) => {
     onSelectSubject(subj);
     onCloseMobileDrawer();
   };
@@ -135,7 +148,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
     <div className="flex flex-col h-full justify-between gap-4 text-zinc-300 text-xs">
       {/* Top Header & Navigation */}
       <div className="flex flex-col gap-3.5">
-        {/* Brand */}
+        {/* Brand & Sidebar Toggle */}
         <div className="flex items-center justify-between pb-2 border-b border-[#22242d]">
           <div>
             <h1 className="text-xs font-bold tracking-wider text-zinc-100 uppercase">
@@ -143,17 +156,31 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
             </h1>
             <p className="text-[10px] text-zinc-400">Electrical Engineer Review</p>
           </div>
-          {/* Close button inside mobile drawer */}
-          <button
-            type="button"
-            onClick={onCloseMobileDrawer}
-            className="md:hidden p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-[#1f212a] transition-colors cursor-pointer"
-            aria-label="Close menu"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+          <div className="flex items-center gap-1">
+            {onToggleSidebar && (
+              <button
+                type="button"
+                onClick={onToggleSidebar}
+                className="hidden md:flex p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-[#1f212a] transition-colors cursor-pointer"
+                title="Hide Sidebar Menu"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                </svg>
+              </button>
+            )}
+            {/* Close button inside mobile drawer */}
+            <button
+              type="button"
+              onClick={onCloseMobileDrawer}
+              className="md:hidden p-1.5 rounded-md text-zinc-400 hover:text-white hover:bg-[#1f212a] transition-colors cursor-pointer"
+              aria-label="Close menu"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Primary Quiz Action */}
@@ -273,31 +300,107 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                 </span>
               </div>
 
-              {/* Expanded Sub-Subjects (Economics, Mechanics 1 & 2, EE Laws, PM, Communication) */}
+              {/* Expanded Sub-Subjects (with 100-item parts & Check completed buttons) */}
               {isEsasExpanded && (
-                <div className="flex flex-col gap-0.5 pl-2.5 pr-1.5 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
+                <div className="flex flex-col gap-0.5 pl-2 pr-1.5 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
                   {ESAS_SUB_SUBJECTS.map((sub) => {
                     const count = subjectCounts[sub] || 0;
                     const isSelected = selectedSubject === sub;
+                    const hasParts = count > 100;
+                    const isExpanded = expandedSubSubjects[sub] || false;
+                    const numParts = hasParts ? Math.ceil(count / 100) : 0;
 
                     return (
-                      <div
-                        key={sub}
-                        onClick={() => handleSelectSubject(sub)}
-                        className={`w-full flex items-center justify-between px-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
-                          isSelected
-                            ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
-                            : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
-                        }`}
-                      >
-                        <span className="truncate mr-1">{sub}</span>
-                        <span
-                          className={`text-[10px] font-mono min-w-[18px] text-right ${
-                            isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
+                      <div key={sub} className="flex flex-col">
+                        <div
+                          onClick={() => handleSelectSubject(sub)}
+                          className={`w-full flex items-center justify-between px-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
+                            isSelected
+                              ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                              : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
                           }`}
                         >
-                          {count}
-                        </span>
+                          <div className="flex items-center gap-1.5 min-w-0">
+                            {hasParts ? (
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedSubSubjects((prev) => ({ ...prev, [sub]: !prev[sub] }));
+                                }}
+                                className="p-0.5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                                title={isExpanded ? 'Hide parts' : 'View 100-item parts'}
+                              >
+                                <svg
+                                  className={`w-3 h-3 transition-transform duration-200 ${
+                                    isExpanded ? 'rotate-90' : ''
+                                  }`}
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                              </button>
+                            ) : (
+                              <span className="w-3" />
+                            )}
+                            <span className="truncate mr-1">{sub}</span>
+                          </div>
+
+                          <span
+                            className={`text-[10px] font-mono min-w-[18px] text-right ${
+                              isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
+                            }`}
+                          >
+                            {count}
+                          </span>
+                        </div>
+
+                        {hasParts && isExpanded && (
+                          <div className="flex flex-col gap-0.5 pl-6 pr-1 py-1 my-0.5 border-l border-zinc-800 bg-[#151720]/80 rounded-r">
+                            {Array.from({ length: numParts }, (_, i) => i + 1).map((partNum) => {
+                              const partKey = `${sub}__part__${partNum}`;
+                              const isPartSelected = selectedSubject === partKey;
+                              const isCompleted = completedParts?.[partKey] || false;
+                              const startQ = (partNum - 1) * 100 + 1;
+                              const endQ = Math.min(partNum * 100, count);
+
+                              return (
+                                <div
+                                  key={partKey}
+                                  className={`flex items-center justify-between px-1.5 py-1 rounded text-[10px] cursor-pointer transition-colors ${
+                                    isPartSelected
+                                      ? 'bg-[#182329] text-[#2dd4bf] font-medium'
+                                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#1b1e28]'
+                                  }`}
+                                >
+                                  <span onClick={() => handleSelectSubject(partKey)} className="truncate mr-1">
+                                    Part {partNum} ({startQ}–{endQ})
+                                  </span>
+                                  <div className="flex items-center gap-1 shrink-0">
+                                    <button
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        onTogglePartCompleted?.(partKey);
+                                      }}
+                                      className={`px-1.5 py-0.5 rounded text-[9px] font-mono border transition-colors cursor-pointer flex items-center gap-0.5 ${
+                                        isCompleted
+                                          ? 'bg-emerald-950 border-emerald-600 text-emerald-300 font-bold'
+                                          : 'bg-zinc-900 border-zinc-700 text-zinc-500 hover:text-zinc-300'
+                                      }`}
+                                      title={isCompleted ? 'Marked completed (Click to uncheck)' : 'Mark as Check (Completed)'}
+                                    >
+                                      <span>{isCompleted ? '✓ Done' : 'Check'}</span>
+                                    </button>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -699,7 +802,11 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
       )}
 
       {/* 3. Dedicated Slim Desktop Sidebar (md+) */}
-      <aside className="hidden md:flex w-56 lg:w-60 h-screen sticky top-0 shrink-0 bg-[#131418] border-r border-[#22242d] p-3.5 overflow-y-auto">
+      <aside
+        className={`${
+          isSidebarVisible ? 'hidden md:flex' : 'hidden'
+        } w-56 lg:w-60 h-screen sticky top-0 shrink-0 bg-[#131418] border-r border-[#22242d] p-3.5 overflow-y-auto`}
+      >
         {renderSidebarContent()}
       </aside>
     </>
