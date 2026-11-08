@@ -228,7 +228,7 @@ export const LooksfamViewer: React.FC = () => {
           ) : (
             <div className="flex flex-col gap-6 text-xs sm:text-sm leading-relaxed">
               {Object.entries(groupedItems).map(([category, items]) => (
-                <div key={category} className="flex flex-col gap-2">
+                <div key={`${category}-section`} className="flex flex-col gap-2">
                   <div className="flex items-center gap-2 border-b border-[#252736] print:border-black pb-1">
                     <span className="text-xs font-bold uppercase tracking-wider text-[#2dd4bf] print:text-black font-mono">
                       {category}
@@ -239,12 +239,12 @@ export const LooksfamViewer: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col gap-1.5 pl-1 sm:pl-2">
-                    {items.map((item) => {
+                    {items.map((item, idx) => {
                       const isBookmarked = bookmarkedIds.has(item.id);
 
                       return (
                         <div
-                          key={item.id}
+                          key={`${category}-${item.id}-${idx}`}
                           className="flex items-start justify-between gap-2 py-0.5 group hover:bg-[#1a1c26] rounded px-1 transition-colors print:py-0.5"
                         >
                           <div className="flex items-start gap-2 flex-1">

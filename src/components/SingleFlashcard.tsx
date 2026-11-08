@@ -642,13 +642,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         )}
 
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
-        <div className="py-0.5 sm:py-1">
           <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
-            {showAnswerKey
-              ? highlightTextWithKeywords(question.question, questionKeywords, 'question')
-              : question.question}
+            {question.question}
           </h2>
-        </div>
 
         {/* Choices Options List */}
         <div className="flex flex-col gap-2 sm:gap-3">

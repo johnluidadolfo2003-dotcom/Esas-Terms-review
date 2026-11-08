@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { FlashcardQuestion } from '../services/storageService';
+import { extractKeywords, highlightTextWithKeywords } from '../services/keywordHighlighter';
 
 interface DocumentViewerProps {
   questions: FlashcardQuestion[];
@@ -19,13 +20,15 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({ questions }) => 
   }, [questions, searchQuery]);
 
   const groupedItems = useMemo(() => {
-    const map: Record<string, FlashcardQuestion[]> = {};
+    const map: Record<string, {question: FlashcardQuestion, keywords: Set<string>}[]> = {};
     filteredQuestions.forEach((item) => {
       const subject = item.subject || 'Uncategorized';
       if (!map[subject]) {
         map[subject] = [];
       }
-      map[subject].push(item);
+      const correctChoiceText = item.choices.find(c => c.id === item.correctChoiceId)?.text || item.correctChoiceId;
+      const { questionKeywords } = extractKeywords(item.question, correctChoiceText);
+      map[subject].push({ question: item, keywords: questionKeywords });
     });
     return map;
   }, [filteredQuestions]);
@@ -65,16 +68,16 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({ questions }) => 
                 <div className="border-b border-black pb-1 font-bold uppercase">{subject}</div>
                 <div className="flex flex-col gap-4 pl-2">
                   {items.map((item, idx) => (
-                    <div key={item.id} className="flex flex-col gap-1.5">
+                    <div key={`${subject}-${item.question.id}-${idx}`} className="flex flex-col gap-1.5">
                       <div className="font-semibold text-black">
-                        {idx + 1}. {item.question}
+                        {idx + 1}. {highlightTextWithKeywords(item.question.question, item.keywords, 'underline')}
                       </div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 pl-4">
-                        {item.choices.map((choice) => {
-                          const isCorrect = choice.id === item.correctChoiceId;
+                        {item.question.choices.map((choice) => {
+                          const isCorrect = choice.id === item.question.correctChoiceId;
                           return (
                             <div
-                              key={choice.id}
+                              key={`${item.question.id}-${choice.id}-${idx}`}
                               className={`text-sm ${isCorrect ? 'font-bold text-black bg-yellow-200 px-1 rounded' : 'text-gray-700'}`}
                             >
                               {choice.id.toUpperCase()}. {choice.text}

@@ -143,12 +143,12 @@ export function extractKeywords(
 }
 
 /**
- * Renders JSX elements with highlighted keyword spans (White text on Yellow background).
+ * Renders JSX elements with highlighted keyword spans.
  */
 export function highlightTextWithKeywords(
   text: string,
   keywords: Set<string>,
-  _highlightStyle: 'question' | 'answer' = 'question'
+  variant: 'highlight' | 'underline' = 'highlight'
 ): React.ReactNode {
   if (!text || !keywords || keywords.size === 0) return text;
 
@@ -172,11 +172,14 @@ export function highlightTextWithKeywords(
     }
 
     const matchedText = match[0];
+    const highlightClasses = variant === 'highlight'
+      ? "bg-yellow-700 text-white font-bold px-1.5 py-0.5 rounded shadow-xs relative z-10 inline-block mx-0.5"
+      : "border-b-2 border-yellow-500 font-bold px-0.5 inline-block text-black print:text-black";
 
     parts.push(
       <mark
         key={`mark-${start}-${end}-${matchedText}`}
-        className="bg-yellow-500 text-white font-bold px-1.5 py-0.5 rounded shadow-xs relative z-10 inline-block mx-0.5"
+        className={highlightClasses}
       >
         {matchedText}
       </mark>
