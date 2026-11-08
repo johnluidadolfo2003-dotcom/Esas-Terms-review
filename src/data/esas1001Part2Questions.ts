@@ -2,7 +2,7 @@ import { FlashcardQuestion } from '../services/questionParser';
 
 export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
   {
-    "id": "esas-1002-march2017-q1",
+    "id": "esas-pdf-510-march2017-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 1,
@@ -25,11 +25,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "IIEE President"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"PRC Commissioner\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q2",
+    "id": "esas-pdf-510-march2017-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 2,
@@ -52,11 +51,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "slope of the elastic curve"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In mechanics of materials, \"load on the beam\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q3",
+    "id": "esas-pdf-510-march2017-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 3,
@@ -79,11 +77,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Electrode Conductor"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounding Electrode Conductor\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q4",
+    "id": "esas-pdf-510-march2017-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 4,
@@ -106,11 +103,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "installation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"manufacturing rule\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q5",
+    "id": "esas-pdf-510-march2017-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 5,
@@ -133,11 +129,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Graduate BSEE"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Graduate BSEE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q6",
+    "id": "esas-pdf-510-march2017-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 6,
@@ -160,11 +155,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "to serve as manual guide for design"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"is the practical safeguarding of persons and properly\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q7",
+    "id": "esas-pdf-510-march2017-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 7,
@@ -187,11 +181,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Search Engine Hacking"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2017), \"Search Engine Optimization\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q8",
+    "id": "esas-pdf-510-march2017-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 8,
@@ -214,11 +207,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "5"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"2\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q9",
+    "id": "esas-pdf-510-march2017-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 9,
@@ -241,11 +233,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Posting"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"Geotagging\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q10",
+    "id": "esas-pdf-510-march2017-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 10,
@@ -268,11 +259,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "In free fall (after elevator cable)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"Moving up at constant speed\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q11",
+    "id": "esas-pdf-510-march2017-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 11,
@@ -295,11 +285,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "FETCH"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering thermodynamics, \"FETCH\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q12",
+    "id": "esas-pdf-510-march2017-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 12,
@@ -322,11 +311,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "40percent"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"50 percent\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q13",
+    "id": "esas-pdf-510-march2017-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 13,
@@ -349,11 +337,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "25"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"25\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q14",
+    "id": "esas-pdf-510-march2017-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 14,
@@ -376,11 +363,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "owner’s equity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"an asset\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q15",
+    "id": "esas-pdf-510-march2017-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 15,
@@ -388,7 +374,7 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
     "choices": [
       {
         "id": "A",
-        "text": "𝟏𝟎𝟎 𝐩𝐞𝐫𝐜𝐞𝐧𝐭 − 𝐩𝐞𝐫𝐜𝐞𝐧𝐭 𝐧𝐞𝐭 𝐬𝐚𝐥𝐯𝐚𝐠𝐞 𝐯𝐚𝐥𝐮𝐞/𝐞𝐬𝐭𝐢𝐦𝐚𝐭𝐞𝐝 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐥𝐢𝐟𝐞"
+        "text": "− /"
       },
       {
         "id": "B",
@@ -403,11 +389,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "average net salvage value/estimated service life"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"𝟏𝟎𝟎 𝐩𝐞𝐫𝐜𝐞𝐧𝐭 − 𝐩𝐞𝐫𝐜𝐞𝐧𝐭 𝐧𝐞𝐭 𝐬𝐚𝐥𝐯𝐚𝐠𝐞 𝐯𝐚𝐥𝐮𝐞/𝐞𝐬𝐭𝐢𝐦𝐚𝐭𝐞𝐝 𝐬𝐞𝐫𝐯𝐢𝐜𝐞 𝐥𝐢𝐟𝐞\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q16",
+    "id": "esas-pdf-510-march2017-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 16,
@@ -430,11 +415,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Hypertext Transfer Protocol"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"Hypertext Transfer Protocol\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q17",
+    "id": "esas-pdf-510-march2017-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 17,
@@ -457,11 +441,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "the spatial derivative of density"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In mechanics of materials, \"the spatial derivative of velocity\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q18",
+    "id": "esas-pdf-510-march2017-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 18,
@@ -484,11 +467,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zeroth law"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"first law\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q19",
+    "id": "esas-pdf-510-march2017-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 19,
@@ -511,11 +493,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "installation rule"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2017), \"wiring design rule\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q20",
+    "id": "esas-pdf-510-march2017-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 20,
@@ -538,11 +519,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Nickel"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering materials and chemistry, \"Zinc\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q21",
+    "id": "esas-pdf-510-march2017-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 21,
@@ -565,11 +545,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Thermochemistry"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Thermodynamics\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q22",
+    "id": "esas-pdf-510-march2017-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 22,
@@ -592,11 +571,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Elasticity"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"Malleability\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q23",
+    "id": "esas-pdf-510-march2017-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 23,
@@ -619,11 +597,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Receivable turnover"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"Receivable turnover\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q24",
+    "id": "esas-pdf-510-march2017-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 24,
@@ -646,11 +623,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "interest expense"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"return of investment\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q25",
+    "id": "esas-pdf-510-march2017-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 25,
@@ -673,11 +649,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "RA 7920"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"RA 184\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q26",
+    "id": "esas-pdf-510-march2017-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 26,
@@ -700,11 +675,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Price-earning model"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"Quick Ratio\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q27",
+    "id": "esas-pdf-510-march2017-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 27,
@@ -727,11 +701,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "grounding elec"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"neutral\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q28",
+    "id": "esas-pdf-510-march2017-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 28,
@@ -754,11 +727,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "red"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"orange\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q29",
+    "id": "esas-pdf-510-march2017-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 29,
@@ -781,11 +753,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Compounds"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"Atoms\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q30",
+    "id": "esas-pdf-510-march2017-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 30,
@@ -808,11 +779,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "stainless"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"tool and die\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q31",
+    "id": "esas-pdf-510-march2017-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 31,
@@ -835,11 +805,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "deformation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"aberration\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q32",
+    "id": "esas-pdf-510-march2017-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 32,
@@ -862,11 +831,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Javascript"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"FORTRAN\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q33",
+    "id": "esas-pdf-510-march2017-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 33,
@@ -889,11 +857,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Visual Basic"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In computer systems and engineering informatics, \"Oracle\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q34",
+    "id": "esas-pdf-510-march2017-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 34,
@@ -916,11 +883,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"6\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q35",
+    "id": "esas-pdf-510-march2017-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 35,
@@ -943,11 +909,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "2002"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"2005\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q36",
+    "id": "esas-pdf-510-march2017-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 36,
@@ -970,11 +935,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Modem, Router, Computer"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Modem, Router, Computer\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q37",
+    "id": "esas-pdf-510-march2017-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 37,
@@ -997,11 +961,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Isothermal Expansion"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Adiabatic Compression\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q38",
+    "id": "esas-pdf-510-march2017-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 38,
@@ -1024,11 +987,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3.5 mm2"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"5.5 mm2\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q39",
+    "id": "esas-pdf-510-march2017-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 39,
@@ -1051,11 +1013,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "6 hours or more"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"3 hours and more\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q40",
+    "id": "esas-pdf-510-march2017-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 40,
@@ -1078,11 +1039,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "15"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"13\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q41",
+    "id": "esas-pdf-510-march2017-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 41,
@@ -1105,11 +1065,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "weather disturbance"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"blue\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q42",
+    "id": "esas-pdf-510-march2017-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 42,
@@ -1132,11 +1091,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "a multimedia device"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"a data storing device\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q43",
+    "id": "esas-pdf-510-march2017-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 43,
@@ -1159,11 +1117,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "90 percent"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"80 percent\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q44",
+    "id": "esas-pdf-510-march2017-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 44,
@@ -1186,11 +1143,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Phishing"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"Phishing\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q45",
+    "id": "esas-pdf-510-march2017-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 45,
@@ -1213,11 +1169,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Stock"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"Principal\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q46",
+    "id": "esas-pdf-510-march2017-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 46,
@@ -1240,11 +1195,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Cash-flow"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Cash-flow\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q47",
+    "id": "esas-pdf-510-march2017-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 47,
@@ -1267,11 +1221,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Alloy"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In computer systems and engineering informatics, \"Compound\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q48",
+    "id": "esas-pdf-510-march2017-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 48,
@@ -1294,11 +1247,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Temperature"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"Viscosity\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q49",
+    "id": "esas-pdf-510-march2017-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 49,
@@ -1321,11 +1273,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "F = kx"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"F = kx\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q50",
+    "id": "esas-pdf-510-march2017-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 50,
@@ -1348,11 +1299,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Temperature"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"Density\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q51",
+    "id": "esas-pdf-510-march2017-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 51,
@@ -1375,11 +1325,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "elastic range"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"elastic range\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q52",
+    "id": "esas-pdf-510-march2017-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 52,
@@ -1402,11 +1351,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "queueing problems"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"queueing problems\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q53",
+    "id": "esas-pdf-510-march2017-q53",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 53,
@@ -1429,11 +1377,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "potential energy"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2017), \"momentum\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q54",
+    "id": "esas-pdf-510-march2017-q54",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 54,
@@ -1456,11 +1403,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Young’s Modulus"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"Young’s Modulus\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q55",
+    "id": "esas-pdf-510-march2017-q55",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 55,
@@ -1483,38 +1429,19 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Iodine"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2017), \"Chlorine\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-mar2017-q56",
+    "id": "esas-pdf-510-march2017-q56",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 56,
-    "question": "An enclosed channel designed expressly for holding wires, cables, or busbars with additional functional permitted by the Philippine Electrical Code is a ______",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Cable tray"
-      },
-      {
-        "id": "B",
-        "text": "Wireway"
-      },
-      {
-        "id": "C",
-        "text": "Conduit"
-      },
-      {
-        "id": "D",
-        "text": "Raceway"
-      }
-    ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), a Raceway is defined as an enclosed channel designed expressly for holding wires, cables, or busbars."
+    "question": "An enclosed channel designed expressly for holding wires, cables, or busbars with additional functional permitted by the Philippine Electrical Code.",
+    "choices": [],
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q57",
+    "id": "esas-pdf-510-march2017-q57",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 57,
@@ -1537,11 +1464,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"3\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q58",
+    "id": "esas-pdf-510-march2017-q58",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 58,
@@ -1564,11 +1490,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Service Lateral"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Service cable\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q59",
+    "id": "esas-pdf-510-march2017-q59",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 59,
@@ -1591,11 +1516,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "16"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"16\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q60",
+    "id": "esas-pdf-510-march2017-q60",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 60,
@@ -1618,11 +1542,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Hashing"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"Hashing\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q61",
+    "id": "esas-pdf-510-march2017-q61",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 61,
@@ -1645,11 +1568,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bureau of Immigration"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Commission\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q62",
+    "id": "esas-pdf-510-march2017-q62",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 62,
@@ -1672,11 +1594,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "EO 59"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2017), \"PD 223\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q63",
+    "id": "esas-pdf-510-march2017-q63",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 63,
@@ -1699,11 +1620,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "None of these"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"Adiabatic index\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2017-q64",
+    "id": "esas-pdf-510-march2017-q64",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 64,
@@ -1726,11 +1646,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "plasticity"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2017), \"plasticity\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2017-q65",
+    "id": "esas-pdf-510-march2017-q65",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 65,
@@ -1753,11 +1672,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Volume"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Heat\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2017-q66",
+    "id": "esas-pdf-510-march2017-q66",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 66,
@@ -1780,11 +1698,10 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "all of these"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2017), \"electric discharge\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2017-q67",
+    "id": "esas-pdf-510-march2017-q67",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
     "questionNumber": 67,
@@ -1807,14 +1724,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Rule 28 to 34"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Rule 11 to 20\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q1",
+    "id": "esas-pdf-510-august2017-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 68,
+    "questionNumber": 1,
     "question": "The thermodynamics statement of the conservation of energy of a system is the",
     "choices": [
       {
@@ -1834,14 +1750,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zeroth law"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"first law\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q2",
+    "id": "esas-pdf-510-august2017-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 69,
+    "questionNumber": 2,
     "question": "For REE board examination, the passing general average is provided there is no grade below in any of the subjects.",
     "choices": [
       {
@@ -1861,14 +1776,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "70 percent, 60 percent"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"70 percent, 50 percent\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q3",
+    "id": "esas-pdf-510-august2017-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 70,
+    "questionNumber": 3,
     "question": "Sec. 23 of Art III of RA 7920 Issuance of Certificate of Registration. The professional is required to renew license every years upon payment of registration fees.",
     "choices": [
       {
@@ -1888,14 +1802,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"3\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q4",
+    "id": "esas-pdf-510-august2017-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 71,
+    "questionNumber": 4,
     "question": "What is the shortcut key to reach the end of the document?",
     "choices": [
       {
@@ -1915,14 +1828,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Home"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"Ctrl+End\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q5",
+    "id": "esas-pdf-510-august2017-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 72,
+    "questionNumber": 5,
     "question": "According to RA 7920 the members of the BEE shall hold office for a term of years from the date of appointment or until their successors shall have been appointed or qualified.",
     "choices": [
       {
@@ -1942,14 +1854,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "5"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"3\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q6",
+    "id": "esas-pdf-510-august2017-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 73,
+    "questionNumber": 6,
     "question": "What refers to a system in which there is flow of mass across its boundaries?",
     "choices": [
       {
@@ -1969,14 +1880,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Steady flow system"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Open System\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q7",
+    "id": "esas-pdf-510-august2017-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 74,
+    "questionNumber": 7,
     "question": "BIOS stands for",
     "choices": [
       {
@@ -1996,14 +1906,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Base Input Output System"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Base Input Output System\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q8",
+    "id": "esas-pdf-510-august2017-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 75,
+    "questionNumber": 8,
     "question": "What device is used to measure fluid velocity as well the velocity of fluid inside a pipe?",
     "choices": [
       {
@@ -2023,14 +1932,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Pilot tube"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"Pilot tube\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q9",
+    "id": "esas-pdf-510-august2017-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 76,
+    "questionNumber": 9,
     "question": "Bernouli’s equation is an expression of",
     "choices": [
       {
@@ -2050,14 +1958,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "conservation of mass and energy"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"conversation of mass\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q10",
+    "id": "esas-pdf-510-august2017-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 77,
+    "questionNumber": 10,
     "question": "Motors must be labelled with the following nameplate rating, manufacturer’s name and etc. This is:",
     "choices": [
       {
@@ -2077,14 +1984,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Installation rule"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"manufacturing rule\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q11",
+    "id": "esas-pdf-510-august2017-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 78,
+    "questionNumber": 11,
     "question": "Partially protected locations under canopies, marquees, roofed open porches, and like locations, and interior locations subject to moderate degrees of moisture.",
     "choices": [
       {
@@ -2104,14 +2010,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Moist location"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Damp location\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q12",
+    "id": "esas-pdf-510-august2017-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 79,
+    "questionNumber": 12,
     "question": "What is the minimum age for a person to become a member of the Board of Electrical Engineering?",
     "choices": [
       {
@@ -2131,14 +2036,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "45"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"35\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q13",
+    "id": "esas-pdf-510-august2017-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 80,
+    "questionNumber": 13,
     "question": "When an object exerts a force on another object, the second object exerts on the first a force of the same magnitude but in the opposite direction. This law is known as:",
     "choices": [
       {
@@ -2158,14 +2062,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Electrode Conductor"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"Newton’s Second law of Motion\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q14",
+    "id": "esas-pdf-510-august2017-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 81,
+    "questionNumber": 14,
     "question": "A system or circuit conductor that is intentionally grounded.",
     "choices": [
       {
@@ -2185,14 +2088,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Electrode Conductor"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounded Conductor\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q15",
+    "id": "esas-pdf-510-august2017-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 82,
+    "questionNumber": 15,
     "question": "Fastest internet connection for home users nowadays.",
     "choices": [
       {
@@ -2212,14 +2114,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Broadband wireless"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2017), \"FTTH\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q16",
+    "id": "esas-pdf-510-august2017-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 83,
+    "questionNumber": 16,
     "question": "Which of these elements has the highest atomic numbers?",
     "choices": [
       {
@@ -2239,14 +2140,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Plutonium"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"Plutonium\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q17",
+    "id": "esas-pdf-510-august2017-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 84,
+    "questionNumber": 17,
     "question": "Concurrent forces are those forces whose line of action",
     "choices": [
       {
@@ -2266,14 +2166,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"meet at one point\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q18",
+    "id": "esas-pdf-510-august2017-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 85,
+    "questionNumber": 18,
     "question": "A couple produces",
     "choices": [
       {
@@ -2293,14 +2192,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of these"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"rotational motion\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q19",
+    "id": "esas-pdf-510-august2017-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 86,
+    "questionNumber": 19,
     "question": "The rate of doing work is known as",
     "choices": [
       {
@@ -2320,14 +2218,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"power\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q20",
+    "id": "esas-pdf-510-august2017-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 87,
+    "questionNumber": 20,
     "question": "The condition of equilibrium or motion of a rigid body remains unchanged if a force acting at a given point of the rigid body is replaced by a force of same magnitude and direction, but acting at a different point provided that the two force have same line of action. This statement is known as .",
     "choices": [
       {
@@ -2347,14 +2244,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Varignon’s Theorem"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"Principle of Transmissibility\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q21",
+    "id": "esas-pdf-510-august2017-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 88,
+    "questionNumber": 21,
     "question": "The property of a material which allows it to be drawn into a smaller section is called",
     "choices": [
       {
@@ -2374,14 +2270,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Malleability"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2017), \"Malleability\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q22",
+    "id": "esas-pdf-510-august2017-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 89,
+    "questionNumber": 22,
     "question": "When a body is subjected to three mutually perpendicular stresses, of equal intensity, the ratio of direct stress to the corresponding volumetric strain is known as",
     "choices": [
       {
@@ -2401,14 +2296,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Poisson’s ratio"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Bulk Modulus\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q23",
+    "id": "esas-pdf-510-august2017-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 90,
+    "questionNumber": 23,
     "question": "A diagram which show the variations of the axial for all sections of the span of a beam, is called",
     "choices": [
       {
@@ -2428,14 +2322,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Stress diagram"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In mechanics of materials, \"Bending moment diagram\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q24",
+    "id": "esas-pdf-510-august2017-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 91,
+    "questionNumber": 24,
     "question": "The ratio of the lateral strain to the linear strains is",
     "choices": [
       {
@@ -2455,14 +2348,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Poisson’s ratio"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"Poisson’s ratio\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q25",
+    "id": "esas-pdf-510-august2017-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 92,
+    "questionNumber": 25,
     "question": "What is an annuity?",
     "choices": [
       {
@@ -2482,14 +2374,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "the present, worth of a future amount"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"a series of uniform amounts over a period of time\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q26",
+    "id": "esas-pdf-510-august2017-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 93,
+    "questionNumber": 26,
     "question": "Which of the following closely related to d’Alembert’s theorem?",
     "choices": [
       {
@@ -2509,14 +2400,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bernouli’s theorem"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"Newton’s second law of motion\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q27",
+    "id": "esas-pdf-510-august2017-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 94,
+    "questionNumber": 27,
     "question": "It state that if two bodies are in thermal equilibrium with a third body, they are also in thermal equilibrium with each other.",
     "choices": [
       {
@@ -2536,14 +2426,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "second law of thermodynamics"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"zeroth law of thermodynamics\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q28",
+    "id": "esas-pdf-510-august2017-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 95,
+    "questionNumber": 28,
     "question": "The opposite of alkali.",
     "choices": [
       {
@@ -2563,14 +2452,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Substance"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"Acid\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q29",
+    "id": "esas-pdf-510-august2017-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 96,
+    "questionNumber": 29,
     "question": "The viscosity of fluid varies with",
     "choices": [
       {
@@ -2590,14 +2478,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "temperature and pressure"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"temperature\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q30",
+    "id": "esas-pdf-510-august2017-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 97,
+    "questionNumber": 30,
     "question": "The New Electrical Engineering Law 7320 originated from House Bill No. & Senate Bill No. .",
     "choices": [
       {
@@ -2617,14 +2504,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "11070 & 1875"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"11063 & 1766\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q31",
+    "id": "esas-pdf-510-august2017-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 98,
+    "questionNumber": 31,
     "question": "The Implementing Rules and Regulations (IRR) of RA 7920 was approved under Board Resolution No. series of 1995.",
     "choices": [
       {
@@ -2644,14 +2530,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "24"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"18\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q32",
+    "id": "esas-pdf-510-august2017-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 99,
+    "questionNumber": 32,
     "question": "The first metal used by man was",
     "choices": [
       {
@@ -2671,14 +2556,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bronze"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Copper\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q33",
+    "id": "esas-pdf-510-august2017-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 100,
+    "questionNumber": 33,
     "question": "Article II of Code of Ethics for Electrical Engineers contains:",
     "choices": [
       {
@@ -2698,14 +2582,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "SEC. 1 to 7"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2017), \"SEC. 1 to 9\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q34",
+    "id": "esas-pdf-510-august2017-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 101,
+    "questionNumber": 34,
     "question": "Article IV, Rule Requirements for examination as a REE.",
     "choices": [
       {
@@ -2725,14 +2608,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "17"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"17\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q35",
+    "id": "esas-pdf-510-august2017-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 102,
+    "questionNumber": 35,
     "question": "A type of annuity where the payments are made at the start of each period, beginning from the first period",
     "choices": [
       {
@@ -2752,14 +2634,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Perpetuity"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"Annuity due\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q36",
+    "id": "esas-pdf-510-august2017-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 103,
+    "questionNumber": 36,
     "question": "In electrochemistry oxidation is a loss of .",
     "choices": [
       {
@@ -2779,14 +2660,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "anode"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"electron\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q37",
+    "id": "esas-pdf-510-august2017-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 104,
+    "questionNumber": 37,
     "question": "The cycle generally used for gas turbines is",
     "choices": [
       {
@@ -2806,14 +2686,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Brayton cycle"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering thermodynamics, \"Brayton cycle\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q38",
+    "id": "esas-pdf-510-august2017-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 105,
+    "questionNumber": 38,
     "question": "What is PDC stands for in EPIRA?",
     "choices": [
       {
@@ -2833,14 +2712,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Philippine Distribution Coordination"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Philippine Distribution Code\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q39",
+    "id": "esas-pdf-510-august2017-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 106,
+    "questionNumber": 39,
     "question": "The color of zinc is:",
     "choices": [
       {
@@ -2860,14 +2738,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "yellowish white"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2017), \"bluish white\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q40",
+    "id": "esas-pdf-510-august2017-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 107,
+    "questionNumber": 40,
     "question": "Which of the following computer language is used for artificial intelligence?",
     "choices": [
       {
@@ -2887,14 +2764,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "COBOL"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"PROLOG\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q41",
+    "id": "esas-pdf-510-august2017-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 108,
+    "questionNumber": 41,
     "question": "Property of a fluid by which its own molecules are attracted is called",
     "choices": [
       {
@@ -2914,14 +2790,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Compressibility"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"Cohesion\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q42",
+    "id": "esas-pdf-510-august2017-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 109,
+    "questionNumber": 42,
     "question": "Structural steal elements subjected to torsion develop",
     "choices": [
       {
@@ -2941,14 +2816,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "bending stress"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"shearing stress\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q43",
+    "id": "esas-pdf-510-august2017-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 110,
+    "questionNumber": 43,
     "question": "In flow process, neglecting KE and PE changes - ∫VdP represents which item",
     "choices": [
       {
@@ -2968,14 +2842,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "flow energy"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"shaft work\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q44",
+    "id": "esas-pdf-510-august2017-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 111,
+    "questionNumber": 44,
     "question": "Which of the following is spreadsheet software?",
     "choices": [
       {
@@ -2995,14 +2868,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Power Point"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In computer systems and engineering informatics, \"Microsoft Excel\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q45",
+    "id": "esas-pdf-510-august2017-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 112,
+    "questionNumber": 45,
     "question": "Before starting any installation work, alteration, repair or extension any electrical system, what type of permit is needed?",
     "choices": [
       {
@@ -3022,14 +2894,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Mayor’s permit"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"Electrical permit\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q46",
+    "id": "esas-pdf-510-august2017-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 113,
+    "questionNumber": 46,
     "question": "A computer is self-replicating computer program.",
     "choices": [
       {
@@ -3049,14 +2920,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Malware"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"Worms\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q47",
+    "id": "esas-pdf-510-august2017-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 114,
+    "questionNumber": 47,
     "question": "A glass of ice water is filled to the brim with water, the ice cubes stick up above the water surface. After the ice melts, which is true?",
     "choices": [
       {
@@ -3076,14 +2946,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Impossible to say without knowing the initial densities of the water and ice."
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2017), \"some water has spilled over the side of the glass.\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q48",
+    "id": "esas-pdf-510-august2017-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 115,
+    "questionNumber": 48,
     "question": "Battery acid is the common name for",
     "choices": [
       {
@@ -3103,14 +2972,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "sulphuric acid"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"sulphuric acid\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q49",
+    "id": "esas-pdf-510-august2017-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 116,
+    "questionNumber": 49,
     "question": "For school buildings, the general lighting load is VA per square meters.",
     "choices": [
       {
@@ -3130,14 +2998,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "8"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"24\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q50",
+    "id": "esas-pdf-510-august2017-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 117,
+    "questionNumber": 50,
     "question": "Sec. 34 of Art. IV: Sundry Provision Relative to Practice of Electrical Engineering states that .",
     "choices": [
       {
@@ -3157,14 +3024,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Prohibitions in the Practice of Electrical Engineering"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"Preparations of plans, supervision of installation, application of PEC code\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2017-q51",
+    "id": "esas-pdf-510-august2017-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 118,
+    "questionNumber": 51,
     "question": "RA 7920 Rule 2(d) defining?",
     "choices": [
       {
@@ -3184,14 +3050,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "TESDA"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Board of EE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q52",
+    "id": "esas-pdf-510-august2017-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 119,
+    "questionNumber": 52,
     "question": "Which wave requires a medium for transmission?",
     "choices": [
       {
@@ -3211,14 +3076,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "sound"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2017), \"sound\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q53",
+    "id": "esas-pdf-510-august2017-q53",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 120,
+    "questionNumber": 53,
     "question": "The iron that has been cooled quickly from a molten state is known as",
     "choices": [
       {
@@ -3238,14 +3102,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "White cast iron"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"White cast iron\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2017-q54",
+    "id": "esas-pdf-510-august2017-q54",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 121,
+    "questionNumber": 54,
     "question": "What does the prefix Tera refers to?",
     "choices": [
       {
@@ -3265,14 +3128,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "10^-15"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"10^12\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q55",
+    "id": "esas-pdf-510-august2017-q55",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 122,
+    "questionNumber": 55,
     "question": "What is PSALM in EPIRA strand for?",
     "choices": [
       {
@@ -3292,14 +3154,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Power section Assets and Liabilities Management"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Power sector Assets and Liabilities Management\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2017-q56",
+    "id": "esas-pdf-510-august2017-q56",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 123,
+    "questionNumber": 56,
     "question": "Article V of Code of ethics stated that: This code shall take effect upon approval by the and after (15) days following it's publication in the Official Gazette.",
     "choices": [
       {
@@ -3319,14 +3180,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "CHED"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2017), \"Commission\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2017-q57",
+    "id": "esas-pdf-510-august2017-q57",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 124,
+    "questionNumber": 57,
     "question": "What is the temperature rating of THHN insulation?",
     "choices": [
       {
@@ -3335,25 +3195,24 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "B",
-        "text": "90 deg C"
+        "text": "90 deg"
       },
       {
         "id": "C",
-        "text": "85 deg C"
+        "text": "85 deg"
       },
       {
         "id": "D",
-        "text": "75 deg C"
+        "text": "75 deg"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2017), \"90 deg C\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q1",
+    "id": "esas-pdf-510-march2016-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 125,
+    "questionNumber": 1,
     "question": "Which of the following is Charle’s law?",
     "choices": [
       {
@@ -3373,14 +3232,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "V/T = k"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2016), \"V/T = k\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q2",
+    "id": "esas-pdf-510-march2016-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 126,
+    "questionNumber": 2,
     "question": "Which of the following is the ideal gas law?",
     "choices": [
       {
@@ -3400,14 +3258,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "V = k x 1/P"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"PV = mRT\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q3",
+    "id": "esas-pdf-510-march2016-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 127,
+    "questionNumber": 3,
     "question": "FTTH means .",
     "choices": [
       {
@@ -3427,14 +3284,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Fiber To The House"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"Fiber To The House\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q4",
+    "id": "esas-pdf-510-march2016-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 128,
+    "questionNumber": 4,
     "question": "A device used in Thermal power plant to reduce air pollution?",
     "choices": [
       {
@@ -3454,14 +3310,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Chimney"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"Precipitator\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q5",
+    "id": "esas-pdf-510-march2016-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 129,
+    "questionNumber": 5,
     "question": "What are elements that have properties intermediate between metals and nonmetals?",
     "choices": [
       {
@@ -3481,14 +3336,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Liquids"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Metalloids\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q6",
+    "id": "esas-pdf-510-march2016-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 130,
+    "questionNumber": 6,
     "question": "What is the primary purpose of PEC?",
     "choices": [
       {
@@ -3508,14 +3362,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "to serve as manual guide for design"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"is the practical safeguarding of persons and property\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q7",
+    "id": "esas-pdf-510-march2016-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 131,
+    "questionNumber": 7,
     "question": "Vinegar is solution of H2O and what acid?",
     "choices": [
       {
@@ -3535,14 +3388,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "nitric acid"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"acetic acid\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q8",
+    "id": "esas-pdf-510-march2016-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 132,
+    "questionNumber": 8,
     "question": "What is the other term for storing data in a memory?",
     "choices": [
       {
@@ -3562,14 +3414,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "writing"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"writing\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q9",
+    "id": "esas-pdf-510-march2016-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 133,
+    "questionNumber": 9,
     "question": "What is the common input device?",
     "choices": [
       {
@@ -3589,14 +3440,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "LCD"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"keyboard\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q10",
+    "id": "esas-pdf-510-march2016-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 134,
+    "questionNumber": 10,
     "question": "The mole is a basic unit of measurement in chemistry. Which of the following is not equal so or the same as one mole of the substance indicated?",
     "choices": [
       {
@@ -3616,14 +3466,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "16 g of oxygen molecules"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2016), \"16 g of oxygen molecules\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q11",
+    "id": "esas-pdf-510-march2016-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 135,
+    "questionNumber": 11,
     "question": "The process of outsmarting the search engine.",
     "choices": [
       {
@@ -3643,14 +3492,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Search Engine Hacking"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"Search Engine Optimization\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q12",
+    "id": "esas-pdf-510-march2016-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 136,
+    "questionNumber": 12,
     "question": "A particle is moving with its acceleration parallel to velocity. What is the direction of the particles?",
     "choices": [
       {
@@ -3670,14 +3518,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "never"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"linear\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q13",
+    "id": "esas-pdf-510-march2016-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 137,
+    "questionNumber": 13,
     "question": "What do you call the kind of wire used to bind the service drop to the service point?",
     "choices": [
       {
@@ -3697,14 +3544,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "None of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"Joint wire\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q14",
+    "id": "esas-pdf-510-march2016-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 138,
+    "questionNumber": 14,
     "question": "What device used to measure fluid velocity as well the velocity of fluid inside a pipe?",
     "choices": [
       {
@@ -3724,14 +3570,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Thermometer"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"Pivot Tube\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q15",
+    "id": "esas-pdf-510-march2016-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 139,
+    "questionNumber": 15,
     "question": "The board of Electrical Engineering is composed of one chairman and how many members?",
     "choices": [
       {
@@ -3751,14 +3596,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "5"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"2\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q16",
+    "id": "esas-pdf-510-march2016-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 140,
+    "questionNumber": 16,
     "question": "The term “Thermodynamics” comes from the Greek words “Therme” and “Dynamis” which means?",
     "choices": [
       {
@@ -3778,14 +3622,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "heat, energy"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"heat, power\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q17",
+    "id": "esas-pdf-510-march2016-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 141,
+    "questionNumber": 17,
     "question": "An object moving in a circle at a constant speed has an acceleration that is",
     "choices": [
       {
@@ -3805,14 +3648,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zero"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"toward the center of the circle\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q18",
+    "id": "esas-pdf-510-march2016-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 142,
+    "questionNumber": 18,
     "question": "Which of the following is the basic equation of accounting?",
     "choices": [
       {
@@ -3832,14 +3674,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Owner’s equit = Liability + Assets"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Assets = Liability + owner’s equity\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q19",
+    "id": "esas-pdf-510-march2016-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 143,
+    "questionNumber": 19,
     "question": "You are standing on a bathroom scale in an elevator, in which of these situation must the same as when the elevator is at rest?",
     "choices": [
       {
@@ -3859,14 +3700,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "in free fall (after the elevator cable has snapped)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"Moving up at constant speed\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q20",
+    "id": "esas-pdf-510-march2016-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 144,
+    "questionNumber": 20,
     "question": "What is another term for “acid-test ratio”?",
     "choices": [
       {
@@ -3886,14 +3726,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Profit margin ratio"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Quick Ratio\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q21",
+    "id": "esas-pdf-510-march2016-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 145,
+    "questionNumber": 21,
     "question": "What is the force per unit area?",
     "choices": [
       {
@@ -3913,14 +3752,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "power"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"pressure\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q22",
+    "id": "esas-pdf-510-march2016-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 146,
+    "questionNumber": 22,
     "question": "What principle behind in a hydraulic brake of the automobile?",
     "choices": [
       {
@@ -3940,14 +3778,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Pascal’s Principle"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2016), \"Pascal’s Principle\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q23",
+    "id": "esas-pdf-510-march2016-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 147,
+    "questionNumber": 23,
     "question": "The measure of randomness or disorder is known as the",
     "choices": [
       {
@@ -3967,14 +3804,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "power"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"entropy\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q24",
+    "id": "esas-pdf-510-march2016-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 148,
+    "questionNumber": 24,
     "question": "Applicants for registered master electrical’s examination must be at least years of age.",
     "choices": [
       {
@@ -3994,14 +3830,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "21"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"18\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q25",
+    "id": "esas-pdf-510-march2016-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 149,
+    "questionNumber": 25,
     "question": "Which of the following is not a part of the requirements to take free examination?",
     "choices": [
       {
@@ -4021,14 +3856,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "He has not been finally convicted by the court of an offense involving moral turpitude"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"He is good reputation with low morale values\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q26",
+    "id": "esas-pdf-510-march2016-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 150,
+    "questionNumber": 26,
     "question": "If you leave the refrigerator door open and the refrigerator runs continuously, the kitchen will",
     "choices": [
       {
@@ -4048,14 +3882,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "get warmer or colder"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"get warmer\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q27",
+    "id": "esas-pdf-510-march2016-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 151,
+    "questionNumber": 27,
     "question": "Process of posting latitude and longitude to picture and images.",
     "choices": [
       {
@@ -4075,14 +3908,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Posting"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"Geotagging\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q28",
+    "id": "esas-pdf-510-march2016-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 152,
+    "questionNumber": 28,
     "question": "The process of detecting. Locating and correcting logic errors in a program",
     "choices": [
       {
@@ -4102,14 +3934,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "debugging"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"debugging\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q29",
+    "id": "esas-pdf-510-march2016-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 153,
+    "questionNumber": 29,
     "question": "In any collision, which of the following is conserved.",
     "choices": [
       {
@@ -4129,14 +3960,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "potential"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"momentum\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q30",
+    "id": "esas-pdf-510-march2016-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 154,
+    "questionNumber": 30,
     "question": "A manometer is used to measure?",
     "choices": [
       {
@@ -4156,14 +3986,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "positive as well as negative pressure"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"negative pressure\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q31",
+    "id": "esas-pdf-510-march2016-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 155,
+    "questionNumber": 31,
     "question": "The maximum bending moment in a cantilever of span L carrying a U.D.L of intensity w per unit length is.",
     "choices": [
       {
@@ -4183,14 +4012,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "wL2/8"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"wL2/8\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q32",
+    "id": "esas-pdf-510-march2016-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 156,
+    "questionNumber": 32,
     "question": "The process of mixing clay, water and other ingredients to make brick is known as",
     "choices": [
       {
@@ -4210,14 +4038,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "dying"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"kneading\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q33",
+    "id": "esas-pdf-510-march2016-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 157,
+    "questionNumber": 33,
     "question": "One Newton is equivalent to",
     "choices": [
       {
@@ -4237,14 +4064,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "109 dyne"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"106 dyne\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q34",
+    "id": "esas-pdf-510-march2016-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 158,
+    "questionNumber": 34,
     "question": "Otto cycle is also known as",
     "choices": [
       {
@@ -4264,14 +4090,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Constant entropy cycle"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Constant volume cycle\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q35",
+    "id": "esas-pdf-510-march2016-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 159,
+    "questionNumber": 35,
     "question": "What is the most common alloying ingredient in copper?",
     "choices": [
       {
@@ -4291,14 +4116,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Magnesium"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Zinc\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q36",
+    "id": "esas-pdf-510-march2016-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 160,
+    "questionNumber": 36,
     "question": "Which of the following conductors is not applicable on wet locations?",
     "choices": [
       {
@@ -4318,14 +4142,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Type THWN"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Type RHW\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q37",
+    "id": "esas-pdf-510-march2016-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 161,
+    "questionNumber": 37,
     "question": "Which characteristic of a wave changes as the wave travels across a boundary between two different m",
     "choices": [
       {
@@ -4345,14 +4168,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "speed"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2016), \"speed\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q38",
+    "id": "esas-pdf-510-march2016-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 162,
+    "questionNumber": 38,
     "question": "For office building, a general lighting load of VA/m2 shall be used.",
     "choices": [
       {
@@ -4372,14 +4194,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "28"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2016), \"28\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q39",
+    "id": "esas-pdf-510-march2016-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 163,
+    "questionNumber": 39,
     "question": "A market situation where there is only one seller with many buyers.",
     "choices": [
       {
@@ -4399,14 +4220,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Oligopsoly"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2016), \"Monopoly\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q40",
+    "id": "esas-pdf-510-march2016-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 164,
+    "questionNumber": 40,
     "question": "Study of motion with reference to the force which causes the motion is.",
     "choices": [
       {
@@ -4426,14 +4246,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "dynamics"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"kinetics\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q41",
+    "id": "esas-pdf-510-march2016-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 165,
+    "questionNumber": 41,
     "question": "In RA 7920, section 23 of article III: Issuance of Certificates of Registration. The professional is renew licence every years upon payment of registration fees.",
     "choices": [
       {
@@ -4453,14 +4272,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "6"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"3\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q42",
+    "id": "esas-pdf-510-march2016-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 166,
+    "questionNumber": 42,
     "question": "It is the ratio of the ultimate stress to the allowable stress.",
     "choices": [
       {
@@ -4480,14 +4298,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "factor of safety"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"factor of safety\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q43",
+    "id": "esas-pdf-510-march2016-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 167,
+    "questionNumber": 43,
     "question": "What is the entropy of a pure substance at a temperature of absolute zero?",
     "choices": [
       {
@@ -4507,14 +4324,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Undefined"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Zero\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q44",
+    "id": "esas-pdf-510-march2016-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 168,
+    "questionNumber": 44,
     "question": "Which of the following closely related to d’Alembert’s theorem?",
     "choices": [
       {
@@ -4534,14 +4350,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bernoulli’s theorem"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"Newton’s second law of motion\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q45",
+    "id": "esas-pdf-510-march2016-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 169,
+    "questionNumber": 45,
     "question": "What is the energy equivalent of a mass of 1 kilogram?",
     "choices": [
       {
@@ -4561,14 +4376,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "9 x 1012 J"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"9 x 1016 J\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q46",
+    "id": "esas-pdf-510-march2016-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 170,
+    "questionNumber": 46,
     "question": "The area of the shear diagram of a beam between any two points on the beam is equal to the",
     "choices": [
       {
@@ -4588,14 +4402,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "change in deflection between the two points"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"change in moment between the two points.\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2016-q47",
+    "id": "esas-pdf-510-march2016-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 171,
+    "questionNumber": 47,
     "question": "Which element is the best conductor of electricity?",
     "choices": [
       {
@@ -4615,14 +4428,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "aluminum"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"silver\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q48",
+    "id": "esas-pdf-510-march2016-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 172,
+    "questionNumber": 48,
     "question": "Litmus paper changes from blue to red when a solution tested is",
     "choices": [
       {
@@ -4642,14 +4454,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "a base"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2016), \"an acid\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2016-q49",
+    "id": "esas-pdf-510-march2016-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 173,
+    "questionNumber": 49,
     "question": "RA 9136 has four sectors, which of the following is not included?",
     "choices": [
       {
@@ -4669,14 +4480,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "generation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"system operation\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q50",
+    "id": "esas-pdf-510-march2016-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 174,
+    "questionNumber": 50,
     "question": "The radius of gyration of a circular section of diameter d is:",
     "choices": [
       {
@@ -4696,14 +4506,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "d/2"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"d/4\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2016-q51",
+    "id": "esas-pdf-510-march2016-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 175,
+    "questionNumber": 51,
     "question": "Enthalpy of an ideal gas is a function only of",
     "choices": [
       {
@@ -4723,14 +4532,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "temperature"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"internal energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2016-q52",
+    "id": "esas-pdf-510-march2016-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 176,
+    "questionNumber": 52,
     "question": "It is the claim of anyone to ownership.",
     "choices": [
       {
@@ -4750,14 +4558,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "assets"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2016), \"equity\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q1",
+    "id": "esas-pdf-510-august2016-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 177,
+    "questionNumber": 1,
     "question": "Which location may be temporarily subjected to dampness or wetness?",
     "choices": [
       {
@@ -4777,14 +4584,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Wet"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Dry\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q2",
+    "id": "esas-pdf-510-august2016-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 178,
+    "questionNumber": 2,
     "question": "Which of the following is very reactive in its pure form?",
     "choices": [
       {
@@ -4804,14 +4610,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "CO2"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Na\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q3",
+    "id": "esas-pdf-510-august2016-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 179,
+    "questionNumber": 3,
     "question": "Which of the following is an instruction that causes data to be brought from memory into an accumulator register?",
     "choices": [
       {
@@ -4831,14 +4636,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "JUMP"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In computer systems and engineering informatics, \"LOAD\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q4",
+    "id": "esas-pdf-510-august2016-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 180,
+    "questionNumber": 4,
     "question": "Installations underground or in concrete slabs or masonry in direct contact with earth.",
     "choices": [
       {
@@ -4858,14 +4662,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Moist Location"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Wet location\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q5",
+    "id": "esas-pdf-510-august2016-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 181,
+    "questionNumber": 5,
     "question": "MS-WORD is a type of?",
     "choices": [
       {
@@ -4885,14 +4688,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "System Software"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2016), \"Application Software\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q6",
+    "id": "esas-pdf-510-august2016-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 182,
+    "questionNumber": 6,
     "question": "What is CD-ROM?",
     "choices": [
       {
@@ -4912,14 +4714,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Compatible Data Read Only Memory"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Compact Disk Read Only Memory\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q7",
+    "id": "esas-pdf-510-august2016-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 183,
+    "questionNumber": 7,
     "question": "What is the weight percentage of electrical engineering professional subjects?",
     "choices": [
       {
@@ -4939,14 +4740,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "25"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2016), \"45\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q8",
+    "id": "esas-pdf-510-august2016-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 184,
+    "questionNumber": 8,
     "question": "In an ideal gas, both pressure and temperature increases to thrice the original temperature respectively, if the original volume is Vo, then the new volume is,",
     "choices": [
       {
@@ -4966,14 +4766,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4Vo"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Vo\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q9",
+    "id": "esas-pdf-510-august2016-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 185,
+    "questionNumber": 9,
     "question": "First law of thermodynamics is also known as:",
     "choices": [
       {
@@ -4993,14 +4792,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Utilization Energy"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"Conservation of Energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q10",
+    "id": "esas-pdf-510-august2016-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 186,
+    "questionNumber": 10,
     "question": "How do you measure the voltage of a circuit element?",
     "choices": [
       {
@@ -5020,14 +4818,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Ammeter in series with the element"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"Voltmeter in parallel with the element\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q11",
+    "id": "esas-pdf-510-august2016-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 187,
+    "questionNumber": 11,
     "question": "What is the most common reinforcement for polymer composites?",
     "choices": [
       {
@@ -5047,14 +4844,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Glass Fiber"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2016), \"Glass Fiber\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q12",
+    "id": "esas-pdf-510-august2016-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 188,
+    "questionNumber": 12,
     "question": "A process in pressure is constant?",
     "choices": [
       {
@@ -5070,14 +4866,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Isothermal"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Isobaric B, Isochoric\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q13",
+    "id": "esas-pdf-510-august2016-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 189,
+    "questionNumber": 13,
     "question": "Section 40 of article IV of RA 7920 is the Penalty Clause, states that any person who shall violate any of the provisions of this Act shall be guilty of misdemeanor and shall, upon conviction, be sentenced to a fine of not less than nor more than P50, 000 or imprisonment for a period not less than 6 months nor more than 5 years or both at the discretion of the court.",
     "choices": [
       {
@@ -5097,15 +4892,14 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "P 30,000"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"P 10,000\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q14",
+    "id": "esas-pdf-510-august2016-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 190,
-    "question": "According to RA 7920 the members of the BEE shall hold office for a term of year from the date of appointment or until their successors shall have been appointed and qualified.",
+    "questionNumber": 14,
+    "question": "According to RA 7920 the members of the BEE shall hold office for a term of year from the date of appointment or until their successors shall have been appointed or qualified.",
     "choices": [
       {
         "id": "A",
@@ -5124,14 +4918,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "5"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"3\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q15",
+    "id": "esas-pdf-510-august2016-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 191,
+    "questionNumber": 15,
     "question": "Which doesn’t have electric charge?",
     "choices": [
       {
@@ -5151,14 +4944,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neutron"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2016), \"Neutron\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q16",
+    "id": "esas-pdf-510-august2016-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 192,
+    "questionNumber": 16,
     "question": "May is declared as the electrical safety month virtue of signed by Pres. Benigno Aquino III last June 27, 2011 for the reason of informing the public of the real reason of faulty electrical wiring.",
     "choices": [
       {
@@ -5178,14 +4970,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "RA 184"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Proclamation No. 193\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q17",
+    "id": "esas-pdf-510-august2016-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 193,
+    "questionNumber": 17,
     "question": "What is the maximum efficiency engine operated from a high temperature reservoir to a low temperature reservoir?",
     "choices": [
       {
@@ -5205,14 +4996,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bell-Coleman"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Carnot\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q18",
+    "id": "esas-pdf-510-august2016-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 194,
+    "questionNumber": 18,
     "question": "EPIRA is RA 9136 which means .",
     "choices": [
       {
@@ -5232,14 +5022,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Energy Power Institution Reliability Act"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Electric Power Industry Reform Act\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q19",
+    "id": "esas-pdf-510-august2016-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 195,
+    "questionNumber": 19,
     "question": "EPIRA is RA .",
     "choices": [
       {
@@ -5259,14 +5048,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "7920"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"9136\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q20",
+    "id": "esas-pdf-510-august2016-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 196,
+    "questionNumber": 20,
     "question": "Conservation of is used in collision, Explosion and the like.",
     "choices": [
       {
@@ -5286,14 +5074,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "heat"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2016), \"momentum\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q21",
+    "id": "esas-pdf-510-august2016-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 197,
+    "questionNumber": 21,
     "question": "The deflection beam is",
     "choices": [
       {
@@ -5313,14 +5100,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "directly proportional to the load imposed and inversely proportional to the length squared"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"inversely proportional to the modulus of elasticity and moment of inertia\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q22",
+    "id": "esas-pdf-510-august2016-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 198,
+    "questionNumber": 22,
     "question": "What is the system program used to translate directly an assembly language to machine language called",
     "choices": [
       {
@@ -5340,14 +5126,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Assembler"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Assembler\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q23",
+    "id": "esas-pdf-510-august2016-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 199,
+    "questionNumber": 23,
     "question": "What best defines annuity?",
     "choices": [
       {
@@ -5367,14 +5152,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "difference between the present value and the worth of money at some time in the future."
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"a series of equal payments occurring at equal periods of time\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q24",
+    "id": "esas-pdf-510-august2016-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 200,
+    "questionNumber": 24,
     "question": "The change that the system undergoes from one equilibrium state to another is known as .",
     "choices": [
       {
@@ -5394,14 +5178,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Entropy change"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"process\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q25",
+    "id": "esas-pdf-510-august2016-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 201,
+    "questionNumber": 25,
     "question": "What is the entropy of pure substance at the temperature of absolute zero?",
     "choices": [
       {
@@ -5421,14 +5204,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "undefined"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"zero\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q26",
+    "id": "esas-pdf-510-august2016-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 202,
+    "questionNumber": 26,
     "question": "What is the amount of heat needed to turn 1kg of substance at its melting point from the solid to the liquid state?",
     "choices": [
       {
@@ -5448,14 +5230,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Heat of fission"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Heat of fusion\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q27",
+    "id": "esas-pdf-510-august2016-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 203,
+    "questionNumber": 27,
     "question": "For rectangular section of breadth “b” and depth “h” the section modulus is given by:",
     "choices": [
       {
@@ -5475,14 +5256,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "z = bh2/6"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"z = bh2/6\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q28",
+    "id": "esas-pdf-510-august2016-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 204,
+    "questionNumber": 28,
     "question": "Ideal fluid has:",
     "choices": [
       {
@@ -5502,14 +5282,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "surface tension, viscosity and compressibility"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"no surface tension, no viscosity and no compressibility\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q29",
+    "id": "esas-pdf-510-august2016-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 205,
+    "questionNumber": 29,
     "question": "The area of the shear diagram of a beam between any two points on the beam is equal to the",
     "choices": [
       {
@@ -5529,14 +5308,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Change in moment between two points"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"Change in moment between two points\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q30",
+    "id": "esas-pdf-510-august2016-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 206,
+    "questionNumber": 30,
     "question": "Carbon dioxide “snow” from a fire extinguisher puts out a fire because it",
     "choices": [
       {
@@ -5556,14 +5334,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "cools the material below its kindling temperature"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"displaces the supply of oxygen\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q31",
+    "id": "esas-pdf-510-august2016-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 207,
+    "questionNumber": 31,
     "question": "The rocks generally used for roofing, is",
     "choices": [
       {
@@ -5583,14 +5360,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "trap"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"granite\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q32",
+    "id": "esas-pdf-510-august2016-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 208,
+    "questionNumber": 32,
     "question": "During a refrigeration cycle, heat is rejected in a:",
     "choices": [
       {
@@ -5610,14 +5386,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "expansion valve"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"condenser\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q33",
+    "id": "esas-pdf-510-august2016-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 209,
+    "questionNumber": 33,
     "question": "Stainless steel resists corrosion due to",
     "choices": [
       {
@@ -5637,14 +5412,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "vanadium"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering materials and chemistry, \"chromium\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q34",
+    "id": "esas-pdf-510-august2016-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 210,
+    "questionNumber": 34,
     "question": "Absolute reference in a spreadsheet is used by inserting a sign before the column and row. This is used for data reference in another cell.",
     "choices": [
       {
@@ -5664,14 +5438,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "hyphen"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"dollar\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q35",
+    "id": "esas-pdf-510-august2016-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 211,
+    "questionNumber": 35,
     "question": "Earth’s surface is part of the",
     "choices": [
       {
@@ -5691,14 +5464,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "troposphere"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"Lithosphere\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q36",
+    "id": "esas-pdf-510-august2016-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 212,
+    "questionNumber": 36,
     "question": "This refers to energy-consuming equipment including motors, heaters, furnaces, light sources and other devices which utilize electric energy, for any purpose.",
     "choices": [
       {
@@ -5718,14 +5490,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Transformer"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Utilization Equipment\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q37",
+    "id": "esas-pdf-510-august2016-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 213,
+    "questionNumber": 37,
     "question": "A pilot tube is used to measure:",
     "choices": [
       {
@@ -5745,14 +5516,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "all of these"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"velocity of fluid\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q38",
+    "id": "esas-pdf-510-august2016-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 214,
+    "questionNumber": 38,
     "question": "Which group of the periodic table is known as the alkali metals?",
     "choices": [
       {
@@ -5772,14 +5542,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Group 4"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Group 1\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q39",
+    "id": "esas-pdf-510-august2016-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 215,
+    "questionNumber": 39,
     "question": "Which law states “Entropy of all perfect crystalline solids is zero at absolute zero temperature”?",
     "choices": [
       {
@@ -5799,14 +5568,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Third Law of thermodynamics"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering thermodynamics, \"Third Law of thermodynamics\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q40",
+    "id": "esas-pdf-510-august2016-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 216,
+    "questionNumber": 40,
     "question": "In galvanized iron, a lining on iron is provided with:",
     "choices": [
       {
@@ -5826,14 +5594,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Al"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Zn\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q41",
+    "id": "esas-pdf-510-august2016-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 217,
+    "questionNumber": 41,
     "question": "(U + PV) is a quantity called",
     "choices": [
       {
@@ -5853,14 +5620,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "enthalpy"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2016), \"enthalpy\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q42",
+    "id": "esas-pdf-510-august2016-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 218,
+    "questionNumber": 42,
     "question": "The element that is practically insoluble in solid is known as",
     "choices": [
       {
@@ -5880,14 +5646,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neon"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Lead\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q43",
+    "id": "esas-pdf-510-august2016-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 219,
+    "questionNumber": 43,
     "question": "What do you call materials that do not conduct electric current?",
     "choices": [
       {
@@ -5907,14 +5672,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Intrinsic Material"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"Insulator\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q44",
+    "id": "esas-pdf-510-august2016-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 220,
+    "questionNumber": 44,
     "question": "A branch of physical science which deals with the state of rest or motion of bodies under the action of forces.",
     "choices": [
       {
@@ -5934,14 +5698,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Statics"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2016), \"Mechanics\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q45",
+    "id": "esas-pdf-510-august2016-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 221,
+    "questionNumber": 45,
     "question": "A wire or cable carrying electric current, supported by poles, tower of other structures, but not including vertical or lateral connecting wires.",
     "choices": [
       {
@@ -5961,14 +5724,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Lateral Conductor"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"Line Conductor\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q46",
+    "id": "esas-pdf-510-august2016-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 222,
+    "questionNumber": 46,
     "question": "What refers to the value of an asset which is disinterested third party, different from the buyer and seller, will determine in order to establish a price acceptable to both parties?",
     "choices": [
       {
@@ -5988,14 +5750,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Franchise value"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"Fair value\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q47",
+    "id": "esas-pdf-510-august2016-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 223,
+    "questionNumber": 47,
     "question": "A general term covering on assembly or assemblies of devices for switching, interrupting, controlling, metering of electric power.",
     "choices": [
       {
@@ -6015,14 +5776,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Panel board"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2016), \"Switchgear\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2016-q48",
+    "id": "esas-pdf-510-august2016-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 224,
+    "questionNumber": 48,
     "question": "In air conditioning of aircrafts, using air as refrigerant, the cycle used is:",
     "choices": [
       {
@@ -6042,14 +5802,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Reverse Otto Cycle"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"Reverse Brayton Cycle\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2016-q49",
+    "id": "esas-pdf-510-august2016-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 225,
+    "questionNumber": 49,
     "question": "The second period contains how many elements",
     "choices": [
       {
@@ -6069,14 +5828,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "8"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2016), \"8\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2016-q50",
+    "id": "esas-pdf-510-august2016-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 226,
+    "questionNumber": 50,
     "question": "Mercury cannot wet a glass tube. That is due to:",
     "choices": [
       {
@@ -6096,14 +5854,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "viscosity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Cohesion\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2016-q51",
+    "id": "esas-pdf-510-august2016-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 227,
+    "questionNumber": 51,
     "question": "How many atoms are there per unit cell of a BCC structure?",
     "choices": [
       {
@@ -6123,14 +5880,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"2\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q1",
+    "id": "esas-pdf-510-march2015-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 228,
+    "questionNumber": 1,
     "question": "Partially protected locations under canopies, marquees, roofed open porches, and like locations, and interior locations subject to moderate degrees of moisture, such as some basements some barns, and some cold-storage warehouses.",
     "choices": [
       {
@@ -6150,14 +5906,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Wet"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Damp\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q2",
+    "id": "esas-pdf-510-march2015-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 229,
+    "questionNumber": 2,
     "question": "A location not normally subjected to dampness or wetness. A location classified as ____ maybe temporarily subjected to dampness or wetness as in the case of building under construction.",
     "choices": [
       {
@@ -6177,14 +5932,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Wet"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"Dry\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q3",
+    "id": "esas-pdf-510-march2015-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 230,
+    "questionNumber": 3,
     "question": "Combination of laminar and turbulent flow.",
     "choices": [
       {
@@ -6204,14 +5958,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "turbulent"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Critical\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q4",
+    "id": "esas-pdf-510-march2015-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 231,
+    "questionNumber": 4,
     "question": "A system or circuit conductor that is intentionally grounded.",
     "choices": [
       {
@@ -6231,14 +5984,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Equipment"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounded Conductor\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q5",
+    "id": "esas-pdf-510-march2015-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 232,
+    "questionNumber": 5,
     "question": "Most common pressure measuring device use today",
     "choices": [
       {
@@ -6258,14 +6010,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Barometer"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Bourdon tube gauge\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q6",
+    "id": "esas-pdf-510-march2015-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 233,
+    "questionNumber": 6,
     "question": "Poisson’s Ratio is the ratio of the",
     "choices": [
       {
@@ -6285,14 +6036,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Shear strain to compressive strain"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Unit lateral deformation to the unit longitudinal deformation\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q7",
+    "id": "esas-pdf-510-march2015-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 234,
+    "questionNumber": 7,
     "question": "Which is not covered by Thermodynamics",
     "choices": [
       {
@@ -6312,14 +6062,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Storage of energy"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Utilization of energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q8",
+    "id": "esas-pdf-510-march2015-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 235,
+    "questionNumber": 8,
     "question": "What is the SI unit of mass?",
     "choices": [
       {
@@ -6339,14 +6088,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "pound"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"kilogram\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q9",
+    "id": "esas-pdf-510-march2015-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 236,
+    "questionNumber": 9,
     "question": "What is the SI unit of length?",
     "choices": [
       {
@@ -6366,14 +6114,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "inches"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"Meter\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q10",
+    "id": "esas-pdf-510-march2015-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 237,
+    "questionNumber": 10,
     "question": "The differential of the shear equation is which one of the following?",
     "choices": [
       {
@@ -6393,14 +6140,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "slope of the elastic curve"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In mechanics of materials, \"Load on the beam\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q11",
+    "id": "esas-pdf-510-march2015-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 238,
+    "questionNumber": 11,
     "question": "Under very slow deformation and at high temperature, it is possible to have some plastic flow in a crystal at a shear stress lower than the critical shear stress. What is the phenomenon called?",
     "choices": [
       {
@@ -6420,14 +6166,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "bending"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"creep\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q12",
+    "id": "esas-pdf-510-march2015-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 239,
+    "questionNumber": 12,
     "question": "Which of the following elements and compounds is unstable in its pure form?",
     "choices": [
       {
@@ -6447,14 +6192,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neon (Ne)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"Sodium (Na)\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q13",
+    "id": "esas-pdf-510-march2015-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 240,
+    "questionNumber": 13,
     "question": "BIOS stands for",
     "choices": [
       {
@@ -6474,14 +6218,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Base Input Output System"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"Basic Input Output System\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q14",
+    "id": "esas-pdf-510-march2015-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 241,
+    "questionNumber": 14,
     "question": "The minimum diameter of a steel ground electrode is",
     "choices": [
       {
@@ -6501,14 +6244,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "16mm"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"16mm\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q15",
+    "id": "esas-pdf-510-march2015-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 242,
+    "questionNumber": 15,
     "question": "The branch of mechanists which deals wt. bodies in motion is known as .",
     "choices": [
       {
@@ -6528,14 +6270,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Kinematics"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"Dynamics\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q16",
+    "id": "esas-pdf-510-march2015-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 243,
+    "questionNumber": 16,
     "question": "Bernoulli’s equation is based on",
     "choices": [
       {
@@ -6555,14 +6296,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "the conservation of energy"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In fluid mechanics, \"the conservation of energy\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q17",
+    "id": "esas-pdf-510-march2015-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 244,
+    "questionNumber": 17,
     "question": "Pluto travels from perihelion to aphelion. What is the work done by gravity on Pluto?",
     "choices": [
       {
@@ -6582,14 +6322,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "undetermined"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"negative\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q18",
+    "id": "esas-pdf-510-march2015-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 245,
+    "questionNumber": 18,
     "question": "Carnot cycle is maximum efficiency in engine.",
     "choices": [
       {
@@ -6609,14 +6348,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "well lubricated"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"reversible\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q19",
+    "id": "esas-pdf-510-march2015-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 246,
+    "questionNumber": 19,
     "question": "It is the interest earned by the principal which is added to the principal will also earn an interest for the succeeding periods.",
     "choices": [
       {
@@ -6636,14 +6374,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "interest rate"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Compound interest\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q20",
+    "id": "esas-pdf-510-march2015-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 247,
+    "questionNumber": 20,
     "question": "What refers to the case hardening process by which the carbon content of the steel near the surface of the part is increased?",
     "choices": [
       {
@@ -6663,14 +6400,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Martempering"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Carburizing\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q21",
+    "id": "esas-pdf-510-march2015-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 248,
+    "questionNumber": 21,
     "question": "If two balls are thrown with the same initial velocity, with one ball is thrown 20 degrees above horizontal and the other is thrown horizontally. Neglecting air resistance, which ball will hit the ground with the greatest speed?",
     "choices": [
       {
@@ -6690,14 +6426,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "lack of data"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"the ones thrown 20 degrees’ angle\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q22",
+    "id": "esas-pdf-510-march2015-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 249,
+    "questionNumber": 22,
     "question": "MS-DOS is a type of?",
     "choices": [
       {
@@ -6717,14 +6452,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "system architecture"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"System software\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q23",
+    "id": "esas-pdf-510-march2015-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 250,
+    "questionNumber": 23,
     "question": "MS-WORD is a type of",
     "choices": [
       {
@@ -6744,14 +6478,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "system architecture"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"application software\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q24",
+    "id": "esas-pdf-510-march2015-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 251,
+    "questionNumber": 24,
     "question": "What is CD-ROM?",
     "choices": [
       {
@@ -6771,15 +6504,14 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Compatible Data Read Only Memory"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"Compact Disk Read Only Memory\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q25",
+    "id": "esas-pdf-510-march2015-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 252,
-    "question": "The second law of thermodynamics can be stated as: I- Heat flows spontaneously from a hot object to a cold one, but not the reverse; II- Natural processes tend to move toward a state of greater disorder or greater entropy.",
+    "questionNumber": 25,
+    "question": "The second law of thermodynamics can be stated as: I-Heat flows spontaneously from a hot object to a cold one, but not the reverse; II-Natural processes tend to move toward a state of greater disorder or greater entropy.",
     "choices": [
       {
         "id": "A",
@@ -6798,14 +6530,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neither I nor II"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"I and II\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q26",
+    "id": "esas-pdf-510-march2015-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 253,
+    "questionNumber": 26,
     "question": "Who is not a member of the board EE?",
     "choices": [
       {
@@ -6829,14 +6560,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Jaime V. Mendoza"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"Gregorio T. Cayetano\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q27",
+    "id": "esas-pdf-510-march2015-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 254,
+    "questionNumber": 27,
     "question": "For REE board examination, the passing general average is 70% provided there is no grade below in Any of the 3 subjects.",
     "choices": [
       {
@@ -6856,14 +6586,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "40%"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"50 %\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q28",
+    "id": "esas-pdf-510-march2015-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 255,
+    "questionNumber": 28,
     "question": "What is the weight percentage of electrical engineering professional subjects?",
     "choices": [
       {
@@ -6883,15 +6612,14 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "25"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"45\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q29",
+    "id": "esas-pdf-510-march2015-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 256,
-    "question": "In an ideal gas, both pressure and temperature increases to twice the original pressure and temperature respectively. If the original volume is Vo, then the new volume is",
+    "questionNumber": 29,
+    "question": "In an ideal gas, both pressure and temperature increases to thrice the original pressure and temperature respectively. If the original volume is Vo, then the new volume is",
     "choices": [
       {
         "id": "A",
@@ -6910,14 +6638,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4Vo"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Vo\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q30",
+    "id": "esas-pdf-510-march2015-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 257,
+    "questionNumber": 30,
     "question": "The ampacity of the fuse should be 125% of the continues load current is covered by",
     "choices": [
       {
@@ -6937,14 +6664,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "construction design"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"Wiring design\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q31",
+    "id": "esas-pdf-510-march2015-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 258,
+    "questionNumber": 31,
     "question": "Generators and motors should be dust proof is covered by class III,",
     "choices": [
       {
@@ -6964,14 +6690,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "constructional design"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"manufacturing design\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q32",
+    "id": "esas-pdf-510-march2015-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 259,
+    "questionNumber": 32,
     "question": "In thermodynamics we focus our attention on which form of energy?",
     "choices": [
       {
@@ -6991,14 +6716,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "total"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"internal\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q33",
+    "id": "esas-pdf-510-march2015-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 260,
+    "questionNumber": 33,
     "question": "What is the coal that has been previously burned in an oxygen-poor environment?",
     "choices": [
       {
@@ -7018,14 +6742,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Hematite"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Coke\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q34",
+    "id": "esas-pdf-510-march2015-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 261,
+    "questionNumber": 34,
     "question": "What is the most common reinforcement for polymer composites?",
     "choices": [
       {
@@ -7041,14 +6764,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Graphite D Glass fiber"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2015), \"\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q35",
+    "id": "esas-pdf-510-march2015-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 262,
+    "questionNumber": 35,
     "question": "What is the principle behind fiber optics?",
     "choices": [
       {
@@ -7068,14 +6790,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Dispersion"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"Reflection\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q36",
+    "id": "esas-pdf-510-march2015-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 263,
+    "questionNumber": 36,
     "question": "A conductor used to connect equipment r the grounded circuit of a wiring system to a grounding electrode or electrodes.",
     "choices": [
       {
@@ -7095,14 +6816,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Equipment"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounding Conductor\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q37",
+    "id": "esas-pdf-510-march2015-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 264,
+    "questionNumber": 37,
     "question": "When magma rocks cool, these rocks are called",
     "choices": [
       {
@@ -7122,14 +6842,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "metamorphic rocks"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"igneous rocks\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q38",
+    "id": "esas-pdf-510-march2015-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 265,
+    "questionNumber": 38,
     "question": "The conductor that used to connect the grounding electrode to the equipment grounding conductor to the grounded conductor, or to both, of the circuit at the service equipment or at the source of separately derived system.",
     "choices": [
       {
@@ -7149,14 +6868,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Grounding Equipment"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounding Electrode Conductor\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q39",
+    "id": "esas-pdf-510-march2015-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 266,
+    "questionNumber": 39,
     "question": "A device intended for the protection of personnel that functions to de-energize a circuit or portion thereof within an established period of time when a current to ground exceeds some predetermined value that is less than that required to operate the overcurrent protective device of the supply circuit.",
     "choices": [
       {
@@ -7176,14 +6894,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Ground-Fault Protection of Equipment"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Grounding-Fault Circuit Interrupter\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q40",
+    "id": "esas-pdf-510-march2015-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 267,
+    "questionNumber": 40,
     "question": "The maximum bending moment of a beam simply supported at both end and subject to total load W uniformly distributed over its length L is expressed by the formula.",
     "choices": [
       {
@@ -7203,14 +6920,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "WL/4"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In mechanics of materials, \"WL/8\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q41",
+    "id": "esas-pdf-510-march2015-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 268,
+    "questionNumber": 41,
     "question": "What is the form of the moment diagram of a beam supported at both ends and carrying a uniformly distributed load?",
     "choices": [
       {
@@ -7230,14 +6946,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "rectangle"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"parabola\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q42",
+    "id": "esas-pdf-510-march2015-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 269,
+    "questionNumber": 42,
     "question": "A byte is composed of how many bits?",
     "choices": [
       {
@@ -7257,14 +6972,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "8"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"8\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q43",
+    "id": "esas-pdf-510-march2015-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 270,
+    "questionNumber": 43,
     "question": "A gas in the atmosphere that traps sun’s UV rays.",
     "choices": [
       {
@@ -7284,14 +6998,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "water vapour"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"ozone\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q44",
+    "id": "esas-pdf-510-march2015-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 271,
+    "questionNumber": 44,
     "question": "Adiabatic process is?",
     "choices": [
       {
@@ -7311,14 +7024,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "constant pressure"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2015), \"No heat transfer\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q45",
+    "id": "esas-pdf-510-march2015-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 272,
+    "questionNumber": 45,
     "question": "The equipment grounding conductor of branch circuit shall be identified by what color?",
     "choices": [
       {
@@ -7338,14 +7050,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Gray"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Green\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q46",
+    "id": "esas-pdf-510-march2015-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 273,
+    "questionNumber": 46,
     "question": "In bathtub and shower areas no part of cord-connected fixtures, hanging fixtures, lighting track, pendants, or ceiling-suspended (paddle) fans should be located with a zone measured horizontally and vertically from the top of the bathtub rim or shower shall threshold.",
     "choices": [
       {
@@ -7365,41 +7076,39 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "800 mm, 2500 mm"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"900 mm, 2400 mm\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q47",
+    "id": "esas-pdf-510-march2015-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 274,
+    "questionNumber": 47,
     "question": "What is the maximum operating temperature of the type UF conductor?",
     "choices": [
       {
         "id": "A",
-        "text": "75 deg C"
+        "text": "75 deg"
       },
       {
         "id": "B",
-        "text": "90 deg C"
+        "text": "90 deg"
       },
       {
         "id": "C",
-        "text": "60 deg C"
+        "text": "60 deg"
       },
       {
         "id": "D",
-        "text": "110 deg C"
+        "text": "110 deg"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"60 deg C\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q48",
+    "id": "esas-pdf-510-march2015-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 275,
+    "questionNumber": 48,
     "question": "Structural steel elements subjected to torsion develop",
     "choices": [
       {
@@ -7419,14 +7128,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "bending stress"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"shearing stress\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q49",
+    "id": "esas-pdf-510-march2015-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 276,
+    "questionNumber": 49,
     "question": "The chief source of energy in the world today is",
     "choices": [
       {
@@ -7446,14 +7154,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "uranium"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"oil\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q50",
+    "id": "esas-pdf-510-march2015-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 277,
+    "questionNumber": 50,
     "question": "Which element is present in all organic compounds?",
     "choices": [
       {
@@ -7473,14 +7180,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "phosphorus"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2015), \"carbon\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q51",
+    "id": "esas-pdf-510-march2015-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 278,
+    "questionNumber": 51,
     "question": "A substance that, when added to a solution, makes changing the pH of the solution more difficult.",
     "choices": [
       {
@@ -7500,14 +7206,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "butter"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2015), \"butter\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q52",
+    "id": "esas-pdf-510-march2015-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 279,
+    "questionNumber": 52,
     "question": "At the highest or lowest point of the moment diagram",
     "choices": [
       {
@@ -7527,14 +7232,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "shear is negative"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"Shear is zero\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q53",
+    "id": "esas-pdf-510-march2015-q53",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 280,
+    "questionNumber": 53,
     "question": "The chemical shorthand name for molybdenum is",
     "choices": [
       {
@@ -7554,14 +7258,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Mn"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Mo\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q54",
+    "id": "esas-pdf-510-march2015-q54",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 281,
+    "questionNumber": 54,
     "question": "Formula for magnesium Nitrite",
     "choices": [
       {
@@ -7581,14 +7284,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Mg2(NO2)3"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2015), \"Mg(NO2)2\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q55",
+    "id": "esas-pdf-510-march2015-q55",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 282,
+    "questionNumber": 55,
     "question": "A force causing a rise fluid of liquid in tubes of small diameter.",
     "choices": [
       {
@@ -7608,14 +7310,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "adhesion"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"capillarity\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q56",
+    "id": "esas-pdf-510-march2015-q56",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 283,
+    "questionNumber": 56,
     "question": "In RA 9136, what is SGC stands for",
     "choices": [
       {
@@ -7635,14 +7336,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Special Generation Company"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Successor Generation Company\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2015-q57",
+    "id": "esas-pdf-510-march2015-q57",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 284,
+    "questionNumber": 57,
     "question": "In RA 9236, what is CREM stands for",
     "choices": [
       {
@@ -7662,14 +7362,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Competitor Retail Energy Market"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Competitive Retail Electricity Market\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2015-q58",
+    "id": "esas-pdf-510-march2015-q58",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 285,
+    "questionNumber": 58,
     "question": "Article II of Code of Ethics for Electrical Engineers contains:",
     "choices": [
       {
@@ -7689,14 +7388,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "SEC. 1 to 9"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2015), \"SEC. 1 to 9\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q59",
+    "id": "esas-pdf-510-march2015-q59",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 286,
+    "questionNumber": 59,
     "question": "Article IV, Rule . Requirements for examination as a REE",
     "choices": [
       {
@@ -7716,14 +7414,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "17"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"17\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q60",
+    "id": "esas-pdf-510-march2015-q60",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 287,
+    "questionNumber": 60,
     "question": "What rules are included in Article V of RA 7920?",
     "choices": [
       {
@@ -7743,14 +7440,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "RULE 28 to 34"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"RULE 21 to 27\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2015-q61",
+    "id": "esas-pdf-510-march2015-q61",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 288,
+    "questionNumber": 61,
     "question": "The phenomenon of melting under pressure and freezing again when the pressure is reduced is known as",
     "choices": [
       {
@@ -7770,14 +7466,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "regelation"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"regelation\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2015-q62",
+    "id": "esas-pdf-510-march2015-q62",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 289,
+    "questionNumber": 62,
     "question": "Which of the following cycle is used in vapor cycle power plant?",
     "choices": [
       {
@@ -7797,14 +7492,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Ericson cycle"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Rankine Cycle\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q1",
+    "id": "esas-pdf-510-august2015-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 290,
+    "questionNumber": 1,
     "question": "Commercially used pressure measuring device is",
     "choices": [
       {
@@ -7824,14 +7518,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Barometer"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Bourdon tube gauge\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q2",
+    "id": "esas-pdf-510-august2015-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 291,
+    "questionNumber": 2,
     "question": "In thermodynamics we focus our attention on which forms of energy?",
     "choices": [
       {
@@ -7851,14 +7544,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "total"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"internal\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q3",
+    "id": "esas-pdf-510-august2015-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 292,
+    "questionNumber": 3,
     "question": "The purpose of copper steel alloying is to increase",
     "choices": [
       {
@@ -7878,14 +7570,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "deoxidation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"atmospheric corrosion resistance\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q4",
+    "id": "esas-pdf-510-august2015-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 293,
+    "questionNumber": 4,
     "question": "The abbreviation for binary digit",
     "choices": [
       {
@@ -7905,14 +7596,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "byte"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2015), \"bit\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q5",
+    "id": "esas-pdf-510-august2015-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 294,
+    "questionNumber": 5,
     "question": "Installations underground or in concrete slabs or masonry in direct contact with the earth.",
     "choices": [
       {
@@ -7932,14 +7622,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Moist location"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Wet location\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q6",
+    "id": "esas-pdf-510-august2015-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 295,
+    "questionNumber": 6,
     "question": "What impurity in steel can cause “red shortness” which means the steel becomes unworkable at high temperature?",
     "choices": [
       {
@@ -7959,41 +7648,31 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Phosphorus"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q7",
+    "id": "esas-pdf-510-august2015-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 296,
-    "question": "A system or circuit conductor that is intentionally grounded.",
+    "questionNumber": 7,
+    "question": "A system or circuit conductor that is intentionally grounded. E. Grounding Conductor",
     "choices": [
       {
-        "id": "A",
-        "text": "Grounding Conductor"
-      },
-      {
         "id": "C",
-        "text": "Grounding Electrode Conductor"
-      },
-      {
-        "id": "C",
-        "text": "Grounded Conductor"
+        "text": "Grounding Electrode Conductor F. Grounded Conductor"
       },
       {
         "id": "D",
         "text": "Grounding Equipment"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q8",
+    "id": "esas-pdf-510-august2015-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 297,
+    "questionNumber": 8,
     "question": "A conducting connections, whether intentional or accidental, between an electric circuit or equipment and the earth, or to some conducting body that serves in place of the earth.",
     "choices": [
       {
@@ -8013,14 +7692,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Fault"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"Ground\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q9",
+    "id": "esas-pdf-510-august2015-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 298,
+    "questionNumber": 9,
     "question": "Aluminum can be added to steel to produce",
     "choices": [
       {
@@ -8040,14 +7718,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "first steel"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"killed steel\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q10",
+    "id": "esas-pdf-510-august2015-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 299,
+    "questionNumber": 10,
     "question": "Which of the following is an alkaline earth metal?",
     "choices": [
       {
@@ -8067,20 +7744,15 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Na"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Ba\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q11",
+    "id": "esas-pdf-510-august2015-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 300,
-    "question": "The second law of thermodynamics can be stated as:",
+    "questionNumber": 11,
+    "question": "The second law of thermodynamics can be stated as: I. Heat flows spontaneously from a hot object to a cold one, but not the reverse; II. Natural processes tend to move toward a state of greater disorder or greater entropy",
     "choices": [
-      {
-        "id": "A",
-        "text": "Heat flows spontaneously from a hot object to a cold one, but not the reverse; II. Natural processes tend to move toward a state of greater disorder or greater entropy"
-      },
       {
         "id": "A",
         "text": "I only B II only"
@@ -8094,41 +7766,31 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neither I nor II"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"I and II\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q12",
+    "id": "esas-pdf-510-august2015-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 301,
-    "question": "Structural steel elements subjected torsion develop",
+    "questionNumber": 12,
+    "question": "Structural steel elements subjected torsion develop G.tensile stress",
     "choices": [
       {
-        "id": "A",
-        "text": "tensile stress"
-      },
-      {
         "id": "C",
-        "text": "shearing stress"
-      },
-      {
-        "id": "C",
-        "text": "compressive stress"
+        "text": "shearing stress H. compressive stress"
       },
       {
         "id": "D",
         "text": "bending stress"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"shearing stress\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q13",
+    "id": "esas-pdf-510-august2015-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 302,
+    "questionNumber": 13,
     "question": "Formula of kinetic energy:",
     "choices": [
       {
@@ -8148,41 +7810,31 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "mgh"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"mv2/2\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q14",
+    "id": "esas-pdf-510-august2015-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 303,
-    "question": "The three moment equation may be used to analyze",
+    "questionNumber": 14,
+    "question": "The three moment equation may be used to analyze I. a continuous beam",
     "choices": [
       {
-        "id": "A",
-        "text": "a continuous beam"
-      },
-      {
         "id": "C",
-        "text": "a step tapered column"
-      },
-      {
-        "id": "C",
-        "text": "a beam loaded at the third points"
+        "text": "a step tapered column J. a beam loaded at the third points"
       },
       {
         "id": "D",
         "text": "a three element composite beam"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"a continuous beam\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q15",
+    "id": "esas-pdf-510-august2015-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 304,
+    "questionNumber": 15,
     "question": "An essential part of a large dam and provides an efficient and safe means of releasing flow of water that exceeds the design capacity of the reservoir.",
     "choices": [
       {
@@ -8202,68 +7854,40 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "standpipe"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"spillway\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q16",
+    "id": "esas-pdf-510-august2015-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 305,
-    "question": "An open system first law should be utilized for all of the following except:",
-    "choices": [
-      {
-        "id": "A",
-        "text": "nozzle"
-      },
-      {
-        "id": "B",
-        "text": "turbine"
-      },
-      {
-        "id": "C",
-        "text": "a piston-cylinder device with no inlet/exhaust valves"
-      },
-      {
-        "id": "D",
-        "text": "a compressor"
-      }
-    ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2015), \"a piston-cylinder device with no inlet/exhaust valves\" is the established standard answer and definition."
+    "questionNumber": 16,
+    "question": "An open system first law should be utilized for all of the following except: K. nozzle L. turbine M.a piston-cylinder device with no inlet/exhaust valves N. a compressor",
+    "choices": [],
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q17",
+    "id": "esas-pdf-510-august2015-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 306,
-    "question": "The property that characterizes a material’s ability to be drawn into wire is its",
+    "questionNumber": 17,
+    "question": "The property that characterizes a material’s ability to be drawn into wire is its O.tensile strength",
     "choices": [
       {
-        "id": "A",
-        "text": "tensile strength"
-      },
-      {
         "id": "C",
-        "text": "ductility"
-      },
-      {
-        "id": "C",
-        "text": "thermal conductivity"
+        "text": "ductility P. thermal conductivity"
       },
       {
         "id": "D",
         "text": "fatigue endurance limit"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2015), \"ductility\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q18",
+    "id": "esas-pdf-510-august2015-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 307,
+    "questionNumber": 18,
     "question": "What do you call a system in which there is a flow of matter through the boundary? This system usually encloses the device that involves mass flow, such as compressor, turbine, or nozzle.",
     "choices": [
       {
@@ -8283,41 +7907,22 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "All of these"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"Open system\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q19",
+    "id": "esas-pdf-510-august2015-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 308,
-    "question": "What system in which there is no exchange of matter with the surrounding or mass does not cross its boundaries?",
-    "choices": [
-      {
-        "id": "A",
-        "text": "Open system"
-      },
-      {
-        "id": "B",
-        "text": "Closed system"
-      },
-      {
-        "id": "C",
-        "text": "Isolated system"
-      },
-      {
-        "id": "D",
-        "text": "Non flow system"
-      }
-    ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"Closed system\" is the established standard answer and definition."
+    "questionNumber": 19,
+    "question": "What system in which there is no exchange of matter with the surrounding or mass does not cross its boundaries? E. Open system F. Closed system G.Isolated system H. Non flow system",
+    "choices": [],
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q20",
+    "id": "esas-pdf-510-august2015-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 309,
+    "questionNumber": 20,
     "question": "Which of the following is not a function of computer?",
     "choices": [
       {
@@ -8337,14 +7942,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "inputting"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In computer systems and engineering informatics, \"understanding\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q21",
+    "id": "esas-pdf-510-august2015-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 310,
+    "questionNumber": 21,
     "question": "Change in enthalpy occurs at constant .",
     "choices": [
       {
@@ -8364,14 +7968,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "entropy"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"pressure\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q22",
+    "id": "esas-pdf-510-august2015-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 311,
+    "questionNumber": 22,
     "question": "The first law of thermodynamics is based on which of the following principles?",
     "choices": [
       {
@@ -8391,14 +7994,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "The entropy-temperature relationship"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Conservation of energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q23",
+    "id": "esas-pdf-510-august2015-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 312,
+    "questionNumber": 23,
     "question": "Impulse type turbine named after his creator.",
     "choices": [
       {
@@ -8418,14 +8020,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Propeller"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"Pelton\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q24",
+    "id": "esas-pdf-510-august2015-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 313,
+    "questionNumber": 24,
     "question": "In flow chart, what is the symbol used in decision making?",
     "choices": [
       {
@@ -8445,14 +8046,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "square"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"diamond\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q25",
+    "id": "esas-pdf-510-august2015-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 314,
+    "questionNumber": 25,
     "question": "Which of the following is not a fundamental rule in PEC?",
     "choices": [
       {
@@ -8472,14 +8072,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Manufacturing Rule"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Construction Rule\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q26",
+    "id": "esas-pdf-510-august2015-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 315,
+    "questionNumber": 26,
     "question": "Reversed Joule cycle is also known as",
     "choices": [
       {
@@ -8499,14 +8098,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bell-Coleman Cycle"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering thermodynamics, \"Bell-Coleman Cycle\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2015-q27",
+    "id": "esas-pdf-510-august2015-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 316,
+    "questionNumber": 27,
     "question": "Also known as PRC Renewal Law",
     "choices": [
       {
@@ -8526,14 +8124,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "R.A. 7918"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"R.A. 8981\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q28",
+    "id": "esas-pdf-510-august2015-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 317,
+    "questionNumber": 28,
     "question": "ASCII means",
     "choices": [
       {
@@ -8553,14 +8150,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "American Standard Code for Information Interchange"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2015), \"American Standard Code for Information Interchange\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2015-q29",
+    "id": "esas-pdf-510-august2015-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 318,
+    "questionNumber": 29,
     "question": "WWW stands for",
     "choices": [
       {
@@ -8580,14 +8176,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "World Wide Workers"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"World Wide Web\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q30",
+    "id": "esas-pdf-510-august2015-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 319,
+    "questionNumber": 30,
     "question": "ALU stands for",
     "choices": [
       {
@@ -8607,14 +8202,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Arithmetic Logical User"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"Arithmetic Logic Unit\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q31",
+    "id": "esas-pdf-510-august2015-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 320,
+    "questionNumber": 31,
     "question": "The simple mathematical statement of the relationship between elastic stress and strain: stress is proportional to strain. What is this law?",
     "choices": [
       {
@@ -8634,14 +8228,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Gas Law"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In mechanics of materials, \"Hooke’s law\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q32",
+    "id": "esas-pdf-510-august2015-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 321,
+    "questionNumber": 32,
     "question": "An empty glass was initially place with a cube ice. A water was filled into a glass such that the ice at the tip of the glass. What will happen after the ice melts?",
     "choices": [
       {
@@ -8661,14 +8254,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "nothing spilled"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2015), \"nothing spilled\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2015-q33",
+    "id": "esas-pdf-510-august2015-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 322,
+    "questionNumber": 33,
     "question": "Regnault’s law relates to",
     "choices": [
       {
@@ -8688,14 +8280,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Entropy"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"Specific Heat\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q34",
+    "id": "esas-pdf-510-august2015-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 323,
+    "questionNumber": 34,
     "question": "Dual Combustion cycle is used in:",
     "choices": [
       {
@@ -8715,14 +8306,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Gas Turbine"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Diesel Engine\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q35",
+    "id": "esas-pdf-510-august2015-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 324,
+    "questionNumber": 35,
     "question": "In a Throttling process",
     "choices": [
       {
@@ -8742,14 +8332,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "All of these"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2015), \"All of these\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2015-q36",
+    "id": "esas-pdf-510-august2015-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 325,
+    "questionNumber": 36,
     "question": "If two objects have the same momentum, but different masses, which of these is possible?",
     "choices": [
       {
@@ -8769,14 +8358,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "they have the same velocity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"the one with less mass has more kinetic energy\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q37",
+    "id": "esas-pdf-510-august2015-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 326,
+    "questionNumber": 37,
     "question": "Which of the following is not a ductile metal?",
     "choices": [
       {
@@ -8796,14 +8384,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Lead"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"Lead\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2015-q38",
+    "id": "esas-pdf-510-august2015-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 327,
+    "questionNumber": 38,
     "question": "As a person moves closer to a plane mirror, the size of the image formed by the mirror",
     "choices": [
       {
@@ -8823,14 +8410,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "increases, then decreases"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"remains the same\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q39",
+    "id": "esas-pdf-510-august2015-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 328,
+    "questionNumber": 39,
     "question": "The executive officer of the Board of Electrical Engineering is .",
     "choices": [
       {
@@ -8850,14 +8436,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "IIEE President"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"PRC Commissioner\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q40",
+    "id": "esas-pdf-510-august2015-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 329,
+    "questionNumber": 40,
     "question": "If the speed of light in a vacuum is c, then the speed of light of light in a medium with an index of refraction of 2 will be",
     "choices": [
       {
@@ -8877,14 +8462,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4c"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"c/2\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q41",
+    "id": "esas-pdf-510-august2015-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 330,
+    "questionNumber": 41,
     "question": "The radius of gyration of a circular section of diameter d is:",
     "choices": [
       {
@@ -8904,14 +8488,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "d/8"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"d/4\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q42",
+    "id": "esas-pdf-510-august2015-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 331,
+    "questionNumber": 42,
     "question": "The ozone layer exists primarily in what section of the atmosphere?",
     "choices": [
       {
@@ -8931,14 +8514,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Ionosphere"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"Stratosphere\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q43",
+    "id": "esas-pdf-510-august2015-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 332,
+    "questionNumber": 43,
     "question": "The majority of the rocks in the Earth’s crust are:",
     "choices": [
       {
@@ -8958,14 +8540,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "basalt"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"igneous\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q44",
+    "id": "esas-pdf-510-august2015-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 333,
+    "questionNumber": 44,
     "question": "What element is added to copper to make it extremely hard?",
     "choices": [
       {
@@ -8985,14 +8566,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Zinc"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Aluminum\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q45",
+    "id": "esas-pdf-510-august2015-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 334,
+    "questionNumber": 45,
     "question": "The maximum bending movement in a simple supported beam of span L and carrying a central concentrated load “W” is",
     "choices": [
       {
@@ -9012,14 +8592,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "2WL"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"WL/4\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q46",
+    "id": "esas-pdf-510-august2015-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 335,
+    "questionNumber": 46,
     "question": "An object orbits the star in an elliptical orbit. The distance at aphelion is 2a and the distance at perihelion is",
     "choices": [
       {
@@ -9043,14 +8622,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In computer systems and engineering informatics, \"Determine the ratio of the object’s speed at perihelion to that at aphelion.\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q47",
+    "id": "esas-pdf-510-august2015-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 336,
+    "questionNumber": 47,
     "question": "The most abundant element in the universe is",
     "choices": [
       {
@@ -9070,14 +8648,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "O"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2015), \"H\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q48",
+    "id": "esas-pdf-510-august2015-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 337,
+    "questionNumber": 48,
     "question": "It is the payment for the use of borrowed money.",
     "choices": [
       {
@@ -9097,14 +8674,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "principal"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"interest\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q49",
+    "id": "esas-pdf-510-august2015-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 338,
+    "questionNumber": 49,
     "question": "The Hooke’s law holds good within",
     "choices": [
       {
@@ -9124,14 +8700,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Euler’s limit"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"elastic limit\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q50",
+    "id": "esas-pdf-510-august2015-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 339,
+    "questionNumber": 50,
     "question": "The Pauli Exclusion Principle states that",
     "choices": [
       {
@@ -9151,14 +8726,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "atoms of the same configuration do not change"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"no two atoms can occupy the same orbital unless their spins are different\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q51",
+    "id": "esas-pdf-510-august2015-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 340,
+    "questionNumber": 51,
     "question": "The speed with which a liquid escapes from a vessel through an orifice is given by",
     "choices": [
       {
@@ -9178,14 +8752,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Flow equation"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2015), \"Torricelli’s Theorem\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2015-q52",
+    "id": "esas-pdf-510-august2015-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 341,
+    "questionNumber": 52,
     "question": "What is Article II of Code of Ethics for Electrical Engineers?",
     "choices": [
       {
@@ -9205,14 +8778,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Penal Provisions"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"Relations with Client and Employer\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q53",
+    "id": "esas-pdf-510-august2015-q53",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 342,
+    "questionNumber": 53,
     "question": "RA 7920, Rule 2(o) defining?",
     "choices": [
       {
@@ -9232,14 +8804,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "TESDA"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"CHED\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2015-q54",
+    "id": "esas-pdf-510-august2015-q54",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 343,
+    "questionNumber": 54,
     "question": "Which of the following is the poorest conductor of electricity?",
     "choices": [
       {
@@ -9259,14 +8830,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Aluminum"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"Carbon\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2015-q55",
+    "id": "esas-pdf-510-august2015-q55",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 344,
+    "questionNumber": 55,
     "question": "Who invented the barometer?",
     "choices": [
       {
@@ -9286,14 +8856,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Becquerel"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2015), \"Torricelli\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q1",
+    "id": "esas-pdf-510-march2014-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 345,
+    "questionNumber": 1,
     "question": "This principle states that “Where the velocity of the fluid is high, the pressure is low, and where the velocity is low, the pressure is high”.",
     "choices": [
       {
@@ -9313,14 +8882,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bernouili’s Principle"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In fluid mechanics, \"Bernouili’s Principle\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q2",
+    "id": "esas-pdf-510-march2014-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 346,
+    "questionNumber": 2,
     "question": "What is the chemical formula for Sulfur Trioxide",
     "choices": [
       {
@@ -9340,14 +8908,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "SO3"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"SO3\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q3",
+    "id": "esas-pdf-510-march2014-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 347,
+    "questionNumber": 3,
     "question": "What is CPE in RA 7920 stands for?",
     "choices": [
       {
@@ -9367,14 +8934,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Continuing Professional Educator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Continuing Professional Education\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2014-q4",
+    "id": "esas-pdf-510-march2014-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 348,
+    "questionNumber": 4,
     "question": "What is PSALM in EPIRA stands for.",
     "choices": [
       {
@@ -9394,14 +8960,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Power Section Assets and Liabilities Management"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Power Sector Assets and Liabilities Management\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2014-q5",
+    "id": "esas-pdf-510-march2014-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 349,
+    "questionNumber": 5,
     "question": "It is the sum of the internal energy and PV",
     "choices": [
       {
@@ -9421,14 +8986,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "electric field"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"enthalpy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2014-q6",
+    "id": "esas-pdf-510-march2014-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 350,
+    "questionNumber": 6,
     "question": "A boy and his sledge weighs m, on an inclined surface with angle of inclination of phi. And coefficient friction of u. What is the frictional force?",
     "choices": [
       {
@@ -9445,17 +9009,16 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "𝛍mgcosphi"
+        "text": "mgcosphi"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2014), \"𝛍mgcosphi\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q7",
+    "id": "esas-pdf-510-march2014-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 351,
+    "questionNumber": 7,
     "question": "Two sky divers jump at the same time and want to play catch. Where should one aim if he wants the other catch it?",
     "choices": [
       {
@@ -9475,14 +9038,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "straight because there’s no air resistance"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (March 2014), \"straight because there’s no air resistance\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q8",
+    "id": "esas-pdf-510-march2014-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 352,
+    "questionNumber": 8,
     "question": "Which of the following is not part of this requirements to take RME?",
     "choices": [
       {
@@ -9502,14 +9064,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Graduate of BSEE"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Graduate of BSEE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q9",
+    "id": "esas-pdf-510-march2014-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 353,
+    "questionNumber": 9,
     "question": "Which of the following is non-renewable energy?",
     "choices": [
       {
@@ -9529,14 +9090,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "geothermal"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"nuclear\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q10",
+    "id": "esas-pdf-510-march2014-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 354,
+    "questionNumber": 10,
     "question": "What is JCPC is EPIRA stands for?",
     "choices": [
       {
@@ -9556,14 +9116,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Joint Congress Power Commission"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Joint Congressional Power Commission\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2014-q11",
+    "id": "esas-pdf-510-march2014-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 355,
+    "questionNumber": 11,
     "question": "What is PEMC is EPIRA stands for?",
     "choices": [
       {
@@ -9583,14 +9142,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Philippine Electricity Market Corporation"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Philippine Electricity Market Corporation\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q12",
+    "id": "esas-pdf-510-march2014-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 356,
+    "questionNumber": 12,
     "question": "What is TSC in EPIRA stands for?",
     "choices": [
       {
@@ -9606,14 +9164,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Transition Supply Commission"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2014-q13",
+    "id": "esas-pdf-510-march2014-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 357,
+    "questionNumber": 13,
     "question": "The rate of change of shear strain in fluid is:",
     "choices": [
       {
@@ -9633,14 +9190,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "strain rate"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In mechanics of materials, \"strain rate\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q14",
+    "id": "esas-pdf-510-march2014-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 358,
+    "questionNumber": 14,
     "question": "In thermodynamics our attention is focused on which form of energy.",
     "choices": [
       {
@@ -9660,14 +9216,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Total energy"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"internal energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2014-q15",
+    "id": "esas-pdf-510-march2014-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 359,
+    "questionNumber": 15,
     "question": "It is the process of determining the value or worth of a physical property for specific reason.",
     "choices": [
       {
@@ -9687,14 +9242,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "depletion"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"valuation\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2014-q16",
+    "id": "esas-pdf-510-march2014-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 360,
+    "questionNumber": 16,
     "question": "An annuity where the payments are made at the beginning of each period.",
     "choices": [
       {
@@ -9714,14 +9268,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "perpetuity"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"annuity due\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2014-q17",
+    "id": "esas-pdf-510-march2014-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 361,
+    "questionNumber": 17,
     "question": "The machine that is employed for converting the energy of flow in a pipeline into mechanical work is called",
     "choices": [
       {
@@ -9741,15 +9294,14 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "motor"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"turbine\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q18",
+    "id": "esas-pdf-510-march2014-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 362,
-    "question": "The equivalent grounding conductor of a branch circuit shall be identified by what color?",
+    "questionNumber": 18,
+    "question": "The equivalent grounding conductor of branch circuit shall be identified by what color?",
     "choices": [
       {
         "id": "A",
@@ -9768,14 +9320,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "green and yellow"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"green and yellow\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q19",
+    "id": "esas-pdf-510-march2014-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 363,
+    "questionNumber": 19,
     "question": "The most important element that controls the physical properties of steel is.",
     "choices": [
       {
@@ -9795,14 +9346,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "carbon"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"carbon\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-march2014-q20",
+    "id": "esas-pdf-510-march2014-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 364,
+    "questionNumber": 20,
     "question": "Spark plug makes use of which of the following materials for insulation?",
     "choices": [
       {
@@ -9822,14 +9372,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "glass"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2014), \"porcelain\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q21",
+    "id": "esas-pdf-510-march2014-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 365,
+    "questionNumber": 21,
     "question": "In electrochemistry, oxidation is a loss of .",
     "choices": [
       {
@@ -9849,14 +9398,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "anode"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2014), \"electron\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q22",
+    "id": "esas-pdf-510-march2014-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 366,
+    "questionNumber": 22,
     "question": "Cash money and credit necessary to establish and operate on enterprises.",
     "choices": [
       {
@@ -9876,14 +9424,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "liabilities"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2014), \"capital\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q23",
+    "id": "esas-pdf-510-march2014-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 367,
+    "questionNumber": 23,
     "question": "What is the form of the moment diagram of a beam supported at both ends and carrying a uniform distributed load.",
     "choices": [
       {
@@ -9903,14 +9450,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "rectangle"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In mechanics of materials, \"parabola\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2014-q24",
+    "id": "esas-pdf-510-march2014-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 368,
+    "questionNumber": 24,
     "question": "Every object continues in its state of rest, or of uniform velocity in a straight line, as long as no net force acts on it, this statement is in the accordance ti",
     "choices": [
       {
@@ -9930,14 +9476,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "all of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2014), \"newton first law of motion\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q25",
+    "id": "esas-pdf-510-march2014-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 369,
+    "questionNumber": 25,
     "question": "Any equipment which produces, modifies, regulates, or controls the supply of electric energy is the “ ”",
     "choices": [
       {
@@ -9957,14 +9502,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Generator Set"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Electric Supply Equipment\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2014-q26",
+    "id": "esas-pdf-510-march2014-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 370,
+    "questionNumber": 26,
     "question": "LED displays represents",
     "choices": [
       {
@@ -9984,14 +9528,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Logic Electrostatic Diode"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2014), \"Light Emitting Diode\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q1",
+    "id": "esas-pdf-510-august2014-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 371,
+    "questionNumber": 1,
     "question": "Momentum is closely related to",
     "choices": [
       {
@@ -10011,14 +9554,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "power"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"impulse\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q2",
+    "id": "esas-pdf-510-august2014-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 372,
+    "questionNumber": 2,
     "question": "In thermodynamics we focus our attention in which form of energy?",
     "choices": [
       {
@@ -10038,14 +9580,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "total"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"internal\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q3",
+    "id": "esas-pdf-510-august2014-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 373,
+    "questionNumber": 3,
     "question": "The element that is practically insoluble in solid copper is known as",
     "choices": [
       {
@@ -10065,15 +9606,14 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Neon"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Lead\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q4",
+    "id": "esas-pdf-510-august2014-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 374,
-    "question": "The standard pressure in meters of ammonia (𝛒=𝟔𝟎𝟎𝐤𝐠𝐦𝟑) is:",
+    "questionNumber": 4,
+    "question": "The standard pressure in meters of ammonia ( = ) is:",
     "choices": [
       {
         "id": "A",
@@ -10092,14 +9632,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "31"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"17\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q5",
+    "id": "esas-pdf-510-august2014-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 375,
+    "questionNumber": 5,
     "question": "A law which states that in a present fluid, the pressure exerted on it anywhere gets transmitted in all directions.",
     "choices": [
       {
@@ -10119,14 +9658,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Pascal’s Law"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In fluid mechanics, \"Pascal’s Law\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q6",
+    "id": "esas-pdf-510-august2014-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 376,
+    "questionNumber": 6,
     "question": "Steels that are used for axles, gears and similar parts requiring medium to high hardness and high strength are known as",
     "choices": [
       {
@@ -10146,14 +9684,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Very high-carbon steels"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Medium-carbon steels\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q7",
+    "id": "esas-pdf-510-august2014-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 377,
+    "questionNumber": 7,
     "question": "A boy throws a ball with negligible air resistance. What happen to its acceleration?",
     "choices": [
       {
@@ -10173,14 +9710,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Decreases"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Remains constant\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q8",
+    "id": "esas-pdf-510-august2014-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 378,
+    "questionNumber": 8,
     "question": "Which is not a programming language?",
     "choices": [
       {
@@ -10200,14 +9736,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "COBOL"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"LOTUS\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q9",
+    "id": "esas-pdf-510-august2014-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 379,
+    "questionNumber": 9,
     "question": "The units of joules can be converted to which of the following?",
     "choices": [
       {
@@ -10227,14 +9762,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Pa-m^3"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"Pa-m^3\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q10",
+    "id": "esas-pdf-510-august2014-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 380,
+    "questionNumber": 10,
     "question": "When two bodies isolated from other environment, are in thermal equilibrium with a third body, the two are in thermal equilibrium with each other. What do you call does statement?",
     "choices": [
       {
@@ -10254,14 +9788,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Third Law of Thermodynamics"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Zeroth Law of Thermodynamics\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q11",
+    "id": "esas-pdf-510-august2014-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 381,
+    "questionNumber": 11,
     "question": "It is a mixture of two or more non-volatile liquids in which separation takes place very slowly.",
     "choices": [
       {
@@ -10281,14 +9814,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "emulsion"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering economics and financial analysis, \"emulsion\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q12",
+    "id": "esas-pdf-510-august2014-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 382,
+    "questionNumber": 12,
     "question": "The purpose of copper in steel alloying is to increase",
     "choices": [
       {
@@ -10308,14 +9840,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Deoxidation"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Atmospheric corrosion resistance\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q13",
+    "id": "esas-pdf-510-august2014-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 383,
+    "questionNumber": 13,
     "question": "The unit lighting for a dwelling unit expressed in watts per square meter shall be",
     "choices": [
       {
@@ -10335,14 +9866,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "40 watts"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"24 watts\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q14",
+    "id": "esas-pdf-510-august2014-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 384,
+    "questionNumber": 14,
     "question": "A certain dam with height h and width w. Find force.",
     "choices": [
       {
@@ -10362,14 +9892,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "F=pgwh^2"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"F=pgwh^2\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q15",
+    "id": "esas-pdf-510-august2014-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 385,
+    "questionNumber": 15,
     "question": "The study of mechanics of fluids which deals with velocities and streamlines without considering forces or energy",
     "choices": [
       {
@@ -10389,14 +9918,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "hydrology"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"kinematics\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q16",
+    "id": "esas-pdf-510-august2014-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 386,
+    "questionNumber": 16,
     "question": "What is the S.I. unit of pressure?",
     "choices": [
       {
@@ -10416,14 +9944,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "kg/cm^2"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"Pascal\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q17",
+    "id": "esas-pdf-510-august2014-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 387,
+    "questionNumber": 17,
     "question": "What is the form of momentum diagram of beam supported of both ends without external load?",
     "choices": [
       {
@@ -10443,14 +9970,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Parabola"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In mechanics of materials, \"Linear\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q18",
+    "id": "esas-pdf-510-august2014-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 388,
+    "questionNumber": 18,
     "question": "What is the smallest unit of information handled by a computer?",
     "choices": [
       {
@@ -10470,14 +9996,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Character"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In computer systems and engineering informatics, \"Bit\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q19",
+    "id": "esas-pdf-510-august2014-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 389,
+    "questionNumber": 19,
     "question": "A byte is composed of how many bits?",
     "choices": [
       {
@@ -10497,14 +10022,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "8"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"8\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q20",
+    "id": "esas-pdf-510-august2014-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 390,
+    "questionNumber": 20,
     "question": "In thermodynamics our attention is focused on which form of energy?",
     "choices": [
       {
@@ -10524,14 +10048,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Total Energy"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering thermodynamics, \"Internal Energy\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q21",
+    "id": "esas-pdf-510-august2014-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 391,
+    "questionNumber": 21,
     "question": "A loan that is discharged or repaid by a uniform series of payments extending over its duration is said to be",
     "choices": [
       {
@@ -10551,14 +10074,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "bonded"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"amortized\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q22",
+    "id": "esas-pdf-510-august2014-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 392,
+    "questionNumber": 22,
     "question": "Which of the following engines is the most efficient?",
     "choices": [
       {
@@ -10578,14 +10100,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "carnot engine"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"carnot engine\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q23",
+    "id": "esas-pdf-510-august2014-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 393,
+    "questionNumber": 23,
     "question": "A branch of hydraulics which deals with the study of pure motion in liquids.",
     "choices": [
       {
@@ -10605,14 +10126,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "hydrodynamics"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"hydrodynamics\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q24",
+    "id": "esas-pdf-510-august2014-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 394,
+    "questionNumber": 24,
     "question": "When exposed to the atmosphere, which of the following liquids is coldest?",
     "choices": [
       {
@@ -10632,14 +10152,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "helium"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"helium\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q25",
+    "id": "esas-pdf-510-august2014-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 395,
+    "questionNumber": 25,
     "question": "The abbreviation for a binary digit.",
     "choices": [
       {
@@ -10659,14 +10178,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "byte"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"bit\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q26",
+    "id": "esas-pdf-510-august2014-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 396,
+    "questionNumber": 26,
     "question": "For REE board examination, the passing general average is 70% provided there is no grade below in of the 3 subjects.",
     "choices": [
       {
@@ -10686,14 +10204,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "40%"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"50%\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q27",
+    "id": "esas-pdf-510-august2014-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 397,
+    "questionNumber": 27,
     "question": "Newton’s first law is of the referred to as which of the following?",
     "choices": [
       {
@@ -10713,14 +10230,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "F = ma"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"The law of inertia\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q28",
+    "id": "esas-pdf-510-august2014-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 398,
+    "questionNumber": 28,
     "question": "A market condition where there are two buyers and two sellers is called",
     "choices": [
       {
@@ -10740,14 +10256,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "bilateral duopoly"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"bilateral duopoly\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q29",
+    "id": "esas-pdf-510-august2014-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 399,
+    "questionNumber": 29,
     "question": "The element that was discovered between calcium and titanium is",
     "choices": [
       {
@@ -10767,14 +10282,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Potassium"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2014), \"Scandium\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q30",
+    "id": "esas-pdf-510-august2014-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 400,
+    "questionNumber": 30,
     "question": "Which gate is formed by inverting the output of the AND gate?",
     "choices": [
       {
@@ -10794,14 +10308,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "None of these"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"NAND gate\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q31",
+    "id": "esas-pdf-510-august2014-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 401,
+    "questionNumber": 31,
     "question": "Any equipment which produces, modifies, regulates, or controls the supply of electric energy is the",
     "choices": [
       {
@@ -10821,14 +10334,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "“Generator Set”"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"“Electric Supply Equipment\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q32",
+    "id": "esas-pdf-510-august2014-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 402,
+    "questionNumber": 32,
     "question": "RA 7920, Rule 2 (d) defining?",
     "choices": [
       {
@@ -10848,14 +10360,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "TESDA"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Board of EE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q33",
+    "id": "esas-pdf-510-august2014-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 403,
+    "questionNumber": 33,
     "question": "What is the article V of Code of Ethics for Electrical Engineers?",
     "choices": [
       {
@@ -10875,14 +10386,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Relations with Client and Employer"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"Effectivity\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q34",
+    "id": "esas-pdf-510-august2014-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 404,
+    "questionNumber": 34,
     "question": "The best method used to refine gold metal is",
     "choices": [
       {
@@ -10902,14 +10412,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Electrolysis"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"Electrolysis\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q35",
+    "id": "esas-pdf-510-august2014-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 405,
+    "questionNumber": 35,
     "question": "An object that has momentum must also have",
     "choices": [
       {
@@ -10929,14 +10438,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "potential energy"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"kinetic energy\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q36",
+    "id": "esas-pdf-510-august2014-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 406,
+    "questionNumber": 36,
     "question": "The Hooke’s law hold good within",
     "choices": [
       {
@@ -10956,14 +10464,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Euler’s limit"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2014), \"elastic limit\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q37",
+    "id": "esas-pdf-510-august2014-q37",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 407,
+    "questionNumber": 37,
     "question": "A spring whose force constant is k is cut in half. Each of the new springs has a force constant of",
     "choices": [
       {
@@ -10983,14 +10490,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4k"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"2k\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q38",
+    "id": "esas-pdf-510-august2014-q38",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 408,
+    "questionNumber": 38,
     "question": "Light scattered perpendicularly to an incident beam is partly",
     "choices": [
       {
@@ -11010,14 +10516,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "coherent"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In mechanics of materials, \"polarized\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q39",
+    "id": "esas-pdf-510-august2014-q39",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 409,
+    "questionNumber": 39,
     "question": "RA 9136 has four sectors, which of the following is not included?",
     "choices": [
       {
@@ -11037,14 +10542,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "system operation"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"system operation\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q40",
+    "id": "esas-pdf-510-august2014-q40",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 410,
+    "questionNumber": 40,
     "question": "Galvanized steel product s are coated with .",
     "choices": [
       {
@@ -11064,14 +10568,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Nickel"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering materials and chemistry, \"Zinc\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q41",
+    "id": "esas-pdf-510-august2014-q41",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 411,
+    "questionNumber": 41,
     "question": "What is PDC stands for EPIRA?",
     "choices": [
       {
@@ -11091,14 +10594,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Philippine Distribution Coordination"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Philippine Distribution Code\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q42",
+    "id": "esas-pdf-510-august2014-q42",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 412,
+    "questionNumber": 42,
     "question": "The thermodynamic statement of the conservation of energy of a system is the",
     "choices": [
       {
@@ -11118,14 +10620,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zeroth law"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"first law\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q43",
+    "id": "esas-pdf-510-august2014-q43",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 413,
+    "questionNumber": 43,
     "question": "A carwash area is classifies as",
     "choices": [
       {
@@ -11145,14 +10646,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "moist location"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2014), \"Wet location\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q44",
+    "id": "esas-pdf-510-august2014-q44",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 414,
+    "questionNumber": 44,
     "question": "Motors must be labeled with the following nameplate rating, manufacturer’s name and etc. This is",
     "choices": [
       {
@@ -11172,14 +10672,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "installation rule"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2014), \"Manufacturing rule\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2014-q45",
+    "id": "esas-pdf-510-august2014-q45",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 415,
+    "questionNumber": 45,
     "question": "In sizing of wire, this is:",
     "choices": [
       {
@@ -11199,14 +10698,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "installation rule"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"Wiring design rule\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q46",
+    "id": "esas-pdf-510-august2014-q46",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 416,
+    "questionNumber": 46,
     "question": "The first period contains how many electrons?",
     "choices": [
       {
@@ -11226,14 +10724,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "8"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"8\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q47",
+    "id": "esas-pdf-510-august2014-q47",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 417,
+    "questionNumber": 47,
     "question": "Which of the following would be considered a system rather than a control volume?",
     "choices": [
       {
@@ -11253,14 +10750,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "A turbine"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2014), \"A tire\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q48",
+    "id": "esas-pdf-510-august2014-q48",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 418,
+    "questionNumber": 48,
     "question": "The particle inside the nucleus is called",
     "choices": [
       {
@@ -11280,14 +10776,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "nuclei"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2014), \"Nucleons\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q49",
+    "id": "esas-pdf-510-august2014-q49",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 419,
+    "questionNumber": 49,
     "question": "Cables for 220 kV lines are invariably?",
     "choices": [
       {
@@ -11307,23 +10802,22 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Rubber insulated"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2014), \"Compressed oil or compress gas\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2014-q50",
+    "id": "esas-pdf-510-august2014-q50",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 420,
+    "questionNumber": 50,
     "question": "What group of steels are high-carbon, high-chromium tools steels suitable for cold working applications?",
     "choices": [
       {
         "id": "A",
-        "text": "Group A"
+        "text": "Group"
       },
       {
         "id": "B",
-        "text": "Group D"
+        "text": "Group"
       },
       {
         "id": "C",
@@ -11334,14 +10828,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Group M"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"Group D\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q51",
+    "id": "esas-pdf-510-august2014-q51",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 421,
+    "questionNumber": 51,
     "question": "Which of the following phenomenon cannot take place with sound waves?",
     "choices": [
       {
@@ -11361,14 +10854,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Reflection"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2014), \"Polarization\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q52",
+    "id": "esas-pdf-510-august2014-q52",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 422,
+    "questionNumber": 52,
     "question": "The ore from which iron is obtained is",
     "choices": [
       {
@@ -11388,14 +10880,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Chalocite"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering materials and chemistry, \"Taconite\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2014-q53",
+    "id": "esas-pdf-510-august2014-q53",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 423,
+    "questionNumber": 53,
     "question": "The Electrical Engineer shall have observe such system of principles and values as a set of dynamic standards to guide his conduct and way of life. It is his duty to practice profession according to ethics.",
     "choices": [
       {
@@ -11415,14 +10906,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Engineering"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2014), \"Moral\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2014-q54",
+    "id": "esas-pdf-510-august2014-q54",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 424,
+    "questionNumber": 54,
     "question": "What is the most undesirable of all elements commonly found in steels?",
     "choices": [
       {
@@ -11442,14 +10932,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Sulfur"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Phosphorus\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q55",
+    "id": "esas-pdf-510-march2013-q55",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 425,
+    "questionNumber": 55,
     "question": "A type of annuity where the payments are made at the start of each period, beginning from the first period.",
     "choices": [
       {
@@ -11469,14 +10958,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Deferred Annuity"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"Annuity due\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q56",
+    "id": "esas-pdf-510-march2013-q56",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 426,
+    "questionNumber": 56,
     "question": "The product of force and the time during which it acts is knows as:",
     "choices": [
       {
@@ -11496,14 +10984,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "work"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2013), \"impulse\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q57",
+    "id": "esas-pdf-510-march2013-q57",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 427,
+    "questionNumber": 57,
     "question": "Formula of calcium chloride",
     "choices": [
       {
@@ -11523,14 +11010,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "CaCl3"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2013), \"CaCl2\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q58",
+    "id": "esas-pdf-510-march2013-q58",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 428,
+    "questionNumber": 58,
     "question": "An elevator is pulled by cable at constant speed. The tension in the cable is equal to",
     "choices": [
       {
@@ -11550,14 +11036,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "half the weight"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2013), \"The weight\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q59",
+    "id": "esas-pdf-510-march2013-q59",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 429,
+    "questionNumber": 59,
     "question": "Branch circuit larger than ampere shall supply only non-lighting outlet load.",
     "choices": [
       {
@@ -11577,14 +11062,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2013), \"50\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2013-q60",
+    "id": "esas-pdf-510-march2013-q60",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 430,
+    "questionNumber": 60,
     "question": "Prefix 105 is",
     "choices": [
       {
@@ -11604,14 +11088,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Fernto"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2013), \"peta\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q61",
+    "id": "esas-pdf-510-march2013-q61",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 431,
+    "questionNumber": 61,
     "question": "Which of the following refer to the diffusion of a solvent into a stronger solution in an attempt to equalize the two concentrations?",
     "choices": [
       {
@@ -11631,14 +11114,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "hydrolysis"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"osmosis\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q62",
+    "id": "esas-pdf-510-march2013-q62",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 432,
+    "questionNumber": 62,
     "question": "A measure of how it emits radiant energy in comparison with a blackbody at the same temperature.",
     "choices": [
       {
@@ -11658,14 +11140,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "conductivity"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering thermodynamics, \"emissivity\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q63",
+    "id": "esas-pdf-510-march2013-q63",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 433,
+    "questionNumber": 63,
     "question": "A graphical device used to convert a truth table to its corresponding logic circuit in a simple, orderly process.",
     "choices": [
       {
@@ -11685,14 +11166,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Truth Table"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2013), \"Karnaugh Map\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q64",
+    "id": "esas-pdf-510-march2013-q64",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 434,
+    "questionNumber": 64,
     "question": "Define WESM?",
     "choices": [
       {
@@ -11712,14 +11192,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Wholesale Electricity Supply Market"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Wholesale Electricity Spot Market\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q65",
+    "id": "esas-pdf-510-march2013-q65",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 435,
+    "questionNumber": 65,
     "question": "All the powers of the TRANSCO shall be vested in and exercised by a Board of Directors. Who will be the ex officio Chairman of the Board?",
     "choices": [
       {
@@ -11739,14 +11218,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "President of TRANSCO"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Sec. of the Dept. of Finance (DOF)\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2013-q66",
+    "id": "esas-pdf-510-march2013-q66",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 436,
+    "questionNumber": 66,
     "question": "At least how many receptacle outlets shall be installed in the bathroom?",
     "choices": [
       {
@@ -11766,14 +11244,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Four"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (March 2013), \"One\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q67",
+    "id": "esas-pdf-510-march2013-q67",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 437,
+    "questionNumber": 67,
     "question": "When an object exerts force on another object, the second object exerts on the first a force of the same magnitude but in opposite direction. This statement is in accordance to",
     "choices": [
       {
@@ -11793,14 +11270,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "All of these"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (March 2013), \"Newton’s Third Law of Motions\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q68",
+    "id": "esas-pdf-510-march2013-q68",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 438,
+    "questionNumber": 68,
     "question": "The Moody diagram is used in fluid mechanics to obtain",
     "choices": [
       {
@@ -11820,14 +11296,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "the pressure coefficient"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"the friction factor\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-march2013-q69",
+    "id": "esas-pdf-510-march2013-q69",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 439,
+    "questionNumber": 69,
     "question": "The coils of",
     "choices": [
       {
@@ -11851,14 +11326,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Nicrome"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (March 2013), \"manganin\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2013-q70",
+    "id": "esas-pdf-510-march2013-q70",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 440,
+    "questionNumber": 70,
     "question": "The chemical shorthand for molybednum is",
     "choices": [
       {
@@ -11878,14 +11352,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Mn"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"Mo\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-march2013-q71",
+    "id": "esas-pdf-510-march2013-q71",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 441,
+    "questionNumber": 71,
     "question": "Which two metals combine to give galvanized metal?",
     "choices": [
       {
@@ -11905,14 +11378,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zinc and tin"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"zinc and iron\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-march2013-q72",
+    "id": "esas-pdf-510-march2013-q72",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 442,
+    "questionNumber": 72,
     "question": "The pressure of a gas is directly proportional to the Kelvin temperature in",
     "choices": [
       {
@@ -11932,14 +11404,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Charles’ Law"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"Gay-Lussac’s law\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q1",
+    "id": "esas-pdf-510-august2013-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 443,
+    "questionNumber": 1,
     "question": "What is the chemical formula of ammonia?",
     "choices": [
       {
@@ -11959,14 +11430,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "N3H2"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"NH3\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q2",
+    "id": "esas-pdf-510-august2013-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 444,
+    "questionNumber": 2,
     "question": "Maximum distance for support of rigid metallic conduits.",
     "choices": [
       {
@@ -11986,14 +11456,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3500mm"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In computer systems and engineering informatics, \"3000mm\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q3",
+    "id": "esas-pdf-510-august2013-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 445,
+    "questionNumber": 3,
     "question": "The minimum diameter of a steel ground electrode is?",
     "choices": [
       {
@@ -12013,14 +11482,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "16mm"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"16mm\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q4",
+    "id": "esas-pdf-510-august2013-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 446,
+    "questionNumber": 4,
     "question": "What is a substance that speeds up chemical reaction without itself undergoing a chemical change?",
     "choices": [
       {
@@ -12040,14 +11508,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Catalyst"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"Catalyst\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q5",
+    "id": "esas-pdf-510-august2013-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 447,
+    "questionNumber": 5,
     "question": "What is a substance that speeds up chemical reaction without itself undergoing a chemical change?",
     "choices": [
       {
@@ -12067,14 +11534,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Catalyst"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"Catalyst\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q6",
+    "id": "esas-pdf-510-august2013-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 448,
+    "questionNumber": 6,
     "question": "A software that is commonly known as firmware.",
     "choices": [
       {
@@ -12094,14 +11560,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "IO"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In computer systems and engineering informatics, \"BIOS\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q7",
+    "id": "esas-pdf-510-august2013-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 449,
+    "questionNumber": 7,
     "question": "What is the minimum lighting load required by PEC for an office measuring 20m by 25m?",
     "choices": [
       {
@@ -12121,14 +11586,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "14000 VA"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"14000 VA\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q8",
+    "id": "esas-pdf-510-august2013-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 450,
+    "questionNumber": 8,
     "question": "What is the risk is operating a restaurant?",
     "choices": [
       {
@@ -12148,14 +11612,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "risky"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2013), \"safe\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q9",
+    "id": "esas-pdf-510-august2013-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 451,
+    "questionNumber": 9,
     "question": "What is the factor name for the formula (1+i)-n?",
     "choices": [
       {
@@ -12175,14 +11638,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Single payment compound amount"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2013), \"Single payment present worth\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q10",
+    "id": "esas-pdf-510-august2013-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 452,
+    "questionNumber": 10,
     "question": "At what point is the applied force minimal in opening a hinge door?",
     "choices": [
       {
@@ -12202,14 +11664,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "anywhere"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2013), \"farthest the hinge\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q11",
+    "id": "esas-pdf-510-august2013-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 453,
+    "questionNumber": 11,
     "question": "At what point is the applied force minimal in opening a hinge door?",
     "choices": [
       {
@@ -12229,14 +11690,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "anywhere"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2013), \"farthest the hinge\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q12",
+    "id": "esas-pdf-510-august2013-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 454,
+    "questionNumber": 12,
     "question": "Common cause of failure of termination of cable.",
     "choices": [
       {
@@ -12256,14 +11716,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "none of these"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2013), \"penciling of insulation\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q13",
+    "id": "esas-pdf-510-august2013-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 455,
+    "questionNumber": 13,
     "question": "What is the acid concentration of Nitric acid, HN03 with pH value of -0.55?",
     "choices": [
       {
@@ -12283,14 +11742,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3.55 M"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering economics and financial analysis, \"3.55 M\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q14",
+    "id": "esas-pdf-510-august2013-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 456,
+    "questionNumber": 14,
     "question": "A thin-walled spherical shell contains a liquid, if it undergoes a thermal coefficient of linear expansion a and subjected to a temperature change of ΔT, what is the ratio of change in volume ΔV to the original volume V?",
     "choices": [
       {
@@ -12310,14 +11768,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "3a ΔT/2"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"3a ΔT\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q15",
+    "id": "esas-pdf-510-august2013-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 457,
+    "questionNumber": 15,
     "question": "The amount of lateral strain in a tension member can be calculated using.",
     "choices": [
       {
@@ -12337,14 +11794,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Hooke’s law"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In mechanics of materials, \"poison’s ratio\" describes the fundamental structural response, stress distribution, and mechanical behavior under load."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q16",
+    "id": "esas-pdf-510-august2013-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 458,
+    "questionNumber": 16,
     "question": "It is the price a buyer is willing to pay a willing seller for the stock.",
     "choices": [
       {
@@ -12364,14 +11820,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Stock value"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2013), \"Market value\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q17",
+    "id": "esas-pdf-510-august2013-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 459,
+    "questionNumber": 17,
     "question": "A single grounding electrode is permitted when the resistance to ground does not exceed.",
     "choices": [
       {
@@ -12391,14 +11846,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "25ohms"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"25ohms\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q18",
+    "id": "esas-pdf-510-august2013-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 460,
+    "questionNumber": 18,
     "question": "the most important element that controls the physical properties of steel is",
     "choices": [
       {
@@ -12418,14 +11872,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Carbon"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Carbon\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q19",
+    "id": "esas-pdf-510-august2013-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 461,
+    "questionNumber": 19,
     "question": "Gross profit, sales less cost of goods sold, as a percentage of sales is called:",
     "choices": [
       {
@@ -12445,14 +11898,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Price earnings"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering economics and financial analysis, \"Profit margin\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q20",
+    "id": "esas-pdf-510-august2013-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 462,
+    "questionNumber": 20,
     "question": "is regarded as father of computers. A, Pascal",
     "choices": [
       {
@@ -12468,14 +11920,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Abacus"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"Chanas Babbage\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q21",
+    "id": "esas-pdf-510-august2013-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 463,
+    "questionNumber": 21,
     "question": "In electrochemistry, oxidation is a loss of .",
     "choices": [
       {
@@ -12495,14 +11946,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "anode"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2013), \"electron\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q22",
+    "id": "esas-pdf-510-august2013-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 464,
+    "questionNumber": 22,
     "question": "If a disturbance is parallel to the direction of travel of a wave, the wave is classified as",
     "choices": [
       {
@@ -12522,14 +11972,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "torsional"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2013), \"longitudinal\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q23",
+    "id": "esas-pdf-510-august2013-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 465,
+    "questionNumber": 23,
     "question": "The viscosity of fluid varies with",
     "choices": [
       {
@@ -12549,14 +11998,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "temperature and pressure"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"temperature\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q24",
+    "id": "esas-pdf-510-august2013-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 466,
+    "questionNumber": 24,
     "question": "Which of the following is NOT a vector quantity?",
     "choices": [
       {
@@ -12576,14 +12024,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "momentum"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2013), \"speed\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2013-q25",
+    "id": "esas-pdf-510-august2013-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 467,
+    "questionNumber": 25,
     "question": "A device used to keep moisture from passing through the system is called:",
     "choices": [
       {
@@ -12603,14 +12050,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "dehydrator"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2013), \"dehydrator\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q26",
+    "id": "esas-pdf-510-august2013-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 468,
+    "questionNumber": 26,
     "question": "A device used to keep moisture from passing through the system is called:",
     "choices": [
       {
@@ -12630,14 +12076,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "dehydrator"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2013), \"dehydrator\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q27",
+    "id": "esas-pdf-510-august2013-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 469,
+    "questionNumber": 27,
     "question": "A written acknowledgement by a carrier that he has received the goods for shipment",
     "choices": [
       {
@@ -12657,14 +12102,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Contract to Ship"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2013), \"Bill of Loading\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2013-q28",
+    "id": "esas-pdf-510-august2013-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 470,
+    "questionNumber": 28,
     "question": "Battery acid is the is the common name for",
     "choices": [
       {
@@ -12684,14 +12128,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "sulfuric acid"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"sulfuric acid\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2013-q29",
+    "id": "esas-pdf-510-august2013-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 471,
+    "questionNumber": 29,
     "question": "Which of the following engines is normally the least efficient?",
     "choices": [
       {
@@ -12711,14 +12154,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Carnot engine"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2013), \"gasoline engine\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q30",
+    "id": "esas-pdf-510-august2013-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 472,
+    "questionNumber": 30,
     "question": "Electrical symbol represented by a broken line",
     "choices": [
       {
@@ -12738,14 +12180,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Emergency wiring"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2013), \"Open wiring\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q31",
+    "id": "esas-pdf-510-august2013-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 473,
+    "questionNumber": 31,
     "question": "Which of the following is not a unit of power?",
     "choices": [
       {
@@ -12765,14 +12206,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "horsepower"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2013), \"joule-second\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2013-q32",
+    "id": "esas-pdf-510-august2013-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 474,
+    "questionNumber": 32,
     "question": "RA 7920, Rule 2 (d) defining?",
     "choices": [
       {
@@ -12792,14 +12232,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "TESDA"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Board of EE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2012-q1",
+    "id": "esas-pdf-510-august2012-q1",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 475,
+    "questionNumber": 1,
     "question": "The external pressure applied to a confined fluid increases the pressure of every point in the fluid by an amount equal to the external pressure. This is known as",
     "choices": [
       {
@@ -12819,14 +12258,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Bernoulli's Theorem"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"Pascal's principle\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q2",
+    "id": "esas-pdf-510-august2012-q2",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 476,
+    "questionNumber": 2,
     "question": "Maximum distances between busway supports.",
     "choices": [
       {
@@ -12846,14 +12284,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "2000 mm"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In computer systems and engineering informatics, \"1500 mm\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q3",
+    "id": "esas-pdf-510-august2012-q3",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 477,
+    "questionNumber": 3,
     "question": "What charge has the elements belong to the group 2?",
     "choices": [
       {
@@ -12873,14 +12310,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "-1"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2012), \"2\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q4",
+    "id": "esas-pdf-510-august2012-q4",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 478,
+    "questionNumber": 4,
     "question": "What does UPS mean?",
     "choices": [
       {
@@ -12900,14 +12336,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Uninterruptable Portable Supply"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"Uninterruptable Power Supply\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q5",
+    "id": "esas-pdf-510-august2012-q5",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 479,
+    "questionNumber": 5,
     "question": "Which device could be used to determine whether a substance is radioactive?",
     "choices": [
       {
@@ -12927,14 +12362,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "a linear accelerator"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"a Geiger counter\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q6",
+    "id": "esas-pdf-510-august2012-q6",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 480,
+    "questionNumber": 6,
     "question": "Which is not a standard overcurrent protection device rating?",
     "choices": [
       {
@@ -12954,14 +12388,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "110"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"1500\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q7",
+    "id": "esas-pdf-510-august2012-q7",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 481,
+    "questionNumber": 7,
     "question": "It is responsible for the procurement and administration of funds with the view of achieving the objectives of business.",
     "choices": [
       {
@@ -12981,14 +12414,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Funds"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In engineering economics and financial analysis, \"Finance\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2012-q8",
+    "id": "esas-pdf-510-august2012-q8",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 482,
+    "questionNumber": 8,
     "question": "A device used to measure atmospheric pressure is called",
     "choices": [
       {
@@ -13008,14 +12440,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Hydrometer"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In fluid mechanics, \"\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q9",
+    "id": "esas-pdf-510-august2012-q9",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 483,
+    "questionNumber": 9,
     "question": "What is RES stands for in EPIRA?",
     "choices": [
       {
@@ -13035,14 +12466,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Retail Electricity Suppliers"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 9136 (EPIRA) and grid regulations, \"Retail Electricity Suppliers\" establishes the operational and commercial structure of the electric power industry."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q10",
+    "id": "esas-pdf-510-august2012-q10",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 484,
+    "questionNumber": 10,
     "question": "Which is not a unit of power?",
     "choices": [
       {
@@ -13062,14 +12492,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "calories/second"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"newton-seconds\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q11",
+    "id": "esas-pdf-510-august2012-q11",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 485,
+    "questionNumber": 11,
     "question": "Which wave requires a medium for transmission?",
     "choices": [
       {
@@ -13089,14 +12518,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "sound"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2012), \"sound\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q12",
+    "id": "esas-pdf-510-august2012-q12",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 486,
+    "questionNumber": 12,
     "question": "A substance formed by the union of two or more chemical elements in a definite proportion that can be only be separated by chemical means",
     "choices": [
       {
@@ -13116,14 +12544,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "compound"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"compound\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q13",
+    "id": "esas-pdf-510-august2012-q13",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 487,
+    "questionNumber": 13,
     "question": "The viscosity of a fluid varies with",
     "choices": [
       {
@@ -13143,14 +12570,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "temperature and pressure"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"temperature\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q14",
+    "id": "esas-pdf-510-august2012-q14",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 488,
+    "questionNumber": 14,
     "question": "What is the strong bond between hydrogen atoms known as?",
     "choices": [
       {
@@ -13170,14 +12596,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "the covalent bond"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"the covalent bond\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q15",
+    "id": "esas-pdf-510-august2012-q15",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 489,
+    "questionNumber": 15,
     "question": "The path of a projectile is:",
     "choices": [
       {
@@ -13197,14 +12622,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "a hyperbola"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2012), \"a parabola\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q16",
+    "id": "esas-pdf-510-august2012-q16",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 490,
+    "questionNumber": 16,
     "question": "During an isentropic process, which of the following is true?",
     "choices": [
       {
@@ -13224,14 +12648,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "The heat transfer is zero"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2012), \"The heat transfer is zero\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q17",
+    "id": "esas-pdf-510-august2012-q17",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 491,
+    "questionNumber": 17,
     "question": "Which one of the following elements has the largest atomic radius?",
     "choices": [
       {
@@ -13251,14 +12674,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "magnesium"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In engineering materials and chemistry, \"sodium\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q18",
+    "id": "esas-pdf-510-august2012-q18",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 492,
+    "questionNumber": 18,
     "question": "Varignon's theorem is used to determine the .",
     "choices": [
       {
@@ -13278,14 +12700,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "moment of area"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In the ESAS board exam (August 2012), \"location of centroid\" is the established standard answer and definition."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2012-q19",
+    "id": "esas-pdf-510-august2012-q19",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 493,
+    "questionNumber": 19,
     "question": "RA 7920, Rule 2 (d) defining?",
     "choices": [
       {
@@ -13305,14 +12726,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "TESDA"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"Board of EE\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2012-q20",
+    "id": "esas-pdf-510-august2012-q20",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 494,
+    "questionNumber": 20,
     "question": "Galvanized iron is a term referring to iron coated with:",
     "choices": [
       {
@@ -13332,14 +12752,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "zinc"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"zinc\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q21",
+    "id": "esas-pdf-510-august2012-q21",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 495,
+    "questionNumber": 21,
     "question": "Article III of Code of Ethics for Electrical Engineers contains:",
     "choices": [
       {
@@ -13359,14 +12778,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "SEC. 1 to 5"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"SEC. 1 to 7\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q22",
+    "id": "esas-pdf-510-august2012-q22",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 496,
+    "questionNumber": 22,
     "question": "Which metal is protected by a layer of its own oxide?",
     "choices": [
       {
@@ -13386,14 +12804,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "iron"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering materials and chemistry, \"aluminum\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q23",
+    "id": "esas-pdf-510-august2012-q23",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 497,
+    "questionNumber": 23,
     "question": "A force causing a rise of a liquid in tubes of small diameter.",
     "choices": [
       {
@@ -13413,14 +12830,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "adhesion"
       }
     ],
-    "correctChoiceId": "C",
-    "explanation": "In fluid mechanics, \"capillarity\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "C"
   },
   {
-    "id": "esas-1002-august2012-q24",
+    "id": "esas-pdf-510-august2012-q24",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 498,
+    "questionNumber": 24,
     "question": "Accounting book in which are recorded the credits and debits of commercial transactions.",
     "choices": [
       {
@@ -13440,14 +12856,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "clerk’s book"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering economics and financial analysis, \"ledger\" is used to evaluate financial equivalence, capital recovery, and project feasibility."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q25",
+    "id": "esas-pdf-510-august2012-q25",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 499,
+    "questionNumber": 25,
     "question": "RA 7920 contains how many sections all in all",
     "choices": [
       {
@@ -13467,14 +12882,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "45"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "Under R.A. 7920 (New Electrical Engineering Law), \"45\" governs the statutory requirements and administrative powers of the Board and Commission."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q26",
+    "id": "esas-pdf-510-august2012-q26",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 500,
+    "questionNumber": 26,
     "question": "The most important element that controls the physical properties of steel is",
     "choices": [
       {
@@ -13494,14 +12908,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Carbon"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In computer systems and engineering informatics, \"Carbon\" represents the established architectural standard and data processing protocol."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q27",
+    "id": "esas-pdf-510-august2012-q27",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 501,
+    "questionNumber": 27,
     "question": "Which is the scalar quantity?",
     "choices": [
       {
@@ -13521,14 +12934,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "velocity"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"energy\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q28",
+    "id": "esas-pdf-510-august2012-q28",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 502,
+    "questionNumber": 28,
     "question": "A fluid property which refers to the intermolecular attraction by which the separate particles of the fluid are held together:",
     "choices": [
       {
@@ -13548,14 +12960,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "tension"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In fluid mechanics, \"cohesion\" applies the governing principles of fluid statics, pressure dynamics, and energy conservation."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q29",
+    "id": "esas-pdf-510-august2012-q29",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 503,
+    "questionNumber": 29,
     "question": "When the velocity of an object is tripled, another quantity which is tripled at the same time is the objects:",
     "choices": [
       {
@@ -13575,14 +12986,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "mass"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In the ESAS board exam (August 2012), \"momentum\" is the established standard answer and definition."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q30",
+    "id": "esas-pdf-510-august2012-q30",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 504,
+    "questionNumber": 30,
     "question": "A substance existing the gaseous phase but relatively near its saturation temperature is known as:",
     "choices": [
       {
@@ -13602,14 +13012,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Vapor"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering thermodynamics, \"Vapor\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q31",
+    "id": "esas-pdf-510-august2012-q31",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 505,
+    "questionNumber": 31,
     "question": "How many atoms are there per unit cell for a face-centered cubic structure?",
     "choices": [
       {
@@ -13629,14 +13038,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "4"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In engineering materials and chemistry, \"4\" characterizes elemental properties, chemical stoichiometry, and metallurgical crystal structures."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q32",
+    "id": "esas-pdf-510-august2012-q32",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 506,
+    "questionNumber": 32,
     "question": "Funds supplied and used by owners of an enterprise in the expectation that a profit will be earned",
     "choices": [
       {
@@ -13656,14 +13064,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "Investment"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "Under the Philippine Electrical Code (PEC), \"equity capital\" is the mandatory technical standard for electrical installation safety and grounding integrity."
+    "correctChoiceId": "A"
   },
   {
-    "id": "esas-1002-august2012-q33",
+    "id": "esas-pdf-510-august2012-q33",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 507,
+    "questionNumber": 33,
     "question": "The critical angle is the angle of incidence that produces an angle of refraction of",
     "choices": [
       {
@@ -13683,14 +13090,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "90 deg"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2012), \"90 deg\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q34",
+    "id": "esas-pdf-510-august2012-q34",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 508,
+    "questionNumber": 34,
     "question": "If an object is moving north, the direction of the frictional force is",
     "choices": [
       {
@@ -13710,14 +13116,13 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
         "text": "west"
       }
     ],
-    "correctChoiceId": "B",
-    "explanation": "In the ESAS board exam (August 2012), \"south\" is the established standard answer and definition."
+    "correctChoiceId": "B"
   },
   {
-    "id": "esas-1002-august2012-q35",
+    "id": "esas-pdf-510-august2012-q35",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 509,
+    "questionNumber": 35,
     "question": "What is the distance between two consecutive points in phase on a wave called?",
     "choices": [
       {
@@ -13734,17 +13139,16 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "wavelength A location not normally subjects to dampness or wetness. A location classified as may be temporarily subject to dampness or wetness, as in the case of a building under construction"
+        "text": "wavelength"
       }
     ],
-    "correctChoiceId": "D",
-    "explanation": "In the ESAS board exam (August 2012), \"wavelength A location not normally subjects to dampness or wetness. A location classified as may be temporarily subject to dampness or wetness, as in the case of a building under construction\" is the established standard answer and definition."
+    "correctChoiceId": "D"
   },
   {
-    "id": "esas-1002-august2012-q36",
+    "id": "esas-pdf-510-august2012-q36",
     "subject": "1001 terms part 2",
     "sourceFileName": "1002-ESAS_2012-2017_92758ec6.pdf",
-    "questionNumber": 510,
+    "questionNumber": 36,
     "question": "The overall energy program formulated and updated yearly by the DOE and submitted to Congress pursuant to RA. 7638",
     "choices": [
       {
@@ -13761,10 +13165,9 @@ export const ESAS_1001_PART_2_QUESTIONS: FlashcardQuestion[] = [
       },
       {
         "id": "D",
-        "text": "Philippine Electrical Code (PEC) -God bless-"
+        "text": "Philippine Electrical Code (PEC)"
       }
     ],
-    "correctChoiceId": "A",
-    "explanation": "In engineering thermodynamics, \"Philippine Energy Plan (PEP)\" defines state equations, energy transformations, and thermal efficiency limits."
+    "correctChoiceId": "A"
   }
 ];

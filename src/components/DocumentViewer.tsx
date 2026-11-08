@@ -67,26 +67,30 @@ export const DocumentViewer: React.FC<DocumentViewerProps> = ({ questions }) => 
               <div key={subject} className="flex flex-col gap-3">
                 <div className="border-b border-black pb-1 font-bold uppercase">{subject}</div>
                 <div className="flex flex-col gap-4 pl-2">
-                  {items.map((item, idx) => (
-                    <div key={`${subject}-${item.question.id}-${idx}`} className="flex flex-col gap-1.5">
-                      <div className="font-semibold text-black">
-                        {idx + 1}. {highlightTextWithKeywords(item.question.question, item.keywords, 'underline')}
+                  {items.map((item, idx) => {
+                    const uniqueQuestionKey = `doc-${subject}-${item.question.id}-${idx}`;
+                    return (
+                      <div key={uniqueQuestionKey} className="flex flex-col gap-1.5">
+                        <div className="font-semibold text-black">
+                          {idx + 1}. {highlightTextWithKeywords(item.question.question, item.keywords, 'underline')}
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 pl-4">
+                          {item.question.choices.map((choice, cIdx) => {
+                            const isCorrect = choice.id === item.question.correctChoiceId;
+                            const choiceKey = `choice-${uniqueQuestionKey}-${choice.id}-${cIdx}`;
+                            return (
+                              <div
+                                key={choiceKey}
+                                className={`text-sm ${isCorrect ? 'font-bold text-amber-900 bg-amber-100 px-1 rounded ring-1 ring-amber-200' : 'text-gray-700'}`}
+                              >
+                                {choice.id.toUpperCase()}. {choice.text}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1 pl-4">
-                        {item.question.choices.map((choice) => {
-                          const isCorrect = choice.id === item.question.correctChoiceId;
-                          return (
-                            <div
-                              key={`${item.question.id}-${choice.id}-${idx}`}
-                              className={`text-sm ${isCorrect ? 'font-bold text-black bg-yellow-200 px-1 rounded' : 'text-gray-700'}`}
-                            >
-                              {choice.id.toUpperCase()}. {choice.text}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))}
