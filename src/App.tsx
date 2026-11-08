@@ -99,7 +99,7 @@ export default function App() {
   const [driveExtractedQuestions, setDriveExtractedQuestions] = useState<FlashcardQuestion[]>([]);
 
   // 3. Combined questions bank: custom pasted questions + drive extracted + built-in reviewer
-  // Deduplicates by unique ID and per-subject normalized question text
+  // Built-in reviewer questions (like Coach G 1000 terms) are deduplicated by unique ID to preserve all 1000 questions
   const allQuestions = useMemo(() => {
     const seenIds = new Set<string>();
     const seenTexts = new Set<string>();
@@ -108,11 +108,11 @@ export default function App() {
     const normalizeQuestionText = (q: FlashcardQuestion) =>
       `${q.subject || 'All'}_${q.question.toLowerCase().replace(/[^\w\s]/g, '').replace(/\s+/g, ' ').trim()}`;
 
-    // Built-in copied drive questions (includes physics 1 questions)
+    // Built-in copied drive questions (includes physics 1 questions and Coach G 1000 terms)
     for (const q of DRIVE_COPIED_QUESTIONS) {
-      const norm = normalizeQuestionText(q);
-      if (!seenIds.has(q.id) && !seenTexts.has(norm)) {
+      if (!seenIds.has(q.id)) {
         seenIds.add(q.id);
+        const norm = normalizeQuestionText(q);
         seenTexts.add(norm);
         combined.push(q);
       }
@@ -1078,17 +1078,6 @@ export default function App() {
               className="px-3 py-1.5 rounded-lg border border-[#272935] text-xs font-medium bg-[#181a21] text-zinc-300 hover:text-white transition-colors cursor-pointer"
             >
               {viewMode === 'card' ? 'Doc View' : 'Card View'}
-            </button>
-            <button
-              type="button"
-              onClick={() => setIsPasscodeModalOpen(true)}
-              className="p-1.5 rounded-lg border border-[#272935] text-xs font-medium bg-[#181a21] text-zinc-300 hover:text-white hover:border-sky-500/50 transition-colors cursor-pointer flex items-center justify-center"
-              title="Passcode Link Lock Settings"
-              aria-label="Passcode Lock Settings"
-            >
-              <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-              </svg>
             </button>
 
             <button
