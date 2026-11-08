@@ -46,6 +46,7 @@ import { generate70ItemQuiz, TOTAL_QUIZ_ITEMS } from './services/quizService';
 import { QuizCongratulationsModal } from './components/QuizCongratulationsModal';
 import { LooksfamViewer } from './components/LooksfamViewer';
 import { LOOKSFAM_DATA } from './data/looksfamData';
+import { DocumentViewer } from './components/DocumentViewer';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -142,6 +143,8 @@ export default function App() {
   const [isShuffled, setIsShuffled] = useState(false);
   const [shuffleSeed, setShuffleSeed] = useState<number>(() => Date.now());
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [viewMode, setViewMode] = useState<'card' | 'document'>('card');
+
 
   // Persistent sidebar visibility state
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(() => {
@@ -1054,6 +1057,14 @@ export default function App() {
           {/* Right Controls: Ambient Sound + Camera Icon + Score Counters */}
           <div className="flex items-center gap-2">
             <AmbientSoundControl />
+            <button
+              type="button"
+              onClick={() => setViewMode(viewMode === 'card' ? 'document' : 'card')}
+              className="px-3 py-1.5 rounded-lg border border-[#272935] text-xs font-medium bg-[#181a21] text-zinc-300 hover:text-white transition-colors cursor-pointer"
+            >
+              {viewMode === 'card' ? 'Doc View' : 'Card View'}
+            </button>
+
 
             <button
               type="button"
@@ -1273,6 +1284,8 @@ export default function App() {
                 </div>
               )}
             </div>
+          ) : viewMode === 'document' ? (
+            <DocumentViewer questions={filteredQuestions} />
           ) : (
           /* STRICTLY ONLY 1 QUESTION VISIBLE ON SCREEN */
           currentQuestion && (
