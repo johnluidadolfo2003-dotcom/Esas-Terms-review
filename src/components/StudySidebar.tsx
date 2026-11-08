@@ -106,6 +106,7 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
   const [ambientPreset, setAmbientPreset] = useState<AmbientSoundPresetId>('stream');
   const [ambientVolume, setAmbientVolume] = useState<number>(0.45);
   const [isEsasExpanded, setIsEsasExpanded] = useState<boolean>(false);
+  const [isFlashcardsFolderExpanded, setIsFlashcardsFolderExpanded] = useState<boolean>(true);
   const [expandedSubSubjects, setExpandedSubSubjects] = useState<Record<string, boolean>>({});
   const [geminiStatus, setGeminiStatus] = useState<{ configured: boolean; serverReachable?: boolean } | null>(null);
   const [showRenderHelp, setShowRenderHelp] = useState<boolean>(false);
@@ -300,110 +301,172 @@ export const StudySidebar: React.FC<StudySidebarProps> = ({
                 </span>
               </div>
 
-              {/* Expanded Sub-Subjects (with 100-item parts & Check completed buttons) */}
+              {/* Expanded ESAS Container: 2 Sub-Items (1. Flashcard & 2. LOOKSFAM) */}
               {isEsasExpanded && (
-                <div className="flex flex-col gap-0.5 pl-2 pr-1.5 py-1 border-t border-[#1e2029] bg-[#12141a]/60">
-                  {ESAS_SUB_SUBJECTS.map((sub) => {
-                    const count = subjectCounts[sub] || 0;
-                    const isSelected = selectedSubject === sub;
-                    const hasParts = count > 100;
-                    const isExpanded = expandedSubSubjects[sub] || false;
-                    const numParts = hasParts ? Math.ceil(count / 100) : 0;
-
-                    return (
-                      <div key={sub} className="flex flex-col">
-                        <div
-                          onClick={() => handleSelectSubject(sub)}
-                          className={`w-full flex items-center justify-between px-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
-                            isSelected
-                              ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
-                              : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
-                          }`}
+                <div className="flex flex-col gap-1 pl-2 pr-1.5 py-1 border-t border-[#1e2029] bg-[#12141a]/60 text-xs">
+                  {/* Sub-Item 1: Flashcard Folder (Contains all subjects created so far) */}
+                  <div className="flex flex-col border border-[#232733] rounded-md bg-[#161822]/90 overflow-hidden">
+                    <div
+                      className="w-full flex items-center justify-between px-2 py-1.5 text-[11px] font-semibold text-zinc-200 transition-colors cursor-pointer text-left hover:bg-[#1f2230]"
+                      onClick={() => setIsFlashcardsFolderExpanded(!isFlashcardsFolderExpanded)}
+                    >
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsFlashcardsFolderExpanded(!isFlashcardsFolderExpanded);
+                          }}
+                          className="p-0.5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
                         >
-                          <div className="flex items-center gap-1.5 min-w-0">
-                            {hasParts ? (
-                              <button
-                                type="button"
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setExpandedSubSubjects((prev) => ({ ...prev, [sub]: !prev[sub] }));
-                                }}
-                                className="p-0.5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
-                                title={isExpanded ? 'Hide parts' : 'View 100-item parts'}
-                              >
-                                <svg
-                                  className={`w-3 h-3 transition-transform duration-200 ${
-                                    isExpanded ? 'rotate-90' : ''
-                                  }`}
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                </svg>
-                              </button>
-                            ) : (
-                              <span className="w-3" />
-                            )}
-                            <span className="truncate mr-1">{sub}</span>
-                          </div>
-
-                          <span
-                            className={`text-[10px] font-mono min-w-[18px] text-right ${
-                              isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
+                          <svg
+                            className={`w-3 h-3 transition-transform duration-200 ${
+                              isFlashcardsFolderExpanded ? 'rotate-90' : ''
                             }`}
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            viewBox="0 0 24 24"
                           >
-                            {count}
-                          </span>
-                        </div>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                          </svg>
+                        </button>
+                        <span>Flashcard</span>
+                      </div>
+                      <span className="text-[10px] font-mono text-zinc-400">
+                        {subjectCounts['ESAS'] || 0}
+                      </span>
+                    </div>
 
-                        {hasParts && isExpanded && (
-                          <div className="flex flex-col gap-0.5 pl-6 pr-1 py-1 my-0.5 border-l border-zinc-800 bg-[#151720]/80 rounded-r">
-                            {Array.from({ length: numParts }, (_, i) => i + 1).map((partNum) => {
-                              const partKey = `${sub}__part__${partNum}`;
-                              const isPartSelected = selectedSubject === partKey;
-                              const isCompleted = completedParts?.[partKey] || false;
-                              const startQ = (partNum - 1) * 100 + 1;
-                              const endQ = Math.min(partNum * 100, count);
+                    {/* All Created Subjects & 100-item Parts inside Flashcard */}
+                    {isFlashcardsFolderExpanded && (
+                      <div className="flex flex-col gap-0.5 pl-2 pr-1 py-1 border-t border-[#222533] bg-[#12141c]">
+                        {ESAS_SUB_SUBJECTS.map((sub) => {
+                          if (sub === 'LOOKSFAM') return null; // Rendered as sibling below
+                          const count = subjectCounts[sub] || 0;
+                          const isSelected = selectedSubject === sub;
+                          const hasParts = count > 100;
+                          const isExpanded = expandedSubSubjects[sub] || false;
+                          const numParts = hasParts ? Math.ceil(count / 100) : 0;
 
-                              return (
-                                <div
-                                  key={partKey}
-                                  className={`flex items-center justify-between px-1.5 py-1 rounded text-[10px] cursor-pointer transition-colors ${
-                                    isPartSelected
-                                      ? 'bg-[#182329] text-[#2dd4bf] font-medium'
-                                      : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#1b1e28]'
-                                  }`}
-                                >
-                                  <span onClick={() => handleSelectSubject(partKey)} className="truncate mr-1">
-                                    Part {partNum} ({startQ}–{endQ})
-                                  </span>
-                                  <div className="flex items-center gap-1 shrink-0">
+                          return (
+                            <div key={sub} className="flex flex-col">
+                              <div
+                                onClick={() => handleSelectSubject(sub)}
+                                className={`w-full flex items-center justify-between px-2 py-1 rounded text-[11px] transition-colors cursor-pointer text-left border-l-2 ${
+                                  isSelected
+                                    ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#181a21] border-transparent'
+                                }`}
+                              >
+                                <div className="flex items-center gap-1.5 min-w-0">
+                                  {hasParts ? (
                                     <button
                                       type="button"
                                       onClick={(e) => {
                                         e.stopPropagation();
-                                        onTogglePartCompleted?.(partKey);
+                                        setExpandedSubSubjects((prev) => ({ ...prev, [sub]: !prev[sub] }));
                                       }}
-                                      className={`px-1.5 py-0.5 rounded text-[9px] font-mono border transition-colors cursor-pointer flex items-center gap-0.5 ${
-                                        isCompleted
-                                          ? 'bg-emerald-950 border-emerald-600 text-emerald-300 font-bold'
-                                          : 'bg-zinc-900 border-zinc-700 text-zinc-500 hover:text-zinc-300'
-                                      }`}
-                                      title={isCompleted ? 'Marked completed (Click to uncheck)' : 'Mark as Check (Completed)'}
+                                      className="p-0.5 text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                                      title={isExpanded ? 'Hide parts' : 'View 100-item parts'}
                                     >
-                                      <span>{isCompleted ? '✓ Done' : 'Check'}</span>
+                                      <svg
+                                        className={`w-3 h-3 transition-transform duration-200 ${
+                                          isExpanded ? 'rotate-90' : ''
+                                        }`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                      >
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                      </svg>
                                     </button>
-                                  </div>
+                                  ) : (
+                                    <span className="w-3" />
+                                  )}
+                                  <span className="truncate mr-1">{sub}</span>
                                 </div>
-                              );
-                            })}
-                          </div>
-                        )}
+
+                                <span
+                                  className={`text-[10px] font-mono min-w-[18px] text-right ${
+                                    isSelected ? 'text-[#2dd4bf]' : 'text-zinc-500'
+                                  }`}
+                                >
+                                  {count}
+                                </span>
+                              </div>
+
+                              {hasParts && isExpanded && (
+                                <div className="flex flex-col gap-0.5 pl-6 pr-1 py-1 my-0.5 border-l border-zinc-800 bg-[#151720]/80 rounded-r">
+                                  {Array.from({ length: numParts }, (_, i) => i + 1).map((partNum) => {
+                                    const partKey = `${sub}__part__${partNum}`;
+                                    const isPartSelected = selectedSubject === partKey;
+                                    const isCompleted = completedParts?.[partKey] || false;
+                                    const startQ = (partNum - 1) * 100 + 1;
+                                    const endQ = Math.min(partNum * 100, count);
+
+                                    return (
+                                      <div
+                                        key={partKey}
+                                        className={`flex items-center justify-between px-1.5 py-1 rounded text-[10px] cursor-pointer transition-colors ${
+                                          isPartSelected
+                                            ? 'bg-[#182329] text-[#2dd4bf] font-medium'
+                                            : 'text-zinc-400 hover:text-zinc-200 hover:bg-[#1b1e28]'
+                                        }`}
+                                      >
+                                        <span onClick={() => handleSelectSubject(partKey)} className="truncate mr-1">
+                                          Part {partNum} ({startQ}–{endQ})
+                                        </span>
+                                        <div className="flex items-center gap-1 shrink-0">
+                                          <button
+                                            type="button"
+                                            onClick={(e) => {
+                                              e.stopPropagation();
+                                              onTogglePartCompleted?.(partKey);
+                                            }}
+                                            className={`px-1.5 py-0.5 rounded text-[9px] font-mono border transition-colors cursor-pointer flex items-center gap-0.5 ${
+                                              isCompleted
+                                                ? 'bg-emerald-950 border-emerald-600 text-emerald-300 font-bold'
+                                                : 'bg-zinc-900 border-zinc-700 text-zinc-500 hover:text-zinc-300'
+                                            }`}
+                                            title={isCompleted ? 'Marked completed (Click to uncheck)' : 'Mark as Check (Completed)'}
+                                          >
+                                            <span>{isCompleted ? '✓ Done' : 'Check'}</span>
+                                          </button>
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                            </div>
+                          );
+                        })}
                       </div>
-                    );
-                  })}
+                    )}
+                  </div>
+
+                  {/* Sub-Item 2: LOOKSFAM Sub-Folder */}
+                  <div
+                    onClick={() => handleSelectSubject('LOOKSFAM')}
+                    className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-[11px] transition-colors cursor-pointer text-left border border-[#232733] ${
+                      selectedSubject === 'LOOKSFAM'
+                        ? 'bg-[#182329]/90 text-[#2dd4bf] font-semibold border-[#2dd4bf]'
+                        : 'bg-[#161822] text-zinc-300 hover:text-white hover:bg-[#1f2230]'
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 font-semibold">
+                      <span>LOOKSFAM</span>
+                    </div>
+                    <span
+                      className={`text-[10px] font-mono ${
+                        selectedSubject === 'LOOKSFAM' ? 'text-[#2dd4bf]' : 'text-zinc-400'
+                      }`}
+                    >
+                      {subjectCounts['LOOKSFAM'] || 0}
+                    </span>
+                  </div>
                 </div>
               )}
             </div>

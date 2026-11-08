@@ -1,4 +1,4 @@
-import type { FlashcardQuestion } from '../../services/questionParser';
+import { FlashcardQuestion, sanitizeFlashcardQuestion } from '../../services/questionParser';
 import auditData from './esasContentAudit.json';
 import { auditDriveCorpusAnswers } from './driveCorpusAnswerCorrections';
 import { LEGACY_1001_SUBJECT_ASSIGNMENTS } from '../legacy1001SubjectAssignments';
@@ -12,7 +12,8 @@ type ContentAudit = {
 
 const audit = auditData as ContentAudit;
 
-function classifyLegacy1001Question(question: FlashcardQuestion): FlashcardQuestion {
+function classifyLegacy1001Question(rawQuestion: FlashcardQuestion): FlashcardQuestion {
+  const question = sanitizeFlashcardQuestion(rawQuestion);
   const assignment = LEGACY_1001_SUBJECT_ASSIGNMENTS[question.id];
   if (!assignment) return question;
 
@@ -35,11 +36,12 @@ function classifyLegacy1001Question(question: FlashcardQuestion): FlashcardQuest
 
 /** Apply reviewed corrections before App.tsx merges/deduplicates the bank. */
 export function applyKnownContentCorrections(original: FlashcardQuestion[]): FlashcardQuestion[] {
-  return original.flatMap(question => {
+  return original.flatMap(rawQuestion => {
+    const question = sanitizeFlashcardQuestion(rawQuestion);
     if (Object.hasOwn(audit.excluded, question.id)) return [];
     const patch = audit.patches[question.id];
     if (!patch) return [classifyLegacy1001Question(question)];
-    const corrected = { ...question, ...patch.updates };
+    const corrected = sanitizeFlashcardQuestion({ ...question, ...patch.updates });
     // Exports/imports must not resurrect the old choices or answer from raw text.
     corrected.rawSnippet = [
       corrected.question,

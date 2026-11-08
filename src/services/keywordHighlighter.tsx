@@ -1,7 +1,7 @@
 import React from 'react';
 
-// Common stop words to exclude from keyword extraction
-const STOP_WORDS = new Set([
+// Meta/filler words to ignore from fallback keyword matching
+const IGNORE_WORDS = new Set([
   'a', 'an', 'the', 'is', 'are', 'was', 'were', 'be', 'been', 'being',
   'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'shall', 'should',
   'may', 'might', 'must', 'can', 'could', 'of', 'in', 'to', 'for', 'with',
@@ -10,82 +10,145 @@ const STOP_WORDS = new Set([
   'if', 'that', 'this', 'these', 'those', 'which', 'what', 'who', 'whom', 'whose',
   'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more',
   'most', 'other', 'some', 'such', 'no', 'not', 'only', 'own', 'same', 'than',
-  'too', 'very', 's', 't', 'just', 'don', 'now', 'd', 'll', 'm', 'o', 're',
-  've', 'y', 'ain', 'aren', 'couldn', 'didn', 'doesn', 'hadn', 'hasn', 'haven',
-  'isn', 'ma', 'mightn', 'mustn', 'needn', 'shan', 'shouldn', 'wasn', 'weren',
-  'won', 'wouldn', 'also', 'known', 'called', 'used', 'defined', 'types', 'type',
-  'term', 'terms', 'refers', 'refer', 'means', 'statement', 'following', 'given',
-  'select', 'choose', 'option', 'correct', 'value', 'amount', 'ratio', 'rate',
-  'equal', 'total', 'part', 'number', 'system', 'device', 'circuit'
+  'too', 'very', 'just', 'also', 'known', 'called', 'used', 'defined', 'types',
+  'type', 'kind', 'kinds', 'term', 'terms', 'refers', 'refer', 'means', 'statement',
+  'following', 'given', 'select', 'choose', 'option', 'correct', 'value', 'values',
+  'amount', 'ratio', 'rate', 'equal', 'total', 'part', 'number', 'system', 'device',
+  'circuit', 'unit', 'units', 'find', 'calculate', 'determine', 'problem', 'example',
+  'question', 'answers', 'answer', 'one', 'two', 'three', 'four', 'first', 'second',
+  'third', 'state', 'states', 'according', 'per', 'due'
 ]);
 
+// Well-known multi-word engineering, physics, math, and econ concepts
+const DOMAIN_MULTIWORD_TERMS = [
+  'simultaneous two way mode', 'two way mode of communications', 'two way mode',
+  'power factor', 'reactive power', 'apparent power', 'real power', 'active power',
+  'induction motor', 'synchronous motor', 'dc generator', 'dc motor', 'step up transformer',
+  'step down transformer', 'kirchhoff\'s law', 'kirchhoffs law', 'ohm\'s law', 'ohms law',
+  'faraday\'s law', 'lenz\'s law', 'maxwell\'s equations', 'carnot cycle', 'rankine cycle',
+  'otto cycle', 'diesel cycle', 'brayton cycle', 'second law', 'first law', 'zeroth law',
+  'shear stress', 'tensile stress', 'compressive stress', 'modulus of elasticity',
+  'poisson\'s ratio', 'moment of inertia', 'center of gravity', 'fluid friction',
+  'bernoulli\'s principle', 'pascal\'s law', 'reynolds number', 'present worth',
+  'sinking fund', 'capitalized cost', 'annual cost', 'break-even', 'rate of return',
+  'fourier series', 'laplace transform', 'differential equation', 'vector product',
+  'dot product', 'electric field', 'magnetic field', 'magnetic flux', 'electromotive force',
+  'phase angle', 'resonant frequency', 'skin effect', 'corona effect', 'line voltage',
+  'phase voltage', 'short circuit', 'open circuit', 'ground fault', '3-phase', 'three phase',
+  'electrical capacitance', 'electric charge', 'magnetic permeability', 'electric permittivity',
+  'specific heat', 'thermal conductivity', 'viscosity', 'surface tension', 'bulk modulus'
+];
+
 /**
- * Extracts key technical terms and matching answer keywords from question & answer.
+ * Strips question lead-in stems (e.g. "what do you call the", "what is the", "refers to")
+ * to isolate the exact core definitional/predicate phrase of the question prompt.
+ */
+function extractCoreStemPhrase(questionText: string): string | null {
+  const cleanQ = questionText.trim().replace(/[\?\.\:]+$/, '').trim();
+
+  const stemPatterns = [
+    /^(?:what|which|how|why|where|when)\s+(?:do\s+you\s+call|is\s+called|is\s+known\s+as|is\s+defined\s+as|do\s+we\s+call|is\s+referred\s+to\s+as)\s+(?:the|a|an)?\s*/i,
+    /^(?:what|which|how)\s+(?:is|are|was|were)\s+(?:the|a|an)?\s*/i,
+    /^(?:which\s+of\s+the\s+following|which\s+one\s+of\s+the\s+following)\s+(?:is|are|refers\s+to|is\s+defined\s+as|is\s+called|is\s+known\s+as)?\s+(?:the|a|an)?\s*/i,
+    /^(?:it\s+is\s+defined\s+as|defined\s+as|it\s+refers\s+to|refers\s+to|is\s+defined\s+as|is\s+known\s+as|is\s+called)\s+(?:the|a|an)?\s*/i,
+    /^(?:the\s+process\s+of|a\s+device\s+that|an\s+instrument\s+used\s+to|a\s+type\s+of|a\s+kind\s+of)\s*/i
+  ];
+
+  for (const pattern of stemPatterns) {
+    if (pattern.test(cleanQ)) {
+      const remainder = cleanQ.replace(pattern, '').trim();
+      if (remainder.length >= 6) {
+        return remainder;
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Extracts the exact core key phrase from the question prompt.
  */
 export function extractKeywords(
   questionText: string,
   answerText: string
 ): { questionKeywords: Set<string>; answerKeywords: Set<string> } {
-  const getTokens = (str: string) =>
-    str
-      .toLowerCase()
-      .replace(/[^\w\s\-%°]/g, ' ')
-      .split(/\s+/)
-      .filter((w) => w.length > 2 && !STOP_WORDS.has(w));
-
-  const qTokens = getTokens(questionText);
-  const aTokens = getTokens(answerText);
-
-  const aTokensSet = new Set(aTokens);
-
   const questionKeywords = new Set<string>();
-  const answerKeywords = new Set<string>();
 
-  // 1. Cross-matching tokens (words in question that match answer or vice versa)
-  qTokens.forEach((tok) => {
-    if (aTokensSet.has(tok)) {
-      questionKeywords.add(tok);
-      answerKeywords.add(tok);
-    }
-  });
+  // 1. Core Stem Phrase Extraction (e.g. "what do you call the simultaneous two way mode of communications" -> "simultaneous two way mode of communications")
+  const corePhrase = extractCoreStemPhrase(questionText);
+  if (corePhrase) {
+    questionKeywords.add(corePhrase);
+    return { questionKeywords, answerKeywords: new Set<string>() };
+  }
 
-  // 2. Technical numbers, formulas, units in question (e.g. 60Hz, 100°C, 3-phase, etc.) or distinct capitalized words
-  const techRegex =
-    /\b\d+(?:\.\d+)?(?:\s*(?:hz|v|kv|w|kw|mw|a|ma|ohm|ohms|f|uf|pf|h|mh|j|kj|n|kn|pa|kpa|mpa|m|cm|mm|kg|g|rad|deg|°c|°f|k|rpm|fps|m\/s|m\/s²|%|hp|btu))?\b|\b[A-Z][a-zA-Z0-9\-]{2,}\b/g;
-
-  let match;
-  while ((match = techRegex.exec(questionText)) !== null) {
-    const word = match[0].toLowerCase();
-    if (!STOP_WORDS.has(word) && word.length > 2) {
-      questionKeywords.add(word);
+  // 2. Multi-word Domain Engineering Terms
+  const qLower = questionText.toLowerCase();
+  for (const term of DOMAIN_MULTIWORD_TERMS) {
+    if (qLower.includes(term)) {
+      const regex = new RegExp(term.replace(/'/g, "'?"), 'gi');
+      const match = regex.exec(questionText);
+      if (match) {
+        questionKeywords.add(match[0]);
+      }
     }
   }
 
-  // 3. Ensure answer has key words highlighted (if answer is short or technical)
-  aTokens.forEach((tok) => {
-    if (tok.length >= 3 && !STOP_WORDS.has(tok)) {
-      answerKeywords.add(tok);
+  // 3. Match answer words in question
+  const answerClean = answerText
+    .toLowerCase()
+    .replace(/[^\w\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 3 && !IGNORE_WORDS.has(w));
+
+  answerClean.forEach((ansWord) => {
+    const wordRegex = new RegExp(`\\b${ansWord}\\b`, 'gi');
+    let m;
+    while ((m = wordRegex.exec(questionText)) !== null) {
+      questionKeywords.add(m[0]);
     }
   });
 
-  // If question keywords list is empty, pick top 2-3 longest non-stop-word tokens
-  if (questionKeywords.size === 0 && qTokens.length > 0) {
-    [...qTokens]
-      .sort((a, b) => b.length - a.length)
-      .slice(0, 3)
-      .forEach((w) => questionKeywords.add(w));
+  // 4. Named principles / laws / units in question
+  const namedAndUnitsRegex =
+    /\b(?:newton|carnot|faraday|lenz|joule|kelvin|coulomb|ampere|volt|watt|gauss|tesla|weber|henry|maxwell|bernoulli|fourier|laplace|poisson|hooke|young|archimedes|pascal|torricelli|thevenin|norton)\b|\b\d+(?:\.\d+)?\s*(?:hz|v|kv|w|kw|mw|a|ma|ohm|ohms|f|uf|pf|h|mh|j|kj|n|kn|pa|kpa|mpa|m|cm|mm|kg|g|rad|deg|°c|°f|k|rpm|fps|m\/s|m\/s²|%|hp|btu)\b/gi;
+
+  let unitMatch;
+  while ((unitMatch = namedAndUnitsRegex.exec(questionText)) !== null) {
+    questionKeywords.add(unitMatch[0]);
   }
 
-  return { questionKeywords, answerKeywords };
+  // 5. Fallback: longest technical words
+  if (questionKeywords.size === 0) {
+    const qWords = questionText
+      .replace(/[^\w\s]/g, ' ')
+      .split(/\s+/)
+      .filter((w) => w.length >= 4 && !IGNORE_WORDS.has(w.toLowerCase()));
+
+    qWords.sort((a, b) => b.length - a.length);
+
+    if (qWords.length > 0) {
+      questionKeywords.add(qWords[0]);
+    }
+    if (qWords.length > 1) {
+      questionKeywords.add(qWords[1]);
+    }
+  }
+
+  const trimmedQuestionKeywords = new Set<string>(
+    Array.from(questionKeywords).slice(0, 3)
+  );
+
+  return { questionKeywords: trimmedQuestionKeywords, answerKeywords: new Set<string>() };
 }
 
 /**
- * Renders JSX elements with highlighted keyword spans.
+ * Renders JSX elements with highlighted keyword spans (White text on Yellow background).
  */
 export function highlightTextWithKeywords(
   text: string,
   keywords: Set<string>,
-  highlightStyle: 'question' | 'answer' = 'question'
+  _highlightStyle: 'question' | 'answer' = 'question'
 ): React.ReactNode {
   if (!text || !keywords || keywords.size === 0) return text;
 
@@ -109,7 +172,6 @@ export function highlightTextWithKeywords(
     }
 
     const matchedText = match[0];
-    const isAnsStyle = highlightStyle === 'answer';
 
     parts.push(
       <mark

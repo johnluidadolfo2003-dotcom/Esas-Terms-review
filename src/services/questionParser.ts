@@ -1,5 +1,6 @@
 export type SubjectCategory =
   | 'ESAS'
+  | 'LOOKSFAM'
   | 'COACH G 1000 TERMS'
   | '1001 terms part 1'
   | '1001 terms part 2'
@@ -26,6 +27,7 @@ export type SubjectCategory =
   | 'EE';
 
 export const ESAS_SUB_SUBJECTS: SubjectCategory[] = [
+  'LOOKSFAM',
   'COACH G 1000 TERMS',
   '1001 terms part 1',
   '1001 terms part 2',
@@ -95,6 +97,152 @@ export function questionMatchesSubject(
     return question.classificationStatus === 'needs-review';
   }
   return question.subject === subject;
+}
+
+/**
+ * Cleans OCR artifacts, broken spacing inside words, and trailing stray digits attached to words.
+ * Examples:
+ *   "G i ven" -> "Given"
+ *   "ini tial" -> "initial"
+ *   "equ i valent3" -> "equivalent"
+ *   "c i r c u i t" -> "circuit"
+ *   "valent3" -> "valent"
+ *   "f r e q u e n c y2" -> "frequency"
+ */
+export function cleanOcrArtifacts(text: string): string {
+  if (!text) return text;
+
+  let cleaned = text;
+
+  // 1. Common syllable-split & single-letter broken words
+  const syllableReplacements: [RegExp, string][] = [
+    [/\bG\s+i\s+ven\b/gi, 'Given'],
+    [/\bg\s+i\s+ven\b/gi, 'given'],
+    [/\bini\s+tial\b/gi, 'initial'],
+    [/\bini\s+tial\s*ly\b/gi, 'initially'],
+    [/\bpo\s+tential\b/gi, 'potential'],
+    [/\bre\s+sis\s+tance\b/gi, 'resistance'],
+    [/\bresis\s+tance\b/gi, 'resistance'],
+    [/\bvol\s+tage\b/gi, 'voltage'],
+    [/\bcur\s+rent\b/gi, 'current'],
+    [/\btem\s+perature\b/gi, 'temperature'],
+    [/\belec\s+trical\b/gi, 'electrical'],
+    [/\bcapaci\s+tance\b/gi, 'capacitance'],
+    [/\binduc\s+tance\b/gi, 'inductance'],
+    [/\btrans\s+former\b/gi, 'transformer'],
+    [/\beffi\s+ciency\b/gi, 'efficiency'],
+    [/\bfre\s+quency\b/gi, 'frequency'],
+    [/\bdi\s+elec\s+tric\b/gi, 'dielectric'],
+    [/\bim\s+ped\s+ance\b/gi, 'impedance'],
+    [/\bre\s+act\s+ance\b/gi, 'reactance'],
+    [/\bdiffe\s+rential\b/gi, 'differential'],
+    [/\binte\s+gral\b/gi, 'integral'],
+    [/\bspe\s+cific\b/gi, 'specific'],
+    [/\bsig\s+nifi\s+cant\b/gi, 'significant'],
+    [/\bsub\s+stance\b/gi, 'substance'],
+    [/\bpres\s+sure\b/gi, 'pressure'],
+    [/\bvelo\s+city\b/gi, 'velocity'],
+    [/\bcon\s+duc\s+tivity\b/gi, 'conductivity'],
+    [/\bresis\s+tivity\b/gi, 'resistivity'],
+    [/\bper\s+mea\s+bility\b/gi, 'permeability'],
+    [/\bper\s+mit\s+tivity\b/gi, 'permittivity'],
+    [/\ben\s+thal\s+py\b/gi, 'enthalpy'],
+    [/\ben\s+tro\s+py\b/gi, 'entropy'],
+  ];
+
+  for (const [pattern, replacement] of syllableReplacements) {
+    cleaned = cleaned.replace(pattern, replacement);
+  }
+
+  // 1. Specific broken spaced word replacements (case-insensitive)
+  const brokenWordMap: [RegExp, string][] = [
+    [/\bequ\s+i\s+valent\d*/gi, 'equivalent'],
+    [/\bequ\s*i\s*valent\d*/gi, 'equivalent'],
+    [/\bequivalent\d+\b/gi, 'equivalent'],
+    [/\bvalent\d+\b/gi, 'valent'],
+    [/\bc\s+i\s+r\s+c\s+u\s+i\s+t\d*/gi, 'circuit'],
+    [/\br\s+e\s+s\s+i\s+s\s+t\s+a\s+n\s+c\s+e\d*/gi, 'resistance'],
+    [/\bf\s+r\s+e\s+q\s+u\s+e\s+n\s+c\s+y\d*/gi, 'frequency'],
+    [/\bt\s+r\s+a\s+n\s+s\s+f\s+o\s+r\s+m\s+e\s+r\d*/gi, 'transformer'],
+    [/\bc\s+a\s+p\s+a\s+c\s+i\s+t\s+a\s+n\s+c\s+e\d*/gi, 'capacitance'],
+    [/\be\s+l\s+e\s+c\s+t\s+r\s+i\s+c\d*/gi, 'electric'],
+    [/\bv\s+o\s+l\s+t\s+a\s+g\s+e\d*/gi, 'voltage'],
+    [/\bc\s+u\s+r\s+r\s+e\s+n\s+t\d*/gi, 'current'],
+    [/\bi\s+m\s+p\s+e\s+d\s+a\s+n\s+c\s+e\d*/gi, 'impedance'],
+    [/\bi\s+n\s+d\s+u\s+c\s+t\s+a\s+n\s+c\s+e\d*/gi, 'inductance'],
+    [/\br\s+e\s+a\s+c\s+t\s+a\s+n\s+c\s+e\d*/gi, 'reactance'],
+    [/\be\s+f\s+f\s+i\s+c\s+i\s+e\s+n\s+c\s+y\d*/gi, 'efficiency'],
+    [/\bs\s+y\s+n\s+c\s+h\s+r\s+o\s+n\s+o\s+u\s+s\d*/gi, 'synchronous'],
+    [/\bg\s+e\s+n\s+e\s+r\s+a\s+t\s+o\s+r\d*/gi, 'generator'],
+    [/\br\s+e\s+s\s+i\s+s\s+t\s+o\s+r\d*/gi, 'resistor'],
+    [/\bc\s+a\s+p\s+a\s+c\s+i\s+t\s+o\s+r\d*/gi, 'capacitor'],
+    [/\bi\s+n\s+d\s+u\s+c\s+t\s+o\s+r\d*/gi, 'inductor'],
+    [/\bm\s+o\s+t\s+o\s+r\d*/gi, 'motor'],
+  ];
+
+  for (const [pattern, replacement] of brokenWordMap) {
+    cleaned = cleaned.replace(pattern, replacement);
+  }
+
+  // 2. Generic spaced-out single letters inside ordinary words (3 or more letters)
+  cleaned = cleaned.replace(/\b([a-zA-Z])(?:\s+([a-zA-Z])){2,}\b/g, (match) => {
+    const joined = match.replace(/\s+/g, '');
+    if (joined.length >= 3 && !/^(a|i)$/i.test(joined)) {
+      return joined;
+    }
+    return match;
+  });
+
+  // 3. Trailing digit attached to ordinary words (4+ letters followed by a single digit)
+  cleaned = cleaned.replace(/\b([a-zA-Z]{4,})([0-9])\b/g, (fullMatch, word) => {
+    const wLower = word.toLowerCase();
+    if (/^(h2o|co2|ch4|nh3|o2|n2|h2)$/.test(wLower)) {
+      return fullMatch;
+    }
+    return word;
+  });
+
+  // 4. Clean extra spaces
+  cleaned = cleaned
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([\?\,\.\:\;])/g, '$1')
+    .trim();
+
+  return cleaned;
+}
+
+/**
+ * Sanitizes a single question: cleans OCR text, validates choices A/B/C/D, and ensures correctChoiceId is valid.
+ */
+export function sanitizeFlashcardQuestion(q: FlashcardQuestion): FlashcardQuestion {
+  const cleanedQuestion = cleanOcrArtifacts(q.question);
+
+  // Standardize Choice IDs to A, B, C, D
+  const standardIds = ['A', 'B', 'C', 'D'];
+  const cleanedChoices = q.choices.map((choice, idx) => ({
+    id: standardIds[idx] || choice.id.trim().toUpperCase(),
+    text: cleanOcrArtifacts(choice.text),
+  }));
+
+  // Ensure correctChoiceId is valid
+  let cleanCorrect = (q.correctChoiceId || 'A').trim().toUpperCase().replace(/[^A-Z0-9]/g, '');
+  const validIds = new Set(cleanedChoices.map((c) => c.id));
+  if (!validIds.has(cleanCorrect)) {
+    const numericIndex = parseInt(cleanCorrect, 10);
+    if (!isNaN(numericIndex) && numericIndex >= 1 && numericIndex <= cleanedChoices.length) {
+      cleanCorrect = standardIds[numericIndex - 1];
+    } else {
+      cleanCorrect = cleanedChoices[0]?.id || 'A';
+    }
+  }
+
+  return {
+    ...q,
+    question: cleanedQuestion,
+    choices: cleanedChoices,
+    correctChoiceId: cleanCorrect,
+    explanation: q.explanation ? cleanOcrArtifacts(q.explanation) : undefined,
+  };
 }
 
 /**

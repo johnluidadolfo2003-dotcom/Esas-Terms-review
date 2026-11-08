@@ -44,6 +44,8 @@ import { parseCurrentLocationParams } from './services/shareService';
 import { AiVoiceMode } from './services/speechService';
 import { generate70ItemQuiz, TOTAL_QUIZ_ITEMS } from './services/quizService';
 import { QuizCongratulationsModal } from './components/QuizCongratulationsModal';
+import { LooksfamViewer } from './components/LooksfamViewer';
+import { LOOKSFAM_DATA } from './data/looksfamData';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -804,6 +806,7 @@ export default function App() {
     ESAS_SUB_SUBJECTS.forEach((sub) => {
       counts[sub] = 0;
     });
+    counts['LOOKSFAM'] = LOOKSFAM_DATA.length;
 
     allQuestions.forEach((q) => {
       counts[q.subject] = (counts[q.subject] || 0) + 1;
@@ -1088,8 +1091,10 @@ export default function App() {
           </div>
         </header>
 
-        <main className="flex-1 flex flex-col items-center justify-start md:justify-center p-3 sm:p-6 w-full max-w-4xl mx-auto">
-          {loadingFileContent ? (
+        <main className="flex-1 flex flex-col items-center justify-start md:justify-center p-3 sm:p-6 w-full max-w-5xl mx-auto">
+          {selectedSubject === 'LOOKSFAM' ? (
+            <LooksfamViewer />
+          ) : loadingFileContent ? (
             <div className="bg-[#181a21] border border-[#272935] rounded-xl p-10 text-center max-w-md w-full">
               <div className="w-8 h-8 border-2 border-zinc-500 border-t-zinc-200 rounded-full animate-spin mx-auto mb-4"></div>
               <h3 className="text-base font-semibold text-zinc-200">
