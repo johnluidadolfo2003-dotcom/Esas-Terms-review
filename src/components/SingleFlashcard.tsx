@@ -1,5 +1,6 @@
-import React, { useEffect, useCallback, useState, useRef } from 'react';
+import React, { useEffect, useCallback, useState, useRef, useMemo } from 'react';
 import { FlashcardQuestion, generateContextualExplanation } from '../services/questionParser';
+import { extractKeywords, highlightTextWithKeywords } from '../services/keywordHighlighter';
 import {
   AiVoiceMode,
   stopSpeech,
@@ -57,6 +58,45 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   const isAnswered = cleanSelected !== null;
   const isCorrect = isAnswered && cleanSelected === cleanCorrect;
 
+  // Show Answer Key & Keyword Highlight State
+  const [showAnswerKey, setShowAnswerKey] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('terms_show_answer_key');
+      return saved !== null ? JSON.parse(saved) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  const handleToggleAnswerKey = () => {
+    setShowAnswerKey((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('terms_show_answer_key', JSON.stringify(next));
+      } catch (err) {
+        console.error('Failed to save show_answer_key state:', err);
+      }
+      return next;
+    });
+  };
+
+  // Automatically reveal correct answer when Answer Key is active
+  useEffect(() => {
+    if (showAnswerKey && !selectedChoice && question?.correctChoiceId) {
+      onSelectChoice(question.correctChoiceId);
+    }
+  }, [showAnswerKey, question.id, selectedChoice, question.correctChoiceId, onSelectChoice]);
+
+  const correctChoiceObj = question.choices.find(
+    (c) => c.id.trim().toUpperCase().replace(/[^A-Z0-9]/g, '') === cleanCorrect
+  );
+  const correctChoiceText = correctChoiceObj ? correctChoiceObj.text : '';
+
+  const { questionKeywords, answerKeywords } = useMemo(() => {
+    if (!showAnswerKey) return { questionKeywords: new Set<string>(), answerKeywords: new Set<string>() };
+    return extractKeywords(question.question, correctChoiceText);
+  }, [showAnswerKey, question.question, correctChoiceText]);
+
   // Play audio sound on answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
@@ -85,7 +125,26 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     }).catch(() => { if (active) setVoiceError('Deploy the Gemini audio server to enable reading.'); });
     return () => { active = false; unsubscribe(); };
   }, []);
-  const [autoAdvance, setAutoAdvance] = useState<boolean>(true);
+  const [autoAdvance, setAutoAdvance] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('terms_auto_advance');
+      return saved !== null ? JSON.parse(saved) : false;
+    } catch {
+      return false;
+    }
+  });
+
+  const handleToggleAutoAdvance = () => {
+    setAutoAdvance((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem('terms_auto_advance', JSON.stringify(next));
+      } catch (err) {
+        console.error('Failed to save auto_advance state:', err);
+      }
+      return next;
+    });
+  };
   const autoAdvanceTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const currentSeqIdRef = useRef<number>(0);
 
@@ -263,8 +322,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
           setSpeechStatus('idle');
 
-          // Automatically advance to the next card
-          if (hasNext) {
+          // Automatically advance to the next card ONLY IF autoAdvance is enabled
+          if (autoAdvance && hasNext) {
             clearAutoAdvanceTimer();
             autoAdvanceTimerRef.current = setTimeout(() => {
               if (seqId === currentSeqIdRef.current) {
@@ -296,7 +355,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     };
   }, [question.id, aiVoiceMode, speechRate]);
 
-  // Handle user answer in Auto Reading modes: automatically next when done answering
+  // Handle user answer: automatically next ONLY IF autoAdvance is ON
   useEffect(() => {
     if (selectedChoice === null) return;
 
@@ -321,7 +380,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         () => {
           if (seqId !== currentSeqIdRef.current) return;
           setSpeechStatus('idle');
-          if (hasNext) {
+          if (autoAdvance && hasNext) {
             clearAutoAdvanceTimer();
             autoAdvanceTimerRef.current = setTimeout(() => {
               onNext();
@@ -331,7 +390,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         () => {
           if (seqId !== currentSeqIdRef.current) return;
           setSpeechStatus('idle');
-          if (hasNext) {
+          if (autoAdvance && hasNext) {
             clearAutoAdvanceTimer();
             autoAdvanceTimerRef.current = setTimeout(() => {
               onNext();
@@ -340,8 +399,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         }
       );
 
-      // Guaranteed auto-advance safeguard: always next within 1.6s so user is never stuck
-      if (hasNext) {
+      // Auto-advance safeguard ONLY IF autoAdvance is enabled
+      if (autoAdvance && hasNext) {
         autoAdvanceTimerRef.current = setTimeout(() => {
           if (seqId === currentSeqIdRef.current) {
             stopSpeech();
@@ -412,8 +471,8 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
   return (
     <div className="w-full max-w-3xl mx-auto flex flex-col gap-2.5 sm:gap-4">
       {/* Flashcard Header Bar */}
-      <div className="flex items-center justify-between px-0.5 text-xs sm:text-sm">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 px-0.5 text-xs sm:text-sm">
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="font-mono text-zinc-300 font-semibold bg-[#181a21] px-2.5 py-0.5 rounded-md text-xs border border-[#272935]">
             {currentIndex + 1} / {totalQuestions}
           </span>
@@ -426,6 +485,23 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
             </span>
           )}
         </div>
+
+        {/* Top Button: Auto-Show Answer & Highlight Keywords */}
+        <button
+          type="button"
+          onClick={handleToggleAnswerKey}
+          className={`px-3 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer flex items-center gap-1.5 shadow-xs ${
+            showAnswerKey
+              ? 'bg-amber-400 text-zinc-950 border-amber-300 font-bold hover:bg-amber-300 ring-2 ring-amber-400/40'
+              : 'bg-[#181a21] border-[#272935] text-zinc-300 hover:text-white hover:bg-[#20222a]'
+          }`}
+          title="Turn on Answer Key & Keyword Highlights for fast recall studying"
+        >
+          <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.493 1.508 1.333 1.508 2.316V18" />
+          </svg>
+          <span>{showAnswerKey ? 'Answer Key & Keywords: ON' : 'Show Answer & Keywords'}</span>
+        </button>
       </div>
 
       {/* Main Single Flashcard Surface */}
@@ -548,7 +624,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
               {/* Auto Advance Toggle */}
               <button
                 type="button"
-                onClick={() => setAutoAdvance(!autoAdvance)}
+                onClick={handleToggleAutoAdvance}
                 className={`px-2 py-1 rounded text-[10px] font-medium border cursor-pointer ${
                   autoAdvance
                     ? 'bg-zinc-800 border-zinc-700 text-zinc-200'
@@ -568,7 +644,9 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         {/* Question Prompt - Big, Clear & Legible on Mobile */}
         <div className="py-0.5 sm:py-1">
           <h2 className="text-base sm:text-xl md:text-2xl font-bold text-slate-100 leading-snug">
-            {question.question}
+            {showAnswerKey
+              ? highlightTextWithKeywords(question.question, questionKeywords, 'question')
+              : question.question}
           </h2>
         </div>
 
