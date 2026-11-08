@@ -47,6 +47,12 @@ import { QuizCongratulationsModal } from './components/QuizCongratulationsModal'
 import { LooksfamViewer } from './components/LooksfamViewer';
 import { LOOKSFAM_DATA } from './data/looksfamData';
 import { DocumentViewer } from './components/DocumentViewer';
+import {
+  AppLockScreen,
+  isAppLocked,
+  PasscodeSettingsModal,
+  getEffectivePassword,
+} from './components/AppLockScreen';
 
 function pseudoRandomRank(id: string, subject: string, seed: number): number {
   const str = `${id}_${subject}_${seed}`;
@@ -65,6 +71,10 @@ export default function App() {
   const [token, setToken] = useState<string | null>(null);
   const [authLoading, setAuthLoading] = useState(false);
   const [authError, setAuthError] = useState<string | null>(null);
+
+  // Passcode Lock State
+  const [isLocked, setIsLocked] = useState(() => isAppLocked());
+  const [isPasscodeModalOpen, setIsPasscodeModalOpen] = useState(false);
 
   // Modals
   const [isDriveModalOpen, setIsDriveModalOpen] = useState(false);
@@ -962,6 +972,10 @@ export default function App() {
   const correctCount = sessionCorrectCount;
   const incorrectCount = sessionIncorrectCount;
 
+  if (isLocked) {
+    return <AppLockScreen onUnlock={() => setIsLocked(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-[#111317] text-zinc-100 flex flex-col md:flex-row font-sans">
       {/* Sidebar Navigation (Slim Desktop sidebar on left / Mobile header & drawer) */}
@@ -1004,6 +1018,7 @@ export default function App() {
         onTogglePartCompleted={handleTogglePartCompleted}
         isSidebarVisible={isSidebarVisible}
         onToggleSidebar={handleToggleSidebar}
+        onOpenPasscodeModal={() => setIsPasscodeModalOpen(true)}
       />
 
       {/* Main Viewport Container */}
@@ -1064,7 +1079,17 @@ export default function App() {
             >
               {viewMode === 'card' ? 'Doc View' : 'Card View'}
             </button>
-
+            <button
+              type="button"
+              onClick={() => setIsPasscodeModalOpen(true)}
+              className="p-1.5 rounded-lg border border-[#272935] text-xs font-medium bg-[#181a21] text-zinc-300 hover:text-white hover:border-sky-500/50 transition-colors cursor-pointer flex items-center justify-center"
+              title="Passcode Link Lock Settings"
+              aria-label="Passcode Lock Settings"
+            >
+              <svg className="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </button>
 
             <button
               type="button"
@@ -1414,6 +1439,15 @@ export default function App() {
             ? currentQuizQuestion?.correctChoiceId
             : currentQuestion?.correctChoiceId
         }
+      />
+
+      {/* Web App Link Passcode Lock Settings Modal */}
+      <PasscodeSettingsModal
+        isOpen={isPasscodeModalOpen}
+        onClose={() => {
+          setIsPasscodeModalOpen(false);
+          setIsLocked(isAppLocked());
+        }}
       />
     </div>
   );

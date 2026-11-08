@@ -407,7 +407,7 @@ export const ShareModal: React.FC<ShareModalProps> = ({
               >
                 <option value="All">All Subjects</option>
                 <option value="ESAS">ESAS (All ESAS Subjects)</option>
-                <option value="COACH G 1000 TERMS">COACH G 1000 TERMS (1000 Questions)</option>
+                <option value="COACH G 1000 TERMS">COACH G 1000 TERMS</option>
                 <option value="1001 terms part 1">1001 terms part 1</option>
                 <option value="1001 terms part 2">1001 terms part 2</option>
                 <option value="1001 terms part 3">1001 terms part 3</option>
