@@ -97,6 +97,13 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     return extractKeywords(question.question, correctChoiceText);
   }, [showAnswerKey, question.question, correctChoiceText]);
 
+  // Track if choice was manually clicked/typed by the user (vs auto-revealed by Show Answer & Keywords)
+  const isManualClickRef = useRef<boolean>(false);
+
+  useEffect(() => {
+    isManualClickRef.current = false;
+  }, [question.id]);
+
   // Play audio sound on answer selection
   const prevSelectedChoiceRef = useRef<string | null>(selectedChoice);
   useEffect(() => {
@@ -355,11 +362,16 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
     };
   }, [question.id, aiVoiceMode, speechRate]);
 
-  // Handle user answer: automatically next ONLY IF autoAdvance is ON
+  // Handle user answer: automatically advance to next question ONLY IF manually answered and NOT in Show Answer / Keyword mode
   useEffect(() => {
     if (selectedChoice === null) return;
 
     clearAutoAdvanceTimer();
+
+    // If Show Answer / Keyword mode is active or choice was not manually picked by user, DO NOT auto-advance
+    if (showAnswerKey || !isManualClickRef.current) {
+      return;
+    }
 
     if (aiVoiceMode !== 'off') {
       stopSpeech();
@@ -373,14 +385,14 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
 
       setSpeechStatus('reading_explanation');
 
-      // Play quick 1-line confirmation (fast & token-efficient)
+      // Play quick 1-line confirmation
       readPhrase(
         confirmPhrase,
         speechRate,
         () => {
           if (seqId !== currentSeqIdRef.current) return;
           setSpeechStatus('idle');
-          if (autoAdvance && hasNext) {
+          if (hasNext) {
             clearAutoAdvanceTimer();
             autoAdvanceTimerRef.current = setTimeout(() => {
               onNext();
@@ -390,38 +402,39 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         () => {
           if (seqId !== currentSeqIdRef.current) return;
           setSpeechStatus('idle');
-          if (autoAdvance && hasNext) {
+          if (hasNext) {
             clearAutoAdvanceTimer();
             autoAdvanceTimerRef.current = setTimeout(() => {
               onNext();
-            }, 800);
+            }, 700);
           }
         }
       );
 
-      // Auto-advance safeguard ONLY IF autoAdvance is enabled
-      if (autoAdvance && hasNext) {
+      // Auto-advance safeguard
+      if (hasNext) {
         autoAdvanceTimerRef.current = setTimeout(() => {
           if (seqId === currentSeqIdRef.current) {
             stopSpeech();
             setSpeechStatus('idle');
             onNext();
           }
-        }, 1600);
+        }, 1500);
       }
-    } else if (autoAdvance && hasNext) {
+    } else if (hasNext) {
+      // Manual selection in standard study mode: automatically go to next question after 700ms delay
       autoAdvanceTimerRef.current = setTimeout(() => {
         onNext();
-      }, 1200);
+      }, 700);
     }
   }, [
     selectedChoice,
     aiVoiceMode,
     question,
     speechRate,
-    autoAdvance,
     hasNext,
     onNext,
+    showAnswerKey,
   ]);
 
   // Keyboard navigation support (A, B, C, D, Left Arrow, Right Arrow)
@@ -441,6 +454,7 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
         );
         if (matchingChoice) {
           e.preventDefault();
+          isManualClickRef.current = true;
           onSelectChoice(matchingChoice.id);
           return;
         }
@@ -679,7 +693,10 @@ export const SingleFlashcard: React.FC<SingleFlashcardProps> = ({
                 type="button"
                 data-choice-id={cleanChoiceId}
                 disabled={isAnswered}
-                onClick={() => onSelectChoice(choice.id)}
+                onClick={() => {
+                  isManualClickRef.current = true;
+                  onSelectChoice(choice.id);
+                }}
                 className={buttonClasses}
               >
                 <div className="flex items-start gap-2.5 sm:gap-3.5 pr-2 sm:pr-4">

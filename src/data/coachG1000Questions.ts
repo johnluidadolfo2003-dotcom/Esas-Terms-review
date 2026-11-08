@@ -51,7 +51,7 @@ export const COACH_G_1000_QUESTIONS: FlashcardQuestion[] = [
         "text": "Complementary Metal Oxide Semiconductor"
       }
     ],
-    "correctChoiceId": "A"
+    "correctChoiceId": "D"
   },
   {
     "id": "coachg-s1-q3",
